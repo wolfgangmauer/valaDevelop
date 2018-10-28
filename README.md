@@ -5,6 +5,6 @@ Dependency
 ```sh
 sudo apt-get install mono-runtime
 git clone https://github.com/wolfgangmauer/valaDevelop.git
-cd ~/valaDevelop/Ubuntu 18.10 x86_64
-mono ./valaDevelop.exe
+cd ~/valaDevelop
+mono ./valaDevelop_Ubuntu_18.10_x64.exe
 ```
