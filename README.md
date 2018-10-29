@@ -1,5 +1,5 @@
 # valaDevelop
-An IDE for vala development
+An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 Dependency (Ubuntu 18.10) on 18.04 you need to install mono 5.16.x see https://www.mono-project.com/download/stable/
 ```sh
