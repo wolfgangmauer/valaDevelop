@@ -8,3 +8,6 @@ git clone https://github.com/wolfgangmauer/valaDevelop.git
 cd ~/valaDevelop
 mono ./valaDevelop.exe
 ```
+
+<img src="https://github.com/wolfgangmauer/valaDevelop/edit/master/ScreenShots/screenshot1.png">
+      
