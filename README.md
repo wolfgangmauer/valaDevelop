@@ -13,3 +13,7 @@ chmod a+x ./valaDevelop
 ```
 
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/screenshot1.png">
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-32-38.png">
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-32-43.png">
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-33-37.png">
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-34-47.png">
