@@ -1,7 +1,7 @@
 # valaDevelop (Early development status)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
-Dependency >= 18.04
+Dependency Ubuntu >= 18.04
 
 ```sh
 sudo apt-get install git
