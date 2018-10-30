@@ -7,6 +7,7 @@ Dependency Ubuntu >= 18.04
 sudo apt-get install git
 git clone https://github.com/wolfgangmauer/valaDevelop.git
 cd ~/valaDevelop
+unzip ./valaDevelop.zip
 ./valaDevelop
 ```
 
