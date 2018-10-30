@@ -8,6 +8,7 @@ sudo apt-get install git unzip
 git clone https://github.com/wolfgangmauer/valaDevelop.git
 cd ~/valaDevelop
 unzip ./valaDevelop.zip
+chmod a+x ./valaDevelop
 ./valaDevelop
 ```
 
