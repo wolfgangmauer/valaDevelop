@@ -11,6 +11,13 @@ unzip ./valaDevelop.zip
 chmod a+x ./valaDevelop
 ./valaDevelop
 ```
+## Troubleshooting
+Some systems require the addition of a "mono-runtime". Follow the steps on https://www.mono-project.com/download/stable/
+
+
+```sh
+sudo apt-get install mono-runtime
+```
 
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/screenshot1.png">
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-32-38.png">
