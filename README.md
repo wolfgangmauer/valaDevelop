@@ -6,7 +6,7 @@ Dependency Ubuntu >= 18.04
 ```sh
 sudo apt-get install git libxml2-utils gtksourceview-3.0 libwebkit2gtk-4.0
 git clone https://github.com/wolfgangmauer/valaDevelop.git
-cd ~/valaDevelop
+cd ./valaDevelop
 chmod a+x ./valaDevelop
 ./valaDevelop
 ```
