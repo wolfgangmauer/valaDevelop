@@ -10,7 +10,6 @@ cd ./valaDevelop
 chmod a+x ./valaDevelop
 ./valaDevelop
 ```
-## Troubleshooting
 
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/screenshot1.png">
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2018-10-30 21-32-38.png">
