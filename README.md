@@ -1,4 +1,4 @@
-# valaDevelop (Early development status)
+# valaDevelop (development status)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 Dependency Ubuntu >= 18.04, valac >= 0.40
