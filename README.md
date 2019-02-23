@@ -13,7 +13,7 @@ chmod a+x ./valaDevelop
 ```sh
 Keyboard shortcuts fixed by now
 CTRL+SHIFT+F  -> Find in files
-SHIFT+TAB     -> Switch source
+SHIFT+TAB     -> Switch between opend sourcefiles
 CTRL+.        -> Go to prev bookmark
 CTRL+,        -> go to next bookmark
 CTRL+SHIFT+B  -> Build solution
