@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=0.1
+Type=Application
+Terminal=false
+StartupNotify=true
+Exec=/usr/bin/valaDevelop %F
+Icon=valaDevelop
+Name=valaDevelop
+GenericName=Integrated Development Environment
+Comment=Develop vala applications in an Integrated Development Environment
+Categories=GNOME;GTK;Development;IDE;VALA;
+MimeType=application/x-vsln;
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-vsln">
+   <mime-type type="application/x-vsln">
+    <comment>valaDevelop Solution File</comment>
+    <glob pattern="*.vsln"/>
+</mime-type>
+</mime-info>
