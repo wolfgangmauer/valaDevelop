@@ -9,6 +9,7 @@ brew install gtk+3
 brew install glade
 brew install vala
 brew install libgee
+brew install json-glib
 brew install gtksourceview3
 brew install gdb
 git clone https://github.com/wolfgangmauer/valaDevelop.git -b High-Sierra
