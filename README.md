@@ -10,7 +10,6 @@ Debian >= 4.9.0-8, manual update(get/build/install) from vala-0.34 to vala-0.40 
 sudo apt-get install git gdb valac glade libxml2-utils gtksourceview-3.0-1 libwebkit2gtk-4.0-37
 git clone https://github.com/wolfgangmauer/valaDevelop.git
 cd ./valaDevelop
-chmod a+x ./valaDevelop
 ./valaDevelop
 ```
 ```sh
