@@ -1,4 +1,4 @@
-# valaDevelop (development status)
+# Download [valaDevelop](https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/valaDevelop) (development status)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 ### Dependencies  
