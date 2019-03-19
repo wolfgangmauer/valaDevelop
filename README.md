@@ -31,7 +31,7 @@ CTRL+H        -> Search & Replace (actual source)
 CTRL+G        -> Goto line
 F3            -> Find next occur (from search)
 SHIFT+F3      -> Find prev occur (from search)
-F12           -> Goto declaration source or valadoc (not implemented yet)
+F12           -> Goto declaration source or valadoc
 CTRL+S        -> Save (actual source)
 CTRL+F4       -> Close source
 ```
