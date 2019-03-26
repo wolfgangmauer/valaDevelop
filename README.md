@@ -35,6 +35,10 @@ F12           -> Goto declaration source or valadoc
 CTRL+S        -> Save (actual source)
 CTRL+F4       -> Close source
 ```
+Sourcecode folding
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-27.png">
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-40.png">
+Jump to Definition
 Static Code Analysis
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-22 11-00-48.png">
 Jump to Definition
