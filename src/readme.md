@@ -1,6 +1,6 @@
 The build command might look like this
 ```sh
-gcc -v '-o' '~/valaDevelop/valaDevelop' '-pthread' '-D' 'GETTEXT_PACKAGE="valaDevelop"' '-D' 'VERSION="0.44"' '-mtune=generic' '-march=x86-64' -pthread
+gcc -v '-o' './valaDevelop' '-pthread' '-D' 'GETTEXT_PACKAGE="valaDevelop"' '-D' 'VERSION="0.44"' '-mtune=generic' '-march=x86-64' -pthread
 -I/usr/include/gee-0.8 -I/usr/include/gobject-introspection-1.0 -I/usr/include/gtksourceview-3.0 -I/usr/include/json-glib-1.0 -I/usr/include/webkitgtk-4.0 -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0
 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/
 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0
