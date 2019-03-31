@@ -1,4 +1,4 @@
-# Download [valaDevelop](https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/valaDevelop) (development status)
+# Download [valaDevelop](https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/valaDevelop)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 ### Dependencies  
@@ -35,8 +35,9 @@ F12           -> Goto declaration source or valadoc
 CTRL+S        -> Save (actual source)
 CTRL+F4       -> Close source
 ```
-</br>Code Formatting Before and after inserting the curly bracket</br>
+</br>Code Formatting - Before and after inserting the curly bracket</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-58-47.png">
+</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-59-04.png">
 </br>Sourcecode folding</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-27.png">
