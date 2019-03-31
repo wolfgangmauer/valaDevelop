@@ -38,6 +38,7 @@ CTRL+F4       -> Close source
 </br>Code Formatting - Before and after inserting the curly bracket</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-58-47.png">
 </br>
+
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-59-04.png">
 </br>Sourcecode folding</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-27.png">
