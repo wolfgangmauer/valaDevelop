@@ -2,7 +2,7 @@
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 ### Dependencies  
-For all features/performance to work, you need vala-0.46 (https://gitlab.gnome.org/GNOME/vala/tree/wip/fast-vapi)
+For all features/performance to work, you need libvala-0.46 (https://gitlab.gnome.org/GNOME/vala/tree/wip/fast-vapi)
 
 Ubuntu >= 18.04, valac >= 0.40  
 Elementary >= 5.0, valac >= 0.40  
