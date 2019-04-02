@@ -3,6 +3,7 @@ An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 ### Dependencies  
 Now valaDevelop comes with static linked libvala-0.46, so it should be run on any system with installed valac >= 0.40
+
 Ubuntu >= 18.04
 Elementary >= 5.0
 Debian >= 4.9.0-8, manual update(get/build/install) from vala-0.34 to vala-0.40 (git clone https://github.com/GNOME/vala.git -b 0.40) and follow the instructions to install on https://github.com/GNOME/vala.git
