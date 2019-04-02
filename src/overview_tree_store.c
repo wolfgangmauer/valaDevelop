@@ -64,7 +64,7 @@ typedef enum  {
 } valaDevelopItemType;
 
 #define VALA_DEVELOP_TYPE_ITEM_TYPE (vala_develop_item_type_get_type ())
-typedef struct _Block48Data Block48Data;
+typedef struct _Block50Data Block50Data;
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 #define _xmlFreeTextWriter0(var) ((var == NULL) ? NULL : (var = (xmlFreeTextWriter (var), NULL)))
 #define _xmlFreeTextReader0(var) ((var == NULL) ? NULL : (var = (xmlFreeTextReader (var), NULL)))
@@ -88,7 +88,7 @@ struct _valaDevelopOverviewTreeStoreClass {
 	GtkTreeStoreClass parent_class;
 };
 
-struct _Block48Data {
+struct _Block50Data {
 	int _ref_count_;
 	valaDevelopOverviewTreeStore* self;
 	GtkTreeIter* itemIter;
@@ -207,9 +207,9 @@ GtkTreeIter* vala_develop_overview_tree_store_get_project_iter_by_name (valaDeve
                                                                         const gchar* projectName);
 GtkTreeIter* vala_develop_overview_tree_store_get_iter_by_full_path (valaDevelopOverviewTreeStore* self,
                                                                      const gchar* full_path);
-static Block48Data* block48_data_ref (Block48Data* _data48_);
-static void block48_data_unref (void * _userdata_);
-static gboolean __lambda4_ (Block48Data* _data48_,
+static Block50Data* block50_data_ref (Block50Data* _data50_);
+static void block50_data_unref (void * _userdata_);
+static gboolean __lambda4_ (Block50Data* _data50_,
                      GtkTreeModel* m,
                      GtkTreePath* p,
                      GtkTreeIter* i);
@@ -1851,41 +1851,41 @@ vala_develop_overview_tree_store_get_project_iter_by_iter (valaDevelopOverviewTr
 #line 1852 "overview_tree_store.c"
 }
 
-static Block48Data*
-block48_data_ref (Block48Data* _data48_)
+static Block50Data*
+block50_data_ref (Block50Data* _data50_)
 {
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	g_atomic_int_inc (&_data48_->_ref_count_);
+	g_atomic_int_inc (&_data50_->_ref_count_);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	return _data48_;
+	return _data50_;
 #line 1862 "overview_tree_store.c"
 }
 
 static void
-block48_data_unref (void * _userdata_)
+block50_data_unref (void * _userdata_)
 {
-	Block48Data* _data48_;
-	_data48_ = (Block48Data*) _userdata_;
+	Block50Data* _data50_;
+	_data50_ = (Block50Data*) _userdata_;
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	if (g_atomic_int_dec_and_test (&_data48_->_ref_count_)) {
+	if (g_atomic_int_dec_and_test (&_data50_->_ref_count_)) {
 #line 1872 "overview_tree_store.c"
 		valaDevelopOverviewTreeStore* self;
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-		self = _data48_->self;
+		self = _data50_->self;
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-		_g_free0 (_data48_->itemIter);
+		_g_free0 (_data50_->itemIter);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-		_g_free0 (_data48_->full_path);
+		_g_free0 (_data50_->full_path);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (self);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-		g_slice_free (Block48Data, _data48_);
+		g_slice_free (Block50Data, _data50_);
 #line 1884 "overview_tree_store.c"
 	}
 }
 
 static gboolean
-__lambda4_ (Block48Data* _data48_,
+__lambda4_ (Block50Data* _data50_,
             GtkTreeModel* m,
             GtkTreePath* p,
             GtkTreeIter* i)
@@ -1894,7 +1894,7 @@ __lambda4_ (Block48Data* _data48_,
 	gboolean result = FALSE;
 	GtkTreeIter _tmp0_;
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	self = _data48_->self;
+	self = _data50_->self;
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (m != NULL, FALSE);
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -1919,7 +1919,7 @@ __lambda4_ (Block48Data* _data48_,
 #line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp3_ = fullPath;
 #line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-		if (g_strcmp0 (_tmp3_, _data48_->full_path) == 0) {
+		if (g_strcmp0 (_tmp3_, _data50_->full_path) == 0) {
 #line 1924 "overview_tree_store.c"
 			GtkTreeIter _tmp4_;
 			GtkTreeIter* _tmp5_;
@@ -1928,9 +1928,9 @@ __lambda4_ (Block48Data* _data48_,
 #line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp5_ = __gtk_tree_iter_dup0 (&_tmp4_);
 #line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-			_g_free0 (_data48_->itemIter);
+			_g_free0 (_data50_->itemIter);
 #line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-			_data48_->itemIter = _tmp5_;
+			_data50_->itemIter = _tmp5_;
 #line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = TRUE;
 #line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -1968,7 +1968,7 @@ vala_develop_overview_tree_store_get_iter_by_full_path (valaDevelopOverviewTreeS
                                                         const gchar* full_path)
 {
 	GtkTreeIter* result = NULL;
-	Block48Data* _data48_;
+	Block50Data* _data50_;
 	gchar* _tmp0_;
 	GtkTreeIter* _tmp1_;
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -1976,29 +1976,29 @@ vala_develop_overview_tree_store_get_iter_by_full_path (valaDevelopOverviewTreeS
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (full_path != NULL, NULL);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_ = g_slice_new0 (Block48Data);
+	_data50_ = g_slice_new0 (Block50Data);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_->_ref_count_ = 1;
+	_data50_->_ref_count_ = 1;
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_->self = g_object_ref (self);
+	_data50_->self = g_object_ref (self);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = g_strdup (full_path);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_g_free0 (_data48_->full_path);
+	_g_free0 (_data50_->full_path);
 #line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_->full_path = _tmp0_;
+	_data50_->full_path = _tmp0_;
 #line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_->itemIter = NULL;
+	_data50_->itemIter = NULL;
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	gtk_tree_model_foreach ((GtkTreeModel*) self, ___lambda4__gtk_tree_model_foreach_func, _data48_);
+	gtk_tree_model_foreach ((GtkTreeModel*) self, ___lambda4__gtk_tree_model_foreach_func, _data50_);
 #line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_tmp1_ = __gtk_tree_iter_dup0 (_data48_->itemIter);
+	_tmp1_ = __gtk_tree_iter_dup0 (_data50_->itemIter);
 #line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = _tmp1_;
 #line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	block48_data_unref (_data48_);
+	block50_data_unref (_data50_);
 #line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
-	_data48_ = NULL;
+	_data50_ = NULL;
 #line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
 #line 2005 "overview_tree_store.c"
@@ -2140,8 +2140,8 @@ vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* sel
 		vala_develop_overview_tree_store_save_project_items (self, &_tmp4_);
 #line 2142 "overview_tree_store.c"
 	}
-	goto __finally57;
-	__catch57_g_error:
+	goto __finally58;
+	__catch58_g_error:
 	{
 		GError* e = NULL;
 #line 342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -2186,7 +2186,7 @@ vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* sel
 		return result;
 #line 2188 "overview_tree_store.c"
 	}
-	__finally57:
+	__finally58:
 #line 342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 2193 "overview_tree_store.c"
@@ -2279,8 +2279,8 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 			}
 		}
 	}
-	goto __finally58;
-	__catch58_g_error:
+	goto __finally59;
+	__catch59_g_error:
 	{
 		GError* e = NULL;
 #line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -2325,7 +2325,7 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 		return result;
 #line 2327 "overview_tree_store.c"
 	}
-	__finally58:
+	__finally59:
 #line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 2332 "overview_tree_store.c"
@@ -2805,8 +2805,8 @@ vala_develop_overview_tree_store_save_project_items (valaDevelopOverviewTreeStor
 		_xmlFreeTextWriter0 (writer);
 #line 2807 "overview_tree_store.c"
 	}
-	goto __finally59;
-	__catch59_g_error:
+	goto __finally60;
+	__catch60_g_error:
 	{
 		GError* e = NULL;
 		GtkMessageDialog* messagedialog = NULL;
@@ -2845,7 +2845,7 @@ vala_develop_overview_tree_store_save_project_items (valaDevelopOverviewTreeStor
 		_g_error_free0 (e);
 #line 2847 "overview_tree_store.c"
 	}
-	__finally59:
+	__finally60:
 #line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 2852 "overview_tree_store.c"
@@ -3430,8 +3430,8 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 		_g_free0 (solutionName);
 #line 3432 "overview_tree_store.c"
 	}
-	goto __finally60;
-	__catch60_g_error:
+	goto __finally61;
+	__catch61_g_error:
 	{
 		GError* e = NULL;
 #line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
@@ -3476,7 +3476,7 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 		return result;
 #line 3478 "overview_tree_store.c"
 	}
-	__finally60:
+	__finally61:
 #line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 3483 "overview_tree_store.c"
@@ -3806,8 +3806,8 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 		_xmlFreeTextReader0 (reader);
 #line 3808 "overview_tree_store.c"
 	}
-	goto __finally61;
-	__catch61_g_error:
+	goto __finally62;
+	__catch62_g_error:
 	{
 		GError* e = NULL;
 		GtkMessageDialog* messagedialog = NULL;
@@ -3848,7 +3848,7 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 		return result;
 #line 3850 "overview_tree_store.c"
 	}
-	__finally61:
+	__finally62:
 #line 526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 3855 "overview_tree_store.c"
@@ -4207,8 +4207,8 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 		_xmlFreeTextReader0 (reader);
 #line 4209 "overview_tree_store.c"
 	}
-	goto __finally62;
-	__catch62_g_error:
+	goto __finally63;
+	__catch63_g_error:
 	{
 		GError* e = NULL;
 		GtkMessageDialog* messagedialog = NULL;
@@ -4249,7 +4249,7 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 		return result;
 #line 4251 "overview_tree_store.c"
 	}
-	__finally62:
+	__finally63:
 #line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 4256 "overview_tree_store.c"

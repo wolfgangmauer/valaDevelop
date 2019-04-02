@@ -183,8 +183,8 @@ valaDevelopRename* vala_develop_rename_construct (GType object_type,
                                                   GtkWidget* parent,
                                                   GtkTreeIter* iter,
                                                   valaDevelopItemType itemType);
-static void __lambda73_ (valaDevelopRename* self);
-static void ___lambda73__gtk_editable_changed (GtkEditable* _sender,
+static void __lambda81_ (valaDevelopRename* self);
+static void ___lambda81__gtk_editable_changed (GtkEditable* _sender,
                                         gpointer self);
 GType vala_develop_overview_tree_store_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopOverviewTreeStore, g_object_unref)
@@ -249,7 +249,7 @@ _g_object_ref0 (gpointer self)
 }
 
 static void
-__lambda73_ (valaDevelopRename* self)
+__lambda81_ (valaDevelopRename* self)
 {
 	GtkButton* _tmp0_;
 	GtkEntry* _tmp1_;
@@ -269,11 +269,11 @@ __lambda73_ (valaDevelopRename* self)
 }
 
 static void
-___lambda73__gtk_editable_changed (GtkEditable* _sender,
+___lambda81__gtk_editable_changed (GtkEditable* _sender,
                                    gpointer self)
 {
 #line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
-	__lambda73_ ((valaDevelopRename*) self);
+	__lambda81_ ((valaDevelopRename*) self);
 #line 278 "rename_folder_dialog.c"
 }
 
@@ -344,7 +344,7 @@ vala_develop_rename_construct (GType object_type,
 #line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp5_ = self->priv->itemname;
 #line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
-	g_signal_connect_object ((GtkEditable*) _tmp5_, "changed", (GCallback) ___lambda73__gtk_editable_changed, self, 0);
+	g_signal_connect_object ((GtkEditable*) _tmp5_, "changed", (GCallback) ___lambda81__gtk_editable_changed, self, 0);
 #line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp6_ = vala_develop_main_paned_overviewTreeModel;
 #line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"

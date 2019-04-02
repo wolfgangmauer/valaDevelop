@@ -431,18 +431,18 @@ void vala_develop_debugger_Start (valaDevelopDebugger* self,
                                   const gchar* projectIterName);
 static Block11Data* block11_data_ref (Block11Data* _data11_);
 static void block11_data_unref (void * _userdata_);
-static gboolean __lambda61_ (valaDevelopDebugger* self);
-static gboolean ___lambda61__gsource_func (gpointer self);
+static gboolean __lambda69_ (valaDevelopDebugger* self);
+static gboolean ___lambda69__gsource_func (gpointer self);
 valaDevelopDebuggerSymbols* vala_develop_debugger_symbols_new (valaDevelopDebugger* debugger,
                                                                const gchar* projectIterName);
 valaDevelopDebuggerSymbols* vala_develop_debugger_symbols_construct (GType object_type,
                                                                      valaDevelopDebugger* debugger,
                                                                      const gchar* projectIterName);
-static gboolean __lambda62_ (Block11Data* _data11_,
+static gboolean __lambda70_ (Block11Data* _data11_,
                       GtkTreeModel* tmpModel,
                       GtkTreePath* path,
                       GtkTreeIter* iter);
-static gboolean ___lambda62__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda70__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
@@ -450,8 +450,8 @@ void vala_develop_debugger_set_DebugRunning (valaDevelopDebugger* self,
                                              gboolean value);
 static Block12Data* block12_data_ref (Block12Data* _data12_);
 static void block12_data_unref (void * _userdata_);
-static gboolean ___lambda19_ (Block12Data* _data12_);
-static gboolean ____lambda19__gsource_func (gpointer self);
+static gboolean ___lambda24_ (Block12Data* _data12_);
+static gboolean ____lambda24__gsource_func (gpointer self);
 static void vala_develop_debugger_parse_breakpoint (valaDevelopDebugger* self,
                                              const gchar* line);
 static void vala_develop_debugger_parse_callstack (valaDevelopDebugger* self,
@@ -510,13 +510,13 @@ G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopBreakpoint, vala_develop_breakpoint_un
 GList* vala_develop_breakpoint_table_get_body (valaDevelopBreakpointTable* self);
 static Block13Data* block13_data_ref (Block13Data* _data13_);
 static void block13_data_unref (void * _userdata_);
-static gboolean ____lambda60_ (Block13Data* _data13_,
+static gboolean ____lambda68_ (Block13Data* _data13_,
                         GtkTreeModel* tmpModel,
                         GtkTreePath* path,
                         GtkTreeIter* iter);
 gfloat vala_develop_breakpoint_get_number (valaDevelopBreakpoint* self);
 gint vala_develop_breakpoint_get_line (valaDevelopBreakpoint* self);
-static gboolean _____lambda60__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean _____lambda68__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                      GtkTreePath* path,
                                                      GtkTreeIter* iter,
                                                      gpointer self);
@@ -544,13 +544,13 @@ valaDevelopStackFrame* vala_develop_stop_hit_get_frame (valaDevelopStopHit* self
 const gchar* vala_develop_stack_frame_get_fullname (valaDevelopStackFrame* self);
 void vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
                                                const gchar* fullPath);
-static gboolean ___lambda56_ (Block14Data* _data14_);
+static gboolean ___lambda64_ (Block14Data* _data14_);
 static void vala_develop_debugger_select_break_line (valaDevelopDebugger* self,
                                               const gchar* fullPath,
                                               gint line,
                                               gboolean isCurrent);
 gint vala_develop_stack_frame_get_line (valaDevelopStackFrame* self);
-static gboolean ____lambda56__gsource_func (gpointer self);
+static gboolean ____lambda64__gsource_func (gpointer self);
 gpointer vala_develop_breakpoint_hit_ref (gpointer instance);
 void vala_develop_breakpoint_hit_unref (gpointer instance);
 GParamSpec* vala_develop_param_spec_breakpoint_hit (const gchar* name,
@@ -569,25 +569,25 @@ static Block15Data* block15_data_ref (Block15Data* _data15_);
 static void block15_data_unref (void * _userdata_);
 valaDevelopBreakpointHit* vala_develop_breakpoint_hit_parse (const gchar* json);
 valaDevelopStackFrame* vala_develop_breakpoint_hit_get_stack_frame (valaDevelopBreakpointHit* self);
-static gboolean __lambda52_ (Block15Data* _data15_,
+static gboolean __lambda60_ (Block15Data* _data15_,
                       GtkTreeModel* tmpModel,
                       GtkTreePath* path,
                       GtkTreeIter* iter);
 gint vala_develop_breakpoint_hit_get_number (valaDevelopBreakpointHit* self);
-static gboolean ____lambda53_ (Block15Data* _data15_);
-static gboolean _____lambda53__gsource_func (gpointer self);
+static gboolean ____lambda61_ (Block15Data* _data15_);
+static gboolean _____lambda61__gsource_func (gpointer self);
 GtkWidget* vala_develop_main_paned_get_tab_text_view_by_path (valaDevelopMainPaned* self,
                                                               const gchar* fullPath);
 void vala_develop_source_gutter_renderer_break_point_move (valaDevelopSourceGutterRendererBreakPoint* self,
                                                            gint oldLine,
                                                            gint newLine,
                                                            gboolean redraw);
-static gboolean ___lambda52__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda60__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
-static gboolean ____lambda54_ (Block15Data* _data15_);
-static gboolean _____lambda54__gsource_func (gpointer self);
+static gboolean ____lambda62_ (Block15Data* _data15_);
+static gboolean _____lambda62__gsource_func (gpointer self);
 gpointer vala_develop_call_stack_ref (gpointer instance);
 void vala_develop_call_stack_unref (gpointer instance);
 GParamSpec* vala_develop_param_spec_call_stack (const gchar* name,
@@ -611,17 +611,17 @@ static Block16Data* block16_data_ref (Block16Data* _data16_);
 static void block16_data_unref (void * _userdata_);
 static Block17Data* block17_data_ref (Block17Data* _data17_);
 static void block17_data_unref (void * _userdata_);
-static gboolean _____lambda50_ (Block17Data* _data17_);
-static gboolean ______lambda50__gsource_func (gpointer self);
+static gboolean _____lambda58_ (Block17Data* _data17_);
+static gboolean ______lambda58__gsource_func (gpointer self);
 static Block18Data* block18_data_ref (Block18Data* _data18_);
 static void block18_data_unref (void * _userdata_);
 valaDevelopBreakpoint* vala_develop_breakpoint_parse (const gchar* json);
-static gboolean ___lambda22_ (Block18Data* _data18_,
+static gboolean ___lambda27_ (Block18Data* _data18_,
                        GtkTreeModel* tmpModel,
                        GtkTreePath* path,
                        GtkTreeIter* iter);
 const gchar* vala_develop_breakpoint_get_fullname (valaDevelopBreakpoint* self);
-static gboolean ____lambda22__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ____lambda27__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                     GtkTreePath* path,
                                                     GtkTreeIter* iter,
                                                     gpointer self);
@@ -1111,7 +1111,7 @@ string_to_string (const gchar* self)
 }
 
 static gboolean
-__lambda61_ (valaDevelopDebugger* self)
+__lambda69_ (valaDevelopDebugger* self)
 {
 	gboolean result = FALSE;
 #line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -1122,17 +1122,17 @@ __lambda61_ (valaDevelopDebugger* self)
 }
 
 static gboolean
-___lambda61__gsource_func (gpointer self)
+___lambda69__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = __lambda61_ ((valaDevelopDebugger*) self);
+	result = __lambda69_ ((valaDevelopDebugger*) self);
 #line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 1132 "debugger.c"
 }
 
 static gboolean
-__lambda62_ (Block11Data* _data11_,
+__lambda70_ (Block11Data* _data11_,
              GtkTreeModel* tmpModel,
              GtkTreePath* path,
              GtkTreeIter* iter)
@@ -1275,13 +1275,13 @@ __lambda62_ (Block11Data* _data11_,
 }
 
 static gboolean
-___lambda62__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda70__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda62_ (self, model, path, iter);
+	result = __lambda70_ (self, model, path, iter);
 #line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 1288 "debugger.c"
@@ -1432,7 +1432,7 @@ vala_develop_debugger_Start (valaDevelopDebugger* self,
 #line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	_spawn_args_size_ = spawn_args_length1;
 #line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-	quit = ___lambda61__gsource_func;
+	quit = ___lambda69__gsource_func;
 #line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	quit_target = g_object_ref (self);
 #line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -1579,7 +1579,7 @@ vala_develop_debugger_Start (valaDevelopDebugger* self,
 #line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	_tmp54_ = _tmp53_;
 #line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-	gtk_tree_model_foreach (_tmp54_, ___lambda62__gtk_tree_model_foreach_func, _data11_);
+	gtk_tree_model_foreach (_tmp54_, ___lambda70__gtk_tree_model_foreach_func, _data11_);
 #line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	_tmp55_ = self->priv->_commandQueue;
 #line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -1687,7 +1687,7 @@ string_strip (const gchar* self)
 }
 
 static gboolean
-___lambda19_ (Block12Data* _data12_)
+___lambda24_ (Block12Data* _data12_)
 {
 	valaDevelopDebugger* self;
 	gboolean result = FALSE;
@@ -1750,10 +1750,10 @@ ___lambda19_ (Block12Data* _data12_)
 }
 
 static gboolean
-____lambda19__gsource_func (gpointer self)
+____lambda24__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda19_ (self);
+	result = ___lambda24_ (self);
 #line 199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 1760 "debugger.c"
@@ -1918,7 +1918,7 @@ _vala_develop_debugger_debugProcess_OutputDataReceived (valaDevelopDebugger* sel
 #line 1919 "debugger.c"
 		}
 #line 199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda19__gsource_func, block12_data_ref (_data12_), block12_data_unref);
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda24__gsource_func, block12_data_ref (_data12_), block12_data_unref);
 #line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 		if (_data12_->data == NULL) {
 #line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -3076,7 +3076,7 @@ block13_data_unref (void * _userdata_)
 }
 
 static gboolean
-____lambda60_ (Block13Data* _data13_,
+____lambda68_ (Block13Data* _data13_,
                GtkTreeModel* tmpModel,
                GtkTreePath* path,
                GtkTreeIter* iter)
@@ -3210,13 +3210,13 @@ ____lambda60_ (Block13Data* _data13_,
 }
 
 static gboolean
-_____lambda60__gtk_tree_model_foreach_func (GtkTreeModel* model,
+_____lambda68__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                             GtkTreePath* path,
                                             GtkTreeIter* iter,
                                             gpointer self)
 {
 	gboolean result;
-	result = ____lambda60_ (self, model, path, iter);
+	result = ____lambda68_ (self, model, path, iter);
 #line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 3223 "debugger.c"
@@ -3293,7 +3293,7 @@ vala_develop_debugger_breakpoint_table (valaDevelopDebugger* self,
 #line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 				_tmp10_ = _tmp9_;
 #line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-				gtk_tree_model_foreach (_tmp10_, _____lambda60__gtk_tree_model_foreach_func, _data13_);
+				gtk_tree_model_foreach (_tmp10_, _____lambda68__gtk_tree_model_foreach_func, _data13_);
 #line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 				block13_data_unref (_data13_);
 #line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -3365,7 +3365,7 @@ _vala_develop_stack_frame_ref0 (gpointer self)
 }
 
 static gboolean
-___lambda56_ (Block14Data* _data14_)
+___lambda64_ (Block14Data* _data14_)
 {
 	valaDevelopDebugger* self;
 	gboolean result = FALSE;
@@ -3399,10 +3399,10 @@ ___lambda56_ (Block14Data* _data14_)
 }
 
 static gboolean
-____lambda56__gsource_func (gpointer self)
+____lambda64__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda56_ (self);
+	result = ___lambda64_ (self);
 #line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 3409 "debugger.c"
@@ -3585,7 +3585,7 @@ vala_develop_debugger_hit_function_finish (valaDevelopDebugger* self,
 #line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 		vala_develop_main_paned_open_source_file (_tmp21_, _tmp24_);
 #line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda56__gsource_func, block14_data_ref (_data14_), block14_data_unref);
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda64__gsource_func, block14_data_ref (_data14_), block14_data_unref);
 #line 3590 "debugger.c"
 	}
 #line 434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -3639,7 +3639,7 @@ block15_data_unref (void * _userdata_)
 }
 
 static gboolean
-____lambda53_ (Block15Data* _data15_)
+____lambda61_ (Block15Data* _data15_)
 {
 	valaDevelopDebugger* self;
 	gboolean result = FALSE;
@@ -3673,17 +3673,17 @@ ____lambda53_ (Block15Data* _data15_)
 }
 
 static gboolean
-_____lambda53__gsource_func (gpointer self)
+_____lambda61__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda53_ (self);
+	result = ____lambda61_ (self);
 #line 456 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 3683 "debugger.c"
 }
 
 static gboolean
-__lambda52_ (Block15Data* _data15_,
+__lambda60_ (Block15Data* _data15_,
              GtkTreeModel* tmpModel,
              GtkTreePath* path,
              GtkTreeIter* iter)
@@ -3799,7 +3799,7 @@ __lambda52_ (Block15Data* _data15_,
 #line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 			vala_develop_main_paned_open_source_file (_tmp17_, _tmp20_);
 #line 456 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda53__gsource_func, block15_data_ref (_data15_), block15_data_unref);
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda61__gsource_func, block15_data_ref (_data15_), block15_data_unref);
 #line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 			_tmp21_ = self->_mainPaned;
 #line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -3899,20 +3899,20 @@ __lambda52_ (Block15Data* _data15_,
 }
 
 static gboolean
-___lambda52__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda60__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda52_ (self, model, path, iter);
+	result = __lambda60_ (self, model, path, iter);
 #line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 3912 "debugger.c"
 }
 
 static gboolean
-____lambda54_ (Block15Data* _data15_)
+____lambda62_ (Block15Data* _data15_)
 {
 	valaDevelopDebugger* self;
 	gboolean result = FALSE;
@@ -3946,10 +3946,10 @@ ____lambda54_ (Block15Data* _data15_)
 }
 
 static gboolean
-_____lambda54__gsource_func (gpointer self)
+_____lambda62__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda54_ (self);
+	result = ____lambda62_ (self);
 #line 489 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 3956 "debugger.c"
@@ -4044,7 +4044,7 @@ vala_develop_debugger_hit_breakpoint (valaDevelopDebugger* self,
 #line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	_tmp17_ = _tmp16_;
 #line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-	gtk_tree_model_foreach (_tmp17_, ___lambda52__gtk_tree_model_foreach_func, _data15_);
+	gtk_tree_model_foreach (_tmp17_, ___lambda60__gtk_tree_model_foreach_func, _data15_);
 #line 474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	_tmp18_ = _data15_->frame;
 #line 474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -4182,7 +4182,7 @@ vala_develop_debugger_hit_breakpoint (valaDevelopDebugger* self,
 #line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 			vala_develop_main_paned_open_source_file (_tmp33_, _tmp36_);
 #line 489 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda54__gsource_func, block15_data_ref (_data15_), block15_data_unref);
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda62__gsource_func, block15_data_ref (_data15_), block15_data_unref);
 #line 4187 "debugger.c"
 		}
 	}
@@ -4575,7 +4575,7 @@ block17_data_unref (void * _userdata_)
 }
 
 static gboolean
-_____lambda50_ (Block17Data* _data17_)
+_____lambda58_ (Block17Data* _data17_)
 {
 	Block16Data* _data16_;
 	valaDevelopDebugger* self;
@@ -4612,10 +4612,10 @@ _____lambda50_ (Block17Data* _data17_)
 }
 
 static gboolean
-______lambda50__gsource_func (gpointer self)
+______lambda58__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = _____lambda50_ (self);
+	result = _____lambda58_ (self);
 #line 748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 4622 "debugger.c"
@@ -4711,7 +4711,7 @@ vala_develop_debugger_find_last_source_and_break (valaDevelopDebugger* self,
 #line 747 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 					vala_develop_main_paned_open_source_file (_tmp8_, _tmp11_);
 #line 748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-					g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ______lambda50__gsource_func, block17_data_ref (_data17_), block17_data_unref);
+					g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ______lambda58__gsource_func, block17_data_ref (_data17_), block17_data_unref);
 #line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 					block17_data_unref (_data17_);
 #line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
@@ -4771,7 +4771,7 @@ block18_data_unref (void * _userdata_)
 }
 
 static gboolean
-___lambda22_ (Block18Data* _data18_,
+___lambda27_ (Block18Data* _data18_,
               GtkTreeModel* tmpModel,
               GtkTreePath* path,
               GtkTreeIter* iter)
@@ -4978,13 +4978,13 @@ ___lambda22_ (Block18Data* _data18_,
 }
 
 static gboolean
-____lambda22__gtk_tree_model_foreach_func (GtkTreeModel* model,
+____lambda27__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                            GtkTreePath* path,
                                            GtkTreeIter* iter,
                                            gpointer self)
 {
 	gboolean result;
-	result = ___lambda22_ (self, model, path, iter);
+	result = ___lambda27_ (self, model, path, iter);
 #line 765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 	return result;
 #line 4991 "debugger.c"
@@ -5038,7 +5038,7 @@ vala_develop_debugger_parse_breakpoint (valaDevelopDebugger* self,
 #line 765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 		_tmp7_ = _tmp6_;
 #line 765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
-		gtk_tree_model_foreach (_tmp7_, ____lambda22__gtk_tree_model_foreach_func, _data18_);
+		gtk_tree_model_foreach (_tmp7_, ____lambda27__gtk_tree_model_foreach_func, _data18_);
 #line 761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"
 		block18_data_unref (_data18_);
 #line 761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger.vala"

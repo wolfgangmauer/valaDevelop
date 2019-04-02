@@ -325,7 +325,7 @@ vala_develop_create_solution_file (const gchar* solutionLocation,
 #line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_solution_file.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 328 "new_solution_file.c"
-				goto __catch55_g_error;
+				goto __catch56_g_error;
 			}
 		}
 #line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_solution_file.vala"
@@ -476,8 +476,8 @@ vala_develop_create_solution_file (const gchar* solutionLocation,
 		_xmlFreeTextWriter0 (writer);
 #line 478 "new_solution_file.c"
 	}
-	goto __finally55;
-	__catch55_g_error:
+	goto __finally56;
+	__catch56_g_error:
 	{
 		GError* e = NULL;
 #line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_solution_file.vala"
@@ -530,7 +530,7 @@ vala_develop_create_solution_file (const gchar* solutionLocation,
 		return result;
 #line 532 "new_solution_file.c"
 	}
-	__finally55:
+	__finally56:
 #line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_solution_file.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 537 "new_solution_file.c"
@@ -640,7 +640,7 @@ string_replace (const gchar* self,
 #line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
 #line 643 "new_solution_file.c"
-				goto __catch56_g_regex_error;
+				goto __catch57_g_regex_error;
 			}
 #line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -663,7 +663,7 @@ string_replace (const gchar* self,
 #line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
 #line 666 "new_solution_file.c"
-				goto __catch56_g_regex_error;
+				goto __catch57_g_regex_error;
 			}
 #line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
@@ -689,8 +689,8 @@ string_replace (const gchar* self,
 		return result;
 #line 691 "new_solution_file.c"
 	}
-	goto __finally56;
-	__catch56_g_regex_error:
+	goto __finally57;
+	__catch57_g_regex_error:
 	{
 		GError* e = NULL;
 #line 1484 "glib-2.0.vapi"
@@ -703,7 +703,7 @@ string_replace (const gchar* self,
 		_g_error_free0 (e);
 #line 705 "new_solution_file.c"
 	}
-	__finally56:
+	__finally57:
 #line 1484 "glib-2.0.vapi"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 1484 "glib-2.0.vapi"

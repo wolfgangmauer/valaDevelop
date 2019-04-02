@@ -78,9 +78,9 @@ static void vala_develop_source_gutter_renderer_break_point_real_activate (GtkSo
                                                                     GdkRectangle* area,
                                                                     GdkEvent* evnt);
 static GdkEventButton* _vala_GdkEventButton_copy (GdkEventButton* self);
-static void _____lambda24_ (valaDevelopSourceGutterRendererBreakPoint* self,
+static void _____lambda29_ (valaDevelopSourceGutterRendererBreakPoint* self,
                      GtkWidget* widget);
-static void ______lambda24__gtk_callback (GtkWidget* widget,
+static void ______lambda29__gtk_callback (GtkWidget* widget,
                                    gpointer self);
 static GVariant* _variant_new1 (gint value);
 static void _vala_GdkEventButton_free (GdkEventButton* self);
@@ -361,7 +361,7 @@ __vala_GdkEventButton_copy0 (gpointer self)
 }
 
 static void
-_____lambda24_ (valaDevelopSourceGutterRendererBreakPoint* self,
+_____lambda29_ (valaDevelopSourceGutterRendererBreakPoint* self,
                 GtkWidget* widget)
 {
 	GtkMenu* _tmp0_;
@@ -375,11 +375,11 @@ _____lambda24_ (valaDevelopSourceGutterRendererBreakPoint* self,
 }
 
 static void
-______lambda24__gtk_callback (GtkWidget* widget,
+______lambda29__gtk_callback (GtkWidget* widget,
                               gpointer self)
 {
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_breakpoint.vala"
-	_____lambda24_ ((valaDevelopSourceGutterRendererBreakPoint*) self, widget);
+	_____lambda29_ ((valaDevelopSourceGutterRendererBreakPoint*) self, widget);
 #line 384 "source_gutter_renderer_breakpoint.c"
 }
 
@@ -495,7 +495,7 @@ vala_develop_source_gutter_renderer_break_point_real_activate (GtkSourceGutterRe
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_breakpoint.vala"
 				_tmp10_ = self->priv->menu;
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_breakpoint.vala"
-				gtk_container_foreach ((GtkContainer*) _tmp10_, ______lambda24__gtk_callback, self);
+				gtk_container_foreach ((GtkContainer*) _tmp10_, ______lambda29__gtk_callback, self);
 #line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_breakpoint.vala"
 				_tmp11_ = (GtkMenuItem*) gtk_menu_item_new_with_mnemonic (_ ("_Toggle Breakpoint"));
 #line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_breakpoint.vala"

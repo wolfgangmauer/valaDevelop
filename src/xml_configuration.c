@@ -525,7 +525,7 @@ vala_develop_settings_get (valaDevelopSettings* self,
 #line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 528 "xml_configuration.c"
-				goto __catch68_g_key_file_error;
+				goto __catch69_g_key_file_error;
 			}
 #line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -553,7 +553,7 @@ vala_develop_settings_get (valaDevelopSettings* self,
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 				if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 556 "xml_configuration.c"
-					goto __catch68_g_key_file_error;
+					goto __catch69_g_key_file_error;
 				}
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -576,8 +576,8 @@ vala_develop_settings_get (valaDevelopSettings* self,
 #line 577 "xml_configuration.c"
 		}
 	}
-	goto __finally68;
-	__catch68_g_key_file_error:
+	goto __finally69;
+	__catch69_g_key_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp6_;
@@ -596,7 +596,7 @@ vala_develop_settings_get (valaDevelopSettings* self,
 		_g_error_free0 (e);
 #line 598 "xml_configuration.c"
 	}
-	__finally68:
+	__finally69:
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -639,7 +639,7 @@ vala_develop_settings_set (valaDevelopSettings* self,
 #line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 				if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 642 "xml_configuration.c"
-					goto __catch69_g_key_file_error;
+					goto __catch70_g_key_file_error;
 				}
 #line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -658,8 +658,8 @@ vala_develop_settings_set (valaDevelopSettings* self,
 #line 659 "xml_configuration.c"
 		}
 	}
-	goto __finally69;
-	__catch69_g_key_file_error:
+	goto __finally70;
+	__catch70_g_key_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp2_;
@@ -678,7 +678,7 @@ vala_develop_settings_set (valaDevelopSettings* self,
 		_g_error_free0 (e);
 #line 680 "xml_configuration.c"
 	}
-	__finally69:
+	__finally70:
 #line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -865,7 +865,7 @@ vala_develop_settings_load (valaDevelopSettings* self)
 #line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 868 "xml_configuration.c"
-				goto __catch70_g_error;
+				goto __catch71_g_error;
 			}
 #line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			_tmp30_ = self->priv->_key;
@@ -881,7 +881,7 @@ vala_develop_settings_load (valaDevelopSettings* self)
 #line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 877 "xml_configuration.c"
-				goto __catch70_g_error;
+				goto __catch71_g_error;
 			}
 #line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			_tmp31_ = self->priv->_key;
@@ -892,11 +892,11 @@ vala_develop_settings_load (valaDevelopSettings* self)
 #line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 888 "xml_configuration.c"
-				goto __catch70_g_error;
+				goto __catch71_g_error;
 			}
 		}
-		goto __finally70;
-		__catch70_g_error:
+		goto __finally71;
+		__catch71_g_error:
 		{
 			GError* e = NULL;
 			GError* _tmp33_;
@@ -915,8 +915,8 @@ vala_develop_settings_load (valaDevelopSettings* self)
 			_g_error_free0 (e);
 #line 910 "xml_configuration.c"
 		}
-		goto __finally70;
-		__catch70_g_file_error:
+		goto __finally71;
+		__catch71_g_file_error:
 		{
 			GError* e = NULL;
 			GError* _tmp35_;
@@ -935,8 +935,8 @@ vala_develop_settings_load (valaDevelopSettings* self)
 			_g_error_free0 (e);
 #line 930 "xml_configuration.c"
 		}
-		goto __finally70;
-		__catch70_g_key_file_error:
+		goto __finally71;
+		__catch71_g_key_file_error:
 		{
 			GError* e = NULL;
 			GError* _tmp37_;
@@ -955,7 +955,7 @@ vala_develop_settings_load (valaDevelopSettings* self)
 			_g_error_free0 (e);
 #line 950 "xml_configuration.c"
 		}
-		__finally70:
+		__finally71:
 #line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -987,12 +987,12 @@ vala_develop_settings_load (valaDevelopSettings* self)
 #line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_FILE_ERROR) {
 #line 983 "xml_configuration.c"
-				goto __catch71_g_file_error;
+				goto __catch72_g_file_error;
 			}
 #line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 988 "xml_configuration.c"
-				goto __catch71_g_key_file_error;
+				goto __catch72_g_key_file_error;
 			}
 #line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			_g_free0 (xdg_config_home);
@@ -1009,8 +1009,8 @@ vala_develop_settings_load (valaDevelopSettings* self)
 #line 1003 "xml_configuration.c"
 		}
 	}
-	goto __finally71;
-	__catch71_g_file_error:
+	goto __finally72;
+	__catch72_g_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp41_;
@@ -1029,8 +1029,8 @@ vala_develop_settings_load (valaDevelopSettings* self)
 		_g_error_free0 (e);
 #line 1024 "xml_configuration.c"
 	}
-	goto __finally71;
-	__catch71_g_key_file_error:
+	goto __finally72;
+	__catch72_g_key_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp43_;
@@ -1049,7 +1049,7 @@ vala_develop_settings_load (valaDevelopSettings* self)
 		_g_error_free0 (e);
 #line 1044 "xml_configuration.c"
 	}
-	__finally71:
+	__finally72:
 #line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -1096,7 +1096,7 @@ vala_develop_settings_save (valaDevelopSettings* self)
 #line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_FILE_ERROR) {
 #line 1092 "xml_configuration.c"
-				goto __catch72_g_file_error;
+				goto __catch73_g_file_error;
 			}
 #line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -1107,8 +1107,8 @@ vala_develop_settings_save (valaDevelopSettings* self)
 #line 1101 "xml_configuration.c"
 		}
 	}
-	goto __finally72;
-	__catch72_g_file_error:
+	goto __finally73;
+	__catch73_g_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp2_;
@@ -1127,7 +1127,7 @@ vala_develop_settings_save (valaDevelopSettings* self)
 		_g_error_free0 (e);
 #line 1122 "xml_configuration.c"
 	}
-	__finally72:
+	__finally73:
 #line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -1161,7 +1161,7 @@ vala_develop_settings_remove (valaDevelopSettings* self,
 #line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 1157 "xml_configuration.c"
-				goto __catch73_g_key_file_error;
+				goto __catch74_g_key_file_error;
 			}
 #line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -1172,8 +1172,8 @@ vala_develop_settings_remove (valaDevelopSettings* self,
 #line 1166 "xml_configuration.c"
 		}
 	}
-	goto __finally73;
-	__catch73_g_key_file_error:
+	goto __finally74;
+	__catch74_g_key_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp1_;
@@ -1192,7 +1192,7 @@ vala_develop_settings_remove (valaDevelopSettings* self,
 		_g_error_free0 (e);
 #line 1187 "xml_configuration.c"
 	}
-	__finally73:
+	__finally74:
 #line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
@@ -1230,7 +1230,7 @@ vala_develop_settings_has_key (valaDevelopSettings* self,
 #line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			if (_inner_error0_->domain == G_KEY_FILE_ERROR) {
 #line 1226 "xml_configuration.c"
-				goto __catch74_g_key_file_error;
+				goto __catch75_g_key_file_error;
 			}
 #line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -1246,8 +1246,8 @@ vala_develop_settings_has_key (valaDevelopSettings* self,
 		return result;
 #line 1241 "xml_configuration.c"
 	}
-	goto __finally74;
-	__catch74_g_key_file_error:
+	goto __finally75;
+	__catch75_g_key_file_error:
 	{
 		GError* e = NULL;
 		GError* _tmp3_;
@@ -1266,7 +1266,7 @@ vala_develop_settings_has_key (valaDevelopSettings* self,
 		_g_error_free0 (e);
 #line 1261 "xml_configuration.c"
 	}
-	__finally74:
+	__finally75:
 #line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/xml_configuration.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 1266 "xml_configuration.c"

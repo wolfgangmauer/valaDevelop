@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include <vala.h>
-#include <valagee.h>
+#include "vala.h"
+#include "valagee.h"
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 

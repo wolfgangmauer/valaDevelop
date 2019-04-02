@@ -2,7 +2,7 @@
  * generated from reporter.vala, do not modify */
 
 #include <glib-object.h>
-#include <vala.h>
+#include "vala.h"
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
@@ -289,22 +289,16 @@ vala_develop_reporter_real_note (ValaReport* base,
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	((ValaReport*) self)->warnings = _tmp0_ + 1;
 #line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-	if (source == NULL) {
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-		return;
-#line 296 "reporter.c"
-	}
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp1_ = self->priv->_error_list;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp2_ = report_error_new (source, message, REPORT_TYPE_NOTE);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp3_ = _tmp2_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	gee_abstract_collection_add ((GeeAbstractCollection*) _tmp1_, _tmp3_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_g_object_unref0 (_tmp3_);
-#line 308 "reporter.c"
+#line 302 "reporter.c"
 }
 
 static void
@@ -317,31 +311,25 @@ vala_develop_reporter_real_depr (ValaReport* base,
 	GeeArrayList* _tmp1_;
 	ReportError* _tmp2_;
 	ReportError* _tmp3_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	self = (valaDevelopReporter*) base;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	g_return_if_fail (message != NULL);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp0_ = ((ValaReport*) self)->warnings;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	((ValaReport*) self)->warnings = _tmp0_ + 1;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-	if (source == NULL) {
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-		return;
-#line 333 "reporter.c"
-	}
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp1_ = self->priv->_error_list;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp2_ = report_error_new (source, message, REPORT_TYPE_DEPRECATED);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp3_ = _tmp2_;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	gee_abstract_collection_add ((GeeAbstractCollection*) _tmp1_, _tmp3_);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_g_object_unref0 (_tmp3_);
-#line 345 "reporter.c"
+#line 333 "reporter.c"
 }
 
 static void
@@ -356,43 +344,37 @@ vala_develop_reporter_real_warn (ValaReport* base,
 	ReportType _tmp2_;
 	ReportError* _tmp3_;
 	ReportError* _tmp4_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	self = (valaDevelopReporter*) base;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	g_return_if_fail (message != NULL);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp0_ = ((ValaReport*) self)->warnings;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	((ValaReport*) self)->warnings = _tmp0_ + 1;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-	if (source == NULL) {
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-		return;
-#line 372 "reporter.c"
-	}
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	if (g_str_has_suffix (message, "are experimental")) {
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 		type = REPORT_TYPE_EXPERIMENTAL;
-#line 378 "reporter.c"
+#line 360 "reporter.c"
 	} else {
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 		type = REPORT_TYPE_WARNING;
-#line 382 "reporter.c"
+#line 364 "reporter.c"
 	}
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp1_ = self->priv->_error_list;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp2_ = type;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp3_ = report_error_new (source, message, _tmp2_);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp4_ = _tmp3_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	gee_abstract_collection_add ((GeeAbstractCollection*) _tmp1_, _tmp4_);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_g_object_unref0 (_tmp4_);
-#line 396 "reporter.c"
+#line 378 "reporter.c"
 }
 
 static void
@@ -405,31 +387,25 @@ vala_develop_reporter_real_err (ValaReport* base,
 	GeeArrayList* _tmp1_;
 	ReportError* _tmp2_;
 	ReportError* _tmp3_;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	self = (valaDevelopReporter*) base;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	g_return_if_fail (message != NULL);
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp0_ = ((ValaReport*) self)->errors;
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	((ValaReport*) self)->errors = _tmp0_ + 1;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-	if (source == NULL) {
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
-		return;
-#line 421 "reporter.c"
-	}
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp1_ = self->priv->_error_list;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp2_ = report_error_new (source, message, REPORT_TYPE_ERROR);
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_tmp3_ = _tmp2_;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	gee_abstract_collection_add ((GeeAbstractCollection*) _tmp1_, _tmp3_);
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	_g_object_unref0 (_tmp3_);
-#line 433 "reporter.c"
+#line 409 "reporter.c"
 }
 
 GeeArrayList*
@@ -445,7 +421,7 @@ vala_develop_reporter_get_error_list (valaDevelopReporter* self)
 	result = _tmp0_;
 #line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	return result;
-#line 449 "reporter.c"
+#line 425 "reporter.c"
 }
 
 static gpointer
@@ -453,7 +429,7 @@ _g_object_ref0 (gpointer self)
 {
 #line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 457 "reporter.c"
+#line 433 "reporter.c"
 }
 
 static void
@@ -469,7 +445,7 @@ vala_develop_reporter_set_error_list (valaDevelopReporter* self,
 	_g_object_unref0 (self->priv->_error_list);
 #line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	self->priv->_error_list = _tmp0_;
-#line 473 "reporter.c"
+#line 449 "reporter.c"
 }
 
 static void
@@ -490,7 +466,7 @@ vala_develop_reporter_class_init (valaDevelopReporterClass * klass,
 	((ValaReportClass *) klass)->warn = (void (*) (ValaReport*, ValaSourceReference*, const gchar*)) vala_develop_reporter_real_warn;
 #line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	((ValaReportClass *) klass)->err = (void (*) (ValaReport*, ValaSourceReference*, const gchar*)) vala_develop_reporter_real_err;
-#line 494 "reporter.c"
+#line 470 "reporter.c"
 }
 
 static void
@@ -499,7 +475,7 @@ vala_develop_reporter_instance_init (valaDevelopReporter * self,
 {
 #line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	self->priv = vala_develop_reporter_get_instance_private (self);
-#line 503 "reporter.c"
+#line 479 "reporter.c"
 }
 
 static void
@@ -512,7 +488,7 @@ vala_develop_reporter_finalize (ValaReport * obj)
 	_g_object_unref0 (self->priv->_error_list);
 #line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/reporter.vala"
 	VALA_REPORT_CLASS (vala_develop_reporter_parent_class)->finalize (obj);
-#line 516 "reporter.c"
+#line 492 "reporter.c"
 }
 
 GType

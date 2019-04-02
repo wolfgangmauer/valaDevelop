@@ -16,7 +16,7 @@
 #include <float.h>
 #include <math.h>
 #include <glib/gstdio.h>
-#include <vala.h>
+#include "vala.h"
 #include <webkit2/webkit2.h>
 #include <libxml/tree.h>
 #include <libxml/parser.h>
@@ -300,6 +300,8 @@ typedef struct _Block41Data Block41Data;
 typedef struct _Block42Data Block42Data;
 #define _g_regex_unref0(var) ((var == NULL) ? NULL : (var = (g_regex_unref (var), NULL)))
 typedef struct _Block43Data Block43Data;
+typedef struct _Block44Data Block44Data;
+typedef struct _Block45Data Block45Data;
 
 #define VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER (vala_develop_vala_completion_provider_get_type ())
 #define VALA_DEVELOP_VALA_COMPLETION_PROVIDER(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER, valaDevelopValaCompletionProvider))
@@ -322,8 +324,8 @@ typedef struct _ValaDevelopMainPanedGetTooltipFromSymbolData ValaDevelopMainPane
 
 typedef struct _valaDevelopSwitchOpenFiles valaDevelopSwitchOpenFiles;
 typedef struct _valaDevelopSwitchOpenFilesClass valaDevelopSwitchOpenFilesClass;
-typedef struct _Block44Data Block44Data;
-typedef struct _Block45Data Block45Data;
+typedef struct _Block46Data Block46Data;
+typedef struct _Block47Data Block47Data;
 #define _g_string_free0(var) ((var == NULL) ? NULL : (var = (g_string_free (var, TRUE), NULL)))
 
 #define VALA_DEVELOP_TYPE_PROJECT_OPTION_DIALOG (vala_develop_project_option_dialog_get_type ())
@@ -336,9 +338,9 @@ typedef struct _Block45Data Block45Data;
 typedef struct _valaDevelopProjectOptionDialog valaDevelopProjectOptionDialog;
 typedef struct _valaDevelopProjectOptionDialogClass valaDevelopProjectOptionDialogClass;
 #define _xmlFreeTextWriter0(var) ((var == NULL) ? NULL : (var = (xmlFreeTextWriter (var), NULL)))
-typedef struct _Block46Data Block46Data;
+typedef struct _Block48Data Block48Data;
 #define _g_main_loop_unref0(var) ((var == NULL) ? NULL : (var = (g_main_loop_unref (var), NULL)))
-typedef struct _Block47Data Block47Data;
+typedef struct _Block49Data Block49Data;
 typedef struct _ValaDevelopMainPanedReadPipedCommandsData ValaDevelopMainPanedReadPipedCommandsData;
 enum  {
 	VALA_DEVELOP_MAIN_PANED_START_COMPILING_SIGNAL,
@@ -628,6 +630,18 @@ struct _Block42Data {
 struct _Block43Data {
 	int _ref_count_;
 	Block39Data * _data39_;
+	GtkTextIter* iter;
+};
+
+struct _Block44Data {
+	int _ref_count_;
+	Block43Data * _data43_;
+	GtkTextIter currentIter;
+};
+
+struct _Block45Data {
+	int _ref_count_;
+	Block39Data * _data39_;
 	valaDevelopTabHeader* tabLabel;
 };
 
@@ -656,25 +670,25 @@ struct _ValaDevelopMainPanedGetTooltipFromSymbolData {
 	gchar* _tmp3_;
 };
 
-struct _Block44Data {
+struct _Block46Data {
 	int _ref_count_;
 	valaDevelopMainPaned* self;
 	GFile* path;
 };
 
-struct _Block45Data {
+struct _Block47Data {
 	int _ref_count_;
-	Block44Data * _data44_;
+	Block46Data * _data46_;
 	GFileEnumerator* enumerator;
 };
 
-struct _Block46Data {
+struct _Block48Data {
 	int _ref_count_;
 	valaDevelopMainPaned* self;
 	GMainLoop* mainloop;
 };
 
-struct _Block47Data {
+struct _Block49Data {
 	int _ref_count_;
 	GtkTextView* buildTextView;
 	valaDevelopStatusList* statusList;
@@ -945,7 +959,7 @@ static void _vala_develop_main_paned_OnPrevBookmark_g_simple_action_activate (GS
 void vala_develop_main_paned_SolutionTreeView_SelectCursorRow (valaDevelopMainPaned* self);
 static void _vala_develop_main_paned_SolutionTreeView_SelectCursorRow_gtk_tree_selection_changed (GtkTreeSelection* _sender,
                                                                                            gpointer self);
-static gint __lambda90_ (valaDevelopMainPaned* self,
+static gint __lambda98_ (valaDevelopMainPaned* self,
                   GtkTreeModel* model,
                   GtkTreeIter* a,
                   GtkTreeIter* b);
@@ -953,39 +967,39 @@ gint vala_develop_overview_tree_store_get_item_type (valaDevelopOverviewTreeStor
                                                      GtkTreeIter* iter);
 gchar* vala_develop_overview_tree_store_get_item_name (valaDevelopOverviewTreeStore* self,
                                                        GtkTreeIter* iter);
-static gint ___lambda90__gtk_tree_iter_compare_func (GtkTreeModel* model,
+static gint ___lambda98__gtk_tree_iter_compare_func (GtkTreeModel* model,
                                               GtkTreeIter* a,
                                               GtkTreeIter* b,
                                               gpointer self);
-static void __lambda91_ (valaDevelopMainPaned* self,
+static void __lambda99_ (valaDevelopMainPaned* self,
                   GtkStateFlags previous_state_flags);
-static void ___lambda91__gtk_widget_state_flags_changed (GtkWidget* _sender,
+static void ___lambda99__gtk_widget_state_flags_changed (GtkWidget* _sender,
                                                   GtkStateFlags previous_state_flags,
                                                   gpointer self);
 void vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
                                                        const gchar* vsln);
-static gboolean __lambda92_ (valaDevelopMainPaned* self,
-                      GtkWidget* sender,
-                      GdkEventButton* evnt);
+static gboolean __lambda100_ (valaDevelopMainPaned* self,
+                       GtkWidget* sender,
+                       GdkEventButton* evnt);
 static void _vala_GtkTreePath_free (GtkTreePath* self);
 static void vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
                                               GdkRectangle* rect,
                                               GdkEvent* args);
-static gboolean ___lambda92__gtk_widget_button_release_event (GtkWidget* _sender,
-                                                       GdkEventButton* event,
-                                                       gpointer self);
-static gboolean __lambda93_ (valaDevelopMainPaned* self,
-                      GtkWidget* sender,
-                      GdkEventKey* evnt);
-static gboolean ___lambda93__gtk_widget_key_press_event (GtkWidget* _sender,
-                                                  GdkEventKey* event,
-                                                  gpointer self);
-static void __lambda94_ (valaDevelopMainPaned* self);
-static void ___lambda94__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                             gpointer self);
+static gboolean ___lambda100__gtk_widget_button_release_event (GtkWidget* _sender,
+                                                        GdkEventButton* event,
+                                                        gpointer self);
+static gboolean __lambda101_ (valaDevelopMainPaned* self,
+                       GtkWidget* sender,
+                       GdkEventKey* evnt);
+static gboolean ___lambda101__gtk_widget_key_press_event (GtkWidget* _sender,
+                                                   GdkEventKey* event,
+                                                   gpointer self);
+static void __lambda102_ (valaDevelopMainPaned* self);
+static void ___lambda102__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                              gpointer self);
 void vala_develop_status_list_set_show_errors (valaDevelopStatusList* self,
                                                gboolean value);
-static void __lambda95_ (valaDevelopMainPaned* self);
+static void __lambda103_ (valaDevelopMainPaned* self);
 gpointer vala_develop_settings_ref (gpointer instance);
 void vala_develop_settings_unref (gpointer instance);
 GParamSpec* vala_develop_param_spec_settings (const gchar* name,
@@ -1004,57 +1018,57 @@ valaDevelopSettings* vala_develop_xml_configuration_get_Setting (void);
 void vala_develop_settings_set (valaDevelopSettings* self,
                                 const gchar* key,
                                 const gchar* val);
-static void ___lambda95__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                             gpointer self);
+static void ___lambda103__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                              gpointer self);
 void vala_develop_status_list_set_show_warnings (valaDevelopStatusList* self,
                                                  gboolean value);
-static void __lambda96_ (valaDevelopMainPaned* self);
-static void ___lambda96__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                             gpointer self);
-static void __lambda97_ (valaDevelopMainPaned* self,
-                  GtkTreePath* pathIter,
-                  GtkTreeViewColumn* column);
+static void __lambda104_ (valaDevelopMainPaned* self);
+static void ___lambda104__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                              gpointer self);
+static void __lambda105_ (valaDevelopMainPaned* self,
+                   GtkTreePath* pathIter,
+                   GtkTreeViewColumn* column);
 static Block24Data* block24_data_ref (Block24Data* _data24_);
 static void block24_data_unref (void * _userdata_);
 void vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
                                                const gchar* fullPath);
 GtkSourceView* vala_develop_globals_get_sourceview_from_overlay (GtkOverlay* overlay);
-static gboolean ___lambda98_ (Block24Data* _data24_);
-static gboolean ____lambda98__gsource_func (gpointer self);
-static void ___lambda97__gtk_tree_view_row_activated (GtkTreeView* _sender,
-                                               GtkTreePath* path,
-                                               GtkTreeViewColumn* column,
-                                               gpointer self);
-static void __lambda99_ (valaDevelopMainPaned* self,
-                  GtkTreePath* pathIter,
-                  GtkTreeViewColumn* column);
+static gboolean ___lambda106_ (Block24Data* _data24_);
+static gboolean ____lambda106__gsource_func (gpointer self);
+static void ___lambda105__gtk_tree_view_row_activated (GtkTreeView* _sender,
+                                                GtkTreePath* path,
+                                                GtkTreeViewColumn* column,
+                                                gpointer self);
+static void __lambda107_ (valaDevelopMainPaned* self,
+                   GtkTreePath* pathIter,
+                   GtkTreeViewColumn* column);
 static Block25Data* block25_data_ref (Block25Data* _data25_);
 static void block25_data_unref (void * _userdata_);
-static gboolean ____lambda100_ (Block25Data* _data25_);
-static gboolean _____lambda100__gsource_func (gpointer self);
-static void ___lambda99__gtk_tree_view_row_activated (GtkTreeView* _sender,
-                                               GtkTreePath* path,
-                                               GtkTreeViewColumn* column,
-                                               gpointer self);
-static void __lambda101_ (valaDevelopMainPaned* self,
+static gboolean ____lambda108_ (Block25Data* _data25_);
+static gboolean _____lambda108__gsource_func (gpointer self);
+static void ___lambda107__gtk_tree_view_row_activated (GtkTreeView* _sender,
+                                                GtkTreePath* path,
+                                                GtkTreeViewColumn* column,
+                                                gpointer self);
+static void __lambda109_ (valaDevelopMainPaned* self,
                    const gchar* path);
-static void ___lambda101__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+static void ___lambda109__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                      const gchar* path,
                                                      gpointer self);
-static void __lambda102_ (valaDevelopMainPaned* self,
+static void __lambda110_ (valaDevelopMainPaned* self,
                    GtkTreePath* pathIter,
                    GtkTreeViewColumn* column);
 static Block26Data* block26_data_ref (Block26Data* _data26_);
 static void block26_data_unref (void * _userdata_);
-static gboolean ____lambda103_ (Block26Data* _data26_);
+static gboolean ____lambda111_ (Block26Data* _data26_);
 GtkWidget* vala_develop_main_paned_get_tab_text_view_by_path (valaDevelopMainPaned* self,
                                                               const gchar* fullPath);
-static gboolean _____lambda103__gsource_func (gpointer self);
-static void ___lambda102__gtk_tree_view_row_activated (GtkTreeView* _sender,
+static gboolean _____lambda111__gsource_func (gpointer self);
+static void ___lambda110__gtk_tree_view_row_activated (GtkTreeView* _sender,
                                                 GtkTreePath* path,
                                                 GtkTreeViewColumn* column,
                                                 gpointer self);
-static void __lambda104_ (valaDevelopMainPaned* self,
+static void __lambda112_ (valaDevelopMainPaned* self,
                    GtkWidget* page,
                    guint page_num);
 GType vala_develop_tab_header_get_type (void) G_GNUC_CONST;
@@ -1062,7 +1076,7 @@ G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopTabHeader, g_object_unref)
 static void vala_develop_main_paned_select_overview (valaDevelopMainPaned* self,
                                               const gchar* full_path);
 const gchar* vala_develop_tab_header_get_full_path (valaDevelopTabHeader* self);
-static void ___lambda104__gtk_notebook_switch_page (GtkNotebook* _sender,
+static void ___lambda112__gtk_notebook_switch_page (GtkNotebook* _sender,
                                              GtkWidget* page,
                                              guint page_num,
                                              gpointer self);
@@ -1110,9 +1124,9 @@ GType vala_develop_search_and_replace_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSearchAndReplace, g_object_unref)
 static Block27Data* block27_data_ref (Block27Data* _data27_);
 static void block27_data_unref (void * _userdata_);
-static void __lambda80_ (Block27Data* _data27_,
+static void __lambda88_ (Block27Data* _data27_,
                   GtkWidget* widget);
-static void ___lambda80__gtk_callback (GtkWidget* widget,
+static void ___lambda88__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 GType vala_develop_search_type_enum_get_type (void) G_GNUC_CONST;
 void vala_develop_search_and_replace_set_SearchType (valaDevelopSearchAndReplace* self,
@@ -1127,29 +1141,29 @@ valaDevelopSearchAndReplace* vala_develop_search_and_replace_construct (GType ob
                                                                         GtkSourceBuffer* buffer);
 static Block28Data* block28_data_ref (Block28Data* _data28_);
 static void block28_data_unref (void * _userdata_);
-static void __lambda81_ (Block28Data* _data28_,
+static void __lambda89_ (Block28Data* _data28_,
                   GtkWidget* widget);
-static void ___lambda81__gtk_callback (GtkWidget* widget,
+static void ___lambda89__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 gboolean vala_develop_search_and_replace_OnSelectNext (valaDevelopSearchAndReplace* self);
 static Block29Data* block29_data_ref (Block29Data* _data29_);
 static void block29_data_unref (void * _userdata_);
-static void __lambda82_ (Block29Data* _data29_,
+static void __lambda90_ (Block29Data* _data29_,
                   GtkWidget* widget);
-static void ___lambda82__gtk_callback (GtkWidget* widget,
+static void ___lambda90__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 gboolean vala_develop_search_and_replace_OnSelectPrev (valaDevelopSearchAndReplace* self);
 static Block30Data* block30_data_ref (Block30Data* _data30_);
 static void block30_data_unref (void * _userdata_);
-static void __lambda83_ (Block30Data* _data30_,
+static void __lambda91_ (Block30Data* _data30_,
                   GtkWidget* widget);
-static void ___lambda83__gtk_callback (GtkWidget* widget,
+static void ___lambda91__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 static Block31Data* block31_data_ref (Block31Data* _data31_);
 static void block31_data_unref (void * _userdata_);
-static void __lambda84_ (Block31Data* _data31_,
+static void __lambda92_ (Block31Data* _data31_,
                   GtkWidget* widget);
-static void ___lambda84__gtk_callback (GtkWidget* widget,
+static void ___lambda92__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 GType vala_develop_search_replace_dialog_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSearchReplaceDialog, g_object_unref)
@@ -1193,8 +1207,8 @@ ValaSymbol* vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFin
                                                             gint col);
 static Block33Data* block33_data_ref (Block33Data* _data33_);
 static void block33_data_unref (void * _userdata_);
-static gboolean ____lambda86_ (Block33Data* _data33_);
-static gboolean _____lambda86__gsource_func (gpointer self);
+static gboolean ____lambda94_ (Block33Data* _data33_);
+static gboolean _____lambda94__gsource_func (gpointer self);
 const gchar* vala_develop_tab_header_get_label (valaDevelopTabHeader* self);
 WebKitWebView* vala_develop_globals_get_webview_from_overlay (GtkOverlay* overlay);
 static Block34Data* block34_data_ref (Block34Data* _data34_);
@@ -1206,13 +1220,13 @@ valaDevelopTabHeader* vala_develop_tab_header_construct (GType object_type,
                                                          valaDevelopMainPaned* parent,
                                                          const gchar* text,
                                                          const gchar* fullPath);
-static void ____lambda87_ (Block34Data* _data34_,
+static void ____lambda95_ (Block34Data* _data34_,
                     valaDevelopTabHeader* sender,
                     GdkEventButton* evnt);
 static void vala_develop_main_paned_close_by_tab_header (valaDevelopMainPaned* self,
                                                   valaDevelopTabHeader* tabHeader,
                                                   GdkEventButton* evnt);
-static void _____lambda87__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
+static void _____lambda95__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
                                                            valaDevelopTabHeader* tabHeader,
                                                            GdkEventButton* evnt,
                                                            gpointer self);
@@ -1222,26 +1236,26 @@ static Block35Data* block35_data_ref (Block35Data* _data35_);
 static void block35_data_unref (void * _userdata_);
 GtkTreeIter* vala_develop_overview_tree_store_get_project_iter_by_iter (valaDevelopOverviewTreeStore* self,
                                                                         GtkTreeIter* iter);
-static gint __lambda63_ (Block35Data* _data35_);
+static gint __lambda71_ (Block35Data* _data35_);
 static void vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
                                               const gchar* rootPath,
                                               GtkTreeIter* iter);
-static gboolean ___lambda66_ (Block35Data* _data35_);
+static gboolean ___lambda74_ (Block35Data* _data35_);
 void vala_develop_symbol_finder_analyse (valaDevelopSymbolFinder* self,
                                          valaDevelopMainPaned* mainPaned,
                                          GtkSourceView* textView,
                                          const gchar* full_path);
-static gboolean ____lambda66__gsource_func (gpointer self);
-static gpointer ___lambda63__gthread_func (gpointer self);
+static gboolean ____lambda74__gsource_func (gpointer self);
+static gpointer ___lambda71__gthread_func (gpointer self);
 gint vala_develop_overview_tree_store_get_item_buildtype (valaDevelopOverviewTreeStore* self,
                                                           GtkTreeIter* iter);
 GType vala_develop_item_build_type_get_type (void) G_GNUC_CONST;
 gchar* vala_develop_overview_tree_store_get_item_outputpath (valaDevelopOverviewTreeStore* self,
                                                              GtkTreeIter* iter);
-static void ___lambda85_ (valaDevelopMainPaned* self,
+static void ___lambda93_ (valaDevelopMainPaned* self,
                    GPid pid,
                    gint status);
-static void ____lambda85__gchild_watch_func (GPid pid,
+static void ____lambda93__gchild_watch_func (GPid pid,
                                       gint status,
                                       gpointer self);
 static Block36Data* block36_data_ref (Block36Data* _data36_);
@@ -1249,28 +1263,28 @@ static void _g_free0_ (gpointer var);
 static inline void _g_list_free__g_free0_ (GList* self);
 static void block36_data_unref (void * _userdata_);
 static GtkTreeIter* _gtk_tree_iter_dup (GtkTreeIter* self);
-static gint __lambda67_ (valaDevelopMainPaned* self,
+static gint __lambda75_ (valaDevelopMainPaned* self,
                   GtkTreeIter* a,
                   GtkTreeIter* b);
 GtkTreeIter* vala_develop_overview_tree_store_get_package_iter (valaDevelopOverviewTreeStore* self,
                                                                 GtkTreeIter* startIter);
-static gint ___lambda67__gcompare_data_func (gconstpointer a,
+static gint ___lambda75__gcompare_data_func (gconstpointer a,
                                       gconstpointer b,
                                       gpointer self);
-static gint __lambda68_ (Block36Data* _data36_);
+static gint __lambda76_ (Block36Data* _data36_);
 static Block37Data* block37_data_ref (Block37Data* _data37_);
 static void block37_data_unref (void * _userdata_);
-static gboolean _____lambda69_ (Block37Data* _data37_);
-static gboolean ______lambda69__gsource_func (gpointer self);
-static gboolean ___lambda70_ (Block36Data* _data36_);
-static gboolean ____lambda70__gsource_func (gpointer self);
-static gpointer ___lambda68__gthread_func (gpointer self);
+static gboolean _____lambda77_ (Block37Data* _data37_);
+static gboolean ______lambda77__gsource_func (gpointer self);
+static gboolean ___lambda78_ (Block36Data* _data36_);
+static gboolean ____lambda78__gsource_func (gpointer self);
+static gpointer ___lambda76__gthread_func (gpointer self);
 static Block38Data* block38_data_ref (Block38Data* _data38_);
 static void block38_data_unref (void * _userdata_);
-static gboolean ___lambda88_ (Block38Data* _data38_);
-static void __lambda89_ (valaDevelopMainPaned* self,
+static gboolean ___lambda96_ (Block38Data* _data38_);
+static void __lambda97_ (valaDevelopMainPaned* self,
                   GtkWidget* widget);
-static void ___lambda89__gtk_callback (GtkWidget* widget,
+static void ___lambda97__gtk_callback (GtkWidget* widget,
                                 gpointer self);
 valaDevelopSolutionOptions* vala_develop_solution_options_new (GtkTreeIter* iter);
 valaDevelopSolutionOptions* vala_develop_solution_options_construct (GType object_type,
@@ -1284,7 +1298,7 @@ valaDevelopProjectOptions* vala_develop_project_options_construct (GType object_
 valaDevelopItemOptions* vala_develop_item_options_new (GtkTreeIter* iter);
 valaDevelopItemOptions* vala_develop_item_options_construct (GType object_type,
                                                              GtkTreeIter* iter);
-static gboolean ____lambda88__gsource_func (gpointer self);
+static gboolean ____lambda96__gsource_func (gpointer self);
 GType vala_develop_overview_tree_columns_get_type (void) G_GNUC_CONST;
 void vala_develop_overview_tree_store_set_item_type (valaDevelopOverviewTreeStore* self,
                                                      GtkTreeIter* iter,
@@ -1373,19 +1387,19 @@ static Block39Data* block39_data_ref (Block39Data* _data39_);
 static void block39_data_unref (void * _userdata_);
 void vala_develop_globals_collapse_all_regions (GtkSourceBuffer* buffer);
 static GVariant* _variant_new2 (gint value);
-static gchar* __lambda23_ (valaDevelopMainPaned* self,
+static gchar* __lambda28_ (valaDevelopMainPaned* self,
                     GtkSourceMark* mark);
-static gchar* ___lambda23__gtk_source_mark_attributes_query_tooltip_text (GtkSourceMarkAttributes* _sender,
+static gchar* ___lambda28__gtk_source_mark_attributes_query_tooltip_text (GtkSourceMarkAttributes* _sender,
                                                                    GtkSourceMark* mark,
                                                                    gpointer self);
 GdkPixbuf* vala_develop_globals_get_EmptyImage (void);
 valaDevelopSourceGutterRendererBreakPoint* vala_develop_source_gutter_renderer_break_point_new (void);
 valaDevelopSourceGutterRendererBreakPoint* vala_develop_source_gutter_renderer_break_point_construct (GType object_type);
-static gboolean __lambda25_ (valaDevelopMainPaned* self,
+static gboolean __lambda30_ (valaDevelopMainPaned* self,
                       GtkTextIter* iter,
                       GdkRectangle* area,
                       GdkEvent* event);
-static gboolean ___lambda25__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
+static gboolean ___lambda30__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
                                                                     GtkTextIter* iter,
                                                                     GdkRectangle* area,
                                                                     GdkEvent* event,
@@ -1394,32 +1408,32 @@ GType vala_develop_source_gutter_renderer_folding_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSourceGutterRendererFolding, g_object_unref)
 valaDevelopSourceGutterRendererFolding* vala_develop_source_gutter_renderer_folding_new (void);
 valaDevelopSourceGutterRendererFolding* vala_develop_source_gutter_renderer_folding_construct (GType object_type);
-static gboolean __lambda26_ (valaDevelopMainPaned* self,
+static gboolean __lambda31_ (valaDevelopMainPaned* self,
                       GtkTextIter* iter,
                       GdkRectangle* area,
                       GdkEvent* event);
-static gboolean ___lambda26__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
+static gboolean ___lambda31__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
                                                                     GtkTextIter* iter,
                                                                     GdkRectangle* area,
                                                                     GdkEvent* event,
                                                                     gpointer self);
-static gboolean __lambda27_ (Block39Data* _data39_,
+static gboolean __lambda32_ (Block39Data* _data39_,
                       GtkTreeModel* model,
                       GtkTreePath* path,
                       GtkTreeIter* iter);
-static gboolean ___lambda27__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda32__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
-static void __lambda28_ (Block39Data* _data39_,
+static void __lambda33_ (Block39Data* _data39_,
                   gint e);
 static Block40Data* block40_data_ref (Block40Data* _data40_);
 static void block40_data_unref (void * _userdata_);
-static gboolean __lambda29_ (Block40Data* _data40_,
+static gboolean __lambda34_ (Block40Data* _data40_,
                       GtkTreeModel* tmpModel,
                       GtkTreePath* path,
                       GtkTreeIter* iter);
-static gboolean ___lambda29__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda34__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
@@ -1429,14 +1443,14 @@ void vala_develop_debugger_add_breakpoint (valaDevelopDebugger* self,
 void vala_develop_add_breakpoint_to_solution (gint line,
                                               const gchar* fileName,
                                               gboolean enabled);
-static void ___lambda28__vala_develop_source_gutter_renderer_break_point_add_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
+static void ___lambda33__vala_develop_source_gutter_renderer_break_point_add_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
                                                                                   gint i,
                                                                                   gpointer self);
-static void __lambda30_ (Block39Data* _data39_,
+static void __lambda35_ (Block39Data* _data39_,
                   gint e);
 static Block41Data* block41_data_ref (Block41Data* _data41_);
 static void block41_data_unref (void * _userdata_);
-static gboolean __lambda31_ (Block41Data* _data41_,
+static gboolean __lambda36_ (Block41Data* _data41_,
                       GtkTreeModel* model,
                       GtkTreePath* path,
                       GtkTreeIter* iter);
@@ -1445,95 +1459,110 @@ void vala_develop_debugger_del_breakpoint (valaDevelopDebugger* self,
                                            const gchar* file);
 void vala_develop_del_breakpoint_from_solution (gint line,
                                                 const gchar* fileName);
-static gboolean ___lambda31__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda36__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
-static void ___lambda30__vala_develop_source_gutter_renderer_break_point_del_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
+static void ___lambda35__vala_develop_source_gutter_renderer_break_point_del_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
                                                                                   gint i,
                                                                                   gpointer self);
-static void __lambda32_ (valaDevelopMainPaned* self,
+static void __lambda37_ (valaDevelopMainPaned* self,
                   GtkMenu* menu);
 static Block42Data* block42_data_ref (Block42Data* _data42_);
 static void block42_data_unref (void * _userdata_);
 static GVariant* _variant_new3 (gint value);
-static void __lambda33_ (Block42Data* _data42_,
+static void __lambda38_ (Block42Data* _data42_,
                   GtkWidget* widget);
-static void ___lambda33__gtk_callback (GtkWidget* widget,
+static void ___lambda38__gtk_callback (GtkWidget* widget,
                                 gpointer self);
-static void ___lambda32__gtk_text_view_populate_popup (GtkTextView* _sender,
+static void ___lambda37__gtk_text_view_populate_popup (GtkTextView* _sender,
                                                 GtkMenu* popup,
                                                 gpointer self);
-static void __lambda34_ (Block39Data* _data39_,
+static void __lambda39_ (Block39Data* _data39_,
                   GtkTextBuffer* buffer);
 void vala_develop_tab_header_UpdateModify (valaDevelopTabHeader* self,
                                            gboolean modified);
-static void ___lambda34__gtk_text_buffer_modified_changed (GtkTextBuffer* _sender,
+static void ___lambda39__gtk_text_buffer_modified_changed (GtkTextBuffer* _sender,
                                                     gpointer self);
-static void __lambda35_ (valaDevelopMainPaned* self,
+static void __lambda40_ (valaDevelopMainPaned* self,
                   GtkTextIter* pos,
                   const gchar* new_text,
                   gint new_text_length);
-static void ___lambda35__gtk_text_buffer_insert_text (GtkTextBuffer* _sender,
+static void ___lambda40__gtk_text_buffer_insert_text (GtkTextBuffer* _sender,
                                                GtkTextIter* pos,
                                                const gchar* new_text,
                                                gint new_text_length,
                                                gpointer self);
-static void __lambda36_ (Block39Data* _data39_,
+static void __lambda41_ (Block39Data* _data39_,
                   GtkTextIter* iter,
                   GtkSourceBracketMatchType state);
-static void ___lambda36__gtk_source_buffer_bracket_matched (GtkSourceBuffer* _sender,
+static GtkTextIter* _gtk_text_iter_dup (GtkTextIter* self);
+static Block43Data* block43_data_ref (Block43Data* _data43_);
+static void block43_data_unref (void * _userdata_);
+static Block44Data* block44_data_ref (Block44Data* _data44_);
+static void block44_data_unref (void * _userdata_);
+static gboolean ____lambda42_ (Block44Data* _data44_);
+static gboolean ___lambda43_ (valaDevelopMainPaned* self,
+                       gunichar ch);
+static gboolean ____lambda43__gtk_text_char_predicate (gunichar ch,
+                                                gpointer self);
+static gboolean ______lambda44_ (valaDevelopMainPaned* self,
+                          gunichar ch);
+static gboolean _______lambda44__gtk_text_char_predicate (gunichar ch,
+                                                   gpointer self);
+static gboolean _____lambda42__gsource_func (gpointer self);
+static void ___lambda41__gtk_source_buffer_bracket_matched (GtkSourceBuffer* _sender,
                                                      GtkTextIter* iter,
                                                      GtkSourceBracketMatchType state,
                                                      gpointer self);
-static void __lambda37_ (valaDevelopMainPaned* self);
+static void __lambda45_ (valaDevelopMainPaned* self);
 gboolean vala_develop_main_paned_CloseOpenFiles (valaDevelopMainPaned* self);
-static void ___lambda37__gtk_menu_item_activate (GtkMenuItem* _sender,
+static void ___lambda45__gtk_menu_item_activate (GtkMenuItem* _sender,
                                           gpointer self);
-static void __lambda38_ (Block39Data* _data39_);
-static void ___lambda38__gtk_menu_item_activate (GtkMenuItem* _sender,
+static void __lambda46_ (Block39Data* _data39_);
+static void ___lambda46__gtk_menu_item_activate (GtkMenuItem* _sender,
                                           gpointer self);
-static void __lambda39_ (Block39Data* _data39_);
-static void ___lambda39__gtk_menu_item_activate (GtkMenuItem* _sender,
+static void __lambda47_ (Block39Data* _data39_);
+static void ___lambda47__gtk_menu_item_activate (GtkMenuItem* _sender,
                                           gpointer self);
-static gboolean __lambda40_ (Block39Data* _data39_,
+static gboolean __lambda48_ (Block39Data* _data39_,
                       GdkEventButton* evnt);
-static void ___lambda41_ (Block39Data* _data39_,
+static void ___lambda49_ (Block39Data* _data39_,
                    GtkWidget* widget);
-static void ____lambda41__gtk_callback (GtkWidget* widget,
+static void ____lambda49__gtk_callback (GtkWidget* widget,
                                  gpointer self);
-static Block43Data* block43_data_ref (Block43Data* _data43_);
-static void block43_data_unref (void * _userdata_);
+static Block45Data* block45_data_ref (Block45Data* _data45_);
+static void block45_data_unref (void * _userdata_);
 gchar* vala_develop_tab_header_get_text (valaDevelopTabHeader* self);
-static void _____lambda42_ (Block43Data* _data43_);
-static void ______lambda42__gtk_menu_item_activate (GtkMenuItem* _sender,
+static void _____lambda50_ (Block45Data* _data45_);
+static void ______lambda50__gtk_menu_item_activate (GtkMenuItem* _sender,
                                              gpointer self);
-static gboolean ___lambda40__gtk_widget_button_press_event (GtkWidget* _sender,
+static gboolean ___lambda48__gtk_widget_button_press_event (GtkWidget* _sender,
                                                      GdkEventButton* event,
                                                      gpointer self);
-static void __lambda43_ (valaDevelopMainPaned* self,
+static void __lambda51_ (valaDevelopMainPaned* self,
                   valaDevelopTabHeader* tabHeader,
                   GdkEventButton* evnt);
-static void ___lambda43__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
+static void ___lambda51__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
                                                          valaDevelopTabHeader* tabHeader,
                                                          GdkEventButton* evnt,
                                                          gpointer self);
-static void __lambda44_ (Block39Data* _data39_,
+static void __lambda52_ (Block39Data* _data39_,
                   GtkTextIter* iter,
                   GdkEvent* evnt);
-static void ___lambda44__gtk_source_view_line_mark_activated (GtkSourceView* _sender,
+static void ___lambda52__gtk_source_view_line_mark_activated (GtkSourceView* _sender,
                                                        GtkTextIter* iter,
                                                        GdkEvent* event,
                                                        gpointer self);
 void vala_develop_load_bookmarks (GtkSourceBuffer* buffer,
                                   const gchar* file,
                                   const gchar* solution);
-static gboolean __lambda45_ (Block39Data* _data39_,
+static gboolean __lambda53_ (Block39Data* _data39_,
                       gint x,
                       gint y,
                       gboolean keyboard_tooltip,
                       GtkTooltip* tooltip);
-static gboolean ___lambda45__gtk_widget_query_tooltip (GtkWidget* _sender,
+static gboolean ___lambda53__gtk_widget_query_tooltip (GtkWidget* _sender,
                                                 gint x,
                                                 gint y,
                                                 gboolean keyboard_tooltip,
@@ -1546,12 +1575,12 @@ valaDevelopValaCompletionProvider* vala_develop_vala_completion_provider_constru
                                                                                     valaDevelopSymbolFinder* symbol_finder);
 GType vala_develop_vala_completion_provider_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopValaCompletionProvider, g_object_unref)
-static void __lambda46_ (valaDevelopMainPaned* self,
+static void __lambda54_ (valaDevelopMainPaned* self,
                   GObject* sender,
                   GParamSpec* property);
-static gboolean ___lambda47_ (valaDevelopMainPaned* self);
-static gboolean ____lambda47__gsource_func (gpointer self);
-static void ___lambda46__g_object_notify (GObject* _sender,
+static gboolean ___lambda55_ (valaDevelopMainPaned* self);
+static gboolean ____lambda55__gsource_func (gpointer self);
+static void ___lambda54__g_object_notify (GObject* _sender,
                                    GParamSpec* pspec,
                                    gpointer self);
 static void vala_develop_main_paned_update_syntax_check_data_free (gpointer _data);
@@ -1616,22 +1645,22 @@ void vala_develop_debugger_Start (valaDevelopDebugger* self,
                                   const gchar* projectIterName);
 static void vala_develop_main_paned_EnumerateFilesAsyncByFile (valaDevelopMainPaned* self,
                                                         GFile* path);
-static Block44Data* block44_data_ref (Block44Data* _data44_);
-static void block44_data_unref (void * _userdata_);
-static void __lambda105_ (Block44Data* _data44_,
+static Block46Data* block46_data_ref (Block46Data* _data46_);
+static void block46_data_unref (void * _userdata_);
+static void __lambda113_ (Block46Data* _data46_,
                    GObject* obj,
                    GAsyncResult* res);
-static Block45Data* block45_data_ref (Block45Data* _data45_);
-static void block45_data_unref (void * _userdata_);
-static void ___lambda106_ (Block45Data* _data45_,
+static Block47Data* block47_data_ref (Block47Data* _data47_);
+static void block47_data_unref (void * _userdata_);
+static void ___lambda114_ (Block47Data* _data47_,
                     GObject* nf_obj,
                     GAsyncResult* nf_res);
 static void _g_object_unref0_ (gpointer var);
 static inline void _g_list_free__g_object_unref0_ (GList* self);
-static void ____lambda106__gasync_ready_callback (GObject* source_object,
+static void ____lambda114__gasync_ready_callback (GObject* source_object,
                                            GAsyncResult* res,
                                            gpointer self);
-static void ___lambda105__gasync_ready_callback (GObject* source_object,
+static void ___lambda113__gasync_ready_callback (GObject* source_object,
                                           GAsyncResult* res,
                                           gpointer self);
 void vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
@@ -1814,10 +1843,10 @@ static void _vala_array_add20 (gchar** * array,
                         int* length,
                         int* size,
                         gchar* value);
-static Block46Data* block46_data_ref (Block46Data* _data46_);
-static void block46_data_unref (void * _userdata_);
-static gboolean ____lambda64_ (Block46Data* _data46_);
-static gboolean _____lambda64__gsource_func (gpointer self);
+static Block48Data* block48_data_ref (Block48Data* _data48_);
+static void block48_data_unref (void * _userdata_);
+static gboolean ____lambda72_ (Block48Data* _data48_);
+static gboolean _____lambda72__gsource_func (gpointer self);
 static void vala_develop_main_paned_read_piped_commands (valaDevelopMainPaned* self,
                                                   gchar** spawn_args,
                                                   gint spawn_args_length1,
@@ -1832,10 +1861,10 @@ static void vala_develop_main_paned_update_build_and_status (GtkTextView* buildT
                                                       valaDevelopStatusList* statusList,
                                                       const gchar* projectName,
                                                       const gchar* content);
-static Block47Data* block47_data_ref (Block47Data* _data47_);
-static void block47_data_unref (void * _userdata_);
-static gboolean __lambda65_ (Block47Data* _data47_);
-static gboolean ___lambda65__gsource_func (gpointer self);
+static Block49Data* block49_data_ref (Block49Data* _data49_);
+static void block49_data_unref (void * _userdata_);
+static gboolean __lambda73_ (Block49Data* _data49_);
+static gboolean ___lambda73__gsource_func (gpointer self);
 static void vala_develop_main_paned_read_piped_commands_data_free (gpointer _data);
 static gboolean vala_develop_main_paned_read_piped_commands_co (ValaDevelopMainPanedReadPipedCommandsData* _data_);
 static void vala_develop_main_paned_read_piped_commands_ready (GObject* source_object,
@@ -1861,7 +1890,7 @@ _g_object_ref0 (gpointer self)
 {
 #line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 1865 "main_paned.c"
+#line 1894 "main_paned.c"
 }
 
 static void
@@ -1871,7 +1900,7 @@ _vala_develop_main_paned_OnBuild_g_simple_action_activate (GSimpleAction* _sende
 {
 #line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnBuild ((valaDevelopMainPaned*) self, parameter);
-#line 1875 "main_paned.c"
+#line 1904 "main_paned.c"
 }
 
 static void
@@ -1881,7 +1910,7 @@ _vala_develop_main_paned_OnReBuild_g_simple_action_activate (GSimpleAction* _sen
 {
 #line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnReBuild ((valaDevelopMainPaned*) self, parameter);
-#line 1885 "main_paned.c"
+#line 1914 "main_paned.c"
 }
 
 static void
@@ -1891,7 +1920,7 @@ _vala_develop_main_paned_OnToggleLineComments_g_simple_action_activate (GSimpleA
 {
 #line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnToggleLineComments ((valaDevelopMainPaned*) self, parameter);
-#line 1895 "main_paned.c"
+#line 1924 "main_paned.c"
 }
 
 static void
@@ -1901,7 +1930,7 @@ _vala_develop_main_paned_OnEditReferences_g_simple_action_activate (GSimpleActio
 {
 #line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnEditReferences ((valaDevelopMainPaned*) self, parameter);
-#line 1905 "main_paned.c"
+#line 1934 "main_paned.c"
 }
 
 static void
@@ -1911,7 +1940,7 @@ _vala_develop_main_paned_OnNewResourceFile_g_simple_action_activate (GSimpleActi
 {
 #line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnNewResourceFile ((valaDevelopMainPaned*) self, parameter);
-#line 1915 "main_paned.c"
+#line 1944 "main_paned.c"
 }
 
 static void
@@ -1921,7 +1950,7 @@ _vala_develop_main_paned_OnAddResourceFile_g_simple_action_activate (GSimpleActi
 {
 #line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnAddResourceFile ((valaDevelopMainPaned*) self, parameter);
-#line 1925 "main_paned.c"
+#line 1954 "main_paned.c"
 }
 
 static void
@@ -1931,7 +1960,7 @@ _vala_develop_main_paned_OnAddNewFile_g_simple_action_activate (GSimpleAction* _
 {
 #line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnAddNewFile ((valaDevelopMainPaned*) self, parameter);
-#line 1935 "main_paned.c"
+#line 1964 "main_paned.c"
 }
 
 static void
@@ -1941,7 +1970,7 @@ _vala_develop_main_paned_OnAddExistingFile_g_simple_action_activate (GSimpleActi
 {
 #line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnAddExistingFile ((valaDevelopMainPaned*) self, parameter);
-#line 1945 "main_paned.c"
+#line 1974 "main_paned.c"
 }
 
 static void
@@ -1951,7 +1980,7 @@ _vala_develop_main_paned_OnAddFolder_g_simple_action_activate (GSimpleAction* _s
 {
 #line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnAddFolder ((valaDevelopMainPaned*) self, parameter);
-#line 1955 "main_paned.c"
+#line 1984 "main_paned.c"
 }
 
 static void
@@ -1961,7 +1990,7 @@ _vala_develop_main_paned_OnRenameFolder_g_simple_action_activate (GSimpleAction*
 {
 #line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRenameFolder ((valaDevelopMainPaned*) self, parameter);
-#line 1965 "main_paned.c"
+#line 1994 "main_paned.c"
 }
 
 static void
@@ -1971,7 +2000,7 @@ _vala_develop_main_paned_OnRemoveFolder_g_simple_action_activate (GSimpleAction*
 {
 #line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRemoveFolder ((valaDevelopMainPaned*) self, parameter);
-#line 1975 "main_paned.c"
+#line 2004 "main_paned.c"
 }
 
 static void
@@ -1981,7 +2010,7 @@ _vala_develop_main_paned_OnAddNewProject_g_simple_action_activate (GSimpleAction
 {
 #line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnAddNewProject ((valaDevelopMainPaned*) self, parameter);
-#line 1985 "main_paned.c"
+#line 2014 "main_paned.c"
 }
 
 static void
@@ -1991,7 +2020,7 @@ _vala_develop_main_paned_OnCloseSolution_g_simple_action_activate (GSimpleAction
 {
 #line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnCloseSolution ((valaDevelopMainPaned*) self, parameter);
-#line 1995 "main_paned.c"
+#line 2024 "main_paned.c"
 }
 
 static void
@@ -2001,7 +2030,7 @@ _vala_develop_main_paned_OnCloseSource_g_simple_action_activate (GSimpleAction* 
 {
 #line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnCloseSource ((valaDevelopMainPaned*) self, parameter);
-#line 2005 "main_paned.c"
+#line 2034 "main_paned.c"
 }
 
 static void
@@ -2011,7 +2040,7 @@ _vala_develop_main_paned_OnOpenAsSource_g_simple_action_activate (GSimpleAction*
 {
 #line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnOpenAsSource ((valaDevelopMainPaned*) self, parameter);
-#line 2015 "main_paned.c"
+#line 2044 "main_paned.c"
 }
 
 static void
@@ -2021,7 +2050,7 @@ _vala_develop_main_paned_OnSaveSource_g_simple_action_activate (GSimpleAction* _
 {
 #line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnSaveSource ((valaDevelopMainPaned*) self, parameter);
-#line 2025 "main_paned.c"
+#line 2054 "main_paned.c"
 }
 
 static void
@@ -2031,7 +2060,7 @@ _vala_develop_main_paned_OnRenameItem_g_simple_action_activate (GSimpleAction* _
 {
 #line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRenameItem ((valaDevelopMainPaned*) self, parameter);
-#line 2035 "main_paned.c"
+#line 2064 "main_paned.c"
 }
 
 static void
@@ -2041,7 +2070,7 @@ _vala_develop_main_paned_OnRemoveItem_g_simple_action_activate (GSimpleAction* _
 {
 #line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRemoveItem ((valaDevelopMainPaned*) self, parameter);
-#line 2045 "main_paned.c"
+#line 2074 "main_paned.c"
 }
 
 static void
@@ -2051,7 +2080,7 @@ _vala_develop_main_paned_OnFind_g_simple_action_activate (GSimpleAction* _sender
 {
 #line 159 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnFind ((valaDevelopMainPaned*) self, parameter);
-#line 2055 "main_paned.c"
+#line 2084 "main_paned.c"
 }
 
 static void
@@ -2061,7 +2090,7 @@ _vala_develop_main_paned_OnFindNext_g_simple_action_activate (GSimpleAction* _se
 {
 #line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnFindNext ((valaDevelopMainPaned*) self, parameter);
-#line 2065 "main_paned.c"
+#line 2094 "main_paned.c"
 }
 
 static void
@@ -2071,7 +2100,7 @@ _vala_develop_main_paned_OnFindPrev_g_simple_action_activate (GSimpleAction* _se
 {
 #line 165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnFindPrev ((valaDevelopMainPaned*) self, parameter);
-#line 2075 "main_paned.c"
+#line 2104 "main_paned.c"
 }
 
 static void
@@ -2081,7 +2110,7 @@ _vala_develop_main_paned_OnReplace_g_simple_action_activate (GSimpleAction* _sen
 {
 #line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnReplace ((valaDevelopMainPaned*) self, parameter);
-#line 2085 "main_paned.c"
+#line 2114 "main_paned.c"
 }
 
 static void
@@ -2091,7 +2120,7 @@ _vala_develop_main_paned_OnGoto_g_simple_action_activate (GSimpleAction* _sender
 {
 #line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnGoto ((valaDevelopMainPaned*) self, parameter);
-#line 2095 "main_paned.c"
+#line 2124 "main_paned.c"
 }
 
 static void
@@ -2101,7 +2130,7 @@ _vala_develop_main_paned_OnFindInFiles_g_simple_action_activate (GSimpleAction* 
 {
 #line 174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnFindInFiles ((valaDevelopMainPaned*) self, parameter);
-#line 2105 "main_paned.c"
+#line 2134 "main_paned.c"
 }
 
 static void
@@ -2111,7 +2140,7 @@ _vala_develop_main_paned_OnReplaceInFiles_g_simple_action_activate (GSimpleActio
 {
 #line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnReplaceInFiles ((valaDevelopMainPaned*) self, parameter);
-#line 2115 "main_paned.c"
+#line 2144 "main_paned.c"
 }
 
 static void
@@ -2121,7 +2150,7 @@ _vala_develop_main_paned_OnExecute_g_simple_action_activate (GSimpleAction* _sen
 {
 #line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnExecute ((valaDevelopMainPaned*) self, parameter);
-#line 2125 "main_paned.c"
+#line 2154 "main_paned.c"
 }
 
 static void
@@ -2131,7 +2160,7 @@ _vala_develop_main_paned_OnDebug_g_simple_action_activate (GSimpleAction* _sende
 {
 #line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebug ((valaDevelopMainPaned*) self, parameter);
-#line 2135 "main_paned.c"
+#line 2164 "main_paned.c"
 }
 
 static void
@@ -2141,7 +2170,7 @@ _vala_develop_main_paned_OnDebugContinue_g_simple_action_activate (GSimpleAction
 {
 #line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebugContinue ((valaDevelopMainPaned*) self, parameter);
-#line 2145 "main_paned.c"
+#line 2174 "main_paned.c"
 }
 
 static void
@@ -2151,7 +2180,7 @@ _vala_develop_main_paned_OnDebugStop_g_simple_action_activate (GSimpleAction* _s
 {
 #line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebugStop ((valaDevelopMainPaned*) self, parameter);
-#line 2155 "main_paned.c"
+#line 2184 "main_paned.c"
 }
 
 static void
@@ -2161,7 +2190,7 @@ _vala_develop_main_paned_OnDebugNext_g_simple_action_activate (GSimpleAction* _s
 {
 #line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebugNext ((valaDevelopMainPaned*) self, parameter);
-#line 2165 "main_paned.c"
+#line 2194 "main_paned.c"
 }
 
 static void
@@ -2171,7 +2200,7 @@ _vala_develop_main_paned_OnDebugStepIn_g_simple_action_activate (GSimpleAction* 
 {
 #line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebugStepIn ((valaDevelopMainPaned*) self, parameter);
-#line 2175 "main_paned.c"
+#line 2204 "main_paned.c"
 }
 
 static void
@@ -2181,7 +2210,7 @@ _vala_develop_main_paned_OnDebugStepOut_g_simple_action_activate (GSimpleAction*
 {
 #line 199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDebugStepOut ((valaDevelopMainPaned*) self, parameter);
-#line 2185 "main_paned.c"
+#line 2214 "main_paned.c"
 }
 
 static void
@@ -2191,7 +2220,7 @@ _vala_develop_main_paned_OnToggleBreakpoint_g_simple_action_activate (GSimpleAct
 {
 #line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnToggleBreakpoint ((valaDevelopMainPaned*) self, parameter);
-#line 2195 "main_paned.c"
+#line 2224 "main_paned.c"
 }
 
 static void
@@ -2201,7 +2230,7 @@ _vala_develop_main_paned_OnRemoveBreakpoints_g_simple_action_activate (GSimpleAc
 {
 #line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRemoveBreakpoints ((valaDevelopMainPaned*) self, parameter);
-#line 2205 "main_paned.c"
+#line 2234 "main_paned.c"
 }
 
 static void
@@ -2211,7 +2240,7 @@ _vala_develop_main_paned_OnToggleBookmark_g_simple_action_activate (GSimpleActio
 {
 #line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnToggleBookmark ((valaDevelopMainPaned*) self, parameter);
-#line 2215 "main_paned.c"
+#line 2244 "main_paned.c"
 }
 
 static void
@@ -2221,7 +2250,7 @@ _vala_develop_main_paned_OnDeclaration_g_simple_action_activate (GSimpleAction* 
 {
 #line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnDeclaration ((valaDevelopMainPaned*) self, parameter);
-#line 2225 "main_paned.c"
+#line 2254 "main_paned.c"
 }
 
 static void
@@ -2231,7 +2260,7 @@ _vala_develop_main_paned_OnNextBookmark_g_simple_action_activate (GSimpleAction*
 {
 #line 214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnNextBookmark ((valaDevelopMainPaned*) self, parameter);
-#line 2235 "main_paned.c"
+#line 2264 "main_paned.c"
 }
 
 static void
@@ -2241,7 +2270,7 @@ _vala_develop_main_paned_OnPrevBookmark_g_simple_action_activate (GSimpleAction*
 {
 #line 217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnPrevBookmark ((valaDevelopMainPaned*) self, parameter);
-#line 2245 "main_paned.c"
+#line 2274 "main_paned.c"
 }
 
 static void
@@ -2250,11 +2279,11 @@ _vala_develop_main_paned_SolutionTreeView_SelectCursorRow_gtk_tree_selection_cha
 {
 #line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_SolutionTreeView_SelectCursorRow ((valaDevelopMainPaned*) self);
-#line 2254 "main_paned.c"
+#line 2283 "main_paned.c"
 }
 
 static gint
-__lambda90_ (valaDevelopMainPaned* self,
+__lambda98_ (valaDevelopMainPaned* self,
              GtkTreeModel* model,
              GtkTreeIter* a,
              GtkTreeIter* b)
@@ -2283,7 +2312,7 @@ __lambda90_ (valaDevelopMainPaned* self,
 		_g_object_unref0 (overview_model);
 #line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 2287 "main_paned.c"
+#line 2316 "main_paned.c"
 	} else {
 		valaDevelopOverviewTreeStore* _tmp2_;
 		GtkTreeIter _tmp3_;
@@ -2305,7 +2334,7 @@ __lambda90_ (valaDevelopMainPaned* self,
 			_g_object_unref0 (overview_model);
 #line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return result;
-#line 2309 "main_paned.c"
+#line 2338 "main_paned.c"
 		} else {
 			valaDevelopOverviewTreeStore* _tmp6_;
 			GtkTreeIter _tmp7_;
@@ -2327,7 +2356,7 @@ __lambda90_ (valaDevelopMainPaned* self,
 				_g_object_unref0 (overview_model);
 #line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return result;
-#line 2331 "main_paned.c"
+#line 2360 "main_paned.c"
 			} else {
 				gchar* namea = NULL;
 				valaDevelopOverviewTreeStore* _tmp10_;
@@ -2369,30 +2398,30 @@ __lambda90_ (valaDevelopMainPaned* self,
 				_g_object_unref0 (overview_model);
 #line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return result;
-#line 2373 "main_paned.c"
+#line 2402 "main_paned.c"
 			}
 		}
 	}
 #line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overview_model);
-#line 2379 "main_paned.c"
+#line 2408 "main_paned.c"
 }
 
 static gint
-___lambda90__gtk_tree_iter_compare_func (GtkTreeModel* model,
+___lambda98__gtk_tree_iter_compare_func (GtkTreeModel* model,
                                          GtkTreeIter* a,
                                          GtkTreeIter* b,
                                          gpointer self)
 {
 	gint result;
-	result = __lambda90_ ((valaDevelopMainPaned*) self, model, a, b);
+	result = __lambda98_ ((valaDevelopMainPaned*) self, model, a, b);
 #line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2392 "main_paned.c"
+#line 2421 "main_paned.c"
 }
 
 static void
-__lambda91_ (valaDevelopMainPaned* self,
+__lambda99_ (valaDevelopMainPaned* self,
              GtkStateFlags previous_state_flags)
 {
 	const gchar* _tmp0_ = NULL;
@@ -2418,11 +2447,11 @@ __lambda91_ (valaDevelopMainPaned* self,
 	if (_tmp3_) {
 #line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = "page1";
-#line 2422 "main_paned.c"
+#line 2451 "main_paned.c"
 	} else {
 #line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = "page0";
-#line 2426 "main_paned.c"
+#line 2455 "main_paned.c"
 	}
 #line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = self->statusStack;
@@ -2448,17 +2477,17 @@ __lambda91_ (valaDevelopMainPaned* self,
 	_tmp12_ = _tmp11_;
 #line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp9_, !_tmp12_);
-#line 2452 "main_paned.c"
+#line 2481 "main_paned.c"
 }
 
 static void
-___lambda91__gtk_widget_state_flags_changed (GtkWidget* _sender,
+___lambda99__gtk_widget_state_flags_changed (GtkWidget* _sender,
                                              GtkStateFlags previous_state_flags,
                                              gpointer self)
 {
 #line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda91_ ((valaDevelopMainPaned*) self, previous_state_flags);
-#line 2462 "main_paned.c"
+	__lambda99_ ((valaDevelopMainPaned*) self, previous_state_flags);
+#line 2491 "main_paned.c"
 }
 
 static void
@@ -2466,13 +2495,13 @@ _vala_GtkTreePath_free (GtkTreePath* self)
 {
 #line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_boxed_free (gtk_tree_path_get_type (), self);
-#line 2470 "main_paned.c"
+#line 2499 "main_paned.c"
 }
 
 static gboolean
-__lambda92_ (valaDevelopMainPaned* self,
-             GtkWidget* sender,
-             GdkEventButton* evnt)
+__lambda100_ (valaDevelopMainPaned* self,
+              GtkWidget* sender,
+              GdkEventButton* evnt)
 {
 	gboolean result = FALSE;
 	guint mouseButtonClicked = 0U;
@@ -2506,11 +2535,11 @@ __lambda92_ (valaDevelopMainPaned* self,
 	if (_tmp1_ == GDK_BUTTON_RELEASE) {
 #line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = mouseButtonClicked == ((guint) 3);
-#line 2510 "main_paned.c"
+#line 2539 "main_paned.c"
 	} else {
 #line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = FALSE;
-#line 2514 "main_paned.c"
+#line 2543 "main_paned.c"
 	}
 #line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (!_tmp0_) {
@@ -2518,7 +2547,7 @@ __lambda92_ (valaDevelopMainPaned* self,
 		result = FALSE;
 #line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 2522 "main_paned.c"
+#line 2551 "main_paned.c"
 	}
 #line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = self->solutionTreeView;
@@ -2572,25 +2601,25 @@ __lambda92_ (valaDevelopMainPaned* self,
 	__vala_GtkTreePath_free0 (path);
 #line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2576 "main_paned.c"
+#line 2605 "main_paned.c"
 }
 
 static gboolean
-___lambda92__gtk_widget_button_release_event (GtkWidget* _sender,
-                                              GdkEventButton* event,
-                                              gpointer self)
+___lambda100__gtk_widget_button_release_event (GtkWidget* _sender,
+                                               GdkEventButton* event,
+                                               gpointer self)
 {
 	gboolean result;
-	result = __lambda92_ ((valaDevelopMainPaned*) self, _sender, event);
+	result = __lambda100_ ((valaDevelopMainPaned*) self, _sender, event);
 #line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2588 "main_paned.c"
+#line 2617 "main_paned.c"
 }
 
 static gboolean
-__lambda93_ (valaDevelopMainPaned* self,
-             GtkWidget* sender,
-             GdkEventKey* evnt)
+__lambda101_ (valaDevelopMainPaned* self,
+              GtkWidget* sender,
+              GdkEventKey* evnt)
 {
 	gboolean result = FALSE;
 #line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -2599,7 +2628,7 @@ __lambda93_ (valaDevelopMainPaned* self,
 	g_return_val_if_fail (evnt != NULL, FALSE);
 #line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (evnt->keyval == GDK_KEY_Menu) {
-#line 2603 "main_paned.c"
+#line 2632 "main_paned.c"
 		GtkTreePath* path = NULL;
 		GtkTreeViewColumn* focus_column = NULL;
 		GtkTreeView* _tmp0_;
@@ -2649,29 +2678,29 @@ __lambda93_ (valaDevelopMainPaned* self,
 		_g_object_unref0 (focus_column);
 #line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		__vala_GtkTreePath_free0 (path);
-#line 2653 "main_paned.c"
+#line 2682 "main_paned.c"
 	}
 #line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
 #line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2659 "main_paned.c"
+#line 2688 "main_paned.c"
 }
 
 static gboolean
-___lambda93__gtk_widget_key_press_event (GtkWidget* _sender,
-                                         GdkEventKey* event,
-                                         gpointer self)
+___lambda101__gtk_widget_key_press_event (GtkWidget* _sender,
+                                          GdkEventKey* event,
+                                          gpointer self)
 {
 	gboolean result;
-	result = __lambda93_ ((valaDevelopMainPaned*) self, _sender, event);
+	result = __lambda101_ ((valaDevelopMainPaned*) self, _sender, event);
 #line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2671 "main_paned.c"
+#line 2700 "main_paned.c"
 }
 
 static void
-__lambda94_ (valaDevelopMainPaned* self)
+__lambda102_ (valaDevelopMainPaned* self)
 {
 	const gchar* _tmp0_ = NULL;
 	valaDevelopmainWindow* _tmp1_;
@@ -2698,11 +2727,11 @@ __lambda94_ (valaDevelopMainPaned* self)
 	if (_tmp4_) {
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _ ("Release");
-#line 2702 "main_paned.c"
+#line 2731 "main_paned.c"
 	} else {
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _ ("Debug");
-#line 2706 "main_paned.c"
+#line 2735 "main_paned.c"
 	}
 #line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = self->_parentClass;
@@ -2724,16 +2753,16 @@ __lambda94_ (valaDevelopMainPaned* self)
 	_tmp12_ = _tmp11_;
 #line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp8_, !_tmp12_);
-#line 2728 "main_paned.c"
+#line 2757 "main_paned.c"
 }
 
 static void
-___lambda94__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                        gpointer self)
+___lambda102__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                         gpointer self)
 {
 #line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda94_ ((valaDevelopMainPaned*) self);
-#line 2737 "main_paned.c"
+	__lambda102_ ((valaDevelopMainPaned*) self);
+#line 2766 "main_paned.c"
 }
 
 static gchar*
@@ -2742,7 +2771,7 @@ bool_to_string (gboolean self)
 	gchar* result = NULL;
 #line 37 "glib-2.0.vapi"
 	if (self) {
-#line 2746 "main_paned.c"
+#line 2775 "main_paned.c"
 		gchar* _tmp0_;
 #line 38 "glib-2.0.vapi"
 		_tmp0_ = g_strdup ("true");
@@ -2750,7 +2779,7 @@ bool_to_string (gboolean self)
 		result = _tmp0_;
 #line 38 "glib-2.0.vapi"
 		return result;
-#line 2754 "main_paned.c"
+#line 2783 "main_paned.c"
 	} else {
 		gchar* _tmp1_;
 #line 40 "glib-2.0.vapi"
@@ -2759,12 +2788,12 @@ bool_to_string (gboolean self)
 		result = _tmp1_;
 #line 40 "glib-2.0.vapi"
 		return result;
-#line 2763 "main_paned.c"
+#line 2792 "main_paned.c"
 	}
 }
 
 static void
-__lambda95_ (valaDevelopMainPaned* self)
+__lambda103_ (valaDevelopMainPaned* self)
 {
 	valaDevelopStatusList* _tmp0_;
 	GtkCheckButton* _tmp1_;
@@ -2805,20 +2834,20 @@ __lambda95_ (valaDevelopMainPaned* self)
 	vala_develop_settings_set (_tmp5_, "showerrors.active", _tmp10_);
 #line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp10_);
-#line 2809 "main_paned.c"
+#line 2838 "main_paned.c"
 }
 
 static void
-___lambda95__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                        gpointer self)
+___lambda103__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                         gpointer self)
 {
 #line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda95_ ((valaDevelopMainPaned*) self);
-#line 2818 "main_paned.c"
+	__lambda103_ ((valaDevelopMainPaned*) self);
+#line 2847 "main_paned.c"
 }
 
 static void
-__lambda96_ (valaDevelopMainPaned* self)
+__lambda104_ (valaDevelopMainPaned* self)
 {
 	valaDevelopStatusList* _tmp0_;
 	GtkCheckButton* _tmp1_;
@@ -2859,16 +2888,16 @@ __lambda96_ (valaDevelopMainPaned* self)
 	vala_develop_settings_set (_tmp5_, "showwarnings.active", _tmp10_);
 #line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp10_);
-#line 2863 "main_paned.c"
+#line 2892 "main_paned.c"
 }
 
 static void
-___lambda96__gtk_toggle_button_toggled (GtkToggleButton* _sender,
-                                        gpointer self)
+___lambda104__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+                                         gpointer self)
 {
 #line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda96_ ((valaDevelopMainPaned*) self);
-#line 2872 "main_paned.c"
+	__lambda104_ ((valaDevelopMainPaned*) self);
+#line 2901 "main_paned.c"
 }
 
 static Block24Data*
@@ -2878,7 +2907,7 @@ block24_data_ref (Block24Data* _data24_)
 	g_atomic_int_inc (&_data24_->_ref_count_);
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data24_;
-#line 2882 "main_paned.c"
+#line 2911 "main_paned.c"
 }
 
 static void
@@ -2888,7 +2917,7 @@ block24_data_unref (void * _userdata_)
 	_data24_ = (Block24Data*) _userdata_;
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data24_->_ref_count_)) {
-#line 2892 "main_paned.c"
+#line 2921 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data24_->self;
@@ -2898,12 +2927,12 @@ block24_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block24Data, _data24_);
-#line 2902 "main_paned.c"
+#line 2931 "main_paned.c"
 	}
 }
 
 static gboolean
-___lambda98_ (Block24Data* _data24_)
+___lambda106_ (Block24Data* _data24_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -2917,7 +2946,7 @@ ___lambda98_ (Block24Data* _data24_)
 	_tmp1_ = _data24_->startIter;
 #line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp0_, &_tmp1_, (gdouble) 0, TRUE, 0.5, 0.5)) {
-#line 2921 "main_paned.c"
+#line 2950 "main_paned.c"
 		GtkSourceView* _tmp2_;
 #line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = _data24_->textView;
@@ -2927,29 +2956,29 @@ ___lambda98_ (Block24Data* _data24_)
 		result = FALSE;
 #line 356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 2931 "main_paned.c"
+#line 2960 "main_paned.c"
 	}
 #line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = TRUE;
 #line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2937 "main_paned.c"
+#line 2966 "main_paned.c"
 }
 
 static gboolean
-____lambda98__gsource_func (gpointer self)
+____lambda106__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda98_ (self);
+	result = ___lambda106_ (self);
 #line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 2947 "main_paned.c"
+#line 2976 "main_paned.c"
 }
 
 static void
-__lambda97_ (valaDevelopMainPaned* self,
-             GtkTreePath* pathIter,
-             GtkTreeViewColumn* column)
+__lambda105_ (valaDevelopMainPaned* self,
+              GtkTreePath* pathIter,
+              GtkTreeViewColumn* column)
 {
 	GtkTreeIter statusListIter = {0};
 	valaDevelopStatusList* _tmp0_;
@@ -2970,7 +2999,7 @@ __lambda97_ (valaDevelopMainPaned* self,
 	statusListIter = _tmp2_;
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp3_) {
-#line 2974 "main_paned.c"
+#line 3003 "main_paned.c"
 		Block24Data* _data24_;
 		GValue val = {0};
 		valaDevelopStatusList* _tmp4_;
@@ -3105,7 +3134,7 @@ __lambda97_ (valaDevelopMainPaned* self,
 			_data24_ = NULL;
 #line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 3109 "main_paned.c"
+#line 3138 "main_paned.c"
 		}
 #line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp18_ = fullPath;
@@ -3220,7 +3249,7 @@ __lambda97_ (valaDevelopMainPaned* self,
 #line 350 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_select_range (_tmp51_, &_tmp52_, &_tmp53_);
 #line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda98__gsource_func, block24_data_ref (_data24_), block24_data_unref);
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda106__gsource_func, block24_data_ref (_data24_), block24_data_unref);
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		endPos = (_vala_array_free (endPos, endPos_length1, (GDestroyNotify) g_free), NULL);
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -3237,19 +3266,19 @@ __lambda97_ (valaDevelopMainPaned* self,
 		block24_data_unref (_data24_);
 #line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data24_ = NULL;
-#line 3241 "main_paned.c"
+#line 3270 "main_paned.c"
 	}
 }
 
 static void
-___lambda97__gtk_tree_view_row_activated (GtkTreeView* _sender,
-                                          GtkTreePath* path,
-                                          GtkTreeViewColumn* column,
-                                          gpointer self)
+___lambda105__gtk_tree_view_row_activated (GtkTreeView* _sender,
+                                           GtkTreePath* path,
+                                           GtkTreeViewColumn* column,
+                                           gpointer self)
 {
 #line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda97_ ((valaDevelopMainPaned*) self, path, column);
-#line 3253 "main_paned.c"
+	__lambda105_ ((valaDevelopMainPaned*) self, path, column);
+#line 3282 "main_paned.c"
 }
 
 static Block25Data*
@@ -3259,7 +3288,7 @@ block25_data_ref (Block25Data* _data25_)
 	g_atomic_int_inc (&_data25_->_ref_count_);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data25_;
-#line 3263 "main_paned.c"
+#line 3292 "main_paned.c"
 }
 
 static void
@@ -3269,7 +3298,7 @@ block25_data_unref (void * _userdata_)
 	_data25_ = (Block25Data*) _userdata_;
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data25_->_ref_count_)) {
-#line 3273 "main_paned.c"
+#line 3302 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data25_->self;
@@ -3279,12 +3308,12 @@ block25_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block25Data, _data25_);
-#line 3283 "main_paned.c"
+#line 3312 "main_paned.c"
 	}
 }
 
 static gboolean
-____lambda100_ (Block25Data* _data25_)
+____lambda108_ (Block25Data* _data25_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -3298,7 +3327,7 @@ ____lambda100_ (Block25Data* _data25_)
 	_tmp1_ = _data25_->startIter;
 #line 484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp0_, &_tmp1_, (gdouble) 0, TRUE, 0.5, 0.5)) {
-#line 3302 "main_paned.c"
+#line 3331 "main_paned.c"
 		GtkSourceView* _tmp2_;
 		GtkTextBuffer* _tmp3_;
 		GtkTextBuffer* _tmp4_;
@@ -3325,29 +3354,29 @@ ____lambda100_ (Block25Data* _data25_)
 		result = FALSE;
 #line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 3329 "main_paned.c"
+#line 3358 "main_paned.c"
 	}
 #line 490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = TRUE;
 #line 490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 3335 "main_paned.c"
+#line 3364 "main_paned.c"
 }
 
 static gboolean
-_____lambda100__gsource_func (gpointer self)
+_____lambda108__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda100_ (self);
+	result = ____lambda108_ (self);
 #line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 3345 "main_paned.c"
+#line 3374 "main_paned.c"
 }
 
 static void
-__lambda99_ (valaDevelopMainPaned* self,
-             GtkTreePath* pathIter,
-             GtkTreeViewColumn* column)
+__lambda107_ (valaDevelopMainPaned* self,
+              GtkTreePath* pathIter,
+              GtkTreeViewColumn* column)
 {
 	GtkTreeIter searchListIter = {0};
 	GtkTreeView* _tmp0_;
@@ -3368,7 +3397,7 @@ __lambda99_ (valaDevelopMainPaned* self,
 	searchListIter = _tmp2_;
 #line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp3_) {
-#line 3372 "main_paned.c"
+#line 3401 "main_paned.c"
 		GValue val = {0};
 		GtkTreeView* _tmp4_;
 		GtkTreeModel* _tmp5_;
@@ -3428,7 +3457,7 @@ __lambda99_ (valaDevelopMainPaned* self,
 			G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
 #line 456 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 3432 "main_paned.c"
+#line 3461 "main_paned.c"
 		}
 #line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp11_ = self->searchList;
@@ -3460,7 +3489,7 @@ __lambda99_ (valaDevelopMainPaned* self,
 			G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
 #line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 3464 "main_paned.c"
+#line 3493 "main_paned.c"
 		}
 #line 460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp18_ = path;
@@ -3498,7 +3527,7 @@ __lambda99_ (valaDevelopMainPaned* self,
 			G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
 #line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 3502 "main_paned.c"
+#line 3531 "main_paned.c"
 		}
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp27_ = fullPath;
@@ -3512,7 +3541,7 @@ __lambda99_ (valaDevelopMainPaned* self,
 		_g_object_unref0 (_tmp29_);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp30_) {
-#line 3516 "main_paned.c"
+#line 3545 "main_paned.c"
 			Block25Data* _data25_;
 			const gchar* _tmp31_;
 			GtkOverlay* overlay = NULL;
@@ -3669,14 +3698,14 @@ __lambda99_ (valaDevelopMainPaned* self,
 #line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_text_iter_set_line_offset (&_data25_->stopIter, stopLineOffset);
 #line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda100__gsource_func, block25_data_ref (_data25_), block25_data_unref);
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda108__gsource_func, block25_data_ref (_data25_), block25_data_unref);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (overlay);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			block25_data_unref (_data25_);
 #line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_data25_ = NULL;
-#line 3680 "main_paned.c"
+#line 3709 "main_paned.c"
 		}
 #line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (fullPath);
@@ -3686,23 +3715,23 @@ __lambda99_ (valaDevelopMainPaned* self,
 		_g_free0 (path);
 #line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
-#line 3690 "main_paned.c"
+#line 3719 "main_paned.c"
 	}
 }
 
 static void
-___lambda99__gtk_tree_view_row_activated (GtkTreeView* _sender,
-                                          GtkTreePath* path,
-                                          GtkTreeViewColumn* column,
-                                          gpointer self)
+___lambda107__gtk_tree_view_row_activated (GtkTreeView* _sender,
+                                           GtkTreePath* path,
+                                           GtkTreeViewColumn* column,
+                                           gpointer self)
 {
 #line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda99_ ((valaDevelopMainPaned*) self, path, column);
-#line 3702 "main_paned.c"
+	__lambda107_ ((valaDevelopMainPaned*) self, path, column);
+#line 3731 "main_paned.c"
 }
 
 static void
-__lambda101_ (valaDevelopMainPaned* self,
+__lambda109_ (valaDevelopMainPaned* self,
               const gchar* path)
 {
 	GtkTreeIter i = {0};
@@ -3719,7 +3748,7 @@ __lambda101_ (valaDevelopMainPaned* self,
 	i = _tmp1_;
 #line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp2_) {
-#line 3723 "main_paned.c"
+#line 3752 "main_paned.c"
 		GValue val = {0};
 		GtkListStore* _tmp3_;
 		GtkTreeIter _tmp4_;
@@ -3754,18 +3783,18 @@ __lambda101_ (valaDevelopMainPaned* self,
 		G_IS_VALUE (&_tmp9_) ? (g_value_unset (&_tmp9_), NULL) : NULL;
 #line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
-#line 3758 "main_paned.c"
+#line 3787 "main_paned.c"
 	}
 }
 
 static void
-___lambda101__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+___lambda109__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                 const gchar* path,
                                                 gpointer self)
 {
 #line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda101_ ((valaDevelopMainPaned*) self, path);
-#line 3769 "main_paned.c"
+	__lambda109_ ((valaDevelopMainPaned*) self, path);
+#line 3798 "main_paned.c"
 }
 
 static Block26Data*
@@ -3775,7 +3804,7 @@ block26_data_ref (Block26Data* _data26_)
 	g_atomic_int_inc (&_data26_->_ref_count_);
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data26_;
-#line 3779 "main_paned.c"
+#line 3808 "main_paned.c"
 }
 
 static void
@@ -3785,7 +3814,7 @@ block26_data_unref (void * _userdata_)
 	_data26_ = (Block26Data*) _userdata_;
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data26_->_ref_count_)) {
-#line 3789 "main_paned.c"
+#line 3818 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data26_->self;
@@ -3795,12 +3824,12 @@ block26_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block26Data, _data26_);
-#line 3799 "main_paned.c"
+#line 3828 "main_paned.c"
 	}
 }
 
 static gboolean
-____lambda103_ (Block26Data* _data26_)
+____lambda111_ (Block26Data* _data26_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -3821,7 +3850,7 @@ ____lambda103_ (Block26Data* _data26_)
 	if (_tmp2_ == NULL) {
 #line 572 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp1_);
-#line 3825 "main_paned.c"
+#line 3854 "main_paned.c"
 	}
 #line 572 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	view = _tmp2_;
@@ -3829,7 +3858,7 @@ ____lambda103_ (Block26Data* _data26_)
 	_tmp3_ = view;
 #line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp3_ != NULL) {
-#line 3833 "main_paned.c"
+#line 3862 "main_paned.c"
 		GtkTextIter startIter = {0};
 		GtkSourceView* _tmp4_;
 		GtkTextBuffer* _tmp5_;
@@ -3874,7 +3903,7 @@ ____lambda103_ (Block26Data* _data26_)
 		_tmp14_ = startIter;
 #line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp13_, &_tmp14_, (gdouble) 0, TRUE, 0.5, 0.5);
-#line 3878 "main_paned.c"
+#line 3907 "main_paned.c"
 	}
 #line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
@@ -3882,21 +3911,21 @@ ____lambda103_ (Block26Data* _data26_)
 	_g_object_unref0 (view);
 #line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 3886 "main_paned.c"
+#line 3915 "main_paned.c"
 }
 
 static gboolean
-_____lambda103__gsource_func (gpointer self)
+_____lambda111__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda103_ (self);
+	result = ____lambda111_ (self);
 #line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 3896 "main_paned.c"
+#line 3925 "main_paned.c"
 }
 
 static void
-__lambda102_ (valaDevelopMainPaned* self,
+__lambda110_ (valaDevelopMainPaned* self,
               GtkTreePath* pathIter,
               GtkTreeViewColumn* column)
 {
@@ -3916,7 +3945,7 @@ __lambda102_ (valaDevelopMainPaned* self,
 	iter = _tmp1_;
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp2_) {
-#line 3920 "main_paned.c"
+#line 3949 "main_paned.c"
 		Block26Data* _data26_;
 		GValue val = {0};
 		GtkListStore* _tmp3_;
@@ -3980,15 +4009,15 @@ __lambda102_ (valaDevelopMainPaned* self,
 		_g_object_unref0 (_tmp14_);
 #line 567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp15_) {
-#line 3984 "main_paned.c"
+#line 4013 "main_paned.c"
 			const gchar* _tmp16_;
 #line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp16_ = _data26_->fullPath;
 #line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_main_paned_open_source_file (self, _tmp16_);
 #line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda103__gsource_func, block26_data_ref (_data26_), block26_data_unref);
-#line 3992 "main_paned.c"
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda111__gsource_func, block26_data_ref (_data26_), block26_data_unref);
+#line 4021 "main_paned.c"
 		}
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
@@ -3996,23 +4025,23 @@ __lambda102_ (valaDevelopMainPaned* self,
 		block26_data_unref (_data26_);
 #line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data26_ = NULL;
-#line 4000 "main_paned.c"
+#line 4029 "main_paned.c"
 	}
 }
 
 static void
-___lambda102__gtk_tree_view_row_activated (GtkTreeView* _sender,
+___lambda110__gtk_tree_view_row_activated (GtkTreeView* _sender,
                                            GtkTreePath* path,
                                            GtkTreeViewColumn* column,
                                            gpointer self)
 {
 #line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda102_ ((valaDevelopMainPaned*) self, path, column);
-#line 4012 "main_paned.c"
+	__lambda110_ ((valaDevelopMainPaned*) self, path, column);
+#line 4041 "main_paned.c"
 }
 
 static void
-__lambda104_ (valaDevelopMainPaned* self,
+__lambda112_ (valaDevelopMainPaned* self,
               GtkWidget* page,
               guint page_num)
 {
@@ -4035,7 +4064,7 @@ __lambda104_ (valaDevelopMainPaned* self,
 	_tmp3_ = tabLabel;
 #line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp3_ != NULL) {
-#line 4039 "main_paned.c"
+#line 4068 "main_paned.c"
 		valaDevelopTabHeader* _tmp4_;
 		const gchar* _tmp5_;
 		const gchar* _tmp6_;
@@ -4047,22 +4076,22 @@ __lambda104_ (valaDevelopMainPaned* self,
 		_tmp6_ = _tmp5_;
 #line 592 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_select_overview (self, _tmp6_);
-#line 4051 "main_paned.c"
+#line 4080 "main_paned.c"
 	}
 #line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (tabLabel);
-#line 4055 "main_paned.c"
+#line 4084 "main_paned.c"
 }
 
 static void
-___lambda104__gtk_notebook_switch_page (GtkNotebook* _sender,
+___lambda112__gtk_notebook_switch_page (GtkNotebook* _sender,
                                         GtkWidget* page,
                                         guint page_num,
                                         gpointer self)
 {
 #line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda104_ ((valaDevelopMainPaned*) self, page, page_num);
-#line 4066 "main_paned.c"
+	__lambda112_ ((valaDevelopMainPaned*) self, page, page_num);
+#line 4095 "main_paned.c"
 }
 
 valaDevelopMainPaned*
@@ -4518,7 +4547,7 @@ vala_develop_main_paned_construct (GType object_type,
 		g_clear_error (&_inner_error0_);
 #line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return NULL;
-#line 4522 "main_paned.c"
+#line 4551 "main_paned.c"
 	}
 #line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = self->expandOverview;
@@ -5229,31 +5258,31 @@ vala_develop_main_paned_construct (GType object_type,
 #line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp188_ = vala_develop_main_paned_overviewTreeModel;
 #line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_tree_sortable_set_sort_func ((GtkTreeSortable*) _tmp188_, 1, ___lambda90__gtk_tree_iter_compare_func, g_object_ref (self), g_object_unref);
+	gtk_tree_sortable_set_sort_func ((GtkTreeSortable*) _tmp188_, 1, ___lambda98__gtk_tree_iter_compare_func, g_object_ref (self), g_object_unref);
 #line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp189_ = self->statusSwitch;
 #line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkWidget*) _tmp189_, "state-flags-changed", (GCallback) ___lambda91__gtk_widget_state_flags_changed, self, 0);
+	g_signal_connect_object ((GtkWidget*) _tmp189_, "state-flags-changed", (GCallback) ___lambda99__gtk_widget_state_flags_changed, self, 0);
 #line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_strcmp0 (vsln, "") != 0) {
 #line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_LoadSolutionIntoOverview (self, vsln);
-#line 5242 "main_paned.c"
+#line 5271 "main_paned.c"
 	}
 #line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp190_ = self->solutionTreeView;
 #line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkWidget*) _tmp190_, "button-release-event", (GCallback) ___lambda92__gtk_widget_button_release_event, self, 0);
+	g_signal_connect_object ((GtkWidget*) _tmp190_, "button-release-event", (GCallback) ___lambda100__gtk_widget_button_release_event, self, 0);
 #line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp191_ = self->solutionTreeView;
 #line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkWidget*) _tmp191_, "key-press-event", (GCallback) ___lambda93__gtk_widget_key_press_event, self, 0);
+	g_signal_connect_object ((GtkWidget*) _tmp191_, "key-press-event", (GCallback) ___lambda101__gtk_widget_key_press_event, self, 0);
 #line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp192_ = self->_parentClass;
 #line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp193_ = _tmp192_->configuration;
 #line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp193_, "toggled", (GCallback) ___lambda94__gtk_toggle_button_toggled, self, 0);
+	g_signal_connect_object (_tmp193_, "toggled", (GCallback) ___lambda102__gtk_toggle_button_toggled, self, 0);
 #line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp194_ = self->statusList;
 #line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -5267,7 +5296,7 @@ vala_develop_main_paned_construct (GType object_type,
 #line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp198_ = self->showerrors;
 #line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkToggleButton*) _tmp198_, "toggled", (GCallback) ___lambda95__gtk_toggle_button_toggled, self, 0);
+	g_signal_connect_object ((GtkToggleButton*) _tmp198_, "toggled", (GCallback) ___lambda103__gtk_toggle_button_toggled, self, 0);
 #line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp199_ = self->statusList;
 #line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -5281,11 +5310,11 @@ vala_develop_main_paned_construct (GType object_type,
 #line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp203_ = self->showwarnings;
 #line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkToggleButton*) _tmp203_, "toggled", (GCallback) ___lambda96__gtk_toggle_button_toggled, self, 0);
+	g_signal_connect_object ((GtkToggleButton*) _tmp203_, "toggled", (GCallback) ___lambda104__gtk_toggle_button_toggled, self, 0);
 #line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp204_ = self->statusList;
 #line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkTreeView*) _tmp204_, "row-activated", (GCallback) ___lambda97__gtk_tree_view_row_activated, self, 0);
+	g_signal_connect_object ((GtkTreeView*) _tmp204_, "row-activated", (GCallback) ___lambda105__gtk_tree_view_row_activated, self, 0);
 #line 364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp205_ = (GtkMenu*) gtk_menu_new ();
 #line 364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -5749,7 +5778,7 @@ vala_develop_main_paned_construct (GType object_type,
 #line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp316_ = self->searchList;
 #line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp316_, "row-activated", (GCallback) ___lambda99__gtk_tree_view_row_activated, self, 0);
+	g_signal_connect_object (_tmp316_, "row-activated", (GCallback) ___lambda107__gtk_tree_view_row_activated, self, 0);
 #line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp317_ = g_new0 (GType, 4);
 #line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -5781,7 +5810,7 @@ vala_develop_main_paned_construct (GType object_type,
 #line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp321_ = cellRendererToggle;
 #line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp321_, "toggled", (GCallback) ___lambda101__gtk_cell_renderer_toggle_toggled, self, 0);
+	g_signal_connect_object (_tmp321_, "toggled", (GCallback) ___lambda109__gtk_cell_renderer_toggle_toggled, self, 0);
 #line 508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp322_ = cellRendererToggle;
 #line 508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -6127,11 +6156,11 @@ vala_develop_main_paned_construct (GType object_type,
 #line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp403_ = self->breakPoints;
 #line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp403_, "row-activated", (GCallback) ___lambda102__gtk_tree_view_row_activated, self, 0);
+	g_signal_connect_object (_tmp403_, "row-activated", (GCallback) ___lambda110__gtk_tree_view_row_activated, self, 0);
 #line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp404_ = self->documentTab;
 #line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp404_, "switch-page", (GCallback) ___lambda104__gtk_notebook_switch_page, self, 0);
+	g_signal_connect_object (_tmp404_, "switch-page", (GCallback) ___lambda112__gtk_notebook_switch_page, self, 0);
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (localSymbolsModel);
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -6154,7 +6183,7 @@ vala_develop_main_paned_construct (GType object_type,
 	_g_object_unref0 (_tmp2_);
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return self;
-#line 6158 "main_paned.c"
+#line 6187 "main_paned.c"
 }
 
 valaDevelopMainPaned*
@@ -6163,7 +6192,7 @@ vala_develop_main_paned_new (valaDevelopmainWindow* parentClass,
 {
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return vala_develop_main_paned_construct (VALA_DEVELOP_TYPE_MAIN_PANED, parentClass, vsln);
-#line 6167 "main_paned.c"
+#line 6196 "main_paned.c"
 }
 
 static void
@@ -6232,7 +6261,7 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 	switch (_tmp11_) {
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory | VALA_DEVELOP_ITEM_TYPE_Resource:
-#line 6236 "main_paned.c"
+#line 6265 "main_paned.c"
 		{
 			GtkMenu* _tmp12_;
 			GtkTreeView* _tmp13_;
@@ -6250,11 +6279,11 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp12_, _tmp14_, &_tmp15_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6254 "main_paned.c"
+#line 6283 "main_paned.c"
 		}
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory | VALA_DEVELOP_ITEM_TYPE_Package:
-#line 6258 "main_paned.c"
+#line 6287 "main_paned.c"
 		{
 			GtkMenu* _tmp16_;
 			GtkTreeView* _tmp17_;
@@ -6272,11 +6301,11 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp16_, _tmp18_, &_tmp19_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6276 "main_paned.c"
+#line 6305 "main_paned.c"
 		}
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory | VALA_DEVELOP_ITEM_TYPE_Project:
-#line 6280 "main_paned.c"
+#line 6309 "main_paned.c"
 		{
 			GtkMenu* _tmp20_;
 			GtkTreeView* _tmp21_;
@@ -6294,11 +6323,11 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp20_, _tmp22_, &_tmp23_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6298 "main_paned.c"
+#line 6327 "main_paned.c"
 		}
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 6302 "main_paned.c"
+#line 6331 "main_paned.c"
 		{
 			GtkMenu* _tmp24_;
 			GtkTreeView* _tmp25_;
@@ -6316,11 +6345,11 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp24_, _tmp26_, &_tmp27_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6320 "main_paned.c"
+#line 6349 "main_paned.c"
 		}
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Solution:
-#line 6324 "main_paned.c"
+#line 6353 "main_paned.c"
 		{
 			GtkMenu* _tmp28_;
 			GtkTreeView* _tmp29_;
@@ -6338,13 +6367,13 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp28_, _tmp30_, &_tmp31_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6342 "main_paned.c"
+#line 6371 "main_paned.c"
 		}
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Source:
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource:
-#line 6348 "main_paned.c"
+#line 6377 "main_paned.c"
 		{
 			gboolean _tmp32_ = FALSE;
 			valaDevelopItemType _tmp33_;
@@ -6358,7 +6387,7 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			_tmp33_ = itemType;
 #line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp33_ == VALA_DEVELOP_ITEM_TYPE_Resource) {
-#line 6362 "main_paned.c"
+#line 6391 "main_paned.c"
 				GtkMenu* _tmp34_;
 				GList* _tmp35_;
 				GList* _tmp36_;
@@ -6381,15 +6410,15 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 				_tmp32_ = g_strcmp0 (_tmp39_, _ ("Open with Sourceeditor")) != 0;
 #line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				(_tmp36_ == NULL) ? NULL : (_tmp36_ = (g_list_free (_tmp36_), NULL));
-#line 6385 "main_paned.c"
+#line 6414 "main_paned.c"
 			} else {
 #line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp32_ = FALSE;
-#line 6389 "main_paned.c"
+#line 6418 "main_paned.c"
 			}
 #line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp32_) {
-#line 6393 "main_paned.c"
+#line 6422 "main_paned.c"
 				GtkMenuItem* menuItem = NULL;
 				GtkMenuItem* _tmp40_;
 				GtkMenuItem* _tmp41_;
@@ -6418,13 +6447,13 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 				gtk_menu_shell_prepend ((GtkMenuShell*) _tmp43_, (GtkWidget*) _tmp44_);
 #line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (menuItem);
-#line 6422 "main_paned.c"
+#line 6451 "main_paned.c"
 			}
 #line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp46_ = itemType;
 #line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp46_ != VALA_DEVELOP_ITEM_TYPE_Resource) {
-#line 6428 "main_paned.c"
+#line 6457 "main_paned.c"
 				GtkMenu* _tmp47_;
 				GList* _tmp48_;
 				GList* _tmp49_;
@@ -6447,15 +6476,15 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 				_tmp45_ = g_strcmp0 (_tmp52_, _ ("Open with Sourceeditor")) == 0;
 #line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				(_tmp49_ == NULL) ? NULL : (_tmp49_ = (g_list_free (_tmp49_), NULL));
-#line 6451 "main_paned.c"
+#line 6480 "main_paned.c"
 			} else {
 #line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp45_ = FALSE;
-#line 6455 "main_paned.c"
+#line 6484 "main_paned.c"
 			}
 #line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp45_) {
-#line 6459 "main_paned.c"
+#line 6488 "main_paned.c"
 				GtkMenu* _tmp53_;
 				GtkMenu* _tmp54_;
 				GList* _tmp55_;
@@ -6475,7 +6504,7 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 				gtk_container_remove ((GtkContainer*) _tmp53_, (GtkWidget*) _tmp57_);
 #line 634 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				(_tmp56_ == NULL) ? NULL : (_tmp56_ = (g_list_free (_tmp56_), NULL));
-#line 6479 "main_paned.c"
+#line 6508 "main_paned.c"
 			}
 #line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp58_ = self->priv->itemContext;
@@ -6489,12 +6518,12 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 			gtk_menu_popup_at_rect (_tmp58_, _tmp60_, &_tmp61_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, args);
 #line 637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 6493 "main_paned.c"
+#line 6522 "main_paned.c"
 		}
 		default:
 #line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		break;
-#line 6498 "main_paned.c"
+#line 6527 "main_paned.c"
 	}
 #line 596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (model);
@@ -6502,7 +6531,7 @@ vala_develop_main_paned_ShowContextMenu (valaDevelopMainPaned* self,
 	_g_object_unref0 (tmpModel);
 #line 596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6506 "main_paned.c"
+#line 6535 "main_paned.c"
 }
 
 static void
@@ -6558,7 +6587,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 	_tmp12_ = _tmp11_;
 #line 645 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp12_) {
-#line 6562 "main_paned.c"
+#line 6591 "main_paned.c"
 		GtkTextIter selectionStart = {0};
 		GtkTextIter selectionStop = {0};
 		GtkSourceView* _tmp13_;
@@ -6581,7 +6610,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 		selectionStop = _tmp17_;
 #line 649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp18_) {
-#line 6585 "main_paned.c"
+#line 6614 "main_paned.c"
 			gint x = 0;
 			gint y = 0;
 #line 651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -6592,26 +6621,26 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 			y = gtk_text_iter_get_line (&selectionStop);
 #line 655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (gtk_text_iter_get_line_offset (&selectionStop) == 0) {
-#line 6596 "main_paned.c"
+#line 6625 "main_paned.c"
 				gint _tmp19_;
 #line 656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp19_ = y;
 #line 656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				y = _tmp19_ - 1;
-#line 6602 "main_paned.c"
+#line 6631 "main_paned.c"
 			}
 			{
 				gint i = 0;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				i = x;
-#line 6608 "main_paned.c"
+#line 6637 "main_paned.c"
 				{
 					gboolean _tmp20_ = FALSE;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp20_ = TRUE;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					while (TRUE) {
-#line 6615 "main_paned.c"
+#line 6644 "main_paned.c"
 						GtkTextIter twobyteIter = {0};
 						GtkTextIter _tmp22_;
 						GtkSourceView* _tmp23_;
@@ -6624,13 +6653,13 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 						gboolean _tmp30_;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (!_tmp20_) {
-#line 6628 "main_paned.c"
+#line 6657 "main_paned.c"
 							gint _tmp21_;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp21_ = i;
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							i = _tmp21_ + 1;
-#line 6634 "main_paned.c"
+#line 6663 "main_paned.c"
 						}
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp20_ = FALSE;
@@ -6638,7 +6667,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 						if (!(i <= y)) {
 #line 658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							break;
-#line 6642 "main_paned.c"
+#line 6671 "main_paned.c"
 						}
 #line 660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp22_ = selectionStart;
@@ -6666,7 +6695,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 						_g_free0 (_tmp29_);
 #line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (_tmp30_) {
-#line 6670 "main_paned.c"
+#line 6699 "main_paned.c"
 							GtkSourceView* _tmp31_;
 							GtkTextBuffer* _tmp32_;
 							GtkTextBuffer* _tmp33_;
@@ -6678,7 +6707,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 							_tmp33_ = _tmp32_;
 #line 663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							gtk_text_buffer_delete (_tmp33_, &selectionStart, &twobyteIter);
-#line 6682 "main_paned.c"
+#line 6711 "main_paned.c"
 						} else {
 							GtkSourceView* _tmp34_;
 							GtkTextBuffer* _tmp35_;
@@ -6691,13 +6720,13 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 							_tmp36_ = _tmp35_;
 #line 665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							gtk_text_buffer_insert (_tmp36_, &selectionStart, "//", 2);
-#line 6695 "main_paned.c"
+#line 6724 "main_paned.c"
 						}
 #line 666 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						gtk_text_iter_forward_line (&selectionStart);
 #line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						gtk_text_iter_set_line_offset (&selectionStart, 0);
-#line 6701 "main_paned.c"
+#line 6730 "main_paned.c"
 					}
 				}
 			}
@@ -6707,7 +6736,7 @@ vala_develop_main_paned_OnToggleLineComments (valaDevelopMainPaned* self,
 	_g_object_unref0 (sourceView);
 #line 641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 6711 "main_paned.c"
+#line 6740 "main_paned.c"
 }
 
 static void
@@ -6764,7 +6793,7 @@ vala_develop_main_paned_OnEditReferences (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 673 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6768 "main_paned.c"
+#line 6797 "main_paned.c"
 }
 
 static void
@@ -6809,7 +6838,7 @@ vala_develop_main_paned_OnNewResourceFile (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6813 "main_paned.c"
+#line 6842 "main_paned.c"
 }
 
 static void
@@ -6854,7 +6883,7 @@ vala_develop_main_paned_OnAddResourceFile (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 693 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6858 "main_paned.c"
+#line 6887 "main_paned.c"
 }
 
 static void
@@ -6899,7 +6928,7 @@ vala_develop_main_paned_OnAddNewFile (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6903 "main_paned.c"
+#line 6932 "main_paned.c"
 }
 
 static void
@@ -6944,7 +6973,7 @@ vala_develop_main_paned_OnAddExistingFile (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6948 "main_paned.c"
+#line 6977 "main_paned.c"
 }
 
 static void
@@ -6989,7 +7018,7 @@ vala_develop_main_paned_OnAddFolder (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 6993 "main_paned.c"
+#line 7022 "main_paned.c"
 }
 
 static void
@@ -7034,7 +7063,7 @@ vala_develop_main_paned_OnAddNewProject (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7038 "main_paned.c"
+#line 7067 "main_paned.c"
 }
 
 static void
@@ -7079,7 +7108,7 @@ vala_develop_main_paned_OnRenameFolder (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7083 "main_paned.c"
+#line 7112 "main_paned.c"
 }
 
 static void
@@ -7124,7 +7153,7 @@ vala_develop_main_paned_OnRemoveFolder (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 747 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7128 "main_paned.c"
+#line 7157 "main_paned.c"
 }
 
 static void
@@ -7140,7 +7169,7 @@ vala_develop_main_paned_OnCloseSolution (valaDevelopMainPaned* self,
 	_tmp0_ = self->_parentClass;
 #line 759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_window_UnloadSolution (_tmp0_);
-#line 7144 "main_paned.c"
+#line 7173 "main_paned.c"
 }
 
 static void
@@ -7175,7 +7204,7 @@ vala_develop_main_paned_reset_status (valaDevelopMainPaned* self)
 	_tmp6_ = _tmp5_;
 #line 766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set (_tmp6_, "text", "", NULL);
-#line 7179 "main_paned.c"
+#line 7208 "main_paned.c"
 }
 
 static void
@@ -7219,7 +7248,7 @@ vala_develop_main_paned_OnCloseSource (valaDevelopMainPaned* self,
 	_tmp8_ = sourceView;
 #line 773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp8_ != NULL) {
-#line 7223 "main_paned.c"
+#line 7252 "main_paned.c"
 		GtkSourceView* _tmp9_;
 		GtkTextBuffer* _tmp10_;
 		GtkTextBuffer* _tmp11_;
@@ -7235,7 +7264,7 @@ vala_develop_main_paned_OnCloseSource (valaDevelopMainPaned* self,
 		_tmp11_ = _tmp10_;
 #line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (gtk_text_buffer_get_modified (_tmp11_)) {
-#line 7239 "main_paned.c"
+#line 7268 "main_paned.c"
 			valaDevelopTabHeader* tabLabel = NULL;
 			GtkNotebook* _tmp12_;
 			GtkNotebook* _tmp13_;
@@ -7268,7 +7297,7 @@ vala_develop_main_paned_OnCloseSource (valaDevelopMainPaned* self,
 			_tmp20_ = tabLabel;
 #line 778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp20_ != NULL) {
-#line 7272 "main_paned.c"
+#line 7301 "main_paned.c"
 				GtkSourceView* _tmp21_;
 				GtkTextBuffer* _tmp22_;
 				GtkTextBuffer* _tmp23_;
@@ -7297,12 +7326,12 @@ vala_develop_main_paned_OnCloseSource (valaDevelopMainPaned* self,
 					_g_object_unref0 (overlay);
 #line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return;
-#line 7301 "main_paned.c"
+#line 7330 "main_paned.c"
 				}
 			}
 #line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (tabLabel);
-#line 7306 "main_paned.c"
+#line 7335 "main_paned.c"
 		}
 #line 784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp27_ = self->documentTab;
@@ -7314,13 +7343,13 @@ vala_develop_main_paned_OnCloseSource (valaDevelopMainPaned* self,
 		_tmp30_ = _tmp29_;
 #line 784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_notebook_remove_page (_tmp27_, _tmp30_);
-#line 7318 "main_paned.c"
+#line 7347 "main_paned.c"
 	}
 #line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (sourceView);
 #line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 7324 "main_paned.c"
+#line 7353 "main_paned.c"
 }
 
 static void
@@ -7429,7 +7458,7 @@ vala_develop_main_paned_OnOpenAsSource (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 788 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7433 "main_paned.c"
+#line 7462 "main_paned.c"
 }
 
 static void
@@ -7471,7 +7500,7 @@ vala_develop_main_paned_OnSaveSource (valaDevelopMainPaned* self,
 	_tmp8_ = tabLabel;
 #line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp8_ != NULL) {
-#line 7475 "main_paned.c"
+#line 7504 "main_paned.c"
 		GtkSourceBuffer* buffer = NULL;
 		valaDevelopTabHeader* _tmp9_;
 		GtkSourceBuffer* _tmp10_;
@@ -7486,7 +7515,7 @@ vala_develop_main_paned_OnSaveSource (valaDevelopMainPaned* self,
 		_tmp11_ = buffer;
 #line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp11_ != NULL) {
-#line 7490 "main_paned.c"
+#line 7519 "main_paned.c"
 			valaDevelopTabHeader* _tmp12_;
 			const gchar* _tmp13_;
 			const gchar* _tmp14_;
@@ -7522,21 +7551,21 @@ vala_develop_main_paned_OnSaveSource (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 810 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 7526 "main_paned.c"
+#line 7555 "main_paned.c"
 			}
 #line 811 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp18_ = buffer;
 #line 811 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_text_buffer_set_modified ((GtkTextBuffer*) _tmp18_, FALSE);
-#line 7532 "main_paned.c"
+#line 7561 "main_paned.c"
 		}
 #line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (buffer);
-#line 7536 "main_paned.c"
+#line 7565 "main_paned.c"
 	}
 #line 802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (tabLabel);
-#line 7540 "main_paned.c"
+#line 7569 "main_paned.c"
 }
 
 static void
@@ -7581,7 +7610,7 @@ vala_develop_main_paned_OnRenameItem (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 816 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7585 "main_paned.c"
+#line 7614 "main_paned.c"
 }
 
 static void
@@ -7626,7 +7655,7 @@ vala_develop_main_paned_OnRemoveItem (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 7630 "main_paned.c"
+#line 7659 "main_paned.c"
 }
 
 static Block27Data*
@@ -7636,7 +7665,7 @@ block27_data_ref (Block27Data* _data27_)
 	g_atomic_int_inc (&_data27_->_ref_count_);
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data27_;
-#line 7640 "main_paned.c"
+#line 7669 "main_paned.c"
 }
 
 static void
@@ -7646,7 +7675,7 @@ block27_data_unref (void * _userdata_)
 	_data27_ = (Block27Data*) _userdata_;
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data27_->_ref_count_)) {
-#line 7650 "main_paned.c"
+#line 7679 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data27_->self;
@@ -7656,12 +7685,12 @@ block27_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block27Data, _data27_);
-#line 7660 "main_paned.c"
+#line 7689 "main_paned.c"
 	}
 }
 
 static void
-__lambda80_ (Block27Data* _data27_,
+__lambda88_ (Block27Data* _data27_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -7671,7 +7700,7 @@ __lambda80_ (Block27Data* _data27_,
 	g_return_if_fail (widget != NULL);
 #line 842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE)) {
-#line 7675 "main_paned.c"
+#line 7704 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp0_;
 #line 844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE) ? ((valaDevelopSearchAndReplace*) widget) : NULL);
@@ -7681,17 +7710,17 @@ __lambda80_ (Block27Data* _data27_,
 		_data27_->sr = _tmp0_;
 #line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 7685 "main_paned.c"
+#line 7714 "main_paned.c"
 	}
 }
 
 static void
-___lambda80__gtk_callback (GtkWidget* widget,
+___lambda88__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda80_ (self, widget);
-#line 7695 "main_paned.c"
+	__lambda88_ (self, widget);
+#line 7724 "main_paned.c"
 }
 
 static void
@@ -7761,12 +7790,12 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 #line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = overlay;
 #line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp6_, ___lambda80__gtk_callback, _data27_);
+	gtk_container_foreach ((GtkContainer*) _tmp6_, ___lambda88__gtk_callback, _data27_);
 #line 848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = _data27_->sr;
 #line 848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp7_ != NULL) {
-#line 7770 "main_paned.c"
+#line 7799 "main_paned.c"
 		GtkTextIter start = {0};
 		GtkTextIter end = {0};
 		GtkSourceView* _tmp8_;
@@ -7792,7 +7821,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 		end = _tmp12_;
 #line 852 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp13_) {
-#line 7796 "main_paned.c"
+#line 7825 "main_paned.c"
 			valaDevelopSearchAndReplace* _tmp14_;
 			GtkEntry* _tmp15_;
 			GtkSourceView* _tmp16_;
@@ -7824,7 +7853,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 			gtk_entry_set_text (_tmp15_, _tmp22_);
 #line 854 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp22_);
-#line 7828 "main_paned.c"
+#line 7857 "main_paned.c"
 		}
 #line 856 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = _data27_->sr;
@@ -7848,7 +7877,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 		_data27_ = NULL;
 #line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 7852 "main_paned.c"
+#line 7881 "main_paned.c"
 	}
 #line 861 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp26_ = textView;
@@ -7906,7 +7935,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 	end = _tmp44_;
 #line 868 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp45_) {
-#line 7910 "main_paned.c"
+#line 7939 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp46_;
 		GtkEntry* _tmp47_;
 		GtkSourceView* _tmp48_;
@@ -7938,7 +7967,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 		gtk_entry_set_text (_tmp47_, _tmp54_);
 #line 870 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp54_);
-#line 7942 "main_paned.c"
+#line 7971 "main_paned.c"
 	}
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (searchReplace);
@@ -7950,7 +7979,7 @@ vala_develop_main_paned_OnFind (valaDevelopMainPaned* self,
 	block27_data_unref (_data27_);
 #line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data27_ = NULL;
-#line 7954 "main_paned.c"
+#line 7983 "main_paned.c"
 }
 
 static Block28Data*
@@ -7960,7 +7989,7 @@ block28_data_ref (Block28Data* _data28_)
 	g_atomic_int_inc (&_data28_->_ref_count_);
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data28_;
-#line 7964 "main_paned.c"
+#line 7993 "main_paned.c"
 }
 
 static void
@@ -7970,7 +7999,7 @@ block28_data_unref (void * _userdata_)
 	_data28_ = (Block28Data*) _userdata_;
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data28_->_ref_count_)) {
-#line 7974 "main_paned.c"
+#line 8003 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data28_->self;
@@ -7980,12 +8009,12 @@ block28_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block28Data, _data28_);
-#line 7984 "main_paned.c"
+#line 8013 "main_paned.c"
 	}
 }
 
 static void
-__lambda81_ (Block28Data* _data28_,
+__lambda89_ (Block28Data* _data28_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -7995,7 +8024,7 @@ __lambda81_ (Block28Data* _data28_,
 	g_return_if_fail (widget != NULL);
 #line 880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE)) {
-#line 7999 "main_paned.c"
+#line 8028 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp0_;
 #line 882 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE) ? ((valaDevelopSearchAndReplace*) widget) : NULL);
@@ -8005,17 +8034,17 @@ __lambda81_ (Block28Data* _data28_,
 		_data28_->sr = _tmp0_;
 #line 883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8009 "main_paned.c"
+#line 8038 "main_paned.c"
 	}
 }
 
 static void
-___lambda81__gtk_callback (GtkWidget* widget,
+___lambda89__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda81_ (self, widget);
-#line 8019 "main_paned.c"
+	__lambda89_ (self, widget);
+#line 8048 "main_paned.c"
 }
 
 static void
@@ -8053,18 +8082,18 @@ vala_develop_main_paned_OnFindNext (valaDevelopMainPaned* self,
 #line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = overlay;
 #line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda81__gtk_callback, _data28_);
+	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda89__gtk_callback, _data28_);
 #line 886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _data28_->sr;
 #line 886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp5_ != NULL) {
-#line 8062 "main_paned.c"
+#line 8091 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp6_;
 #line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = _data28_->sr;
 #line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_search_and_replace_OnSelectNext (_tmp6_);
-#line 8068 "main_paned.c"
+#line 8097 "main_paned.c"
 	}
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
@@ -8072,7 +8101,7 @@ vala_develop_main_paned_OnFindNext (valaDevelopMainPaned* self,
 	block28_data_unref (_data28_);
 #line 874 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data28_ = NULL;
-#line 8076 "main_paned.c"
+#line 8105 "main_paned.c"
 }
 
 static Block29Data*
@@ -8082,7 +8111,7 @@ block29_data_ref (Block29Data* _data29_)
 	g_atomic_int_inc (&_data29_->_ref_count_);
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data29_;
-#line 8086 "main_paned.c"
+#line 8115 "main_paned.c"
 }
 
 static void
@@ -8092,7 +8121,7 @@ block29_data_unref (void * _userdata_)
 	_data29_ = (Block29Data*) _userdata_;
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data29_->_ref_count_)) {
-#line 8096 "main_paned.c"
+#line 8125 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data29_->self;
@@ -8102,12 +8131,12 @@ block29_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block29Data, _data29_);
-#line 8106 "main_paned.c"
+#line 8135 "main_paned.c"
 	}
 }
 
 static void
-__lambda82_ (Block29Data* _data29_,
+__lambda90_ (Block29Data* _data29_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -8117,7 +8146,7 @@ __lambda82_ (Block29Data* _data29_,
 	g_return_if_fail (widget != NULL);
 #line 896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE)) {
-#line 8121 "main_paned.c"
+#line 8150 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp0_;
 #line 898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE) ? ((valaDevelopSearchAndReplace*) widget) : NULL);
@@ -8127,17 +8156,17 @@ __lambda82_ (Block29Data* _data29_,
 		_data29_->sr = _tmp0_;
 #line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8131 "main_paned.c"
+#line 8160 "main_paned.c"
 	}
 }
 
 static void
-___lambda82__gtk_callback (GtkWidget* widget,
+___lambda90__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda82_ (self, widget);
-#line 8141 "main_paned.c"
+	__lambda90_ (self, widget);
+#line 8170 "main_paned.c"
 }
 
 static void
@@ -8175,18 +8204,18 @@ vala_develop_main_paned_OnFindPrev (valaDevelopMainPaned* self,
 #line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = overlay;
 #line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda82__gtk_callback, _data29_);
+	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda90__gtk_callback, _data29_);
 #line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _data29_->sr;
 #line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp5_ != NULL) {
-#line 8184 "main_paned.c"
+#line 8213 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp6_;
 #line 903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = _data29_->sr;
 #line 903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_search_and_replace_OnSelectPrev (_tmp6_);
-#line 8190 "main_paned.c"
+#line 8219 "main_paned.c"
 	}
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
@@ -8194,7 +8223,7 @@ vala_develop_main_paned_OnFindPrev (valaDevelopMainPaned* self,
 	block29_data_unref (_data29_);
 #line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data29_ = NULL;
-#line 8198 "main_paned.c"
+#line 8227 "main_paned.c"
 }
 
 static Block30Data*
@@ -8204,7 +8233,7 @@ block30_data_ref (Block30Data* _data30_)
 	g_atomic_int_inc (&_data30_->_ref_count_);
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data30_;
-#line 8208 "main_paned.c"
+#line 8237 "main_paned.c"
 }
 
 static void
@@ -8214,7 +8243,7 @@ block30_data_unref (void * _userdata_)
 	_data30_ = (Block30Data*) _userdata_;
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data30_->_ref_count_)) {
-#line 8218 "main_paned.c"
+#line 8247 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data30_->self;
@@ -8224,12 +8253,12 @@ block30_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block30Data, _data30_);
-#line 8228 "main_paned.c"
+#line 8257 "main_paned.c"
 	}
 }
 
 static void
-__lambda83_ (Block30Data* _data30_,
+__lambda91_ (Block30Data* _data30_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -8239,7 +8268,7 @@ __lambda83_ (Block30Data* _data30_,
 	g_return_if_fail (widget != NULL);
 #line 913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE)) {
-#line 8243 "main_paned.c"
+#line 8272 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp0_;
 #line 915 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE) ? ((valaDevelopSearchAndReplace*) widget) : NULL);
@@ -8249,17 +8278,17 @@ __lambda83_ (Block30Data* _data30_,
 		_data30_->sr = _tmp0_;
 #line 916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8253 "main_paned.c"
+#line 8282 "main_paned.c"
 	}
 }
 
 static void
-___lambda83__gtk_callback (GtkWidget* widget,
+___lambda91__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda83_ (self, widget);
-#line 8263 "main_paned.c"
+	__lambda91_ (self, widget);
+#line 8292 "main_paned.c"
 }
 
 static void
@@ -8329,12 +8358,12 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 #line 911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = overlay;
 #line 911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp6_, ___lambda83__gtk_callback, _data30_);
+	gtk_container_foreach ((GtkContainer*) _tmp6_, ___lambda91__gtk_callback, _data30_);
 #line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = _data30_->sr;
 #line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp7_ != NULL) {
-#line 8338 "main_paned.c"
+#line 8367 "main_paned.c"
 		GtkTextIter start = {0};
 		GtkTextIter end = {0};
 		GtkSourceView* _tmp8_;
@@ -8360,7 +8389,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 		end = _tmp12_;
 #line 923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp13_) {
-#line 8364 "main_paned.c"
+#line 8393 "main_paned.c"
 			valaDevelopSearchAndReplace* _tmp14_;
 			GtkEntry* _tmp15_;
 			GtkSourceView* _tmp16_;
@@ -8392,7 +8421,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 			gtk_entry_set_text (_tmp15_, _tmp22_);
 #line 925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp22_);
-#line 8396 "main_paned.c"
+#line 8425 "main_paned.c"
 		}
 #line 927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = _data30_->sr;
@@ -8416,7 +8445,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 		_data30_ = NULL;
 #line 930 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8420 "main_paned.c"
+#line 8449 "main_paned.c"
 	}
 #line 932 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp26_ = textView;
@@ -8474,7 +8503,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 	end = _tmp44_;
 #line 939 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp45_) {
-#line 8478 "main_paned.c"
+#line 8507 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp46_;
 		GtkEntry* _tmp47_;
 		GtkSourceView* _tmp48_;
@@ -8506,7 +8535,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 		gtk_entry_set_text (_tmp47_, _tmp54_);
 #line 941 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp54_);
-#line 8510 "main_paned.c"
+#line 8539 "main_paned.c"
 	}
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (searchReplace);
@@ -8518,7 +8547,7 @@ vala_develop_main_paned_OnReplace (valaDevelopMainPaned* self,
 	block30_data_unref (_data30_);
 #line 906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data30_ = NULL;
-#line 8522 "main_paned.c"
+#line 8551 "main_paned.c"
 }
 
 static Block31Data*
@@ -8528,7 +8557,7 @@ block31_data_ref (Block31Data* _data31_)
 	g_atomic_int_inc (&_data31_->_ref_count_);
 #line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data31_;
-#line 8532 "main_paned.c"
+#line 8561 "main_paned.c"
 }
 
 static void
@@ -8538,7 +8567,7 @@ block31_data_unref (void * _userdata_)
 	_data31_ = (Block31Data*) _userdata_;
 #line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data31_->_ref_count_)) {
-#line 8542 "main_paned.c"
+#line 8571 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data31_->self;
@@ -8548,12 +8577,12 @@ block31_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block31Data, _data31_);
-#line 8552 "main_paned.c"
+#line 8581 "main_paned.c"
 	}
 }
 
 static void
-__lambda84_ (Block31Data* _data31_,
+__lambda92_ (Block31Data* _data31_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -8563,7 +8592,7 @@ __lambda84_ (Block31Data* _data31_,
 	g_return_if_fail (widget != NULL);
 #line 951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE)) {
-#line 8567 "main_paned.c"
+#line 8596 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp0_;
 #line 953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE) ? ((valaDevelopSearchAndReplace*) widget) : NULL);
@@ -8573,17 +8602,17 @@ __lambda84_ (Block31Data* _data31_,
 		_data31_->sr = _tmp0_;
 #line 954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8577 "main_paned.c"
+#line 8606 "main_paned.c"
 	}
 }
 
 static void
-___lambda84__gtk_callback (GtkWidget* widget,
+___lambda92__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda84_ (self, widget);
-#line 8587 "main_paned.c"
+	__lambda92_ (self, widget);
+#line 8616 "main_paned.c"
 }
 
 static void
@@ -8639,12 +8668,12 @@ vala_develop_main_paned_OnGoto (valaDevelopMainPaned* self,
 #line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = overlay;
 #line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda84__gtk_callback, _data31_);
+	gtk_container_foreach ((GtkContainer*) _tmp4_, ___lambda92__gtk_callback, _data31_);
 #line 957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _data31_->sr;
 #line 957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp5_ != NULL) {
-#line 8648 "main_paned.c"
+#line 8677 "main_paned.c"
 		valaDevelopSearchAndReplace* _tmp6_;
 		valaDevelopSearchAndReplace* _tmp7_;
 		valaDevelopSearchAndReplace* _tmp8_;
@@ -8668,7 +8697,7 @@ vala_develop_main_paned_OnGoto (valaDevelopMainPaned* self,
 		_data31_ = NULL;
 #line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 8672 "main_paned.c"
+#line 8701 "main_paned.c"
 	}
 #line 964 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = overlay;
@@ -8728,7 +8757,7 @@ vala_develop_main_paned_OnGoto (valaDevelopMainPaned* self,
 	block31_data_unref (_data31_);
 #line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data31_ = NULL;
-#line 8732 "main_paned.c"
+#line 8761 "main_paned.c"
 }
 
 static void
@@ -8767,7 +8796,7 @@ vala_develop_main_paned_OnFindInFiles (valaDevelopMainPaned* self,
 	_tmp5_ = overlay;
 #line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp5_ != NULL) {
-#line 8771 "main_paned.c"
+#line 8800 "main_paned.c"
 		GtkSourceView* textView = NULL;
 		GtkOverlay* _tmp6_;
 		GtkSourceView* _tmp7_;
@@ -8829,7 +8858,7 @@ vala_develop_main_paned_OnFindInFiles (valaDevelopMainPaned* self,
 		end = _tmp19_;
 #line 985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp20_) {
-#line 8833 "main_paned.c"
+#line 8862 "main_paned.c"
 			GtkSourceView* _tmp21_;
 			GtkTextBuffer* _tmp22_;
 			GtkTextBuffer* _tmp23_;
@@ -8852,7 +8881,7 @@ vala_develop_main_paned_OnFindInFiles (valaDevelopMainPaned* self,
 			_g_free0 (search_what);
 #line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			search_what = _tmp26_;
-#line 8856 "main_paned.c"
+#line 8885 "main_paned.c"
 		}
 #line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (model);
@@ -8860,7 +8889,7 @@ vala_develop_main_paned_OnFindInFiles (valaDevelopMainPaned* self,
 		_g_object_unref0 (aTreeSelection);
 #line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (textView);
-#line 8864 "main_paned.c"
+#line 8893 "main_paned.c"
 	}
 #line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp27_ = vala_develop_search_dialog_new ((GtkWidget*) self);
@@ -8884,7 +8913,7 @@ vala_develop_main_paned_OnFindInFiles (valaDevelopMainPaned* self,
 	_g_object_unref0 (overlay);
 #line 972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (search_what);
-#line 8888 "main_paned.c"
+#line 8917 "main_paned.c"
 }
 
 static void
@@ -8941,7 +8970,7 @@ vala_develop_main_paned_OnReplaceInFiles (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 8945 "main_paned.c"
+#line 8974 "main_paned.c"
 }
 
 static void
@@ -8950,7 +8979,7 @@ vala_develop_main_paned_OnRemoveBreakpoints (valaDevelopMainPaned* self,
 {
 #line 1005 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 8954 "main_paned.c"
+#line 8983 "main_paned.c"
 }
 
 static gint
@@ -8958,7 +8987,7 @@ _variant_get1 (GVariant* value)
 {
 #line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return g_variant_get_int32 (value);
-#line 8962 "main_paned.c"
+#line 8991 "main_paned.c"
 }
 
 static gint
@@ -8966,7 +8995,7 @@ _variant_get2 (GVariant* value)
 {
 #line 1035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return g_variant_get_int32 (value);
-#line 8970 "main_paned.c"
+#line 8999 "main_paned.c"
 }
 
 static void
@@ -9004,7 +9033,7 @@ vala_develop_main_paned_OnToggleBreakpoint (valaDevelopMainPaned* self,
 	_tmp6_ = textView;
 #line 1028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 9008 "main_paned.c"
+#line 9037 "main_paned.c"
 		GtkTextIter currentIter = {0};
 		GtkSourceView* _tmp7_;
 		GtkTextBuffer* _tmp8_;
@@ -9047,7 +9076,7 @@ vala_develop_main_paned_OnToggleBreakpoint (valaDevelopMainPaned* self,
 		_tmp15_ = _variant_get1 (parameter);
 #line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp15_ != 0) {
-#line 9051 "main_paned.c"
+#line 9080 "main_paned.c"
 			GtkSourceView* _tmp16_;
 			GtkTextBuffer* _tmp17_;
 			GtkTextBuffer* _tmp18_;
@@ -9067,7 +9096,7 @@ vala_develop_main_paned_OnToggleBreakpoint (valaDevelopMainPaned* self,
 			_tmp20_ = _variant_get2 (parameter);
 #line 1035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_text_iter_forward_lines (&currentIter, _tmp20_);
-#line 9071 "main_paned.c"
+#line 9100 "main_paned.c"
 		}
 #line 1037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_iter_backward_chars (&currentIter, gtk_text_iter_get_line_offset (&currentIter));
@@ -9097,13 +9126,13 @@ vala_develop_main_paned_OnToggleBreakpoint (valaDevelopMainPaned* self,
 		_g_object_unref0 (breakPointRenderer);
 #line 1028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (gutter);
-#line 9101 "main_paned.c"
+#line 9130 "main_paned.c"
 	}
 #line 1024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (textView);
 #line 1024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 9107 "main_paned.c"
+#line 9136 "main_paned.c"
 }
 
 static void
@@ -9141,7 +9170,7 @@ vala_develop_main_paned_OnToggleBookmark (valaDevelopMainPaned* self,
 	_tmp6_ = textView;
 #line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 9145 "main_paned.c"
+#line 9174 "main_paned.c"
 		valaDevelopTabHeader* tabLabel = NULL;
 		GtkNotebook* _tmp7_;
 		GtkNotebook* _tmp8_;
@@ -9217,7 +9246,7 @@ vala_develop_main_paned_OnToggleBookmark (valaDevelopMainPaned* self,
 		(_tmp26_ == NULL) ? NULL : (_tmp26_ = (g_slist_free (_tmp26_), NULL));
 #line 1054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp27_) {
-#line 9221 "main_paned.c"
+#line 9250 "main_paned.c"
 			GtkSourceMark* source_mark = NULL;
 			GtkTextBuffer* _tmp28_;
 			GtkTextIter _tmp29_;
@@ -9265,7 +9294,7 @@ vala_develop_main_paned_OnToggleBookmark (valaDevelopMainPaned* self,
 			vala_develop_del_bookmark_from_solution (gtk_text_iter_get_line (&currentIter), _tmp39_);
 #line 1054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (source_mark);
-#line 9269 "main_paned.c"
+#line 9298 "main_paned.c"
 		} else {
 			GtkTextBuffer* _tmp40_;
 			GtkTextIter _tmp41_;
@@ -9286,17 +9315,17 @@ vala_develop_main_paned_OnToggleBookmark (valaDevelopMainPaned* self,
 			_tmp44_ = _tmp43_;
 #line 1063 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_add_bookmark_to_solution (gtk_text_iter_get_line (&currentIter), _tmp44_);
-#line 9290 "main_paned.c"
+#line 9319 "main_paned.c"
 		}
 #line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (tabLabel);
-#line 9294 "main_paned.c"
+#line 9323 "main_paned.c"
 	}
 #line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (textView);
 #line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 9300 "main_paned.c"
+#line 9329 "main_paned.c"
 }
 
 static Block32Data*
@@ -9306,7 +9335,7 @@ block32_data_ref (Block32Data* _data32_)
 	g_atomic_int_inc (&_data32_->_ref_count_);
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data32_;
-#line 9310 "main_paned.c"
+#line 9339 "main_paned.c"
 }
 
 static void
@@ -9316,7 +9345,7 @@ block32_data_unref (void * _userdata_)
 	_data32_ = (Block32Data*) _userdata_;
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data32_->_ref_count_)) {
-#line 9320 "main_paned.c"
+#line 9349 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data32_->self;
@@ -9328,7 +9357,7 @@ block32_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block32Data, _data32_);
-#line 9332 "main_paned.c"
+#line 9361 "main_paned.c"
 	}
 }
 
@@ -9339,7 +9368,7 @@ block33_data_ref (Block33Data* _data33_)
 	g_atomic_int_inc (&_data33_->_ref_count_);
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data33_;
-#line 9343 "main_paned.c"
+#line 9372 "main_paned.c"
 }
 
 static void
@@ -9349,7 +9378,7 @@ block33_data_unref (void * _userdata_)
 	_data33_ = (Block33Data*) _userdata_;
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data33_->_ref_count_)) {
-#line 9353 "main_paned.c"
+#line 9382 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data33_->_data32_->self;
@@ -9359,7 +9388,7 @@ block33_data_unref (void * _userdata_)
 		_data33_->_data32_ = NULL;
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block33Data, _data33_);
-#line 9363 "main_paned.c"
+#line 9392 "main_paned.c"
 	}
 }
 
@@ -9383,7 +9412,7 @@ string_strnlen (gchar* str,
 		result = maxlen;
 #line 1397 "glib-2.0.vapi"
 		return result;
-#line 9387 "main_paned.c"
+#line 9416 "main_paned.c"
 	} else {
 		gchar* _tmp2_;
 #line 1399 "glib-2.0.vapi"
@@ -9392,7 +9421,7 @@ string_strnlen (gchar* str,
 		result = (glong) (_tmp2_ - str);
 #line 1399 "glib-2.0.vapi"
 		return result;
-#line 9396 "main_paned.c"
+#line 9425 "main_paned.c"
 	}
 }
 
@@ -9411,17 +9440,17 @@ string_substring (const gchar* self,
 	if (offset >= ((glong) 0)) {
 #line 1408 "glib-2.0.vapi"
 		_tmp0_ = len >= ((glong) 0);
-#line 9415 "main_paned.c"
+#line 9444 "main_paned.c"
 	} else {
 #line 1408 "glib-2.0.vapi"
 		_tmp0_ = FALSE;
-#line 9419 "main_paned.c"
+#line 9448 "main_paned.c"
 	}
 #line 1408 "glib-2.0.vapi"
 	if (_tmp0_) {
 #line 1410 "glib-2.0.vapi"
 		string_length = string_strnlen ((gchar*) self, offset + len);
-#line 9425 "main_paned.c"
+#line 9454 "main_paned.c"
 	} else {
 		gint _tmp1_;
 		gint _tmp2_;
@@ -9431,7 +9460,7 @@ string_substring (const gchar* self,
 		_tmp2_ = _tmp1_;
 #line 1412 "glib-2.0.vapi"
 		string_length = (glong) _tmp2_;
-#line 9435 "main_paned.c"
+#line 9464 "main_paned.c"
 	}
 #line 1415 "glib-2.0.vapi"
 	if (offset < ((glong) 0)) {
@@ -9439,17 +9468,17 @@ string_substring (const gchar* self,
 		offset = string_length + offset;
 #line 1417 "glib-2.0.vapi"
 		g_return_val_if_fail (offset >= ((glong) 0), NULL);
-#line 9443 "main_paned.c"
+#line 9472 "main_paned.c"
 	} else {
 #line 1419 "glib-2.0.vapi"
 		g_return_val_if_fail (offset <= string_length, NULL);
-#line 9447 "main_paned.c"
+#line 9476 "main_paned.c"
 	}
 #line 1421 "glib-2.0.vapi"
 	if (len < ((glong) 0)) {
 #line 1422 "glib-2.0.vapi"
 		len = string_length - offset;
-#line 9453 "main_paned.c"
+#line 9482 "main_paned.c"
 	}
 #line 1424 "glib-2.0.vapi"
 	g_return_val_if_fail ((offset + len) <= string_length, NULL);
@@ -9459,11 +9488,11 @@ string_substring (const gchar* self,
 	result = _tmp3_;
 #line 1425 "glib-2.0.vapi"
 	return result;
-#line 9463 "main_paned.c"
+#line 9492 "main_paned.c"
 }
 
 static gboolean
-____lambda86_ (Block33Data* _data33_)
+____lambda94_ (Block33Data* _data33_)
 {
 	Block32Data* _data32_;
 	valaDevelopMainPaned* self;
@@ -9503,7 +9532,7 @@ ____lambda86_ (Block33Data* _data33_)
 	_tmp6_ = _data32_->textView;
 #line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 9507 "main_paned.c"
+#line 9536 "main_paned.c"
 		GtkTextIter iter = {0};
 		GtkSourceView* _tmp7_;
 		GtkTextBuffer* _tmp8_;
@@ -9545,23 +9574,23 @@ ____lambda86_ (Block33Data* _data33_)
 		_tmp16_ = iter;
 #line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp15_, &_tmp16_, (gdouble) 0, TRUE, 0.5, 0.5);
-#line 9549 "main_paned.c"
+#line 9578 "main_paned.c"
 	}
 #line 1126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
 #line 1126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 9555 "main_paned.c"
+#line 9584 "main_paned.c"
 }
 
 static gboolean
-_____lambda86__gsource_func (gpointer self)
+_____lambda94__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda86_ (self);
+	result = ____lambda94_ (self);
 #line 1113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 9565 "main_paned.c"
+#line 9594 "main_paned.c"
 }
 
 static gpointer
@@ -9569,7 +9598,7 @@ _vala_code_node_ref0 (gpointer self)
 {
 #line 1136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return self ? vala_code_node_ref (self) : NULL;
-#line 9573 "main_paned.c"
+#line 9602 "main_paned.c"
 }
 
 static const gchar*
@@ -9582,7 +9611,7 @@ string_to_string (const gchar* self)
 	result = self;
 #line 1517 "glib-2.0.vapi"
 	return result;
-#line 9586 "main_paned.c"
+#line 9615 "main_paned.c"
 }
 
 static Block34Data*
@@ -9592,7 +9621,7 @@ block34_data_ref (Block34Data* _data34_)
 	g_atomic_int_inc (&_data34_->_ref_count_);
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data34_;
-#line 9596 "main_paned.c"
+#line 9625 "main_paned.c"
 }
 
 static void
@@ -9602,7 +9631,7 @@ block34_data_unref (void * _userdata_)
 	_data34_ = (Block34Data*) _userdata_;
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data34_->_ref_count_)) {
-#line 9606 "main_paned.c"
+#line 9635 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data34_->_data32_->self;
@@ -9614,12 +9643,12 @@ block34_data_unref (void * _userdata_)
 		_data34_->_data32_ = NULL;
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block34Data, _data34_);
-#line 9618 "main_paned.c"
+#line 9647 "main_paned.c"
 	}
 }
 
 static void
-____lambda87_ (Block34Data* _data34_,
+____lambda95_ (Block34Data* _data34_,
                valaDevelopTabHeader* sender,
                GdkEventButton* evnt)
 {
@@ -9638,18 +9667,18 @@ ____lambda87_ (Block34Data* _data34_,
 	_tmp0_ = _data34_->tabHeader;
 #line 1174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_close_by_tab_header (self, _tmp0_, evnt);
-#line 9642 "main_paned.c"
+#line 9671 "main_paned.c"
 }
 
 static void
-_____lambda87__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
+_____lambda95__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
                                                       valaDevelopTabHeader* tabHeader,
                                                       GdkEventButton* evnt,
                                                       gpointer self)
 {
 #line 1172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	____lambda87_ (self, tabHeader, evnt);
-#line 9653 "main_paned.c"
+	____lambda95_ (self, tabHeader, evnt);
+#line 9682 "main_paned.c"
 }
 
 static void
@@ -9692,7 +9721,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 	_tmp6_ = _data32_->textView;
 #line 1072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 9696 "main_paned.c"
+#line 9725 "main_paned.c"
 		GtkTextIter currentIter = {0};
 		GtkSourceView* _tmp7_;
 		GtkTextBuffer* _tmp8_;
@@ -9808,7 +9837,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 		end = _tmp20_;
 #line 1079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp21_) {
-#line 9812 "main_paned.c"
+#line 9841 "main_paned.c"
 			GtkSourceView* _tmp22_;
 			GtkTextBuffer* _tmp23_;
 			GtkTextBuffer* _tmp24_;
@@ -9831,7 +9860,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_g_free0 (word);
 #line 1080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			word = _tmp27_;
-#line 9835 "main_paned.c"
+#line 9864 "main_paned.c"
 		} else {
 			GtkSourceView* _tmp28_;
 			GtkTextBuffer* _tmp29_;
@@ -9849,7 +9878,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_g_free0 (word);
 #line 1082 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			word = _tmp31_;
-#line 9853 "main_paned.c"
+#line 9882 "main_paned.c"
 		}
 #line 1083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp32_ = self->documentTab;
@@ -9949,7 +9978,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 		if (_tmp71_ == NULL) {
 #line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp70_ = TRUE;
-#line 9953 "main_paned.c"
+#line 9982 "main_paned.c"
 		} else {
 			ValaSymbol* _tmp72_;
 			ValaSourceReference* _tmp73_;
@@ -9962,7 +9991,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp74_ = _tmp73_;
 #line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp70_ = _tmp74_ == NULL;
-#line 9966 "main_paned.c"
+#line 9995 "main_paned.c"
 		}
 #line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp70_) {
@@ -9982,7 +10011,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_data32_ = NULL;
 #line 1092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 9986 "main_paned.c"
+#line 10015 "main_paned.c"
 		}
 #line 1093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp75_ = g_strdup ("");
@@ -10006,7 +10035,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 		if (_tmp83_ == VALA_SOURCE_FILE_TYPE_SOURCE) {
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp76_ = TRUE;
-#line 10010 "main_paned.c"
+#line 10039 "main_paned.c"
 		} else {
 			ValaSymbol* _tmp84_;
 			ValaSourceReference* _tmp85_;
@@ -10031,11 +10060,11 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp90_ = _tmp89_;
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp76_ = g_str_has_suffix (_tmp90_, ".vala.vapi");
-#line 10035 "main_paned.c"
+#line 10064 "main_paned.c"
 		}
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp76_) {
-#line 10039 "main_paned.c"
+#line 10068 "main_paned.c"
 			Block33Data* _data33_;
 			GFile* sourcePath = NULL;
 			ValaSymbol* _tmp91_;
@@ -10132,7 +10161,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp106_ = vapifile;
 #line 1099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (g_str_has_prefix (_tmp106_, ".")) {
-#line 10136 "main_paned.c"
+#line 10165 "main_paned.c"
 				const gchar* _tmp107_;
 				gchar* _tmp108_;
 #line 1100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -10143,13 +10172,13 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				_g_free0 (vapifile);
 #line 1100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vapifile = _tmp108_;
-#line 10147 "main_paned.c"
+#line 10176 "main_paned.c"
 			}
 #line 1101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp109_ = vapifile;
 #line 1101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (g_str_has_suffix (_tmp109_, ".vapi")) {
-#line 10153 "main_paned.c"
+#line 10182 "main_paned.c"
 				const gchar* _tmp110_;
 				const gchar* _tmp111_;
 				gint _tmp112_;
@@ -10169,7 +10198,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				_g_free0 (vapifile);
 #line 1102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vapifile = _tmp114_;
-#line 10173 "main_paned.c"
+#line 10202 "main_paned.c"
 			}
 #line 1103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp115_ = path;
@@ -10233,7 +10262,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp139_ = _tmp138_;
 #line 1106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (g_str_has_suffix (_tmp139_, ".vala.vapi")) {
-#line 10237 "main_paned.c"
+#line 10266 "main_paned.c"
 				ValaSymbol* _tmp140_;
 				gchar* _tmp141_;
 				ValaSymbol* _tmp142_;
@@ -10254,14 +10283,14 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				_tmp143_ = current_symbol;
 #line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data33_->gotoColumn = vala_code_node_get_attribute_integer ((ValaCodeNode*) _tmp143_, "Source", "column", 0) - 1;
-#line 10258 "main_paned.c"
+#line 10287 "main_paned.c"
 			}
 #line 1112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp144_ = fileToOpen;
 #line 1112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_main_paned_open_source_file (self, _tmp144_);
 #line 1113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda86__gsource_func, block33_data_ref (_data33_), block33_data_unref);
+			g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _____lambda94__gsource_func, block33_data_ref (_data33_), block33_data_unref);
 #line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (fileToOpen);
 #line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -10292,7 +10321,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_data32_ = NULL;
 #line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 10296 "main_paned.c"
+#line 10325 "main_paned.c"
 		} else {
 			gchar* htmlContext = NULL;
 			ValaSymbol* _tmp145_;
@@ -10336,7 +10365,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp155_ = current_symbol;
 #line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp155_, VALA_TYPE_CREATION_METHOD)) {
-#line 10340 "main_paned.c"
+#line 10369 "main_paned.c"
 				ValaSymbol* ns = NULL;
 				ValaSymbol* _tmp156_;
 				ValaSymbol* _tmp157_;
@@ -10351,7 +10380,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				ns = _tmp157_;
 #line 1137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				while (TRUE) {
-#line 10355 "main_paned.c"
+#line 10384 "main_paned.c"
 					ValaSymbol* _tmp158_;
 					ValaSymbol* _tmp159_;
 					ValaSymbol* _tmp160_;
@@ -10363,7 +10392,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 					if (!(!G_TYPE_CHECK_INSTANCE_TYPE (_tmp158_, VALA_TYPE_NAMESPACE))) {
 #line 1137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 10367 "main_paned.c"
+#line 10396 "main_paned.c"
 					}
 #line 1138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp159_ = ns;
@@ -10377,7 +10406,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 					_vala_code_node_unref0 (ns);
 #line 1138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					ns = _tmp162_;
-#line 10381 "main_paned.c"
+#line 10410 "main_paned.c"
 				}
 #line 1139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp163_ = current_symbol;
@@ -10387,7 +10416,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				_tmp165_ = _tmp164_;
 #line 1139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (g_strcmp0 (_tmp165_, ".new") == 0) {
-#line 10391 "main_paned.c"
+#line 10420 "main_paned.c"
 					ValaSymbol* _tmp166_;
 					const gchar* _tmp167_;
 					const gchar* _tmp168_;
@@ -10431,7 +10460,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 					_g_free0 (symbol_full_name);
 #line 1140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					symbol_full_name = _tmp178_;
-#line 10435 "main_paned.c"
+#line 10464 "main_paned.c"
 				} else {
 					ValaSymbol* _tmp179_;
 					const gchar* _tmp180_;
@@ -10488,17 +10517,17 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 					_g_free0 (symbol_full_name);
 #line 1142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					symbol_full_name = _tmp195_;
-#line 10492 "main_paned.c"
+#line 10521 "main_paned.c"
 				}
 #line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_vala_code_node_unref0 (ns);
-#line 10496 "main_paned.c"
+#line 10525 "main_paned.c"
 			}
 #line 1144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp196_ = symbol_full_name;
 #line 1144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (g_str_has_suffix (_tmp196_, ".new")) {
-#line 10502 "main_paned.c"
+#line 10531 "main_paned.c"
 				const gchar* _tmp197_;
 				const gchar* _tmp198_;
 				const gchar* _tmp199_;
@@ -10535,7 +10564,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				html = _tmp206_;
 #line 1145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp204_);
-#line 10539 "main_paned.c"
+#line 10568 "main_paned.c"
 			} else {
 				const gchar* _tmp207_;
 				const gchar* _tmp208_;
@@ -10556,13 +10585,13 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 				_g_free0 (html);
 #line 1147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				html = _tmp211_;
-#line 10560 "main_paned.c"
+#line 10589 "main_paned.c"
 			}
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (symbol_full_name);
 #line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (htmlContext);
-#line 10566 "main_paned.c"
+#line 10595 "main_paned.c"
 		}
 #line 1149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp212_ = html;
@@ -10586,7 +10615,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_data32_ = NULL;
 #line 1150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 10590 "main_paned.c"
+#line 10619 "main_paned.c"
 		}
 #line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		declarationView = NULL;
@@ -10594,7 +10623,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 		_tmp213_ = self->documentTab;
 #line 1152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp214_ = gtk_container_get_children ((GtkContainer*) _tmp213_);
-#line 10598 "main_paned.c"
+#line 10627 "main_paned.c"
 		{
 			GList* child_collection = NULL;
 			GList* child_it = NULL;
@@ -10602,11 +10631,11 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			child_collection = _tmp214_;
 #line 1152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 10606 "main_paned.c"
+#line 10635 "main_paned.c"
 				GtkWidget* child = NULL;
 #line 1152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				child = (GtkWidget*) child_it->data;
-#line 10610 "main_paned.c"
+#line 10639 "main_paned.c"
 				{
 					GtkNotebook* _tmp215_;
 					GtkWidget* _tmp216_;
@@ -10630,7 +10659,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 					_tmp220_ = tabLabel;
 #line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp220_ != NULL) {
-#line 10634 "main_paned.c"
+#line 10663 "main_paned.c"
 						valaDevelopTabHeader* _tmp221_;
 						const gchar* _tmp222_;
 						const gchar* _tmp223_;
@@ -10642,15 +10671,15 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 						_tmp223_ = _tmp222_;
 #line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp219_ = g_strcmp0 (_tmp223_, _ ("Declaration")) == 0;
-#line 10646 "main_paned.c"
+#line 10675 "main_paned.c"
 					} else {
 #line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp219_ = FALSE;
-#line 10650 "main_paned.c"
+#line 10679 "main_paned.c"
 					}
 #line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp219_) {
-#line 10654 "main_paned.c"
+#line 10683 "main_paned.c"
 						GtkWidget* _tmp224_;
 						WebKitWebView* _tmp225_;
 #line 1157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -10663,19 +10692,19 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 						declarationView = _tmp225_;
 #line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 10667 "main_paned.c"
+#line 10696 "main_paned.c"
 					}
 				}
 			}
 #line 1152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 10673 "main_paned.c"
+#line 10702 "main_paned.c"
 		}
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp226_ = declarationView;
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp226_ == NULL) {
-#line 10679 "main_paned.c"
+#line 10708 "main_paned.c"
 			Block34Data* _data34_;
 			WebKitWebView* _tmp227_;
 			GtkOverlay* overlayWidget = NULL;
@@ -10763,7 +10792,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 #line 1172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp239_ = _data34_->tabHeader;
 #line 1172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_signal_connect_data (_tmp239_, "close-clicked", (GCallback) _____lambda87__vala_develop_tab_header_close_clicked, block34_data_ref (_data34_), (GClosureNotify) block34_data_unref, 0);
+			g_signal_connect_data (_tmp239_, "close-clicked", (GCallback) _____lambda95__vala_develop_tab_header_close_clicked, block34_data_ref (_data34_), (GClosureNotify) block34_data_unref, 0);
 #line 1176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp240_ = declarationView;
 #line 1176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -10796,13 +10825,13 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			block34_data_unref (_data34_);
 #line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_data34_ = NULL;
-#line 10800 "main_paned.c"
+#line 10829 "main_paned.c"
 		}
 #line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp247_ = html;
 #line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (g_strcmp0 (_tmp247_, "") != 0) {
-#line 10806 "main_paned.c"
+#line 10835 "main_paned.c"
 			WebKitWebView* _tmp248_;
 			const gchar* _tmp249_;
 #line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -10811,7 +10840,7 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 			_tmp249_ = html;
 #line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			webkit_web_view_load_uri (_tmp248_, _tmp249_);
-#line 10815 "main_paned.c"
+#line 10844 "main_paned.c"
 		}
 #line 1188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_select_tab_fullpath (self, _ ("Declaration"));
@@ -10829,13 +10858,13 @@ vala_develop_main_paned_OnDeclaration (valaDevelopMainPaned* self,
 		_g_object_unref0 (tabLabel);
 #line 1072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (word);
-#line 10833 "main_paned.c"
+#line 10862 "main_paned.c"
 	}
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block32_data_unref (_data32_);
 #line 1068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data32_ = NULL;
-#line 10839 "main_paned.c"
+#line 10868 "main_paned.c"
 }
 
 static void
@@ -10873,7 +10902,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 	_tmp6_ = textView;
 #line 1196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 10877 "main_paned.c"
+#line 10906 "main_paned.c"
 		GtkTextIter currentIter = {0};
 		GtkSourceView* _tmp7_;
 		GtkTextBuffer* _tmp8_;
@@ -10903,7 +10932,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 		currentIter = _tmp14_;
 #line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (TRUE) {
-#line 10907 "main_paned.c"
+#line 10936 "main_paned.c"
 			GtkTextBuffer* _tmp15_;
 			GtkTextIter _tmp16_;
 			GSList* _tmp17_;
@@ -10913,7 +10942,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 			if (!gtk_text_iter_forward_line (&currentIter)) {
 #line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				break;
-#line 10917 "main_paned.c"
+#line 10946 "main_paned.c"
 			}
 #line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp15_ = gtk_text_iter_get_buffer (&currentIter);
@@ -10929,7 +10958,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 			(_tmp18_ == NULL) ? NULL : (_tmp18_ = (g_slist_free (_tmp18_), NULL));
 #line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp19_) {
-#line 10933 "main_paned.c"
+#line 10962 "main_paned.c"
 				GtkSourceView* _tmp20_;
 				GtkTextBuffer* _tmp21_;
 				GtkTextBuffer* _tmp22_;
@@ -10954,7 +10983,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 				gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp24_, &_tmp25_, (gdouble) 0, TRUE, 0.5, 0.5);
 #line 1206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				break;
-#line 10958 "main_paned.c"
+#line 10987 "main_paned.c"
 			}
 		}
 	}
@@ -10962,7 +10991,7 @@ vala_develop_main_paned_OnNextBookmark (valaDevelopMainPaned* self,
 	_g_object_unref0 (textView);
 #line 1192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 10966 "main_paned.c"
+#line 10995 "main_paned.c"
 }
 
 static void
@@ -11000,7 +11029,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 	_tmp6_ = textView;
 #line 1216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_ != NULL) {
-#line 11004 "main_paned.c"
+#line 11033 "main_paned.c"
 		GtkTextIter currentIter = {0};
 		GtkSourceView* _tmp7_;
 		GtkTextBuffer* _tmp8_;
@@ -11030,7 +11059,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 		currentIter = _tmp14_;
 #line 1220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (TRUE) {
-#line 11034 "main_paned.c"
+#line 11063 "main_paned.c"
 			GtkTextBuffer* _tmp15_;
 			GtkTextIter _tmp16_;
 			GSList* _tmp17_;
@@ -11040,7 +11069,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 			if (!gtk_text_iter_backward_line (&currentIter)) {
 #line 1220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				break;
-#line 11044 "main_paned.c"
+#line 11073 "main_paned.c"
 			}
 #line 1222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp15_ = gtk_text_iter_get_buffer (&currentIter);
@@ -11056,7 +11085,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 			(_tmp18_ == NULL) ? NULL : (_tmp18_ = (g_slist_free (_tmp18_), NULL));
 #line 1222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp19_) {
-#line 11060 "main_paned.c"
+#line 11089 "main_paned.c"
 				GtkSourceView* _tmp20_;
 				GtkTextBuffer* _tmp21_;
 				GtkTextBuffer* _tmp22_;
@@ -11081,7 +11110,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 				gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp24_, &_tmp25_, (gdouble) 0, TRUE, 0.5, 0.5);
 #line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				break;
-#line 11085 "main_paned.c"
+#line 11114 "main_paned.c"
 			}
 		}
 	}
@@ -11089,7 +11118,7 @@ vala_develop_main_paned_OnPrevBookmark (valaDevelopMainPaned* self,
 	_g_object_unref0 (textView);
 #line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (overlay);
-#line 11093 "main_paned.c"
+#line 11122 "main_paned.c"
 }
 
 static Block35Data*
@@ -11099,7 +11128,7 @@ block35_data_ref (Block35Data* _data35_)
 	g_atomic_int_inc (&_data35_->_ref_count_);
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data35_;
-#line 11103 "main_paned.c"
+#line 11132 "main_paned.c"
 }
 
 static void
@@ -11109,7 +11138,7 @@ block35_data_unref (void * _userdata_)
 	_data35_ = (Block35Data*) _userdata_;
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data35_->_ref_count_)) {
-#line 11113 "main_paned.c"
+#line 11142 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data35_->self;
@@ -11127,12 +11156,12 @@ block35_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block35Data, _data35_);
-#line 11131 "main_paned.c"
+#line 11160 "main_paned.c"
 	}
 }
 
 static gboolean
-___lambda66_ (Block35Data* _data35_)
+___lambda74_ (Block35Data* _data35_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -11158,7 +11187,7 @@ ___lambda66_ (Block35Data* _data35_)
 	_tmp4_ = overlay;
 #line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp4_ != NULL) {
-#line 11162 "main_paned.c"
+#line 11191 "main_paned.c"
 		GtkSourceView* textView = NULL;
 		GtkOverlay* _tmp5_;
 		GtkSourceView* _tmp6_;
@@ -11173,7 +11202,7 @@ ___lambda66_ (Block35Data* _data35_)
 		_tmp7_ = textView;
 #line 1263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp7_ != NULL) {
-#line 11177 "main_paned.c"
+#line 11206 "main_paned.c"
 			gchar* projectName = NULL;
 			valaDevelopOverviewTreeStore* _tmp8_;
 			GtkTreeIter _tmp9_;
@@ -11218,7 +11247,7 @@ ___lambda66_ (Block35Data* _data35_)
 			_tmp18_ = tabLabel;
 #line 1268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp18_ != NULL) {
-#line 11222 "main_paned.c"
+#line 11251 "main_paned.c"
 				valaDevelopSymbolFinder* _tmp19_;
 				GtkSourceView* _tmp20_;
 				valaDevelopTabHeader* _tmp21_;
@@ -11236,7 +11265,7 @@ ___lambda66_ (Block35Data* _data35_)
 				_tmp23_ = _tmp22_;
 #line 1270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_symbol_finder_analyse (_tmp19_, self, _tmp20_, _tmp23_);
-#line 11240 "main_paned.c"
+#line 11269 "main_paned.c"
 			}
 #line 1263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (tabLabel);
@@ -11244,11 +11273,11 @@ ___lambda66_ (Block35Data* _data35_)
 			_g_object_unref0 (sf);
 #line 1263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectName);
-#line 11248 "main_paned.c"
+#line 11277 "main_paned.c"
 		}
 #line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (textView);
-#line 11252 "main_paned.c"
+#line 11281 "main_paned.c"
 	}
 #line 1274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = G_SOURCE_REMOVE;
@@ -11256,28 +11285,28 @@ ___lambda66_ (Block35Data* _data35_)
 	_g_object_unref0 (overlay);
 #line 1274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 11260 "main_paned.c"
+#line 11289 "main_paned.c"
 }
 
 static gboolean
-____lambda66__gsource_func (gpointer self)
+____lambda74__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda66_ (self);
+	result = ___lambda74_ (self);
 #line 1257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 11270 "main_paned.c"
+#line 11299 "main_paned.c"
 }
 
 static gint
-__lambda63_ (Block35Data* _data35_)
+__lambda71_ (Block35Data* _data35_)
 {
 	valaDevelopMainPaned* self;
 	gint result = 0;
 	GError* _inner_error0_ = NULL;
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data35_->self;
-#line 11281 "main_paned.c"
+#line 11310 "main_paned.c"
 	{
 		GtkTreeIter _tmp0_;
 #line 1256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -11285,11 +11314,11 @@ __lambda63_ (Block35Data* _data35_)
 #line 1256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_compile_project (self, _data35_->rootPath, &_tmp0_);
 #line 1257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda66__gsource_func, block35_data_ref (_data35_), block35_data_unref);
-#line 11290 "main_paned.c"
+		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda74__gsource_func, block35_data_ref (_data35_), block35_data_unref);
+#line 11319 "main_paned.c"
 	}
-	goto __finally46;
-	__catch46_g_error:
+	goto __finally47;
+	__catch47_g_error:
 	{
 		GError* e = NULL;
 		GError* _tmp1_;
@@ -11306,9 +11335,9 @@ __lambda63_ (Block35Data* _data35_)
 		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:1279: %s", _tmp2_);
 #line 1254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (e);
-#line 11310 "main_paned.c"
+#line 11339 "main_paned.c"
 	}
-	__finally46:
+	__finally47:
 	{
 		valaDevelopStatusList* _tmp3_;
 		valaDevelopStatusList* _tmp4_;
@@ -11336,11 +11365,11 @@ __lambda63_ (Block35Data* _data35_)
 		_tmp6_ = _tmp5_->debug;
 #line 1289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_set_sensitive ((GtkWidget*) _tmp6_, TRUE);
-#line 11340 "main_paned.c"
+#line 11369 "main_paned.c"
 	}
 #line 1254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 11344 "main_paned.c"
+#line 11373 "main_paned.c"
 		gint _tmp7_ = -1;
 #line 1254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -11348,25 +11377,25 @@ __lambda63_ (Block35Data* _data35_)
 		g_clear_error (&_inner_error0_);
 #line 1254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return _tmp7_;
-#line 11352 "main_paned.c"
+#line 11381 "main_paned.c"
 	}
 #line 1291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = 0;
 #line 1291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 11358 "main_paned.c"
+#line 11387 "main_paned.c"
 }
 
 static gpointer
-___lambda63__gthread_func (gpointer self)
+___lambda71__gthread_func (gpointer self)
 {
 	gpointer result;
-	result = (gpointer) ((gintptr) __lambda63_ (self));
+	result = (gpointer) ((gintptr) __lambda71_ (self));
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block35_data_unref (self);
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 11370 "main_paned.c"
+#line 11399 "main_paned.c"
 }
 
 static void
@@ -11502,7 +11531,7 @@ vala_develop_main_paned_OnBuild (valaDevelopMainPaned* self,
 #line 1251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_reset_status (self);
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp28_ = g_thread_try_new (NULL, ___lambda63__gthread_func, block35_data_ref (_data35_), &_inner_error0_);
+	_tmp28_ = g_thread_try_new (NULL, ___lambda71__gthread_func, block35_data_ref (_data35_), &_inner_error0_);
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp29_ = _tmp28_;
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -11523,7 +11552,7 @@ vala_develop_main_paned_OnBuild (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 11527 "main_paned.c"
+#line 11556 "main_paned.c"
 	}
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (model);
@@ -11533,27 +11562,27 @@ vala_develop_main_paned_OnBuild (valaDevelopMainPaned* self,
 	block35_data_unref (_data35_);
 #line 1232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data35_ = NULL;
-#line 11537 "main_paned.c"
+#line 11566 "main_paned.c"
 }
 
 static void
-___lambda85_ (valaDevelopMainPaned* self,
+___lambda93_ (valaDevelopMainPaned* self,
               GPid pid,
               gint status)
 {
 #line 1321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_spawn_close_pid (pid);
-#line 11547 "main_paned.c"
+#line 11576 "main_paned.c"
 }
 
 static void
-____lambda85__gchild_watch_func (GPid pid,
+____lambda93__gchild_watch_func (GPid pid,
                                  gint status,
                                  gpointer self)
 {
 #line 1318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	___lambda85_ ((valaDevelopMainPaned*) self, pid, status);
-#line 11557 "main_paned.c"
+	___lambda93_ ((valaDevelopMainPaned*) self, pid, status);
+#line 11586 "main_paned.c"
 }
 
 static void
@@ -11632,7 +11661,7 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 	if (_tmp11_ == NULL) {
 #line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp10_ = TRUE;
-#line 11636 "main_paned.c"
+#line 11665 "main_paned.c"
 	} else {
 		valaDevelopOverviewTreeStore* _tmp12_;
 		GtkTreeIter* _tmp13_;
@@ -11645,11 +11674,11 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 		_tmp14_ = *_tmp13_;
 #line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp10_ = vala_develop_overview_tree_store_get_item_buildtype (_tmp12_, &_tmp14_) != ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Executable);
-#line 11649 "main_paned.c"
+#line 11678 "main_paned.c"
 	}
 #line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp10_) {
-#line 11653 "main_paned.c"
+#line 11682 "main_paned.c"
 		GtkMessageDialog* messagedialog = NULL;
 		GtkWidget* _tmp15_;
 		GtkMessageDialog* _tmp16_;
@@ -11681,7 +11710,7 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 		_g_object_unref0 (aTreeSelection);
 #line 1307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 11685 "main_paned.c"
+#line 11714 "main_paned.c"
 	}
 #line 1309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp19_ = vala_develop_main_paned_overviewTreeModel;
@@ -11725,7 +11754,7 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 	_g_object_unref0 (_tmp29_);
 #line 1311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	executable = _tmp34_;
-#line 11729 "main_paned.c"
+#line 11758 "main_paned.c"
 	{
 		gchar** spawn_args = NULL;
 		const gchar* _tmp35_;
@@ -11784,19 +11813,19 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 			spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
 #line 1317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 11788 "main_paned.c"
-			goto __catch47_g_error;
+#line 11817 "main_paned.c"
+			goto __catch48_g_error;
 		}
 #line 1318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_child_watch_add_full (G_PRIORITY_DEFAULT_IDLE, child_pid, ____lambda85__gchild_watch_func, g_object_ref (self), g_object_unref);
+		g_child_watch_add_full (G_PRIORITY_DEFAULT_IDLE, child_pid, ____lambda93__gchild_watch_func, g_object_ref (self), g_object_unref);
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 11797 "main_paned.c"
+#line 11826 "main_paned.c"
 	}
-	goto __finally47;
-	__catch47_g_error:
+	goto __finally48;
+	__catch48_g_error:
 	{
 		GError* e = NULL;
 		GtkMessageDialog* messagedialog = NULL;
@@ -11834,9 +11863,9 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 		_g_object_unref0 (messagedialog);
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (e);
-#line 11838 "main_paned.c"
+#line 11867 "main_paned.c"
 	}
-	__finally47:
+	__finally48:
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -11857,7 +11886,7 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 11861 "main_paned.c"
+#line 11890 "main_paned.c"
 	}
 #line 1295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (executable);
@@ -11871,7 +11900,7 @@ vala_develop_main_paned_OnExecute (valaDevelopMainPaned* self,
 	_g_object_unref0 (model);
 #line 1295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 11875 "main_paned.c"
+#line 11904 "main_paned.c"
 }
 
 static Block36Data*
@@ -11881,7 +11910,7 @@ block36_data_ref (Block36Data* _data36_)
 	g_atomic_int_inc (&_data36_->_ref_count_);
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data36_;
-#line 11885 "main_paned.c"
+#line 11914 "main_paned.c"
 }
 
 static void
@@ -11889,7 +11918,7 @@ _g_free0_ (gpointer var)
 {
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(var == NULL) ? NULL : (var = (g_free (var), NULL));
-#line 11893 "main_paned.c"
+#line 11922 "main_paned.c"
 }
 
 static inline void
@@ -11897,7 +11926,7 @@ _g_list_free__g_free0_ (GList* self)
 {
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_free0_);
-#line 11901 "main_paned.c"
+#line 11930 "main_paned.c"
 }
 
 static void
@@ -11907,7 +11936,7 @@ block36_data_unref (void * _userdata_)
 	_data36_ = (Block36Data*) _userdata_;
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data36_->_ref_count_)) {
-#line 11911 "main_paned.c"
+#line 11940 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data36_->self;
@@ -11925,7 +11954,7 @@ block36_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block36Data, _data36_);
-#line 11929 "main_paned.c"
+#line 11958 "main_paned.c"
 	}
 }
 
@@ -11939,7 +11968,7 @@ _gtk_tree_iter_dup (GtkTreeIter* self)
 	memcpy (dup, self, sizeof (GtkTreeIter));
 #line 1376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return dup;
-#line 11943 "main_paned.c"
+#line 11972 "main_paned.c"
 }
 
 static gpointer
@@ -11947,11 +11976,11 @@ __gtk_tree_iter_dup0 (gpointer self)
 {
 #line 1376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return self ? _gtk_tree_iter_dup (self) : NULL;
-#line 11951 "main_paned.c"
+#line 11980 "main_paned.c"
 }
 
 static gint
-__lambda67_ (valaDevelopMainPaned* self,
+__lambda75_ (valaDevelopMainPaned* self,
              GtkTreeIter* a,
              GtkTreeIter* b)
 {
@@ -11991,20 +12020,20 @@ __lambda67_ (valaDevelopMainPaned* self,
 	tmpIter = _tmp5_;
 #line 1383 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_) {
-#line 11995 "main_paned.c"
+#line 12024 "main_paned.c"
 		{
 			gboolean _tmp7_ = FALSE;
 #line 1385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp7_ = TRUE;
 #line 1385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 12002 "main_paned.c"
+#line 12031 "main_paned.c"
 				gint itemBuildType = 0;
 				valaDevelopOverviewTreeStore* _tmp10_;
 				GtkTreeIter _tmp11_;
 #line 1385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!_tmp7_) {
-#line 12008 "main_paned.c"
+#line 12037 "main_paned.c"
 					valaDevelopOverviewTreeStore* _tmp8_;
 					gboolean _tmp9_;
 #line 1390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12015,7 +12044,7 @@ __lambda67_ (valaDevelopMainPaned* self,
 					if (!_tmp9_) {
 #line 1390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 12019 "main_paned.c"
+#line 12048 "main_paned.c"
 					}
 				}
 #line 1385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12034,7 +12063,7 @@ __lambda67_ (valaDevelopMainPaned* self,
 					_g_free0 (packagesA);
 #line 1389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 12038 "main_paned.c"
+#line 12067 "main_paned.c"
 				}
 			}
 		}
@@ -12057,20 +12086,20 @@ __lambda67_ (valaDevelopMainPaned* self,
 	tmpIter = _tmp17_;
 #line 1393 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp18_) {
-#line 12061 "main_paned.c"
+#line 12090 "main_paned.c"
 		{
 			gboolean _tmp19_ = FALSE;
 #line 1395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp19_ = TRUE;
 #line 1395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 12068 "main_paned.c"
+#line 12097 "main_paned.c"
 				gint itemBuildType = 0;
 				valaDevelopOverviewTreeStore* _tmp22_;
 				GtkTreeIter _tmp23_;
 #line 1395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!_tmp19_) {
-#line 12074 "main_paned.c"
+#line 12103 "main_paned.c"
 					valaDevelopOverviewTreeStore* _tmp20_;
 					gboolean _tmp21_;
 #line 1400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12081,7 +12110,7 @@ __lambda67_ (valaDevelopMainPaned* self,
 					if (!_tmp21_) {
 #line 1400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 12085 "main_paned.c"
+#line 12114 "main_paned.c"
 					}
 				}
 #line 1395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12102,7 +12131,7 @@ __lambda67_ (valaDevelopMainPaned* self,
 					_g_free0 (packagesA);
 #line 1399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 12106 "main_paned.c"
+#line 12135 "main_paned.c"
 				}
 			}
 		}
@@ -12115,19 +12144,19 @@ __lambda67_ (valaDevelopMainPaned* self,
 	_g_free0 (packagesA);
 #line 1402 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12119 "main_paned.c"
+#line 12148 "main_paned.c"
 }
 
 static gint
-___lambda67__gcompare_data_func (gconstpointer a,
+___lambda75__gcompare_data_func (gconstpointer a,
                                  gconstpointer b,
                                  gpointer self)
 {
 	gint result;
-	result = __lambda67_ ((valaDevelopMainPaned*) self, (GtkTreeIter*) a, (GtkTreeIter*) b);
+	result = __lambda75_ ((valaDevelopMainPaned*) self, (GtkTreeIter*) a, (GtkTreeIter*) b);
 #line 1379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12131 "main_paned.c"
+#line 12160 "main_paned.c"
 }
 
 static Block37Data*
@@ -12137,7 +12166,7 @@ block37_data_ref (Block37Data* _data37_)
 	g_atomic_int_inc (&_data37_->_ref_count_);
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data37_;
-#line 12141 "main_paned.c"
+#line 12170 "main_paned.c"
 }
 
 static void
@@ -12147,7 +12176,7 @@ block37_data_unref (void * _userdata_)
 	_data37_ = (Block37Data*) _userdata_;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data37_->_ref_count_)) {
-#line 12151 "main_paned.c"
+#line 12180 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data37_->_data36_->self;
@@ -12159,12 +12188,12 @@ block37_data_unref (void * _userdata_)
 		_data37_->_data36_ = NULL;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block37Data, _data37_);
-#line 12163 "main_paned.c"
+#line 12192 "main_paned.c"
 	}
 }
 
 static gboolean
-_____lambda69_ (Block37Data* _data37_)
+_____lambda77_ (Block37Data* _data37_)
 {
 	Block36Data* _data36_;
 	valaDevelopMainPaned* self;
@@ -12193,7 +12222,7 @@ _____lambda69_ (Block37Data* _data37_)
 	_tmp4_ = overlay;
 #line 1415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp4_ != NULL) {
-#line 12197 "main_paned.c"
+#line 12226 "main_paned.c"
 		GtkSourceView* textView = NULL;
 		GtkOverlay* _tmp5_;
 		GtkSourceView* _tmp6_;
@@ -12208,7 +12237,7 @@ _____lambda69_ (Block37Data* _data37_)
 		_tmp7_ = textView;
 #line 1418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp7_ != NULL) {
-#line 12212 "main_paned.c"
+#line 12241 "main_paned.c"
 			gchar* projectName = NULL;
 			valaDevelopOverviewTreeStore* _tmp8_;
 			GtkTreeIter* _tmp9_;
@@ -12256,7 +12285,7 @@ _____lambda69_ (Block37Data* _data37_)
 			_tmp19_ = tabLabel;
 #line 1423 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp19_ != NULL) {
-#line 12260 "main_paned.c"
+#line 12289 "main_paned.c"
 				valaDevelopSymbolFinder* _tmp20_;
 				GtkSourceView* _tmp21_;
 				valaDevelopTabHeader* _tmp22_;
@@ -12274,7 +12303,7 @@ _____lambda69_ (Block37Data* _data37_)
 				_tmp24_ = _tmp23_;
 #line 1425 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_symbol_finder_analyse (_tmp20_, self, _tmp21_, _tmp24_);
-#line 12278 "main_paned.c"
+#line 12307 "main_paned.c"
 			}
 #line 1418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (tabLabel);
@@ -12282,11 +12311,11 @@ _____lambda69_ (Block37Data* _data37_)
 			_g_object_unref0 (sf);
 #line 1418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectName);
-#line 12286 "main_paned.c"
+#line 12315 "main_paned.c"
 		}
 #line 1415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (textView);
-#line 12290 "main_paned.c"
+#line 12319 "main_paned.c"
 	}
 #line 1429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = G_SOURCE_REMOVE;
@@ -12294,21 +12323,21 @@ _____lambda69_ (Block37Data* _data37_)
 	_g_object_unref0 (overlay);
 #line 1429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12298 "main_paned.c"
+#line 12327 "main_paned.c"
 }
 
 static gboolean
-______lambda69__gsource_func (gpointer self)
+______lambda77__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = _____lambda69_ (self);
+	result = _____lambda77_ (self);
 #line 1412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12308 "main_paned.c"
+#line 12337 "main_paned.c"
 }
 
 static gboolean
-___lambda70_ (Block36Data* _data36_)
+___lambda78_ (Block36Data* _data36_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -12353,33 +12382,33 @@ ___lambda70_ (Block36Data* _data36_)
 	result = G_SOURCE_REMOVE;
 #line 1448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12357 "main_paned.c"
+#line 12386 "main_paned.c"
 }
 
 static gboolean
-____lambda70__gsource_func (gpointer self)
+____lambda78__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda70_ (self);
+	result = ___lambda78_ (self);
 #line 1439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12367 "main_paned.c"
+#line 12396 "main_paned.c"
 }
 
 static gint
-__lambda68_ (Block36Data* _data36_)
+__lambda76_ (Block36Data* _data36_)
 {
 	valaDevelopMainPaned* self;
 	gint result = 0;
 	GError* _inner_error0_ = NULL;
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data36_->self;
-#line 12378 "main_paned.c"
+#line 12407 "main_paned.c"
 	{
 		GList* _tmp0_;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _data36_->projects;
-#line 12383 "main_paned.c"
+#line 12412 "main_paned.c"
 		{
 			GList* project_collection = NULL;
 			GList* project_it = NULL;
@@ -12387,14 +12416,14 @@ __lambda68_ (Block36Data* _data36_)
 			project_collection = _tmp0_;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (project_it = project_collection; project_it != NULL; project_it = project_it->next) {
-#line 12391 "main_paned.c"
+#line 12420 "main_paned.c"
 				GtkTreeIter* _tmp1_;
 				GtkTreeIter* project = NULL;
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp1_ = __gtk_tree_iter_dup0 ((GtkTreeIter*) project_it->data);
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				project = _tmp1_;
-#line 12398 "main_paned.c"
+#line 12427 "main_paned.c"
 				{
 					Block37Data* _data37_;
 					const gchar* _tmp2_;
@@ -12417,18 +12446,18 @@ __lambda68_ (Block36Data* _data36_)
 #line 1411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					vala_develop_main_paned_compile_project (self, _tmp2_, &_tmp4_);
 #line 1412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ______lambda69__gsource_func, block37_data_ref (_data37_), block37_data_unref);
+					g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ______lambda77__gsource_func, block37_data_ref (_data37_), block37_data_unref);
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					block37_data_unref (_data37_);
 #line 1409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_data37_ = NULL;
-#line 12426 "main_paned.c"
+#line 12455 "main_paned.c"
 				}
 			}
 		}
 	}
-	goto __finally48;
-	__catch48_g_error:
+	goto __finally49;
+	__catch49_g_error:
 	{
 		GError* e = NULL;
 		GError* _tmp5_;
@@ -12445,17 +12474,17 @@ __lambda68_ (Block36Data* _data36_)
 		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:1435: %s", _tmp6_);
 #line 1407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (e);
-#line 12449 "main_paned.c"
+#line 12478 "main_paned.c"
 	}
-	__finally48:
+	__finally49:
 	{
 #line 1439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda70__gsource_func, block36_data_ref (_data36_), block36_data_unref);
-#line 12455 "main_paned.c"
+		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda78__gsource_func, block36_data_ref (_data36_), block36_data_unref);
+#line 12484 "main_paned.c"
 	}
 #line 1407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 12459 "main_paned.c"
+#line 12488 "main_paned.c"
 		gint _tmp7_ = -1;
 #line 1407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -12463,25 +12492,25 @@ __lambda68_ (Block36Data* _data36_)
 		g_clear_error (&_inner_error0_);
 #line 1407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return _tmp7_;
-#line 12467 "main_paned.c"
+#line 12496 "main_paned.c"
 	}
 #line 1451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = 0;
 #line 1451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12473 "main_paned.c"
+#line 12502 "main_paned.c"
 }
 
 static gpointer
-___lambda68__gthread_func (gpointer self)
+___lambda76__gthread_func (gpointer self)
 {
 	gpointer result;
-	result = (gpointer) ((gintptr) __lambda68_ (self));
+	result = (gpointer) ((gintptr) __lambda76_ (self));
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block36_data_unref (self);
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 12485 "main_paned.c"
+#line 12514 "main_paned.c"
 }
 
 static void
@@ -12586,7 +12615,7 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 	_tmp18_ = self->documentTab;
 #line 1346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp19_ = gtk_container_get_children ((GtkContainer*) _tmp18_);
-#line 12590 "main_paned.c"
+#line 12619 "main_paned.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
@@ -12594,11 +12623,11 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 		child_collection = _tmp19_;
 #line 1346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 12598 "main_paned.c"
+#line 12627 "main_paned.c"
 			GtkWidget* child = NULL;
 #line 1346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = (GtkWidget*) child_it->data;
-#line 12602 "main_paned.c"
+#line 12631 "main_paned.c"
 			{
 				valaDevelopTabHeader* tabLabel = NULL;
 				GtkNotebook* _tmp20_;
@@ -12620,7 +12649,7 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 				_tmp24_ = tabLabel;
 #line 1349 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp24_ != NULL) {
-#line 12624 "main_paned.c"
+#line 12653 "main_paned.c"
 					GtkSourceBuffer* buffer = NULL;
 					valaDevelopTabHeader* _tmp25_;
 					GtkSourceBuffer* _tmp26_;
@@ -12642,13 +12671,13 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 						_g_object_unref0 (tabLabel);
 #line 1353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						continue;
-#line 12646 "main_paned.c"
+#line 12675 "main_paned.c"
 					}
 #line 1354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp28_ = buffer;
 #line 1354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (gtk_text_buffer_get_modified ((GtkTextBuffer*) _tmp28_)) {
-#line 12652 "main_paned.c"
+#line 12681 "main_paned.c"
 						valaDevelopTabHeader* _tmp29_;
 						const gchar* _tmp30_;
 						const gchar* _tmp31_;
@@ -12690,26 +12719,26 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 							g_clear_error (&_inner_error0_);
 #line 1356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							return;
-#line 12694 "main_paned.c"
+#line 12723 "main_paned.c"
 						}
 #line 1357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp35_ = buffer;
 #line 1357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						gtk_text_buffer_set_modified ((GtkTextBuffer*) _tmp35_, FALSE);
-#line 12700 "main_paned.c"
+#line 12729 "main_paned.c"
 					}
 #line 1349 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (buffer);
-#line 12704 "main_paned.c"
+#line 12733 "main_paned.c"
 				}
 #line 1346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tabLabel);
-#line 12708 "main_paned.c"
+#line 12737 "main_paned.c"
 			}
 		}
 #line 1346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 12713 "main_paned.c"
+#line 12742 "main_paned.c"
 	}
 #line 1366 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_reset_status (self);
@@ -12737,19 +12766,19 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 	projectIter = _tmp43_;
 #line 1373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data36_->projects = NULL;
-#line 12741 "main_paned.c"
+#line 12770 "main_paned.c"
 	{
 		gboolean _tmp44_ = FALSE;
 #line 1374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp44_ = TRUE;
 #line 1374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (TRUE) {
-#line 12748 "main_paned.c"
+#line 12777 "main_paned.c"
 			GtkTreeIter _tmp47_;
 			GtkTreeIter* _tmp48_;
 #line 1374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (!_tmp44_) {
-#line 12753 "main_paned.c"
+#line 12782 "main_paned.c"
 				valaDevelopOverviewTreeStore* _tmp45_;
 				gboolean _tmp46_;
 #line 1377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12760,7 +12789,7 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 				if (!_tmp46_) {
 #line 1377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 12764 "main_paned.c"
+#line 12793 "main_paned.c"
 				}
 			}
 #line 1374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12771,13 +12800,13 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 			_tmp48_ = __gtk_tree_iter_dup0 (&_tmp47_);
 #line 1376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_data36_->projects = g_list_append (_data36_->projects, _tmp48_);
-#line 12775 "main_paned.c"
+#line 12804 "main_paned.c"
 		}
 	}
 #line 1379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data36_->projects = g_list_sort_with_data (_data36_->projects, ___lambda67__gcompare_data_func, self);
+	_data36_->projects = g_list_sort_with_data (_data36_->projects, ___lambda75__gcompare_data_func, self);
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp49_ = g_thread_try_new (NULL, ___lambda68__gthread_func, block36_data_ref (_data36_), &_inner_error0_);
+	_tmp49_ = g_thread_try_new (NULL, ___lambda76__gthread_func, block36_data_ref (_data36_), &_inner_error0_);
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp50_ = _tmp49_;
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12794,13 +12823,13 @@ vala_develop_main_paned_OnReBuild (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 12798 "main_paned.c"
+#line 12827 "main_paned.c"
 	}
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block36_data_unref (_data36_);
 #line 1332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data36_ = NULL;
-#line 12804 "main_paned.c"
+#line 12833 "main_paned.c"
 }
 
 static Block38Data*
@@ -12810,7 +12839,7 @@ block38_data_ref (Block38Data* _data38_)
 	g_atomic_int_inc (&_data38_->_ref_count_);
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data38_;
-#line 12814 "main_paned.c"
+#line 12843 "main_paned.c"
 }
 
 static void
@@ -12820,7 +12849,7 @@ block38_data_unref (void * _userdata_)
 	_data38_ = (Block38Data*) _userdata_;
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data38_->_ref_count_)) {
-#line 12824 "main_paned.c"
+#line 12853 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data38_->self;
@@ -12830,12 +12859,12 @@ block38_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block38Data, _data38_);
-#line 12834 "main_paned.c"
+#line 12863 "main_paned.c"
 	}
 }
 
 static void
-__lambda89_ (valaDevelopMainPaned* self,
+__lambda97_ (valaDevelopMainPaned* self,
              GtkWidget* widget)
 {
 	gboolean _tmp0_ = FALSE;
@@ -12846,45 +12875,45 @@ __lambda89_ (valaDevelopMainPaned* self,
 	if (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_SOLUTION_OPTIONS)) {
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = TRUE;
-#line 12850 "main_paned.c"
+#line 12879 "main_paned.c"
 	} else {
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_PROJECT_OPTIONS);
-#line 12854 "main_paned.c"
+#line 12883 "main_paned.c"
 	}
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp1_) {
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = TRUE;
-#line 12860 "main_paned.c"
+#line 12889 "main_paned.c"
 	} else {
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_ITEM_OPTIONS);
-#line 12864 "main_paned.c"
+#line 12893 "main_paned.c"
 	}
 #line 1467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_) {
-#line 12868 "main_paned.c"
+#line 12897 "main_paned.c"
 		GtkBox* _tmp2_;
 #line 1468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = self->toolWindow;
 #line 1468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_container_remove ((GtkContainer*) _tmp2_, widget);
-#line 12874 "main_paned.c"
+#line 12903 "main_paned.c"
 	}
 }
 
 static void
-___lambda89__gtk_callback (GtkWidget* widget,
+___lambda97__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 1465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda89_ ((valaDevelopMainPaned*) self, widget);
-#line 12884 "main_paned.c"
+	__lambda97_ ((valaDevelopMainPaned*) self, widget);
+#line 12913 "main_paned.c"
 }
 
 static gboolean
-___lambda88_ (Block38Data* _data38_)
+___lambda96_ (Block38Data* _data38_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
@@ -12904,12 +12933,12 @@ ___lambda88_ (Block38Data* _data38_)
 		result = FALSE;
 #line 1464 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 12908 "main_paned.c"
+#line 12937 "main_paned.c"
 	}
 #line 1465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = self->toolWindow;
 #line 1465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _tmp1_, ___lambda89__gtk_callback, self);
+	gtk_container_foreach ((GtkContainer*) _tmp1_, ___lambda97__gtk_callback, self);
 #line 1471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = _data38_->model;
 #line 1471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12920,7 +12949,7 @@ ___lambda88_ (Block38Data* _data38_)
 	switch (item) {
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Solution:
-#line 12924 "main_paned.c"
+#line 12953 "main_paned.c"
 		{
 			valaDevelopSolutionOptions* _tmp4_;
 			GtkBox* _tmp9_;
@@ -12930,7 +12959,7 @@ ___lambda88_ (Block38Data* _data38_)
 			_tmp4_ = self->priv->_solutionOptions;
 #line 1475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp4_ == NULL) {
-#line 12934 "main_paned.c"
+#line 12963 "main_paned.c"
 				GtkTreeIter _tmp5_;
 				valaDevelopSolutionOptions* _tmp6_;
 #line 1476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12943,7 +12972,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_g_object_unref0 (self->priv->_solutionOptions);
 #line 1476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				self->priv->_solutionOptions = _tmp6_;
-#line 12947 "main_paned.c"
+#line 12976 "main_paned.c"
 			} else {
 				valaDevelopSolutionOptions* _tmp7_;
 				GtkTreeIter _tmp8_;
@@ -12953,7 +12982,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_tmp8_ = _data38_->iter;
 #line 1478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) _tmp7_, &_tmp8_);
-#line 12957 "main_paned.c"
+#line 12986 "main_paned.c"
 			}
 #line 1479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp9_ = self->toolWindow;
@@ -12967,11 +12996,11 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp11_, _ ("Solution Options "));
 #line 1481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 12971 "main_paned.c"
+#line 13000 "main_paned.c"
 		}
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 12975 "main_paned.c"
+#line 13004 "main_paned.c"
 		{
 			valaDevelopProjectOptions* _tmp12_;
 			GtkBox* _tmp17_;
@@ -12981,7 +13010,7 @@ ___lambda88_ (Block38Data* _data38_)
 			_tmp12_ = self->priv->_projectOptions;
 #line 1483 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp12_ == NULL) {
-#line 12985 "main_paned.c"
+#line 13014 "main_paned.c"
 				GtkTreeIter _tmp13_;
 				valaDevelopProjectOptions* _tmp14_;
 #line 1484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -12994,7 +13023,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_g_object_unref0 (self->priv->_projectOptions);
 #line 1484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				self->priv->_projectOptions = _tmp14_;
-#line 12998 "main_paned.c"
+#line 13027 "main_paned.c"
 			} else {
 				valaDevelopProjectOptions* _tmp15_;
 				GtkTreeIter _tmp16_;
@@ -13004,7 +13033,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_tmp16_ = _data38_->iter;
 #line 1486 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) _tmp15_, &_tmp16_);
-#line 13008 "main_paned.c"
+#line 13037 "main_paned.c"
 			}
 #line 1487 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp17_ = self->toolWindow;
@@ -13018,11 +13047,11 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp19_, _ ("Project Options "));
 #line 1489 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 13022 "main_paned.c"
+#line 13051 "main_paned.c"
 		}
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 13026 "main_paned.c"
+#line 13055 "main_paned.c"
 		{
 			valaDevelopSolutionOptions* _tmp20_;
 			GtkBox* _tmp25_;
@@ -13032,7 +13061,7 @@ ___lambda88_ (Block38Data* _data38_)
 			_tmp20_ = self->priv->_solutionOptions;
 #line 1491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp20_ == NULL) {
-#line 13036 "main_paned.c"
+#line 13065 "main_paned.c"
 				GtkTreeIter _tmp21_;
 				valaDevelopSolutionOptions* _tmp22_;
 #line 1492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -13045,7 +13074,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_g_object_unref0 (self->priv->_solutionOptions);
 #line 1492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				self->priv->_solutionOptions = _tmp22_;
-#line 13049 "main_paned.c"
+#line 13078 "main_paned.c"
 			} else {
 				valaDevelopSolutionOptions* _tmp23_;
 				GtkTreeIter _tmp24_;
@@ -13055,7 +13084,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_tmp24_ = _data38_->iter;
 #line 1494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) _tmp23_, &_tmp24_);
-#line 13059 "main_paned.c"
+#line 13088 "main_paned.c"
 			}
 #line 1495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp25_ = self->toolWindow;
@@ -13069,11 +13098,11 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp27_, _ ("Directory Options "));
 #line 1497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 13073 "main_paned.c"
+#line 13102 "main_paned.c"
 		}
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource | VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 13077 "main_paned.c"
+#line 13106 "main_paned.c"
 		{
 			valaDevelopSolutionOptions* _tmp28_;
 			GtkBox* _tmp33_;
@@ -13083,7 +13112,7 @@ ___lambda88_ (Block38Data* _data38_)
 			_tmp28_ = self->priv->_solutionOptions;
 #line 1499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp28_ == NULL) {
-#line 13087 "main_paned.c"
+#line 13116 "main_paned.c"
 				GtkTreeIter _tmp29_;
 				valaDevelopSolutionOptions* _tmp30_;
 #line 1500 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -13096,7 +13125,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_g_object_unref0 (self->priv->_solutionOptions);
 #line 1500 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				self->priv->_solutionOptions = _tmp30_;
-#line 13100 "main_paned.c"
+#line 13129 "main_paned.c"
 			} else {
 				valaDevelopSolutionOptions* _tmp31_;
 				GtkTreeIter _tmp32_;
@@ -13106,7 +13135,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_tmp32_ = _data38_->iter;
 #line 1502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) _tmp31_, &_tmp32_);
-#line 13110 "main_paned.c"
+#line 13139 "main_paned.c"
 			}
 #line 1503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp33_ = self->toolWindow;
@@ -13120,13 +13149,13 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp35_, _ ("Resource Options "));
 #line 1505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 13124 "main_paned.c"
+#line 13153 "main_paned.c"
 		}
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Source:
 #line 1472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource:
-#line 13130 "main_paned.c"
+#line 13159 "main_paned.c"
 		{
 			valaDevelopItemOptions* _tmp36_;
 			GtkBox* _tmp41_;
@@ -13136,7 +13165,7 @@ ___lambda88_ (Block38Data* _data38_)
 			_tmp36_ = self->_itemOptions;
 #line 1508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp36_ == NULL) {
-#line 13140 "main_paned.c"
+#line 13169 "main_paned.c"
 				GtkTreeIter _tmp37_;
 				valaDevelopItemOptions* _tmp38_;
 #line 1509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -13149,7 +13178,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_g_object_unref0 (self->_itemOptions);
 #line 1509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				self->_itemOptions = _tmp38_;
-#line 13153 "main_paned.c"
+#line 13182 "main_paned.c"
 			} else {
 				valaDevelopItemOptions* _tmp39_;
 				GtkTreeIter _tmp40_;
@@ -13159,7 +13188,7 @@ ___lambda88_ (Block38Data* _data38_)
 				_tmp40_ = _data38_->iter;
 #line 1511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) _tmp39_, &_tmp40_);
-#line 13163 "main_paned.c"
+#line 13192 "main_paned.c"
 			}
 #line 1512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp41_ = self->toolWindow;
@@ -13173,7 +13202,7 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp43_, _ ("Item Options "));
 #line 1514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 13177 "main_paned.c"
+#line 13206 "main_paned.c"
 		}
 		default:
 		{
@@ -13184,7 +13213,7 @@ ___lambda88_ (Block38Data* _data38_)
 			gtk_label_set_label (_tmp44_, _ ("Options "));
 #line 1518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 13188 "main_paned.c"
+#line 13217 "main_paned.c"
 		}
 	}
 #line 1520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -13195,17 +13224,17 @@ ___lambda88_ (Block38Data* _data38_)
 	result = FALSE;
 #line 1521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 13199 "main_paned.c"
+#line 13228 "main_paned.c"
 }
 
 static gboolean
-____lambda88__gsource_func (gpointer self)
+____lambda96__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda88_ (self);
+	result = ___lambda96_ (self);
 #line 1461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 13209 "main_paned.c"
+#line 13238 "main_paned.c"
 }
 
 void
@@ -13243,14 +13272,14 @@ vala_develop_main_paned_SolutionTreeView_SelectCursorRow (valaDevelopMainPaned* 
 #line 1459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp4_) {
 #line 1461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda88__gsource_func, block38_data_ref (_data38_), block38_data_unref);
-#line 13248 "main_paned.c"
+		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda96__gsource_func, block38_data_ref (_data38_), block38_data_unref);
+#line 13277 "main_paned.c"
 	}
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block38_data_unref (_data38_);
 #line 1455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data38_ = NULL;
-#line 13254 "main_paned.c"
+#line 13283 "main_paned.c"
 }
 
 void
@@ -13362,7 +13391,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 	_tmp2_ = self->solutionTreeView;
 #line 1530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = gtk_tree_view_get_columns (_tmp2_);
-#line 13366 "main_paned.c"
+#line 13395 "main_paned.c"
 	{
 		GList* c_collection = NULL;
 		GList* c_it = NULL;
@@ -13370,11 +13399,11 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 		c_collection = _tmp3_;
 #line 1530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (c_it = c_collection; c_it != NULL; c_it = c_it->next) {
-#line 13374 "main_paned.c"
+#line 13403 "main_paned.c"
 			GtkTreeViewColumn* c = NULL;
 #line 1530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			c = (GtkTreeViewColumn*) c_it->data;
-#line 13378 "main_paned.c"
+#line 13407 "main_paned.c"
 			{
 				GtkTreeView* _tmp4_;
 				GtkTreeViewColumn* _tmp5_;
@@ -13384,12 +13413,12 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				_tmp5_ = c;
 #line 1532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				gtk_tree_view_remove_column (_tmp4_, _tmp5_);
-#line 13388 "main_paned.c"
+#line 13417 "main_paned.c"
 			}
 		}
 #line 1530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(c_collection == NULL) ? NULL : (c_collection = (g_list_free (c_collection), NULL));
-#line 13393 "main_paned.c"
+#line 13422 "main_paned.c"
 	}
 #line 1535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = gtk_tree_view_column_new ();
@@ -13557,7 +13586,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 13561 "main_paned.c"
+#line 13590 "main_paned.c"
 	}
 #line 1557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp53_ = vala_develop_main_paned_overviewTreeModel;
@@ -13583,19 +13612,19 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 	_tmp59_ = xmlXPathEvalExpression ((xmlChar*) "/Item/Item", _tmp58_);
 #line 1560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	xprojects = _tmp59_;
-#line 13587 "main_paned.c"
+#line 13616 "main_paned.c"
 	{
 		gint i = 0;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		i = 0;
-#line 13592 "main_paned.c"
+#line 13621 "main_paned.c"
 		{
 			gboolean _tmp60_ = FALSE;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp60_ = TRUE;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 13599 "main_paned.c"
+#line 13628 "main_paned.c"
 				xmlXPathObject* _tmp62_;
 				xmlNodeSet* _tmp63_;
 				xmlXPathObject* _tmp64_;
@@ -13620,13 +13649,13 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				GtkTreeIter* _tmp83_;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!_tmp60_) {
-#line 13624 "main_paned.c"
+#line 13653 "main_paned.c"
 					gint _tmp61_;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp61_ = i;
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					i = _tmp61_ + 1;
-#line 13630 "main_paned.c"
+#line 13659 "main_paned.c"
 				}
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp60_ = FALSE;
@@ -13638,7 +13667,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				if (!(i < xmlXPathNodeSetGetLength (_tmp63_))) {
 #line 1561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 13642 "main_paned.c"
+#line 13671 "main_paned.c"
 				}
 #line 1563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp64_ = xprojects;
@@ -13652,7 +13681,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				if (_tmp67_ != XML_ELEMENT_NODE) {
 #line 1564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					continue;
-#line 13656 "main_paned.c"
+#line 13685 "main_paned.c"
 				}
 #line 1565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp68_ = xprojects;
@@ -13696,7 +13725,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				_g_free0 (_tmp74_);
 #line 1565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp72_);
-#line 13700 "main_paned.c"
+#line 13729 "main_paned.c"
 			}
 		}
 	}
@@ -13726,7 +13755,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 	__vala_GtkTreePath_free0 (_tmp91_);
 #line 1576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp92_ = projects;
-#line 13730 "main_paned.c"
+#line 13759 "main_paned.c"
 	{
 		GList* project_collection = NULL;
 		GList* project_it = NULL;
@@ -13734,14 +13763,14 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 		project_collection = _tmp92_;
 #line 1576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (project_it = project_collection; project_it != NULL; project_it = project_it->next) {
-#line 13738 "main_paned.c"
+#line 13767 "main_paned.c"
 			GtkTreeIter* _tmp93_;
 			GtkTreeIter* project = NULL;
 #line 1576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp93_ = __gtk_tree_iter_dup0 ((GtkTreeIter*) project_it->data);
 #line 1576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			project = _tmp93_;
-#line 13745 "main_paned.c"
+#line 13774 "main_paned.c"
 			{
 				GtkTreeView* _tmp94_;
 				valaDevelopOverviewTreeStore* _tmp95_;
@@ -13767,7 +13796,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 				__vala_GtkTreePath_free0 (_tmp99_);
 #line 1576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (project);
-#line 13771 "main_paned.c"
+#line 13800 "main_paned.c"
 			}
 		}
 	}
@@ -13787,7 +13816,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 	iter = _tmp104_;
 #line 1582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp105_) {
-#line 13791 "main_paned.c"
+#line 13820 "main_paned.c"
 		GtkTreeView* _tmp106_;
 		GtkTreeSelection* _tmp107_;
 		GtkTreeIter _tmp108_;
@@ -13799,7 +13828,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 		_tmp108_ = iter;
 #line 1583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_tree_selection_select_iter (_tmp107_, &_tmp108_);
-#line 13803 "main_paned.c"
+#line 13832 "main_paned.c"
 	}
 #line 1585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp109_ = self->priv->breakPointModel;
@@ -13823,7 +13852,7 @@ vala_develop_main_paned_LoadSolutionIntoOverview (valaDevelopMainPaned* self,
 	_g_object_unref0 (pixbuf);
 #line 1526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (column);
-#line 13827 "main_paned.c"
+#line 13856 "main_paned.c"
 }
 
 static gboolean
@@ -13838,13 +13867,13 @@ bool_parse (const gchar* str)
 		result = TRUE;
 #line 46 "glib-2.0.vapi"
 		return result;
-#line 13842 "main_paned.c"
+#line 13871 "main_paned.c"
 	} else {
 #line 48 "glib-2.0.vapi"
 		result = FALSE;
 #line 48 "glib-2.0.vapi"
 		return result;
-#line 13848 "main_paned.c"
+#line 13877 "main_paned.c"
 	}
 }
 
@@ -14130,7 +14159,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_g_free0 (_tmp36_);
 #line 1600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp39_) {
-#line 14134 "main_paned.c"
+#line 14163 "main_paned.c"
 		xmlNode* _tmp40_;
 		gchar* _tmp41_;
 		gchar* _tmp42_;
@@ -14149,7 +14178,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_tmp33_ = _tmp43_;
 #line 1600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp42_);
-#line 14153 "main_paned.c"
+#line 14182 "main_paned.c"
 	} else {
 		xmlNode* _tmp44_;
 		gchar* _tmp45_;
@@ -14169,7 +14198,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_tmp33_ = _tmp47_;
 #line 1600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp46_);
-#line 14173 "main_paned.c"
+#line 14202 "main_paned.c"
 	}
 #line 1600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp48_ = vala_develop_main_paned_overviewTreeModel;
@@ -14197,7 +14226,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_g_free0 (_tmp54_);
 #line 1601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp57_) {
-#line 14201 "main_paned.c"
+#line 14230 "main_paned.c"
 		GFile* _tmp58_;
 		GFile* _tmp59_;
 		GFile* _tmp60_;
@@ -14224,7 +14253,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_g_object_unref0 (_tmp62_);
 #line 1601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp60_);
-#line 14228 "main_paned.c"
+#line 14257 "main_paned.c"
 	} else {
 		xmlNode* _tmp64_;
 		gchar* _tmp65_;
@@ -14244,7 +14273,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_tmp51_ = _tmp67_;
 #line 1601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp66_);
-#line 14248 "main_paned.c"
+#line 14277 "main_paned.c"
 	}
 #line 1601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp68_ = vala_develop_main_paned_overviewTreeModel;
@@ -14276,7 +14305,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_g_free0 (_tmp75_);
 #line 1603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp78_) {
-#line 14280 "main_paned.c"
+#line 14309 "main_paned.c"
 		valaDevelopOverviewTreeStore* _tmp79_;
 		GtkTreeIter* _tmp80_;
 		GtkTreeIter _tmp81_;
@@ -14320,7 +14349,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 			g_clear_error (&_inner_error0_);
 #line 1604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return NULL;
-#line 14324 "main_paned.c"
+#line 14353 "main_paned.c"
 		}
 	}
 #line 1606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -14435,7 +14464,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_g_free0 (_tmp123_);
 #line 1611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp126_) {
-#line 14439 "main_paned.c"
+#line 14468 "main_paned.c"
 		xmlNode* _tmp127_;
 		gchar* _tmp128_;
 		gchar* _tmp129_;
@@ -14457,11 +14486,11 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_g_free0 (_tmp131_);
 #line 1611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp129_);
-#line 14461 "main_paned.c"
+#line 14490 "main_paned.c"
 	} else {
 #line 1611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp120_ = FALSE;
-#line 14465 "main_paned.c"
+#line 14494 "main_paned.c"
 	}
 #line 1611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp132_ = vala_develop_main_paned_overviewTreeModel;
@@ -14483,7 +14512,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_tmp138_ = item_build_type;
 #line 1613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp138_ == VALA_DEVELOP_ITEM_BUILD_TYPE_Executable) {
-#line 14487 "main_paned.c"
+#line 14516 "main_paned.c"
 		GdkPixbuf* _tmp139_ = NULL;
 		GdkPixbuf* _tmp140_;
 		valaDevelopOverviewTreeStore* _tmp141_;
@@ -14511,7 +14540,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 			g_clear_error (&_inner_error0_);
 #line 1614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return NULL;
-#line 14515 "main_paned.c"
+#line 14544 "main_paned.c"
 		}
 #line 1614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp141_ = vala_develop_main_paned_overviewTreeModel;
@@ -14529,14 +14558,14 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 		_g_object_unref0 (_tmp144_);
 #line 1613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp139_);
-#line 14533 "main_paned.c"
+#line 14562 "main_paned.c"
 	} else {
 		valaDevelopItemBuildType _tmp146_;
 #line 1615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp146_ = item_build_type;
 #line 1615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp146_ == VALA_DEVELOP_ITEM_BUILD_TYPE_SharedObject) {
-#line 14540 "main_paned.c"
+#line 14569 "main_paned.c"
 			GdkPixbuf* _tmp147_ = NULL;
 			GdkPixbuf* _tmp148_;
 			valaDevelopOverviewTreeStore* _tmp149_;
@@ -14564,7 +14593,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 1616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return NULL;
-#line 14568 "main_paned.c"
+#line 14597 "main_paned.c"
 			}
 #line 1616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp149_ = vala_develop_main_paned_overviewTreeModel;
@@ -14582,7 +14611,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 			_g_object_unref0 (_tmp152_);
 #line 1615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (_tmp147_);
-#line 14586 "main_paned.c"
+#line 14615 "main_paned.c"
 		}
 	}
 #line 1617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -14685,7 +14714,7 @@ vala_develop_main_paned_LoadProject (valaDevelopMainPaned* self,
 	_g_object_unref0 (projectFile);
 #line 1632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 14689 "main_paned.c"
+#line 14718 "main_paned.c"
 }
 
 static void
@@ -14702,7 +14731,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 	g_return_if_fail (sf != NULL);
 #line 1637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (xmlChildElementCount (childNode) > ((gulong) 0)) {
-#line 14706 "main_paned.c"
+#line 14735 "main_paned.c"
 		{
 			xmlNode* child = NULL;
 			xmlNode* _tmp0_;
@@ -14710,14 +14739,14 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 			_tmp0_ = childNode->children;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = _tmp0_;
-#line 14714 "main_paned.c"
+#line 14743 "main_paned.c"
 			{
 				gboolean _tmp1_ = FALSE;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp1_ = TRUE;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				while (TRUE) {
-#line 14721 "main_paned.c"
+#line 14750 "main_paned.c"
 					xmlNode* _tmp4_;
 					xmlNode* _tmp5_;
 					xmlElementType _tmp6_;
@@ -14736,7 +14765,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 					GtkTreeIter _tmp23_;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (!_tmp1_) {
-#line 14740 "main_paned.c"
+#line 14769 "main_paned.c"
 						xmlNode* _tmp2_;
 						xmlNode* _tmp3_;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -14745,7 +14774,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 						_tmp3_ = _tmp2_->next;
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						child = _tmp3_;
-#line 14749 "main_paned.c"
+#line 14778 "main_paned.c"
 					}
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp1_ = FALSE;
@@ -14755,7 +14784,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 					if (!(_tmp4_ != NULL)) {
 #line 1639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 14759 "main_paned.c"
+#line 14788 "main_paned.c"
 					}
 #line 1641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp5_ = child;
@@ -14765,7 +14794,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 					if (_tmp6_ != XML_ELEMENT_NODE) {
 #line 1642 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						continue;
-#line 14769 "main_paned.c"
+#line 14798 "main_paned.c"
 					}
 #line 1643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp7_ = child;
@@ -14781,7 +14810,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 					_g_free0 (_tmp10_);
 #line 1643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp11_) {
-#line 14785 "main_paned.c"
+#line 14814 "main_paned.c"
 						valaDevelopOverviewTreeStore* _tmp12_;
 						GtkTreeIter _tmp13_;
 						xmlNode* _tmp14_;
@@ -14803,7 +14832,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 						_g_free0 (_tmp16_);
 #line 1646 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						continue;
-#line 14807 "main_paned.c"
+#line 14836 "main_paned.c"
 					}
 #line 1649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp17_ = vala_develop_main_paned_overviewTreeModel;
@@ -14825,7 +14854,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 					_tmp23_ = treeNode;
 #line 1652 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					vala_develop_main_paned_AddTreeNodes (self, _tmp22_, &_tmp23_, sf);
-#line 14829 "main_paned.c"
+#line 14858 "main_paned.c"
 				}
 			}
 		}
@@ -14835,7 +14864,7 @@ vala_develop_main_paned_AddTreeNodes (valaDevelopMainPaned* self,
 		_tmp24_ = *childIter;
 #line 1657 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_Attribute2Store (self, childNode, &_tmp24_, sf);
-#line 14839 "main_paned.c"
+#line 14868 "main_paned.c"
 	}
 }
 
@@ -14859,7 +14888,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 	itemType = VALA_DEVELOP_ITEM_TYPE_None;
 #line 1664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	attr = NULL;
-#line 14863 "main_paned.c"
+#line 14892 "main_paned.c"
 	{
 		xmlAttr* _tmp0_;
 		gboolean _tmp1_ = FALSE;
@@ -14871,7 +14900,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 		_tmp1_ = TRUE;
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (TRUE) {
-#line 14875 "main_paned.c"
+#line 14904 "main_paned.c"
 			xmlAttr* _tmp4_;
 			xmlAttr* _tmp5_;
 			const gchar* _tmp6_;
@@ -14897,7 +14926,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			static GQuark _tmp8_label8 = 0;
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (!_tmp1_) {
-#line 14901 "main_paned.c"
+#line 14930 "main_paned.c"
 				xmlAttr* _tmp2_;
 				xmlAttr* _tmp3_;
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -14906,7 +14935,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				_tmp3_ = _tmp2_->next;
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				attr = _tmp3_;
-#line 14910 "main_paned.c"
+#line 14939 "main_paned.c"
 			}
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp1_ = FALSE;
@@ -14916,7 +14945,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			if (!(_tmp4_ != NULL)) {
 #line 1665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				break;
-#line 14920 "main_paned.c"
+#line 14949 "main_paned.c"
 			}
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp5_ = attr;
@@ -14930,7 +14959,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			if (_tmp9_ == ((0 != _tmp8_label0) ? _tmp8_label0 : (_tmp8_label0 = g_quark_from_static_string ("Type")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 14934 "main_paned.c"
+#line 14963 "main_paned.c"
 					default:
 					{
 						xmlAttr* _tmp10_;
@@ -14962,13 +14991,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						vala_develop_overview_tree_store_set_item_type (_tmp14_, &_tmp15_, (gint) _tmp16_);
 #line 1672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 14966 "main_paned.c"
+#line 14995 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label1) ? _tmp8_label1 : (_tmp8_label1 = g_quark_from_static_string ("Name")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 14972 "main_paned.c"
+#line 15001 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp17_;
@@ -14995,13 +15024,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp22_);
 #line 1675 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 14999 "main_paned.c"
+#line 15028 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label2) ? _tmp8_label2 : (_tmp8_label2 = g_quark_from_static_string ("Path")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15005 "main_paned.c"
+#line 15034 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp23_;
@@ -15028,13 +15057,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp28_);
 #line 1678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15032 "main_paned.c"
+#line 15061 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label3) ? _tmp8_label3 : (_tmp8_label3 = g_quark_from_static_string ("MimeType")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15038 "main_paned.c"
+#line 15067 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp29_;
@@ -15061,13 +15090,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp34_);
 #line 1681 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15065 "main_paned.c"
+#line 15094 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label4) ? _tmp8_label4 : (_tmp8_label4 = g_quark_from_static_string ("BuildType")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15071 "main_paned.c"
+#line 15100 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp35_;
@@ -15094,13 +15123,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp40_);
 #line 1684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15098 "main_paned.c"
+#line 15127 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label5) ? _tmp8_label5 : (_tmp8_label5 = g_quark_from_static_string ("ResourceId")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15104 "main_paned.c"
+#line 15133 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp41_;
@@ -15127,13 +15156,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp46_);
 #line 1687 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15131 "main_paned.c"
+#line 15160 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label6) ? _tmp8_label6 : (_tmp8_label6 = g_quark_from_static_string ("ResourceCompress")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15137 "main_paned.c"
+#line 15166 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp47_;
@@ -15160,13 +15189,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp52_);
 #line 1690 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15164 "main_paned.c"
+#line 15193 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label7) ? _tmp8_label7 : (_tmp8_label7 = g_quark_from_static_string ("ResourceStripBlanks")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15170 "main_paned.c"
+#line 15199 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp53_;
@@ -15193,13 +15222,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp58_);
 #line 1693 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15197 "main_paned.c"
+#line 15226 "main_paned.c"
 					}
 				}
 			} else if (_tmp9_ == ((0 != _tmp8_label8) ? _tmp8_label8 : (_tmp8_label8 = g_quark_from_static_string ("ResourceAlias")))) {
 #line 1667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				switch (0) {
-#line 15203 "main_paned.c"
+#line 15232 "main_paned.c"
 					default:
 					{
 						valaDevelopOverviewTreeStore* _tmp59_;
@@ -15226,7 +15255,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						_g_free0 (_tmp64_);
 #line 1696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 15230 "main_paned.c"
+#line 15259 "main_paned.c"
 					}
 				}
 			}
@@ -15238,7 +15267,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 	switch (_tmp65_) {
 #line 1699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 15242 "main_paned.c"
+#line 15271 "main_paned.c"
 		{
 			GdkPixbuf* _tmp66_ = NULL;
 			GdkPixbuf* _tmp67_;
@@ -15258,7 +15287,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 1702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 15262 "main_paned.c"
+#line 15291 "main_paned.c"
 			}
 #line 1702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp68_ = vala_develop_main_paned_overviewTreeModel;
@@ -15276,13 +15305,13 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_g_object_unref0 (_tmp66_);
 #line 1703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 15280 "main_paned.c"
+#line 15309 "main_paned.c"
 		}
 #line 1699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Package:
 #line 1699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Vapi:
-#line 15286 "main_paned.c"
+#line 15315 "main_paned.c"
 		{
 			valaDevelopItemType _tmp72_;
 			GdkPixbuf* _tmp77_ = NULL;
@@ -15295,7 +15324,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_tmp72_ = itemType;
 #line 1706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp72_ == VALA_DEVELOP_ITEM_TYPE_Package) {
-#line 15299 "main_paned.c"
+#line 15328 "main_paned.c"
 				valaDevelopOverviewTreeStore* _tmp73_;
 				GtkTreeIter _tmp74_;
 				gchar* _tmp75_;
@@ -15312,7 +15341,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				vala_develop_symbol_finder_AddPackage (sf, _tmp76_);
 #line 1707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp76_);
-#line 15316 "main_paned.c"
+#line 15345 "main_paned.c"
 			}
 #line 1708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp78_ = gdk_pixbuf_new_from_resource ("/valaDevelop/package.svg.png", &_inner_error0_);
@@ -15326,7 +15355,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 1708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 15330 "main_paned.c"
+#line 15359 "main_paned.c"
 			}
 #line 1708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp79_ = vala_develop_main_paned_overviewTreeModel;
@@ -15344,11 +15373,11 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_g_object_unref0 (_tmp77_);
 #line 1709 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 15348 "main_paned.c"
+#line 15377 "main_paned.c"
 		}
 #line 1699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 15352 "main_paned.c"
+#line 15381 "main_paned.c"
 		{
 			GdkPixbuf* _tmp83_ = NULL;
 			GdkPixbuf* _tmp84_;
@@ -15368,7 +15397,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 1711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 15372 "main_paned.c"
+#line 15401 "main_paned.c"
 			}
 #line 1711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp85_ = vala_develop_main_paned_overviewTreeModel;
@@ -15386,11 +15415,11 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_g_object_unref0 (_tmp83_);
 #line 1712 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 15390 "main_paned.c"
+#line 15419 "main_paned.c"
 		}
 #line 1699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource | VALA_DEVELOP_ITEM_TYPE_Directory:
-#line 15394 "main_paned.c"
+#line 15423 "main_paned.c"
 		{
 			GdkPixbuf* _tmp89_ = NULL;
 			GdkPixbuf* _tmp90_;
@@ -15410,7 +15439,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				g_clear_error (&_inner_error0_);
 #line 1714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 15414 "main_paned.c"
+#line 15443 "main_paned.c"
 			}
 #line 1714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp91_ = vala_develop_main_paned_overviewTreeModel;
@@ -15428,7 +15457,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_g_object_unref0 (_tmp89_);
 #line 1715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 15432 "main_paned.c"
+#line 15461 "main_paned.c"
 		}
 		default:
 		{
@@ -15607,18 +15636,18 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			if (g_str_has_suffix (_tmp136_, ".glade")) {
 #line 1730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp135_ = TRUE;
-#line 15611 "main_paned.c"
+#line 15640 "main_paned.c"
 			} else {
 				const gchar* _tmp137_;
 #line 1730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp137_ = itemName;
 #line 1730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp135_ = g_str_has_suffix (_tmp137_, ".ui");
-#line 15618 "main_paned.c"
+#line 15647 "main_paned.c"
 			}
 #line 1730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp135_) {
-#line 15622 "main_paned.c"
+#line 15651 "main_paned.c"
 				GdkPixbuf* _tmp138_ = NULL;
 				GdkPixbuf* _tmp139_;
 				GdkPixbuf* _tmp140_;
@@ -15648,7 +15677,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 					g_clear_error (&_inner_error0_);
 #line 1731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return;
-#line 15652 "main_paned.c"
+#line 15681 "main_paned.c"
 				}
 #line 1731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp140_ = gdk_pixbuf_scale_simple (_tmp138_, 16, 16, GDK_INTERP_BILINEAR);
@@ -15658,7 +15687,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				itemPixbuf = _tmp140_;
 #line 1730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (_tmp138_);
-#line 15662 "main_paned.c"
+#line 15691 "main_paned.c"
 			} else {
 				gboolean _tmp141_ = FALSE;
 				const gchar* _tmp142_;
@@ -15668,18 +15697,18 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				if (g_str_has_suffix (_tmp142_, ".xml")) {
 #line 1732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp141_ = TRUE;
-#line 15672 "main_paned.c"
+#line 15701 "main_paned.c"
 				} else {
 					const gchar* _tmp143_;
 #line 1732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp143_ = itemName;
 #line 1732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp141_ = g_str_has_suffix (_tmp143_, ".css");
-#line 15679 "main_paned.c"
+#line 15708 "main_paned.c"
 				}
 #line 1732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp141_) {
-#line 15683 "main_paned.c"
+#line 15712 "main_paned.c"
 					GdkPixbuf* _tmp144_ = NULL;
 					GdkPixbuf* _tmp145_;
 					GdkPixbuf* _tmp146_;
@@ -15709,7 +15738,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						g_clear_error (&_inner_error0_);
 #line 1733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						return;
-#line 15713 "main_paned.c"
+#line 15742 "main_paned.c"
 					}
 #line 1733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp146_ = gdk_pixbuf_scale_simple (_tmp144_, 16, 16, GDK_INTERP_BILINEAR);
@@ -15719,7 +15748,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 					itemPixbuf = _tmp146_;
 #line 1732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (_tmp144_);
-#line 15723 "main_paned.c"
+#line 15752 "main_paned.c"
 				} else {
 					gboolean _tmp147_ = FALSE;
 					const gchar* _tmp148_;
@@ -15729,18 +15758,18 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 					if (g_str_has_suffix (_tmp148_, ".png")) {
 #line 1734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp147_ = TRUE;
-#line 15733 "main_paned.c"
+#line 15762 "main_paned.c"
 					} else {
 						const gchar* _tmp149_;
 #line 1734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp149_ = itemName;
 #line 1734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp147_ = g_str_has_suffix (_tmp149_, ".svg");
-#line 15740 "main_paned.c"
+#line 15769 "main_paned.c"
 					}
 #line 1734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp147_) {
-#line 15744 "main_paned.c"
+#line 15773 "main_paned.c"
 						GdkPixbuf* _tmp150_ = NULL;
 						GdkPixbuf* _tmp151_;
 						GdkPixbuf* _tmp152_;
@@ -15770,7 +15799,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 							g_clear_error (&_inner_error0_);
 #line 1735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							return;
-#line 15774 "main_paned.c"
+#line 15803 "main_paned.c"
 						}
 #line 1735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp152_ = gdk_pixbuf_scale_simple (_tmp150_, 16, 16, GDK_INTERP_BILINEAR);
@@ -15780,7 +15809,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						itemPixbuf = _tmp152_;
 #line 1734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (_tmp150_);
-#line 15784 "main_paned.c"
+#line 15813 "main_paned.c"
 					} else {
 						gboolean _tmp153_ = FALSE;
 						gboolean _tmp154_ = FALSE;
@@ -15791,31 +15820,31 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 						if (g_str_has_suffix (_tmp155_, ".vala")) {
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp154_ = TRUE;
-#line 15795 "main_paned.c"
+#line 15824 "main_paned.c"
 						} else {
 							const gchar* _tmp156_;
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp156_ = itemName;
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp154_ = g_str_has_suffix (_tmp156_, ".vapi");
-#line 15802 "main_paned.c"
+#line 15831 "main_paned.c"
 						}
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (_tmp154_) {
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp153_ = TRUE;
-#line 15808 "main_paned.c"
+#line 15837 "main_paned.c"
 						} else {
 							const gchar* _tmp157_;
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp157_ = itemName;
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp153_ = g_str_has_suffix (_tmp157_, ".c");
-#line 15815 "main_paned.c"
+#line 15844 "main_paned.c"
 						}
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (_tmp153_) {
-#line 15819 "main_paned.c"
+#line 15848 "main_paned.c"
 							gboolean _tmp158_ = FALSE;
 							valaDevelopItemType _tmp159_;
 							GdkPixbuf* _tmp163_ = NULL;
@@ -15825,7 +15854,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 							_tmp159_ = itemType;
 #line 1738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (_tmp159_ == VALA_DEVELOP_ITEM_TYPE_Source) {
-#line 15829 "main_paned.c"
+#line 15858 "main_paned.c"
 								valaDevelopOverviewTreeStore* _tmp160_;
 								GtkTreeIter _tmp161_;
 #line 1738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -15834,21 +15863,21 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 								_tmp161_ = *childIter;
 #line 1738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp158_ = vala_develop_overview_tree_store_get_item_buildtype (_tmp160_, &_tmp161_) == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Compile);
-#line 15838 "main_paned.c"
+#line 15867 "main_paned.c"
 							} else {
 #line 1738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp158_ = FALSE;
-#line 15842 "main_paned.c"
+#line 15871 "main_paned.c"
 							}
 #line 1738 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (_tmp158_) {
-#line 15846 "main_paned.c"
+#line 15875 "main_paned.c"
 								const gchar* _tmp162_;
 #line 1739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp162_ = absolutPath;
 #line 1739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								vala_develop_symbol_finder_AddSourceFile (sf, _tmp162_);
-#line 15852 "main_paned.c"
+#line 15881 "main_paned.c"
 							}
 #line 1740 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp164_ = gdk_pixbuf_new_from_resource ("/valaDevelop/source.svg.png", &_inner_error0_);
@@ -15876,7 +15905,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 								g_clear_error (&_inner_error0_);
 #line 1740 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								return;
-#line 15880 "main_paned.c"
+#line 15909 "main_paned.c"
 							}
 #line 1740 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp165_ = gdk_pixbuf_scale_simple (_tmp163_, 16, 16, GDK_INTERP_BILINEAR);
@@ -15886,7 +15915,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 							itemPixbuf = _tmp165_;
 #line 1736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (_tmp163_);
-#line 15890 "main_paned.c"
+#line 15919 "main_paned.c"
 						}
 					}
 				}
@@ -15895,7 +15924,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_tmp166_ = itemPixbuf;
 #line 1742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp166_ != NULL) {
-#line 15899 "main_paned.c"
+#line 15928 "main_paned.c"
 				valaDevelopOverviewTreeStore* _tmp167_;
 				GtkTreeIter _tmp168_;
 				GdkPixbuf* _tmp169_;
@@ -15907,7 +15936,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 				_tmp169_ = itemPixbuf;
 #line 1743 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_overview_tree_store_set_item_pixbuf (_tmp167_, &_tmp168_, _tmp169_);
-#line 15911 "main_paned.c"
+#line 15940 "main_paned.c"
 			}
 #line 1744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp170_ = vala_develop_main_paned_overviewTreeModel;
@@ -15933,7 +15962,7 @@ vala_develop_main_paned_Attribute2Store (valaDevelopMainPaned* self,
 			_g_free0 (itemName);
 #line 1745 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			break;
-#line 15937 "main_paned.c"
+#line 15966 "main_paned.c"
 		}
 	}
 }
@@ -16030,18 +16059,18 @@ vala_develop_main_paned_CreateSourceBuffer (valaDevelopMainPaned* self,
 	if (g_strcmp0 (_tmp15_, "ui") == 0) {
 #line 1756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp14_ = TRUE;
-#line 16034 "main_paned.c"
+#line 16063 "main_paned.c"
 	} else {
 		const gchar* _tmp16_;
 #line 1756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp16_ = ext;
 #line 1756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp14_ = g_strcmp0 (_tmp16_, "glade") == 0;
-#line 16041 "main_paned.c"
+#line 16070 "main_paned.c"
 	}
 #line 1756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp14_) {
-#line 16045 "main_paned.c"
+#line 16074 "main_paned.c"
 		gchar* _tmp17_;
 #line 1757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp17_ = g_strdup ("xml");
@@ -16049,13 +16078,13 @@ vala_develop_main_paned_CreateSourceBuffer (valaDevelopMainPaned* self,
 		_g_free0 (ext);
 #line 1757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		ext = _tmp17_;
-#line 16053 "main_paned.c"
+#line 16082 "main_paned.c"
 	}
 #line 1758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp18_ = ext;
 #line 1758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_strcmp0 (_tmp18_, "vapi") == 0) {
-#line 16059 "main_paned.c"
+#line 16088 "main_paned.c"
 		gchar* _tmp19_;
 #line 1759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp19_ = g_strdup ("vala");
@@ -16063,7 +16092,7 @@ vala_develop_main_paned_CreateSourceBuffer (valaDevelopMainPaned* self,
 		_g_free0 (ext);
 #line 1759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		ext = _tmp19_;
-#line 16067 "main_paned.c"
+#line 16096 "main_paned.c"
 	}
 #line 1760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp20_ = manager;
@@ -16121,7 +16150,7 @@ vala_develop_main_paned_CreateSourceBuffer (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return NULL;
-#line 16125 "main_paned.c"
+#line 16154 "main_paned.c"
 	}
 #line 1785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set ((GtkTextBuffer*) buffer, "text", contents, NULL);
@@ -16141,7 +16170,7 @@ vala_develop_main_paned_CreateSourceBuffer (valaDevelopMainPaned* self,
 	_g_object_unref0 (manager);
 #line 1787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16145 "main_paned.c"
+#line 16174 "main_paned.c"
 }
 
 static Block39Data*
@@ -16151,7 +16180,7 @@ block39_data_ref (Block39Data* _data39_)
 	g_atomic_int_inc (&_data39_->_ref_count_);
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data39_;
-#line 16155 "main_paned.c"
+#line 16184 "main_paned.c"
 }
 
 static void
@@ -16161,7 +16190,7 @@ block39_data_unref (void * _userdata_)
 	_data39_ = (Block39Data*) _userdata_;
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data39_->_ref_count_)) {
-#line 16165 "main_paned.c"
+#line 16194 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data39_->self;
@@ -16177,7 +16206,7 @@ block39_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block39Data, _data39_);
-#line 16181 "main_paned.c"
+#line 16210 "main_paned.c"
 	}
 }
 
@@ -16186,11 +16215,11 @@ _variant_new2 (gint value)
 {
 #line 1857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return g_variant_ref_sink (g_variant_new_int32 (value));
-#line 16190 "main_paned.c"
+#line 16219 "main_paned.c"
 }
 
 static gchar*
-__lambda23_ (valaDevelopMainPaned* self,
+__lambda28_ (valaDevelopMainPaned* self,
              GtkSourceMark* mark)
 {
 	gchar* result = NULL;
@@ -16203,23 +16232,23 @@ __lambda23_ (valaDevelopMainPaned* self,
 	result = _tmp0_;
 #line 1888 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16207 "main_paned.c"
+#line 16236 "main_paned.c"
 }
 
 static gchar*
-___lambda23__gtk_source_mark_attributes_query_tooltip_text (GtkSourceMarkAttributes* _sender,
+___lambda28__gtk_source_mark_attributes_query_tooltip_text (GtkSourceMarkAttributes* _sender,
                                                             GtkSourceMark* mark,
                                                             gpointer self)
 {
 	gchar* result;
-	result = __lambda23_ ((valaDevelopMainPaned*) self, mark);
+	result = __lambda28_ ((valaDevelopMainPaned*) self, mark);
 #line 1886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16219 "main_paned.c"
+#line 16248 "main_paned.c"
 }
 
 static gboolean
-__lambda25_ (valaDevelopMainPaned* self,
+__lambda30_ (valaDevelopMainPaned* self,
              GtkTextIter* iter,
              GdkRectangle* area,
              GdkEvent* event)
@@ -16235,25 +16264,25 @@ __lambda25_ (valaDevelopMainPaned* self,
 	result = TRUE;
 #line 1905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16239 "main_paned.c"
+#line 16268 "main_paned.c"
 }
 
 static gboolean
-___lambda25__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
+___lambda30__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
                                                            GtkTextIter* iter,
                                                            GdkRectangle* area,
                                                            GdkEvent* event,
                                                            gpointer self)
 {
 	gboolean result;
-	result = __lambda25_ ((valaDevelopMainPaned*) self, iter, area, event);
+	result = __lambda30_ ((valaDevelopMainPaned*) self, iter, area, event);
 #line 1903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16253 "main_paned.c"
+#line 16282 "main_paned.c"
 }
 
 static gboolean
-__lambda26_ (valaDevelopMainPaned* self,
+__lambda31_ (valaDevelopMainPaned* self,
              GtkTextIter* iter,
              GdkRectangle* area,
              GdkEvent* event)
@@ -16302,25 +16331,25 @@ __lambda26_ (valaDevelopMainPaned* self,
 	_g_free0 (word);
 #line 1917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16306 "main_paned.c"
+#line 16335 "main_paned.c"
 }
 
 static gboolean
-___lambda26__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
+___lambda31__gtk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer* _sender,
                                                            GtkTextIter* iter,
                                                            GdkRectangle* area,
                                                            GdkEvent* event,
                                                            gpointer self)
 {
 	gboolean result;
-	result = __lambda26_ ((valaDevelopMainPaned*) self, iter, area, event);
+	result = __lambda31_ ((valaDevelopMainPaned*) self, iter, area, event);
 #line 1910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16320 "main_paned.c"
+#line 16349 "main_paned.c"
 }
 
 static gboolean
-__lambda27_ (Block39Data* _data39_,
+__lambda32_ (Block39Data* _data39_,
              GtkTreeModel* model,
              GtkTreePath* path,
              GtkTreeIter* iter)
@@ -16376,7 +16405,7 @@ __lambda27_ (Block39Data* _data39_,
 	_tmp7_ = file;
 #line 1927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_strcmp0 (_data39_->fullPath, _tmp7_) == 0) {
-#line 16380 "main_paned.c"
+#line 16409 "main_paned.c"
 		GtkTextIter textIter = {0};
 		GtkSourceView* _tmp8_;
 		GtkTextBuffer* _tmp9_;
@@ -16408,7 +16437,7 @@ __lambda27_ (Block39Data* _data39_,
 		_tmp15_ = textIter;
 #line 1932 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_source_buffer_create_source_mark (G_TYPE_CHECK_INSTANCE_CAST (_tmp14_, gtk_source_buffer_get_type (), GtkSourceBuffer), NULL, "breakpoint", &_tmp15_);
-#line 16412 "main_paned.c"
+#line 16441 "main_paned.c"
 	}
 #line 1934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
@@ -16418,20 +16447,20 @@ __lambda27_ (Block39Data* _data39_,
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
 #line 1934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16422 "main_paned.c"
+#line 16451 "main_paned.c"
 }
 
 static gboolean
-___lambda27__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda32__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda27_ (self, model, path, iter);
+	result = __lambda32_ (self, model, path, iter);
 #line 1920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16435 "main_paned.c"
+#line 16464 "main_paned.c"
 }
 
 static Block40Data*
@@ -16441,7 +16470,7 @@ block40_data_ref (Block40Data* _data40_)
 	g_atomic_int_inc (&_data40_->_ref_count_);
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data40_;
-#line 16445 "main_paned.c"
+#line 16474 "main_paned.c"
 }
 
 static void
@@ -16451,7 +16480,7 @@ block40_data_unref (void * _userdata_)
 	_data40_ = (Block40Data*) _userdata_;
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data40_->_ref_count_)) {
-#line 16455 "main_paned.c"
+#line 16484 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data40_->_data39_->self;
@@ -16461,12 +16490,12 @@ block40_data_unref (void * _userdata_)
 		_data40_->_data39_ = NULL;
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block40Data, _data40_);
-#line 16465 "main_paned.c"
+#line 16494 "main_paned.c"
 	}
 }
 
 static gboolean
-__lambda29_ (Block40Data* _data40_,
+__lambda34_ (Block40Data* _data40_,
              GtkTreeModel* tmpModel,
              GtkTreePath* path,
              GtkTreeIter* iter)
@@ -16512,21 +16541,21 @@ __lambda29_ (Block40Data* _data40_,
 	_tmp5_ = line;
 #line 1946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_value_get_int (&_tmp5_) == (_data40_->e + 1)) {
-#line 16516 "main_paned.c"
+#line 16545 "main_paned.c"
 		GValue _tmp6_;
 #line 1946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = file;
 #line 1946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = g_strcmp0 (g_value_get_string (&_tmp6_), _data39_->fullPath) == 0;
-#line 16522 "main_paned.c"
+#line 16551 "main_paned.c"
 	} else {
 #line 1946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = FALSE;
-#line 16526 "main_paned.c"
+#line 16555 "main_paned.c"
 	}
 #line 1946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp4_) {
-#line 16530 "main_paned.c"
+#line 16559 "main_paned.c"
 		GtkTreeView* _tmp7_;
 		GtkTreeModel* _tmp8_;
 		GtkTreeModel* _tmp9_;
@@ -16546,7 +16575,7 @@ __lambda29_ (Block40Data* _data40_,
 		G_IS_VALUE (&line) ? (g_value_unset (&line), NULL) : NULL;
 #line 1949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 16550 "main_paned.c"
+#line 16579 "main_paned.c"
 	}
 #line 1951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
@@ -16556,24 +16585,24 @@ __lambda29_ (Block40Data* _data40_,
 	G_IS_VALUE (&line) ? (g_value_unset (&line), NULL) : NULL;
 #line 1951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16560 "main_paned.c"
+#line 16589 "main_paned.c"
 }
 
 static gboolean
-___lambda29__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda34__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda29_ (self, model, path, iter);
+	result = __lambda34_ (self, model, path, iter);
 #line 1940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16573 "main_paned.c"
+#line 16602 "main_paned.c"
 }
 
 static void
-__lambda28_ (Block39Data* _data39_,
+__lambda33_ (Block39Data* _data39_,
              gint e)
 {
 	valaDevelopMainPaned* self;
@@ -16636,7 +16665,7 @@ __lambda28_ (Block39Data* _data39_,
 #line 1940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _tmp4_;
 #line 1940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_tree_model_foreach ((GtkTreeModel*) G_TYPE_CHECK_INSTANCE_CAST (_tmp5_, gtk_list_store_get_type (), GtkListStore), ___lambda29__gtk_tree_model_foreach_func, _data40_);
+	gtk_tree_model_foreach ((GtkTreeModel*) G_TYPE_CHECK_INSTANCE_CAST (_tmp5_, gtk_list_store_get_type (), GtkListStore), ___lambda34__gtk_tree_model_foreach_func, _data40_);
 #line 1954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = self->breakPoints;
 #line 1954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -16715,13 +16744,13 @@ __lambda28_ (Block39Data* _data39_,
 	_tmp30_ = self->priv->_debugger;
 #line 1959 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp30_ != NULL) {
-#line 16719 "main_paned.c"
+#line 16748 "main_paned.c"
 		valaDevelopDebugger* _tmp31_;
 #line 1960 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp31_ = self->priv->_debugger;
 #line 1960 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_add_breakpoint (_tmp31_, _data40_->e + 1, _data39_->fullPath);
-#line 16725 "main_paned.c"
+#line 16754 "main_paned.c"
 	}
 #line 1961 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_add_breakpoint_to_solution (_data40_->e + 1, _data39_->fullPath, TRUE);
@@ -16729,17 +16758,17 @@ __lambda28_ (Block39Data* _data39_,
 	block40_data_unref (_data40_);
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data40_ = NULL;
-#line 16733 "main_paned.c"
+#line 16762 "main_paned.c"
 }
 
 static void
-___lambda28__vala_develop_source_gutter_renderer_break_point_add_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
+___lambda33__vala_develop_source_gutter_renderer_break_point_add_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
                                                                              gint i,
                                                                              gpointer self)
 {
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda28_ (self, i);
-#line 16743 "main_paned.c"
+	__lambda33_ (self, i);
+#line 16772 "main_paned.c"
 }
 
 static Block41Data*
@@ -16749,7 +16778,7 @@ block41_data_ref (Block41Data* _data41_)
 	g_atomic_int_inc (&_data41_->_ref_count_);
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data41_;
-#line 16753 "main_paned.c"
+#line 16782 "main_paned.c"
 }
 
 static void
@@ -16759,7 +16788,7 @@ block41_data_unref (void * _userdata_)
 	_data41_ = (Block41Data*) _userdata_;
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data41_->_ref_count_)) {
-#line 16763 "main_paned.c"
+#line 16792 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data41_->_data39_->self;
@@ -16769,12 +16798,12 @@ block41_data_unref (void * _userdata_)
 		_data41_->_data39_ = NULL;
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block41Data, _data41_);
-#line 16773 "main_paned.c"
+#line 16802 "main_paned.c"
 	}
 }
 
 static gboolean
-__lambda31_ (Block41Data* _data41_,
+__lambda36_ (Block41Data* _data41_,
              GtkTreeModel* model,
              GtkTreePath* path,
              GtkTreeIter* iter)
@@ -16820,21 +16849,21 @@ __lambda31_ (Block41Data* _data41_,
 	_tmp5_ = line;
 #line 1972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_value_get_int (&_tmp5_) == (_data41_->e + 1)) {
-#line 16824 "main_paned.c"
+#line 16853 "main_paned.c"
 		GValue _tmp6_;
 #line 1972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = file;
 #line 1972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = g_strcmp0 (g_value_get_string (&_tmp6_), _data39_->fullPath) == 0;
-#line 16830 "main_paned.c"
+#line 16859 "main_paned.c"
 	} else {
 #line 1972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = FALSE;
-#line 16834 "main_paned.c"
+#line 16863 "main_paned.c"
 	}
 #line 1972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp4_) {
-#line 16838 "main_paned.c"
+#line 16867 "main_paned.c"
 		GtkTreeView* _tmp7_;
 		GtkTreeModel* _tmp8_;
 		GtkTreeModel* _tmp9_;
@@ -16853,7 +16882,7 @@ __lambda31_ (Block41Data* _data41_,
 		_tmp10_ = self->priv->_debugger;
 #line 1975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp10_ != NULL) {
-#line 16857 "main_paned.c"
+#line 16886 "main_paned.c"
 			valaDevelopDebugger* _tmp11_;
 			GValue _tmp12_;
 			GValue _tmp13_;
@@ -16865,7 +16894,7 @@ __lambda31_ (Block41Data* _data41_,
 			_tmp13_ = file;
 #line 1976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_debugger_del_breakpoint (_tmp11_, g_value_get_int (&_tmp12_), g_value_get_string (&_tmp13_));
-#line 16869 "main_paned.c"
+#line 16898 "main_paned.c"
 		}
 #line 1977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp14_ = line;
@@ -16881,7 +16910,7 @@ __lambda31_ (Block41Data* _data41_,
 		G_IS_VALUE (&line) ? (g_value_unset (&line), NULL) : NULL;
 #line 1978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 16885 "main_paned.c"
+#line 16914 "main_paned.c"
 	}
 #line 1980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
@@ -16891,24 +16920,24 @@ __lambda31_ (Block41Data* _data41_,
 	G_IS_VALUE (&line) ? (g_value_unset (&line), NULL) : NULL;
 #line 1980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16895 "main_paned.c"
+#line 16924 "main_paned.c"
 }
 
 static gboolean
-___lambda31__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda36__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda31_ (self, model, path, iter);
+	result = __lambda36_ (self, model, path, iter);
 #line 1967 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 16908 "main_paned.c"
+#line 16937 "main_paned.c"
 }
 
 static void
-__lambda30_ (Block39Data* _data39_,
+__lambda35_ (Block39Data* _data39_,
              gint e)
 {
 	valaDevelopMainPaned* self;
@@ -16933,22 +16962,22 @@ __lambda30_ (Block39Data* _data39_,
 #line 1967 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = _tmp1_;
 #line 1967 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_tree_model_foreach ((GtkTreeModel*) G_TYPE_CHECK_INSTANCE_CAST (_tmp2_, gtk_list_store_get_type (), GtkListStore), ___lambda31__gtk_tree_model_foreach_func, _data41_);
+	gtk_tree_model_foreach ((GtkTreeModel*) G_TYPE_CHECK_INSTANCE_CAST (_tmp2_, gtk_list_store_get_type (), GtkListStore), ___lambda36__gtk_tree_model_foreach_func, _data41_);
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block41_data_unref (_data41_);
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data41_ = NULL;
-#line 16942 "main_paned.c"
+#line 16971 "main_paned.c"
 }
 
 static void
-___lambda30__vala_develop_source_gutter_renderer_break_point_del_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
+___lambda35__vala_develop_source_gutter_renderer_break_point_del_breakpoint (valaDevelopSourceGutterRendererBreakPoint* _sender,
                                                                              gint i,
                                                                              gpointer self)
 {
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda30_ (self, i);
-#line 16952 "main_paned.c"
+	__lambda35_ (self, i);
+#line 16981 "main_paned.c"
 }
 
 static Block42Data*
@@ -16958,7 +16987,7 @@ block42_data_ref (Block42Data* _data42_)
 	g_atomic_int_inc (&_data42_->_ref_count_);
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return _data42_;
-#line 16962 "main_paned.c"
+#line 16991 "main_paned.c"
 }
 
 static void
@@ -16968,7 +16997,7 @@ block42_data_unref (void * _userdata_)
 	_data42_ = (Block42Data*) _userdata_;
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_atomic_int_dec_and_test (&_data42_->_ref_count_)) {
-#line 16972 "main_paned.c"
+#line 17001 "main_paned.c"
 		valaDevelopMainPaned* self;
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self = _data42_->self;
@@ -16980,7 +17009,7 @@ block42_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_slice_free (Block42Data, _data42_);
-#line 16984 "main_paned.c"
+#line 17013 "main_paned.c"
 	}
 }
 
@@ -16989,7 +17018,7 @@ _variant_new3 (gint value)
 {
 #line 2014 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return g_variant_ref_sink (g_variant_new_int32 (value));
-#line 16993 "main_paned.c"
+#line 17022 "main_paned.c"
 }
 
 static gchar*
@@ -17011,25 +17040,25 @@ string_replace (const gchar* self,
 	if ((*((gchar*) self)) == '\0') {
 #line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
-#line 17015 "main_paned.c"
+#line 17044 "main_paned.c"
 	} else {
 #line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
-#line 17019 "main_paned.c"
+#line 17048 "main_paned.c"
 	}
 #line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
 #line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
-#line 17025 "main_paned.c"
+#line 17054 "main_paned.c"
 	} else {
 #line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
-#line 17029 "main_paned.c"
+#line 17058 "main_paned.c"
 	}
 #line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 17033 "main_paned.c"
+#line 17062 "main_paned.c"
 		gchar* _tmp2_;
 #line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
@@ -17037,7 +17066,7 @@ string_replace (const gchar* self,
 		result = _tmp2_;
 #line 1482 "glib-2.0.vapi"
 		return result;
-#line 17041 "main_paned.c"
+#line 17070 "main_paned.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -17065,8 +17094,8 @@ string_replace (const gchar* self,
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 17069 "main_paned.c"
-				goto __catch49_g_regex_error;
+#line 17098 "main_paned.c"
+				goto __catch50_g_regex_error;
 			}
 #line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
@@ -17074,7 +17103,7 @@ string_replace (const gchar* self,
 			g_clear_error (&_inner_error0_);
 #line 1485 "glib-2.0.vapi"
 			return NULL;
-#line 17078 "main_paned.c"
+#line 17107 "main_paned.c"
 		}
 #line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
@@ -17088,8 +17117,8 @@ string_replace (const gchar* self,
 			_g_regex_unref0 (regex);
 #line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 17092 "main_paned.c"
-				goto __catch49_g_regex_error;
+#line 17121 "main_paned.c"
+				goto __catch50_g_regex_error;
 			}
 #line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
@@ -17099,7 +17128,7 @@ string_replace (const gchar* self,
 			g_clear_error (&_inner_error0_);
 #line 1486 "glib-2.0.vapi"
 			return NULL;
-#line 17103 "main_paned.c"
+#line 17132 "main_paned.c"
 		}
 #line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
@@ -17113,10 +17142,10 @@ string_replace (const gchar* self,
 		_g_regex_unref0 (regex);
 #line 1486 "glib-2.0.vapi"
 		return result;
-#line 17117 "main_paned.c"
+#line 17146 "main_paned.c"
 	}
-	goto __finally49;
-	__catch49_g_regex_error:
+	goto __finally50;
+	__catch50_g_regex_error:
 	{
 		GError* e = NULL;
 #line 1484 "glib-2.0.vapi"
@@ -17127,9 +17156,9 @@ string_replace (const gchar* self,
 		g_assert_not_reached ();
 #line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
-#line 17131 "main_paned.c"
+#line 17160 "main_paned.c"
 	}
-	__finally49:
+	__finally50:
 #line 1484 "glib-2.0.vapi"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 1484 "glib-2.0.vapi"
@@ -17138,12 +17167,12 @@ string_replace (const gchar* self,
 		g_clear_error (&_inner_error0_);
 #line 1484 "glib-2.0.vapi"
 		return NULL;
-#line 17142 "main_paned.c"
+#line 17171 "main_paned.c"
 	}
 }
 
 static void
-__lambda33_ (Block42Data* _data42_,
+__lambda38_ (Block42Data* _data42_,
              GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
@@ -17163,7 +17192,7 @@ __lambda33_ (Block42Data* _data42_,
 	_tmp1_ = _data42_->menuItem;
 #line 2035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp1_ != NULL) {
-#line 17167 "main_paned.c"
+#line 17196 "main_paned.c"
 		gchar* lab = NULL;
 		GtkMenuItem* _tmp2_;
 		const gchar* _tmp3_;
@@ -17213,7 +17242,7 @@ __lambda33_ (Block42Data* _data42_,
 		if (_tmp10_ == ((0 != _tmp9_label0) ? _tmp9_label0 : (_tmp9_label0 = g_quark_from_static_string ("Undo")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17217 "main_paned.c"
+#line 17246 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp11_;
@@ -17231,13 +17260,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp12_, "activate", _tmp13_, GDK_KEY_Z, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2043 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17235 "main_paned.c"
+#line 17264 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label1) ? _tmp9_label1 : (_tmp9_label1 = g_quark_from_static_string ("Redo")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17241 "main_paned.c"
+#line 17270 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp14_;
@@ -17255,13 +17284,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp15_, "activate", _tmp16_, GDK_KEY_Y, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17259 "main_paned.c"
+#line 17288 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label2) ? _tmp9_label2 : (_tmp9_label2 = g_quark_from_static_string ("Cut")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17265 "main_paned.c"
+#line 17294 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp17_;
@@ -17279,13 +17308,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp18_, "activate", _tmp19_, GDK_KEY_X, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17283 "main_paned.c"
+#line 17312 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label3) ? _tmp9_label3 : (_tmp9_label3 = g_quark_from_static_string ("Copy")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17289 "main_paned.c"
+#line 17318 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp20_;
@@ -17303,13 +17332,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp21_, "activate", _tmp22_, GDK_KEY_C, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17307 "main_paned.c"
+#line 17336 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label4) ? _tmp9_label4 : (_tmp9_label4 = g_quark_from_static_string ("Paste")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17313 "main_paned.c"
+#line 17342 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp23_;
@@ -17327,13 +17356,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp24_, "activate", _tmp25_, GDK_KEY_V, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17331 "main_paned.c"
+#line 17360 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label5) ? _tmp9_label5 : (_tmp9_label5 = g_quark_from_static_string ("Select All")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17337 "main_paned.c"
+#line 17366 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp26_;
@@ -17351,13 +17380,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_widget_add_accelerator ((GtkWidget*) _tmp27_, "activate", _tmp28_, GDK_KEY_A, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 #line 2067 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17355 "main_paned.c"
+#line 17384 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label6) ? _tmp9_label6 : (_tmp9_label6 = g_quark_from_static_string ("Insert Emoji")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17361 "main_paned.c"
+#line 17390 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp29_;
@@ -17367,13 +17396,13 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_container_remove ((GtkContainer*) _data42_->menu, (GtkWidget*) _tmp29_);
 #line 2070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17371 "main_paned.c"
+#line 17400 "main_paned.c"
 				}
 			}
 		} else if (_tmp10_ == ((0 != _tmp9_label7) ? _tmp9_label7 : (_tmp9_label7 = g_quark_from_static_string ("Change Case")))) {
 #line 2038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 17377 "main_paned.c"
+#line 17406 "main_paned.c"
 				default:
 				{
 					GtkMenuItem* _tmp30_;
@@ -17383,27 +17412,27 @@ __lambda33_ (Block42Data* _data42_,
 					gtk_container_remove ((GtkContainer*) _data42_->menu, (GtkWidget*) _tmp30_);
 #line 2073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 17387 "main_paned.c"
+#line 17416 "main_paned.c"
 				}
 			}
 		}
 #line 2035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (lab);
-#line 17393 "main_paned.c"
+#line 17422 "main_paned.c"
 	}
 }
 
 static void
-___lambda33__gtk_callback (GtkWidget* widget,
+___lambda38__gtk_callback (GtkWidget* widget,
                            gpointer self)
 {
 #line 2032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda33_ (self, widget);
-#line 17403 "main_paned.c"
+	__lambda38_ (self, widget);
+#line 17432 "main_paned.c"
 }
 
 static void
-__lambda32_ (valaDevelopMainPaned* self,
+__lambda37_ (valaDevelopMainPaned* self,
              GtkMenu* menu)
 {
 	Block42Data* _data42_;
@@ -17668,28 +17697,28 @@ __lambda32_ (valaDevelopMainPaned* self,
 #line 2030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp45_);
 #line 2032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_container_foreach ((GtkContainer*) _data42_->menu, ___lambda33__gtk_callback, _data42_);
+	gtk_container_foreach ((GtkContainer*) _data42_->menu, ___lambda38__gtk_callback, _data42_);
 #line 2077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_show_all ((GtkWidget*) _data42_->menu);
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	block42_data_unref (_data42_);
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data42_ = NULL;
-#line 17679 "main_paned.c"
+#line 17708 "main_paned.c"
 }
 
 static void
-___lambda32__gtk_text_view_populate_popup (GtkTextView* _sender,
+___lambda37__gtk_text_view_populate_popup (GtkTextView* _sender,
                                            GtkMenu* popup,
                                            gpointer self)
 {
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda32_ ((valaDevelopMainPaned*) self, popup);
-#line 17689 "main_paned.c"
+	__lambda37_ ((valaDevelopMainPaned*) self, popup);
+#line 17718 "main_paned.c"
 }
 
 static void
-__lambda34_ (Block39Data* _data39_,
+__lambda39_ (Block39Data* _data39_,
              GtkTextBuffer* buffer)
 {
 	valaDevelopMainPaned* self;
@@ -17702,20 +17731,20 @@ __lambda34_ (Block39Data* _data39_,
 	_tmp0_ = _data39_->tabHeader;
 #line 2123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_tab_header_UpdateModify (_tmp0_, gtk_text_buffer_get_modified (buffer));
-#line 17706 "main_paned.c"
+#line 17735 "main_paned.c"
 }
 
 static void
-___lambda34__gtk_text_buffer_modified_changed (GtkTextBuffer* _sender,
+___lambda39__gtk_text_buffer_modified_changed (GtkTextBuffer* _sender,
                                                gpointer self)
 {
 #line 2121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda34_ (self, _sender);
-#line 17715 "main_paned.c"
+	__lambda39_ (self, _sender);
+#line 17744 "main_paned.c"
 }
 
 static void
-__lambda35_ (valaDevelopMainPaned* self,
+__lambda40_ (valaDevelopMainPaned* self,
              GtkTextIter* pos,
              const gchar* new_text,
              gint new_text_length)
@@ -17729,104 +17758,1017 @@ __lambda35_ (valaDevelopMainPaned* self,
 	if (new_text_length == 1) {
 #line 2127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = g_strcmp0 (new_text, "}") == 0;
-#line 17733 "main_paned.c"
+#line 17762 "main_paned.c"
 	} else {
 #line 2127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = FALSE;
-#line 17737 "main_paned.c"
+#line 17766 "main_paned.c"
 	}
 #line 2127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_) {
 #line 2128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		self->priv->_last_char = '}';
-#line 17743 "main_paned.c"
+#line 17772 "main_paned.c"
 	}
 }
 
 static void
-___lambda35__gtk_text_buffer_insert_text (GtkTextBuffer* _sender,
+___lambda40__gtk_text_buffer_insert_text (GtkTextBuffer* _sender,
                                           GtkTextIter* pos,
                                           const gchar* new_text,
                                           gint new_text_length,
                                           gpointer self)
 {
 #line 2125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda35_ ((valaDevelopMainPaned*) self, pos, new_text, new_text_length);
-#line 17756 "main_paned.c"
+	__lambda40_ ((valaDevelopMainPaned*) self, pos, new_text, new_text_length);
+#line 17785 "main_paned.c"
+}
+
+static GtkTextIter*
+_gtk_text_iter_dup (GtkTextIter* self)
+{
+	GtkTextIter* dup;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	dup = g_new0 (GtkTextIter, 1);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	memcpy (dup, self, sizeof (GtkTextIter));
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return dup;
+#line 17798 "main_paned.c"
+}
+
+static gpointer
+__gtk_text_iter_dup0 (gpointer self)
+{
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return self ? _gtk_text_iter_dup (self) : NULL;
+#line 17806 "main_paned.c"
+}
+
+static Block43Data*
+block43_data_ref (Block43Data* _data43_)
+{
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data43_->_ref_count_);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data43_;
+#line 17816 "main_paned.c"
 }
 
 static void
-__lambda36_ (Block39Data* _data39_,
+block43_data_unref (void * _userdata_)
+{
+	Block43Data* _data43_;
+	_data43_ = (Block43Data*) _userdata_;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data43_->_ref_count_)) {
+#line 17826 "main_paned.c"
+		valaDevelopMainPaned* self;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data43_->_data39_->self;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_free0 (_data43_->iter);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block39_data_unref (_data43_->_data39_);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data43_->_data39_ = NULL;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block43Data, _data43_);
+#line 17838 "main_paned.c"
+	}
+}
+
+static Block44Data*
+block44_data_ref (Block44Data* _data44_)
+{
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data44_->_ref_count_);
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data44_;
+#line 17849 "main_paned.c"
+}
+
+static void
+block44_data_unref (void * _userdata_)
+{
+	Block44Data* _data44_;
+	_data44_ = (Block44Data*) _userdata_;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data44_->_ref_count_)) {
+#line 17859 "main_paned.c"
+		valaDevelopMainPaned* self;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data44_->_data43_->_data39_->self;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block43_data_unref (_data44_->_data43_);
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data44_->_data43_ = NULL;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block44Data, _data44_);
+#line 17869 "main_paned.c"
+	}
+}
+
+static gboolean
+___lambda43_ (valaDevelopMainPaned* self,
+              gunichar ch)
+{
+	gboolean result = FALSE;
+	gboolean _tmp0_ = FALSE;
+#line 2151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (ch != ((gunichar) ' ')) {
+#line 2151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp0_ = ch != ((gunichar) '\t');
+#line 17883 "main_paned.c"
+	} else {
+#line 2151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp0_ = FALSE;
+#line 17887 "main_paned.c"
+	}
+#line 2151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = _tmp0_;
+#line 2151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 17893 "main_paned.c"
+}
+
+static gboolean
+____lambda43__gtk_text_char_predicate (gunichar ch,
+                                       gpointer self)
+{
+	gboolean result;
+	result = ___lambda43_ ((valaDevelopMainPaned*) self, ch);
+#line 2149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 17904 "main_paned.c"
+}
+
+static gboolean
+______lambda44_ (valaDevelopMainPaned* self,
+                 gunichar ch)
+{
+	gboolean result = FALSE;
+	gboolean _tmp0_ = FALSE;
+#line 2170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (ch != ((gunichar) ' ')) {
+#line 2170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp0_ = ch != ((gunichar) '\t');
+#line 17917 "main_paned.c"
+	} else {
+#line 2170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp0_ = FALSE;
+#line 17921 "main_paned.c"
+	}
+#line 2170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = _tmp0_;
+#line 2170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 17927 "main_paned.c"
+}
+
+static gboolean
+_______lambda44__gtk_text_char_predicate (gunichar ch,
+                                          gpointer self)
+{
+	gboolean result;
+	result = ______lambda44_ ((valaDevelopMainPaned*) self, ch);
+#line 2168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 17938 "main_paned.c"
+}
+
+static gchar*
+string_strip (const gchar* self)
+{
+	gchar* result = NULL;
+	gchar* _result_ = NULL;
+	gchar* _tmp0_;
+	const gchar* _tmp1_;
+#line 1307 "glib-2.0.vapi"
+	g_return_val_if_fail (self != NULL, NULL);
+#line 1308 "glib-2.0.vapi"
+	_tmp0_ = g_strdup (self);
+#line 1308 "glib-2.0.vapi"
+	_result_ = _tmp0_;
+#line 1309 "glib-2.0.vapi"
+	_tmp1_ = _result_;
+#line 1309 "glib-2.0.vapi"
+	g_strstrip (_tmp1_);
+#line 1310 "glib-2.0.vapi"
+	result = _result_;
+#line 1310 "glib-2.0.vapi"
+	return result;
+#line 17962 "main_paned.c"
+}
+
+static gboolean
+____lambda42_ (Block44Data* _data44_)
+{
+	Block43Data* _data43_;
+	Block39Data* _data39_;
+	valaDevelopMainPaned* self;
+	gboolean result = FALSE;
+	GtkTextIter* startIter = NULL;
+	GtkTextIter* _tmp0_;
+	GtkTextIter* endIter = NULL;
+	GtkTextIter* _tmp1_;
+	GtkTextIter* _tmp2_;
+	GtkTextIter* _tmp3_;
+	GtkTextIter* _tmp4_;
+	GtkTextIter* _tmp5_;
+	GtkTextIter* _tmp6_;
+	gint indent = 0;
+	GtkTextIter* _tmp7_;
+	GtkTextIter* _tmp8_;
+	gint lineStart = 0;
+	GtkTextIter* _tmp26_;
+	gint lineEnd = 0;
+	gint case_indent = 0;
+	gint single_block_indent = 0;
+#line 2138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_ = _data44_->_data43_;
+#line 2138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data39_ = _data43_->_data39_;
+#line 2138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	self = _data39_->self;
+#line 2140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = __gtk_text_iter_dup0 (_data43_->iter);
+#line 2140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	startIter = _tmp0_;
+#line 2141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp1_ = startIter;
+#line 2141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp2_ = __gtk_text_iter_dup0 (_tmp1_);
+#line 2141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	endIter = _tmp2_;
+#line 2142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp3_ = startIter;
+#line 2142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp4_ = startIter;
+#line 2142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	gtk_text_iter_backward_chars (_tmp3_, gtk_text_iter_get_line_offset (_tmp4_));
+#line 2143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp5_ = endIter;
+#line 2143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp6_ = startIter;
+#line 2143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	gtk_text_iter_forward_chars (_tmp5_, gtk_text_iter_get_chars_in_line (_tmp6_));
+#line 2145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp7_ = startIter;
+#line 2145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	indent = gtk_text_iter_get_line_offset (_tmp7_) / 4;
+#line 2146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp8_ = startIter;
+#line 2146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_unichar_isspace (gtk_text_iter_get_char (_tmp8_))) {
+#line 18025 "main_paned.c"
+		GtkTextIter* searchIter = NULL;
+		GtkTextIter* _tmp9_;
+		GtkTextIter* _tmp10_;
+		GtkTextIter* _tmp11_;
+		GtkTextIter* _tmp12_;
+#line 2148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp9_ = startIter;
+#line 2148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp10_ = __gtk_text_iter_dup0 (_tmp9_);
+#line 2148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		searchIter = _tmp10_;
+#line 2149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp11_ = searchIter;
+#line 2149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp12_ = endIter;
+#line 2149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		if (gtk_text_iter_forward_find_char (_tmp11_, ____lambda43__gtk_text_char_predicate, self, _tmp12_)) {
+#line 18043 "main_paned.c"
+			gchar* line = NULL;
+			GtkTextIter* _tmp13_;
+			GtkTextBuffer* _tmp14_;
+			GtkTextIter* _tmp15_;
+			GtkTextIter* _tmp16_;
+			GtkTextIter _tmp17_;
+			GtkTextIter _tmp18_;
+			gchar* _tmp19_;
+			gchar* _tmp20_;
+			gchar* _tmp21_;
+			gchar* _tmp22_;
+			const gchar* _tmp23_;
+			gint _tmp24_;
+			gint _tmp25_;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp13_ = searchIter;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp14_ = gtk_text_iter_get_buffer (_tmp13_);
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp15_ = startIter;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp16_ = searchIter;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp17_ = *_tmp15_;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp18_ = *_tmp16_;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp19_ = gtk_text_buffer_get_text (_tmp14_, &_tmp17_, &_tmp18_, FALSE);
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp20_ = _tmp19_;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp21_ = string_replace (_tmp20_, "    ", "\t");
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp22_ = _tmp21_;
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_g_free0 (_tmp20_);
+#line 2154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			line = _tmp22_;
+#line 2155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp23_ = line;
+#line 2155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp24_ = strlen (_tmp23_);
+#line 2155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp25_ = _tmp24_;
+#line 2155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			indent = _tmp25_;
+#line 2149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_g_free0 (line);
+#line 18092 "main_paned.c"
+		}
+#line 2146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_free0 (searchIter);
+#line 18096 "main_paned.c"
+	}
+#line 2158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp26_ = startIter;
+#line 2158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	lineStart = gtk_text_iter_get_line (_tmp26_);
+#line 2159 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	lineEnd = gtk_text_iter_get_line (&_data44_->currentIter);
+#line 18104 "main_paned.c"
+	{
+		gint l = 0;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		l = lineStart;
+#line 18109 "main_paned.c"
+		{
+			gboolean _tmp27_ = FALSE;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp27_ = TRUE;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			while (TRUE) {
+#line 18116 "main_paned.c"
+				GtkTextIter* _tmp29_;
+				GtkTextBuffer* _tmp30_;
+				GtkTextIter _tmp31_ = {0};
+				GtkTextIter _tmp32_;
+				GtkTextIter* _tmp33_;
+				GtkTextIter* _tmp34_;
+				GtkTextIter* _tmp35_;
+				GtkTextIter* _tmp36_;
+				GtkTextIter* _tmp37_;
+				gboolean _tmp38_ = FALSE;
+				GtkTextIter* _tmp39_;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (!_tmp27_) {
+#line 18130 "main_paned.c"
+					gint _tmp28_;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp28_ = l;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					l = _tmp28_ + 1;
+#line 18136 "main_paned.c"
+				}
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp27_ = FALSE;
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (!(l < (lineEnd + 1))) {
+#line 2160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					break;
+#line 18144 "main_paned.c"
+				}
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp29_ = startIter;
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp30_ = gtk_text_iter_get_buffer (_tmp29_);
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_text_buffer_get_iter_at_line (_tmp30_, &_tmp31_, l);
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (startIter);
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp32_ = _tmp31_;
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp33_ = __gtk_text_iter_dup0 (&_tmp32_);
+#line 2162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				startIter = _tmp33_;
+#line 2163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp34_ = startIter;
+#line 2163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp35_ = __gtk_text_iter_dup0 (_tmp34_);
+#line 2163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (endIter);
+#line 2163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				endIter = _tmp35_;
+#line 2164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp36_ = endIter;
+#line 2164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp37_ = startIter;
+#line 2164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_text_iter_forward_chars (_tmp36_, gtk_text_iter_get_chars_in_line (_tmp37_));
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp39_ = startIter;
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (gtk_text_iter_get_char (_tmp39_) == ((gunichar) ' ')) {
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp38_ = TRUE;
+#line 18180 "main_paned.c"
+				} else {
+					GtkTextIter* _tmp40_;
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp40_ = startIter;
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp38_ = gtk_text_iter_get_char (_tmp40_) == ((gunichar) '\t');
+#line 18187 "main_paned.c"
+				}
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp38_) {
+#line 18191 "main_paned.c"
+					GtkTextIter* searchIter = NULL;
+					GtkTextIter* _tmp41_;
+					GtkTextIter* _tmp42_;
+					GtkTextIter* _tmp43_;
+					GtkTextIter* _tmp44_;
+#line 2167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp41_ = startIter;
+#line 2167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp42_ = __gtk_text_iter_dup0 (_tmp41_);
+#line 2167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					searchIter = _tmp42_;
+#line 2168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp43_ = searchIter;
+#line 2168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp44_ = endIter;
+#line 2168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					if (gtk_text_iter_forward_find_char (_tmp43_, _______lambda44__gtk_text_char_predicate, self, _tmp44_)) {
+#line 18209 "main_paned.c"
+						GtkTextIter* _tmp45_;
+						GtkTextBuffer* _tmp46_;
+#line 2172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp45_ = startIter;
+#line 2172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp46_ = gtk_text_iter_get_buffer (_tmp45_);
+#line 2172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_text_buffer_delete (_tmp46_, startIter, searchIter);
+#line 18218 "main_paned.c"
+					} else {
+						GtkTextIter* _tmp47_;
+						GtkTextBuffer* _tmp48_;
+#line 2174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp47_ = startIter;
+#line 2174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp48_ = gtk_text_iter_get_buffer (_tmp47_);
+#line 2174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_text_buffer_delete (_tmp48_, startIter, endIter);
+#line 18228 "main_paned.c"
+					}
+#line 2165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_g_free0 (searchIter);
+#line 18232 "main_paned.c"
+				}
+			}
+		}
+	}
+#line 2177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	case_indent = 0;
+#line 2178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	single_block_indent = 0;
+#line 18241 "main_paned.c"
+	{
+		gint l = 0;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		l = lineStart;
+#line 18246 "main_paned.c"
+		{
+			gboolean _tmp49_ = FALSE;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp49_ = TRUE;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			while (TRUE) {
+#line 18253 "main_paned.c"
+				GtkTextIter* _tmp51_;
+				GtkTextBuffer* _tmp52_;
+				GtkTextIter _tmp53_ = {0};
+				GtkTextIter _tmp54_;
+				GtkTextIter* _tmp55_;
+				GtkTextIter* _tmp56_;
+				GtkTextIter* _tmp57_;
+				GtkTextIter* _tmp58_;
+				GtkTextIter* _tmp59_;
+				gchar* line = NULL;
+				GtkTextIter* _tmp60_;
+				GtkTextBuffer* _tmp61_;
+				GtkTextIter* _tmp62_;
+				GtkTextIter* _tmp63_;
+				GtkTextIter _tmp64_;
+				GtkTextIter _tmp65_;
+				gchar* _tmp66_;
+				gchar* _tmp67_;
+				gchar* _tmp68_;
+				gchar* _tmp69_;
+				const gchar* _tmp70_;
+				gboolean _tmp72_ = FALSE;
+				const gchar* _tmp73_;
+				gboolean _tmp74_ = FALSE;
+				gboolean _tmp75_ = FALSE;
+				const gchar* _tmp76_;
+				gboolean _tmp78_ = FALSE;
+				const gchar* _tmp79_;
+				gboolean _tmp81_ = FALSE;
+				gboolean _tmp82_ = FALSE;
+				GtkTextIter* _tmp83_;
+				const gchar* _tmp90_;
+				gboolean _tmp92_ = FALSE;
+				gboolean _tmp93_ = FALSE;
+				const gchar* _tmp94_;
+				gboolean _tmp97_ = FALSE;
+				gboolean _tmp98_ = FALSE;
+				gboolean _tmp99_ = FALSE;
+				gboolean _tmp100_ = FALSE;
+				gboolean _tmp101_ = FALSE;
+				const gchar* _tmp102_;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (!_tmp49_) {
+#line 18297 "main_paned.c"
+					gint _tmp50_;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp50_ = l;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					l = _tmp50_ + 1;
+#line 18303 "main_paned.c"
+				}
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp49_ = FALSE;
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (!(l < (lineEnd + 1))) {
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					break;
+#line 18311 "main_paned.c"
+				}
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp51_ = startIter;
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp52_ = gtk_text_iter_get_buffer (_tmp51_);
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_text_buffer_get_iter_at_line (_tmp52_, &_tmp53_, l);
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (startIter);
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp54_ = _tmp53_;
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp55_ = __gtk_text_iter_dup0 (&_tmp54_);
+#line 2181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				startIter = _tmp55_;
+#line 2182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp56_ = startIter;
+#line 2182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp57_ = __gtk_text_iter_dup0 (_tmp56_);
+#line 2182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (endIter);
+#line 2182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				endIter = _tmp57_;
+#line 2183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp58_ = endIter;
+#line 2183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp59_ = startIter;
+#line 2183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_text_iter_forward_chars (_tmp58_, gtk_text_iter_get_chars_in_line (_tmp59_));
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp60_ = startIter;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp61_ = gtk_text_iter_get_buffer (_tmp60_);
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp62_ = startIter;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp63_ = endIter;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp64_ = *_tmp62_;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp65_ = *_tmp63_;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp66_ = gtk_text_buffer_get_text (_tmp61_, &_tmp64_, &_tmp65_, FALSE);
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp67_ = _tmp66_;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp68_ = string_strip (_tmp67_);
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp69_ = _tmp68_;
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (_tmp67_);
+#line 2184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				line = _tmp69_;
+#line 2185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp70_ = line;
+#line 2185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_prefix (_tmp70_, "}")) {
+#line 18369 "main_paned.c"
+					gint _tmp71_;
+#line 2186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp71_ = indent;
+#line 2186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					indent = _tmp71_ - 1;
+#line 18375 "main_paned.c"
+				}
+#line 2187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp73_ = line;
+#line 2187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_prefix (_tmp73_, "break;")) {
+#line 2187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp72_ = case_indent != 0;
+#line 18383 "main_paned.c"
+				} else {
+#line 2187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp72_ = FALSE;
+#line 18387 "main_paned.c"
+				}
+#line 2187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp72_) {
+#line 2188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					case_indent = 0;
+#line 18393 "main_paned.c"
+				}
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp76_ = line;
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_prefix (_tmp76_, "case ")) {
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp75_ = TRUE;
+#line 18401 "main_paned.c"
+				} else {
+					const gchar* _tmp77_;
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp77_ = line;
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp75_ = g_str_has_prefix (_tmp77_, "default");
+#line 18408 "main_paned.c"
+				}
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp75_) {
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp74_ = case_indent != 0;
+#line 18414 "main_paned.c"
+				} else {
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp74_ = FALSE;
+#line 18418 "main_paned.c"
+				}
+#line 2189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp74_) {
+#line 2190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					case_indent = 0;
+#line 18424 "main_paned.c"
+				}
+#line 2191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp79_ = line;
+#line 2191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_suffix (_tmp79_, "{")) {
+#line 2191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp78_ = single_block_indent != 0;
+#line 18432 "main_paned.c"
+				} else {
+#line 2191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp78_ = FALSE;
+#line 18436 "main_paned.c"
+				}
+#line 2191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp78_) {
+#line 18440 "main_paned.c"
+					gint _tmp80_;
+#line 2192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp80_ = single_block_indent;
+#line 2192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					single_block_indent = _tmp80_ - 1;
+#line 18446 "main_paned.c"
+				}
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp83_ = startIter;
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (gtk_text_iter_get_char (_tmp83_) != ((gunichar) '/')) {
+#line 18452 "main_paned.c"
+					GtkTextIter* _tmp84_;
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp84_ = startIter;
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp82_ = gtk_text_iter_get_char (_tmp84_) != ((gunichar) '#');
+#line 18458 "main_paned.c"
+				} else {
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp82_ = FALSE;
+#line 18462 "main_paned.c"
+				}
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp82_) {
+#line 18466 "main_paned.c"
+					const gchar* _tmp85_;
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp85_ = line;
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp81_ = g_strcmp0 (_tmp85_, "") != 0;
+#line 18472 "main_paned.c"
+				} else {
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp81_ = FALSE;
+#line 18476 "main_paned.c"
+				}
+#line 2193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp81_) {
+#line 18480 "main_paned.c"
+					GtkTextIter* _tmp86_;
+					GtkTextBuffer* _tmp87_;
+					gchar* _tmp88_;
+					gchar* _tmp89_;
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp86_ = startIter;
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp87_ = gtk_text_iter_get_buffer (_tmp86_);
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp88_ = g_strnfill ((gsize) ((indent + case_indent) + single_block_indent), '\t');
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp89_ = _tmp88_;
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					gtk_text_buffer_insert (_tmp87_, startIter, _tmp89_, -1);
+#line 2194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_g_free0 (_tmp89_);
+#line 18497 "main_paned.c"
+				}
+#line 2195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				single_block_indent = 0;
+#line 2197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp90_ = line;
+#line 2197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_suffix (_tmp90_, "{")) {
+#line 18505 "main_paned.c"
+					gint _tmp91_;
+#line 2198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp91_ = indent;
+#line 2198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					indent = _tmp91_ + 1;
+#line 18511 "main_paned.c"
+				}
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp94_ = line;
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_prefix (_tmp94_, "case ")) {
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp93_ = TRUE;
+#line 18519 "main_paned.c"
+				} else {
+					const gchar* _tmp95_;
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp95_ = line;
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp93_ = g_str_has_prefix (_tmp95_, "default");
+#line 18526 "main_paned.c"
+				}
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp93_) {
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp92_ = case_indent == 0;
+#line 18532 "main_paned.c"
+				} else {
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp92_ = FALSE;
+#line 18536 "main_paned.c"
+				}
+#line 2199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp92_) {
+#line 18540 "main_paned.c"
+					gint _tmp96_;
+#line 2200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp96_ = case_indent;
+#line 2200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					case_indent = _tmp96_ + 1;
+#line 18546 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp102_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (g_str_has_prefix (_tmp102_, "if")) {
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp101_ = TRUE;
+#line 18554 "main_paned.c"
+				} else {
+					const gchar* _tmp103_;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp103_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp101_ = g_str_has_prefix (_tmp103_, "else");
+#line 18561 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp101_) {
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp100_ = TRUE;
+#line 18567 "main_paned.c"
+				} else {
+					const gchar* _tmp104_;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp104_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp100_ = g_str_has_prefix (_tmp104_, "else if");
+#line 18574 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp100_) {
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp99_ = TRUE;
+#line 18580 "main_paned.c"
+				} else {
+					const gchar* _tmp105_;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp105_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp99_ = g_str_has_prefix (_tmp105_, "for");
+#line 18587 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp99_) {
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp98_ = TRUE;
+#line 18593 "main_paned.c"
+				} else {
+					const gchar* _tmp106_;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp106_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp98_ = g_str_has_prefix (_tmp106_, "while");
+#line 18600 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp98_) {
+#line 18604 "main_paned.c"
+					const gchar* _tmp107_;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp107_ = line;
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp97_ = !g_str_has_suffix (_tmp107_, "{");
+#line 18610 "main_paned.c"
+				} else {
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp97_ = FALSE;
+#line 18614 "main_paned.c"
+				}
+#line 2201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_tmp97_) {
+#line 18618 "main_paned.c"
+					gint _tmp108_;
+#line 2202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp108_ = single_block_indent;
+#line 2202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					single_block_indent = _tmp108_ + 1;
+#line 18624 "main_paned.c"
+				}
+#line 2179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (line);
+#line 18628 "main_paned.c"
+			}
+		}
+	}
+#line 2204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = G_SOURCE_REMOVE;
+#line 2204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_free0 (endIter);
+#line 2204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_free0 (startIter);
+#line 2204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 18640 "main_paned.c"
+}
+
+static gboolean
+_____lambda42__gsource_func (gpointer self)
+{
+	gboolean result;
+	result = ____lambda42_ (self);
+#line 2138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return result;
+#line 18650 "main_paned.c"
+}
+
+static void
+__lambda41_ (Block39Data* _data39_,
              GtkTextIter* iter,
              GtkSourceBracketMatchType state)
 {
 	valaDevelopMainPaned* self;
+	Block43Data* _data43_;
+	GtkTextIter* _tmp0_;
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_ = g_slice_new0 (Block43Data);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_->_ref_count_ = 1;
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_->_data39_ = block39_data_ref (_data39_);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = __gtk_text_iter_dup0 (iter);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_free0 (_data43_->iter);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_->iter = _tmp0_;
 #line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (state == GTK_SOURCE_BRACKET_MATCH_FOUND) {
-#line 17769 "main_paned.c"
-		GtkTextIter currentIter = {0};
-		GtkSourceView* _tmp0_;
-		GtkTextBuffer* _tmp1_;
+#line 18677 "main_paned.c"
+		Block44Data* _data44_;
+		GtkSourceView* _tmp1_;
 		GtkTextBuffer* _tmp2_;
-		GtkSourceView* _tmp3_;
-		GtkTextBuffer* _tmp4_;
+		GtkTextBuffer* _tmp3_;
+		GtkSourceView* _tmp4_;
 		GtkTextBuffer* _tmp5_;
-		GtkTextMark* _tmp6_;
-		GtkTextIter _tmp7_ = {0};
+		GtkTextBuffer* _tmp6_;
+		GtkTextMark* _tmp7_;
+		GtkTextIter _tmp8_ = {0};
+		gboolean _tmp9_ = FALSE;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data44_ = g_slice_new0 (Block44Data);
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data44_->_ref_count_ = 1;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data44_->_data43_ = block43_data_ref (_data43_);
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp0_ = _data39_->textView;
+		_tmp1_ = _data39_->textView;
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp1_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp0_);
+		_tmp2_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp1_);
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp2_ = _tmp1_;
+		_tmp3_ = _tmp2_;
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp3_ = _data39_->textView;
+		_tmp4_ = _data39_->textView;
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp4_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp3_);
+		_tmp5_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp4_);
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp5_ = _tmp4_;
+		_tmp6_ = _tmp5_;
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp6_ = gtk_text_buffer_get_insert (_tmp5_);
+		_tmp7_ = gtk_text_buffer_get_insert (_tmp6_);
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		gtk_text_buffer_get_iter_at_mark (_tmp2_, &_tmp7_, _tmp6_);
+		gtk_text_buffer_get_iter_at_mark (_tmp3_, &_tmp8_, _tmp7_);
 #line 2135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		currentIter = _tmp7_;
-#line 17797 "main_paned.c"
+		_data44_->currentIter = _tmp8_;
+#line 2136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		if (gtk_text_iter_get_line (&_data44_->currentIter) > gtk_text_iter_get_line (_data43_->iter)) {
+#line 2136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp9_ = self->priv->_last_char == '}';
+#line 18716 "main_paned.c"
+		} else {
+#line 2136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp9_ = FALSE;
+#line 18720 "main_paned.c"
+		}
+#line 2136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		if (_tmp9_) {
+#line 2138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, _____lambda42__gsource_func, block44_data_ref (_data44_), block44_data_unref);
+#line 18726 "main_paned.c"
+		}
+#line 2207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self->priv->_last_char = (gchar) 0;
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block44_data_unref (_data44_);
+#line 2132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data44_ = NULL;
+#line 18734 "main_paned.c"
 	}
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	block43_data_unref (_data43_);
+#line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data43_ = NULL;
+#line 18740 "main_paned.c"
 }
 
 static void
-___lambda36__gtk_source_buffer_bracket_matched (GtkSourceBuffer* _sender,
+___lambda41__gtk_source_buffer_bracket_matched (GtkSourceBuffer* _sender,
                                                 GtkTextIter* iter,
                                                 GtkSourceBracketMatchType state,
                                                 gpointer self)
 {
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda36_ (self, iter, state);
-#line 17809 "main_paned.c"
+	__lambda41_ (self, iter, state);
+#line 18751 "main_paned.c"
 }
 
 static void
-__lambda37_ (valaDevelopMainPaned* self)
-{
-#line 2221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	vala_develop_main_paned_CloseOpenFiles (self);
-#line 17817 "main_paned.c"
-}
-
-static void
-___lambda37__gtk_menu_item_activate (GtkMenuItem* _sender,
-                                     gpointer self)
+__lambda45_ (valaDevelopMainPaned* self)
 {
 #line 2219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda37_ ((valaDevelopMainPaned*) self);
-#line 17826 "main_paned.c"
+	vala_develop_main_paned_CloseOpenFiles (self);
+#line 18759 "main_paned.c"
 }
 
 static void
-__lambda38_ (Block39Data* _data39_)
+___lambda45__gtk_menu_item_activate (GtkMenuItem* _sender,
+                                     gpointer self)
+{
+#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda45_ ((valaDevelopMainPaned*) self);
+#line 18768 "main_paned.c"
+}
+
+static void
+__lambda46_ (Block39Data* _data39_)
 {
 	valaDevelopMainPaned* self;
 	GFile* _tmp0_;
@@ -17838,57 +18780,57 @@ __lambda38_ (Block39Data* _data39_)
 	gchar* _tmp6_;
 	gchar* _tmp7_;
 	GError* _inner_error0_ = NULL;
-#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = g_file_new_for_path (_data39_->fullPath);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _tmp0_;
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = g_file_get_parent (_tmp1_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _tmp2_;
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = g_file_get_path (_tmp3_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _tmp4_;
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = g_strconcat ("file://", _tmp5_, NULL);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = _tmp6_;
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_show_uri_on_window (NULL, _tmp7_, (guint32) 0, &_inner_error0_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp7_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp5_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp3_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp1_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_inner_error0_);
-#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 17878 "main_paned.c"
+#line 18820 "main_paned.c"
 	}
 }
 
 static void
-___lambda38__gtk_menu_item_activate (GtkMenuItem* _sender,
+___lambda46__gtk_menu_item_activate (GtkMenuItem* _sender,
                                      gpointer self)
 {
-#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda38_ (self);
-#line 17888 "main_paned.c"
+#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda46_ (self);
+#line 18830 "main_paned.c"
 }
 
 static void
-__lambda39_ (Block39Data* _data39_)
+__lambda47_ (Block39Data* _data39_)
 {
 	valaDevelopMainPaned* self;
 	GdkDisplay* _tmp0_;
@@ -17897,149 +18839,149 @@ __lambda39_ (Block39Data* _data39_)
 	GFile* _tmp3_;
 	gchar* _tmp4_;
 	gchar* _tmp5_;
-#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = gdk_display_get_default ();
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = gtk_clipboard_get_default (_tmp0_);
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = g_file_new_for_path (_data39_->fullPath);
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _tmp2_;
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = g_file_get_path (_tmp3_);
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _tmp4_;
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_clipboard_set_text (_tmp1_, _tmp5_, -1);
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp5_);
-#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp3_);
-#line 17921 "main_paned.c"
+#line 18863 "main_paned.c"
 }
 
 static void
-___lambda39__gtk_menu_item_activate (GtkMenuItem* _sender,
+___lambda47__gtk_menu_item_activate (GtkMenuItem* _sender,
                                      gpointer self)
 {
-#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda39_ (self);
-#line 17930 "main_paned.c"
+#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda47_ (self);
+#line 18872 "main_paned.c"
 }
 
 static void
-___lambda41_ (Block39Data* _data39_,
+___lambda49_ (Block39Data* _data39_,
               GtkWidget* widget)
 {
 	valaDevelopMainPaned* self;
 	gconstpointer _tmp0_;
-#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (widget != NULL);
-#line 2246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = g_object_get_data ((GObject*) widget, "filename");
-#line 2246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (((const gchar*) _tmp0_) != NULL) {
-#line 17947 "main_paned.c"
+#line 18889 "main_paned.c"
 		GtkMenu* _tmp1_;
-#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = _data39_->tabHeaderMenu;
-#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_container_remove ((GtkContainer*) _tmp1_, widget);
-#line 17953 "main_paned.c"
+#line 18895 "main_paned.c"
 	}
 }
 
 static void
-____lambda41__gtk_callback (GtkWidget* widget,
+____lambda49__gtk_callback (GtkWidget* widget,
                             gpointer self)
 {
-#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	___lambda41_ (self, widget);
-#line 17963 "main_paned.c"
+#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	___lambda49_ (self, widget);
+#line 18905 "main_paned.c"
 }
 
-static Block43Data*
-block43_data_ref (Block43Data* _data43_)
+static Block45Data*
+block45_data_ref (Block45Data* _data45_)
 {
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_atomic_int_inc (&_data43_->_ref_count_);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	return _data43_;
-#line 17973 "main_paned.c"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data45_->_ref_count_);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data45_;
+#line 18915 "main_paned.c"
 }
 
 static void
-block43_data_unref (void * _userdata_)
+block45_data_unref (void * _userdata_)
 {
-	Block43Data* _data43_;
-	_data43_ = (Block43Data*) _userdata_;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	if (g_atomic_int_dec_and_test (&_data43_->_ref_count_)) {
-#line 17983 "main_paned.c"
+	Block45Data* _data45_;
+	_data45_ = (Block45Data*) _userdata_;
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data45_->_ref_count_)) {
+#line 18925 "main_paned.c"
 		valaDevelopMainPaned* self;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		self = _data43_->_data39_->self;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_object_unref0 (_data43_->tabLabel);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		block39_data_unref (_data43_->_data39_);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data43_->_data39_ = NULL;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_slice_free (Block43Data, _data43_);
-#line 17995 "main_paned.c"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data45_->_data39_->self;
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_object_unref0 (_data45_->tabLabel);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block39_data_unref (_data45_->_data39_);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data45_->_data39_ = NULL;
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block45Data, _data45_);
+#line 18937 "main_paned.c"
 	}
 }
 
 static void
-_____lambda42_ (Block43Data* _data43_)
+_____lambda50_ (Block45Data* _data45_)
 {
 	Block39Data* _data39_;
 	valaDevelopMainPaned* self;
 	valaDevelopTabHeader* _tmp0_;
 	const gchar* _tmp1_;
 	const gchar* _tmp2_;
-#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data39_ = _data43_->_data39_;
-#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data39_ = _data45_->_data39_;
+#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp0_ = _data43_->tabLabel;
-#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = _data45_->tabLabel;
+#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = vala_develop_tab_header_get_full_path (_tmp0_);
-#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = _tmp1_;
-#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_select_tab_fullpath (self, _tmp2_);
-#line 18019 "main_paned.c"
+#line 18961 "main_paned.c"
 }
 
 static void
-______lambda42__gtk_menu_item_activate (GtkMenuItem* _sender,
+______lambda50__gtk_menu_item_activate (GtkMenuItem* _sender,
                                         gpointer self)
 {
-#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_____lambda42_ (self);
-#line 18028 "main_paned.c"
+#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_____lambda50_ (self);
+#line 18970 "main_paned.c"
 }
 
 static gboolean
-__lambda40_ (Block39Data* _data39_,
+__lambda48_ (Block39Data* _data39_,
              GdkEventButton* evnt)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
-#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (evnt != NULL, FALSE);
-#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (evnt->button == ((guint) 3)) {
-#line 18043 "main_paned.c"
+#line 18985 "main_paned.c"
 		GtkMenu* _tmp0_;
 		GtkNotebook* _tmp1_;
 		GList* _tmp2_;
@@ -18049,29 +18991,29 @@ __lambda40_ (Block39Data* _data39_,
 		valaDevelopTabHeader* _tmp23_;
 		GdkWindow* _tmp24_;
 		GdkRectangle _tmp25_;
-#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _data39_->tabHeaderMenu;
-#line 2244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		gtk_container_foreach ((GtkContainer*) _tmp0_, ____lambda41__gtk_callback, _data39_);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		gtk_container_foreach ((GtkContainer*) _tmp0_, ____lambda49__gtk_callback, _data39_);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->documentTab;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = gtk_container_get_children ((GtkContainer*) _tmp1_);
-#line 18061 "main_paned.c"
+#line 19003 "main_paned.c"
 		{
 			GList* child_collection = NULL;
 			GList* child_it = NULL;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child_collection = _tmp2_;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 18069 "main_paned.c"
+#line 19011 "main_paned.c"
 				GtkWidget* child = NULL;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				child = (GtkWidget*) child_it->data;
-#line 18073 "main_paned.c"
+#line 19015 "main_paned.c"
 				{
-					Block43Data* _data43_;
+					Block45Data* _data45_;
 					GtkNotebook* _tmp3_;
 					GtkWidget* _tmp4_;
 					GtkWidget* _tmp5_;
@@ -18091,163 +19033,163 @@ __lambda40_ (Block39Data* _data39_,
 					gchar* _tmp18_;
 					GtkMenu* _tmp19_;
 					GtkMenuItem* _tmp20_;
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data45_ = g_slice_new0 (Block45Data);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data45_->_ref_count_ = 1;
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data45_->_data39_ = block39_data_ref (_data39_);
 #line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data43_ = g_slice_new0 (Block43Data);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data43_->_ref_count_ = 1;
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data43_->_data39_ = block39_data_ref (_data39_);
-#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp3_ = self->documentTab;
-#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp4_ = child;
-#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp5_ = gtk_notebook_get_tab_label (_tmp3_, _tmp4_);
-#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp6_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp5_, VALA_DEVELOP_TYPE_TAB_HEADER) ? ((valaDevelopTabHeader*) _tmp5_) : NULL);
-#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data43_->tabLabel = _tmp6_;
-#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp7_ = _data43_->tabLabel;
-#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data45_->tabLabel = _tmp6_;
+#line 2250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp7_ = _data45_->tabLabel;
+#line 2250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp7_ == NULL) {
-#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						block43_data_unref (_data43_);
-#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_data43_ = NULL;
-#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						block45_data_unref (_data45_);
+#line 2250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_data45_ = NULL;
+#line 2250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						continue;
-#line 18121 "main_paned.c"
+#line 19063 "main_paned.c"
 					}
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp8_ = _data43_->tabLabel;
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp8_ = _data45_->tabLabel;
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp9_ = vala_develop_tab_header_get_text (_tmp8_);
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp10_ = _tmp9_;
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp11_ = (GtkMenuItem*) gtk_menu_item_new_with_label (_tmp10_);
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_object_ref_sink (_tmp11_);
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp12_ = _tmp11_;
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (_tmp10_);
-#line 2253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					menuItem = _tmp12_;
-#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp13_ = menuItem;
-#line 2254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					g_signal_connect_data (_tmp13_, "activate", (GCallback) ______lambda42__gtk_menu_item_activate, block43_data_ref (_data43_), (GClosureNotify) block43_data_unref, 0);
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					g_signal_connect_data (_tmp13_, "activate", (GCallback) ______lambda50__gtk_menu_item_activate, block45_data_ref (_data45_), (GClosureNotify) block45_data_unref, 0);
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp14_ = menuItem;
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp15_ = _data43_->tabLabel;
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp15_ = _data45_->tabLabel;
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp16_ = vala_develop_tab_header_get_full_path (_tmp15_);
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp17_ = _tmp16_;
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp18_ = g_strdup (_tmp17_);
-#line 2258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_object_set_data_full ((GObject*) _tmp14_, "filename", _tmp18_, g_free);
-#line 2259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp19_ = _data39_->tabHeaderMenu;
-#line 2259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp20_ = menuItem;
-#line 2259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_container_add ((GtkContainer*) _tmp19_, (GtkWidget*) _tmp20_);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (menuItem);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					block43_data_unref (_data43_);
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data43_ = NULL;
-#line 18167 "main_paned.c"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					block45_data_unref (_data45_);
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data45_ = NULL;
+#line 19109 "main_paned.c"
 				}
 			}
-#line 2249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 18172 "main_paned.c"
+#line 19114 "main_paned.c"
 		}
-#line 2261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = _data39_->tabHeaderMenu;
-#line 2261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_show_all ((GtkWidget*) _tmp21_);
-#line 2262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_select_tab_fullpath (self, _data39_->fullPath);
-#line 2263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		memset (&rect, 0, sizeof (GdkRectangle));
-#line 2264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		rect.x = (gint) evnt->x;
-#line 2265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		rect.y = (gint) evnt->y;
-#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		rect.width = 1;
-#line 2267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		rect.height = 1;
-#line 2268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp22_ = _data39_->tabHeaderMenu;
-#line 2268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = _data39_->tabHeader;
-#line 2268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp24_ = gtk_widget_get_window ((GtkWidget*) _tmp23_);
-#line 2268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp25_ = rect;
-#line 2268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_menu_popup_at_rect (_tmp22_, _tmp24_, &_tmp25_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent*) evnt);
-#line 2269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		result = TRUE;
-#line 2269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 18204 "main_paned.c"
+#line 19146 "main_paned.c"
 	}
-#line 2271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18210 "main_paned.c"
+#line 19152 "main_paned.c"
 }
 
 static gboolean
-___lambda40__gtk_widget_button_press_event (GtkWidget* _sender,
+___lambda48__gtk_widget_button_press_event (GtkWidget* _sender,
                                             GdkEventButton* event,
                                             gpointer self)
 {
 	gboolean result;
-	result = __lambda40_ (self, event);
-#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = __lambda48_ (self, event);
+#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18222 "main_paned.c"
+#line 19164 "main_paned.c"
 }
 
 static void
-__lambda43_ (valaDevelopMainPaned* self,
+__lambda51_ (valaDevelopMainPaned* self,
              valaDevelopTabHeader* tabHeader,
              GdkEventButton* evnt)
 {
-#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (tabHeader != NULL);
-#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (evnt != NULL);
-#line 2276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_close_by_tab_header (self, tabHeader, evnt);
-#line 18236 "main_paned.c"
+#line 19178 "main_paned.c"
 }
 
 static void
-___lambda43__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
+___lambda51__vala_develop_tab_header_close_clicked (valaDevelopTabHeader* _sender,
                                                     valaDevelopTabHeader* tabHeader,
                                                     GdkEventButton* evnt,
                                                     gpointer self)
 {
-#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda43_ ((valaDevelopMainPaned*) self, tabHeader, evnt);
-#line 18247 "main_paned.c"
+#line 2272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda51_ ((valaDevelopMainPaned*) self, tabHeader, evnt);
+#line 19189 "main_paned.c"
 }
 
 static void
-__lambda44_ (Block39Data* _data39_,
+__lambda52_ (Block39Data* _data39_,
              GtkTextIter* iter,
              GdkEvent* evnt)
 {
@@ -18261,37 +19203,37 @@ __lambda44_ (Block39Data* _data39_,
 	GSList* _tmp5_;
 	GSList* _tmp6_;
 	gboolean _tmp7_;
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (iter != NULL);
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (evnt != NULL);
-#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = *iter;
-#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	currentIter = _tmp0_;
-#line 2282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_text_iter_backward_chars (&currentIter, gtk_text_iter_get_line_offset (&currentIter));
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _data39_->textView;
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp1_);
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _tmp2_;
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = currentIter;
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp3_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp4_, "bookmark");
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = _tmp5_;
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = g_slist_length (_tmp6_) > ((guint) 0);
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(_tmp6_ == NULL) ? NULL : (_tmp6_ = (g_slist_free (_tmp6_), NULL));
-#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp7_) {
-#line 18295 "main_paned.c"
+#line 19237 "main_paned.c"
 		GtkSourceMark* source_mark = NULL;
 		GtkTextBuffer* _tmp8_;
 		GtkTextIter _tmp9_;
@@ -18304,69 +19246,69 @@ __lambda44_ (Block39Data* _data39_,
 		GtkTextBuffer* _tmp16_;
 		GtkTextBuffer* _tmp17_;
 		GtkSourceMark* _tmp18_;
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp8_ = gtk_text_iter_get_buffer (&currentIter);
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp9_ = currentIter;
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp10_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp9_, "bookmark");
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp11_ = _tmp10_;
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp12_ = g_slist_nth_data (_tmp11_, (guint) 0);
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp13_ = _g_object_ref0 ((GtkSourceMark*) _tmp12_);
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp14_ = _tmp13_;
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		(_tmp11_ == NULL) ? NULL : (_tmp11_ = (g_slist_free (_tmp11_), NULL));
-#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		source_mark = _tmp14_;
-#line 2286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp15_ = _data39_->textView;
-#line 2286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp16_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp15_);
-#line 2286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp17_ = _tmp16_;
-#line 2286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp18_ = source_mark;
-#line 2286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		gtk_text_buffer_delete_mark ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp17_, gtk_source_buffer_get_type (), GtkSourceBuffer), (GtkTextMark*) _tmp18_);
-#line 2287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		vala_develop_del_bookmark_from_solution (gtk_text_iter_get_line (&currentIter), _data39_->fullPath);
 #line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp8_ = gtk_text_iter_get_buffer (&currentIter);
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp9_ = currentIter;
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp10_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp9_, "bookmark");
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp11_ = _tmp10_;
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp12_ = g_slist_nth_data (_tmp11_, (guint) 0);
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp13_ = _g_object_ref0 ((GtkSourceMark*) _tmp12_);
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp14_ = _tmp13_;
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		(_tmp11_ == NULL) ? NULL : (_tmp11_ = (g_slist_free (_tmp11_), NULL));
+#line 2283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		source_mark = _tmp14_;
+#line 2284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp15_ = _data39_->textView;
+#line 2284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp16_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp15_);
+#line 2284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp17_ = _tmp16_;
+#line 2284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_tmp18_ = source_mark;
+#line 2284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		gtk_text_buffer_delete_mark ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp17_, gtk_source_buffer_get_type (), GtkSourceBuffer), (GtkTextMark*) _tmp18_);
+#line 2285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		vala_develop_del_bookmark_from_solution (gtk_text_iter_get_line (&currentIter), _data39_->fullPath);
+#line 2281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (source_mark);
-#line 18340 "main_paned.c"
+#line 19282 "main_paned.c"
 	} else {
 		GtkSourceView* _tmp19_;
 		GtkTextBuffer* _tmp20_;
 		GtkTextBuffer* _tmp21_;
 		GtkTextIter _tmp22_;
-#line 2291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp19_ = _data39_->textView;
-#line 2291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp20_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp19_);
-#line 2291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = _tmp20_;
-#line 2291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp22_ = currentIter;
-#line 2291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_source_buffer_create_source_mark (G_TYPE_CHECK_INSTANCE_CAST (_tmp21_, gtk_source_buffer_get_type (), GtkSourceBuffer), NULL, "bookmark", &_tmp22_);
-#line 2292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_add_bookmark_to_solution (gtk_text_iter_get_line (&currentIter), _data39_->fullPath);
-#line 18358 "main_paned.c"
+#line 19300 "main_paned.c"
 	}
 }
 
 static void
-___lambda44__gtk_source_view_line_mark_activated (GtkSourceView* _sender,
+___lambda52__gtk_source_view_line_mark_activated (GtkSourceView* _sender,
                                                   GtkTextIter* iter,
                                                   GdkEvent* event,
                                                   gpointer self)
 {
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda44_ (self, iter, event);
-#line 18370 "main_paned.c"
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda52_ (self, iter, event);
+#line 19312 "main_paned.c"
 }
 
 static gboolean
@@ -18385,11 +19327,11 @@ string_contains (const gchar* self,
 	result = _tmp0_ != NULL;
 #line 1477 "glib-2.0.vapi"
 	return result;
-#line 18389 "main_paned.c"
+#line 19331 "main_paned.c"
 }
 
 static gboolean
-__lambda45_ (Block39Data* _data39_,
+__lambda53_ (Block39Data* _data39_,
              gint x,
              gint y,
              gboolean keyboard_tooltip,
@@ -18400,17 +19342,17 @@ __lambda45_ (Block39Data* _data39_,
 	gboolean ret_val = FALSE;
 	GtkTextIter iter = {0};
 	GSList* _tmp14_;
-#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self = _data39_->self;
-#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (tooltip != NULL, FALSE);
-#line 2317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	ret_val = FALSE;
-#line 2318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tooltip_set_text (tooltip, NULL);
-#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (keyboard_tooltip) {
-#line 18414 "main_paned.c"
+#line 19356 "main_paned.c"
 		GtkSourceView* _tmp0_;
 		GtkTextBuffer* _tmp1_;
 		GtkTextBuffer* _tmp2_;
@@ -18420,27 +19362,27 @@ __lambda45_ (Block39Data* _data39_,
 		gint _tmp6_;
 		gint _tmp7_;
 		GtkTextIter _tmp8_ = {0};
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = _data39_->textView;
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp0_);
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = _tmp1_;
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = _data39_->textView;
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp3_);
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = _tmp4_;
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_object_get (_tmp5_, "cursor-position", &_tmp6_, NULL);
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp7_ = _tmp6_;
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_get_iter_at_offset (_tmp2_, &_tmp8_, _tmp7_);
-#line 2322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		iter = _tmp8_;
-#line 18444 "main_paned.c"
+#line 19386 "main_paned.c"
 	} else {
 		gint iterx = 0;
 		gint itery = 0;
@@ -18449,44 +19391,44 @@ __lambda45_ (Block39Data* _data39_,
 		gint _tmp11_ = 0;
 		GtkSourceView* _tmp12_;
 		GtkTextIter _tmp13_ = {0};
-#line 2326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		iterx = 0;
-#line 2326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		itery = 0;
-#line 2327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp9_ = _data39_->textView;
-#line 2327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_view_window_to_buffer_coords ((GtkTextView*) _tmp9_, GTK_TEXT_WINDOW_WIDGET, x, y, &_tmp10_, &_tmp11_);
-#line 2327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		iterx = _tmp10_;
-#line 2327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		itery = _tmp11_;
-#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp12_ = _data39_->textView;
-#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_view_get_iter_at_location ((GtkTextView*) _tmp12_, &_tmp13_, iterx, itery);
-#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		iter = _tmp13_;
-#line 18471 "main_paned.c"
+#line 19413 "main_paned.c"
 	}
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = gtk_text_iter_get_tags (&iter);
-#line 18475 "main_paned.c"
+#line 19417 "main_paned.c"
 	{
 		GSList* tag_collection = NULL;
 		GSList* tag_it = NULL;
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		tag_collection = _tmp14_;
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (tag_it = tag_collection; tag_it != NULL; tag_it = tag_it->next) {
-#line 18483 "main_paned.c"
+#line 19425 "main_paned.c"
 			GtkTextTag* _tmp15_;
 			GtkTextTag* tag = NULL;
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp15_ = _g_object_ref0 ((GtkTextTag*) tag_it->data);
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			tag = _tmp15_;
-#line 18490 "main_paned.c"
+#line 19432 "main_paned.c"
 			{
 				gboolean _tmp16_ = FALSE;
 				GtkTextTag* _tmp17_;
@@ -18494,46 +19436,46 @@ __lambda45_ (Block39Data* _data39_,
 				gchar* _tmp19_;
 				gchar* _tmp20_;
 				gboolean _tmp21_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp17_ = tag;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_object_get (_tmp17_, "name", &_tmp18_, NULL);
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp19_ = _tmp18_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp20_ = _tmp19_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp21_ = _tmp20_ != NULL;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp20_);
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp21_) {
-#line 18512 "main_paned.c"
+#line 19454 "main_paned.c"
 					GtkTextTag* _tmp22_;
 					gchar* _tmp23_;
 					gchar* _tmp24_;
 					gchar* _tmp25_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp22_ = tag;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_object_get (_tmp22_, "name", &_tmp23_, NULL);
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp24_ = _tmp23_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp25_ = _tmp24_;
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp16_ = g_str_has_prefix (_tmp25_, "Report-");
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (_tmp25_);
-#line 18529 "main_paned.c"
+#line 19471 "main_paned.c"
 				} else {
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp16_ = FALSE;
-#line 18533 "main_paned.c"
+#line 19475 "main_paned.c"
 				}
-#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp16_) {
-#line 18537 "main_paned.c"
+#line 19479 "main_paned.c"
 					gchar* message = NULL;
 					GtkTextTag* _tmp26_;
 					gconstpointer _tmp27_;
@@ -18545,35 +19487,35 @@ __lambda45_ (Block39Data* _data39_,
 					const gchar* _tmp32_;
 					const gchar* _tmp33_;
 					GQuark _tmp35_ = 0U;
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					static GQuark _tmp34_label0 = 0;
-#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp26_ = tag;
-#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp27_ = g_object_get_data ((GObject*) _tmp26_, "message");
-#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp28_ = g_strdup ((const gchar*) _tmp27_);
-#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					message = _tmp28_;
-#line 2335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp29_ = tag;
-#line 2335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp30_ = g_object_get_data ((GObject*) _tmp29_, "type");
-#line 2335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp31_ = g_strdup ((const gchar*) _tmp30_);
-#line 2335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					type = _tmp31_;
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp32_ = type;
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp33_ = _tmp32_;
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp35_ = (NULL == _tmp33_) ? 0 : g_quark_from_string (_tmp33_);
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp35_ == ((0 != _tmp34_label0) ? _tmp34_label0 : (_tmp34_label0 = g_quark_from_static_string ("error")))) {
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						switch (0) {
-#line 18577 "main_paned.c"
+#line 19519 "main_paned.c"
 							default:
 							{
 								const gchar* _tmp36_;
@@ -18581,117 +19523,117 @@ __lambda45_ (Block39Data* _data39_,
 								const gchar* _tmp38_;
 								gchar* _tmp39_;
 								gchar* _tmp40_;
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp36_ = string_to_string (_ ("[ERROR]"));
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp37_ = message;
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp38_ = string_to_string (_tmp37_);
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp39_ = g_strconcat (_tmp36_, " ", _tmp38_, NULL);
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp40_ = _tmp39_;
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								gtk_tooltip_set_text (tooltip, _tmp40_);
-#line 2339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp40_);
-#line 2340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								break;
-#line 18601 "main_paned.c"
+#line 19543 "main_paned.c"
 							}
 						}
 					} else {
-#line 2336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						switch (0) {
-#line 18607 "main_paned.c"
+#line 19549 "main_paned.c"
 							default:
 							{
 								const gchar* _tmp41_;
-#line 2342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp41_ = message;
-#line 2342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								if (string_contains (_tmp41_, "has been deprecated")) {
-#line 18615 "main_paned.c"
+#line 19557 "main_paned.c"
 									const gchar* _tmp42_;
 									const gchar* _tmp43_;
 									const gchar* _tmp44_;
 									gchar* _tmp45_;
 									gchar* _tmp46_;
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp42_ = string_to_string (_ ("[DEPRECATED]"));
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp43_ = message;
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp44_ = string_to_string (_tmp43_);
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp45_ = g_strconcat (_tmp42_, " ", _tmp44_, NULL);
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp46_ = _tmp45_;
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									gtk_tooltip_set_text (tooltip, _tmp46_);
-#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (_tmp46_);
-#line 18635 "main_paned.c"
+#line 19577 "main_paned.c"
 								} else {
 									const gchar* _tmp47_;
 									const gchar* _tmp48_;
 									const gchar* _tmp49_;
 									gchar* _tmp50_;
 									gchar* _tmp51_;
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp47_ = string_to_string (_ ("[WARNING]"));
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp48_ = message;
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp49_ = string_to_string (_tmp48_);
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp50_ = g_strconcat (_tmp47_, " ", _tmp49_, NULL);
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp51_ = _tmp50_;
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									gtk_tooltip_set_text (tooltip, _tmp51_);
-#line 2345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (_tmp51_);
-#line 18656 "main_paned.c"
+#line 19598 "main_paned.c"
 								}
-#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								break;
-#line 18660 "main_paned.c"
+#line 19602 "main_paned.c"
 							}
 						}
 					}
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					result = TRUE;
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (type);
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (message);
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tag);
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(tag_collection == NULL) ? NULL : (tag_collection = (g_slist_free (tag_collection), NULL));
-#line 2348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 18676 "main_paned.c"
+#line 19618 "main_paned.c"
 				}
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tag);
-#line 18680 "main_paned.c"
+#line 19622 "main_paned.c"
 			}
 		}
-#line 2330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(tag_collection == NULL) ? NULL : (tag_collection = (g_slist_free (tag_collection), NULL));
-#line 18685 "main_paned.c"
+#line 19627 "main_paned.c"
 	}
-#line 2359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18691 "main_paned.c"
+#line 19633 "main_paned.c"
 }
 
 static gboolean
-___lambda45__gtk_widget_query_tooltip (GtkWidget* _sender,
+___lambda53__gtk_widget_query_tooltip (GtkWidget* _sender,
                                        gint x,
                                        gint y,
                                        gboolean keyboard_tooltip,
@@ -18699,97 +19641,97 @@ ___lambda45__gtk_widget_query_tooltip (GtkWidget* _sender,
                                        gpointer self)
 {
 	gboolean result;
-	result = __lambda45_ (self, x, y, keyboard_tooltip, tooltip);
-#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = __lambda53_ (self, x, y, keyboard_tooltip, tooltip);
+#line 2313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18706 "main_paned.c"
+#line 19648 "main_paned.c"
 }
 
 static gboolean
-___lambda47_ (valaDevelopMainPaned* self)
+___lambda55_ (valaDevelopMainPaned* self)
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
 	{
 	}
-	goto __finally50;
-	__catch50_g_error:
+	goto __finally51;
+	__catch51_g_error:
 	{
 		GError* e = NULL;
 		GError* _tmp0_;
 		const gchar* _tmp1_;
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		e = _inner_error0_;
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_inner_error0_ = NULL;
-#line 2389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2387 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = e;
-#line 2389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2387 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = _tmp0_->message;
-#line 2389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:2389: %s", _tmp1_);
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2387 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:2387: %s", _tmp1_);
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (e);
-#line 18734 "main_paned.c"
+#line 19676 "main_paned.c"
 	}
-	__finally50:
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__finally51:
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 18739 "main_paned.c"
+#line 19681 "main_paned.c"
 		gboolean _tmp2_ = FALSE;
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_inner_error0_);
-#line 2376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return _tmp2_;
-#line 18747 "main_paned.c"
+#line 19689 "main_paned.c"
 	}
-#line 2391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2389 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18753 "main_paned.c"
+#line 19695 "main_paned.c"
 }
 
 static gboolean
-____lambda47__gsource_func (gpointer self)
+____lambda55__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda47_ ((valaDevelopMainPaned*) self);
-#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = ___lambda55_ ((valaDevelopMainPaned*) self);
+#line 2372 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 18763 "main_paned.c"
+#line 19705 "main_paned.c"
 }
 
 static void
-__lambda46_ (valaDevelopMainPaned* self,
+__lambda54_ (valaDevelopMainPaned* self,
              GObject* sender,
              GParamSpec* property)
 {
 	const gchar* _tmp0_;
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (sender != NULL);
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (property != NULL);
-#line 2372 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = property->name;
-#line 2372 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_strcmp0 (_tmp0_, "cursor-position") == 0) {
-#line 2374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda47__gsource_func, g_object_ref (self), g_object_unref);
-#line 18782 "main_paned.c"
+#line 2372 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda55__gsource_func, g_object_ref (self), g_object_unref);
+#line 19724 "main_paned.c"
 	}
 }
 
 static void
-___lambda46__g_object_notify (GObject* _sender,
+___lambda54__g_object_notify (GObject* _sender,
                               GParamSpec* pspec,
                               gpointer self)
 {
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda46_ ((valaDevelopMainPaned*) self, _sender, pspec);
-#line 18793 "main_paned.c"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda54_ ((valaDevelopMainPaned*) self, _sender, pspec);
+#line 19735 "main_paned.c"
 }
 
 void
@@ -19094,7 +20036,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 		_data39_ = NULL;
 #line 1797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 19098 "main_paned.c"
+#line 20040 "main_paned.c"
 	}
 #line 1799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = (GtkOverlay*) gtk_overlay_new ();
@@ -19530,7 +20472,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 		g_clear_error (&_inner_error0_);
 #line 1885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 19534 "main_paned.c"
+#line 20476 "main_paned.c"
 	}
 #line 1885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp106_ = attribute;
@@ -19545,7 +20487,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 1886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp109_ = attribute;
 #line 1886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp109_, "query-tooltip-text", (GCallback) ___lambda23__gtk_source_mark_attributes_query_tooltip_text, self, 0);
+	g_signal_connect_object (_tmp109_, "query-tooltip-text", (GCallback) ___lambda28__gtk_source_mark_attributes_query_tooltip_text, self, 0);
 #line 1890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp110_ = _data39_->textView;
 #line 1890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -19615,7 +20557,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 1903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp130_ = breakPointRenderer;
 #line 1903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkSourceGutterRenderer*) _tmp130_, "query-activatable", (GCallback) ___lambda25__gtk_source_gutter_renderer_query_activatable, self, 0);
+	g_signal_connect_object ((GtkSourceGutterRenderer*) _tmp130_, "query-activatable", (GCallback) ___lambda30__gtk_source_gutter_renderer_query_activatable, self, 0);
 #line 1908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp131_ = vala_develop_source_gutter_renderer_folding_new ();
 #line 1908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -19631,23 +20573,23 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 1910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp134_ = foldingRenderer;
 #line 1910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkSourceGutterRenderer*) _tmp134_, "query-activatable", (GCallback) ___lambda26__gtk_source_gutter_renderer_query_activatable, self, 0);
+	g_signal_connect_object ((GtkSourceGutterRenderer*) _tmp134_, "query-activatable", (GCallback) ___lambda31__gtk_source_gutter_renderer_query_activatable, self, 0);
 #line 1920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp135_ = self->priv->breakPointModel;
 #line 1920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_tree_model_foreach ((GtkTreeModel*) _tmp135_, ___lambda27__gtk_tree_model_foreach_func, _data39_);
+	gtk_tree_model_foreach ((GtkTreeModel*) _tmp135_, ___lambda32__gtk_tree_model_foreach_func, _data39_);
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp136_ = breakPointRenderer;
 #line 1937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp136_, "add-breakpoint", (GCallback) ___lambda28__vala_develop_source_gutter_renderer_break_point_add_breakpoint, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+	g_signal_connect_data (_tmp136_, "add-breakpoint", (GCallback) ___lambda33__vala_develop_source_gutter_renderer_break_point_add_breakpoint, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp137_ = breakPointRenderer;
 #line 1965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp137_, "del-breakpoint", (GCallback) ___lambda30__vala_develop_source_gutter_renderer_break_point_del_breakpoint, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+	g_signal_connect_data (_tmp137_, "del-breakpoint", (GCallback) ___lambda35__vala_develop_source_gutter_renderer_break_point_del_breakpoint, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp138_ = _data39_->textView;
 #line 1986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GtkTextView*) _tmp138_, "populate-popup", (GCallback) ___lambda32__gtk_text_view_populate_popup, self, 0);
+	g_signal_connect_object ((GtkTextView*) _tmp138_, "populate-popup", (GCallback) ___lambda37__gtk_text_view_populate_popup, self, 0);
 #line 2080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp139_ = scrolledWindow;
 #line 2080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -19767,7 +20709,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 2121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp171_ = _tmp170_;
 #line 2121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp171_, "modified-changed", (GCallback) ___lambda34__gtk_text_buffer_modified_changed, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+	g_signal_connect_data (_tmp171_, "modified-changed", (GCallback) ___lambda39__gtk_text_buffer_modified_changed, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
 #line 2125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp172_ = _data39_->textView;
 #line 2125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -19775,7 +20717,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 2125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp174_ = _tmp173_;
 #line 2125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp174_, "insert-text", (GCallback) ___lambda35__gtk_text_buffer_insert_text, self, 0);
+	g_signal_connect_object (_tmp174_, "insert-text", (GCallback) ___lambda40__gtk_text_buffer_insert_text, self, 0);
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp175_ = _data39_->textView;
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -19783,313 +20725,313 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp177_ = _tmp176_;
 #line 2130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (G_TYPE_CHECK_INSTANCE_CAST (_tmp177_, gtk_source_buffer_get_type (), GtkSourceBuffer), "bracket-matched", (GCallback) ___lambda36__gtk_source_buffer_bracket_matched, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data (G_TYPE_CHECK_INSTANCE_CAST (_tmp177_, gtk_source_buffer_get_type (), GtkSourceBuffer), "bracket-matched", (GCallback) ___lambda41__gtk_source_buffer_bracket_matched, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp178_ = (GtkMenu*) gtk_menu_new ();
-#line 2213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp178_);
-#line 2213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data39_->tabHeaderMenu = _tmp178_;
-#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp179_ = (GtkMenuItem*) gtk_menu_item_new_with_label (_ ("Close file"));
-#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp179_);
-#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (regMenuItem);
-#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	regMenuItem = _tmp179_;
-#line 2215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp180_ = regMenuItem;
-#line 2215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_actionable_set_action_name ((GtkActionable*) _tmp180_, "contextmenu.CloseSource");
-#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp181_ = regMenuItem;
-#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp182_ = self->accelGroup;
-#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_add_accelerator ((GtkWidget*) _tmp181_, "activate", _tmp182_, GDK_KEY_F4, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp183_ = _data39_->tabHeaderMenu;
-#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp184_ = regMenuItem;
-#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_container_add ((GtkContainer*) _tmp183_, (GtkWidget*) _tmp184_);
-#line 2218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp185_ = (GtkMenuItem*) gtk_menu_item_new_with_label (_ ("Close all files"));
-#line 2218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp185_);
-#line 2218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (regMenuItem);
-#line 2218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	regMenuItem = _tmp185_;
-#line 2219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp186_ = regMenuItem;
-#line 2219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp186_, "activate", (GCallback) ___lambda37__gtk_menu_item_activate, self, 0);
-#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_object (_tmp186_, "activate", (GCallback) ___lambda45__gtk_menu_item_activate, self, 0);
+#line 2221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp187_ = _data39_->tabHeaderMenu;
-#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp188_ = regMenuItem;
-#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_container_add ((GtkContainer*) _tmp187_, (GtkWidget*) _tmp188_);
-#line 2224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp189_ = (GtkMenuItem*) gtk_menu_item_new_with_label (_ ("Open containing folder"));
-#line 2224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp189_);
-#line 2224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (regMenuItem);
-#line 2224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	regMenuItem = _tmp189_;
-#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp190_ = regMenuItem;
-#line 2225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp190_, "activate", (GCallback) ___lambda38__gtk_menu_item_activate, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data (_tmp190_, "activate", (GCallback) ___lambda46__gtk_menu_item_activate, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp191_ = _data39_->tabHeaderMenu;
-#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp192_ = regMenuItem;
-#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_container_add ((GtkContainer*) _tmp191_, (GtkWidget*) _tmp192_);
-#line 2230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp193_ = (GtkMenuItem*) gtk_menu_item_new_with_label (_ ("Copy filepath to clipboard"));
-#line 2230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp193_);
-#line 2230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (regMenuItem);
-#line 2230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	regMenuItem = _tmp193_;
-#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp194_ = regMenuItem;
-#line 2231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp194_, "activate", (GCallback) ___lambda39__gtk_menu_item_activate, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data (_tmp194_, "activate", (GCallback) ___lambda47__gtk_menu_item_activate, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp195_ = _data39_->tabHeaderMenu;
-#line 2235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp196_ = regMenuItem;
-#line 2235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_container_add ((GtkContainer*) _tmp195_, (GtkWidget*) _tmp196_);
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp197_ = _data39_->tabHeaderMenu;
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp198_ = (GtkSeparatorMenuItem*) gtk_separator_menu_item_new ();
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp198_);
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp199_ = _tmp198_;
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_container_add ((GtkContainer*) _tmp197_, (GtkWidget*) _tmp199_);
-#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp199_);
-#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp200_ = _data39_->tabHeaderMenu;
-#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp201_ = _data39_->tabHeader;
-#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_menu_attach_to_widget (_tmp200_, (GtkWidget*) _tmp201_, NULL);
-#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp202_ = _data39_->tabHeader;
-#line 2240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data ((GtkWidget*) _tmp202_, "button-press-event", (GCallback) ___lambda40__gtk_widget_button_press_event, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data ((GtkWidget*) _tmp202_, "button-press-event", (GCallback) ___lambda48__gtk_widget_button_press_event, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp203_ = _data39_->tabHeader;
-#line 2274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object (_tmp203_, "close-clicked", (GCallback) ___lambda43__vala_develop_tab_header_close_clicked, self, 0);
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_object (_tmp203_, "close-clicked", (GCallback) ___lambda51__vala_develop_tab_header_close_clicked, self, 0);
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp204_ = _data39_->textView;
-#line 2279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data (_tmp204_, "line-mark-activated", (GCallback) ___lambda44__gtk_source_view_line_mark_activated, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data (_tmp204_, "line-mark-activated", (GCallback) ___lambda52__gtk_source_view_line_mark_activated, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp205_ = _data39_->textView;
-#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp206_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp205_);
-#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp207_ = _tmp206_;
-#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp208_ = vala_develop__vsln;
-#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_load_bookmarks (G_TYPE_CHECK_INSTANCE_CAST (_tmp207_, gtk_source_buffer_get_type (), GtkSourceBuffer), _data39_->fullPath, _tmp208_);
-#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp209_ = scrolledWindow;
-#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set ((GtkWidget*) _tmp209_, "expand", TRUE, NULL);
-#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2297 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp210_ = self->documentTab;
-#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2297 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp211_ = overlayWidget;
-#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2297 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp212_ = _data39_->tabHeader;
-#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2297 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_notebook_append_page (_tmp210_, (GtkWidget*) _tmp211_, (GtkWidget*) _tmp212_);
-#line 2300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp213_ = self->documentTab;
-#line 2300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp214_ = overlayWidget;
-#line 2300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp215_ = name;
-#line 2300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_notebook_set_menu_label_text (_tmp213_, (GtkWidget*) _tmp214_, _tmp215_);
-#line 2301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp216_ = overlayWidget;
-#line 2301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_show_all ((GtkWidget*) _tmp216_);
-#line 2302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_select_tab_fullpath (self, _data39_->fullPath);
-#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp217_ = _data39_->textView;
-#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_grab_focus ((GtkWidget*) _tmp217_);
-#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp218_ = _data39_->textView;
-#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp219_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp218_);
-#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp220_ = _tmp219_;
-#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_text_buffer_get_start_iter (_tmp220_, &_tmp221_);
-#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	startIter = _tmp221_;
-#line 2306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp222_ = _data39_->textView;
-#line 2306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp223_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp222_);
-#line 2306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp224_ = _tmp223_;
-#line 2306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp225_ = startIter;
-#line 2306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_text_buffer_place_cursor (_tmp224_, &_tmp225_);
-#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp226_ = _data39_->textView;
-#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp227_ = startIter;
-#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp226_, &_tmp227_, (gdouble) 0, TRUE, 0.5, 0.5);
-#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp228_ = vala_develop_main_paned_overviewTreeModel;
-#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp229_ = vala_develop_overview_tree_store_get_project_iter_by_full_path (_tmp228_, _data39_->fullPath);
-#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectIter = _tmp229_;
-#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp230_ = vala_develop_main_paned_overviewTreeModel;
-#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp231_ = projectIter;
-#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp232_ = *_tmp231_;
-#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp233_ = vala_develop_overview_tree_store_get_item_name (_tmp230_, &_tmp232_);
-#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectName = _tmp233_;
-#line 2311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp234_ = vala_develop_main_paned__symbol_finder;
-#line 2311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp235_ = projectName;
-#line 2311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp236_ = gee_abstract_map_get ((GeeAbstractMap*) _tmp234_, _tmp235_);
-#line 2311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	sf = (valaDevelopSymbolFinder*) _tmp236_;
-#line 2312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp237_ = sf;
-#line 2312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp238_ = _data39_->textView;
-#line 2312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_symbol_finder_analyse (_tmp237_, self, _tmp238_, _data39_->fullPath);
-#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp239_ = _data39_->textView;
-#line 2315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_data ((GtkWidget*) _tmp239_, "query-tooltip", (GCallback) ___lambda45__gtk_widget_query_tooltip, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
-#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_data ((GtkWidget*) _tmp239_, "query-tooltip", (GCallback) ___lambda53__gtk_widget_query_tooltip, block39_data_ref (_data39_), (GClosureNotify) block39_data_unref, 0);
+#line 2361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp240_ = _data39_->textView;
-#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp241_ = gtk_source_view_get_completion (_tmp240_);
-#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp242_ = _tmp241_;
-#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp243_ = _g_object_ref0 (_tmp242_);
-#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	completion = _tmp243_;
-#line 2364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp244_ = completion;
-#line 2364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set (_tmp244_, "show-headers", FALSE, NULL);
-#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp245_ = completion;
-#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set (_tmp245_, "remember-info-visibility", TRUE, NULL);
-#line 2366 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp246_ = completion;
-#line 2366 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set (_tmp246_, "select-on-show", TRUE, NULL);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp247_ = completion;
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp248_ = sf;
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp249_ = vala_develop_vala_completion_provider_new (_data39_->fullPath, _tmp248_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp250_ = _tmp249_;
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_source_completion_add_provider (_tmp247_, (GtkSourceCompletionProvider*) _tmp250_, &_inner_error0_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp250_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (completion);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (sf);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (projectName);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (projectIter);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (name);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (label);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (alabel);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (hbox);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (box);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (foldingRenderer);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (breakPointRenderer);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (gutter);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp104_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (attribute);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (regMenuItem);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (regMenu);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (scrolledWindow);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (overlayWidget);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		block39_data_unref (_data39_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data39_ = NULL;
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_inner_error0_);
-#line 2367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 20084 "main_paned.c"
+#line 21026 "main_paned.c"
 	}
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp251_ = _data39_->textView;
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp252_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp251_);
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp253_ = _tmp252_;
-#line 2370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_signal_connect_object ((GObject*) _tmp253_, "notify", (GCallback) ___lambda46__g_object_notify, self, 0);
+#line 2368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_signal_connect_object ((GObject*) _tmp253_, "notify", (GCallback) ___lambda54__g_object_notify, self, 0);
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (completion);
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
@@ -20130,7 +21072,7 @@ vala_develop_main_paned_open_source_file (valaDevelopMainPaned* self,
 	block39_data_unref (_data39_);
 #line 1794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data39_ = NULL;
-#line 20134 "main_paned.c"
+#line 21076 "main_paned.c"
 }
 
 static void
@@ -20144,7 +21086,7 @@ vala_develop_main_paned_update_syntax_check_data_free (gpointer _data)
 	_g_object_unref0 (_data_->self);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_slice_free (ValaDevelopMainPanedUpdateSyntaxCheckData, _data_);
-#line 20148 "main_paned.c"
+#line 21090 "main_paned.c"
 }
 
 static void
@@ -20174,7 +21116,7 @@ vala_develop_main_paned_update_syntax_check (valaDevelopMainPaned* self,
 	_data_->textView = _tmp1_;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_update_syntax_check_co (_data_);
-#line 20178 "main_paned.c"
+#line 21120 "main_paned.c"
 }
 
 static void
@@ -20184,7 +21126,7 @@ vala_develop_main_paned_update_syntax_check_finish (valaDevelopMainPaned* self,
 	ValaDevelopMainPanedUpdateSyntaxCheckData* _data_;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_ = g_task_propagate_pointer (G_TASK (_res_), NULL);
-#line 20188 "main_paned.c"
+#line 21130 "main_paned.c"
 }
 
 static gboolean
@@ -20192,55 +21134,55 @@ _vala_develop_main_paned_update_syntax_check_co_gsource_func (gpointer self)
 {
 	gboolean result;
 	result = vala_develop_main_paned_update_syntax_check_co (self);
-#line 2399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 20198 "main_paned.c"
+#line 21140 "main_paned.c"
 }
 
 static gboolean
 vala_develop_main_paned_update_syntax_check_co (ValaDevelopMainPanedUpdateSyntaxCheckData* _data_)
 {
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	switch (_data_->_state_) {
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case 0:
-#line 20208 "main_paned.c"
+#line 21150 "main_paned.c"
 		goto _state_0;
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case 1:
-#line 20212 "main_paned.c"
+#line 21154 "main_paned.c"
 		goto _state_1;
 		default:
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_assert_not_reached ();
-#line 20217 "main_paned.c"
+#line 21159 "main_paned.c"
 	}
 	_state_0:
-#line 2399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, _vala_develop_main_paned_update_syntax_check_co_gsource_func, _data_, NULL);
-#line 2400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_state_ = 1;
-#line 2400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return FALSE;
-#line 20226 "main_paned.c"
+#line 21168 "main_paned.c"
 	_state_1:
 	;
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_task_return_pointer (_data_->_async_result, _data_, NULL);
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_data_->_state_ != 0) {
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (!g_task_get_completed (_data_->_async_result)) {
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_main_context_iteration (g_task_get_context (_data_->_async_result), TRUE);
-#line 20237 "main_paned.c"
+#line 21179 "main_paned.c"
 		}
 	}
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_unref (_data_->_async_result);
-#line 2397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return FALSE;
-#line 20244 "main_paned.c"
+#line 21186 "main_paned.c"
 }
 
 static void
@@ -20256,7 +21198,7 @@ vala_develop_main_paned_get_tooltip_from_symbol_data_free (gpointer _data)
 	_g_object_unref0 (_data_->self);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_slice_free (ValaDevelopMainPanedGetTooltipFromSymbolData, _data_);
-#line 20260 "main_paned.c"
+#line 21202 "main_paned.c"
 }
 
 static void
@@ -20292,7 +21234,7 @@ vala_develop_main_paned_get_tooltip_from_symbol (valaDevelopMainPaned* self,
 	_data_->iter = _tmp2_;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_get_tooltip_from_symbol_co (_data_);
-#line 20296 "main_paned.c"
+#line 21238 "main_paned.c"
 }
 
 static gchar*
@@ -20309,54 +21251,54 @@ vala_develop_main_paned_get_tooltip_from_symbol_finish (valaDevelopMainPaned* se
 	_data_->result = NULL;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 20313 "main_paned.c"
+#line 21255 "main_paned.c"
 }
 
 static gboolean
 vala_develop_main_paned_get_tooltip_from_symbol_co (ValaDevelopMainPanedGetTooltipFromSymbolData* _data_)
 {
-#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	switch (_data_->_state_) {
-#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case 0:
-#line 20323 "main_paned.c"
+#line 21265 "main_paned.c"
 		goto _state_0;
 		default:
-#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_assert_not_reached ();
-#line 20328 "main_paned.c"
+#line 21270 "main_paned.c"
 	}
 	_state_0:
-#line 2405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp0_ = gtk_text_view_get_buffer ((GtkTextView*) _data_->textView);
-#line 2405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp1_ = _data_->_tmp0_;
-#line 2405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp2_ = vala_develop_globals_get_word_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_data_->_tmp1_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_data_->iter);
-#line 2405 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->word = _data_->_tmp2_;
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp3_ = g_strdup ("abc");
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->result = _data_->_tmp3_;
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_data_->word);
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_task_return_pointer (_data_->_async_result, _data_, NULL);
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_data_->_state_ != 0) {
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (!g_task_get_completed (_data_->_async_result)) {
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_main_context_iteration (g_task_get_context (_data_->_async_result), TRUE);
-#line 20353 "main_paned.c"
+#line 21295 "main_paned.c"
 		}
 	}
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_unref (_data_->_async_result);
-#line 2406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return FALSE;
-#line 20360 "main_paned.c"
+#line 21302 "main_paned.c"
 }
 
 static void
@@ -20385,148 +21327,148 @@ vala_develop_main_paned_close_by_tab_header (valaDevelopMainPaned* self,
 	GtkNotebook* _tmp24_;
 	gint _tmp25_;
 	gint _tmp26_;
-#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (tabHeader != NULL);
-#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (evnt != NULL);
-#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_tab_header_get_image (tabHeader);
-#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _tmp0_;
-#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = _g_object_ref0 (_tmp1_);
-#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	image = _tmp2_;
-#line 2413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = image;
-#line 2413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_get_allocation ((GtkWidget*) _tmp3_, &_tmp4_);
-#line 2413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	allocation = _tmp4_;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (((gint) evnt->x) > _tmp8_.x) {
-#line 20413 "main_paned.c"
+#line 21355 "main_paned.c"
 		GtkAllocation _tmp9_;
 		GtkAllocation _tmp10_;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp9_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp10_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp7_ = ((gint) evnt->x) < (_tmp9_.x + _tmp10_.width);
-#line 20422 "main_paned.c"
+#line 21364 "main_paned.c"
 	} else {
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp7_ = FALSE;
-#line 20426 "main_paned.c"
+#line 21368 "main_paned.c"
 	}
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp7_) {
-#line 20430 "main_paned.c"
+#line 21372 "main_paned.c"
 		GtkAllocation _tmp11_;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp11_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = ((gint) evnt->y) > _tmp11_.y;
-#line 20436 "main_paned.c"
+#line 21378 "main_paned.c"
 	} else {
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = FALSE;
-#line 20440 "main_paned.c"
+#line 21382 "main_paned.c"
 	}
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp6_) {
-#line 20444 "main_paned.c"
+#line 21386 "main_paned.c"
 		GtkAllocation _tmp12_;
 		GtkAllocation _tmp13_;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp12_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp13_ = allocation;
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = ((gint) evnt->y) < (_tmp12_.y + _tmp13_.height);
-#line 20453 "main_paned.c"
+#line 21395 "main_paned.c"
 	} else {
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = FALSE;
-#line 20457 "main_paned.c"
+#line 21399 "main_paned.c"
 	}
-#line 2414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (!_tmp5_) {
-#line 2415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (image);
-#line 2415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 20465 "main_paned.c"
+#line 21407 "main_paned.c"
 	}
-#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = vala_develop_tab_header_get_full_path (tabHeader);
-#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp15_ = _tmp14_;
-#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_select_tab_fullpath (self, _tmp15_);
-#line 2418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2416 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp16_ = vala_develop_main_paned_get_tab_text_buffer (self, (GtkWidget*) tabHeader);
-#line 2418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2416 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	textbuffer = _tmp16_;
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp18_ = textbuffer;
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp18_ != NULL) {
-#line 20481 "main_paned.c"
+#line 21423 "main_paned.c"
 		GtkSourceBuffer* _tmp19_;
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp19_ = textbuffer;
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp17_ = gtk_text_buffer_get_modified ((GtkTextBuffer*) _tmp19_);
-#line 20487 "main_paned.c"
+#line 21429 "main_paned.c"
 	} else {
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp17_ = FALSE;
-#line 20491 "main_paned.c"
+#line 21433 "main_paned.c"
 	}
-#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp17_) {
-#line 20495 "main_paned.c"
+#line 21437 "main_paned.c"
 		GtkSourceBuffer* _tmp20_;
 		const gchar* _tmp21_;
 		const gchar* _tmp22_;
-#line 2421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp20_ = textbuffer;
-#line 2421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = vala_develop_tab_header_get_full_path (tabHeader);
-#line 2421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp22_ = _tmp21_;
-#line 2421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (vala_develop_main_paned_close_document (self, _tmp20_, _tmp22_) == GTK_RESPONSE_CANCEL) {
-#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (textbuffer);
-#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (image);
-#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 20513 "main_paned.c"
+#line 21455 "main_paned.c"
 		}
 	}
-#line 2424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp23_ = self->documentTab;
-#line 2424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp24_ = self->documentTab;
-#line 2424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_get (_tmp24_, "page", &_tmp25_, NULL);
-#line 2424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp26_ = _tmp25_;
-#line 2424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_notebook_remove_page (_tmp23_, _tmp26_);
-#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (textbuffer);
-#line 2409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2407 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (image);
-#line 20530 "main_paned.c"
+#line 21472 "main_paned.c"
 }
 
 static GtkResponseType
@@ -20556,115 +21498,115 @@ vala_develop_main_paned_close_document (valaDevelopMainPaned* self,
 	gint response = 0;
 	GtkMessageDialog* _tmp20_;
 	GError* _inner_error0_ = NULL;
-#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2425 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2425 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (buffer != NULL, 0);
-#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2425 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (fullPath != NULL, 0);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = gtk_widget_get_toplevel ((GtkWidget*) self);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = string_to_string (fullPath);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = g_strconcat ("Save changes to\n'", _tmp1_, "'\nbefore closing?", NULL);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _tmp2_;
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "%s", _ (_tmp3_));
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp4_);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _tmp4_;
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp3_);
-#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	messagedialog = _tmp5_;
-#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = messagedialog;
-#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_window_set_title ((GtkWindow*) _tmp6_, _ ("File will be closed!"));
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = messagedialog;
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Cancel"));
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp8_);
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = _tmp8_;
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_dialog_add_action_widget ((GtkDialog*) _tmp7_, (GtkWidget*) _tmp9_, (gint) GTK_RESPONSE_CANCEL);
-#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp9_);
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp10_ = messagedialog;
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp11_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_No"));
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp11_);
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp12_ = _tmp11_;
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_dialog_add_action_widget ((GtkDialog*) _tmp10_, (GtkWidget*) _tmp12_, (gint) GTK_RESPONSE_NO);
-#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp12_);
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp13_ = messagedialog;
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Yes"));
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp14_);
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp15_ = _tmp14_;
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_dialog_add_action_widget ((GtkDialog*) _tmp13_, (GtkWidget*) _tmp15_, (gint) GTK_RESPONSE_YES);
-#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp15_);
-#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp16_ = messagedialog;
-#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_hide_on_delete ((GtkWidget*) _tmp16_);
-#line 2436 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2434 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	response = (gint) GTK_RESPONSE_DELETE_EVENT;
-#line 20630 "main_paned.c"
+#line 21572 "main_paned.c"
 	{
 		gboolean _tmp17_ = FALSE;
-#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp17_ = TRUE;
-#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (TRUE) {
-#line 20637 "main_paned.c"
+#line 21579 "main_paned.c"
 			GtkMessageDialog* _tmp18_;
 			GtkMessageDialog* _tmp19_;
-#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (!_tmp17_) {
-#line 2441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!(response == ((gint) GTK_RESPONSE_DELETE_EVENT))) {
-#line 2441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 20646 "main_paned.c"
+#line 21588 "main_paned.c"
 				}
 			}
-#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp17_ = FALSE;
-#line 2439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp18_ = messagedialog;
-#line 2439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_widget_show_all ((GtkWidget*) _tmp18_);
-#line 2440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp19_ = messagedialog;
-#line 2440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			response = gtk_dialog_run ((GtkDialog*) _tmp19_);
-#line 20659 "main_paned.c"
+#line 21601 "main_paned.c"
 		}
 	}
-#line 2442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp20_ = messagedialog;
-#line 2442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_destroy ((GtkWidget*) _tmp20_);
-#line 2443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (response == ((gint) GTK_RESPONSE_YES)) {
-#line 20668 "main_paned.c"
+#line 21610 "main_paned.c"
 		GtkTextIter startIter = {0};
 		GtkTextIter endIter = {0};
 		GtkTextIter _tmp21_ = {0};
@@ -20673,48 +21615,48 @@ vala_develop_main_paned_close_document (valaDevelopMainPaned* self,
 		GtkTextIter _tmp24_;
 		gchar* _tmp25_;
 		gchar* _tmp26_;
-#line 2447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_get_start_iter ((GtkTextBuffer*) buffer, &_tmp21_);
-#line 2447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		startIter = _tmp21_;
-#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_get_end_iter ((GtkTextBuffer*) buffer, &_tmp22_);
-#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		endIter = _tmp22_;
-#line 2449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = startIter;
-#line 2449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp24_ = endIter;
-#line 2449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_remove_all_tags ((GtkTextBuffer*) buffer, &_tmp23_, &_tmp24_);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp25_ = vala_develop_globals_get_text_from_buffer ((GtkTextBuffer*) buffer, TRUE);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp26_ = _tmp25_;
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_file_set_contents (fullPath, _tmp26_, (gssize) -1, &_inner_error0_);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp26_);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (messagedialog);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_clear_error (&_inner_error0_);
-#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return 0;
-#line 20709 "main_paned.c"
+#line 21651 "main_paned.c"
 		}
 	}
-#line 2452 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = (GtkResponseType) response;
-#line 2452 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (messagedialog);
-#line 2452 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 20718 "main_paned.c"
+#line 21660 "main_paned.c"
 }
 
 gboolean
@@ -20724,102 +21666,102 @@ vala_develop_main_paned_OnShowOpenFiles (valaDevelopMainPaned* self,
 	gboolean result = FALSE;
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
-#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (evnt != NULL, FALSE);
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (evnt->keyval == GDK_KEY_Tab) {
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = TRUE;
-#line 20736 "main_paned.c"
+#line 21678 "main_paned.c"
 	} else {
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = evnt->keyval == GDK_KEY_ISO_Left_Tab;
-#line 20740 "main_paned.c"
+#line 21682 "main_paned.c"
 	}
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp1_) {
-#line 20744 "main_paned.c"
+#line 21686 "main_paned.c"
 		GdkModifierType _tmp2_;
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = evnt->state;
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = (_tmp2_ & GDK_CONTROL_MASK) == GDK_CONTROL_MASK;
-#line 20750 "main_paned.c"
+#line 21692 "main_paned.c"
 	} else {
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = FALSE;
-#line 20754 "main_paned.c"
+#line 21696 "main_paned.c"
 	}
-#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_) {
-#line 20758 "main_paned.c"
+#line 21700 "main_paned.c"
 		gint selectedIndex = 0;
 		valaDevelopSwitchOpenFiles* switchOpenFiles = NULL;
 		GtkWidget* _tmp3_;
 		GtkNotebook* _tmp4_;
 		valaDevelopSwitchOpenFiles* _tmp5_;
-#line 2459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		selectedIndex = -1;
-#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gtk_widget_get_toplevel ((GtkWidget*) self);
-#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = self->documentTab;
-#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = vala_develop_switch_open_files_new (_tmp3_, _tmp4_);
-#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_object_ref_sink (_tmp5_);
-#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		switchOpenFiles = _tmp5_;
-#line 20776 "main_paned.c"
+#line 21718 "main_paned.c"
 		{
 			valaDevelopSwitchOpenFiles* _tmp6_;
 			valaDevelopSwitchOpenFiles* _tmp7_;
 			gint _tmp8_;
 			gint _tmp9_;
 			valaDevelopSwitchOpenFiles* _tmp10_;
-#line 2462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp6_ = switchOpenFiles;
-#line 2462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_dialog_run ((GtkDialog*) _tmp6_);
-#line 2463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp7_ = switchOpenFiles;
-#line 2463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp8_ = vala_develop_switch_open_files_get_SelectedIndex (_tmp7_);
-#line 2463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp9_ = _tmp8_;
-#line 2463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			selectedIndex = _tmp9_;
-#line 2464 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp10_ = switchOpenFiles;
-#line 2464 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_widget_destroy ((GtkWidget*) _tmp10_);
-#line 20799 "main_paned.c"
+#line 21741 "main_paned.c"
+		}
+#line 2464 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		if (selectedIndex != -1) {
+#line 21745 "main_paned.c"
+			GtkNotebook* _tmp11_;
+#line 2465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp11_ = self->documentTab;
+#line 2465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			g_object_set (_tmp11_, "page", selectedIndex, NULL);
+#line 21751 "main_paned.c"
 		}
 #line 2466 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		if (selectedIndex != -1) {
-#line 20803 "main_paned.c"
-			GtkNotebook* _tmp11_;
-#line 2467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp11_ = self->documentTab;
-#line 2467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_object_set (_tmp11_, "page", selectedIndex, NULL);
-#line 20809 "main_paned.c"
-		}
-#line 2468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		result = TRUE;
-#line 2468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2466 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (switchOpenFiles);
-#line 2468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2466 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 20817 "main_paned.c"
+#line 21759 "main_paned.c"
 	}
-#line 2470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 20823 "main_paned.c"
+#line 21765 "main_paned.c"
 }
 
 gboolean
@@ -20830,29 +21772,29 @@ vala_develop_main_paned_select_tab_fullpath (valaDevelopMainPaned* self,
 	gint i = 0;
 	GtkNotebook* _tmp0_;
 	GList* _tmp1_;
-#line 2473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (full_path != NULL, FALSE);
-#line 2475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	i = 0;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->documentTab;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = gtk_container_get_children ((GtkContainer*) _tmp0_);
-#line 20844 "main_paned.c"
+#line 21786 "main_paned.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		child_collection = _tmp1_;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 20852 "main_paned.c"
+#line 21794 "main_paned.c"
 			GtkWidget* child = NULL;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = (GtkWidget*) child_it->data;
-#line 20856 "main_paned.c"
+#line 21798 "main_paned.c"
 			{
 				valaDevelopTabHeader* tabLabel = NULL;
 				GtkNotebook* _tmp2_;
@@ -20865,77 +21807,77 @@ vala_develop_main_paned_select_tab_fullpath (valaDevelopMainPaned* self,
 				const gchar* _tmp9_;
 				const gchar* _tmp10_;
 				gint _tmp13_;
-#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp2_ = self->documentTab;
-#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp3_ = child;
-#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp4_ = gtk_notebook_get_tab_label (_tmp2_, _tmp3_);
-#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp5_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp4_, VALA_DEVELOP_TYPE_TAB_HEADER) ? ((valaDevelopTabHeader*) _tmp4_) : NULL);
-#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				tabLabel = _tmp5_;
-#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = tabLabel;
-#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp6_ == NULL) {
-#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabLabel);
-#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					continue;
-#line 20887 "main_paned.c"
+#line 21829 "main_paned.c"
 				}
-#line 2480 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp7_ = tabLabel;
-#line 2480 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				vala_develop_tab_header_set_active (_tmp7_, FALSE);
-#line 2481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp8_ = tabLabel;
-#line 2481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp9_ = vala_develop_tab_header_get_full_path (_tmp8_);
-#line 2481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp10_ = _tmp9_;
-#line 2481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (g_strcmp0 (_tmp10_, full_path) == 0) {
-#line 20901 "main_paned.c"
+#line 21843 "main_paned.c"
 					GtkNotebook* _tmp11_;
 					valaDevelopTabHeader* _tmp12_;
-#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp11_ = self->documentTab;
-#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_object_set (_tmp11_, "page", i, NULL);
-#line 2493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp12_ = tabLabel;
-#line 2493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					vala_develop_tab_header_set_active (_tmp12_, TRUE);
-#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					result = TRUE;
-#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabLabel);
-#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 20920 "main_paned.c"
+#line 21862 "main_paned.c"
 				}
-#line 2496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp13_ = i;
-#line 2496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				i = _tmp13_ + 1;
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tabLabel);
-#line 20928 "main_paned.c"
+#line 21870 "main_paned.c"
 			}
 		}
-#line 2476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 20933 "main_paned.c"
+#line 21875 "main_paned.c"
 	}
-#line 2498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 20939 "main_paned.c"
+#line 21881 "main_paned.c"
 }
 
 static void
@@ -20946,40 +21888,40 @@ vala_develop_main_paned_select_overview (valaDevelopMainPaned* self,
 	valaDevelopOverviewTreeStore* _tmp0_;
 	GtkTreeIter* _tmp1_;
 	GtkTreeIter* _tmp2_;
-#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (full_path != NULL);
-#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
-#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = vala_develop_overview_tree_store_get_iter_by_full_path (_tmp0_, full_path);
-#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	iter = _tmp1_;
-#line 2504 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = iter;
-#line 2504 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp2_ != NULL) {
-#line 20964 "main_paned.c"
+#line 21906 "main_paned.c"
 		GtkTreeView* _tmp3_;
 		GtkTreeSelection* _tmp4_;
 		GtkTreeIter* _tmp5_;
 		GtkTreeIter _tmp6_;
-#line 2505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = self->solutionTreeView;
-#line 2505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = gtk_tree_view_get_selection (_tmp3_);
-#line 2505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = iter;
-#line 2505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = *_tmp5_;
-#line 2505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_tree_selection_select_iter (_tmp4_, &_tmp6_);
-#line 20979 "main_paned.c"
+#line 21921 "main_paned.c"
 	}
-#line 2501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (iter);
-#line 20983 "main_paned.c"
+#line 21925 "main_paned.c"
 }
 
 GtkWidget*
@@ -20989,27 +21931,27 @@ vala_develop_main_paned_get_tab_text_view_by_path (valaDevelopMainPaned* self,
 	GtkWidget* result = NULL;
 	GtkNotebook* _tmp0_;
 	GList* _tmp1_;
-#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2506 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2506 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (fullPath != NULL, NULL);
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->documentTab;
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = gtk_container_get_children ((GtkContainer*) _tmp0_);
-#line 21001 "main_paned.c"
+#line 21943 "main_paned.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		child_collection = _tmp1_;
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 21009 "main_paned.c"
+#line 21951 "main_paned.c"
 			GtkWidget* child = NULL;
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = (GtkWidget*) child_it->data;
-#line 21013 "main_paned.c"
+#line 21955 "main_paned.c"
 			{
 				valaDevelopTabHeader* tabLabel = NULL;
 				GtkNotebook* _tmp2_;
@@ -21020,65 +21962,65 @@ vala_develop_main_paned_get_tab_text_view_by_path (valaDevelopMainPaned* self,
 				valaDevelopTabHeader* _tmp7_;
 				const gchar* _tmp8_;
 				const gchar* _tmp9_;
-#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp2_ = self->documentTab;
-#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp3_ = child;
-#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp4_ = gtk_notebook_get_tab_label (_tmp2_, _tmp3_);
-#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp5_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp4_, VALA_DEVELOP_TYPE_TAB_HEADER) ? ((valaDevelopTabHeader*) _tmp4_) : NULL);
-#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				tabLabel = _tmp5_;
-#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = tabLabel;
-#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp6_ == NULL) {
-#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabLabel);
-#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					continue;
-#line 21042 "main_paned.c"
+#line 21984 "main_paned.c"
 				}
-#line 2514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp7_ = tabLabel;
-#line 2514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp8_ = vala_develop_tab_header_get_full_path (_tmp7_);
-#line 2514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp9_ = _tmp8_;
-#line 2514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (g_strcmp0 (_tmp9_, fullPath) == 0) {
-#line 21052 "main_paned.c"
+#line 21994 "main_paned.c"
 					GtkWidget* _tmp10_;
 					GtkSourceView* _tmp11_;
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp10_ = child;
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp11_ = vala_develop_globals_get_sourceview_from_overlay (G_TYPE_CHECK_INSTANCE_CAST (_tmp10_, gtk_overlay_get_type (), GtkOverlay));
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					result = (GtkWidget*) _tmp11_;
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabLabel);
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 21067 "main_paned.c"
+#line 22009 "main_paned.c"
 				}
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tabLabel);
-#line 21071 "main_paned.c"
+#line 22013 "main_paned.c"
 			}
 		}
-#line 2510 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2508 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 21076 "main_paned.c"
+#line 22018 "main_paned.c"
 	}
-#line 2517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = NULL;
-#line 2517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 21082 "main_paned.c"
+#line 22024 "main_paned.c"
 }
 
 GtkWidget*
@@ -21090,31 +22032,31 @@ vala_develop_main_paned_get_tab_text_view (valaDevelopMainPaned* self,
 	valaDevelopTabHeader* _tmp0_;
 	GtkNotebook* _tmp1_;
 	GList* _tmp2_;
-#line 2520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 2520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (o != NULL, NULL);
-#line 2522 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (o, VALA_DEVELOP_TYPE_TAB_HEADER, valaDevelopTabHeader));
-#line 2522 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	tabHeader = _tmp0_;
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = self->documentTab;
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = gtk_container_get_children ((GtkContainer*) _tmp1_);
-#line 21106 "main_paned.c"
+#line 22048 "main_paned.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		child_collection = _tmp2_;
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 21114 "main_paned.c"
+#line 22056 "main_paned.c"
 			GtkWidget* child = NULL;
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = (GtkWidget*) child_it->data;
-#line 21118 "main_paned.c"
+#line 22060 "main_paned.c"
 			{
 				GtkWidget* tabLabel = NULL;
 				GtkNotebook* _tmp3_;
@@ -21123,57 +22065,57 @@ vala_develop_main_paned_get_tab_text_view (valaDevelopMainPaned* self,
 				GtkWidget* _tmp6_;
 				GtkWidget* _tmp7_;
 				valaDevelopTabHeader* _tmp8_;
-#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp3_ = self->documentTab;
-#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp4_ = child;
-#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp5_ = gtk_notebook_get_tab_label (_tmp3_, _tmp4_);
-#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = _g_object_ref0 (_tmp5_);
-#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				tabLabel = _tmp6_;
-#line 2526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp7_ = tabLabel;
-#line 2526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp8_ = tabHeader;
-#line 2526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp7_ == G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, gtk_widget_get_type (), GtkWidget)) {
-#line 21143 "main_paned.c"
+#line 22085 "main_paned.c"
 					GtkWidget* _tmp9_;
 					GtkWidget* _tmp10_;
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp9_ = child;
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp10_ = vala_develop_globals_get_widget_from_overlay (G_TYPE_CHECK_INSTANCE_CAST (_tmp9_, gtk_overlay_get_type (), GtkOverlay));
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					result = _tmp10_;
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabLabel);
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (tabHeader);
-#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return result;
-#line 21160 "main_paned.c"
+#line 22102 "main_paned.c"
 				}
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tabLabel);
-#line 21164 "main_paned.c"
+#line 22106 "main_paned.c"
 			}
 		}
-#line 2523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 21169 "main_paned.c"
+#line 22111 "main_paned.c"
 	}
-#line 2529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = NULL;
-#line 2529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (tabHeader);
-#line 2529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 21177 "main_paned.c"
+#line 22119 "main_paned.c"
 }
 
 GtkSourceBuffer*
@@ -21184,46 +22126,46 @@ vala_develop_main_paned_get_tab_text_buffer (valaDevelopMainPaned* self,
 	GtkWidget* w = NULL;
 	GtkWidget* _tmp0_;
 	GtkWidget* _tmp1_;
-#line 2532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 2532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (o != NULL, NULL);
-#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_main_paned_get_tab_text_view (self, o);
-#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	w = _tmp0_;
-#line 2535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = w;
-#line 2535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp1_, gtk_source_view_get_type ())) {
-#line 21200 "main_paned.c"
+#line 22142 "main_paned.c"
 		GtkWidget* _tmp2_;
 		GtkTextBuffer* _tmp3_;
 		GtkTextBuffer* _tmp4_;
 		GtkSourceBuffer* _tmp5_;
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = w;
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gtk_text_view_get_buffer ((GtkTextView*) G_TYPE_CHECK_INSTANCE_CAST (_tmp2_, gtk_source_view_get_type (), GtkSourceView));
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp4_, gtk_source_buffer_get_type ()) ? ((GtkSourceBuffer*) _tmp4_) : NULL);
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		result = _tmp5_;
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (w);
-#line 2536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return result;
-#line 21219 "main_paned.c"
+#line 22161 "main_paned.c"
 	}
-#line 2537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = NULL;
-#line 2537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (w);
-#line 2537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 21227 "main_paned.c"
+#line 22169 "main_paned.c"
 }
 
 void
@@ -21256,121 +22198,121 @@ vala_develop_main_paned_OnDebugStop (valaDevelopMainPaned* self,
 	GAction* _tmp21_;
 	GSimpleAction* _tmp22_;
 	GtkBox* _tmp23_;
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 21266 "main_paned.c"
+#line 22208 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_OnDebugStop (_tmp1_);
-#line 21272 "main_paned.c"
+#line 22214 "main_paned.c"
 	}
-#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (self->priv->_debugger);
-#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self->priv->_debugger = NULL;
-#line 2545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = self->symbolTree;
-#line 2545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = gtk_tree_view_get_columns (_tmp2_);
-#line 2545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	columns = _tmp3_;
-#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = columns;
-#line 21286 "main_paned.c"
+#line 22228 "main_paned.c"
 	{
 		GList* column_collection = NULL;
 		GList* column_it = NULL;
-#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		column_collection = _tmp4_;
-#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (column_it = column_collection; column_it != NULL; column_it = column_it->next) {
-#line 21294 "main_paned.c"
+#line 22236 "main_paned.c"
 			GtkTreeViewColumn* column = NULL;
-#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2544 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			column = (GtkTreeViewColumn*) column_it->data;
-#line 21298 "main_paned.c"
+#line 22240 "main_paned.c"
 			{
 				GtkTreeView* _tmp5_;
 				GtkTreeViewColumn* _tmp6_;
-#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp5_ = self->symbolTree;
-#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = column;
-#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2546 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				gtk_tree_view_remove_column (_tmp5_, _tmp6_);
-#line 21308 "main_paned.c"
+#line 22250 "main_paned.c"
 			}
 		}
 	}
-#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = self->_parentClass;
-#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = gtk_widget_get_action_group ((GtkWidget*) _tmp7_, "contextmenu");
-#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, g_action_map_get_type (), GActionMap), "ReBuild");
-#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp10_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp9_, g_simple_action_get_type (), GSimpleAction));
-#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	rebuild = _tmp10_;
-#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp11_ = self->_parentClass;
-#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp12_ = gtk_widget_get_action_group ((GtkWidget*) _tmp11_, "contextmenu");
-#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp13_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp12_, g_action_map_get_type (), GActionMap), "Build");
-#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp13_, g_simple_action_get_type (), GSimpleAction));
-#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	build = _tmp14_;
-#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp15_ = self->_parentClass;
-#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp16_ = gtk_widget_get_action_group ((GtkWidget*) _tmp15_, "contextmenu");
-#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp17_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp16_, g_action_map_get_type (), GActionMap), "Execute");
-#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp18_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp17_, g_simple_action_get_type (), GSimpleAction));
-#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	execute = _tmp18_;
-#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp19_ = self->_parentClass;
-#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp20_ = gtk_widget_get_action_group ((GtkWidget*) _tmp19_, "contextmenu");
-#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp21_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp20_, g_action_map_get_type (), GActionMap), "Debug");
-#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp22_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp21_, g_simple_action_get_type (), GSimpleAction));
-#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2551 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	debug = _tmp22_;
-#line 2554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (rebuild, TRUE);
-#line 2555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2553 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (build, TRUE);
-#line 2556 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (execute, TRUE);
-#line 2557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (debug, TRUE);
-#line 2558 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2556 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp23_ = self->resolveSymbolsBox;
-#line 2558 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2556 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp23_, FALSE);
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (debug);
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (execute);
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (build);
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (rebuild);
-#line 2540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(columns == NULL) ? NULL : (columns = (g_list_free (columns), NULL));
-#line 21374 "main_paned.c"
+#line 22316 "main_paned.c"
 }
 
 static void
@@ -21378,19 +22320,19 @@ vala_develop_main_paned_OnDebugContinue (valaDevelopMainPaned* self,
                                          GVariant* parameter)
 {
 	valaDevelopDebugger* _tmp0_;
-#line 2561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2561 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 21388 "main_paned.c"
+#line 22330 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_OnDebugContinue (_tmp1_);
-#line 21394 "main_paned.c"
+#line 22336 "main_paned.c"
 	}
 }
 
@@ -21399,19 +22341,19 @@ vala_develop_main_paned_OnDebugNext (valaDevelopMainPaned* self,
                                      GVariant* parameter)
 {
 	valaDevelopDebugger* _tmp0_;
-#line 2567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 21409 "main_paned.c"
+#line 22351 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_OnDebugNext (_tmp1_);
-#line 21415 "main_paned.c"
+#line 22357 "main_paned.c"
 	}
 }
 
@@ -21420,19 +22362,19 @@ vala_develop_main_paned_OnDebugStepIn (valaDevelopMainPaned* self,
                                        GVariant* parameter)
 {
 	valaDevelopDebugger* _tmp0_;
-#line 2573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2571 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 21430 "main_paned.c"
+#line 22372 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_OnDebugStepIn (_tmp1_);
-#line 21436 "main_paned.c"
+#line 22378 "main_paned.c"
 	}
 }
 
@@ -21441,19 +22383,19 @@ vala_develop_main_paned_OnDebugStepOut (valaDevelopMainPaned* self,
                                         GVariant* parameter)
 {
 	valaDevelopDebugger* _tmp0_;
-#line 2579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 21451 "main_paned.c"
+#line 22393 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_OnDebugStepOut (_tmp1_);
-#line 21457 "main_paned.c"
+#line 22399 "main_paned.c"
 	}
 }
 
@@ -21567,391 +22509,391 @@ vala_develop_main_paned_OnDebug (valaDevelopMainPaned* self,
 	GtkTreeView* _tmp96_;
 	GtkBox* _tmp97_;
 	GtkNotebook* _tmp98_;
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 2589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_main_paned_OnDebugContinue (self, parameter);
-#line 2590 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 21581 "main_paned.c"
+#line 22523 "main_paned.c"
 	}
-#line 2592 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2590 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = self->solutionTreeView;
-#line 2592 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2590 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = gtk_tree_view_get_selection (_tmp1_);
-#line 2592 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2590 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _g_object_ref0 (_tmp2_);
-#line 2592 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2590 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	aTreeSelection = _tmp3_;
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = aTreeSelection;
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_selection_get_selected (_tmp4_, &_tmp5_, &_tmp6_);
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (model);
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = _g_object_ref0 (_tmp5_);
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	model = _tmp7_;
-#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	selectionIter = _tmp6_;
-#line 2596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = vala_develop_main_paned_overviewTreeModel;
-#line 2596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = selectionIter;
-#line 2596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp10_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp8_, &_tmp9_);
-#line 2596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectIter = _tmp10_;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp12_ = projectIter;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp12_ == NULL) {
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp11_ = TRUE;
-#line 21617 "main_paned.c"
+#line 22559 "main_paned.c"
 	} else {
 		gboolean _tmp13_ = FALSE;
 		GtkTreeIter* _tmp14_;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp14_ = projectIter;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp14_ != NULL) {
-#line 21625 "main_paned.c"
+#line 22567 "main_paned.c"
 			valaDevelopOverviewTreeStore* _tmp15_;
 			GtkTreeIter* _tmp16_;
 			GtkTreeIter _tmp17_;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp15_ = vala_develop_main_paned_overviewTreeModel;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp16_ = projectIter;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp17_ = *_tmp16_;
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp13_ = vala_develop_overview_tree_store_get_item_buildtype (_tmp15_, &_tmp17_) != ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Executable);
-#line 21637 "main_paned.c"
+#line 22579 "main_paned.c"
 		} else {
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp13_ = FALSE;
-#line 21641 "main_paned.c"
+#line 22583 "main_paned.c"
 		}
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp11_ = _tmp13_;
-#line 21645 "main_paned.c"
+#line 22587 "main_paned.c"
 	}
-#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp11_) {
-#line 21649 "main_paned.c"
+#line 22591 "main_paned.c"
 		GtkMessageDialog* messagedialog = NULL;
 		GtkWidget* _tmp18_;
 		GtkMessageDialog* _tmp19_;
 		GtkMessageDialog* _tmp20_;
 		GtkMessageDialog* _tmp21_;
-#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp18_ = gtk_widget_get_toplevel ((GtkWidget*) self);
-#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp19_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp18_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _ ("First, an executable project must be selected in the overview."));
-#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_object_ref_sink (_tmp19_);
-#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		messagedialog = _tmp19_;
-#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2598 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp20_ = messagedialog;
-#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2598 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp20_);
-#line 2601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = messagedialog;
-#line 2601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp21_);
-#line 2602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (messagedialog);
-#line 2602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (projectIter);
-#line 2602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (model);
-#line 2602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (aTreeSelection);
-#line 2602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 21681 "main_paned.c"
+#line 22623 "main_paned.c"
 	}
-#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp22_ = self->_parentClass;
-#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp23_ = gtk_widget_get_action_group ((GtkWidget*) _tmp22_, "contextmenu");
-#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp24_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp23_, g_action_map_get_type (), GActionMap), "ReBuild");
-#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp25_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp24_, g_simple_action_get_type (), GSimpleAction));
-#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	rebuild = _tmp25_;
-#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp26_ = self->_parentClass;
-#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp27_ = gtk_widget_get_action_group ((GtkWidget*) _tmp26_, "contextmenu");
-#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp28_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp27_, g_action_map_get_type (), GActionMap), "Build");
-#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp29_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp28_, g_simple_action_get_type (), GSimpleAction));
-#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	build = _tmp29_;
-#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp30_ = self->_parentClass;
-#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp31_ = gtk_widget_get_action_group ((GtkWidget*) _tmp30_, "contextmenu");
-#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp32_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp31_, g_action_map_get_type (), GActionMap), "Execute");
-#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp33_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp32_, g_simple_action_get_type (), GSimpleAction));
-#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	execute = _tmp33_;
-#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp34_ = self->_parentClass;
-#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp35_ = gtk_widget_get_action_group ((GtkWidget*) _tmp34_, "contextmenu");
-#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp36_ = g_action_map_lookup_action (G_TYPE_CHECK_INSTANCE_CAST (_tmp35_, g_action_map_get_type (), GActionMap), "Debug");
-#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp37_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp36_, g_simple_action_get_type (), GSimpleAction));
-#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	debug = _tmp37_;
-#line 2609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp38_ = rebuild;
-#line 2609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (_tmp38_, FALSE);
-#line 2610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp39_ = build;
-#line 2610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (_tmp39_, FALSE);
-#line 2611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp40_ = execute;
-#line 2611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (_tmp40_, FALSE);
-#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp41_ = debug;
-#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_simple_action_set_enabled (_tmp41_, FALSE);
-#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp42_ = vala_develop_main_paned_overviewTreeModel;
-#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp43_ = projectIter;
-#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp44_ = *_tmp43_;
-#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp45_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp42_, &_tmp44_);
-#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	output = _tmp45_;
-#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp46_ = vala_develop_main_paned_overviewTreeModel;
-#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp47_ = projectIter;
-#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp48_ = *_tmp47_;
-#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp49_ = vala_develop_overview_tree_store_get_item_name (_tmp46_, &_tmp48_);
-#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	name = _tmp49_;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp50_ = output;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp51_ = g_file_new_for_path (_tmp50_);
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp52_ = _tmp51_;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp53_ = name;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp54_ = g_file_get_child (_tmp52_, _tmp53_);
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp55_ = _tmp54_;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp56_ = g_file_get_path (_tmp55_);
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp57_ = _tmp56_;
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp55_);
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp52_);
-#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	executable = _tmp57_;
-#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp58_ = vala_develop_main_paned_overviewTreeModel;
-#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp59_ = projectIter;
-#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp60_ = *_tmp59_;
-#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2615 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	criticals = vala_develop_overview_tree_store_get_item_debug_break_criticals (_tmp58_, &_tmp60_);
-#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp61_ = vala_develop_main_paned_overviewTreeModel;
-#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp62_ = projectIter;
-#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp63_ = *_tmp62_;
-#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	warnings = vala_develop_overview_tree_store_get_item_debug_break_warnings (_tmp61_, &_tmp63_);
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp64_ = output;
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp65_ = name;
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp66_ = executable;
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp67_ = vala_develop_debugger_new (self, _tmp64_, _tmp65_, _tmp66_, criticals, warnings);
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (self->priv->_debugger);
-#line 2619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self->priv->_debugger = _tmp67_;
-#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp68_ = self->priv->_debugger;
-#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp69_ = name;
-#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_debugger_Start (_tmp68_, _tmp69_);
-#line 2622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp70_ = gtk_tree_view_column_new ();
-#line 2622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp70_);
-#line 2622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	c = _tmp70_;
-#line 2623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp71_ = c;
-#line 2623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_title (_tmp71_, _ ("Symbol"));
-#line 2624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp72_ = c;
-#line 2624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_sizing (_tmp72_, GTK_TREE_VIEW_COLUMN_FIXED);
-#line 2625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp73_ = c;
-#line 2625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_resizable (_tmp73_, TRUE);
-#line 2626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp74_ = c;
-#line 2626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_visible (_tmp74_, TRUE);
-#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp75_ = (GtkCellRendererPixbuf*) gtk_cell_renderer_pixbuf_new ();
-#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp75_);
-#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	pixbuf = _tmp75_;
-#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp76_ = c;
-#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp77_ = pixbuf;
-#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_cell_layout_pack_start ((GtkCellLayout*) _tmp76_, (GtkCellRenderer*) _tmp77_, FALSE);
-#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp78_ = c;
-#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp79_ = pixbuf;
-#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_cell_layout_add_attribute ((GtkCellLayout*) _tmp78_, (GtkCellRenderer*) _tmp79_, "pixbuf", 0);
-#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp80_ = (GtkCellRendererText*) gtk_cell_renderer_text_new ();
-#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp80_);
-#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	cell = _tmp80_;
-#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp81_ = c;
-#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp82_ = cell;
-#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2629 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_cell_layout_pack_start ((GtkCellLayout*) _tmp81_, (GtkCellRenderer*) _tmp82_, TRUE);
-#line 2632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp83_ = c;
-#line 2632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp84_ = cell;
-#line 2632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_cell_layout_add_attribute ((GtkCellLayout*) _tmp83_, (GtkCellRenderer*) _tmp84_, "text", 1);
-#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp85_ = self->symbolTree;
-#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp86_ = c;
-#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_append_column (_tmp85_, _tmp86_);
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp87_ = (GtkCellRendererText*) gtk_cell_renderer_text_new ();
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp87_);
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp88_ = _tmp87_;
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp89_ = gtk_tree_view_column_new_with_attributes (_ ("Value"), (GtkCellRenderer*) _tmp88_, "text", 2, NULL);
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_ref_sink (_tmp89_);
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (c);
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	c = _tmp89_;
-#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_tmp88_);
-#line 2636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2634 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp90_ = c;
-#line 2636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2634 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_sizing (_tmp90_, GTK_TREE_VIEW_COLUMN_FIXED);
-#line 2637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp91_ = c;
-#line 2637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2635 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_resizable (_tmp91_, TRUE);
-#line 2638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp92_ = c;
-#line 2638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_visible (_tmp92_, TRUE);
-#line 2639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp93_ = c;
-#line 2639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_column_set_expand (_tmp93_, TRUE);
-#line 2640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp94_ = self->symbolTree;
-#line 2640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp95_ = c;
-#line 2640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_tree_view_append_column (_tmp94_, _tmp95_);
-#line 2641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp96_ = self->symbolTree;
-#line 2641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_set_name ((GtkWidget*) _tmp96_, "vdStdSetting");
-#line 2643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp97_ = self->resolveSymbolsBox;
-#line 2643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp97_, TRUE);
-#line 2644 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2642 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp98_ = self->infoTab;
-#line 2644 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2642 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_set (_tmp98_, "page", 5, NULL);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (cell);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (pixbuf);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (c);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (executable);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (name);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (output);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (debug);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (execute);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (build);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (rebuild);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (projectIter);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (model);
-#line 2585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (aTreeSelection);
-#line 21955 "main_paned.c"
+#line 22897 "main_paned.c"
 }
 
 gboolean
@@ -21979,89 +22921,89 @@ vala_develop_main_paned_CloseOpenFiles (valaDevelopMainPaned* self)
 	gint _tmp18_;
 	gchar* _tmp19_;
 	gchar* _tmp20_;
-#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2645 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_xml_configuration_get_Setting ();
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _tmp0_;
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = self->mainPaned;
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = gtk_paned_get_position (_tmp2_);
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = _tmp3_;
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = g_strdup_printf ("%i", _tmp4_);
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = _tmp5_;
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_settings_set (_tmp1_, "mainPaned.position", _tmp6_);
-#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2647 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp6_);
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = vala_develop_xml_configuration_get_Setting ();
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = _tmp7_;
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = self->childPaned;
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp10_ = gtk_paned_get_position (_tmp9_);
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp11_ = _tmp10_;
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp12_ = g_strdup_printf ("%i", _tmp11_);
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp13_ = _tmp12_;
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_settings_set (_tmp8_, "childPaned.position", _tmp13_);
-#line 2650 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp13_);
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = vala_develop_xml_configuration_get_Setting ();
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp15_ = _tmp14_;
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp16_ = self->infoPaned;
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp17_ = gtk_paned_get_position (_tmp16_);
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp18_ = _tmp17_;
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp19_ = g_strdup_printf ("%i", _tmp18_);
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp20_ = _tmp19_;
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_settings_set (_tmp15_, "infoPaned.position", _tmp20_);
-#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2649 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp20_);
-#line 22039 "main_paned.c"
+#line 22981 "main_paned.c"
 	{
 		gint i = 0;
 		GtkNotebook* _tmp21_;
 		GList* _tmp22_;
 		GList* _tmp23_;
 		gint _tmp24_;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = self->documentTab;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp22_ = gtk_container_get_children ((GtkContainer*) _tmp21_);
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = _tmp22_;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp24_ = ((gint) g_list_length (_tmp23_)) - 1;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(_tmp23_ == NULL) ? NULL : (_tmp23_ = (g_list_free (_tmp23_), NULL));
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		i = _tmp24_;
-#line 22058 "main_paned.c"
+#line 23000 "main_paned.c"
 		{
 			gboolean _tmp25_ = FALSE;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp25_ = TRUE;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 22065 "main_paned.c"
+#line 23007 "main_paned.c"
 				GtkSourceView* textView = NULL;
 				GtkNotebook* _tmp27_;
 				GList* _tmp28_;
@@ -22071,57 +23013,57 @@ vala_develop_main_paned_CloseOpenFiles (valaDevelopMainPaned* self)
 				GtkSourceView* _tmp32_;
 				GtkSourceView* _tmp33_;
 				GtkNotebook* _tmp55_;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!_tmp25_) {
-#line 22077 "main_paned.c"
+#line 23019 "main_paned.c"
 					gint _tmp26_;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp26_ = i;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					i = _tmp26_ - 1;
-#line 22083 "main_paned.c"
+#line 23025 "main_paned.c"
 				}
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp25_ = FALSE;
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!(i >= 0)) {
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 22091 "main_paned.c"
+#line 23033 "main_paned.c"
 				}
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp27_ = self->documentTab;
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp28_ = gtk_container_get_children ((GtkContainer*) _tmp27_);
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp29_ = _tmp28_;
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp30_ = g_list_nth_data (_tmp29_, (guint) i);
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp31_ = vala_develop_globals_get_sourceview_from_overlay (G_TYPE_CHECK_INSTANCE_CAST ((GtkWidget*) _tmp30_, gtk_overlay_get_type (), GtkOverlay));
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp32_ = _tmp31_;
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				(_tmp29_ == NULL) ? NULL : (_tmp29_ = (g_list_free (_tmp29_), NULL));
-#line 2655 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				textView = _tmp32_;
-#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2654 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp33_ = textView;
-#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2654 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp33_ != NULL) {
-#line 22113 "main_paned.c"
+#line 23055 "main_paned.c"
 					GtkSourceView* _tmp34_;
 					GtkTextBuffer* _tmp35_;
 					GtkTextBuffer* _tmp36_;
-#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp34_ = textView;
-#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp35_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp34_);
-#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp36_ = _tmp35_;
-#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (gtk_text_buffer_get_modified (_tmp36_)) {
-#line 22125 "main_paned.c"
+#line 23067 "main_paned.c"
 						valaDevelopTabHeader* tabLabel = NULL;
 						GtkNotebook* _tmp37_;
 						GtkNotebook* _tmp38_;
@@ -22132,31 +23074,31 @@ vala_develop_main_paned_CloseOpenFiles (valaDevelopMainPaned* self)
 						valaDevelopTabHeader* _tmp43_;
 						valaDevelopTabHeader* _tmp44_;
 						valaDevelopTabHeader* _tmp45_;
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp37_ = self->documentTab;
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp38_ = self->documentTab;
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp39_ = gtk_container_get_children ((GtkContainer*) _tmp38_);
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp40_ = _tmp39_;
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp41_ = g_list_nth_data (_tmp40_, (guint) i);
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp42_ = gtk_notebook_get_tab_label (_tmp37_, (GtkWidget*) _tmp41_);
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp43_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp42_, VALA_DEVELOP_TYPE_TAB_HEADER, valaDevelopTabHeader));
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp44_ = _tmp43_;
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						(_tmp40_ == NULL) ? NULL : (_tmp40_ = (g_list_free (_tmp40_), NULL));
-#line 2660 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						tabLabel = _tmp44_;
-#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp45_ = tabLabel;
-#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (_tmp45_ != NULL) {
-#line 22160 "main_paned.c"
+#line 23102 "main_paned.c"
 							valaDevelopTabHeader* _tmp46_;
 							const gchar* _tmp47_;
 							const gchar* _tmp48_;
@@ -22166,350 +23108,350 @@ vala_develop_main_paned_CloseOpenFiles (valaDevelopMainPaned* self)
 							valaDevelopTabHeader* _tmp52_;
 							const gchar* _tmp53_;
 							const gchar* _tmp54_;
-#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp46_ = tabLabel;
-#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp47_ = vala_develop_tab_header_get_full_path (_tmp46_);
-#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp48_ = _tmp47_;
-#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							vala_develop_main_paned_select_tab_fullpath (self, _tmp48_);
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp49_ = textView;
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp50_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp49_);
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp51_ = _tmp50_;
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp52_ = tabLabel;
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp53_ = vala_develop_tab_header_get_full_path (_tmp52_);
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp54_ = _tmp53_;
-#line 2664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (vala_develop_main_paned_close_document (self, G_TYPE_CHECK_INSTANCE_TYPE (_tmp51_, gtk_source_buffer_get_type ()) ? ((GtkSourceBuffer*) _tmp51_) : NULL, _tmp54_) == GTK_RESPONSE_CANCEL) {
-#line 2665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								result = TRUE;
-#line 2665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (tabLabel);
-#line 2665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (textView);
-#line 2665 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2663 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								return result;
-#line 22200 "main_paned.c"
+#line 23142 "main_paned.c"
 							}
 						}
-#line 2658 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2656 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (tabLabel);
-#line 22205 "main_paned.c"
+#line 23147 "main_paned.c"
 					}
 				}
-#line 2669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp55_ = self->documentTab;
-#line 2669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				gtk_notebook_remove_page (_tmp55_, i);
-#line 2653 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (textView);
-#line 22214 "main_paned.c"
+#line 23156 "main_paned.c"
 			}
 		}
 	}
-#line 2671 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2671 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 22222 "main_paned.c"
+#line 23164 "main_paned.c"
 }
 
-static Block44Data*
-block44_data_ref (Block44Data* _data44_)
+static Block46Data*
+block46_data_ref (Block46Data* _data46_)
 {
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_atomic_int_inc (&_data44_->_ref_count_);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	return _data44_;
-#line 22232 "main_paned.c"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data46_->_ref_count_);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data46_;
+#line 23174 "main_paned.c"
 }
 
 static void
-block44_data_unref (void * _userdata_)
+block46_data_unref (void * _userdata_)
 {
-	Block44Data* _data44_;
-	_data44_ = (Block44Data*) _userdata_;
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	if (g_atomic_int_dec_and_test (&_data44_->_ref_count_)) {
-#line 22242 "main_paned.c"
+	Block46Data* _data46_;
+	_data46_ = (Block46Data*) _userdata_;
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data46_->_ref_count_)) {
+#line 23184 "main_paned.c"
 		valaDevelopMainPaned* self;
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		self = _data44_->self;
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_object_unref0 (_data44_->path);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data46_->self;
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_object_unref0 (_data46_->path);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (self);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_slice_free (Block44Data, _data44_);
-#line 22252 "main_paned.c"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block46Data, _data46_);
+#line 23194 "main_paned.c"
 	}
 }
 
-static Block45Data*
-block45_data_ref (Block45Data* _data45_)
+static Block47Data*
+block47_data_ref (Block47Data* _data47_)
 {
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_atomic_int_inc (&_data45_->_ref_count_);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	return _data45_;
-#line 22263 "main_paned.c"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data47_->_ref_count_);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data47_;
+#line 23205 "main_paned.c"
 }
 
 static void
-block45_data_unref (void * _userdata_)
+block47_data_unref (void * _userdata_)
 {
-	Block45Data* _data45_;
-	_data45_ = (Block45Data*) _userdata_;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	if (g_atomic_int_dec_and_test (&_data45_->_ref_count_)) {
-#line 22273 "main_paned.c"
+	Block47Data* _data47_;
+	_data47_ = (Block47Data*) _userdata_;
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data47_->_ref_count_)) {
+#line 23215 "main_paned.c"
 		valaDevelopMainPaned* self;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		self = _data45_->_data44_->self;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_object_unref0 (_data45_->enumerator);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		block44_data_unref (_data45_->_data44_);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_->_data44_ = NULL;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_slice_free (Block45Data, _data45_);
-#line 22285 "main_paned.c"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data47_->_data46_->self;
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_object_unref0 (_data47_->enumerator);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block46_data_unref (_data47_->_data46_);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data47_->_data46_ = NULL;
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block47Data, _data47_);
+#line 23227 "main_paned.c"
 	}
 }
 
 static void
 _g_object_unref0_ (gpointer var)
 {
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(var == NULL) ? NULL : (var = (g_object_unref (var), NULL));
-#line 22294 "main_paned.c"
+#line 23236 "main_paned.c"
 }
 
 static inline void
 _g_list_free__g_object_unref0_ (GList* self)
 {
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_object_unref0_);
-#line 22302 "main_paned.c"
+#line 23244 "main_paned.c"
 }
 
 static void
-___lambda106_ (Block45Data* _data45_,
+___lambda114_ (Block47Data* _data47_,
                GObject* nf_obj,
                GAsyncResult* nf_res)
 {
-	Block44Data* _data44_;
+	Block46Data* _data46_;
 	valaDevelopMainPaned* self;
 	GList* infos = NULL;
 	GList* _tmp0_;
 	GError* _inner_error0_ = NULL;
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_ = _data45_->_data44_;
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	self = _data44_->self;
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_ = _data47_->_data46_;
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	self = _data46_->self;
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (nf_res != NULL);
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp0_ = g_file_enumerator_next_files_finish (_data45_->enumerator, nf_res, &_inner_error0_);
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = g_file_enumerator_next_files_finish (_data47_->enumerator, nf_res, &_inner_error0_);
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	infos = _tmp0_;
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_inner_error0_);
-#line 2684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 22333 "main_paned.c"
+#line 23275 "main_paned.c"
 	}
 	{
 		GList* info_collection = NULL;
 		GList* info_it = NULL;
-#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		info_collection = infos;
-#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (info_it = info_collection; info_it != NULL; info_it = info_it->next) {
-#line 22342 "main_paned.c"
+#line 23284 "main_paned.c"
 			GFileInfo* _tmp1_;
 			GFileInfo* info = NULL;
-#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp1_ = _g_object_ref0 ((GFileInfo*) info_it->data);
-#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			info = _tmp1_;
-#line 22349 "main_paned.c"
+#line 23291 "main_paned.c"
 			{
 				GFileInfo* _tmp2_;
-#line 2687 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp2_ = info;
-#line 2687 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (g_file_info_get_file_type (_tmp2_) == G_FILE_TYPE_DIRECTORY) {
-#line 22356 "main_paned.c"
+#line 23298 "main_paned.c"
 					GFileInfo* _tmp3_;
 					const gchar* _tmp4_;
 					GFile* _tmp5_;
 					GFile* _tmp6_;
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp3_ = info;
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp4_ = g_file_info_get_name (_tmp3_);
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp5_ = g_file_get_child (_data44_->path, _tmp4_);
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp5_ = g_file_get_child (_data46_->path, _tmp4_);
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp6_ = _tmp5_;
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					vala_develop_main_paned_EnumerateFilesAsyncByFile (self, _tmp6_);
-#line 2688 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (_tmp6_);
-#line 22373 "main_paned.c"
+#line 23315 "main_paned.c"
 				}
-#line 2685 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (info);
-#line 22377 "main_paned.c"
+#line 23319 "main_paned.c"
 			}
 		}
 	}
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(infos == NULL) ? NULL : (infos = (_g_list_free__g_object_unref0_ (infos), NULL));
-#line 22383 "main_paned.c"
+#line 23325 "main_paned.c"
 }
 
 static void
-____lambda106__gasync_ready_callback (GObject* source_object,
+____lambda114__gasync_ready_callback (GObject* source_object,
                                       GAsyncResult* res,
                                       gpointer self)
 {
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	___lambda106_ (self, source_object, res);
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	block45_data_unref (self);
-#line 22395 "main_paned.c"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	___lambda114_ (self, source_object, res);
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	block47_data_unref (self);
+#line 23337 "main_paned.c"
 }
 
 static void
-__lambda105_ (Block44Data* _data44_,
+__lambda113_ (Block46Data* _data46_,
               GObject* obj,
               GAsyncResult* res)
 {
 	valaDevelopMainPaned* self;
 	GError* _inner_error0_ = NULL;
-#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	self = _data44_->self;
-#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	self = _data46_->self;
+#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (res != NULL);
-#line 22409 "main_paned.c"
+#line 23351 "main_paned.c"
 	{
-		Block45Data* _data45_;
+		Block47Data* _data47_;
 		GFileEnumerator* _tmp0_;
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data47_ = g_slice_new0 (Block47Data);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data47_->_ref_count_ = 1;
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data47_->_data46_ = block46_data_ref (_data46_);
 #line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_ = g_slice_new0 (Block45Data);
+		_tmp0_ = g_file_enumerate_children_finish (_data46_->path, res, &_inner_error0_);
 #line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_->_ref_count_ = 1;
+		_data47_->enumerator = _tmp0_;
 #line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_->_data44_ = block44_data_ref (_data44_);
-#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_tmp0_ = g_file_enumerate_children_finish (_data44_->path, res, &_inner_error0_);
-#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_->enumerator = _tmp0_;
-#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			block45_data_unref (_data45_);
-#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data45_ = NULL;
-#line 22429 "main_paned.c"
-			goto __catch51_g_error;
+#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			block47_data_unref (_data47_);
+#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data47_ = NULL;
+#line 23371 "main_paned.c"
+			goto __catch52_g_error;
 		}
-#line 2682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_file_enumerator_next_files_async (_data45_->enumerator, 2000, (gint) G_PRIORITY_DEFAULT, NULL, ____lambda106__gasync_ready_callback, block45_data_ref (_data45_));
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		block45_data_unref (_data45_);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_data45_ = NULL;
-#line 22438 "main_paned.c"
+#line 2680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_file_enumerator_next_files_async (_data47_->enumerator, 2000, (gint) G_PRIORITY_DEFAULT, NULL, ____lambda114__gasync_ready_callback, block47_data_ref (_data47_));
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		block47_data_unref (_data47_);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_data47_ = NULL;
+#line 23380 "main_paned.c"
 	}
-	goto __finally51;
-	__catch51_g_error:
+	goto __finally52;
+	__catch52_g_error:
 	{
 		GError* e = NULL;
 		GError* _tmp1_;
 		const gchar* _tmp2_;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		e = _inner_error0_;
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_inner_error0_ = NULL;
-#line 2696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = e;
-#line 2696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = _tmp1_->message;
-#line 2696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:2696: %s", _tmp2_);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:2694: %s", _tmp2_);
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (e);
-#line 22458 "main_paned.c"
+#line 23400 "main_paned.c"
 	}
-	__finally51:
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__finally52:
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_inner_error0_);
-#line 2678 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return;
-#line 22469 "main_paned.c"
+#line 23411 "main_paned.c"
 	}
 }
 
 static void
-___lambda105__gasync_ready_callback (GObject* source_object,
+___lambda113__gasync_ready_callback (GObject* source_object,
                                      GAsyncResult* res,
                                      gpointer self)
 {
-#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	__lambda105_ (self, source_object, res);
-#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	block44_data_unref (self);
-#line 22482 "main_paned.c"
+#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__lambda113_ (self, source_object, res);
+#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	block46_data_unref (self);
+#line 23424 "main_paned.c"
 }
 
 static void
 vala_develop_main_paned_EnumerateFilesAsyncByFile (valaDevelopMainPaned* self,
                                                    GFile* path)
 {
-	Block44Data* _data44_;
+	Block46Data* _data46_;
 	GFile* _tmp0_;
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (path != NULL);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_ = g_slice_new0 (Block44Data);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_->_ref_count_ = 1;
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_->self = g_object_ref (self);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_ = g_slice_new0 (Block46Data);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_->_ref_count_ = 1;
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_->self = g_object_ref (self);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = _g_object_ref0 (path);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_object_unref0 (_data46_->path);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_->path = _tmp0_;
 #line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_g_object_unref0 (_data44_->path);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_->path = _tmp0_;
-#line 2676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_file_enumerate_children_async (_data44_->path, "standard::name", G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, (gint) G_PRIORITY_DEFAULT, NULL, ___lambda105__gasync_ready_callback, block44_data_ref (_data44_));
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	block44_data_unref (_data44_);
-#line 2674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data44_ = NULL;
-#line 22513 "main_paned.c"
+	g_file_enumerate_children_async (_data46_->path, "standard::name", G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, (gint) G_PRIORITY_DEFAULT, NULL, ___lambda113__gasync_ready_callback, block46_data_ref (_data46_));
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	block46_data_unref (_data46_);
+#line 2672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data46_ = NULL;
+#line 23455 "main_paned.c"
 }
 
 void
@@ -22527,47 +23469,47 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 	GtkTreeModel* _tmp1_;
 	GtkTreeModel* _tmp2_;
 	GError* _inner_error0_ = NULL;
-#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2705 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2705 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (searchWhat != NULL);
-#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2705 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (searchWhere != NULL);
-#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2705 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (searchPath != NULL);
-#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2705 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (searchType != NULL);
-#line 2709 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->searchList;
-#line 2709 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = gtk_tree_view_get_model (_tmp0_);
-#line 2709 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = _tmp1_;
-#line 2709 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_list_store_clear (G_TYPE_CHECK_INSTANCE_CAST (_tmp2_, gtk_list_store_get_type (), GtkListStore));
-#line 22549 "main_paned.c"
+#line 23491 "main_paned.c"
 	{
 		GeeHashMap* files2Search = NULL;
 		GeeHashMap* _tmp3_;
 		const gchar* _tmp4_;
 		GQuark _tmp6_ = 0U;
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		static GQuark _tmp5_label0 = 0;
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		static GQuark _tmp5_label1 = 0;
-#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gee_hash_map_new (G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		files2Search = _tmp3_;
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = searchWhere;
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp6_ = (NULL == _tmp4_) ? 0 : g_quark_from_string (_tmp4_);
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp6_ == ((0 != _tmp5_label0) ? _tmp5_label0 : (_tmp5_label0 = g_quark_from_static_string ("SolutionID")))) {
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 22571 "main_paned.c"
+#line 23513 "main_paned.c"
 				default:
 				{
 					GList* items = NULL;
@@ -22575,17 +23517,17 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 					valaDevelopOverviewTreeStore* _tmp7_;
 					GtkTreeIter _tmp8_ = {0};
 					gboolean _tmp9_;
-#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					items = NULL;
-#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp7_ = vala_develop_main_paned_overviewTreeModel;
-#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp9_ = gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp7_, &_tmp8_);
-#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					firstIter = _tmp8_;
-#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp9_) {
-#line 22589 "main_paned.c"
+#line 23531 "main_paned.c"
 						gchar* rootPath = NULL;
 						valaDevelopOverviewTreeStore* _tmp10_;
 						GtkTreeIter _tmp11_;
@@ -22593,38 +23535,38 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 						valaDevelopOverviewTreeStore* _tmp13_;
 						GtkTreeIter _tmp14_;
 						GList* _tmp15_;
-#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp10_ = vala_develop_main_paned_overviewTreeModel;
-#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp11_ = firstIter;
-#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp12_ = vala_develop_overview_tree_store_get_item_path (_tmp10_, &_tmp11_);
-#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						rootPath = _tmp12_;
-#line 2723 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp13_ = vala_develop_main_paned_overviewTreeModel;
-#line 2723 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp14_ = firstIter;
-#line 2723 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						vala_develop_globals_projekt_child_nodes (&items, (GtkTreeStore*) _tmp13_, &_tmp14_);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp15_ = items;
-#line 22613 "main_paned.c"
+#line 23555 "main_paned.c"
 						{
 							GList* iterItem_collection = NULL;
 							GList* iterItem_it = NULL;
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							iterItem_collection = _tmp15_;
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							for (iterItem_it = iterItem_collection; iterItem_it != NULL; iterItem_it = iterItem_it->next) {
-#line 22621 "main_paned.c"
+#line 23563 "main_paned.c"
 								GtkTreeIter* _tmp16_;
 								GtkTreeIter* iterItem = NULL;
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp16_ = __gtk_tree_iter_dup0 ((GtkTreeIter*) iterItem_it->data);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								iterItem = _tmp16_;
-#line 22628 "main_paned.c"
+#line 23570 "main_paned.c"
 								{
 									gint item = 0;
 									valaDevelopOverviewTreeStore* _tmp17_;
@@ -22659,188 +23601,188 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 									GFile* _tmp41_;
 									GFile* _tmp42_;
 									gboolean _tmp43_ = FALSE;
-#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp17_ = vala_develop_main_paned_overviewTreeModel;
-#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp18_ = iterItem;
-#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp19_ = *_tmp18_;
-#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									item = vala_develop_overview_tree_store_get_item_type (_tmp17_, &_tmp19_);
-#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp20_ = vala_develop_main_paned_overviewTreeModel;
-#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp21_ = iterItem;
-#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp23_ = *_tmp21_;
-#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp20_, &_tmp22_, &_tmp23_);
-#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									parentIter = _tmp22_;
-#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp24_ = vala_develop_main_paned_overviewTreeModel;
-#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp25_ = parentIter;
-#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp26_ = vala_develop_overview_tree_store_get_item_path (_tmp24_, &_tmp25_);
-#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									path = _tmp26_;
-#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp27_ = vala_develop_main_paned_overviewTreeModel;
-#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp28_ = parentIter;
-#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp29_ = vala_develop_overview_tree_store_get_item_name (_tmp27_, &_tmp28_);
-#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									projectname = _tmp29_;
-#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp30_ = vala_develop_main_paned_overviewTreeModel;
-#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp31_ = iterItem;
-#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp32_ = *_tmp31_;
-#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp33_ = vala_develop_overview_tree_store_get_item_name (_tmp30_, &_tmp32_);
-#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									name = _tmp33_;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp34_ = rootPath;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp35_ = g_file_new_for_path (_tmp34_);
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp36_ = _tmp35_;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp37_ = path;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp38_ = g_file_get_child (_tmp36_, _tmp37_);
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp39_ = _tmp38_;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp40_ = name;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp41_ = g_file_get_child (_tmp39_, _tmp40_);
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_tmp42_ = _tmp41_;
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_object_unref0 (_tmp39_);
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_object_unref0 (_tmp36_);
-#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2730 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									source = _tmp42_;
-#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									if (item == ((gint) VALA_DEVELOP_ITEM_TYPE_Source)) {
-#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp43_ = g_strcmp0 (searchType, "SourceID") == 0;
-#line 22735 "main_paned.c"
+#line 23677 "main_paned.c"
 									} else {
-#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp43_ = FALSE;
-#line 22739 "main_paned.c"
+#line 23681 "main_paned.c"
 									}
-#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2731 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									if (_tmp43_) {
-#line 22743 "main_paned.c"
+#line 23685 "main_paned.c"
 										GeeHashMap* _tmp44_;
 										GFile* _tmp45_;
 										gchar* _tmp46_;
 										gchar* _tmp47_;
 										const gchar* _tmp48_;
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp44_ = files2Search;
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp45_ = source;
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp46_ = g_file_get_path (_tmp45_);
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp47_ = _tmp46_;
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_tmp48_ = projectname;
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										gee_abstract_map_set ((GeeAbstractMap*) _tmp44_, _tmp47_, _tmp48_);
-#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										_g_free0 (_tmp47_);
-#line 22763 "main_paned.c"
+#line 23705 "main_paned.c"
 									} else {
 										gboolean _tmp49_ = FALSE;
-#line 2735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										if (item == ((gint) VALA_DEVELOP_ITEM_TYPE_Resource)) {
-#line 2735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp49_ = g_strcmp0 (searchType, "ResourceID") == 0;
-#line 22770 "main_paned.c"
+#line 23712 "main_paned.c"
 										} else {
-#line 2735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp49_ = FALSE;
-#line 22774 "main_paned.c"
+#line 23716 "main_paned.c"
 										}
-#line 2735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2733 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 										if (_tmp49_) {
-#line 22778 "main_paned.c"
+#line 23720 "main_paned.c"
 											GeeHashMap* _tmp50_;
 											GFile* _tmp51_;
 											gchar* _tmp52_;
 											gchar* _tmp53_;
 											const gchar* _tmp54_;
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp50_ = files2Search;
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp51_ = source;
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp52_ = g_file_get_path (_tmp51_);
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp53_ = _tmp52_;
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_tmp54_ = projectname;
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											gee_abstract_map_set ((GeeAbstractMap*) _tmp50_, _tmp53_, _tmp54_);
-#line 2736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 											_g_free0 (_tmp53_);
-#line 22798 "main_paned.c"
+#line 23740 "main_paned.c"
 										}
 									}
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_object_unref0 (source);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (name);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (projectname);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (path);
-#line 2724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 									_g_free0 (iterItem);
-#line 22811 "main_paned.c"
+#line 23753 "main_paned.c"
 								}
 							}
 						}
-#line 2720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (rootPath);
-#line 22817 "main_paned.c"
+#line 23759 "main_paned.c"
 					}
-#line 2739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2737 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 2739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2737 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 22823 "main_paned.c"
+#line 23765 "main_paned.c"
 				}
 			}
 		} else if (_tmp6_ == ((0 != _tmp5_label1) ? _tmp5_label1 : (_tmp5_label1 = g_quark_from_static_string ("FolderID")))) {
-#line 2715 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			switch (0) {
-#line 22829 "main_paned.c"
+#line 23771 "main_paned.c"
 				default:
 				{
-#line 2741 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (g_strcmp0 (searchType, "SourceID") == 0) {
-#line 2742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2740 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						searchType = "*.vala";
-#line 22836 "main_paned.c"
+#line 23778 "main_paned.c"
 					} else {
-#line 2744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						searchType = "*.glade";
-#line 22840 "main_paned.c"
+#line 23782 "main_paned.c"
 					}
-#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 22844 "main_paned.c"
+#line 23786 "main_paned.c"
 				}
 			}
 		}
@@ -22852,44 +23794,44 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 			GeeSet* _tmp58_;
 			GeeIterator* _tmp59_;
 			GeeIterator* _tmp60_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp55_ = files2Search;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp56_ = gee_abstract_map_get_entries ((GeeAbstractMap*) _tmp55_);
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp57_ = _tmp56_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp58_ = _tmp57_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp59_ = gee_iterable_iterator ((GeeIterable*) _tmp58_);
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp60_ = _tmp59_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (_tmp58_);
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_file_it = _tmp60_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 22874 "main_paned.c"
+#line 23816 "main_paned.c"
 				GeeIterator* _tmp61_;
 				GeeMapEntry* file = NULL;
 				GeeIterator* _tmp62_;
 				gpointer _tmp63_;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp61_ = _file_it;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!gee_iterator_next (_tmp61_)) {
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					break;
-#line 22885 "main_paned.c"
+#line 23827 "main_paned.c"
 				}
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp62_ = _file_it;
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp63_ = gee_iterator_get (_tmp62_);
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				file = (GeeMapEntry*) _tmp63_;
-#line 22893 "main_paned.c"
+#line 23835 "main_paned.c"
 				{
 					GtkSourceBuffer* buffer = NULL;
 					GtkSourceView* textView = NULL;
@@ -22917,54 +23859,54 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 					GtkTextIter matchStart = {0};
 					GtkTextIter matchEnd = {0};
 					gboolean wrapped = FALSE;
-#line 2752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2750 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					buffer = NULL;
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp64_ = file;
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp65_ = gee_map_entry_get_key (_tmp64_);
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp66_ = _tmp65_;
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp67_ = vala_develop_main_paned_get_tab_text_view_by_path (self, (const gchar*) _tmp66_);
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp68_ = G_TYPE_CHECK_INSTANCE_TYPE (_tmp67_, gtk_source_view_get_type ()) ? ((GtkSourceView*) _tmp67_) : NULL;
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp68_ == NULL) {
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (_tmp67_);
-#line 22937 "main_paned.c"
+#line 23879 "main_paned.c"
 					}
-#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					textView = _tmp68_;
-#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp69_ = textView;
-#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp69_ != NULL) {
-#line 22945 "main_paned.c"
+#line 23887 "main_paned.c"
 						GtkSourceView* _tmp70_;
 						GtkTextBuffer* _tmp71_;
 						GtkTextBuffer* _tmp72_;
 						GtkSourceBuffer* _tmp73_;
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp70_ = textView;
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp71_ = gtk_text_view_get_buffer ((GtkTextView*) _tmp70_);
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp72_ = _tmp71_;
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp73_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp72_, gtk_source_buffer_get_type ()) ? ((GtkSourceBuffer*) _tmp72_) : NULL);
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (buffer);
-#line 2755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						buffer = _tmp73_;
-#line 22962 "main_paned.c"
+#line 23904 "main_paned.c"
 					}
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp74_ = buffer;
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp74_ == NULL) {
-#line 22968 "main_paned.c"
+#line 23910 "main_paned.c"
 						GtkSourceBuffer* _tmp75_;
 						GtkSourceBuffer* _tmp76_;
 						GFileInputStream* _tmp77_ = NULL;
@@ -22984,67 +23926,67 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 						GString* _tmp96_;
 						const gchar* _tmp97_;
 						GtkSourceBuffer* _tmp98_;
-#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp75_ = gtk_source_buffer_new (NULL);
-#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (buffer);
-#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						buffer = _tmp75_;
-#line 2759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp76_ = buffer;
-#line 2759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						gtk_source_buffer_begin_not_undoable_action (_tmp76_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp78_ = file;
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp79_ = gee_map_entry_get_key (_tmp78_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp80_ = _tmp79_;
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp81_ = g_file_new_for_path ((const gchar*) _tmp80_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp82_ = _tmp81_;
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp83_ = g_file_read (_tmp82_, NULL, &_inner_error0_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp84_ = _tmp83_;
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (_tmp82_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp77_ = _tmp84_;
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (textView);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (buffer);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (file);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (_file_it);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_object_unref0 (files2Search);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							g_clear_error (&_inner_error0_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							return;
-#line 23034 "main_paned.c"
+#line 23976 "main_paned.c"
 						}
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp85_ = g_data_input_stream_new ((GInputStream*) _tmp77_);
-#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2758 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						dis = _tmp85_;
-#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp86_ = g_string_new ("");
-#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						text = _tmp86_;
-#line 2762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2760 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						line = NULL;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						while (TRUE) {
-#line 23048 "main_paned.c"
+#line 23990 "main_paned.c"
 							gchar* _tmp87_ = NULL;
 							GDataInputStream* _tmp88_;
 							gchar* _tmp89_;
@@ -23053,135 +23995,135 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 							GString* _tmp92_;
 							const gchar* _tmp93_;
 							GString* _tmp94_;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp88_ = dis;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp89_ = g_data_input_stream_read_line (_tmp88_, NULL, NULL, &_inner_error0_);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp87_ = _tmp89_;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (line);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_string_free0 (text);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (dis);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp77_);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (textView);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (buffer);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (file);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_file_it);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (files2Search);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								g_clear_error (&_inner_error0_);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								return;
-#line 23089 "main_paned.c"
+#line 24031 "main_paned.c"
 							}
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp90_ = _tmp87_;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp87_ = NULL;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_free0 (line);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							line = _tmp90_;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp91_ = line;
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (!(_tmp91_ != NULL)) {
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp87_);
-#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								break;
-#line 23107 "main_paned.c"
+#line 24049 "main_paned.c"
 							}
-#line 2765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-							_tmp92_ = text;
-#line 2765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-							_tmp93_ = line;
-#line 2765 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-							g_string_append (_tmp92_, _tmp93_);
-#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-							_tmp94_ = text;
-#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-							g_string_append_c (_tmp94_, '\n');
 #line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+							_tmp92_ = text;
+#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+							_tmp93_ = line;
+#line 2763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+							g_string_append (_tmp92_, _tmp93_);
+#line 2764 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+							_tmp94_ = text;
+#line 2764 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+							g_string_append_c (_tmp94_, '\n');
+#line 2761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_free0 (_tmp87_);
-#line 23121 "main_paned.c"
+#line 24063 "main_paned.c"
 						}
-#line 2768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp95_ = buffer;
-#line 2768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp96_ = text;
-#line 2768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp97_ = _tmp96_->str;
-#line 2768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						g_object_set ((GtkTextBuffer*) _tmp95_, "text", _tmp97_, NULL);
-#line 2769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2767 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp98_ = buffer;
-#line 2769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2767 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						gtk_source_buffer_end_not_undoable_action (_tmp98_);
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (line);
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_string_free0 (text);
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (dis);
-#line 2756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (_tmp77_);
-#line 23143 "main_paned.c"
+#line 24085 "main_paned.c"
 					}
-#line 2771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp99_ = gtk_source_search_settings_new ();
-#line 2771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					searchSettings = _tmp99_;
-#line 2772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2770 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp100_ = searchSettings;
-#line 2772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2770 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_source_search_settings_set_wrap_around (_tmp100_, FALSE);
-#line 2773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp101_ = searchSettings;
-#line 2773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_source_search_settings_set_regex_enabled (_tmp101_, searchRegex);
-#line 2774 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp102_ = searchSettings;
-#line 2774 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_source_search_settings_set_case_sensitive (_tmp102_, searchCaseSensitive);
-#line 2775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp103_ = searchSettings;
-#line 2775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_source_search_settings_set_at_word_boundaries (_tmp103_, searchWordBounderies);
-#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2774 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp104_ = searchSettings;
-#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2774 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_source_search_settings_set_search_text (_tmp104_, searchWhat);
-#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp105_ = buffer;
-#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp106_ = searchSettings;
-#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp107_ = gtk_source_search_context_new (_tmp105_, _tmp106_);
-#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2776 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					searchContext = _tmp107_;
-#line 2780 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp108_ = buffer;
-#line 2780 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					gtk_text_buffer_get_start_iter ((GtkTextBuffer*) _tmp108_, &_tmp109_);
-#line 2780 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					startIter = _tmp109_;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					while (TRUE) {
-#line 23185 "main_paned.c"
+#line 24127 "main_paned.c"
 						GtkSourceSearchContext* _tmp110_;
 						GtkTextIter _tmp111_;
 						GtkTextIter _tmp112_ = {0};
@@ -23256,250 +24198,250 @@ vala_develop_main_paned_StartSearch (valaDevelopMainPaned* self,
 						gchar* _tmp175_;
 						GValue _tmp176_ = {0};
 						GtkTextIter _tmp177_;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp110_ = searchContext;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp111_ = startIter;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp115_ = gtk_source_search_context_forward2 (_tmp110_, &_tmp111_, &_tmp112_, &_tmp113_, &_tmp114_);
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						matchStart = _tmp112_;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						matchEnd = _tmp113_;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						wrapped = _tmp114_;
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (!_tmp115_) {
-#line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							break;
-#line 23276 "main_paned.c"
+#line 24218 "main_paned.c"
 						}
-#line 2786 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						startLine = gtk_text_iter_get_line (&matchStart);
-#line 2787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						startLineOffset = gtk_text_iter_get_line_offset (&matchStart);
-#line 2788 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						stopLine = gtk_text_iter_get_line (&matchEnd);
-#line 2789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						stopLineOffset = gtk_text_iter_get_line_offset (&matchEnd);
-#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_text_iter_backward_chars (&matchStart, gtk_text_iter_get_line_offset (&matchStart));
-#line 2791 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_text_iter_forward_to_line_end (&matchEnd);
-#line 2792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp116_ = buffer;
-#line 2792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp117_ = matchStart;
-#line 2792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp118_ = matchEnd;
-#line 2792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp119_ = gtk_text_buffer_get_text ((GtkTextBuffer*) _tmp116_, &_tmp117_, &_tmp118_, FALSE);
-#line 2792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						text = _tmp119_;
-#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp120_ = self->infoTab;
-#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_object_set (_tmp120_, "page", 1, NULL);
-#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp121_ = self->searchList;
-#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp122_ = gtk_tree_view_get_model (_tmp121_);
-#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp123_ = _tmp122_;
-#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_append (G_TYPE_CHECK_INSTANCE_CAST (_tmp123_, gtk_list_store_get_type (), GtkListStore), &_tmp124_);
-#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						iter = _tmp124_;
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp125_ = self->searchList;
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp126_ = gtk_tree_view_get_model (_tmp125_);
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp127_ = _tmp126_;
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp128_ = iter;
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp129_, G_TYPE_INT);
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_int (&_tmp129_, startLine);
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp127_, gtk_list_store_get_type (), GtkListStore), &_tmp128_, 0, &_tmp129_);
-#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp129_) ? (g_value_unset (&_tmp129_), NULL) : NULL;
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp130_ = self->searchList;
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp131_ = gtk_tree_view_get_model (_tmp130_);
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp132_ = _tmp131_;
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp133_ = iter;
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp134_, G_TYPE_INT);
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_int (&_tmp134_, startLineOffset);
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp132_, gtk_list_store_get_type (), GtkListStore), &_tmp133_, 1, &_tmp134_);
-#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp134_) ? (g_value_unset (&_tmp134_), NULL) : NULL;
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp135_ = self->searchList;
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp136_ = gtk_tree_view_get_model (_tmp135_);
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp137_ = _tmp136_;
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp138_ = iter;
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp139_, G_TYPE_INT);
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_int (&_tmp139_, stopLine);
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp137_, gtk_list_store_get_type (), GtkListStore), &_tmp138_, 2, &_tmp139_);
-#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp139_) ? (g_value_unset (&_tmp139_), NULL) : NULL;
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp140_ = self->searchList;
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp141_ = gtk_tree_view_get_model (_tmp140_);
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp142_ = _tmp141_;
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp143_ = iter;
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp144_, G_TYPE_INT);
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_int (&_tmp144_, stopLineOffset);
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp142_, gtk_list_store_get_type (), GtkListStore), &_tmp143_, 3, &_tmp144_);
-#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp144_) ? (g_value_unset (&_tmp144_), NULL) : NULL;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp145_ = self->searchList;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp146_ = gtk_tree_view_get_model (_tmp145_);
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp147_ = _tmp146_;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp148_ = iter;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp149_ = file;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp150_ = gee_map_entry_get_value (_tmp149_);
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp151_ = _tmp150_;
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp152_, G_TYPE_STRING);
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_string (&_tmp152_, (const gchar*) _tmp151_);
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp147_, gtk_list_store_get_type (), GtkListStore), &_tmp148_, 4, &_tmp152_);
-#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp152_) ? (g_value_unset (&_tmp152_), NULL) : NULL;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp153_ = self->searchList;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp154_ = gtk_tree_view_get_model (_tmp153_);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp155_ = _tmp154_;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp156_ = iter;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp157_ = file;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp158_ = gee_map_entry_get_key (_tmp157_);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp159_ = _tmp158_;
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp160_ = g_path_get_basename ((const gchar*) _tmp159_);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp161_, G_TYPE_STRING);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_take_string (&_tmp161_, _tmp160_);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp155_, gtk_list_store_get_type (), GtkListStore), &_tmp156_, 5, &_tmp161_);
-#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp161_) ? (g_value_unset (&_tmp161_), NULL) : NULL;
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp162_ = self->searchList;
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp163_ = gtk_tree_view_get_model (_tmp162_);
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp164_ = _tmp163_;
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp165_ = iter;
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp166_ = text;
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp167_, G_TYPE_STRING);
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_set_string (&_tmp167_, _tmp166_);
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp164_, gtk_list_store_get_type (), GtkListStore), &_tmp165_, 6, &_tmp167_);
-#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp167_) ? (g_value_unset (&_tmp167_), NULL) : NULL;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp168_ = self->searchList;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp169_ = gtk_tree_view_get_model (_tmp168_);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp170_ = _tmp169_;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp171_ = iter;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp172_ = file;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp173_ = gee_map_entry_get_key (_tmp172_);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp174_ = _tmp173_;
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp175_ = g_path_get_dirname ((const gchar*) _tmp174_);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_init (&_tmp176_, G_TYPE_STRING);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						g_value_take_string (&_tmp176_, _tmp175_);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp170_, gtk_list_store_get_type (), GtkListStore), &_tmp171_, 7, &_tmp176_);
-#line 2803 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						G_IS_VALUE (&_tmp176_) ? (g_value_unset (&_tmp176_), NULL) : NULL;
-#line 2804 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						_tmp177_ = matchEnd;
-#line 2804 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-						startIter = _tmp177_;
 #line 2784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						startLine = gtk_text_iter_get_line (&matchStart);
+#line 2785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						startLineOffset = gtk_text_iter_get_line_offset (&matchStart);
+#line 2786 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						stopLine = gtk_text_iter_get_line (&matchEnd);
+#line 2787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						stopLineOffset = gtk_text_iter_get_line_offset (&matchEnd);
+#line 2788 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_text_iter_backward_chars (&matchStart, gtk_text_iter_get_line_offset (&matchStart));
+#line 2789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_text_iter_forward_to_line_end (&matchEnd);
+#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp116_ = buffer;
+#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp117_ = matchStart;
+#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp118_ = matchEnd;
+#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp119_ = gtk_text_buffer_get_text ((GtkTextBuffer*) _tmp116_, &_tmp117_, &_tmp118_, FALSE);
+#line 2790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						text = _tmp119_;
+#line 2791 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp120_ = self->infoTab;
+#line 2791 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_object_set (_tmp120_, "page", 1, NULL);
+#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp121_ = self->searchList;
+#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp122_ = gtk_tree_view_get_model (_tmp121_);
+#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp123_ = _tmp122_;
+#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_append (G_TYPE_CHECK_INSTANCE_CAST (_tmp123_, gtk_list_store_get_type (), GtkListStore), &_tmp124_);
+#line 2793 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						iter = _tmp124_;
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp125_ = self->searchList;
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp126_ = gtk_tree_view_get_model (_tmp125_);
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp127_ = _tmp126_;
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp128_ = iter;
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp129_, G_TYPE_INT);
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_int (&_tmp129_, startLine);
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp127_, gtk_list_store_get_type (), GtkListStore), &_tmp128_, 0, &_tmp129_);
+#line 2794 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp129_) ? (g_value_unset (&_tmp129_), NULL) : NULL;
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp130_ = self->searchList;
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp131_ = gtk_tree_view_get_model (_tmp130_);
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp132_ = _tmp131_;
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp133_ = iter;
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp134_, G_TYPE_INT);
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_int (&_tmp134_, startLineOffset);
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp132_, gtk_list_store_get_type (), GtkListStore), &_tmp133_, 1, &_tmp134_);
+#line 2795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp134_) ? (g_value_unset (&_tmp134_), NULL) : NULL;
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp135_ = self->searchList;
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp136_ = gtk_tree_view_get_model (_tmp135_);
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp137_ = _tmp136_;
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp138_ = iter;
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp139_, G_TYPE_INT);
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_int (&_tmp139_, stopLine);
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp137_, gtk_list_store_get_type (), GtkListStore), &_tmp138_, 2, &_tmp139_);
+#line 2796 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp139_) ? (g_value_unset (&_tmp139_), NULL) : NULL;
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp140_ = self->searchList;
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp141_ = gtk_tree_view_get_model (_tmp140_);
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp142_ = _tmp141_;
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp143_ = iter;
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp144_, G_TYPE_INT);
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_int (&_tmp144_, stopLineOffset);
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp142_, gtk_list_store_get_type (), GtkListStore), &_tmp143_, 3, &_tmp144_);
+#line 2797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp144_) ? (g_value_unset (&_tmp144_), NULL) : NULL;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp145_ = self->searchList;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp146_ = gtk_tree_view_get_model (_tmp145_);
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp147_ = _tmp146_;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp148_ = iter;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp149_ = file;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp150_ = gee_map_entry_get_value (_tmp149_);
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp151_ = _tmp150_;
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp152_, G_TYPE_STRING);
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_string (&_tmp152_, (const gchar*) _tmp151_);
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp147_, gtk_list_store_get_type (), GtkListStore), &_tmp148_, 4, &_tmp152_);
+#line 2798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp152_) ? (g_value_unset (&_tmp152_), NULL) : NULL;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp153_ = self->searchList;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp154_ = gtk_tree_view_get_model (_tmp153_);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp155_ = _tmp154_;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp156_ = iter;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp157_ = file;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp158_ = gee_map_entry_get_key (_tmp157_);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp159_ = _tmp158_;
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp160_ = g_path_get_basename ((const gchar*) _tmp159_);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp161_, G_TYPE_STRING);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_take_string (&_tmp161_, _tmp160_);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp155_, gtk_list_store_get_type (), GtkListStore), &_tmp156_, 5, &_tmp161_);
+#line 2799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp161_) ? (g_value_unset (&_tmp161_), NULL) : NULL;
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp162_ = self->searchList;
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp163_ = gtk_tree_view_get_model (_tmp162_);
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp164_ = _tmp163_;
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp165_ = iter;
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp166_ = text;
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp167_, G_TYPE_STRING);
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_set_string (&_tmp167_, _tmp166_);
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp164_, gtk_list_store_get_type (), GtkListStore), &_tmp165_, 6, &_tmp167_);
+#line 2800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp167_) ? (g_value_unset (&_tmp167_), NULL) : NULL;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp168_ = self->searchList;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp169_ = gtk_tree_view_get_model (_tmp168_);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp170_ = _tmp169_;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp171_ = iter;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp172_ = file;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp173_ = gee_map_entry_get_key (_tmp172_);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp174_ = _tmp173_;
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp175_ = g_path_get_dirname ((const gchar*) _tmp174_);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_init (&_tmp176_, G_TYPE_STRING);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						g_value_take_string (&_tmp176_, _tmp175_);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						gtk_list_store_set_value (G_TYPE_CHECK_INSTANCE_CAST (_tmp170_, gtk_list_store_get_type (), GtkListStore), &_tmp171_, 7, &_tmp176_);
+#line 2801 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						G_IS_VALUE (&_tmp176_) ? (g_value_unset (&_tmp176_), NULL) : NULL;
+#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						_tmp177_ = matchEnd;
+#line 2802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+						startIter = _tmp177_;
+#line 2782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (text);
-#line 23472 "main_paned.c"
+#line 24414 "main_paned.c"
 					}
-#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (searchContext);
-#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (searchSettings);
-#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (textView);
-#line 2751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (buffer);
-#line 23482 "main_paned.c"
+#line 24424 "main_paned.c"
 				}
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (file);
-#line 23486 "main_paned.c"
+#line 24428 "main_paned.c"
 			}
-#line 2748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (_file_it);
-#line 23490 "main_paned.c"
+#line 24432 "main_paned.c"
 		}
-#line 2712 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2710 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (files2Search);
-#line 23494 "main_paned.c"
+#line 24436 "main_paned.c"
 	}
 }
 
 void
 vala_develop_main_paned_StartReplace (valaDevelopMainPaned* self)
 {
-#line 2813 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2811 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 23503 "main_paned.c"
+#line 24445 "main_paned.c"
 }
 
 static gboolean
@@ -23509,64 +24451,64 @@ vala_develop_main_paned_OnSolutionCaption (valaDevelopMainPaned* self,
 {
 	gboolean result = FALSE;
 	GtkImage* _tmp0_;
-#line 2819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
-#line 2819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
-#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->closeOverview;
-#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (vala_develop_globals_allocation_contains ((GtkWidget*) _tmp0_, (gint) event->x, (gint) event->y)) {
-#line 23523 "main_paned.c"
+#line 24465 "main_paned.c"
 		GtkBox* _tmp1_;
 		GtkBox* _tmp2_;
 		gboolean _tmp3_;
 		gboolean _tmp4_;
-#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->solutionWindow;
-#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = self->solutionWindow;
-#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gtk_widget_get_visible ((GtkWidget*) _tmp2_);
-#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2821 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp1_, !_tmp4_);
-#line 23538 "main_paned.c"
+#line 24480 "main_paned.c"
 	} else {
 		GtkImage* _tmp5_;
-#line 2825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = self->expandOverview;
-#line 2825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2823 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (vala_develop_globals_allocation_contains ((GtkWidget*) _tmp5_, (gint) event->x, (gint) event->y)) {
-#line 2827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			self->priv->_expand_collapse = !self->priv->_expand_collapse;
-#line 2828 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2826 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (self->priv->_expand_collapse) {
-#line 23549 "main_paned.c"
+#line 24491 "main_paned.c"
 				GtkTreeView* _tmp6_;
-#line 2829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = self->solutionTreeView;
-#line 2829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				gtk_tree_view_expand_all (_tmp6_);
-#line 23555 "main_paned.c"
+#line 24497 "main_paned.c"
 			} else {
 				GtkTreeView* _tmp7_;
-#line 2831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp7_ = self->solutionTreeView;
-#line 2831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				gtk_tree_view_collapse_all (_tmp7_);
-#line 23562 "main_paned.c"
+#line 24504 "main_paned.c"
 			}
 		}
 	}
-#line 2833 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2833 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23570 "main_paned.c"
+#line 24512 "main_paned.c"
 }
 
 static gboolean
@@ -23578,7 +24520,7 @@ _vala_develop_main_paned_OnSolutionCaption_gtk_widget_button_release_event (GtkW
 	result = vala_develop_main_paned_OnSolutionCaption ((valaDevelopMainPaned*) self, _sender, event);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23582 "main_paned.c"
+#line 24524 "main_paned.c"
 }
 
 static gboolean
@@ -23590,41 +24532,41 @@ vala_develop_main_paned_OnEnterCaption (valaDevelopMainPaned* self,
 	GtkImage* image = NULL;
 	gpointer _tmp0_;
 	GtkImage* _tmp1_;
-#line 2837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
-#line 2837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (evnt != NULL, FALSE);
-#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_globals_FindChildOfName (gtk_image_get_type (), (GBoxedCopyFunc) g_object_ref, (GDestroyNotify) g_object_unref, sender, "closeImage");
-#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	image = (GtkImage*) _tmp0_;
-#line 2840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = image;
-#line 2840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp1_ != NULL) {
-#line 23608 "main_paned.c"
+#line 24550 "main_paned.c"
 		GtkImage* _tmp2_;
 		GdkPixbuf* _tmp3_;
 		GdkPixbuf* _tmp4_;
-#line 2841 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = image;
-#line 2841 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = vala_develop_globals_get_CloseImage ();
-#line 2841 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2841 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_image_set_from_pixbuf (_tmp2_, _tmp4_);
-#line 23620 "main_paned.c"
+#line 24562 "main_paned.c"
 	}
-#line 2842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (image);
-#line 2842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23628 "main_paned.c"
+#line 24570 "main_paned.c"
 }
 
 static gboolean
@@ -23636,7 +24578,7 @@ _vala_develop_main_paned_OnEnterCaption_gtk_widget_enter_notify_event (GtkWidget
 	result = vala_develop_main_paned_OnEnterCaption ((valaDevelopMainPaned*) self, _sender, event);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23640 "main_paned.c"
+#line 24582 "main_paned.c"
 }
 
 static gboolean
@@ -23648,41 +24590,41 @@ vala_develop_main_paned_OnLeaveCaption (valaDevelopMainPaned* self,
 	GtkImage* image = NULL;
 	gpointer _tmp0_;
 	GtkImage* _tmp1_;
-#line 2846 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2846 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
-#line 2846 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (evnt != NULL, FALSE);
-#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2846 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_globals_FindChildOfName (gtk_image_get_type (), (GBoxedCopyFunc) g_object_ref, (GDestroyNotify) g_object_unref, sender, "closeImage");
-#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2846 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	image = (GtkImage*) _tmp0_;
-#line 2849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2847 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = image;
-#line 2849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2847 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp1_ != NULL) {
-#line 23666 "main_paned.c"
+#line 24608 "main_paned.c"
 		GtkImage* _tmp2_;
 		GdkPixbuf* _tmp3_;
 		GdkPixbuf* _tmp4_;
-#line 2850 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = image;
-#line 2850 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = vala_develop_globals_get_EmptyImage ();
-#line 2850 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2850 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_image_set_from_pixbuf (_tmp2_, _tmp4_);
-#line 23678 "main_paned.c"
+#line 24620 "main_paned.c"
 	}
-#line 2851 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2851 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (image);
-#line 2851 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23686 "main_paned.c"
+#line 24628 "main_paned.c"
 }
 
 static gboolean
@@ -23694,7 +24636,7 @@ _vala_develop_main_paned_OnLeaveCaption_gtk_widget_leave_notify_event (GtkWidget
 	result = vala_develop_main_paned_OnLeaveCaption ((valaDevelopMainPaned*) self, _sender, event);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23698 "main_paned.c"
+#line 24640 "main_paned.c"
 }
 
 static gboolean
@@ -23704,38 +24646,38 @@ vala_develop_main_paned_OnOptionsClose (valaDevelopMainPaned* self,
 {
 	gboolean result = FALSE;
 	GtkImage* _tmp0_;
-#line 2855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2853 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2853 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
-#line 2855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2853 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
-#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->closeOptions;
-#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (vala_develop_globals_allocation_contains ((GtkWidget*) _tmp0_, (gint) event->x, (gint) event->y)) {
-#line 23718 "main_paned.c"
+#line 24660 "main_paned.c"
 		GtkBox* _tmp1_;
 		GtkBox* _tmp2_;
 		gboolean _tmp3_;
 		gboolean _tmp4_;
-#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->optionWindow;
-#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = self->optionWindow;
-#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gtk_widget_get_visible ((GtkWidget*) _tmp2_);
-#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp1_, !_tmp4_);
-#line 23733 "main_paned.c"
+#line 24675 "main_paned.c"
 	}
-#line 2861 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2861 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23739 "main_paned.c"
+#line 24681 "main_paned.c"
 }
 
 static gboolean
@@ -23747,7 +24689,7 @@ _vala_develop_main_paned_OnOptionsClose_gtk_widget_button_release_event (GtkWidg
 	result = vala_develop_main_paned_OnOptionsClose ((valaDevelopMainPaned*) self, _sender, event);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23751 "main_paned.c"
+#line 24693 "main_paned.c"
 }
 
 static gboolean
@@ -23757,38 +24699,38 @@ vala_develop_main_paned_OnStatusClose (valaDevelopMainPaned* self,
 {
 	gboolean result = FALSE;
 	GtkImage* _tmp0_;
-#line 2865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2863 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 2865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2863 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
-#line 2865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2863 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
-#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->closeStatus;
-#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (vala_develop_globals_allocation_contains ((GtkWidget*) _tmp0_, (gint) event->x, (gint) event->y)) {
-#line 23771 "main_paned.c"
+#line 24713 "main_paned.c"
 		GtkBox* _tmp1_;
 		GtkBox* _tmp2_;
 		gboolean _tmp3_;
 		gboolean _tmp4_;
-#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->statusWindow;
-#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp2_ = self->statusWindow;
-#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = gtk_widget_get_visible ((GtkWidget*) _tmp2_);
-#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = _tmp3_;
-#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp1_, !_tmp4_);
-#line 23786 "main_paned.c"
+#line 24728 "main_paned.c"
 	}
-#line 2871 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = FALSE;
-#line 2871 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23792 "main_paned.c"
+#line 24734 "main_paned.c"
 }
 
 static gboolean
@@ -23800,7 +24742,7 @@ _vala_develop_main_paned_OnStatusClose_gtk_widget_button_release_event (GtkWidge
 	result = vala_develop_main_paned_OnStatusClose ((valaDevelopMainPaned*) self, _sender, event);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 23804 "main_paned.c"
+#line 24746 "main_paned.c"
 }
 
 static void
@@ -23811,29 +24753,29 @@ vala_develop_main_paned_OnSwitchPage (valaDevelopMainPaned* self,
 	gint i = 0;
 	GtkNotebook* _tmp0_;
 	GList* _tmp1_;
-#line 2875 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2875 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (page != NULL);
-#line 2877 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2875 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	i = 0;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->documentTab;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = gtk_container_get_children ((GtkContainer*) _tmp0_);
-#line 23825 "main_paned.c"
+#line 24767 "main_paned.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		child_collection = _tmp1_;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 23833 "main_paned.c"
+#line 24775 "main_paned.c"
 			GtkWidget* child = NULL;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			child = (GtkWidget*) child_it->data;
-#line 23837 "main_paned.c"
+#line 24779 "main_paned.c"
 			{
 				valaDevelopTabHeader* tabLabel = NULL;
 				GtkNotebook* _tmp2_;
@@ -23842,67 +24784,67 @@ vala_develop_main_paned_OnSwitchPage (valaDevelopMainPaned* self,
 				valaDevelopTabHeader* _tmp5_;
 				valaDevelopTabHeader* _tmp6_;
 				gint _tmp13_;
-#line 2880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp2_ = self->documentTab;
-#line 2880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp3_ = child;
-#line 2880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp4_ = gtk_notebook_get_tab_label (_tmp2_, _tmp3_);
-#line 2880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp5_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp4_, VALA_DEVELOP_TYPE_TAB_HEADER) ? ((valaDevelopTabHeader*) _tmp4_) : NULL);
-#line 2880 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				tabLabel = _tmp5_;
-#line 2881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp6_ = tabLabel;
-#line 2881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (_tmp6_ != NULL) {
-#line 23860 "main_paned.c"
+#line 24802 "main_paned.c"
 					valaDevelopTabHeader* _tmp7_;
 					GtkSourceBuffer* buffer = NULL;
 					valaDevelopTabHeader* _tmp8_;
 					GtkSourceBuffer* _tmp9_;
 					GtkSourceBuffer* _tmp10_;
-#line 2883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp7_ = tabLabel;
-#line 2883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					vala_develop_tab_header_set_active (_tmp7_, page_num == ((guint) i));
-#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2882 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp8_ = tabLabel;
-#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2882 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp9_ = vala_develop_main_paned_get_tab_text_buffer (self, (GtkWidget*) _tmp8_);
-#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2882 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					buffer = _tmp9_;
-#line 2885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp10_ = buffer;
-#line 2885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp10_ != NULL) {
-#line 23880 "main_paned.c"
+#line 24822 "main_paned.c"
 						valaDevelopTabHeader* _tmp11_;
 						GtkSourceBuffer* _tmp12_;
-#line 2886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp11_ = tabLabel;
-#line 2886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp12_ = buffer;
-#line 2886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						vala_develop_tab_header_UpdateModify (_tmp11_, gtk_text_buffer_get_modified ((GtkTextBuffer*) _tmp12_));
-#line 23889 "main_paned.c"
+#line 24831 "main_paned.c"
 					}
-#line 2881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (buffer);
-#line 23893 "main_paned.c"
+#line 24835 "main_paned.c"
 				}
-#line 2888 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp13_ = i;
-#line 2888 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				i = _tmp13_ + 1;
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (tabLabel);
-#line 23901 "main_paned.c"
+#line 24843 "main_paned.c"
 			}
 		}
-#line 2878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2876 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 23906 "main_paned.c"
+#line 24848 "main_paned.c"
 	}
 }
 
@@ -23914,7 +24856,7 @@ _vala_develop_main_paned_OnSwitchPage_gtk_notebook_switch_page (GtkNotebook* _se
 {
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnSwitchPage ((valaDevelopMainPaned*) self, page, page_num);
-#line 23918 "main_paned.c"
+#line 24860 "main_paned.c"
 }
 
 static void
@@ -23927,21 +24869,21 @@ vala_develop_main_paned_OnRowActivated (valaDevelopMainPaned* self,
 	GtkTreeIter _tmp1_ = {0};
 	gboolean _tmp2_;
 	GError* _inner_error0_ = NULL;
-#line 2893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (pathIter != NULL);
-#line 2893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (column != NULL);
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = gtk_tree_model_get_iter ((GtkTreeModel*) _tmp0_, &_tmp1_, pathIter);
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	iter = _tmp1_;
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp2_) {
-#line 23945 "main_paned.c"
+#line 24887 "main_paned.c"
 		valaDevelopItemType itemType = 0;
 		valaDevelopOverviewTreeStore* _tmp3_;
 		GtkTreeIter _tmp4_;
@@ -23982,48 +24924,48 @@ vala_develop_main_paned_OnRowActivated (valaDevelopMainPaned* self,
 		gboolean _tmp51_ = FALSE;
 		gboolean _tmp52_ = FALSE;
 		const gchar* _tmp53_;
-#line 2898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp3_ = vala_develop_main_paned_overviewTreeModel;
-#line 2898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp4_ = iter;
-#line 2898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		itemType = (valaDevelopItemType) vala_develop_overview_tree_store_get_item_type (_tmp3_, &_tmp4_);
-#line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp5_ = itemType;
-#line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp5_ == (VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Directory)) {
-#line 23996 "main_paned.c"
+#line 24938 "main_paned.c"
 			valaDevelopPackageOptionsDialog* dialog = NULL;
 			GtkTreeIter _tmp6_;
 			valaDevelopPackageOptionsDialog* _tmp7_;
 			valaDevelopPackageOptionsDialog* _tmp8_;
 			valaDevelopPackageOptionsDialog* _tmp9_;
-#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp6_ = iter;
-#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp7_ = vala_develop_package_options_dialog_new ((GtkWidget*) self, &_tmp6_);
-#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_object_ref_sink (_tmp7_);
-#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			dialog = _tmp7_;
-#line 2902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp8_ = dialog;
-#line 2902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			gtk_dialog_run ((GtkDialog*) _tmp8_);
-#line 2903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp9_ = dialog;
-#line 2903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			gtk_widget_destroy ((GtkWidget*) _tmp9_);
 #line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp6_ = iter;
+#line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp7_ = vala_develop_package_options_dialog_new ((GtkWidget*) self, &_tmp6_);
+#line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			g_object_ref_sink (_tmp7_);
+#line 2899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			dialog = _tmp7_;
+#line 2900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp8_ = dialog;
+#line 2900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			gtk_dialog_run ((GtkDialog*) _tmp8_);
+#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp9_ = dialog;
+#line 2901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			gtk_widget_destroy ((GtkWidget*) _tmp9_);
+#line 2897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (dialog);
-#line 24020 "main_paned.c"
+#line 24962 "main_paned.c"
 		} else {
 			valaDevelopItemType _tmp10_;
-#line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp10_ = itemType;
-#line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (_tmp10_ == (VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory)) {
-#line 24027 "main_paned.c"
+#line 24969 "main_paned.c"
 				valaDevelopProjectOptionDialog* dialog = NULL;
 				GtkTreeIter _tmp11_;
 				valaDevelopProjectOptionDialog* _tmp12_;
@@ -24037,221 +24979,221 @@ vala_develop_main_paned_OnRowActivated (valaDevelopMainPaned* self,
 				gchar* _tmp20_;
 				valaDevelopProjectOptionDialog* _tmp21_;
 				valaDevelopProjectOptionDialog* _tmp22_;
-#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp11_ = iter;
-#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp12_ = vala_develop_project_option_dialog_new ((GtkWidget*) self, &_tmp11_);
-#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				g_object_ref_sink (_tmp12_);
-#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				dialog = _tmp12_;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp13_ = dialog;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp14_ = vala_develop_main_paned_overviewTreeModel;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp15_ = iter;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp16_ = vala_develop_overview_tree_store_get_item_name (_tmp14_, &_tmp15_);
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp17_ = _tmp16_;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp18_ = string_to_string (_tmp17_);
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp19_ = g_strconcat ("Project options - ", _tmp18_, NULL);
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp20_ = _tmp19_;
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				gtk_window_set_title ((GtkWindow*) _tmp13_, _tmp20_);
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_g_free0 (_tmp20_);
-#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_g_free0 (_tmp17_);
-#line 2909 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp21_ = dialog;
-#line 2909 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				gtk_dialog_run ((GtkDialog*) _tmp21_);
-#line 2910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_tmp22_ = dialog;
-#line 2910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				gtk_widget_destroy ((GtkWidget*) _tmp22_);
 #line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp11_ = iter;
+#line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp12_ = vala_develop_project_option_dialog_new ((GtkWidget*) self, &_tmp11_);
+#line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				g_object_ref_sink (_tmp12_);
+#line 2905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				dialog = _tmp12_;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp13_ = dialog;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp14_ = vala_develop_main_paned_overviewTreeModel;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp15_ = iter;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp16_ = vala_develop_overview_tree_store_get_item_name (_tmp14_, &_tmp15_);
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp17_ = _tmp16_;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp18_ = string_to_string (_tmp17_);
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp19_ = g_strconcat ("Project options - ", _tmp18_, NULL);
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp20_ = _tmp19_;
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_window_set_title ((GtkWindow*) _tmp13_, _tmp20_);
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (_tmp20_);
+#line 2906 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (_tmp17_);
+#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp21_ = dialog;
+#line 2907 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_dialog_run ((GtkDialog*) _tmp21_);
+#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_tmp22_ = dialog;
+#line 2908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				gtk_widget_destroy ((GtkWidget*) _tmp22_);
+#line 2903 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (dialog);
-#line 24081 "main_paned.c"
+#line 25023 "main_paned.c"
 			}
 		}
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp24_ = itemType;
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp24_ != VALA_DEVELOP_ITEM_TYPE_Source) {
-#line 24088 "main_paned.c"
+#line 25030 "main_paned.c"
 			valaDevelopItemType _tmp25_;
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp25_ = itemType;
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp23_ = _tmp25_ != VALA_DEVELOP_ITEM_TYPE_Resource;
-#line 24094 "main_paned.c"
+#line 25036 "main_paned.c"
 		} else {
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp23_ = FALSE;
-#line 24098 "main_paned.c"
+#line 25040 "main_paned.c"
 		}
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp23_) {
-#line 2913 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 24104 "main_paned.c"
+#line 25046 "main_paned.c"
 		}
-#line 2916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2914 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp26_ = vala_develop_main_paned_overviewTreeModel;
-#line 2916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2914 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp26_, &_tmp27_);
-#line 2916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2914 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		firstIter = _tmp27_;
-#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2915 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp28_ = vala_develop_main_paned_overviewTreeModel;
-#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2915 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp29_ = firstIter;
-#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2915 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp30_ = vala_develop_overview_tree_store_get_item_path (_tmp28_, &_tmp29_);
-#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2915 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		root = _tmp30_;
-#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp31_ = vala_develop_main_paned_overviewTreeModel;
-#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp32_ = iter;
-#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp31_, &_tmp33_, &_tmp32_);
-#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2917 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		parentIter = _tmp33_;
-#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp34_ = vala_develop_main_paned_overviewTreeModel;
-#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp35_ = parentIter;
-#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp36_ = vala_develop_overview_tree_store_get_item_path (_tmp34_, &_tmp35_);
-#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		path = _tmp36_;
-#line 2921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp37_ = vala_develop_main_paned_overviewTreeModel;
-#line 2921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp38_ = iter;
-#line 2921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp39_ = vala_develop_overview_tree_store_get_item_name (_tmp37_, &_tmp38_);
-#line 2921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		name = _tmp39_;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp40_ = root;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp41_ = g_file_new_for_path (_tmp40_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp42_ = _tmp41_;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp43_ = path;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp44_ = g_file_get_child (_tmp42_, _tmp43_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp45_ = _tmp44_;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp46_ = name;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp47_ = g_file_get_child (_tmp45_, _tmp46_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp48_ = _tmp47_;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp49_ = g_file_get_path (_tmp48_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp50_ = _tmp49_;
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp48_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp45_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp42_);
-#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		fullPath = _tmp50_;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp53_ = fullPath;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (g_str_has_suffix (_tmp53_, ".vala")) {
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp52_ = TRUE;
-#line 24180 "main_paned.c"
+#line 25122 "main_paned.c"
 		} else {
 			const gchar* _tmp54_;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp54_ = fullPath;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp52_ = g_str_has_suffix (_tmp54_, ".c");
-#line 24187 "main_paned.c"
+#line 25129 "main_paned.c"
 		}
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp52_) {
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp51_ = TRUE;
-#line 24193 "main_paned.c"
+#line 25135 "main_paned.c"
 		} else {
 			const gchar* _tmp55_;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp55_ = fullPath;
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp51_ = g_str_has_suffix (_tmp55_, ".vapi");
-#line 24200 "main_paned.c"
+#line 25142 "main_paned.c"
 		}
-#line 2924 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2922 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp51_) {
-#line 24204 "main_paned.c"
+#line 25146 "main_paned.c"
 			const gchar* _tmp56_;
-#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp56_ = fullPath;
-#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_main_paned_open_source_file (self, _tmp56_);
-#line 24210 "main_paned.c"
+#line 25152 "main_paned.c"
 		} else {
 			const gchar* _tmp57_;
 			const gchar* _tmp58_;
 			gchar* _tmp59_;
 			gchar* _tmp60_;
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp57_ = fullPath;
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp58_ = string_to_string (_tmp57_);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp59_ = g_strconcat ("file://", _tmp58_, NULL);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp60_ = _tmp59_;
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			gtk_show_uri_on_window (NULL, _tmp60_, (guint32) 0, &_inner_error0_);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp60_);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (fullPath);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (name);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (path);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (root);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_clear_error (&_inner_error0_);
-#line 2927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 24244 "main_paned.c"
+#line 25186 "main_paned.c"
 			}
 		}
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (fullPath);
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (name);
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (path);
-#line 2896 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (root);
-#line 24255 "main_paned.c"
+#line 25197 "main_paned.c"
 	}
 }
 
@@ -24263,26 +25205,26 @@ _vala_develop_main_paned_OnRowActivated_gtk_tree_view_row_activated (GtkTreeView
 {
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnRowActivated ((valaDevelopMainPaned*) self, path, column);
-#line 24267 "main_paned.c"
+#line 25209 "main_paned.c"
 }
 
 static void
 vala_develop_main_paned_OnResolveSymbols (valaDevelopMainPaned* self)
 {
 	valaDevelopDebugger* _tmp0_;
-#line 2932 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2930 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2932 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = self->priv->_debugger;
-#line 2934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2932 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_tmp0_ != NULL) {
-#line 24280 "main_paned.c"
+#line 25222 "main_paned.c"
 		valaDevelopDebugger* _tmp1_;
-#line 2936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp1_ = self->priv->_debugger;
-#line 2936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2934 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_debugger_start_resolve (_tmp1_);
-#line 24286 "main_paned.c"
+#line 25228 "main_paned.c"
 	}
 }
 
@@ -24292,7 +25234,7 @@ _vala_develop_main_paned_OnResolveSymbols_gtk_button_clicked (GtkButton* _sender
 {
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_OnResolveSymbols ((valaDevelopMainPaned*) self);
-#line 24296 "main_paned.c"
+#line 25238 "main_paned.c"
 }
 
 static gchar**
@@ -24301,21 +25243,21 @@ _vala_array_dup1 (gchar** self,
 {
 	gchar** result;
 	int i;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = g_new0 (gchar*, length + 1);
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	for (i = 0; i < length; i++) {
-#line 24309 "main_paned.c"
+#line 25251 "main_paned.c"
 		gchar* _tmp0_;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp0_ = g_strdup (self[i]);
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		result[i] = _tmp0_;
-#line 24315 "main_paned.c"
+#line 25257 "main_paned.c"
 	}
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 24319 "main_paned.c"
+#line 25261 "main_paned.c"
 }
 
 static gchar*
@@ -24329,48 +25271,48 @@ _vala_g_strjoinv (const gchar* separator,
 	if (separator == NULL) {
 #line 1149 "glib-2.0.vapi"
 		separator = "";
-#line 24333 "main_paned.c"
+#line 25275 "main_paned.c"
 	}
 #line 1151 "glib-2.0.vapi"
 	if (str_array != NULL) {
-#line 24337 "main_paned.c"
+#line 25279 "main_paned.c"
 		gboolean _tmp1_ = FALSE;
 #line 1151 "glib-2.0.vapi"
 		if (str_array_length1 > 0) {
 #line 1151 "glib-2.0.vapi"
 			_tmp1_ = TRUE;
-#line 24343 "main_paned.c"
+#line 25285 "main_paned.c"
 		} else {
 			gboolean _tmp2_ = FALSE;
 #line 1151 "glib-2.0.vapi"
 			if (str_array_length1 == -1) {
-#line 24348 "main_paned.c"
+#line 25290 "main_paned.c"
 				const gchar* _tmp3_;
 #line 1151 "glib-2.0.vapi"
 				_tmp3_ = str_array[0];
 #line 1151 "glib-2.0.vapi"
 				_tmp2_ = _tmp3_ != NULL;
-#line 24354 "main_paned.c"
+#line 25296 "main_paned.c"
 			} else {
 #line 1151 "glib-2.0.vapi"
 				_tmp2_ = FALSE;
-#line 24358 "main_paned.c"
+#line 25300 "main_paned.c"
 			}
 #line 1151 "glib-2.0.vapi"
 			_tmp1_ = _tmp2_;
-#line 24362 "main_paned.c"
+#line 25304 "main_paned.c"
 		}
 #line 1151 "glib-2.0.vapi"
 		_tmp0_ = _tmp1_;
-#line 24366 "main_paned.c"
+#line 25308 "main_paned.c"
 	} else {
 #line 1151 "glib-2.0.vapi"
 		_tmp0_ = FALSE;
-#line 24370 "main_paned.c"
+#line 25312 "main_paned.c"
 	}
 #line 1151 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 24374 "main_paned.c"
+#line 25316 "main_paned.c"
 		gint i = 0;
 		gsize len = 0UL;
 		gint _tmp16_;
@@ -24384,7 +25326,7 @@ _vala_g_strjoinv (const gchar* separator,
 		const gchar* _tmp31_;
 #line 1153 "glib-2.0.vapi"
 		len = (gsize) 1;
-#line 24388 "main_paned.c"
+#line 25330 "main_paned.c"
 		{
 			gboolean _tmp4_ = FALSE;
 #line 1154 "glib-2.0.vapi"
@@ -24393,20 +25335,20 @@ _vala_g_strjoinv (const gchar* separator,
 			_tmp4_ = TRUE;
 #line 1154 "glib-2.0.vapi"
 			while (TRUE) {
-#line 24397 "main_paned.c"
+#line 25339 "main_paned.c"
 				gboolean _tmp6_ = FALSE;
 				gboolean _tmp7_ = FALSE;
 				gint _tmp10_ = 0;
 				const gchar* _tmp11_;
 #line 1154 "glib-2.0.vapi"
 				if (!_tmp4_) {
-#line 24404 "main_paned.c"
+#line 25346 "main_paned.c"
 					gint _tmp5_;
 #line 1154 "glib-2.0.vapi"
 					_tmp5_ = i;
 #line 1154 "glib-2.0.vapi"
 					i = _tmp5_ + 1;
-#line 24410 "main_paned.c"
+#line 25352 "main_paned.c"
 				}
 #line 1154 "glib-2.0.vapi"
 				_tmp4_ = FALSE;
@@ -24414,48 +25356,48 @@ _vala_g_strjoinv (const gchar* separator,
 				if (str_array_length1 != -1) {
 #line 1154 "glib-2.0.vapi"
 					_tmp7_ = i < str_array_length1;
-#line 24418 "main_paned.c"
+#line 25360 "main_paned.c"
 				} else {
 #line 1154 "glib-2.0.vapi"
 					_tmp7_ = FALSE;
-#line 24422 "main_paned.c"
+#line 25364 "main_paned.c"
 				}
 #line 1154 "glib-2.0.vapi"
 				if (_tmp7_) {
 #line 1154 "glib-2.0.vapi"
 					_tmp6_ = TRUE;
-#line 24428 "main_paned.c"
+#line 25370 "main_paned.c"
 				} else {
 					gboolean _tmp8_ = FALSE;
 #line 1154 "glib-2.0.vapi"
 					if (str_array_length1 == -1) {
-#line 24433 "main_paned.c"
+#line 25375 "main_paned.c"
 						const gchar* _tmp9_;
 #line 1154 "glib-2.0.vapi"
 						_tmp9_ = str_array[i];
 #line 1154 "glib-2.0.vapi"
 						_tmp8_ = _tmp9_ != NULL;
-#line 24439 "main_paned.c"
+#line 25381 "main_paned.c"
 					} else {
 #line 1154 "glib-2.0.vapi"
 						_tmp8_ = FALSE;
-#line 24443 "main_paned.c"
+#line 25385 "main_paned.c"
 					}
 #line 1154 "glib-2.0.vapi"
 					_tmp6_ = _tmp8_;
-#line 24447 "main_paned.c"
+#line 25389 "main_paned.c"
 				}
 #line 1154 "glib-2.0.vapi"
 				if (!_tmp6_) {
 #line 1154 "glib-2.0.vapi"
 					break;
-#line 24453 "main_paned.c"
+#line 25395 "main_paned.c"
 				}
 #line 1155 "glib-2.0.vapi"
 				_tmp11_ = str_array[i];
 #line 1155 "glib-2.0.vapi"
 				if (_tmp11_ != NULL) {
-#line 24459 "main_paned.c"
+#line 25401 "main_paned.c"
 					const gchar* _tmp12_;
 					gint _tmp13_;
 					gint _tmp14_;
@@ -24467,20 +25409,20 @@ _vala_g_strjoinv (const gchar* separator,
 					_tmp14_ = _tmp13_;
 #line 1155 "glib-2.0.vapi"
 					_tmp10_ = _tmp14_;
-#line 24471 "main_paned.c"
+#line 25413 "main_paned.c"
 				} else {
 #line 1155 "glib-2.0.vapi"
 					_tmp10_ = 0;
-#line 24475 "main_paned.c"
+#line 25417 "main_paned.c"
 				}
 #line 1155 "glib-2.0.vapi"
 				len += (gsize) _tmp10_;
-#line 24479 "main_paned.c"
+#line 25421 "main_paned.c"
 			}
 		}
 #line 1157 "glib-2.0.vapi"
 		if (i == 0) {
-#line 24484 "main_paned.c"
+#line 25426 "main_paned.c"
 			gchar* _tmp15_;
 #line 1158 "glib-2.0.vapi"
 			_tmp15_ = g_strdup ("");
@@ -24488,7 +25430,7 @@ _vala_g_strjoinv (const gchar* separator,
 			result = _tmp15_;
 #line 1158 "glib-2.0.vapi"
 			return result;
-#line 24492 "main_paned.c"
+#line 25434 "main_paned.c"
 		}
 #line 1160 "glib-2.0.vapi"
 		str_array_length1 = i;
@@ -24510,7 +25452,7 @@ _vala_g_strjoinv (const gchar* separator,
 		_tmp21_ = g_stpcpy ((void*) _tmp19_, (const gchar*) _tmp20_);
 #line 1164 "glib-2.0.vapi"
 		ptr = _tmp21_;
-#line 24514 "main_paned.c"
+#line 25456 "main_paned.c"
 		{
 			gboolean _tmp22_ = FALSE;
 #line 1165 "glib-2.0.vapi"
@@ -24519,7 +25461,7 @@ _vala_g_strjoinv (const gchar* separator,
 			_tmp22_ = TRUE;
 #line 1165 "glib-2.0.vapi"
 			while (TRUE) {
-#line 24523 "main_paned.c"
+#line 25465 "main_paned.c"
 				void* _tmp24_;
 				void* _tmp25_;
 				const gchar* _tmp26_ = NULL;
@@ -24528,13 +25470,13 @@ _vala_g_strjoinv (const gchar* separator,
 				void* _tmp30_;
 #line 1165 "glib-2.0.vapi"
 				if (!_tmp22_) {
-#line 24532 "main_paned.c"
+#line 25474 "main_paned.c"
 					gint _tmp23_;
 #line 1165 "glib-2.0.vapi"
 					_tmp23_ = i;
 #line 1165 "glib-2.0.vapi"
 					i = _tmp23_ + 1;
-#line 24538 "main_paned.c"
+#line 25480 "main_paned.c"
 				}
 #line 1165 "glib-2.0.vapi"
 				_tmp22_ = FALSE;
@@ -24542,7 +25484,7 @@ _vala_g_strjoinv (const gchar* separator,
 				if (!(i < str_array_length1)) {
 #line 1165 "glib-2.0.vapi"
 					break;
-#line 24546 "main_paned.c"
+#line 25488 "main_paned.c"
 				}
 #line 1166 "glib-2.0.vapi"
 				_tmp24_ = ptr;
@@ -24554,17 +25496,17 @@ _vala_g_strjoinv (const gchar* separator,
 				_tmp27_ = str_array[i];
 #line 1167 "glib-2.0.vapi"
 				if (_tmp27_ != NULL) {
-#line 24558 "main_paned.c"
+#line 25500 "main_paned.c"
 					const gchar* _tmp28_;
 #line 1167 "glib-2.0.vapi"
 					_tmp28_ = str_array[i];
 #line 1167 "glib-2.0.vapi"
 					_tmp26_ = (const gchar*) _tmp28_;
-#line 24564 "main_paned.c"
+#line 25506 "main_paned.c"
 				} else {
 #line 1167 "glib-2.0.vapi"
 					_tmp26_ = "";
-#line 24568 "main_paned.c"
+#line 25510 "main_paned.c"
 				}
 #line 1167 "glib-2.0.vapi"
 				_tmp29_ = ptr;
@@ -24572,7 +25514,7 @@ _vala_g_strjoinv (const gchar* separator,
 				_tmp30_ = g_stpcpy (_tmp29_, _tmp26_);
 #line 1167 "glib-2.0.vapi"
 				ptr = _tmp30_;
-#line 24576 "main_paned.c"
+#line 25518 "main_paned.c"
 			}
 		}
 #line 1170 "glib-2.0.vapi"
@@ -24583,7 +25525,7 @@ _vala_g_strjoinv (const gchar* separator,
 		result = (gchar*) _tmp31_;
 #line 1170 "glib-2.0.vapi"
 		return result;
-#line 24587 "main_paned.c"
+#line 25529 "main_paned.c"
 	} else {
 		gchar* _tmp32_;
 #line 1172 "glib-2.0.vapi"
@@ -24592,7 +25534,7 @@ _vala_g_strjoinv (const gchar* separator,
 		result = _tmp32_;
 #line 1172 "glib-2.0.vapi"
 		return result;
-#line 24596 "main_paned.c"
+#line 25538 "main_paned.c"
 	}
 }
 
@@ -24602,19 +25544,19 @@ _vala_array_add1 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24612 "main_paned.c"
+#line 25554 "main_paned.c"
 	}
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24618 "main_paned.c"
+#line 25560 "main_paned.c"
 }
 
 static void
@@ -24623,19 +25565,19 @@ _vala_array_add2 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24633 "main_paned.c"
+#line 25575 "main_paned.c"
 	}
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24639 "main_paned.c"
+#line 25581 "main_paned.c"
 }
 
 static void
@@ -24644,19 +25586,19 @@ _vala_array_add3 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24654 "main_paned.c"
+#line 25596 "main_paned.c"
 	}
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24660 "main_paned.c"
+#line 25602 "main_paned.c"
 }
 
 static void
@@ -24665,19 +25607,19 @@ _vala_array_add4 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24675 "main_paned.c"
+#line 25617 "main_paned.c"
 	}
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24681 "main_paned.c"
+#line 25623 "main_paned.c"
 }
 
 static void
@@ -24686,19 +25628,19 @@ _vala_array_add5 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24696 "main_paned.c"
+#line 25638 "main_paned.c"
 	}
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24702 "main_paned.c"
+#line 25644 "main_paned.c"
 }
 
 static void
@@ -24707,19 +25649,19 @@ _vala_array_add6 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24717 "main_paned.c"
+#line 25659 "main_paned.c"
 	}
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24723 "main_paned.c"
+#line 25665 "main_paned.c"
 }
 
 static void
@@ -24728,19 +25670,19 @@ _vala_array_add7 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24738 "main_paned.c"
+#line 25680 "main_paned.c"
 	}
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24744 "main_paned.c"
+#line 25686 "main_paned.c"
 }
 
 static void
@@ -24749,19 +25691,19 @@ _vala_array_add8 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24759 "main_paned.c"
+#line 25701 "main_paned.c"
 	}
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24765 "main_paned.c"
+#line 25707 "main_paned.c"
 }
 
 static void
@@ -24770,19 +25712,19 @@ _vala_array_add9 (gchar** * array,
                   int* size,
                   gchar* value)
 {
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24780 "main_paned.c"
+#line 25722 "main_paned.c"
 	}
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24786 "main_paned.c"
+#line 25728 "main_paned.c"
 }
 
 static void
@@ -24791,19 +25733,19 @@ _vala_array_add10 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24801 "main_paned.c"
+#line 25743 "main_paned.c"
 	}
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24807 "main_paned.c"
+#line 25749 "main_paned.c"
 }
 
 static void
@@ -24812,19 +25754,19 @@ _vala_array_add11 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24822 "main_paned.c"
+#line 25764 "main_paned.c"
 	}
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24828 "main_paned.c"
+#line 25770 "main_paned.c"
 }
 
 static void
@@ -24833,19 +25775,19 @@ _vala_array_add12 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24843 "main_paned.c"
+#line 25785 "main_paned.c"
 	}
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24849 "main_paned.c"
+#line 25791 "main_paned.c"
 }
 
 static void
@@ -24854,19 +25796,19 @@ _vala_array_add13 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24864 "main_paned.c"
+#line 25806 "main_paned.c"
 	}
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24870 "main_paned.c"
+#line 25812 "main_paned.c"
 }
 
 static void
@@ -24875,19 +25817,19 @@ _vala_array_add14 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24885 "main_paned.c"
+#line 25827 "main_paned.c"
 	}
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24891 "main_paned.c"
+#line 25833 "main_paned.c"
 }
 
 static void
@@ -24896,19 +25838,19 @@ _vala_array_add15 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24906 "main_paned.c"
+#line 25848 "main_paned.c"
 	}
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24912 "main_paned.c"
+#line 25854 "main_paned.c"
 }
 
 static void
@@ -24917,19 +25859,19 @@ _vala_array_add16 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24927 "main_paned.c"
+#line 25869 "main_paned.c"
 	}
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24933 "main_paned.c"
+#line 25875 "main_paned.c"
 }
 
 static void
@@ -24938,19 +25880,19 @@ _vala_array_add17 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24948 "main_paned.c"
+#line 25890 "main_paned.c"
 	}
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24954 "main_paned.c"
+#line 25896 "main_paned.c"
 }
 
 static void
@@ -24959,19 +25901,19 @@ _vala_array_add18 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24969 "main_paned.c"
+#line 25911 "main_paned.c"
 	}
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24975 "main_paned.c"
+#line 25917 "main_paned.c"
 }
 
 static void
@@ -24980,19 +25922,19 @@ _vala_array_add19 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 24990 "main_paned.c"
+#line 25932 "main_paned.c"
 	}
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 24996 "main_paned.c"
+#line 25938 "main_paned.c"
 }
 
 static void
@@ -25001,79 +25943,79 @@ _vala_array_add20 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if ((*length) == (*size)) {
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 25011 "main_paned.c"
+#line 25953 "main_paned.c"
 	}
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[(*length)++] = value;
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(*array)[*length] = NULL;
-#line 25017 "main_paned.c"
+#line 25959 "main_paned.c"
 }
 
-static Block46Data*
-block46_data_ref (Block46Data* _data46_)
+static Block48Data*
+block48_data_ref (Block48Data* _data48_)
 {
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_atomic_int_inc (&_data46_->_ref_count_);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	return _data46_;
-#line 25027 "main_paned.c"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data48_->_ref_count_);
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data48_;
+#line 25969 "main_paned.c"
 }
 
 static void
-block46_data_unref (void * _userdata_)
+block48_data_unref (void * _userdata_)
 {
-	Block46Data* _data46_;
-	_data46_ = (Block46Data*) _userdata_;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	if (g_atomic_int_dec_and_test (&_data46_->_ref_count_)) {
-#line 25037 "main_paned.c"
+	Block48Data* _data48_;
+	_data48_ = (Block48Data*) _userdata_;
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data48_->_ref_count_)) {
+#line 25979 "main_paned.c"
 		valaDevelopMainPaned* self;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		self = _data46_->self;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_main_loop_unref0 (_data46_->mainloop);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		self = _data48_->self;
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_main_loop_unref0 (_data48_->mainloop);
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (self);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_slice_free (Block46Data, _data46_);
-#line 25047 "main_paned.c"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block48Data, _data48_);
+#line 25989 "main_paned.c"
 	}
 }
 
 static gboolean
-____lambda64_ (Block46Data* _data46_)
+____lambda72_ (Block48Data* _data48_)
 {
 	valaDevelopMainPaned* self;
 	gboolean result = FALSE;
 	GMainLoop* _tmp0_;
+#line 3104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	self = _data48_->self;
 #line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	self = _data46_->self;
-#line 3108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp0_ = _data46_->mainloop;
-#line 3108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = _data48_->mainloop;
+#line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_main_loop_quit (_tmp0_);
-#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = G_SOURCE_REMOVE;
-#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 25067 "main_paned.c"
+#line 26009 "main_paned.c"
 }
 
 static gboolean
-_____lambda64__gsource_func (gpointer self)
+_____lambda72__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ____lambda64_ (self);
-#line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = ____lambda72_ (self);
+#line 3104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 25077 "main_paned.c"
+#line 26019 "main_paned.c"
 }
 
 static void
@@ -25104,61 +26046,61 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 	gchar* _tmp14_;
 	const gchar* _tmp15_;
 	GError* _inner_error0_ = NULL;
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (self != NULL);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (rootPath != NULL);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (iter != NULL);
-#line 2942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	items = NULL;
-#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
-#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = *iter;
-#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = vala_develop_overview_tree_store_get_item_path (_tmp0_, &_tmp1_);
-#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectPath = _tmp2_;
-#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = vala_develop_main_paned_overviewTreeModel;
-#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp4_ = *iter;
-#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = vala_develop_overview_tree_store_get_item_name (_tmp3_, &_tmp4_);
-#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectName = _tmp5_;
-#line 2946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = vala_develop_main_paned_overviewTreeModel;
-#line 2946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = *iter;
-#line 2946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp8_ = vala_develop_overview_tree_store_get_item_namespace (_tmp6_, &_tmp7_);
-#line 2946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectNamespace = _tmp8_;
-#line 2947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp9_ = vala_develop_main_paned_overviewTreeModel;
-#line 2947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp10_ = *iter;
-#line 2947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	projectBuildType = vala_develop_overview_tree_store_get_item_buildtype (_tmp9_, &_tmp10_);
-#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp11_ = projectName;
-#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_signal_emit (self, vala_develop_main_paned_signals[VALA_DEVELOP_MAIN_PANED_START_COMPILING_SIGNAL], 0, _tmp11_);
-#line 2951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp12_ = vala_develop_main_paned_overviewTreeModel;
-#line 2951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp13_ = *iter;
-#line 2951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp14_ = vala_develop_overview_tree_store_get_item_buildcommand (_tmp12_, &_tmp13_);
-#line 2951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	buildCommand = _tmp14_;
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp15_ = buildCommand;
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (g_strcmp0 (_tmp15_, "") != 0) {
-#line 25162 "main_paned.c"
+#line 26104 "main_paned.c"
 		const gchar* _tmp16_ = NULL;
 		valaDevelopmainWindow* _tmp17_;
 		GtkToggleButton* _tmp18_;
@@ -25190,109 +26132,109 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 		gint _tmp31__length1;
 		gchar** _tmp32_;
 		gint _tmp32__length1;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp17_ = self->_parentClass;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp18_ = _tmp17_->configuration;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp19_ = gtk_toggle_button_get_active (_tmp18_);
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp20_ = _tmp19_;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (_tmp20_) {
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp16_ = "release";
-#line 25206 "main_paned.c"
+#line 26148 "main_paned.c"
 		} else {
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp16_ = "debug";
-#line 25210 "main_paned.c"
+#line 26152 "main_paned.c"
 		}
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp21_ = buildCommand;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp22_ = string_replace (_tmp21_, "{configuration}", _tmp16_);
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp23_ = _tmp22_;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp25_ = _tmp24_ = g_strsplit (_tmp23_, " ", 0);
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp26_ = _tmp25_;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp26__length1 = _vala_array_length (_tmp24_);
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp23_);
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		buildCommands = _tmp26_;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		buildCommands_length1 = _tmp26__length1;
-#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_buildCommands_size_ = buildCommands_length1;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp27_ = buildCommands;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp27__length1 = buildCommands_length1;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp28_ = (_tmp27_ != NULL) ? _vala_array_dup1 (_tmp27_, _tmp27__length1) : ((gpointer) _tmp27_);
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp28__length1 = _tmp27__length1;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = _tmp28_;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args_length1 = _tmp28__length1;
-#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_spawn_args_size_ = spawn_args_length1;
-#line 2956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp30_ = _tmp29_ = g_get_environ ();
-#line 2956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env = _tmp30_;
-#line 2956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env_length1 = _vala_array_length (_tmp29_);
-#line 2956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_spawn_env_size_ = spawn_env_length1;
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp31_ = spawn_args;
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp31__length1 = spawn_args_length1;
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp32_ = spawn_env;
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp32__length1 = spawn_env_length1;
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_spawn_sync (".", _tmp31_, _tmp32_, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL, NULL, &_inner_error0_);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			buildCommands = (_vala_array_free (buildCommands, buildCommands_length1, (GDestroyNotify) g_free), NULL);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (buildCommand);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectNamespace);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectName);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectPath);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_clear_error (&_inner_error0_);
-#line 2957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 25288 "main_paned.c"
+#line 26230 "main_paned.c"
 		}
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		buildCommands = (_vala_array_free (buildCommands, buildCommands_length1, (GDestroyNotify) g_free), NULL);
-#line 25296 "main_paned.c"
+#line 26238 "main_paned.c"
 	} else {
 		valaDevelopOverviewTreeStore* _tmp33_;
 		GtkTreeIter _tmp34_;
@@ -25468,170 +26410,170 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 		gchar* _tmp427_;
 		gchar* _tmp428_;
 		gchar* _tmp429_;
-#line 2965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2963 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp33_ = vala_develop_main_paned_overviewTreeModel;
-#line 2965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2963 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp34_ = *iter;
-#line 2965 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2963 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_globals_projekt_child_nodes (&items, (GtkTreeStore*) _tmp33_, &_tmp34_);
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp35_ = g_file_new_for_path (rootPath);
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp36_ = _tmp35_;
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp37_ = projectPath;
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp38_ = g_file_get_child (_tmp36_, _tmp37_);
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp39_ = _tmp38_;
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp40_ = g_file_get_child (_tmp39_, "resources.xml");
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp41_ = _tmp40_;
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp39_);
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp36_);
-#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gresources = _tmp41_;
-#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2967 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp42_ = gresources;
-#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2967 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (g_file_query_exists (_tmp42_, NULL)) {
-#line 25502 "main_paned.c"
+#line 26444 "main_paned.c"
 			GFile* _tmp43_;
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp43_ = gresources;
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_file_delete (_tmp43_, NULL, &_inner_error0_);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (gresources);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (buildCommand);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (projectNamespace);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (projectName);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (projectPath);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_clear_error (&_inner_error0_);
-#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return;
-#line 25528 "main_paned.c"
+#line 26470 "main_paned.c"
 			}
 		}
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp44_ = gresources;
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp45_ = g_file_get_path (_tmp44_);
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp46_ = _tmp45_;
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp47_ = xmlNewTextWriterFilename (_tmp46_, FALSE);
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp48_ = _tmp47_;
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp46_);
-#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		writer = _tmp48_;
-#line 2972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp49_ = writer;
-#line 2972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterSetIndent (_tmp49_, TRUE);
-#line 2973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp50_ = writer;
-#line 2973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterSetIndentString (_tmp50_, (xmlChar*) "\t");
-#line 2974 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp51_ = writer;
-#line 2974 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2972 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterStartDocument (_tmp51_, NULL, NULL, NULL);
-#line 2975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp52_ = writer;
-#line 2975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterWriteComment (_tmp52_, (xmlChar*) "generated by valaDevelop");
-#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2974 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp53_ = writer;
-#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2974 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterStartElement (_tmp53_, (xmlChar*) "gresources");
-#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp54_ = writer;
-#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterStartElement (_tmp54_, (xmlChar*) "gresource");
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp55_ = writer;
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp56_ = projectNamespace;
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp57_ = g_strconcat ("/", _tmp56_, NULL);
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp58_ = _tmp57_;
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterWriteAttribute (_tmp55_, (xmlChar*) "prefix", (xmlChar*) _tmp58_);
-#line 2978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp58_);
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp59_ = items;
-#line 25583 "main_paned.c"
+#line 26525 "main_paned.c"
 		{
 			GList* iterItem_collection = NULL;
 			GList* iterItem_it = NULL;
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			iterItem_collection = _tmp59_;
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (iterItem_it = iterItem_collection; iterItem_it != NULL; iterItem_it = iterItem_it->next) {
-#line 25591 "main_paned.c"
+#line 26533 "main_paned.c"
 				GtkTreeIter* _tmp60_;
 				GtkTreeIter* iterItem = NULL;
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp60_ = __gtk_tree_iter_dup0 ((GtkTreeIter*) iterItem_it->data);
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				iterItem = _tmp60_;
-#line 25598 "main_paned.c"
+#line 26540 "main_paned.c"
 				{
 					gint itemType = 0;
 					valaDevelopOverviewTreeStore* _tmp61_;
 					GtkTreeIter* _tmp62_;
 					GtkTreeIter _tmp63_;
 					gboolean _tmp64_ = FALSE;
-#line 2981 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp61_ = vala_develop_main_paned_overviewTreeModel;
-#line 2981 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp62_ = iterItem;
-#line 2981 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp63_ = *_tmp62_;
-#line 2981 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					itemType = vala_develop_overview_tree_store_get_item_type (_tmp61_, &_tmp63_);
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (itemType == ((gint) VALA_DEVELOP_ITEM_TYPE_Resource)) {
-#line 25615 "main_paned.c"
+#line 26557 "main_paned.c"
 						valaDevelopOverviewTreeStore* _tmp65_;
 						GtkTreeIter* _tmp66_;
 						GtkTreeIter _tmp67_;
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp65_ = vala_develop_main_paned_overviewTreeModel;
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp66_ = iterItem;
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp67_ = *_tmp66_;
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp64_ = vala_develop_overview_tree_store_get_item_buildtype (_tmp65_, &_tmp67_) == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Resource);
-#line 25627 "main_paned.c"
+#line 26569 "main_paned.c"
 					} else {
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp64_ = FALSE;
-#line 25631 "main_paned.c"
+#line 26573 "main_paned.c"
 					}
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp64_) {
-#line 25635 "main_paned.c"
+#line 26577 "main_paned.c"
 						xmlTextWriter* _tmp68_;
 						gboolean compress = FALSE;
 						valaDevelopOverviewTreeStore* _tmp69_;
@@ -25654,416 +26596,416 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 						gchar* _tmp88_;
 						gchar* _tmp89_;
 						xmlTextWriter* _tmp90_;
-#line 2984 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp68_ = writer;
-#line 2984 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						xmlTextWriterStartElement (_tmp68_, (xmlChar*) "file");
-#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp69_ = vala_develop_main_paned_overviewTreeModel;
-#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp70_ = iterItem;
-#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp71_ = *_tmp70_;
-#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						compress = vala_develop_overview_tree_store_get_item_resource_compress (_tmp69_, &_tmp71_);
-#line 2986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2984 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (compress) {
-#line 25672 "main_paned.c"
+#line 26614 "main_paned.c"
 							xmlTextWriter* _tmp72_;
-#line 2987 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp72_ = writer;
-#line 2987 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							xmlTextWriterWriteAttribute (_tmp72_, (xmlChar*) "compressed", (xmlChar*) "true");
-#line 25678 "main_paned.c"
+#line 26620 "main_paned.c"
 						}
-#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp73_ = vala_develop_main_paned_overviewTreeModel;
-#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp74_ = iterItem;
-#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp75_ = *_tmp74_;
-#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						preprocess = vala_develop_overview_tree_store_get_item_resource_stripblanks (_tmp73_, &_tmp75_);
-#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2987 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (preprocess) {
-#line 25690 "main_paned.c"
+#line 26632 "main_paned.c"
 							xmlTextWriter* _tmp76_;
-#line 2990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp76_ = writer;
-#line 2990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							xmlTextWriterWriteAttribute (_tmp76_, (xmlChar*) "preprocess", (xmlChar*) "xml-stripblanks");
-#line 25696 "main_paned.c"
+#line 26638 "main_paned.c"
 						}
-#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp77_ = vala_develop_main_paned_overviewTreeModel;
-#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp78_ = iterItem;
-#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp79_ = *_tmp78_;
-#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp80_ = vala_develop_overview_tree_store_get_item_resource_alias (_tmp77_, &_tmp79_);
-#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						alias = _tmp80_;
-#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp81_ = alias;
-#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (g_strcmp0 (_tmp81_, "") != 0) {
-#line 25712 "main_paned.c"
+#line 26654 "main_paned.c"
 							xmlTextWriter* _tmp82_;
 							const gchar* _tmp83_;
-#line 2993 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp82_ = writer;
-#line 2993 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp83_ = alias;
-#line 2993 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2991 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							xmlTextWriterWriteAttribute (_tmp82_, (xmlChar*) "alias", (xmlChar*) _tmp83_);
-#line 25721 "main_paned.c"
+#line 26663 "main_paned.c"
 						}
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp84_ = writer;
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp85_ = vala_develop_main_paned_overviewTreeModel;
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp86_ = iterItem;
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp87_ = *_tmp86_;
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp88_ = vala_develop_overview_tree_store_get_item_name (_tmp85_, &_tmp87_);
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp89_ = _tmp88_;
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						xmlTextWriterWriteString (_tmp84_, (xmlChar*) _tmp89_);
-#line 2994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (_tmp89_);
-#line 2995 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2993 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp90_ = writer;
-#line 2995 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2993 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						xmlTextWriterEndElement (_tmp90_);
-#line 2982 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (alias);
-#line 25745 "main_paned.c"
+#line 26687 "main_paned.c"
 					}
-#line 2979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2977 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (iterItem);
-#line 25749 "main_paned.c"
+#line 26691 "main_paned.c"
 				}
 			}
 		}
-#line 2998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2996 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp91_ = writer;
-#line 2998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2996 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterEndElement (_tmp91_);
-#line 2999 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2997 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp92_ = writer;
-#line 2999 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2997 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterEndElement (_tmp92_);
-#line 3000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp93_ = writer;
-#line 3000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterEndDocument (_tmp93_);
-#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2999 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp94_ = writer;
-#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2999 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		xmlTextWriterFlush (_tmp94_);
-#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_xmlFreeTextWriter0 (writer);
-#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		writer = NULL;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp95_ = g_file_new_for_path (rootPath);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp96_ = _tmp95_;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp97_ = projectPath;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp98_ = g_file_get_child (_tmp96_, _tmp97_);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp99_ = _tmp98_;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp100_ = g_file_get_child (_tmp99_, "resources");
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp101_ = _tmp100_;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp102_ = g_file_get_path (_tmp101_);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp103_ = _tmp102_;
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp101_);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp99_);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp96_);
-#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gresourcesdir = _tmp103_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp104_ = g_strdup ("glib-compile-resources");
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp105_ = gresources;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp106_ = g_file_get_path (_tmp105_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp107_ = _tmp106_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp108_ = string_to_string (_tmp107_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp109_ = g_strdup (_tmp108_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp110_ = g_file_new_for_path (rootPath);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp111_ = _tmp110_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp112_ = projectPath;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp113_ = g_file_get_child (_tmp111_, _tmp112_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp114_ = _tmp113_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp115_ = g_file_get_child (_tmp114_, "resources.c");
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp116_ = _tmp115_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp117_ = g_file_get_path (_tmp116_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp118_ = _tmp117_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp119_ = string_to_string (_tmp118_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp120_ = g_strconcat ("--target=", _tmp119_, NULL);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp121_ = gresourcesdir;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp122_ = string_to_string (_tmp121_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp123_ = g_strconcat ("--sourcedir=", _tmp122_, NULL);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp124_ = g_strdup ("--generate-source");
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_ = g_new0 (gchar*, 5 + 1);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_[0] = _tmp104_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_[1] = _tmp109_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_[2] = _tmp120_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_[3] = _tmp123_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp125_[4] = _tmp124_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp126_ = _tmp125_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp126__length1 = 5;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp118_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp116_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp114_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp111_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp107_);
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = _tmp126_;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args_length1 = _tmp126__length1;
-#line 3004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_spawn_args_size_ = spawn_args_length1;
-#line 3005 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp128_ = _tmp127_ = g_get_environ ();
-#line 3005 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env = _tmp128_;
-#line 3005 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env_length1 = _vala_array_length (_tmp127_);
-#line 3005 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3003 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_spawn_env_size_ = spawn_env_length1;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp129_ = self->buildTextView;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp130_ = gtk_text_view_get_buffer (_tmp129_);
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp131_ = _tmp130_;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp132_ = spawn_args;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp132__length1 = spawn_args_length1;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp133_ = _vala_g_strjoinv (" ", _tmp132_, (gint) _tmp132__length1);
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp134_ = _tmp133_;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp135_ = g_strconcat (_tmp134_, "\n", NULL);
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp136_ = _tmp135_;
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_insert_at_cursor (_tmp131_, _tmp136_, -1);
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp136_);
-#line 3011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp134_);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp137_ = spawn_args;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp137__length1 = spawn_args_length1;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp138_ = spawn_env;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp138__length1 = spawn_env_length1;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_spawn_sync (".", _tmp137_, _tmp138_, G_SPAWN_SEARCH_PATH, NULL, NULL, &_tmp139_, &_tmp140_, &_tmp141_, &_inner_error0_);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (ls_stdout);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		ls_stdout = _tmp139_;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (ls_stderr);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		ls_stderr = _tmp140_;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		ls_status = _tmp141_;
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (ls_stderr);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (ls_stdout);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (gresourcesdir);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_xmlFreeTextWriter0 (writer);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (gresources);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (buildCommand);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectNamespace);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectName);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectPath);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_clear_error (&_inner_error0_);
-#line 3012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3010 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 25957 "main_paned.c"
+#line 26899 "main_paned.c"
 		}
-#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp142_ = self->buildTextView;
-#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp143_ = gtk_text_view_get_buffer (_tmp142_);
-#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp144_ = _tmp143_;
-#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp145_ = ls_stdout;
-#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_insert_at_cursor (_tmp144_, _tmp145_, -1);
-#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3021 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp146_ = self->statusList;
-#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3021 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp147_ = projectName;
-#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3021 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp148_ = ls_stdout;
-#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3021 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_status_list_AddOutput (_tmp146_, _tmp147_, _tmp148_);
-#line 3024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp149_ = self->buildTextView;
-#line 3024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp150_ = gtk_text_view_get_buffer (_tmp149_);
-#line 3024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp151_ = _tmp150_;
-#line 3024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp152_ = ls_stderr;
-#line 3024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_insert_at_cursor (_tmp151_, _tmp152_, -1);
-#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp153_ = self->statusList;
-#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp154_ = projectName;
-#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp155_ = ls_stderr;
-#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		vala_develop_status_list_AddOutput (_tmp153_, _tmp154_, _tmp155_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp156_ = vala_develop_main_paned_overviewTreeModel;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp157_ = *iter;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp158_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp156_, &_tmp157_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp159_ = _tmp158_;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp160_ = g_file_new_for_path (_tmp159_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp161_ = _tmp160_;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp162_ = projectName;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp163_ = g_file_get_child (_tmp161_, _tmp162_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp164_ = _tmp163_;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp165_ = g_file_get_path (_tmp164_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp166_ = _tmp165_;
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp164_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp161_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp159_);
-#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3025 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		projectOutput = _tmp166_;
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp167_ = g_strdup ("valac");
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp168_ = g_strdup ("--define=REGION");
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp169_ = g_new0 (gchar*, 2 + 1);
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp169_[0] = _tmp167_;
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp169_[1] = _tmp168_;
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = _tmp169_;
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args_length1 = 2;
-#line 3029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_spawn_args_size_ = spawn_args_length1;
-#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp170_ = self->_parentClass;
-#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp171_ = _tmp170_->configuration;
-#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp172_ = gtk_toggle_button_get_active (_tmp171_);
-#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp173_ = _tmp172_;
-#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3028 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (!_tmp173_) {
-#line 26053 "main_paned.c"
+#line 26995 "main_paned.c"
 			gchar** _tmp174_;
 			gint _tmp174__length1;
 			gchar* _tmp175_;
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp174_ = spawn_args;
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp174__length1 = spawn_args_length1;
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp175_ = g_strdup ("-g");
-#line 3032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add1 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp175_);
-#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3031 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (projectBuildType == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Executable)) {
-#line 26067 "main_paned.c"
+#line 27009 "main_paned.c"
 				GFile* source = NULL;
 				GFile* _tmp176_;
 				GFile* dest = NULL;
@@ -26119,343 +27061,343 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 				gchar** _tmp219_;
 				gint _tmp219__length1;
 				GFile* _tmp220_;
-#line 3035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp176_ = g_file_new_for_uri ("resource:///valaDevelop/valaDebugger.vala");
-#line 3035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				source = _tmp176_;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp177_ = vala_develop_main_paned_overviewTreeModel;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp178_ = *iter;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp179_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp177_, &_tmp178_);
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp180_ = _tmp179_;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp181_ = g_file_new_for_path (_tmp180_);
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp182_ = _tmp181_;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp183_ = g_file_get_child (_tmp182_, ".__valaDebugger__.vala");
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp184_ = _tmp183_;
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (_tmp182_);
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp180_);
-#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				dest = _tmp184_;
-#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp185_ = dest;
-#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3035 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (g_file_query_exists (_tmp185_, NULL)) {
-#line 26153 "main_paned.c"
+#line 27095 "main_paned.c"
 					GFile* _tmp186_;
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp186_ = dest;
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_file_delete (_tmp186_, NULL, &_inner_error0_);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (dest);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (source);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (projectOutput);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (ls_stderr);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (ls_stdout);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (gresourcesdir);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_xmlFreeTextWriter0 (writer);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_object_unref0 (gresources);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (buildCommand);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (projectNamespace);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (projectName);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (projectPath);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						g_clear_error (&_inner_error0_);
-#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						return;
-#line 26197 "main_paned.c"
+#line 27139 "main_paned.c"
 					}
 				}
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp187_ = source;
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp188_ = dest;
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_file_copy (_tmp187_, _tmp188_, G_FILE_COPY_OVERWRITE, NULL, NULL, NULL, &_inner_error0_);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (dest);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (source);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectOutput);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stderr);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stdout);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (gresourcesdir);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_xmlFreeTextWriter0 (writer);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (gresources);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (buildCommand);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectNamespace);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectName);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectPath);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_clear_error (&_inner_error0_);
-#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3037 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return;
-#line 26244 "main_paned.c"
+#line 27186 "main_paned.c"
 				}
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp189_ = g_strdup ("valac");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp190_ = dest;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp191_ = g_file_get_path (_tmp190_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp192_ = _tmp191_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp193_ = string_replace (_tmp192_, "\\", "/");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp194_ = _tmp193_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp195_ = string_to_string (_tmp194_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp196_ = g_strdup (_tmp195_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp197_ = g_strdup ("--pkg=libxml-2.0");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp198_ = g_strdup ("--disable-warnings");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp199_ = g_strdup ("--Xcc=-fPIC");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp200_ = g_strdup ("--Xcc=-shared");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp201_ = g_strdup ("--library=libvalaDevelop_debugger");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp202_ = vala_develop_main_paned_overviewTreeModel;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp203_ = *iter;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp204_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp202_, &_tmp203_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp205_ = _tmp204_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp206_ = g_file_new_for_path (_tmp205_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp207_ = _tmp206_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp208_ = g_file_get_child (_tmp207_, "libvalaDevelop_debugger.so");
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp209_ = _tmp208_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp210_ = g_file_get_path (_tmp209_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp211_ = _tmp210_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp212_ = string_to_string (_tmp211_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp213_ = g_strconcat ("--output=", _tmp212_, NULL);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_ = g_new0 (gchar*, 8 + 1);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[0] = _tmp189_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[1] = _tmp196_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[2] = _tmp197_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[3] = _tmp198_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[4] = _tmp199_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[5] = _tmp200_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[6] = _tmp201_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp214_[7] = _tmp213_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp215_ = _tmp214_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp215__length1 = 8;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp211_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (_tmp209_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (_tmp207_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp205_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp194_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_tmp192_);
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				args = _tmp215_;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				args_length1 = _tmp215__length1;
-#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_args_size_ = args_length1;
-#line 3041 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp217_ = _tmp216_ = g_get_environ ();
-#line 3041 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				env = _tmp217_;
-#line 3041 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				env_length1 = _vala_array_length (_tmp216_);
-#line 3041 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_env_size_ = env_length1;
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp218_ = args;
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp218__length1 = args_length1;
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp219_ = env;
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp219__length1 = env_length1;
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_spawn_sync (".", _tmp218_, _tmp219_, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL, NULL, &_inner_error0_);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					env = (_vala_array_free (env, env_length1, (GDestroyNotify) g_free), NULL);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					args = (_vala_array_free (args, args_length1, (GDestroyNotify) g_free), NULL);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (dest);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (source);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectOutput);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stderr);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stdout);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (gresourcesdir);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_xmlFreeTextWriter0 (writer);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (gresources);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (buildCommand);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectNamespace);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectName);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectPath);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_clear_error (&_inner_error0_);
-#line 3042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return;
-#line 26396 "main_paned.c"
+#line 27338 "main_paned.c"
 				}
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp220_ = dest;
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_file_delete (_tmp220_, NULL, &_inner_error0_);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					env = (_vala_array_free (env, env_length1, (GDestroyNotify) g_free), NULL);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					args = (_vala_array_free (args, args_length1, (GDestroyNotify) g_free), NULL);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (dest);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (source);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectOutput);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stderr);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (ls_stdout);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (gresourcesdir);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_xmlFreeTextWriter0 (writer);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_object_unref0 (gresources);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (buildCommand);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectNamespace);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectName);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (projectPath);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					g_clear_error (&_inner_error0_);
-#line 3047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3045 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					return;
-#line 26444 "main_paned.c"
+#line 27386 "main_paned.c"
 				}
-#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3031 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				env = (_vala_array_free (env, env_length1, (GDestroyNotify) g_free), NULL);
-#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3031 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				args = (_vala_array_free (args, args_length1, (GDestroyNotify) g_free), NULL);
-#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3031 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (dest);
-#line 3033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3031 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_object_unref0 (source);
-#line 26454 "main_paned.c"
+#line 27396 "main_paned.c"
 			}
 		}
-#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (projectBuildType == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_SharedObject)) {
-#line 26459 "main_paned.c"
+#line 27401 "main_paned.c"
 			gchar* sharedOutput = NULL;
 			valaDevelopOverviewTreeStore* _tmp221_;
 			GtkTreeIter _tmp222_;
@@ -26495,260 +27437,260 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 			gchar* _tmp251_;
 			valaDevelopOverviewTreeStore* _tmp252_;
 			GtkTreeIter _tmp253_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp221_ = vala_develop_main_paned_overviewTreeModel;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp222_ = *iter;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp223_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp221_, &_tmp222_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp224_ = _tmp223_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp225_ = g_file_new_for_path (_tmp224_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp226_ = _tmp225_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp227_ = projectName;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp228_ = g_strconcat ("lib", _tmp227_, NULL);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp229_ = _tmp228_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp230_ = g_strconcat (_tmp229_, ".so", NULL);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp231_ = _tmp230_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp232_ = g_file_get_child (_tmp226_, _tmp231_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp233_ = _tmp232_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp234_ = g_file_get_path (_tmp233_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp235_ = _tmp234_;
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (_tmp233_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp231_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp229_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (_tmp226_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (_tmp224_);
-#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			sharedOutput = _tmp235_;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp236_ = spawn_args;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp236__length1 = spawn_args_length1;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp237_ = projectOutput;
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp238_ = string_to_string (_tmp237_);
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp239_ = g_strconcat ("--library=", _tmp238_, NULL);
-#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add2 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp239_);
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp240_ = spawn_args;
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp240__length1 = spawn_args_length1;
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp241_ = projectOutput;
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp242_ = string_to_string (_tmp241_);
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp243_ = g_strconcat ("--header=", _tmp242_, ".h", NULL);
-#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add3 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp243_);
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp244_ = spawn_args;
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp244__length1 = spawn_args_length1;
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp245_ = g_strdup ("--Xcc=-fPIC");
-#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3053 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add4 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp245_);
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp246_ = spawn_args;
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp246__length1 = spawn_args_length1;
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp247_ = g_strdup ("--Xcc=-shared");
-#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3054 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add5 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp247_);
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp248_ = spawn_args;
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp248__length1 = spawn_args_length1;
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp249_ = sharedOutput;
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp250_ = string_to_string (_tmp249_);
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp251_ = g_strconcat ("--output=", _tmp250_, NULL);
-#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add6 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp251_);
-#line 3058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp252_ = vala_develop_main_paned_overviewTreeModel;
-#line 3058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp253_ = *iter;
-#line 3058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3056 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			if (vala_develop_overview_tree_store_get_item_withvapi (_tmp252_, &_tmp253_)) {
-#line 26599 "main_paned.c"
+#line 27541 "main_paned.c"
 				gchar** _tmp254_;
 				gint _tmp254__length1;
 				const gchar* _tmp255_;
 				const gchar* _tmp256_;
 				gchar* _tmp257_;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp254_ = spawn_args;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp254__length1 = spawn_args_length1;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp255_ = projectOutput;
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp256_ = string_to_string (_tmp255_);
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp257_ = g_strconcat ("--vapi=", _tmp256_, ".vapi", NULL);
-#line 3059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_vala_array_add7 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp257_);
-#line 26617 "main_paned.c"
+#line 27559 "main_paned.c"
 			}
-#line 3050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (sharedOutput);
-#line 26621 "main_paned.c"
+#line 27563 "main_paned.c"
 		} else {
 			gchar** _tmp258_;
 			gint _tmp258__length1;
 			const gchar* _tmp259_;
 			const gchar* _tmp260_;
 			gchar* _tmp261_;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp258_ = spawn_args;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp258__length1 = spawn_args_length1;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp259_ = projectOutput;
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp260_ = string_to_string (_tmp259_);
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp261_ = g_strconcat ("--output=", _tmp260_, NULL);
-#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_vala_array_add8 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp261_);
-#line 26640 "main_paned.c"
+#line 27582 "main_paned.c"
 		}
-#line 3063 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3061 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp262_ = vala_develop_main_paned_overviewTreeModel;
-#line 3063 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3061 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp263_ = *iter;
-#line 3063 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3061 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp264_ = vala_develop_overview_tree_store_get_item_compileroptions (_tmp262_, &_tmp263_);
-#line 3063 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3061 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		c_options = _tmp264_;
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp265_ = c_options;
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp267_ = _tmp266_ = g_strsplit (_tmp265_, " ", 0);
-#line 26654 "main_paned.c"
+#line 27596 "main_paned.c"
 		{
 			gchar** copt_collection = NULL;
 			gint copt_collection_length1 = 0;
 			gint _copt_collection_size_ = 0;
 			gint copt_it = 0;
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			copt_collection = _tmp267_;
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			copt_collection_length1 = _vala_array_length (_tmp266_);
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (copt_it = 0; copt_it < _vala_array_length (_tmp266_); copt_it = copt_it + 1) {
-#line 26666 "main_paned.c"
+#line 27608 "main_paned.c"
 				gchar* _tmp268_;
 				gchar* copt = NULL;
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp268_ = g_strdup (copt_collection[copt_it]);
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				copt = _tmp268_;
-#line 26673 "main_paned.c"
+#line 27615 "main_paned.c"
 				{
 					gchar** _tmp269_;
 					gint _tmp269__length1;
 					const gchar* _tmp270_;
 					gchar* _tmp271_;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp269_ = spawn_args;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp269__length1 = spawn_args_length1;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp270_ = copt;
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_tmp271_ = g_strdup (_tmp270_);
-#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_vala_array_add9 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp271_);
 #line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp269_ = spawn_args;
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp269__length1 = spawn_args_length1;
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp270_ = copt;
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_tmp271_ = g_strdup (_tmp270_);
+#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_vala_array_add9 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp271_);
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (copt);
-#line 26691 "main_paned.c"
+#line 27633 "main_paned.c"
 				}
 			}
-#line 3064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			copt_collection = (_vala_array_free (copt_collection, copt_collection_length1, (GDestroyNotify) g_free), NULL);
-#line 26696 "main_paned.c"
+#line 27638 "main_paned.c"
 		}
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp272_ = items;
-#line 26700 "main_paned.c"
+#line 27642 "main_paned.c"
 		{
 			GList* iterItem_collection = NULL;
 			GList* iterItem_it = NULL;
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			iterItem_collection = _tmp272_;
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			for (iterItem_it = iterItem_collection; iterItem_it != NULL; iterItem_it = iterItem_it->next) {
-#line 26708 "main_paned.c"
+#line 27650 "main_paned.c"
 				GtkTreeIter* _tmp273_;
 				GtkTreeIter* iterItem = NULL;
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_tmp273_ = __gtk_tree_iter_dup0 ((GtkTreeIter*) iterItem_it->data);
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				iterItem = _tmp273_;
-#line 26715 "main_paned.c"
+#line 27657 "main_paned.c"
 				{
 					gint item = 0;
 					valaDevelopOverviewTreeStore* _tmp274_;
 					GtkTreeIter* _tmp275_;
 					GtkTreeIter _tmp276_;
 					gboolean _tmp277_ = FALSE;
-#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp274_ = vala_develop_main_paned_overviewTreeModel;
-#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp275_ = iterItem;
-#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_tmp276_ = *_tmp275_;
-#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					item = vala_develop_overview_tree_store_get_item_type (_tmp274_, &_tmp276_);
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (item == ((gint) VALA_DEVELOP_ITEM_TYPE_Source)) {
-#line 26732 "main_paned.c"
+#line 27674 "main_paned.c"
 						valaDevelopOverviewTreeStore* _tmp278_;
 						GtkTreeIter* _tmp279_;
 						GtkTreeIter _tmp280_;
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp278_ = vala_develop_main_paned_overviewTreeModel;
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp279_ = iterItem;
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp280_ = *_tmp279_;
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp277_ = vala_develop_overview_tree_store_get_item_buildtype (_tmp278_, &_tmp280_) == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Compile);
-#line 26744 "main_paned.c"
+#line 27686 "main_paned.c"
 					} else {
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp277_ = FALSE;
-#line 26748 "main_paned.c"
+#line 27690 "main_paned.c"
 					}
-#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3069 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (_tmp277_) {
-#line 26752 "main_paned.c"
+#line 27694 "main_paned.c"
 						gchar** _tmp281_;
 						gint _tmp281__length1;
 						valaDevelopOverviewTreeStore* _tmp282_;
@@ -26757,31 +27699,31 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 						gchar* _tmp285_;
 						gchar* _tmp286_;
 						gchar* _tmp287_;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp281_ = spawn_args;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp281__length1 = spawn_args_length1;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp282_ = vala_develop_main_paned_overviewTreeModel;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp283_ = iterItem;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp284_ = *_tmp283_;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp285_ = vala_develop_overview_tree_store_get_item_relative_path (_tmp282_, &_tmp284_);
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp286_ = _tmp285_;
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_tmp287_ = string_replace (_tmp286_, "\\", "/");
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_vala_array_add10 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp287_);
-#line 3072 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3070 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						_g_free0 (_tmp286_);
-#line 26781 "main_paned.c"
+#line 27723 "main_paned.c"
 					} else {
-#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						if (item == ((gint) VALA_DEVELOP_ITEM_TYPE_Package)) {
-#line 26785 "main_paned.c"
+#line 27727 "main_paned.c"
 							gchar** _tmp288_;
 							gint _tmp288__length1;
 							valaDevelopOverviewTreeStore* _tmp289_;
@@ -26802,73 +27744,73 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 							GtkTreeIter* _tmp303_;
 							gboolean _tmp304_ = FALSE;
 							GtkTreeIter* _tmp305_;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp288_ = spawn_args;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp288__length1 = spawn_args_length1;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp289_ = vala_develop_main_paned_overviewTreeModel;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp290_ = iterItem;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp291_ = *_tmp290_;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp292_ = vala_develop_overview_tree_store_get_item_name (_tmp289_, &_tmp291_);
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp293_ = _tmp292_;
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp294_ = string_to_string (_tmp293_);
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp295_ = g_strconcat ("--pkg=", _tmp294_, NULL);
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_vala_array_add11 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp295_);
-#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_free0 (_tmp293_);
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp296_ = vala_develop_main_paned_overviewTreeModel;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp297_ = vala_develop_main_paned_overviewTreeModel;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp298_ = iterItem;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp299_ = *_tmp298_;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp300_ = vala_develop_overview_tree_store_get_item_name (_tmp297_, &_tmp299_);
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp301_ = _tmp300_;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp302_ = vala_develop_overview_tree_store_get_project_iter_by_name (_tmp296_, _tmp301_);
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp303_ = _tmp302_;
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_free0 (_tmp301_);
-#line 3076 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3074 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							refproject = _tmp303_;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_tmp305_ = refproject;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (_tmp305_ != NULL) {
-#line 26852 "main_paned.c"
+#line 27794 "main_paned.c"
 								valaDevelopOverviewTreeStore* _tmp306_;
 								GtkTreeIter* _tmp307_;
 								GtkTreeIter _tmp308_;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp306_ = vala_develop_main_paned_overviewTreeModel;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp307_ = refproject;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp308_ = *_tmp307_;
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp304_ = vala_develop_overview_tree_store_get_item_withvapi (_tmp306_, &_tmp308_);
-#line 26864 "main_paned.c"
+#line 27806 "main_paned.c"
 							} else {
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp304_ = FALSE;
-#line 26868 "main_paned.c"
+#line 27810 "main_paned.c"
 							}
-#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (_tmp304_) {
-#line 26872 "main_paned.c"
+#line 27814 "main_paned.c"
 								gchar* refprojectOutput = NULL;
 								valaDevelopOverviewTreeStore* _tmp309_;
 								GtkTreeIter* _tmp310_;
@@ -26886,59 +27828,59 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 								const gchar* _tmp321_;
 								const gchar* _tmp322_;
 								gchar* _tmp323_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp309_ = vala_develop_main_paned_overviewTreeModel;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp310_ = refproject;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp311_ = *_tmp310_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp312_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp309_, &_tmp311_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp313_ = _tmp312_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp314_ = g_file_new_for_path (_tmp313_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp315_ = _tmp314_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp316_ = g_file_get_path (_tmp315_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp317_ = _tmp316_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp318_ = string_replace (_tmp317_, "\\", "/");
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp319_ = _tmp318_;
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_g_free0 (_tmp317_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_g_object_unref0 (_tmp315_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_g_free0 (_tmp313_);
-#line 3079 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								refprojectOutput = _tmp319_;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp320_ = spawn_args;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp320__length1 = spawn_args_length1;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp321_ = refprojectOutput;
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp322_ = string_to_string (_tmp321_);
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_tmp323_ = g_strconcat ("--vapidir=", _tmp322_, NULL);
-#line 3080 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-								_vala_array_add12 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp323_);
 #line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp309_ = vala_develop_main_paned_overviewTreeModel;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp310_ = refproject;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp311_ = *_tmp310_;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp312_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp309_, &_tmp311_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp313_ = _tmp312_;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp314_ = g_file_new_for_path (_tmp313_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp315_ = _tmp314_;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp316_ = g_file_get_path (_tmp315_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp317_ = _tmp316_;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp318_ = string_replace (_tmp317_, "\\", "/");
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp319_ = _tmp318_;
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_g_free0 (_tmp317_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_g_object_unref0 (_tmp315_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_g_free0 (_tmp313_);
+#line 3077 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								refprojectOutput = _tmp319_;
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp320_ = spawn_args;
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp320__length1 = spawn_args_length1;
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp321_ = refprojectOutput;
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp322_ = string_to_string (_tmp321_);
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_tmp323_ = g_strconcat ("--vapidir=", _tmp322_, NULL);
+#line 3078 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+								_vala_array_add12 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp323_);
+#line 3075 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refprojectOutput);
-#line 26934 "main_paned.c"
+#line 27876 "main_paned.c"
 							}
-#line 3073 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3071 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							_g_free0 (refproject);
-#line 26938 "main_paned.c"
+#line 27880 "main_paned.c"
 						} else {
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 							if (item == ((gint) (VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Vapi))) {
-#line 26942 "main_paned.c"
+#line 27884 "main_paned.c"
 								GtkTreeIter* refproject = NULL;
 								valaDevelopOverviewTreeStore* _tmp324_;
 								valaDevelopOverviewTreeStore* _tmp325_;
@@ -27020,333 +27962,333 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 								const gchar* _tmp392_;
 								const gchar* _tmp393_;
 								gchar* _tmp394_;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp324_ = vala_develop_main_paned_overviewTreeModel;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp325_ = vala_develop_main_paned_overviewTreeModel;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp326_ = iterItem;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp327_ = *_tmp326_;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp328_ = vala_develop_overview_tree_store_get_item_name (_tmp325_, &_tmp327_);
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp329_ = _tmp328_;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp330_ = vala_develop_overview_tree_store_get_project_iter_by_name (_tmp324_, _tmp329_);
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp331_ = _tmp330_;
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp329_);
-#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								refproject = _tmp331_;
-#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3084 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp332_ = vala_develop_main_paned_overviewTreeModel;
-#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3084 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp333_ = refproject;
-#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3084 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp334_ = *_tmp333_;
-#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3084 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp335_ = vala_develop_overview_tree_store_get_item_name (_tmp332_, &_tmp334_);
-#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3084 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								refprojectName = _tmp335_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp336_ = vala_develop_main_paned_overviewTreeModel;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp337_ = refproject;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp338_ = *_tmp337_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp339_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp336_, &_tmp338_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp340_ = _tmp339_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp341_ = g_file_new_for_path (_tmp340_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp342_ = _tmp341_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp343_ = refprojectName;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp344_ = g_file_get_child (_tmp342_, _tmp343_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp345_ = _tmp344_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp346_ = g_file_get_path (_tmp345_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp347_ = _tmp346_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp348_ = string_replace (_tmp347_, "\\", "/");
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp349_ = _tmp348_;
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp347_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp345_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp342_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp340_);
-#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3085 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								refprojectOutput = _tmp349_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp350_ = vala_develop_main_paned_overviewTreeModel;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp351_ = refproject;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp352_ = *_tmp351_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp353_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp350_, &_tmp352_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp354_ = _tmp353_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp355_ = g_file_new_for_path (_tmp354_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp356_ = _tmp355_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp357_ = g_file_get_path (_tmp356_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp358_ = _tmp357_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp359_ = string_replace (_tmp358_, "\\", "/");
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp360_ = _tmp359_;
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp358_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp356_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp354_);
-#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3086 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								refincludePath = _tmp360_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp361_ = vala_develop_main_paned_overviewTreeModel;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp362_ = refproject;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp363_ = *_tmp362_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp364_ = vala_develop_overview_tree_store_get_item_outputpath (_tmp361_, &_tmp363_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp365_ = _tmp364_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp366_ = g_file_new_for_path (_tmp365_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp367_ = _tmp366_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp368_ = refprojectName;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp369_ = g_strconcat ("lib", _tmp368_, NULL);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp370_ = _tmp369_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp371_ = g_strconcat (_tmp370_, ".so", NULL);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp372_ = _tmp371_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp373_ = g_file_get_child (_tmp367_, _tmp372_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp374_ = _tmp373_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp375_ = g_file_get_path (_tmp374_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp376_ = _tmp375_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp377_ = string_replace (_tmp376_, "\\", "/");
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp378_ = _tmp377_;
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp376_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp374_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp372_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp370_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_object_unref0 (_tmp367_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (_tmp365_);
-#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3087 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								refsharedOutput = _tmp378_;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp379_ = spawn_args;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp379__length1 = spawn_args_length1;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp380_ = refprojectOutput;
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp381_ = string_to_string (_tmp380_);
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp382_ = g_strconcat (_tmp381_, ".vapi", NULL);
-#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3088 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_vala_array_add13 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp382_);
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp383_ = spawn_args;
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp383__length1 = spawn_args_length1;
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp384_ = g_strdup ("-X");
-#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3089 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_vala_array_add14 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp384_);
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp385_ = spawn_args;
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp385__length1 = spawn_args_length1;
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp386_ = refsharedOutput;
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp387_ = string_to_string (_tmp386_);
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp388_ = g_strdup (_tmp387_);
-#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3090 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_vala_array_add15 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp388_);
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp389_ = spawn_args;
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp389__length1 = spawn_args_length1;
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp390_ = g_strdup ("-X");
-#line 3093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_vala_array_add16 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp390_);
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp391_ = spawn_args;
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp391__length1 = spawn_args_length1;
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp392_ = refincludePath;
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp393_ = string_to_string (_tmp392_);
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_tmp394_ = g_strconcat ("-I", _tmp393_, NULL);
-#line 3094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3092 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_vala_array_add17 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp394_);
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refsharedOutput);
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refincludePath);
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refprojectOutput);
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refprojectName);
-#line 3083 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3081 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 								_g_free0 (refproject);
-#line 27234 "main_paned.c"
+#line 28176 "main_paned.c"
 							}
 						}
 					}
-#line 3068 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (iterItem);
-#line 27240 "main_paned.c"
+#line 28182 "main_paned.c"
 				}
 			}
 		}
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp395_ = g_file_new_for_path (rootPath);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp396_ = _tmp395_;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp397_ = projectPath;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp398_ = g_file_get_child (_tmp396_, _tmp397_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp399_ = _tmp398_;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp400_ = g_file_get_child (_tmp399_, "resources.c");
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp401_ = _tmp400_;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp402_ = g_file_get_path (_tmp401_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp403_ = _tmp402_;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp404_ = string_replace (_tmp403_, "\\", "/");
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp405_ = _tmp404_;
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp403_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp401_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp399_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_tmp396_);
-#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		resource = _tmp405_;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp406_ = spawn_args;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp406__length1 = spawn_args_length1;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp407_ = resource;
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp408_ = string_to_string (_tmp407_);
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp409_ = g_strdup (_tmp408_);
-#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_vala_array_add18 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp409_);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp410_ = spawn_args;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp410__length1 = spawn_args_length1;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp411_ = gresources;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp412_ = g_file_get_path (_tmp411_);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp413_ = _tmp412_;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp414_ = string_replace (_tmp413_, "\\", "/");
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp415_ = _tmp414_;
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp416_ = string_to_string (_tmp415_);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp417_ = g_strconcat ("--gresources=", _tmp416_, NULL);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_vala_array_add19 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp417_);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp415_);
-#line 3099 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3097 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp413_);
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp418_ = spawn_args;
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp418__length1 = spawn_args_length1;
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp419_ = gresourcesdir;
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp420_ = string_to_string (_tmp419_);
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp421_ = g_strconcat ("--gresourcesdir=", _tmp420_, NULL);
-#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_vala_array_add20 (&spawn_args, &spawn_args_length1, &_spawn_args_size_, _tmp421_);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp422_ = self->buildTextView;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp423_ = gtk_text_view_get_buffer (_tmp422_);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp424_ = _tmp423_;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp425_ = spawn_args;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp425__length1 = spawn_args_length1;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp426_ = _vala_g_strjoinv (" ", _tmp425_, (gint) _tmp425__length1);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp427_ = _tmp426_;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp428_ = g_strconcat (_tmp427_, "\n", NULL);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_tmp429_ = _tmp428_;
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		gtk_text_buffer_insert_at_cursor (_tmp424_, _tmp429_, -1);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp429_);
-#line 3102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_tmp427_);
-#line 27348 "main_paned.c"
+#line 28290 "main_paned.c"
 		{
-			Block46Data* _data46_;
+			Block48Data* _data48_;
 			GMainLoop* _tmp430_;
 			GSourceFunc quit = NULL;
 			gpointer quit_target;
@@ -27357,181 +28299,181 @@ vala_develop_main_paned_compile_project (valaDevelopMainPaned* self,
 			gpointer _tmp432__target;
 			const gchar* _tmp433_;
 			GMainLoop* _tmp434_;
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data48_ = g_slice_new0 (Block48Data);
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data48_->_ref_count_ = 1;
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data48_->self = g_object_ref (self);
 #line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data46_ = g_slice_new0 (Block46Data);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data46_->_ref_count_ = 1;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data46_->self = g_object_ref (self);
-#line 3105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp430_ = g_main_loop_new (NULL, FALSE);
-#line 3105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data46_->mainloop = _tmp430_;
-#line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			quit = _____lambda64__gsource_func;
-#line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			quit_target = block46_data_ref (_data46_);
-#line 3106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			quit_target_destroy_notify = block46_data_unref;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data48_->mainloop = _tmp430_;
+#line 3104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			quit = _____lambda72__gsource_func;
+#line 3104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			quit_target = block48_data_ref (_data48_);
+#line 3104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			quit_target_destroy_notify = block48_data_unref;
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp431_ = spawn_args;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp431__length1 = spawn_args_length1;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp432_ = quit;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp432__target = quit_target;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp433_ = projectName;
-#line 3111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			vala_develop_main_paned_read_piped_commands (self, _tmp431_, (gint) _tmp431__length1, _tmp432_, _tmp432__target, _tmp433_, NULL, NULL);
-#line 3112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_tmp434_ = _data46_->mainloop;
-#line 3112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_tmp434_ = _data48_->mainloop;
+#line 3110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_main_loop_run (_tmp434_);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(quit_target_destroy_notify == NULL) ? NULL : (quit_target_destroy_notify (quit_target), NULL);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			quit = NULL;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			quit_target = NULL;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			quit_target_destroy_notify = NULL;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			block46_data_unref (_data46_);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			_data46_ = NULL;
-#line 27405 "main_paned.c"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			block48_data_unref (_data48_);
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			_data48_ = NULL;
+#line 28347 "main_paned.c"
 		}
-		goto __finally52;
-		__catch52_g_spawn_error:
+		goto __finally53;
+		__catch53_g_spawn_error:
 		{
 			GError* e = NULL;
 			GError* _tmp435_;
 			const gchar* _tmp436_;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			e = _inner_error0_;
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_inner_error0_ = NULL;
-#line 3116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp435_ = e;
-#line 3116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_tmp436_ = _tmp435_->message;
-#line 3116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-			g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:3116: %s", _tmp436_);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+			g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:3114: %s", _tmp436_);
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_error_free0 (e);
-#line 27425 "main_paned.c"
+#line 28367 "main_paned.c"
 		}
-		__finally52:
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		__finally53:
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (resource);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (c_options);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectOutput);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (ls_stderr);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (ls_stdout);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (gresourcesdir);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_xmlFreeTextWriter0 (writer);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_object_unref0 (gresources);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (buildCommand);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectNamespace);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectName);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_g_free0 (projectPath);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_clear_error (&_inner_error0_);
-#line 3103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			return;
-#line 27466 "main_paned.c"
+#line 28408 "main_paned.c"
 		}
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (resource);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (c_options);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (projectOutput);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (ls_stderr);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (ls_stdout);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_env = (_vala_array_free (spawn_env, spawn_env_length1, (GDestroyNotify) g_free), NULL);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		spawn_args = (_vala_array_free (spawn_args, spawn_args_length1, (GDestroyNotify) g_free), NULL);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (gresourcesdir);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_xmlFreeTextWriter0 (writer);
-#line 2952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (gresources);
-#line 27488 "main_paned.c"
+#line 28430 "main_paned.c"
 	}
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (buildCommand);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (projectNamespace);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (projectName);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (projectPath);
-#line 2940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	(items == NULL) ? NULL : (items = (_g_list_free__g_free0_ (items), NULL));
-#line 27500 "main_paned.c"
+#line 28442 "main_paned.c"
 }
 
-static Block47Data*
-block47_data_ref (Block47Data* _data47_)
+static Block49Data*
+block49_data_ref (Block49Data* _data49_)
 {
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_atomic_int_inc (&_data47_->_ref_count_);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	return _data47_;
-#line 27510 "main_paned.c"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	g_atomic_int_inc (&_data49_->_ref_count_);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	return _data49_;
+#line 28452 "main_paned.c"
 }
 
 static void
-block47_data_unref (void * _userdata_)
+block49_data_unref (void * _userdata_)
 {
-	Block47Data* _data47_;
-	_data47_ = (Block47Data*) _userdata_;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	if (g_atomic_int_dec_and_test (&_data47_->_ref_count_)) {
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_object_unref0 (_data47_->buildTextView);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_object_unref0 (_data47_->statusList);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_free0 (_data47_->projectName);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		_g_free0 (_data47_->content);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_slice_free (Block47Data, _data47_);
-#line 27530 "main_paned.c"
+	Block49Data* _data49_;
+	_data49_ = (Block49Data*) _userdata_;
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	if (g_atomic_int_dec_and_test (&_data49_->_ref_count_)) {
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_object_unref0 (_data49_->buildTextView);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_object_unref0 (_data49_->statusList);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_free0 (_data49_->projectName);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		_g_free0 (_data49_->content);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_slice_free (Block49Data, _data49_);
+#line 28472 "main_paned.c"
 	}
 }
 
 static gboolean
-__lambda65_ (Block47Data* _data47_)
+__lambda73_ (Block49Data* _data49_)
 {
 	gboolean result = FALSE;
 	GtkTextBuffer* _tmp0_;
@@ -27543,49 +28485,49 @@ __lambda65_ (Block47Data* _data47_)
 	GtkTextBuffer* _tmp5_;
 	GtkTextMark* _tmp6_;
 	GtkTextMark* _tmp7_;
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp0_ = gtk_text_view_get_buffer (_data47_->buildTextView);
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp0_ = gtk_text_view_get_buffer (_data49_->buildTextView);
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _tmp0_;
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp2_ = g_strconcat (_data47_->content, "\n", NULL);
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp2_ = g_strconcat (_data49_->content, "\n", NULL);
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = _tmp2_;
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_text_buffer_insert_at_cursor (_tmp1_, _tmp3_, -1);
-#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_free0 (_tmp3_);
-#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_tmp4_ = gtk_text_view_get_buffer (_data47_->buildTextView);
-#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_tmp4_ = gtk_text_view_get_buffer (_data49_->buildTextView);
+#line 3124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp5_ = _tmp4_;
-#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp6_ = gtk_text_buffer_get_insert (_tmp5_);
-#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp7_ = _g_object_ref0 (_tmp6_);
-#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	mark = _tmp7_;
+#line 3125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	gtk_text_view_scroll_to_mark (_data49_->buildTextView, mark, (gdouble) 0, TRUE, (gdouble) 1, (gdouble) 1);
+#line 3126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	vala_develop_status_list_AddOutput (_data49_->statusList, _data49_->projectName, _data49_->content);
 #line 3127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	gtk_text_view_scroll_to_mark (_data47_->buildTextView, mark, (gdouble) 0, TRUE, (gdouble) 1, (gdouble) 1);
-#line 3128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	vala_develop_status_list_AddOutput (_data47_->statusList, _data47_->projectName, _data47_->content);
-#line 3129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	result = G_SOURCE_REMOVE;
-#line 3129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (mark);
-#line 3129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 27579 "main_paned.c"
+#line 28521 "main_paned.c"
 }
 
 static gboolean
-___lambda65__gsource_func (gpointer self)
+___lambda73__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = __lambda65_ (self);
-#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	result = __lambda73_ (self);
+#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return result;
-#line 27589 "main_paned.c"
+#line 28531 "main_paned.c"
 }
 
 static void
@@ -27594,54 +28536,54 @@ vala_develop_main_paned_update_build_and_status (GtkTextView* buildTextView,
                                                  const gchar* projectName,
                                                  const gchar* content)
 {
-	Block47Data* _data47_;
+	Block49Data* _data49_;
 	GtkTextView* _tmp0_;
 	valaDevelopStatusList* _tmp1_;
 	gchar* _tmp2_;
 	gchar* _tmp3_;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (buildTextView != NULL);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (statusList != NULL);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (projectName != NULL);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_return_if_fail (content != NULL);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_ = g_slice_new0 (Block47Data);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_->_ref_count_ = 1;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_ = g_slice_new0 (Block49Data);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_->_ref_count_ = 1;
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp0_ = _g_object_ref0 (buildTextView);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_g_object_unref0 (_data47_->buildTextView);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_->buildTextView = _tmp0_;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_object_unref0 (_data49_->buildTextView);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_->buildTextView = _tmp0_;
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp1_ = _g_object_ref0 (statusList);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_g_object_unref0 (_data47_->statusList);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_->statusList = _tmp1_;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_object_unref0 (_data49_->statusList);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_->statusList = _tmp1_;
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp2_ = g_strdup (projectName);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_g_free0 (_data47_->projectName);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_->projectName = _tmp2_;
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_free0 (_data49_->projectName);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_->projectName = _tmp2_;
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_tmp3_ = g_strdup (content);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_g_free0 (_data49_->content);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_->content = _tmp3_;
 #line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_g_free0 (_data47_->content);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_->content = _tmp3_;
-#line 3123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda65__gsource_func, block47_data_ref (_data47_), block47_data_unref);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	block47_data_unref (_data47_);
-#line 3121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-	_data47_ = NULL;
-#line 27645 "main_paned.c"
+	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda73__gsource_func, block49_data_ref (_data49_), block49_data_unref);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	block49_data_unref (_data49_);
+#line 3119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	_data49_ = NULL;
+#line 28587 "main_paned.c"
 }
 
 static void
@@ -27655,7 +28597,7 @@ vala_develop_main_paned_read_piped_commands_data_free (gpointer _data)
 	_g_object_unref0 (_data_->self);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_slice_free (ValaDevelopMainPanedReadPipedCommandsData, _data_);
-#line 27659 "main_paned.c"
+#line 28601 "main_paned.c"
 }
 
 static void
@@ -27697,7 +28639,7 @@ vala_develop_main_paned_read_piped_commands (valaDevelopMainPaned* self,
 	_data_->projectName = _tmp1_;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_read_piped_commands_co (_data_);
-#line 27701 "main_paned.c"
+#line 28643 "main_paned.c"
 }
 
 static void
@@ -27707,7 +28649,7 @@ vala_develop_main_paned_read_piped_commands_finish (valaDevelopMainPaned* self,
 	ValaDevelopMainPanedReadPipedCommandsData* _data_;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_ = g_task_propagate_pointer (G_TASK (_res_), NULL);
-#line 27711 "main_paned.c"
+#line 28653 "main_paned.c"
 }
 
 static void
@@ -27716,191 +28658,191 @@ vala_develop_main_paned_read_piped_commands_ready (GObject* source_object,
                                                    gpointer _user_data_)
 {
 	ValaDevelopMainPanedReadPipedCommandsData* _data_;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_ = _user_data_;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_source_object_ = source_object;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_res_ = _res_;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	vala_develop_main_paned_read_piped_commands_co (_data_);
-#line 27728 "main_paned.c"
+#line 28670 "main_paned.c"
 }
 
 static gboolean
 vala_develop_main_paned_read_piped_commands_co (ValaDevelopMainPanedReadPipedCommandsData* _data_)
 {
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	switch (_data_->_state_) {
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case 0:
-#line 27738 "main_paned.c"
+#line 28680 "main_paned.c"
 		goto _state_0;
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		case 1:
-#line 27742 "main_paned.c"
+#line 28684 "main_paned.c"
 		goto _state_1;
 		default:
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_assert_not_reached ();
-#line 27747 "main_paned.c"
+#line 28689 "main_paned.c"
 	}
 	_state_0:
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp0_ = g_subprocess_newv (_data_->spawn_args, G_SUBPROCESS_FLAGS_STDOUT_PIPE | G_SUBPROCESS_FLAGS_STDERR_MERGE, &_data_->_inner_error0_);
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->subprocess = _data_->_tmp0_;
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_data_->_inner_error0_ != NULL)) {
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _data_->_inner_error0_->message, g_quark_to_string (_data_->_inner_error0_->domain), _data_->_inner_error0_->code);
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_data_->_inner_error0_);
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_object_unref (_data_->_async_result);
-#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return FALSE;
-#line 27764 "main_paned.c"
+#line 28706 "main_paned.c"
 	}
-#line 3136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp1_ = _data_->subprocess;
-#line 3136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp2_ = g_subprocess_get_stdout_pipe (_data_->_tmp1_);
-#line 3136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->_tmp3_ = g_data_input_stream_new (_data_->_tmp2_);
-#line 3136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->output = _data_->_tmp3_;
-#line 27774 "main_paned.c"
+#line 28716 "main_paned.c"
 	{
-#line 3139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data_->line = NULL;
-#line 27778 "main_paned.c"
+#line 28720 "main_paned.c"
 		{
-#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			_data_->_tmp4_ = TRUE;
-#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			while (TRUE) {
-#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (!_data_->_tmp4_) {
-#line 3147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_data_->_tmp5_ = _data_->line;
-#line 3147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					if (!(_data_->_tmp5_ != NULL)) {
-#line 3147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 						break;
-#line 27792 "main_paned.c"
+#line 28734 "main_paned.c"
 					}
 				}
-#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data_->_tmp4_ = FALSE;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data_->_tmp7_ = _data_->output;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data_->_state_ = 1;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				g_data_input_stream_read_line_async (_data_->_tmp7_, G_PRIORITY_DEFAULT, NULL, vala_develop_main_paned_read_piped_commands_ready, _data_);
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				return FALSE;
-#line 27805 "main_paned.c"
+#line 28747 "main_paned.c"
 				_state_1:
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data_->_tmp8_ = g_data_input_stream_read_line_finish (_data_->_tmp7_, _data_->_res_, NULL, &_data_->_inner_error0_);
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_data_->_tmp6_ = _data_->_tmp8_;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				if (G_UNLIKELY (_data_->_inner_error0_ != NULL)) {
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 					_g_free0 (_data_->line);
-#line 27815 "main_paned.c"
-					goto __catch53_g_error;
-				}
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_data_->_tmp9_ = _data_->_tmp6_;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_data_->_tmp6_ = NULL;
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_g_free0 (_data_->line);
-#line 3142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_data_->line = _data_->_tmp9_;
-#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				_data_->_tmp10_ = _data_->line;
-#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-				if (_data_->_tmp10_ != NULL) {
-#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data_->_tmp11_ = _data_->self->buildTextView;
-#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data_->_tmp12_ = _data_->self->statusList;
-#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					_data_->_tmp13_ = _data_->line;
-#line 3145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-					vala_develop_main_paned_update_build_and_status (_data_->_tmp11_, _data_->_tmp12_, _data_->projectName, _data_->_tmp13_);
-#line 27838 "main_paned.c"
+#line 28757 "main_paned.c"
+					goto __catch54_g_error;
 				}
 #line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_data_->_tmp9_ = _data_->_tmp6_;
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_data_->_tmp6_ = NULL;
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_g_free0 (_data_->line);
+#line 3140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_data_->line = _data_->_tmp9_;
+#line 3141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				_data_->_tmp10_ = _data_->line;
+#line 3141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+				if (_data_->_tmp10_ != NULL) {
+#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data_->_tmp11_ = _data_->self->buildTextView;
+#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data_->_tmp12_ = _data_->self->statusList;
+#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					_data_->_tmp13_ = _data_->line;
+#line 3143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+					vala_develop_main_paned_update_build_and_status (_data_->_tmp11_, _data_->_tmp12_, _data_->projectName, _data_->_tmp13_);
+#line 28780 "main_paned.c"
+				}
+#line 3138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 				_g_free0 (_data_->_tmp6_);
-#line 27842 "main_paned.c"
+#line 28784 "main_paned.c"
 			}
 		}
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_free0 (_data_->line);
-#line 27847 "main_paned.c"
+#line 28789 "main_paned.c"
 	}
-	goto __finally53;
-	__catch53_g_error:
+	goto __finally54;
+	__catch54_g_error:
 	{
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data_->_error_ = _data_->_inner_error0_;
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data_->_inner_error0_ = NULL;
-#line 3151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data_->_tmp14_ = _data_->_error_;
-#line 3151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_data_->_tmp15_ = _data_->_tmp14_->message;
-#line 3151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:3151: %s", _data_->_tmp15_);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+		g_log (NULL, G_LOG_LEVEL_ERROR, "main_paned.vala:3149: %s", _data_->_tmp15_);
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_error_free0 (_data_->_error_);
-#line 27864 "main_paned.c"
+#line 28806 "main_paned.c"
 	}
-	__finally53:
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+	__finally54:
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (G_UNLIKELY (_data_->_inner_error0_ != NULL)) {
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_data_->output);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		_g_object_unref0 (_data_->subprocess);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _data_->_inner_error0_->message, g_quark_to_string (_data_->_inner_error0_->domain), _data_->_inner_error0_->code);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_clear_error (&_data_->_inner_error0_);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		g_object_unref (_data_->_async_result);
-#line 3137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		return FALSE;
-#line 27881 "main_paned.c"
+#line 28823 "main_paned.c"
 	}
-#line 3153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_data_->quit (_data_->quit_target);
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_data_->output);
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	_g_object_unref0 (_data_->subprocess);
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_task_return_pointer (_data_->_async_result, _data_, NULL);
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	if (_data_->_state_ != 0) {
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 		while (!g_task_get_completed (_data_->_async_result)) {
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 			g_main_context_iteration (g_task_get_context (_data_->_async_result), TRUE);
-#line 27897 "main_paned.c"
+#line 28839 "main_paned.c"
 		}
 	}
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_object_unref (_data_->_async_result);
-#line 3133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 3131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	return FALSE;
-#line 27904 "main_paned.c"
+#line 28846 "main_paned.c"
 }
 
 static void
@@ -28061,7 +29003,7 @@ vala_develop_main_paned_class_init (valaDevelopMainPanedClass * klass,
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnRowActivated", G_CALLBACK(_vala_develop_main_paned_OnRowActivated_gtk_tree_view_row_activated));
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnResolveSymbols", G_CALLBACK(_vala_develop_main_paned_OnResolveSymbols_gtk_button_clicked));
-#line 28065 "main_paned.c"
+#line 29007 "main_paned.c"
 }
 
 static void
@@ -28095,13 +29037,13 @@ vala_develop_main_paned_instance_init (valaDevelopMainPaned * self,
 	_tmp2_ = g_strdup ("");
 #line 1792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self->priv->_last_word = _tmp2_;
-#line 2817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
+#line 2815 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	self->priv->_expand_collapse = TRUE;
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	g_type_ensure (VALA_DEVELOP_TYPE_STATUS_LIST);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
-#line 28105 "main_paned.c"
+#line 29047 "main_paned.c"
 }
 
 static void
@@ -28208,7 +29150,7 @@ vala_develop_main_paned_finalize (GObject * obj)
 	_g_free0 (self->priv->_last_word);
 #line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/main_paned.vala"
 	G_OBJECT_CLASS (vala_develop_main_paned_parent_class)->finalize (obj);
-#line 28212 "main_paned.c"
+#line 29154 "main_paned.c"
 }
 
 GType

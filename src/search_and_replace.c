@@ -130,15 +130,15 @@ G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSettings, vala_develop_settings_unref)
 valaDevelopSettings* vala_develop_xml_configuration_get_Setting (void);
 gchar* vala_develop_settings_get (valaDevelopSettings* self,
                                   const gchar* key);
-static void __lambda76_ (valaDevelopSearchAndReplace* self);
-static void ___lambda76__gtk_widget_hide (GtkWidget* _sender,
+static void __lambda84_ (valaDevelopSearchAndReplace* self);
+static void ___lambda84__gtk_widget_hide (GtkWidget* _sender,
                                    gpointer self);
-static void __lambda77_ (valaDevelopSearchAndReplace* self,
+static void __lambda85_ (valaDevelopSearchAndReplace* self,
                   GObject* sender,
                   GParamSpec* property);
 void vala_develop_search_and_replace_UpdateResult (valaDevelopSearchAndReplace* self,
                                                    gboolean withForward);
-static void ___lambda77__g_object_notify (GObject* _sender,
+static void ___lambda85__g_object_notify (GObject* _sender,
                                    GParamSpec* pspec,
                                    gpointer self);
 static gboolean vala_develop_search_and_replace_on_key_press_event (valaDevelopSearchAndReplace* self,
@@ -204,14 +204,14 @@ static void _vala_develop_search_and_replace_OnReplaceChanged_gtk_editable_chang
 static void vala_develop_search_and_replace_OnTextChanged (valaDevelopSearchAndReplace* self);
 static void _vala_develop_search_and_replace_OnTextChanged_gtk_editable_changed (GtkEditable* _sender,
                                                                           gpointer self);
-static void __lambda78_ (valaDevelopSearchAndReplace* self,
+static void __lambda86_ (valaDevelopSearchAndReplace* self,
                   GObject* source_object,
                   GAsyncResult* res);
 static Block2Data* block2_data_ref (Block2Data* _data2_);
 static void block2_data_unref (void * _userdata_);
-static gboolean ___lambda79_ (Block2Data* _data2_);
-static gboolean ____lambda79__gsource_func (gpointer self);
-static void ___lambda78__gasync_ready_callback (GObject* source_object,
+static gboolean ___lambda87_ (Block2Data* _data2_);
+static gboolean ____lambda87__gsource_func (gpointer self);
+static void ___lambda86__gasync_ready_callback (GObject* source_object,
                                          GAsyncResult* res,
                                          gpointer self);
 void vala_develop_search_and_replace_entry_grab_focus (valaDevelopSearchAndReplace* self);
@@ -295,7 +295,7 @@ bool_parse (const gchar* str)
 }
 
 static void
-__lambda76_ (valaDevelopSearchAndReplace* self)
+__lambda84_ (valaDevelopSearchAndReplace* self)
 {
 	GtkSourceSearchContext* _tmp0_;
 #line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
@@ -306,16 +306,16 @@ __lambda76_ (valaDevelopSearchAndReplace* self)
 }
 
 static void
-___lambda76__gtk_widget_hide (GtkWidget* _sender,
+___lambda84__gtk_widget_hide (GtkWidget* _sender,
                               gpointer self)
 {
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	__lambda76_ ((valaDevelopSearchAndReplace*) self);
+	__lambda84_ ((valaDevelopSearchAndReplace*) self);
 #line 315 "search_and_replace.c"
 }
 
 static void
-__lambda77_ (valaDevelopSearchAndReplace* self,
+__lambda85_ (valaDevelopSearchAndReplace* self,
              GObject* sender,
              GParamSpec* property)
 {
@@ -348,12 +348,12 @@ __lambda77_ (valaDevelopSearchAndReplace* self,
 }
 
 static void
-___lambda77__g_object_notify (GObject* _sender,
+___lambda85__g_object_notify (GObject* _sender,
                               GParamSpec* pspec,
                               gpointer self)
 {
 #line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	__lambda77_ ((valaDevelopSearchAndReplace*) self, _sender, pspec);
+	__lambda85_ ((valaDevelopSearchAndReplace*) self, _sender, pspec);
 #line 358 "search_and_replace.c"
 }
 
@@ -667,11 +667,11 @@ vala_develop_search_and_replace_construct (GType object_type,
 #line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_check_menu_item_set_active (_tmp53_, _tmp56_);
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	g_signal_connect_object ((GtkWidget*) self, "hide", (GCallback) ___lambda76__gtk_widget_hide, self, 0);
+	g_signal_connect_object ((GtkWidget*) self, "hide", (GCallback) ___lambda84__gtk_widget_hide, self, 0);
 #line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp57_ = self->priv->_searchContext;
 #line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	g_signal_connect_object ((GObject*) _tmp57_, "notify", (GCallback) ___lambda77__g_object_notify, self, 0);
+	g_signal_connect_object ((GObject*) _tmp57_, "notify", (GCallback) ___lambda85__g_object_notify, self, 0);
 #line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp39_);
 #line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
@@ -1537,7 +1537,7 @@ block2_data_unref (void * _userdata_)
 }
 
 static gboolean
-___lambda79_ (Block2Data* _data2_)
+___lambda87_ (Block2Data* _data2_)
 {
 	valaDevelopSearchAndReplace* self;
 	gboolean result = FALSE;
@@ -1565,17 +1565,17 @@ ___lambda79_ (Block2Data* _data2_)
 }
 
 static gboolean
-____lambda79__gsource_func (gpointer self)
+____lambda87__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda79_ (self);
+	result = ___lambda87_ (self);
 #line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
 #line 1575 "search_and_replace.c"
 }
 
 static void
-__lambda78_ (valaDevelopSearchAndReplace* self,
+__lambda86_ (valaDevelopSearchAndReplace* self,
              GObject* source_object,
              GAsyncResult* res)
 {
@@ -1635,7 +1635,7 @@ __lambda78_ (valaDevelopSearchAndReplace* self,
 #line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_text_buffer_select_range ((GtkTextBuffer*) _tmp5_, &_tmp6_, &_tmp7_);
 #line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda79__gsource_func, block2_data_ref (_data2_), block2_data_unref);
+		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda87__gsource_func, block2_data_ref (_data2_), block2_data_unref);
 #line 1640 "search_and_replace.c"
 	}
 #line 241 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
@@ -1648,12 +1648,12 @@ __lambda78_ (valaDevelopSearchAndReplace* self,
 }
 
 static void
-___lambda78__gasync_ready_callback (GObject* source_object,
+___lambda86__gasync_ready_callback (GObject* source_object,
                                     GAsyncResult* res,
                                     gpointer self)
 {
 #line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	__lambda78_ ((valaDevelopSearchAndReplace*) self, source_object, res);
+	__lambda86_ ((valaDevelopSearchAndReplace*) self, source_object, res);
 #line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_unref (self);
 #line 1660 "search_and_replace.c"
@@ -1686,7 +1686,7 @@ vala_develop_search_and_replace_SearchForwardAsync (valaDevelopSearchAndReplace*
 #line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = currentIter;
 #line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
-	gtk_source_search_context_forward_async (_tmp4_, &_tmp5_, NULL, ___lambda78__gasync_ready_callback, g_object_ref (self));
+	gtk_source_search_context_forward_async (_tmp4_, &_tmp5_, NULL, ___lambda86__gasync_ready_callback, g_object_ref (self));
 #line 1691 "search_and_replace.c"
 }
 

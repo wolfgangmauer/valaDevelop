@@ -124,8 +124,8 @@ static gboolean _vala_develop_source_create_file_OnGroupSelected_gtk_tree_select
                                                                                    GtkTreePath* path,
                                                                                    gboolean path_currently_selected,
                                                                                    gpointer self);
-static void __lambda71_ (valaDevelopSourceCreateFile* self);
-static void ___lambda71__gtk_editable_changed (GtkEditable* _sender,
+static void __lambda79_ (valaDevelopSourceCreateFile* self);
+static void ___lambda79__gtk_editable_changed (GtkEditable* _sender,
                                         gpointer self);
 static void vala_develop_source_create_file_OnAccept (valaDevelopSourceCreateFile* self);
 static void vala_develop_source_create_file_CreateSource (valaDevelopSourceCreateFile* self,
@@ -210,7 +210,7 @@ _vala_develop_source_create_file_OnGroupSelected_gtk_tree_selection_func (GtkTre
 }
 
 static void
-__lambda71_ (valaDevelopSourceCreateFile* self)
+__lambda79_ (valaDevelopSourceCreateFile* self)
 {
 	GtkButton* _tmp0_;
 	GtkEntry* _tmp1_;
@@ -230,11 +230,11 @@ __lambda71_ (valaDevelopSourceCreateFile* self)
 }
 
 static void
-___lambda71__gtk_editable_changed (GtkEditable* _sender,
+___lambda79__gtk_editable_changed (GtkEditable* _sender,
                                    gpointer self)
 {
 #line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/source_create_file_dialog.vala"
-	__lambda71_ ((valaDevelopSourceCreateFile*) self);
+	__lambda79_ ((valaDevelopSourceCreateFile*) self);
 #line 239 "source_create_file_dialog.c"
 }
 
@@ -626,7 +626,7 @@ vala_develop_source_create_file_construct (GType object_type,
 #line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/source_create_file_dialog.vala"
 	_tmp71_ = self->priv->sourceName;
 #line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/source_create_file_dialog.vala"
-	g_signal_connect_object ((GtkEditable*) _tmp71_, "changed", (GCallback) ___lambda71__gtk_editable_changed, self, 0);
+	g_signal_connect_object ((GtkEditable*) _tmp71_, "changed", (GCallback) ___lambda79__gtk_editable_changed, self, 0);
 #line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/source_create_file_dialog.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
 #line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/source_create_file_dialog.vala"

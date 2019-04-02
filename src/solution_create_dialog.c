@@ -93,11 +93,11 @@ valaDevelopSolutionCreateDialog* vala_develop_solution_create_dialog_new (GtkWid
 valaDevelopSolutionCreateDialog* vala_develop_solution_create_dialog_construct (GType object_type,
                                                                                 GtkWidget* parent,
                                                                                 valaDevelopItemType item_type);
-static void __lambda74_ (valaDevelopSolutionCreateDialog* self);
-static void ___lambda74__gtk_widget_show (GtkWidget* _sender,
+static void __lambda82_ (valaDevelopSolutionCreateDialog* self);
+static void ___lambda82__gtk_widget_show (GtkWidget* _sender,
                                    gpointer self);
-static void __lambda75_ (valaDevelopSolutionCreateDialog* self);
-static void ___lambda75__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+static void __lambda83_ (valaDevelopSolutionCreateDialog* self);
+static void ___lambda83__gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                              gpointer self);
 static void vala_develop_solution_create_dialog_OnSolutionChanged (valaDevelopSolutionCreateDialog* self);
 static void _vala_develop_solution_create_dialog_OnSolutionChanged_gtk_editable_changed (GtkEditable* _sender,
@@ -145,7 +145,7 @@ vala_develop_solution_create_dialog_get_instance_private (valaDevelopSolutionCre
 }
 
 static void
-__lambda74_ (valaDevelopSolutionCreateDialog* self)
+__lambda82_ (valaDevelopSolutionCreateDialog* self)
 {
 	GtkTreeView* _tmp0_;
 	GtkTreeView* _tmp1_;
@@ -161,16 +161,16 @@ __lambda74_ (valaDevelopSolutionCreateDialog* self)
 }
 
 static void
-___lambda74__gtk_widget_show (GtkWidget* _sender,
+___lambda82__gtk_widget_show (GtkWidget* _sender,
                               gpointer self)
 {
 #line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
-	__lambda74_ ((valaDevelopSolutionCreateDialog*) self);
+	__lambda82_ ((valaDevelopSolutionCreateDialog*) self);
 #line 170 "solution_create_dialog.c"
 }
 
 static void
-__lambda75_ (valaDevelopSolutionCreateDialog* self)
+__lambda83_ (valaDevelopSolutionCreateDialog* self)
 {
 	GtkCheckButton* _tmp0_;
 	GtkRadioButton* _tmp1_;
@@ -208,11 +208,11 @@ __lambda75_ (valaDevelopSolutionCreateDialog* self)
 }
 
 static void
-___lambda75__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+___lambda83__gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                         gpointer self)
 {
 #line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
-	__lambda75_ ((valaDevelopSolutionCreateDialog*) self);
+	__lambda83_ ((valaDevelopSolutionCreateDialog*) self);
 #line 217 "solution_create_dialog.c"
 }
 
@@ -415,11 +415,11 @@ vala_develop_solution_create_dialog_construct (GType object_type,
 #line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
 	G_IS_VALUE (&_tmp34_) ? (g_value_unset (&_tmp34_), NULL) : NULL;
 #line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
-	g_signal_connect_object ((GtkWidget*) self, "show", (GCallback) ___lambda74__gtk_widget_show, self, 0);
+	g_signal_connect_object ((GtkWidget*) self, "show", (GCallback) ___lambda82__gtk_widget_show, self, 0);
 #line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
 	_tmp35_ = self->priv->sharedObject;
 #line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
-	g_signal_connect_object ((GtkToggleButton*) _tmp35_, "toggled", (GCallback) ___lambda75__gtk_toggle_button_toggled, self, 0);
+	g_signal_connect_object ((GtkToggleButton*) _tmp35_, "toggled", (GCallback) ___lambda83__gtk_toggle_button_toggled, self, 0);
 #line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"
 	_tmp36_ = self->priv->withVapi;
 #line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/solution_create_dialog.vala"

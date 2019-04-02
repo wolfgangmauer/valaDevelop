@@ -460,7 +460,7 @@ vala_develop_GetSysStats (GPid pid,
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_object_unref0 (file);
 #line 463 "stats.c"
-				goto __catch63_g_error;
+				goto __catch64_g_error;
 			}
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp17_ = g_data_input_stream_new ((GInputStream*) _tmp14_);
@@ -522,7 +522,7 @@ vala_develop_GetSysStats (GPid pid,
 #line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_object_unref0 (file);
 #line 525 "stats.c"
-					goto __catch63_g_error;
+					goto __catch64_g_error;
 				}
 #line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp24_ = _tmp21_;
@@ -794,8 +794,8 @@ vala_develop_GetSysStats (GPid pid,
 			_g_object_unref0 (file);
 #line 796 "stats.c"
 		}
-		goto __finally63;
-		__catch63_g_error:
+		goto __finally64;
+		__catch64_g_error:
 		{
 			GError* err = NULL;
 #line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
@@ -806,7 +806,7 @@ vala_develop_GetSysStats (GPid pid,
 			_g_error_free0 (err);
 #line 808 "stats.c"
 		}
-		__finally63:
+		__finally64:
 #line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
@@ -865,7 +865,7 @@ vala_develop_GetSysStats (GPid pid,
 #line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (_inner_error0_->domain == G_FILE_ERROR) {
 #line 868 "stats.c"
-					goto __catch64_g_file_error;
+					goto __catch65_g_file_error;
 				}
 #line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (content);
@@ -923,8 +923,8 @@ vala_develop_GetSysStats (GPid pid,
 			_g_free0 (content);
 #line 925 "stats.c"
 		}
-		goto __finally64;
-		__catch64_g_file_error:
+		goto __finally65;
+		__catch65_g_file_error:
 		{
 			GError* err = NULL;
 #line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
@@ -935,7 +935,7 @@ vala_develop_GetSysStats (GPid pid,
 			_g_error_free0 (err);
 #line 937 "stats.c"
 		}
-		__finally64:
+		__finally65:
 #line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
@@ -999,7 +999,7 @@ vala_develop_GetSysStats (GPid pid,
 #line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					if (_inner_error0_->domain == G_FILE_ERROR) {
 #line 1002 "stats.c"
-						goto __catch65_g_file_error;
+						goto __catch66_g_file_error;
 					}
 #line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (memInf);
@@ -1330,8 +1330,8 @@ vala_develop_GetSysStats (GPid pid,
 			_g_free0 (memInf);
 #line 1332 "stats.c"
 		}
-		goto __finally65;
-		__catch65_g_file_error:
+		goto __finally66;
+		__catch66_g_file_error:
 		{
 			GError* err = NULL;
 #line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
@@ -1342,7 +1342,7 @@ vala_develop_GetSysStats (GPid pid,
 			_g_error_free0 (err);
 #line 1344 "stats.c"
 		}
-		__finally65:
+		__finally66:
 #line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"

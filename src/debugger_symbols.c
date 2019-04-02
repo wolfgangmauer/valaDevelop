@@ -6,13 +6,13 @@
 #include <glib.h>
 #include <stdlib.h>
 #include <string.h>
-#include <vala.h>
+#include "vala.h"
 #include <gtksourceview/gtksource.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <gee.h>
 #include <glib/gi18n-lib.h>
-#include <valagee.h>
+#include "valagee.h"
 #include <gobject/gvaluecollector.h>
 
 #define VALA_DEVELOP_TYPE_DEBUGGER_SYMBOLS (vala_develop_debugger_symbols_get_type ())
@@ -290,7 +290,7 @@ GType vala_develop_item_options_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopItemOptions, g_object_unref)
 GType vala_develop_main_window_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopmainWindow, g_object_unref)
-static gint ___lambda14_ (Block19Data* _data19_);
+static gint ___lambda19_ (Block19Data* _data19_);
 static gchar* vala_develop_debugger_symbols_get_self_with_timeout (valaDevelopDebuggerSymbols* self);
 gpointer vala_develop_function_args_ref (gpointer instance);
 void vala_develop_function_args_unref (gpointer instance);
@@ -320,23 +320,23 @@ static void vala_develop_debugger_symbols_add_variable_with_parents (valaDevelop
                                                               GdkPixbuf* icon,
                                                               GtkTreeIter* parentIter,
                                                               const gchar* _self_);
-static gboolean ___lambda18_ (valaDevelopDebuggerSymbols* self);
+static gboolean ___lambda23_ (valaDevelopDebuggerSymbols* self);
 static void _vala_GtkTreePath_free (GtkTreePath* self);
-static gboolean ____lambda18__gsource_func (gpointer self);
-static gpointer ____lambda14__gthread_func (gpointer self);
+static gboolean ____lambda23__gsource_func (gpointer self);
+static gpointer ____lambda19__gthread_func (gpointer self);
 static gchar* vala_develop_debugger_symbols_get_command_with_timeout (valaDevelopDebuggerSymbols* self,
                                                                const gchar* format,
                                                                const gchar* command);
 static Block20Data* block20_data_ref (Block20Data* _data20_);
 static void block20_data_unref (void * _userdata_);
-static gboolean __lambda16_ (Block20Data* _data20_);
-static gboolean ___lambda16__gsource_func (gpointer self);
+static gboolean __lambda21_ (Block20Data* _data20_);
+static gboolean ___lambda21__gsource_func (gpointer self);
 static Block21Data* block21_data_ref (Block21Data* _data21_);
 static void block21_data_unref (void * _userdata_);
-static gboolean __lambda17_ (Block21Data* _data21_);
-static gboolean ___lambda17__gsource_func (gpointer self);
-static gboolean __lambda15_ (valaDevelopDebuggerSymbols* self);
-static gboolean ___lambda15__gsource_func (gpointer self);
+static gboolean __lambda22_ (Block21Data* _data21_);
+static gboolean ___lambda22__gsource_func (gpointer self);
+static gboolean __lambda20_ (valaDevelopDebuggerSymbols* self);
+static gboolean ___lambda20__gsource_func (gpointer self);
 static void vala_develop_debugger_symbols_finalize (valaDevelopDebuggerSymbols * obj);
 
 static inline gpointer
@@ -605,7 +605,7 @@ _vala_GtkTreePath_free (GtkTreePath* self)
 }
 
 static gboolean
-___lambda18_ (valaDevelopDebuggerSymbols* self)
+___lambda23_ (valaDevelopDebuggerSymbols* self)
 {
 	gboolean result = FALSE;
 	valaDevelopDebugger* _tmp0_;
@@ -699,17 +699,17 @@ ___lambda18_ (valaDevelopDebuggerSymbols* self)
 }
 
 static gboolean
-____lambda18__gsource_func (gpointer self)
+____lambda23__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = ___lambda18_ ((valaDevelopDebuggerSymbols*) self);
+	result = ___lambda23_ ((valaDevelopDebuggerSymbols*) self);
 #line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	return result;
 #line 709 "debugger_symbols.c"
 }
 
 static gint
-___lambda14_ (Block19Data* _data19_)
+___lambda19_ (Block19Data* _data19_)
 {
 	valaDevelopDebuggerSymbols* self;
 	gint result = 0;
@@ -1269,7 +1269,7 @@ ___lambda14_ (Block19Data* _data19_)
 #line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 		_vala_code_node_unref0 (_tmp101_);
 #line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
-		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda18__gsource_func, vala_develop_debugger_symbols_ref (self), vala_develop_debugger_symbols_unref);
+		g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ____lambda23__gsource_func, vala_develop_debugger_symbols_ref (self), vala_develop_debugger_symbols_unref);
 #line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 		_vala_code_node_unref0 (thisClass);
 #line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
@@ -1321,10 +1321,10 @@ ___lambda14_ (Block19Data* _data19_)
 }
 
 static gpointer
-____lambda14__gthread_func (gpointer self)
+____lambda19__gthread_func (gpointer self)
 {
 	gpointer result;
-	result = (gpointer) ((gintptr) ___lambda14_ (self));
+	result = (gpointer) ((gintptr) ___lambda19_ (self));
 #line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	block19_data_unref (self);
 #line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
@@ -1497,7 +1497,7 @@ vala_develop_debugger_symbols_start_resolve (valaDevelopDebuggerSymbols* self,
 		GThread* _tmp35_ = NULL;
 		GThread* _tmp36_;
 #line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
-		_tmp36_ = g_thread_try_new (NULL, ____lambda14__gthread_func, block19_data_ref (_data19_), &_inner_error0_);
+		_tmp36_ = g_thread_try_new (NULL, ____lambda19__gthread_func, block19_data_ref (_data19_), &_inner_error0_);
 #line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 		_tmp35_ = _tmp36_;
 #line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
@@ -3611,7 +3611,7 @@ string_get_data (const gchar* self,
 }
 
 static gboolean
-__lambda16_ (Block20Data* _data20_)
+__lambda21_ (Block20Data* _data20_)
 {
 	valaDevelopDebuggerSymbols* self;
 	gboolean result = FALSE;
@@ -4650,10 +4650,10 @@ __lambda16_ (Block20Data* _data20_)
 }
 
 static gboolean
-___lambda16__gsource_func (gpointer self)
+___lambda21__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = __lambda16_ (self);
+	result = __lambda21_ (self);
 #line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	return result;
 #line 4660 "debugger_symbols.c"
@@ -4753,7 +4753,7 @@ vala_develop_debugger_symbols_get_variable_with_timeout (valaDevelopDebuggerSymb
 #line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	_data20_->data_type = _tmp2_;
 #line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
-	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda16__gsource_func, block20_data_ref (_data20_), block20_data_unref);
+	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda21__gsource_func, block20_data_ref (_data20_), block20_data_unref);
 #line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	_tmp3_ = self->priv->_debugger;
 #line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
@@ -4937,7 +4937,7 @@ block21_data_unref (void * _userdata_)
 }
 
 static gboolean
-__lambda17_ (Block21Data* _data21_)
+__lambda22_ (Block21Data* _data21_)
 {
 	valaDevelopDebuggerSymbols* self;
 	gboolean result = FALSE;
@@ -4996,10 +4996,10 @@ __lambda17_ (Block21Data* _data21_)
 }
 
 static gboolean
-___lambda17__gsource_func (gpointer self)
+___lambda22__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = __lambda17_ (self);
+	result = __lambda22_ (self);
 #line 394 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	return result;
 #line 5006 "debugger_symbols.c"
@@ -5055,7 +5055,7 @@ vala_develop_debugger_symbols_get_command_with_timeout (valaDevelopDebuggerSymbo
 #line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	_data21_->command = _tmp1_;
 #line 394 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
-	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda17__gsource_func, block21_data_ref (_data21_), block21_data_unref);
+	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda22__gsource_func, block21_data_ref (_data21_), block21_data_unref);
 #line 399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	_tmp2_ = self->priv->_debugger;
 #line 399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
@@ -5160,7 +5160,7 @@ vala_develop_debugger_symbols_get_command_with_timeout (valaDevelopDebuggerSymbo
 }
 
 static gboolean
-__lambda15_ (valaDevelopDebuggerSymbols* self)
+__lambda20_ (valaDevelopDebuggerSymbols* self)
 {
 	gboolean result = FALSE;
 	valaDevelopDebugger* _tmp0_;
@@ -5202,10 +5202,10 @@ __lambda15_ (valaDevelopDebuggerSymbols* self)
 }
 
 static gboolean
-___lambda15__gsource_func (gpointer self)
+___lambda20__gsource_func (gpointer self)
 {
 	gboolean result;
-	result = __lambda15_ ((valaDevelopDebuggerSymbols*) self);
+	result = __lambda20_ ((valaDevelopDebuggerSymbols*) self);
 #line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	return result;
 #line 5212 "debugger_symbols.c"
@@ -5238,7 +5238,7 @@ vala_develop_debugger_symbols_get_self_with_timeout (valaDevelopDebuggerSymbols*
 #line 418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	format = _tmp0_;
 #line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
-	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda15__gsource_func, vala_develop_debugger_symbols_ref (self), vala_develop_debugger_symbols_unref);
+	g_timeout_add_full (G_PRIORITY_DEFAULT, (guint) 0, ___lambda20__gsource_func, vala_develop_debugger_symbols_ref (self), vala_develop_debugger_symbols_unref);
 #line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"
 	_tmp1_ = self->priv->_debugger;
 #line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/debugger_symbols.vala"

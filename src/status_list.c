@@ -648,8 +648,8 @@ vala_develop_status_list_Add2List (valaDevelopStatusList* self,
 		_g_object_unref0 (pixbuf);
 #line 650 "status_list.c"
 	}
-	goto __finally66;
-	__catch66_g_error:
+	goto __finally67;
+	__catch67_g_error:
 	{
 		GError* fe = NULL;
 		GError* _tmp51_;
@@ -668,7 +668,7 @@ vala_develop_status_list_Add2List (valaDevelopStatusList* self,
 		_g_error_free0 (fe);
 #line 670 "status_list.c"
 	}
-	__finally66:
+	__finally67:
 #line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/status_list.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/status_list.vala"
@@ -1052,8 +1052,8 @@ vala_develop_status_list_Add2ListArray (valaDevelopStatusList* self,
 		_g_free0 (file);
 #line 1054 "status_list.c"
 	}
-	goto __finally67;
-	__catch67_g_error:
+	goto __finally68;
+	__catch68_g_error:
 	{
 		GError* fe = NULL;
 		GError* _tmp73_;
@@ -1072,7 +1072,7 @@ vala_develop_status_list_Add2ListArray (valaDevelopStatusList* self,
 		_g_error_free0 (fe);
 #line 1074 "status_list.c"
 	}
-	__finally67:
+	__finally68:
 #line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/status_list.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/status_list.vala"

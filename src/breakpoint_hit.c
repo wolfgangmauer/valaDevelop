@@ -408,7 +408,7 @@ static void block5_data_unref (void * _userdata_);
 valaDevelopBreakpointTable* vala_develop_breakpoint_table_new (void);
 valaDevelopBreakpointTable* vala_develop_breakpoint_table_construct (GType object_type);
 static JsonNode* _vala_JsonNode_copy (JsonNode* self);
-static void __lambda57_ (Block5Data* _data5_,
+static void __lambda65_ (Block5Data* _data5_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -420,7 +420,7 @@ void vala_develop_breakpoint_table_set_hdr (valaDevelopBreakpointTable* self,
                                             GList* value);
 static void _vala_develop_hdr_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_hdr_unref0_ (GList* self);
-static void ___lambda58_ (Block5Data* _data5_,
+static void ___lambda66_ (Block5Data* _data5_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
@@ -435,7 +435,7 @@ void vala_develop_hdr_set_col_name (valaDevelopHdr* self,
 void vala_develop_hdr_set_colhdr (valaDevelopHdr* self,
                                   const gchar* value);
 GList* vala_develop_breakpoint_table_get_hdr (valaDevelopBreakpointTable* self);
-static void ____lambda58__json_array_foreach (JsonArray* array,
+static void ____lambda66__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
@@ -443,17 +443,17 @@ void vala_develop_breakpoint_table_set_body (valaDevelopBreakpointTable* self,
                                              GList* value);
 static void _vala_develop_breakpoint_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_breakpoint_unref0_ (GList* self);
-static void ___lambda59_ (Block5Data* _data5_,
+static void ___lambda67_ (Block5Data* _data5_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
 valaDevelopBreakpoint* vala_develop_breakpoint_parse_object (JsonObject* obj);
 GList* vala_develop_breakpoint_table_get_body (valaDevelopBreakpointTable* self);
-static void ____lambda59__json_array_foreach (JsonArray* array,
+static void ____lambda67__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
-static void ___lambda57__json_object_foreach (JsonObject* object,
+static void ___lambda65__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -499,7 +499,7 @@ static Block6Data* block6_data_ref (Block6Data* _data6_);
 static void block6_data_unref (void * _userdata_);
 valaDevelopStopHit* vala_develop_stop_hit_new (void);
 valaDevelopStopHit* vala_develop_stop_hit_construct (GType object_type);
-static void __lambda55_ (Block6Data* _data6_,
+static void __lambda63_ (Block6Data* _data6_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -512,7 +512,7 @@ void vala_develop_stop_hit_set_stopped_threads (valaDevelopStopHit* self,
 valaDevelopStackFrame* vala_develop_stack_frame_parse (JsonObject* obj);
 void vala_develop_stop_hit_set_frame (valaDevelopStopHit* self,
                                       valaDevelopStackFrame* value);
-static void ___lambda55__json_object_foreach (JsonObject* object,
+static void ___lambda63__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -540,7 +540,7 @@ static Block7Data* block7_data_ref (Block7Data* _data7_);
 static void block7_data_unref (void * _userdata_);
 valaDevelopCallStack* vala_develop_call_stack_new (void);
 valaDevelopCallStack* vala_develop_call_stack_construct (GType object_type);
-static void __lambda48_ (Block7Data* _data7_,
+static void __lambda56_ (Block7Data* _data7_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -548,16 +548,16 @@ void vala_develop_call_stack_set_stack (valaDevelopCallStack* self,
                                         GList* value);
 static void _vala_develop_stack_frame_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_stack_frame_unref0_ (GList* self);
-static void ___lambda49_ (Block7Data* _data7_,
+static void ___lambda57_ (Block7Data* _data7_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
 GList* vala_develop_call_stack_get_stack (valaDevelopCallStack* self);
-static void ____lambda49__json_array_foreach (JsonArray* array,
+static void ____lambda57__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
-static void ___lambda48__json_object_foreach (JsonObject* object,
+static void ___lambda56__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -567,7 +567,7 @@ static Block8Data* block8_data_ref (Block8Data* _data8_);
 static void block8_data_unref (void * _userdata_);
 valaDevelopBreakpoint* vala_develop_breakpoint_new (void);
 valaDevelopBreakpoint* vala_develop_breakpoint_construct (GType object_type);
-static void __lambda20_ (Block8Data* _data8_,
+static void __lambda25_ (Block8Data* _data8_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -597,16 +597,16 @@ void vala_develop_breakpoint_set_thread_groups (valaDevelopBreakpoint* self,
                                                 GList* value);
 static void _g_free0_ (gpointer var);
 static inline void _g_list_free__g_free0_ (GList* self);
-static void ___lambda21_ (Block8Data* _data8_,
+static void ___lambda26_ (Block8Data* _data8_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
 GList* vala_develop_breakpoint_get_thread_groups (valaDevelopBreakpoint* self);
-static void ____lambda21__json_array_foreach (JsonArray* array,
+static void ____lambda26__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
-static void ___lambda20__json_object_foreach (JsonObject* object,
+static void ___lambda25__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -641,7 +641,7 @@ static Block9Data* block9_data_ref (Block9Data* _data9_);
 static void block9_data_unref (void * _userdata_);
 valaDevelopBreakpointHit* vala_develop_breakpoint_hit_new (void);
 valaDevelopBreakpointHit* vala_develop_breakpoint_hit_construct (GType object_type);
-static void __lambda51_ (Block9Data* _data9_,
+static void __lambda59_ (Block9Data* _data9_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -657,7 +657,7 @@ void vala_develop_breakpoint_hit_set_stopped_threads (valaDevelopBreakpointHit* 
                                                       const gchar* value);
 void vala_develop_breakpoint_hit_set_core (valaDevelopBreakpointHit* self,
                                            gint value);
-static void ___lambda51__json_object_foreach (JsonObject* object,
+static void ___lambda59__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -1271,7 +1271,7 @@ _vala_develop_hdr_ref0 (gpointer self)
 }
 
 static void
-___lambda58_ (Block5Data* _data5_,
+___lambda66_ (Block5Data* _data5_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -1332,13 +1332,13 @@ ___lambda58_ (Block5Data* _data5_,
 }
 
 static void
-____lambda58__json_array_foreach (JsonArray* array,
+____lambda66__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
 #line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda58_ (self, array, index_, element_node);
+	___lambda66_ (self, array, index_, element_node);
 #line 1343 "breakpoint_hit.c"
 }
 
@@ -1367,7 +1367,7 @@ _vala_develop_breakpoint_ref0 (gpointer self)
 }
 
 static void
-___lambda59_ (Block5Data* _data5_,
+___lambda67_ (Block5Data* _data5_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -1399,18 +1399,18 @@ ___lambda59_ (Block5Data* _data5_,
 }
 
 static void
-____lambda59__json_array_foreach (JsonArray* array,
+____lambda67__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
 #line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda59_ (self, array, index_, element_node);
+	___lambda67_ (self, array, index_, element_node);
 #line 1410 "breakpoint_hit.c"
 }
 
 static void
-__lambda57_ (Block5Data* _data5_,
+__lambda65_ (Block5Data* _data5_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
@@ -1485,7 +1485,7 @@ __lambda57_ (Block5Data* _data5_,
 #line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = json_object_get_array_member (object, member_name);
 #line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp6_, ____lambda58__json_array_foreach, _data5_);
+				json_array_foreach_element (_tmp6_, ____lambda66__json_array_foreach, _data5_);
 #line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
 #line 1492 "breakpoint_hit.c"
@@ -1508,7 +1508,7 @@ __lambda57_ (Block5Data* _data5_,
 #line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = json_object_get_array_member (object, member_name);
 #line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp8_, ____lambda59__json_array_foreach, _data5_);
+				json_array_foreach_element (_tmp8_, ____lambda67__json_array_foreach, _data5_);
 #line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
 #line 1515 "breakpoint_hit.c"
@@ -1518,13 +1518,13 @@ __lambda57_ (Block5Data* _data5_,
 }
 
 static void
-___lambda57__json_object_foreach (JsonObject* object,
+___lambda65__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
 #line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda57_ (self, object, member_name, member_node);
+	__lambda65_ (self, object, member_name, member_node);
 #line 1529 "breakpoint_hit.c"
 }
 
@@ -1627,7 +1627,7 @@ vala_develop_breakpoint_table_parse (const gchar* json)
 #line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp11_ = obj;
 #line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp11_, ___lambda57__json_object_foreach, _data5_);
+	json_object_foreach_member (_tmp11_, ___lambda65__json_object_foreach, _data5_);
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp12_ = _vala_develop_breakpoint_table_ref0 (_data5_->retVal);
 #line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
@@ -2513,7 +2513,7 @@ block6_data_unref (void * _userdata_)
 }
 
 static void
-__lambda55_ (Block6Data* _data6_,
+__lambda63_ (Block6Data* _data6_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
@@ -2615,13 +2615,13 @@ __lambda55_ (Block6Data* _data6_,
 }
 
 static void
-___lambda55__json_object_foreach (JsonObject* object,
+___lambda63__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
 #line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda55_ (self, object, member_name, member_node);
+	__lambda63_ (self, object, member_name, member_node);
 #line 2626 "breakpoint_hit.c"
 }
 
@@ -2708,7 +2708,7 @@ vala_develop_stop_hit_parse (const gchar* json)
 #line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = obj;
 #line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp9_, ___lambda55__json_object_foreach, _data6_);
+	json_object_foreach_member (_tmp9_, ___lambda63__json_object_foreach, _data6_);
 #line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = _vala_develop_stop_hit_ref0 (_data6_->retVal);
 #line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
@@ -3200,7 +3200,7 @@ _g_list_free__vala_develop_stack_frame_unref0_ (GList* self)
 }
 
 static void
-___lambda49_ (Block7Data* _data7_,
+___lambda57_ (Block7Data* _data7_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -3232,18 +3232,18 @@ ___lambda49_ (Block7Data* _data7_,
 }
 
 static void
-____lambda49__json_array_foreach (JsonArray* array,
+____lambda57__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
 #line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda49_ (self, array, index_, element_node);
+	___lambda57_ (self, array, index_, element_node);
 #line 3243 "breakpoint_hit.c"
 }
 
 static void
-__lambda48_ (Block7Data* _data7_,
+__lambda56_ (Block7Data* _data7_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
@@ -3280,7 +3280,7 @@ __lambda48_ (Block7Data* _data7_,
 #line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_array_member (object, member_name);
 #line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp4_, ____lambda49__json_array_foreach, _data7_);
+				json_array_foreach_element (_tmp4_, ____lambda57__json_array_foreach, _data7_);
 #line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
 #line 3287 "breakpoint_hit.c"
@@ -3290,13 +3290,13 @@ __lambda48_ (Block7Data* _data7_,
 }
 
 static void
-___lambda48__json_object_foreach (JsonObject* object,
+___lambda56__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
 #line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda48_ (self, object, member_name, member_node);
+	__lambda56_ (self, object, member_name, member_node);
 #line 3301 "breakpoint_hit.c"
 }
 
@@ -3391,7 +3391,7 @@ vala_develop_call_stack_parse (const gchar* json)
 #line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp11_ = obj;
 #line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp11_, ___lambda48__json_object_foreach, _data7_);
+	json_object_foreach_member (_tmp11_, ___lambda56__json_object_foreach, _data7_);
 #line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp12_ = _vala_develop_call_stack_ref0 (_data7_->retVal);
 #line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
@@ -3917,7 +3917,7 @@ _g_list_free__g_free0_ (GList* self)
 }
 
 static void
-___lambda21_ (Block8Data* _data8_,
+___lambda26_ (Block8Data* _data8_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -3944,18 +3944,18 @@ ___lambda21_ (Block8Data* _data8_,
 }
 
 static void
-____lambda21__json_array_foreach (JsonArray* array,
+____lambda26__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
 #line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda21_ (self, array, index_, element_node);
+	___lambda26_ (self, array, index_, element_node);
 #line 3955 "breakpoint_hit.c"
 }
 
 static void
-__lambda20_ (Block8Data* _data8_,
+__lambda25_ (Block8Data* _data8_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
@@ -4223,7 +4223,7 @@ __lambda20_ (Block8Data* _data8_,
 #line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp26_ = json_object_get_array_member (object, member_name);
 #line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp26_, ____lambda21__json_array_foreach, _data8_);
+				json_array_foreach_element (_tmp26_, ____lambda26__json_array_foreach, _data8_);
 #line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
 #line 4230 "breakpoint_hit.c"
@@ -4233,13 +4233,13 @@ __lambda20_ (Block8Data* _data8_,
 }
 
 static void
-___lambda20__json_object_foreach (JsonObject* object,
+___lambda25__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
 #line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda20_ (self, object, member_name, member_node);
+	__lambda25_ (self, object, member_name, member_node);
 #line 4244 "breakpoint_hit.c"
 }
 
@@ -4279,7 +4279,7 @@ vala_develop_breakpoint_parse_object (JsonObject* obj)
 #line 4280 "breakpoint_hit.c"
 	}
 #line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (obj, ___lambda20__json_object_foreach, _data8_);
+	json_object_foreach_member (obj, ___lambda25__json_object_foreach, _data8_);
 #line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _data8_->retVal;
 #line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
@@ -4988,7 +4988,7 @@ block9_data_unref (void * _userdata_)
 }
 
 static void
-__lambda51_ (Block9Data* _data9_,
+__lambda59_ (Block9Data* _data9_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
@@ -5126,13 +5126,13 @@ __lambda51_ (Block9Data* _data9_,
 }
 
 static void
-___lambda51__json_object_foreach (JsonObject* object,
+___lambda59__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
 #line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda51_ (self, object, member_name, member_node);
+	__lambda59_ (self, object, member_name, member_node);
 #line 5137 "breakpoint_hit.c"
 }
 
@@ -5219,7 +5219,7 @@ vala_develop_breakpoint_hit_parse (const gchar* json)
 #line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = obj;
 #line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp9_, ___lambda51__json_object_foreach, _data9_);
+	json_object_foreach_member (_tmp9_, ___lambda59__json_object_foreach, _data9_);
 #line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = _vala_develop_breakpoint_hit_ref0 (_data9_->retVal);
 #line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"

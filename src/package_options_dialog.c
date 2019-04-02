@@ -127,27 +127,27 @@ gint vala_develop_overview_tree_store_get_item_buildtype (valaDevelopOverviewTre
 GType vala_develop_item_build_type_get_type (void) G_GNUC_CONST;
 gchar* vala_develop_overview_tree_store_get_item_name (valaDevelopOverviewTreeStore* self,
                                                        GtkTreeIter* iter);
-static gboolean ___lambda116_ (Block1Data* _data1_,
+static gboolean ___lambda121_ (Block1Data* _data1_,
                         GtkTreeModel* model,
                         GtkTreePath* path,
                         GtkTreeIter* i);
-static gboolean ____lambda116__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ____lambda121__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                      GtkTreePath* path,
                                                      GtkTreeIter* iter,
                                                      gpointer self);
-static void __lambda117_ (Block1Data* _data1_,
+static void __lambda122_ (Block1Data* _data1_,
                    const gchar* path);
-static void ___lambda117__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+static void ___lambda122__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                      const gchar* path,
                                                      gpointer self);
-static void __lambda118_ (Block1Data* _data1_,
+static void __lambda123_ (Block1Data* _data1_,
                    const gchar* path);
-static void ___lambda118__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+static void ___lambda123__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                      const gchar* path,
                                                      gpointer self);
 GType vala_develop_overview_tree_columns_get_type (void) G_GNUC_CONST;
 static void vala_develop_package_options_dialog_OnAccept (valaDevelopPackageOptionsDialog* self);
-static gboolean __lambda119_ (valaDevelopPackageOptionsDialog* self,
+static gboolean __lambda124_ (valaDevelopPackageOptionsDialog* self,
                        GtkTreeModel* model,
                        GtkTreePath* path,
                        GtkTreeIter* iter);
@@ -161,15 +161,15 @@ void vala_develop_overview_tree_store_set_item_name (valaDevelopOverviewTreeStor
 void vala_develop_overview_tree_store_set_item_pixbuf (valaDevelopOverviewTreeStore* self,
                                                        GtkTreeIter* iter,
                                                        GdkPixbuf* itemPixbuf);
-static gboolean ___lambda119__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda124__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                     GtkTreePath* path,
                                                     GtkTreeIter* iter,
                                                     gpointer self);
-static gboolean __lambda120_ (valaDevelopPackageOptionsDialog* self,
+static gboolean __lambda125_ (valaDevelopPackageOptionsDialog* self,
                        GtkTreeModel* model,
                        GtkTreePath* path,
                        GtkTreeIter* iter);
-static gboolean ___lambda120__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda125__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                     GtkTreePath* path,
                                                     GtkTreeIter* iter,
                                                     gpointer self);
@@ -222,7 +222,7 @@ block1_data_unref (void * _userdata_)
 }
 
 static gboolean
-___lambda116_ (Block1Data* _data1_,
+___lambda121_ (Block1Data* _data1_,
                GtkTreeModel* model,
                GtkTreePath* path,
                GtkTreeIter* i)
@@ -284,20 +284,20 @@ ___lambda116_ (Block1Data* _data1_,
 }
 
 static gboolean
-____lambda116__gtk_tree_model_foreach_func (GtkTreeModel* model,
+____lambda121__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                             GtkTreePath* path,
                                             GtkTreeIter* iter,
                                             gpointer self)
 {
 	gboolean result;
-	result = ___lambda116_ (self, model, path, iter);
+	result = ___lambda121_ (self, model, path, iter);
 #line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	return result;
 #line 297 "package_options_dialog.c"
 }
 
 static void
-__lambda117_ (Block1Data* _data1_,
+__lambda122_ (Block1Data* _data1_,
               const gchar* path)
 {
 	valaDevelopPackageOptionsDialog* self;
@@ -357,17 +357,17 @@ __lambda117_ (Block1Data* _data1_,
 }
 
 static void
-___lambda117__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+___lambda122__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                 const gchar* path,
                                                 gpointer self)
 {
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	__lambda117_ (self, path);
+	__lambda122_ (self, path);
 #line 367 "package_options_dialog.c"
 }
 
 static void
-__lambda118_ (Block1Data* _data1_,
+__lambda123_ (Block1Data* _data1_,
               const gchar* path)
 {
 	valaDevelopPackageOptionsDialog* self;
@@ -427,12 +427,12 @@ __lambda118_ (Block1Data* _data1_,
 }
 
 static void
-___lambda118__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
+___lambda123__gtk_cell_renderer_toggle_toggled (GtkCellRendererToggle* _sender,
                                                 const gchar* path,
                                                 gpointer self)
 {
 #line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	__lambda118_ (self, path);
+	__lambda123_ (self, path);
 #line 437 "package_options_dialog.c"
 }
 
@@ -848,7 +848,7 @@ vala_develop_package_options_dialog_construct (GType object_type,
 #line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 		_tmp63_ = _data1_->projectPackageListStore;
 #line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-		gtk_tree_model_foreach ((GtkTreeModel*) _tmp63_, ____lambda116__gtk_tree_model_foreach_func, _data1_);
+		gtk_tree_model_foreach ((GtkTreeModel*) _tmp63_, ____lambda121__gtk_tree_model_foreach_func, _data1_);
 #line 853 "package_options_dialog.c"
 	}
 #line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
@@ -866,7 +866,7 @@ vala_develop_package_options_dialog_construct (GType object_type,
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp67_ = cellRendererToggle;
 #line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	g_signal_connect_data (_tmp67_, "toggled", (GCallback) ___lambda117__gtk_cell_renderer_toggle_toggled, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
+	g_signal_connect_data (_tmp67_, "toggled", (GCallback) ___lambda122__gtk_cell_renderer_toggle_toggled, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
 #line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp68_ = cellRendererToggle;
 #line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
@@ -982,7 +982,7 @@ vala_develop_package_options_dialog_construct (GType object_type,
 #line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp95_ = cellRendererToggle;
 #line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	g_signal_connect_data (_tmp95_, "toggled", (GCallback) ___lambda118__gtk_cell_renderer_toggle_toggled, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
+	g_signal_connect_data (_tmp95_, "toggled", (GCallback) ___lambda123__gtk_cell_renderer_toggle_toggled, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
 #line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp96_ = cellRendererToggle;
 #line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
@@ -1224,7 +1224,7 @@ vala_develop_package_options_dialog_IsProjectPackage (valaDevelopPackageOptionsD
 }
 
 static gboolean
-__lambda119_ (valaDevelopPackageOptionsDialog* self,
+__lambda124_ (valaDevelopPackageOptionsDialog* self,
               GtkTreeModel* model,
               GtkTreePath* path,
               GtkTreeIter* iter)
@@ -1348,20 +1348,20 @@ __lambda119_ (valaDevelopPackageOptionsDialog* self,
 }
 
 static gboolean
-___lambda119__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda124__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                            GtkTreePath* path,
                                            GtkTreeIter* iter,
                                            gpointer self)
 {
 	gboolean result;
-	result = __lambda119_ ((valaDevelopPackageOptionsDialog*) self, model, path, iter);
+	result = __lambda124_ ((valaDevelopPackageOptionsDialog*) self, model, path, iter);
 #line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	return result;
 #line 1361 "package_options_dialog.c"
 }
 
 static gboolean
-__lambda120_ (valaDevelopPackageOptionsDialog* self,
+__lambda125_ (valaDevelopPackageOptionsDialog* self,
               GtkTreeModel* model,
               GtkTreePath* path,
               GtkTreeIter* iter)
@@ -1485,13 +1485,13 @@ __lambda120_ (valaDevelopPackageOptionsDialog* self,
 }
 
 static gboolean
-___lambda120__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda125__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                            GtkTreePath* path,
                                            GtkTreeIter* iter,
                                            gpointer self)
 {
 	gboolean result;
-	result = __lambda120_ ((valaDevelopPackageOptionsDialog*) self, model, path, iter);
+	result = __lambda125_ ((valaDevelopPackageOptionsDialog*) self, model, path, iter);
 #line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	return result;
 #line 1498 "package_options_dialog.c"
@@ -1573,13 +1573,13 @@ vala_develop_package_options_dialog_OnAccept (valaDevelopPackageOptionsDialog* s
 #line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp12_ = gtk_tree_view_get_model (_tmp11_);
 #line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	gtk_tree_model_foreach (_tmp12_, ___lambda119__gtk_tree_model_foreach_func, self);
+	gtk_tree_model_foreach (_tmp12_, ___lambda124__gtk_tree_model_foreach_func, self);
 #line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp13_ = self->priv->projectPackage;
 #line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp14_ = gtk_tree_view_get_model (_tmp13_);
 #line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
-	gtk_tree_model_foreach (_tmp14_, ___lambda120__gtk_tree_model_foreach_func, self);
+	gtk_tree_model_foreach (_tmp14_, ___lambda125__gtk_tree_model_foreach_func, self);
 #line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"
 	_tmp15_ = vala_develop_main_paned_overviewTreeModel;
 #line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/package_options_dialog.vala"

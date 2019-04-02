@@ -77,8 +77,8 @@ valaDevelopNewFolder* vala_develop_new_folder_new (GtkWidget* parent,
 valaDevelopNewFolder* vala_develop_new_folder_construct (GType object_type,
                                                          GtkWidget* parent,
                                                          GtkTreeIter* iter);
-static void __lambda72_ (valaDevelopNewFolder* self);
-static void ___lambda72__gtk_editable_changed (GtkEditable* _sender,
+static void __lambda80_ (valaDevelopNewFolder* self);
+static void ___lambda80__gtk_editable_changed (GtkEditable* _sender,
                                         gpointer self);
 static void vala_develop_new_folder_OnAccept (valaDevelopNewFolder* self);
 GType vala_develop_overview_tree_store_get_type (void) G_GNUC_CONST;
@@ -112,7 +112,7 @@ vala_develop_new_folder_get_instance_private (valaDevelopNewFolder* self)
 }
 
 static void
-__lambda72_ (valaDevelopNewFolder* self)
+__lambda80_ (valaDevelopNewFolder* self)
 {
 	GtkButton* _tmp0_;
 	GtkEntry* _tmp1_;
@@ -132,11 +132,11 @@ __lambda72_ (valaDevelopNewFolder* self)
 }
 
 static void
-___lambda72__gtk_editable_changed (GtkEditable* _sender,
+___lambda80__gtk_editable_changed (GtkEditable* _sender,
                                    gpointer self)
 {
 #line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
-	__lambda72_ ((valaDevelopNewFolder*) self);
+	__lambda80_ ((valaDevelopNewFolder*) self);
 #line 141 "new_folder.c"
 }
 
@@ -172,7 +172,7 @@ vala_develop_new_folder_construct (GType object_type,
 #line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 	_tmp2_ = self->priv->folderName;
 #line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
-	g_signal_connect_object ((GtkEditable*) _tmp2_, "changed", (GCallback) ___lambda72__gtk_editable_changed, self, 0);
+	g_signal_connect_object ((GtkEditable*) _tmp2_, "changed", (GCallback) ___lambda80__gtk_editable_changed, self, 0);
 #line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
 #line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
@@ -293,7 +293,7 @@ vala_develop_new_folder_OnAccept (valaDevelopNewFolder* self)
 #line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 			_g_free0 (filePath);
 #line 296 "new_folder.c"
-			goto __catch54_g_error;
+			goto __catch55_g_error;
 		}
 #line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 		_tmp15_ = vala_develop_main_paned_overviewTreeModel;
@@ -350,7 +350,7 @@ vala_develop_new_folder_OnAccept (valaDevelopNewFolder* self)
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 			_g_free0 (filePath);
 #line 353 "new_folder.c"
-			goto __catch54_g_error;
+			goto __catch55_g_error;
 		}
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 		_tmp34_ = vala_develop_main_paned_overviewTreeModel;
@@ -372,8 +372,8 @@ vala_develop_new_folder_OnAccept (valaDevelopNewFolder* self)
 		_g_free0 (filePath);
 #line 374 "new_folder.c"
 	}
-	goto __finally54;
-	__catch54_g_error:
+	goto __finally55;
+	__catch55_g_error:
 	{
 		GError* e = NULL;
 		GtkMessageDialog* messagedialog = NULL;
@@ -412,7 +412,7 @@ vala_develop_new_folder_OnAccept (valaDevelopNewFolder* self)
 		return;
 #line 414 "new_folder.c"
 	}
-	__finally54:
+	__finally55:
 #line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
 #line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/new_folder.vala"

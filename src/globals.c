@@ -7,7 +7,7 @@
 #include <glib-object.h>
 #include <gdk/gdk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <vala.h>
+#include "vala.h"
 #include <gee.h>
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksource.h>

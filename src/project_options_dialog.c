@@ -101,8 +101,8 @@ gboolean vala_develop_overview_tree_store_get_item_debug_break_criticals (valaDe
                                                                           GtkTreeIter* iter);
 gboolean vala_develop_overview_tree_store_get_item_debug_break_warnings (valaDevelopOverviewTreeStore* self,
                                                                          GtkTreeIter* iter);
-static void __lambda107_ (valaDevelopProjectOptionDialog* self);
-static void ___lambda107__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+static void __lambda115_ (valaDevelopProjectOptionDialog* self);
+static void ___lambda115__gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                               gpointer self);
 gboolean vala_develop_overview_tree_store_get_item_withvapi (valaDevelopOverviewTreeStore* self,
                                                              GtkTreeIter* iter);
@@ -158,7 +158,7 @@ vala_develop_project_option_dialog_get_instance_private (valaDevelopProjectOptio
 }
 
 static void
-__lambda107_ (valaDevelopProjectOptionDialog* self)
+__lambda115_ (valaDevelopProjectOptionDialog* self)
 {
 	GtkCheckButton* _tmp0_;
 	GtkRadioButton* _tmp1_;
@@ -262,11 +262,11 @@ __lambda107_ (valaDevelopProjectOptionDialog* self)
 }
 
 static void
-___lambda107__gtk_toggle_button_toggled (GtkToggleButton* _sender,
+___lambda115__gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                          gpointer self)
 {
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/project_options_dialog.vala"
-	__lambda107_ ((valaDevelopProjectOptionDialog*) self);
+	__lambda115_ ((valaDevelopProjectOptionDialog*) self);
 #line 271 "project_options_dialog.c"
 }
 
@@ -507,7 +507,7 @@ vala_develop_project_option_dialog_construct (GType object_type,
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/project_options_dialog.vala"
 	_tmp49_ = self->priv->sharedObject;
 #line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/project_options_dialog.vala"
-	g_signal_connect_object ((GtkToggleButton*) _tmp49_, "toggled", (GCallback) ___lambda107__gtk_toggle_button_toggled, self, 0);
+	g_signal_connect_object ((GtkToggleButton*) _tmp49_, "toggled", (GCallback) ___lambda115__gtk_toggle_button_toggled, self, 0);
 #line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/project_options_dialog.vala"
 	_tmp50_ = self->priv->withVapi;
 #line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/project_options_dialog.vala"
