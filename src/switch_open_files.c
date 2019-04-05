@@ -97,22 +97,16 @@ vala_develop_switch_open_files_get_instance_private (valaDevelopSwitchOpenFiles*
 static gpointer
 _g_object_ref0 (gpointer self)
 {
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 103 "switch_open_files.c"
 }
 
 static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
-#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1517 "glib-2.0.vapi"
 	result = self;
-#line 1517 "glib-2.0.vapi"
 	return result;
-#line 116 "switch_open_files.c"
 }
 
 valaDevelopSwitchOpenFiles*
@@ -138,45 +132,26 @@ vala_develop_switch_open_files_construct (GType object_type,
 	GtkListBox* _tmp95_;
 	GtkListBoxRow* _tmp96_;
 	GError* _inner_error0_ = NULL;
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (documentTab != NULL, NULL);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self = (valaDevelopSwitchOpenFiles*) g_object_new (object_type, NULL);
-#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp0_ = gtk_widget_get_toplevel (parent);
-#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_window_set_transient_for ((GtkWindow*) self, G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow));
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_window_set_position ((GtkWindow*) self, GTK_WIN_POS_CENTER_ON_PARENT);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp1_ = _g_object_ref0 (documentTab);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_g_object_unref0 (self->priv->_documentTab);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self->priv->_documentTab = _tmp1_;
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
-#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	i = 0;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp2_ = self->priv->_documentTab;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp3_ = gtk_container_get_children ((GtkContainer*) _tmp2_);
-#line 168 "switch_open_files.c"
 	{
 		GList* child_collection = NULL;
 		GList* child_it = NULL;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		child_collection = _tmp3_;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		for (child_it = child_collection; child_it != NULL; child_it = child_it->next) {
-#line 176 "switch_open_files.c"
 			GtkWidget* child = NULL;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			child = (GtkWidget*) child_it->data;
-#line 180 "switch_open_files.c"
 			{
 				valaDevelopTabHeader* tabLabel = NULL;
 				GtkNotebook* _tmp4_;
@@ -243,494 +218,264 @@ vala_develop_switch_open_files_construct (GType object_type,
 				GtkListBox* _tmp84_;
 				GtkBox* _tmp85_;
 				gint _tmp86_;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp4_ = self->priv->_documentTab;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp5_ = child;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp6_ = gtk_notebook_get_tab_label (_tmp4_, _tmp5_);
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp7_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp6_, VALA_DEVELOP_TYPE_TAB_HEADER) ? ((valaDevelopTabHeader*) _tmp6_) : NULL);
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				tabLabel = _tmp7_;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp8_ = self->priv->_documentTab;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_get (_tmp8_, "page", &_tmp9_, NULL);
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp10_ = _tmp9_;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				if (_tmp10_ == i) {
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					self->priv->_rowIndex = i;
-#line 267 "switch_open_files.c"
 				}
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp11_ = tabLabel;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp12_ = vala_develop_tab_header_get_full_path (_tmp11_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp13_ = _tmp12_;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp14_ = g_strdup (_tmp13_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				itemName = _tmp14_;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				itemPixbuf = NULL;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp16_ = itemName;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				if (g_str_has_suffix (_tmp16_, ".glade")) {
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp15_ = TRUE;
-#line 287 "switch_open_files.c"
 				} else {
 					const gchar* _tmp17_;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp17_ = itemName;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp15_ = g_str_has_suffix (_tmp17_, ".ui");
-#line 294 "switch_open_files.c"
 				}
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				if (_tmp15_) {
-#line 298 "switch_open_files.c"
 					GdkPixbuf* _tmp18_ = NULL;
 					GdkPixbuf* _tmp19_;
 					GdkPixbuf* _tmp20_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp19_ = gdk_pixbuf_new_from_resource ("/valaDevelop/glade.svg.png", &_inner_error0_);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp18_ = _tmp19_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_g_object_unref0 (itemPixbuf);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_g_free0 (itemName);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_g_object_unref0 (tabLabel);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						g_clear_error (&_inner_error0_);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						return NULL;
-#line 322 "switch_open_files.c"
 					}
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp20_ = gdk_pixbuf_scale_simple (_tmp18_, 16, 16, GDK_INTERP_BILINEAR);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_g_object_unref0 (itemPixbuf);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					itemPixbuf = _tmp20_;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_g_object_unref0 (_tmp18_);
-#line 332 "switch_open_files.c"
 				} else {
 					gboolean _tmp21_ = FALSE;
 					const gchar* _tmp22_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					_tmp22_ = itemName;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					if (g_str_has_suffix (_tmp22_, ".xml")) {
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp21_ = TRUE;
-#line 342 "switch_open_files.c"
 					} else {
 						const gchar* _tmp23_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp23_ = itemName;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp21_ = g_str_has_suffix (_tmp23_, ".css");
-#line 349 "switch_open_files.c"
 					}
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 					if (_tmp21_) {
-#line 353 "switch_open_files.c"
 						GdkPixbuf* _tmp24_ = NULL;
 						GdkPixbuf* _tmp25_;
 						GdkPixbuf* _tmp26_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp25_ = gdk_pixbuf_new_from_resource ("/valaDevelop/xml.svg.png", &_inner_error0_);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp24_ = _tmp25_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_g_object_unref0 (itemPixbuf);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_g_free0 (itemName);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_g_object_unref0 (tabLabel);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							g_clear_error (&_inner_error0_);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							return NULL;
-#line 377 "switch_open_files.c"
 						}
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp26_ = gdk_pixbuf_scale_simple (_tmp24_, 16, 16, GDK_INTERP_BILINEAR);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_g_object_unref0 (itemPixbuf);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						itemPixbuf = _tmp26_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_g_object_unref0 (_tmp24_);
-#line 387 "switch_open_files.c"
 					} else {
 						gboolean _tmp27_ = FALSE;
 						const gchar* _tmp28_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						_tmp28_ = itemName;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						if (g_str_has_suffix (_tmp28_, ".png")) {
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp27_ = TRUE;
-#line 397 "switch_open_files.c"
 						} else {
 							const gchar* _tmp29_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp29_ = itemName;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp27_ = g_str_has_suffix (_tmp29_, ".svg");
-#line 404 "switch_open_files.c"
 						}
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 						if (_tmp27_) {
-#line 408 "switch_open_files.c"
 							GdkPixbuf* _tmp30_ = NULL;
 							GdkPixbuf* _tmp31_;
 							GdkPixbuf* _tmp32_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp31_ = gdk_pixbuf_new_from_resource ("/valaDevelop/picture.svg.png", &_inner_error0_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp30_ = _tmp31_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_g_object_unref0 (itemPixbuf);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_g_free0 (itemName);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_g_object_unref0 (tabLabel);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								g_clear_error (&_inner_error0_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								return NULL;
-#line 432 "switch_open_files.c"
 							}
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp32_ = gdk_pixbuf_scale_simple (_tmp30_, 16, 16, GDK_INTERP_BILINEAR);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_g_object_unref0 (itemPixbuf);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							itemPixbuf = _tmp32_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_g_object_unref0 (_tmp30_);
-#line 442 "switch_open_files.c"
 						} else {
 							gboolean _tmp33_ = FALSE;
 							gboolean _tmp34_ = FALSE;
 							const gchar* _tmp35_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							_tmp35_ = itemName;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							if (g_str_has_suffix (_tmp35_, ".vala")) {
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp34_ = TRUE;
-#line 453 "switch_open_files.c"
 							} else {
 								const gchar* _tmp36_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp36_ = itemName;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp34_ = g_str_has_suffix (_tmp36_, ".vapi");
-#line 460 "switch_open_files.c"
 							}
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							if (_tmp34_) {
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp33_ = TRUE;
-#line 466 "switch_open_files.c"
 							} else {
 								const gchar* _tmp37_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp37_ = itemName;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp33_ = g_str_has_suffix (_tmp37_, ".c");
-#line 473 "switch_open_files.c"
 							}
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 							if (_tmp33_) {
-#line 477 "switch_open_files.c"
 								GdkPixbuf* _tmp38_ = NULL;
 								GdkPixbuf* _tmp39_;
 								GdkPixbuf* _tmp40_;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp39_ = gdk_pixbuf_new_from_resource ("/valaDevelop/source.svg.png", &_inner_error0_);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp38_ = _tmp39_;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									_g_object_unref0 (itemPixbuf);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									_g_free0 (itemName);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									_g_object_unref0 (tabLabel);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									g_clear_error (&_inner_error0_);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 									return NULL;
-#line 501 "switch_open_files.c"
 								}
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_tmp40_ = gdk_pixbuf_scale_simple (_tmp38_, 16, 16, GDK_INTERP_BILINEAR);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_g_object_unref0 (itemPixbuf);
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								itemPixbuf = _tmp40_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 								_g_object_unref0 (_tmp38_);
-#line 511 "switch_open_files.c"
 							}
 						}
 					}
 				}
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp41_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_ref_sink (_tmp41_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				hbox = _tmp41_;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp42_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_ref_sink (_tmp42_);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				vbox = _tmp42_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp43_ = (GtkLabel*) gtk_label_new ("");
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_ref_sink (_tmp43_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				label = _tmp43_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp44_ = label;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_xalign (_tmp44_, (gfloat) 0);
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp45_ = label;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_use_markup (_tmp45_, TRUE);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp46_ = label;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp47_ = tabLabel;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp48_ = vala_develop_tab_header_get_full_path (_tmp47_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp49_ = _tmp48_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp50_ = g_file_new_for_path (_tmp49_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp51_ = _tmp50_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp52_ = g_file_get_basename (_tmp51_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp53_ = _tmp52_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp54_ = string_to_string (_tmp53_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp55_ = g_strconcat ("<span size='x-large' weight='bold'>", _tmp54_, "</span>", NULL);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp56_ = _tmp55_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_markup (_tmp46_, _tmp56_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_free0 (_tmp56_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_free0 (_tmp53_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (_tmp51_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp57_ = vbox;
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp58_ = label;
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_box_pack_start (_tmp57_, (GtkWidget*) _tmp58_, FALSE, FALSE, (guint) 0);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp59_ = (GtkLabel*) gtk_label_new ("");
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_ref_sink (_tmp59_);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (label);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				label = _tmp59_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp60_ = label;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_xalign (_tmp60_, (gfloat) 0);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp61_ = label;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_use_markup (_tmp61_, TRUE);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp62_ = label;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp63_ = tabLabel;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp64_ = vala_develop_tab_header_get_full_path (_tmp63_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp65_ = _tmp64_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp66_ = string_to_string (_tmp65_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp67_ = g_strconcat ("<span size='small' weight='light'>", _tmp66_, "</span>", NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp68_ = _tmp67_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_label_set_markup (_tmp62_, _tmp68_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_free0 (_tmp68_);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp69_ = vbox;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp70_ = label;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_box_pack_start (_tmp69_, (GtkWidget*) _tmp70_, FALSE, FALSE, (guint) 0);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp71_ = hbox;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp72_ = itemPixbuf;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp73_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp72_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_ref_sink (_tmp73_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp74_ = _tmp73_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_box_pack_start (_tmp71_, (GtkWidget*) _tmp74_, FALSE, FALSE, (guint) 0);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (_tmp74_);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp75_ = hbox;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp76_ = vbox;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_box_pack_start (_tmp75_, (GtkWidget*) _tmp76_, FALSE, FALSE, (guint) 0);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp77_ = hbox;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp78_ = tabLabel;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp79_ = vala_develop_tab_header_get_full_path (_tmp78_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp80_ = _tmp79_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp81_ = g_file_new_for_path (_tmp80_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp82_ = _tmp81_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp83_ = g_file_get_basename (_tmp82_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				g_object_set_data_full ((GObject*) _tmp77_, "filename", _tmp83_, g_free);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (_tmp82_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp84_ = self->priv->listBox;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp85_ = hbox;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				gtk_container_add ((GtkContainer*) _tmp84_, (GtkWidget*) _tmp85_);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_tmp86_ = i;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				i = _tmp86_ + 1;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (label);
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (vbox);
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (hbox);
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (itemPixbuf);
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_free0 (itemName);
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				_g_object_unref0 (tabLabel);
-#line 678 "switch_open_files.c"
 			}
 		}
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		(child_collection == NULL) ? NULL : (child_collection = (g_list_free (child_collection), NULL));
-#line 683 "switch_open_files.c"
 	}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp87_ = self->priv->_rowIndex;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self->priv->_rowIndex = _tmp87_ + 1;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp88_ = self->priv->_documentTab;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp89_ = gtk_container_get_children ((GtkContainer*) _tmp88_);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp90_ = _tmp89_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp91_ = ((guint) self->priv->_rowIndex) >= g_list_length (_tmp90_);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	(_tmp90_ == NULL) ? NULL : (_tmp90_ = (g_list_free (_tmp90_), NULL));
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	if (_tmp91_) {
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		self->priv->_rowIndex = 0;
-#line 703 "switch_open_files.c"
 	}
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp92_ = self->priv->listBox;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp93_ = gtk_list_box_get_row_at_index (_tmp92_, self->priv->_rowIndex);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp94_ = _g_object_ref0 (_tmp93_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	row = _tmp94_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp95_ = self->priv->listBox;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp96_ = row;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_list_box_select_row (_tmp95_, _tmp96_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_g_object_unref0 (row);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return self;
-#line 725 "switch_open_files.c"
 }
 
 valaDevelopSwitchOpenFiles*
 vala_develop_switch_open_files_new (GtkWidget* parent,
                                     GtkNotebook* documentTab)
 {
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return vala_develop_switch_open_files_construct (VALA_DEVELOP_TYPE_SWITCH_OPEN_FILES, parent, documentTab);
-#line 734 "switch_open_files.c"
 }
 
 static gboolean
@@ -740,45 +485,25 @@ vala_develop_switch_open_files_KeyRelease (valaDevelopSwitchOpenFiles* self,
 	gboolean result = FALSE;
 	gboolean _tmp0_ = FALSE;
 	GdkModifierType _tmp1_;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp1_ = event->state;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	if ((_tmp1_ & GDK_CONTROL_MASK) == GDK_CONTROL_MASK) {
-#line 752 "switch_open_files.c"
 		gboolean _tmp2_ = FALSE;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		if (event->keyval == GDK_KEY_Control_L) {
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp2_ = TRUE;
-#line 758 "switch_open_files.c"
 		} else {
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp2_ = event->keyval == GDK_KEY_Control_R;
-#line 762 "switch_open_files.c"
 		}
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		_tmp0_ = _tmp2_;
-#line 766 "switch_open_files.c"
 	} else {
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		_tmp0_ = FALSE;
-#line 770 "switch_open_files.c"
 	}
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	if (_tmp0_) {
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_CANCEL);
-#line 776 "switch_open_files.c"
 	}
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	result = TRUE;
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return result;
-#line 782 "switch_open_files.c"
 }
 
 static gboolean
@@ -788,9 +513,7 @@ _vala_develop_switch_open_files_KeyRelease_gtk_widget_key_release_event (GtkWidg
 {
 	gboolean result;
 	result = vala_develop_switch_open_files_KeyRelease ((valaDevelopSwitchOpenFiles*) self, event);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return result;
-#line 794 "switch_open_files.c"
 }
 
 static gboolean
@@ -799,110 +522,63 @@ vala_develop_switch_open_files_KeyPress (valaDevelopSwitchOpenFiles* self,
 {
 	gboolean result = FALSE;
 	gboolean _tmp0_ = FALSE;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	if (event->keyval == GDK_KEY_Up) {
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		_tmp0_ = TRUE;
-#line 811 "switch_open_files.c"
 	} else {
 		gboolean _tmp1_ = FALSE;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		if (event->keyval == GDK_KEY_ISO_Left_Tab) {
-#line 816 "switch_open_files.c"
 			GdkModifierType _tmp2_;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp2_ = event->state;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp1_ = (_tmp2_ & GDK_SHIFT_MASK) == GDK_SHIFT_MASK;
-#line 822 "switch_open_files.c"
 		} else {
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp1_ = FALSE;
-#line 826 "switch_open_files.c"
 		}
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		_tmp0_ = _tmp1_;
-#line 830 "switch_open_files.c"
 	}
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	if (_tmp0_) {
-#line 834 "switch_open_files.c"
 		gint _tmp3_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		_tmp3_ = self->priv->_rowIndex;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		self->priv->_rowIndex = _tmp3_ - 1;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		if (self->priv->_rowIndex < 0) {
-#line 842 "switch_open_files.c"
 			GtkNotebook* _tmp4_;
 			GList* _tmp5_;
 			GList* _tmp6_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp4_ = self->priv->_documentTab;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp5_ = gtk_container_get_children ((GtkContainer*) _tmp4_);
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp6_ = _tmp5_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			self->priv->_rowIndex = ((gint) g_list_length (_tmp6_)) - 1;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			(_tmp6_ == NULL) ? NULL : (_tmp6_ = (g_list_free (_tmp6_), NULL));
-#line 856 "switch_open_files.c"
 		}
 	} else {
 		gboolean _tmp7_ = FALSE;
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		if (event->keyval == GDK_KEY_Down) {
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp7_ = TRUE;
-#line 864 "switch_open_files.c"
 		} else {
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp7_ = event->keyval == GDK_KEY_Tab;
-#line 868 "switch_open_files.c"
 		}
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		if (_tmp7_) {
-#line 872 "switch_open_files.c"
 			gint _tmp8_;
 			GtkNotebook* _tmp9_;
 			GList* _tmp10_;
 			GList* _tmp11_;
 			gboolean _tmp12_;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp8_ = self->priv->_rowIndex;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			self->priv->_rowIndex = _tmp8_ + 1;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp9_ = self->priv->_documentTab;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp10_ = gtk_container_get_children ((GtkContainer*) _tmp9_);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp11_ = _tmp10_;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			_tmp12_ = ((guint) self->priv->_rowIndex) >= g_list_length (_tmp11_);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			(_tmp11_ == NULL) ? NULL : (_tmp11_ = (g_list_free (_tmp11_), NULL));
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 			if (_tmp12_) {
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 				self->priv->_rowIndex = 0;
-#line 896 "switch_open_files.c"
 			}
 		}
 	}
-#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	vala_develop_switch_open_files_select_row (self, self->priv->_rowIndex);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	result = TRUE;
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return result;
-#line 906 "switch_open_files.c"
 }
 
 static gboolean
@@ -912,9 +588,7 @@ _vala_develop_switch_open_files_KeyPress_gtk_widget_key_press_event (GtkWidget* 
 {
 	gboolean result;
 	result = vala_develop_switch_open_files_KeyPress ((valaDevelopSwitchOpenFiles*) self, event);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return result;
-#line 918 "switch_open_files.c"
 }
 
 static void
@@ -926,89 +600,57 @@ vala_develop_switch_open_files_select_row (valaDevelopSwitchOpenFiles* self,
 	GtkListBoxRow* _tmp1_;
 	GtkListBoxRow* _tmp2_;
 	GtkListBox* _tmp3_;
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_if_fail (self != NULL);
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp0_ = self->priv->listBox;
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp1_ = gtk_list_box_get_row_at_index (_tmp0_, i);
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp2_ = _g_object_ref0 (_tmp1_);
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	row = _tmp2_;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_tmp3_ = self->priv->listBox;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_list_box_select_row (_tmp3_, row);
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_g_object_unref0 (row);
-#line 946 "switch_open_files.c"
 }
 
 gint
 vala_develop_switch_open_files_get_SelectedIndex (valaDevelopSwitchOpenFiles* self)
 {
 	gint result;
-#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	result = self->priv->_rowIndex;
-#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	return result;
-#line 959 "switch_open_files.c"
 }
 
 static void
 vala_develop_switch_open_files_class_init (valaDevelopSwitchOpenFilesClass * klass,
                                            gpointer klass_data)
 {
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	vala_develop_switch_open_files_parent_class = g_type_class_peek_parent (klass);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSwitchOpenFiles_private_offset);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	G_OBJECT_CLASS (klass)->get_property = _vala_vala_develop_switch_open_files_get_property;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_switch_open_files_finalize;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_SWITCH_OPEN_FILES_SELECTED_INDEX_PROPERTY, vala_develop_switch_open_files_properties[VALA_DEVELOP_SWITCH_OPEN_FILES_SELECTED_INDEX_PROPERTY] = g_param_spec_int ("SelectedIndex", "SelectedIndex", "SelectedIndex", G_MININT, G_MAXINT, 0, G_PARAM_STATIC_STRINGS | G_PARAM_READABLE));
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/opensourcedialog.glade");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "listBox", FALSE, valaDevelopSwitchOpenFiles_private_offset + G_STRUCT_OFFSET (valaDevelopSwitchOpenFilesPrivate, listBox));
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "KeyRelease", G_CALLBACK(_vala_develop_switch_open_files_KeyRelease_gtk_widget_key_release_event));
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "KeyPress", G_CALLBACK(_vala_develop_switch_open_files_KeyPress_gtk_widget_key_press_event));
-#line 984 "switch_open_files.c"
 }
 
 static void
 vala_develop_switch_open_files_instance_init (valaDevelopSwitchOpenFiles * self,
                                               gpointer klass)
 {
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self->priv = vala_develop_switch_open_files_get_instance_private (self);
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self->priv->_rowIndex = 0;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
-#line 997 "switch_open_files.c"
 }
 
 static void
 vala_develop_switch_open_files_finalize (GObject * obj)
 {
 	valaDevelopSwitchOpenFiles * self;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SWITCH_OPEN_FILES, valaDevelopSwitchOpenFiles);
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_g_object_unref0 (self->priv->listBox);
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	_g_object_unref0 (self->priv->_documentTab);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	G_OBJECT_CLASS (vala_develop_switch_open_files_parent_class)->finalize (obj);
-#line 1012 "switch_open_files.c"
 }
 
 GType
@@ -1033,21 +675,13 @@ _vala_vala_develop_switch_open_files_get_property (GObject * object,
 {
 	valaDevelopSwitchOpenFiles * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_SWITCH_OPEN_FILES, valaDevelopSwitchOpenFiles);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 	switch (property_id) {
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		case VALA_DEVELOP_SWITCH_OPEN_FILES_SELECTED_INDEX_PROPERTY:
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		g_value_set_int (value, vala_develop_switch_open_files_get_SelectedIndex (self));
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		break;
-#line 1045 "switch_open_files.c"
 		default:
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/switch_open_files.vala"
 		break;
-#line 1051 "switch_open_files.c"
 	}
 }
 

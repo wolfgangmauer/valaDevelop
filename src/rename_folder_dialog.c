@@ -9,6 +9,7 @@
 #include <glib/gi18n-lib.h>
 #include <gio/gio.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gtksourceview/gtksource.h>
 
 #define VALA_DEVELOP_TYPE_RENAME (vala_develop_rename_get_type ())
 #define VALA_DEVELOP_RENAME(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_RENAME, valaDevelopRename))
@@ -155,6 +156,7 @@ struct _valaDevelopMainPaned {
 	valaDevelopItemOptions* _itemOptions;
 	GtkAccelGroup* accelGroup;
 	valaDevelopmainWindow* _parentClass;
+	GtkSourceStyleSchemeManager* _styleSchemeManager;
 };
 
 struct _valaDevelopMainPanedClass {
@@ -183,8 +185,8 @@ valaDevelopRename* vala_develop_rename_construct (GType object_type,
                                                   GtkWidget* parent,
                                                   GtkTreeIter* iter,
                                                   valaDevelopItemType itemType);
-static void __lambda81_ (valaDevelopRename* self);
-static void ___lambda81__gtk_editable_changed (GtkEditable* _sender,
+static void __lambda83_ (valaDevelopRename* self);
+static void ___lambda83__gtk_editable_changed (GtkEditable* _sender,
                                         gpointer self);
 GType vala_develop_overview_tree_store_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopOverviewTreeStore, g_object_unref)
@@ -243,38 +245,28 @@ vala_develop_rename_get_instance_private (valaDevelopRename* self)
 static gpointer
 _g_object_ref0 (gpointer self)
 {
-#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 249 "rename_folder_dialog.c"
 }
 
 static void
-__lambda81_ (valaDevelopRename* self)
+__lambda83_ (valaDevelopRename* self)
 {
 	GtkButton* _tmp0_;
 	GtkEntry* _tmp1_;
 	const gchar* _tmp2_;
 	const gchar* _tmp3_;
-#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp0_ = self->priv->rename;
-#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp1_ = self->priv->itemname;
-#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp2_ = gtk_entry_get_text (_tmp1_);
-#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp3_ = _tmp2_;
-#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp0_, g_strcmp0 (_tmp3_, "") != 0);
-#line 269 "rename_folder_dialog.c"
 }
 
 static void
-___lambda81__gtk_editable_changed (GtkEditable* _sender,
+___lambda83__gtk_editable_changed (GtkEditable* _sender,
                                    gpointer self)
 {
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
-	__lambda81_ ((valaDevelopRename*) self);
-#line 278 "rename_folder_dialog.c"
+	__lambda83_ ((valaDevelopRename*) self);
 }
 
 valaDevelopRename*
@@ -294,78 +286,42 @@ vala_develop_rename_construct (GType object_type,
 	gchar* _tmp8_;
 	GtkEntry* _tmp9_;
 	const gchar* _tmp10_;
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self = (valaDevelopRename*) g_object_new (object_type, NULL);
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp0_ = gtk_widget_get_toplevel (parent);
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_window_set_transient_for ((GtkWindow*) self, G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow));
-#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp1_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (parent, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) parent) : NULL);
-#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_object_unref0 (self->priv->_parent);
-#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self->priv->_parent = _tmp1_;
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	if ((itemType & VALA_DEVELOP_ITEM_TYPE_Directory) == VALA_DEVELOP_ITEM_TYPE_Directory) {
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp2_ = _ ("Rename folder");
-#line 318 "rename_folder_dialog.c"
 	} else {
 		const gchar* _tmp3_ = NULL;
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		if (itemType == VALA_DEVELOP_ITEM_TYPE_Resource) {
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp3_ = _ ("Rename resource (Resource-Id will be changed)");
-#line 325 "rename_folder_dialog.c"
 		} else {
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp3_ = _ ("Rename item");
-#line 329 "rename_folder_dialog.c"
 		}
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp2_ = _tmp3_;
-#line 333 "rename_folder_dialog.c"
 	}
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_window_set_title ((GtkWindow*) self, _tmp2_);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_dialog_set_default_response ((GtkDialog*) self, (gint) GTK_RESPONSE_ACCEPT);
-#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp4_ = *iter;
-#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self->priv->_overviewTreeIter = _tmp4_;
-#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self->priv->_itemType = itemType;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp5_ = self->priv->itemname;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
-	g_signal_connect_object ((GtkEditable*) _tmp5_, "changed", (GCallback) ___lambda81__gtk_editable_changed, self, 0);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
+	g_signal_connect_object ((GtkEditable*) _tmp5_, "changed", (GCallback) ___lambda83__gtk_editable_changed, self, 0);
 	_tmp6_ = vala_develop_main_paned_overviewTreeModel;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp7_ = self->priv->_overviewTreeIter;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp8_ = vala_develop_overview_tree_store_get_item_name (_tmp6_, &_tmp7_);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_free0 (self->priv->_orgName);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self->priv->_orgName = _tmp8_;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp9_ = self->priv->itemname;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_tmp10_ = self->priv->_orgName;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_entry_set_text (_tmp9_, _tmp10_);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	return self;
-#line 369 "rename_folder_dialog.c"
 }
 
 valaDevelopRename*
@@ -373,9 +329,7 @@ vala_develop_rename_new (GtkWidget* parent,
                          GtkTreeIter* iter,
                          valaDevelopItemType itemType)
 {
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	return vala_develop_rename_construct (VALA_DEVELOP_TYPE_RENAME, parent, iter, itemType);
-#line 379 "rename_folder_dialog.c"
 }
 
 static gchar*
@@ -387,43 +341,24 @@ string_replace (const gchar* self,
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
 	GError* _inner_error0_ = NULL;
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (old != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (replacement != NULL, NULL);
-#line 1481 "glib-2.0.vapi"
 	if ((*((gchar*) self)) == '\0') {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
-#line 401 "rename_folder_dialog.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
-#line 405 "rename_folder_dialog.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
-#line 411 "rename_folder_dialog.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
-#line 415 "rename_folder_dialog.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 419 "rename_folder_dialog.c"
 		gchar* _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
-#line 1482 "glib-2.0.vapi"
 		result = _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		return result;
-#line 427 "rename_folder_dialog.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -435,96 +370,54 @@ string_replace (const gchar* self,
 		GRegex* _tmp8_;
 		gchar* _tmp9_;
 		gchar* _tmp10_;
-#line 1485 "glib-2.0.vapi"
 		_tmp3_ = g_regex_escape_string (old, -1);
-#line 1485 "glib-2.0.vapi"
 		_tmp4_ = _tmp3_;
-#line 1485 "glib-2.0.vapi"
 		_tmp5_ = g_regex_new (_tmp4_, 0, 0, &_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 		_tmp6_ = _tmp5_;
-#line 1485 "glib-2.0.vapi"
 		_g_free0 (_tmp4_);
-#line 1485 "glib-2.0.vapi"
 		regex = _tmp6_;
-#line 1485 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 455 "rename_folder_dialog.c"
 				goto __catch1_g_regex_error;
 			}
-#line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1485 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 			return NULL;
-#line 464 "rename_folder_dialog.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
-#line 1486 "glib-2.0.vapi"
 		_tmp9_ = g_regex_replace_literal (_tmp8_, self, (gssize) -1, 0, replacement, 0, &_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = _tmp9_;
-#line 1486 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 478 "rename_folder_dialog.c"
 				goto __catch1_g_regex_error;
 			}
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1486 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 			return NULL;
-#line 489 "rename_folder_dialog.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = NULL;
-#line 1486 "glib-2.0.vapi"
 		result = _tmp10_;
-#line 1486 "glib-2.0.vapi"
 		_g_free0 (_tmp7_);
-#line 1486 "glib-2.0.vapi"
 		_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 		return result;
-#line 503 "rename_folder_dialog.c"
 	}
 	goto __finally1;
 	__catch1_g_regex_error:
 	{
 		GError* e = NULL;
-#line 1484 "glib-2.0.vapi"
 		e = _inner_error0_;
-#line 1484 "glib-2.0.vapi"
 		_inner_error0_ = NULL;
-#line 1488 "glib-2.0.vapi"
 		g_assert_not_reached ();
-#line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
-#line 517 "rename_folder_dialog.c"
 	}
 	__finally1:
-#line 1484 "glib-2.0.vapi"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1484 "glib-2.0.vapi"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1484 "glib-2.0.vapi"
 		g_clear_error (&_inner_error0_);
-#line 1484 "glib-2.0.vapi"
 		return NULL;
-#line 528 "rename_folder_dialog.c"
 	}
 }
 
@@ -532,9 +425,7 @@ static void
 vala_develop_rename_OnAccept (valaDevelopRename* self)
 {
 	GError* _inner_error0_ = NULL;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	g_return_if_fail (self != NULL);
-#line 538 "rename_folder_dialog.c"
 	{
 		GtkTreeIter solutionIter = {0};
 		valaDevelopOverviewTreeStore* _tmp0_;
@@ -545,25 +436,15 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 		gchar* _tmp4_;
 		valaDevelopItemType _tmp5_;
 		valaDevelopMainPaned* _tmp145_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp0_ = vala_develop_main_paned_overviewTreeModel;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp0_, &_tmp1_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		solutionIter = _tmp1_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp2_ = vala_develop_main_paned_overviewTreeModel;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp3_ = solutionIter;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp4_ = vala_develop_overview_tree_store_get_item_path (_tmp2_, &_tmp3_);
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		solutionPath = _tmp4_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp5_ = self->priv->_itemType;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		if ((_tmp5_ & VALA_DEVELOP_ITEM_TYPE_Directory) == VALA_DEVELOP_ITEM_TYPE_Directory) {
-#line 567 "rename_folder_dialog.c"
 			gchar* projectPath = NULL;
 			valaDevelopOverviewTreeStore* _tmp6_;
 			GtkTreeIter _tmp7_;
@@ -594,90 +475,48 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 			gboolean _tmp29_ = FALSE;
 			GFile* _tmp30_;
 			GFile* _tmp31_;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp6_ = vala_develop_main_paned_overviewTreeModel;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp7_ = self->priv->_overviewTreeIter;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp8_ = vala_develop_overview_tree_store_get_project_path (_tmp6_, &_tmp7_);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			projectPath = _tmp8_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp9_ = vala_develop_main_paned_overviewTreeModel;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp10_ = self->priv->_overviewTreeIter;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp11_ = vala_develop_overview_tree_store_get_item_path (_tmp9_, &_tmp10_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			folderPath = _tmp11_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp12_ = solutionPath;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp13_ = g_file_new_for_path (_tmp12_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp14_ = _tmp13_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp15_ = folderPath;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp16_ = g_file_get_child (_tmp14_, _tmp15_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp17_ = _tmp16_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (_tmp14_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			fullOldPath = _tmp17_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp18_ = solutionPath;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp19_ = g_file_new_for_path (_tmp18_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp20_ = _tmp19_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp21_ = projectPath;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp22_ = g_file_get_child (_tmp20_, _tmp21_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp23_ = _tmp22_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp24_ = self->priv->itemname;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp25_ = gtk_entry_get_text (_tmp24_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp26_ = _tmp25_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp27_ = g_file_get_child (_tmp23_, _tmp26_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp28_ = _tmp27_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (_tmp23_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (_tmp20_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			fullNewPath = _tmp28_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp30_ = fullOldPath;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp31_ = fullNewPath;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp29_ = g_file_move (_tmp30_, _tmp31_, G_FILE_COPY_NONE, NULL, NULL, NULL, &_inner_error0_);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_object_unref0 (fullNewPath);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_object_unref0 (fullOldPath);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (folderPath);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (projectPath);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (solutionPath);
-#line 676 "rename_folder_dialog.c"
 				goto __catch0_g_error;
 			}
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			if (_tmp29_) {
-#line 681 "rename_folder_dialog.c"
 				valaDevelopOverviewTreeStore* _tmp32_;
 				GtkTreeIter _tmp33_;
 				GtkEntry* _tmp34_;
@@ -698,67 +537,36 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 				GtkTreeIter* _tmp49_;
 				GtkTreeIter* _tmp50_;
 				GtkTreeIter _tmp51_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp32_ = vala_develop_main_paned_overviewTreeModel;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp33_ = self->priv->_overviewTreeIter;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp34_ = self->priv->itemname;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp35_ = gtk_entry_get_text (_tmp34_);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp36_ = _tmp35_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_set_item_name (_tmp32_, &_tmp33_, _tmp36_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp37_ = vala_develop_main_paned_overviewTreeModel;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp38_ = self->priv->_overviewTreeIter;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp39_ = folderPath;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp40_ = self->priv->_orgName;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp41_ = self->priv->itemname;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp42_ = gtk_entry_get_text (_tmp41_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp43_ = _tmp42_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp44_ = string_replace (_tmp39_, _tmp40_, _tmp43_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp45_ = _tmp44_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_set_item_path (_tmp37_, &_tmp38_, _tmp45_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (_tmp45_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp46_ = vala_develop_main_paned_overviewTreeModel;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp47_ = vala_develop_main_paned_overviewTreeModel;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp48_ = self->priv->_overviewTreeIter;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp49_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp47_, &_tmp48_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp50_ = _tmp49_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp51_ = *_tmp50_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_save_project (_tmp46_, &_tmp51_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (_tmp50_);
-#line 752 "rename_folder_dialog.c"
 			}
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (fullNewPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (fullOldPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_free0 (folderPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_free0 (projectPath);
-#line 762 "rename_folder_dialog.c"
 		} else {
 			gchar* orgPathName = NULL;
 			valaDevelopOverviewTreeStore* _tmp52_;
@@ -787,82 +595,44 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 			gboolean _tmp73_ = FALSE;
 			GFile* _tmp74_;
 			GFile* _tmp75_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp52_ = vala_develop_main_paned_overviewTreeModel;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp53_ = self->priv->_overviewTreeIter;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp54_ = vala_develop_overview_tree_store_get_item_relative_path (_tmp52_, &_tmp53_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			orgPathName = _tmp54_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp55_ = solutionPath;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp56_ = g_file_new_for_path (_tmp55_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp57_ = _tmp56_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp58_ = orgPathName;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp59_ = g_file_get_child (_tmp57_, _tmp58_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp60_ = _tmp59_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (_tmp57_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			fullOldPath = _tmp60_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp61_ = solutionPath;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp62_ = g_file_new_for_path (_tmp61_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp63_ = _tmp62_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp64_ = orgPathName;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp65_ = self->priv->_orgName;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp66_ = self->priv->itemname;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp67_ = gtk_entry_get_text (_tmp66_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp68_ = _tmp67_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp69_ = string_replace (_tmp64_, _tmp65_, _tmp68_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp70_ = _tmp69_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp71_ = g_file_get_child (_tmp63_, _tmp70_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp72_ = _tmp71_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_free0 (_tmp70_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (_tmp63_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			fullNewPath = _tmp72_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp74_ = fullOldPath;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp75_ = fullNewPath;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp73_ = g_file_move (_tmp74_, _tmp75_, G_FILE_COPY_NONE, NULL, NULL, NULL, &_inner_error0_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_object_unref0 (fullNewPath);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_object_unref0 (fullOldPath);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (orgPathName);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (solutionPath);
-#line 861 "rename_folder_dialog.c"
 				goto __catch0_g_error;
 			}
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			if (_tmp73_) {
-#line 866 "rename_folder_dialog.c"
 				valaDevelopOverviewTreeStore* _tmp76_;
 				GtkTreeIter _tmp77_;
 				GtkEntry* _tmp78_;
@@ -896,23 +666,14 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 				GtkTreeIter* _tmp142_;
 				GtkTreeIter* _tmp143_;
 				GtkTreeIter _tmp144_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp76_ = vala_develop_main_paned_overviewTreeModel;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp77_ = self->priv->_overviewTreeIter;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp78_ = self->priv->itemname;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp79_ = gtk_entry_get_text (_tmp78_);
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp80_ = _tmp79_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_set_item_name (_tmp76_, &_tmp77_, _tmp80_);
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp81_ = self->priv->_itemType;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				if (_tmp81_ == VALA_DEVELOP_ITEM_TYPE_Resource) {
-#line 916 "rename_folder_dialog.c"
 					gchar* old_resource_id = NULL;
 					valaDevelopOverviewTreeStore* _tmp82_;
 					GtkTreeIter _tmp83_;
@@ -926,376 +687,205 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 					const gchar* _tmp91_;
 					gchar* _tmp92_;
 					gchar* _tmp93_;
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp82_ = vala_develop_main_paned_overviewTreeModel;
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp83_ = self->priv->_overviewTreeIter;
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp84_ = vala_develop_overview_tree_store_get_item_resource_id (_tmp82_, &_tmp83_);
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					old_resource_id = _tmp84_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp85_ = vala_develop_main_paned_overviewTreeModel;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp86_ = self->priv->_overviewTreeIter;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp87_ = old_resource_id;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp88_ = self->priv->_orgName;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp89_ = self->priv->itemname;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp90_ = gtk_entry_get_text (_tmp89_);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp91_ = _tmp90_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp92_ = string_replace (_tmp87_, _tmp88_, _tmp91_);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp93_ = _tmp92_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					vala_develop_overview_tree_store_set_item_resource_id (_tmp85_, &_tmp86_, _tmp93_);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_g_free0 (_tmp93_);
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_g_free0 (old_resource_id);
-#line 962 "rename_folder_dialog.c"
 				}
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp94_ = fullNewPath;
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp95_ = g_file_get_path (_tmp94_);
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp96_ = _tmp95_;
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp97_ = g_content_type_guess (_tmp96_, NULL, (gsize) 0, NULL);
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp98_ = _tmp97_;
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (_tmp96_);
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				cType = _tmp98_;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp99_ = vala_develop_main_paned_overviewTreeModel;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp100_ = self->priv->_overviewTreeIter;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp101_ = cType;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_set_item_mimetype (_tmp99_, &_tmp100_, _tmp101_);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				itemPixbuf = NULL;
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp102_ = fullNewPath;
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp103_ = g_file_get_path (_tmp102_);
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				itemName = _tmp103_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp105_ = itemName;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				if (g_str_has_suffix (_tmp105_, ".glade")) {
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp104_ = TRUE;
-#line 1000 "rename_folder_dialog.c"
 				} else {
 					const gchar* _tmp106_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp106_ = itemName;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp104_ = g_str_has_suffix (_tmp106_, ".ui");
-#line 1007 "rename_folder_dialog.c"
 				}
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				if (_tmp104_) {
-#line 1011 "rename_folder_dialog.c"
 					GdkPixbuf* _tmp107_ = NULL;
 					GdkPixbuf* _tmp108_;
 					GdkPixbuf* _tmp109_;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp108_ = gdk_pixbuf_new_from_resource ("/valaDevelop/glade.svg.png", &_inner_error0_);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp107_ = _tmp108_;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_free0 (itemName);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_object_unref0 (itemPixbuf);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_free0 (cType);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_object_unref0 (fullNewPath);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_object_unref0 (fullOldPath);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_free0 (orgPathName);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_free0 (solutionPath);
-#line 1035 "rename_folder_dialog.c"
 						goto __catch0_g_error;
 					}
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp109_ = gdk_pixbuf_scale_simple (_tmp107_, 16, 16, GDK_INTERP_BILINEAR);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_g_object_unref0 (itemPixbuf);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					itemPixbuf = _tmp109_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_g_object_unref0 (_tmp107_);
-#line 1046 "rename_folder_dialog.c"
 				} else {
 					gboolean _tmp110_ = FALSE;
 					const gchar* _tmp111_;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp111_ = itemName;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					if (g_str_has_suffix (_tmp111_, ".xml")) {
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp110_ = TRUE;
-#line 1056 "rename_folder_dialog.c"
 					} else {
 						const gchar* _tmp112_;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp112_ = itemName;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp110_ = g_str_has_suffix (_tmp112_, ".css");
-#line 1063 "rename_folder_dialog.c"
 					}
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					if (_tmp110_) {
-#line 1067 "rename_folder_dialog.c"
 						GdkPixbuf* _tmp113_ = NULL;
 						GdkPixbuf* _tmp114_;
 						GdkPixbuf* _tmp115_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp114_ = gdk_pixbuf_new_from_resource ("/valaDevelop/xml.svg.png", &_inner_error0_);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp113_ = _tmp114_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_free0 (itemName);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_object_unref0 (itemPixbuf);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_free0 (cType);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_object_unref0 (fullNewPath);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_object_unref0 (fullOldPath);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_free0 (orgPathName);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_free0 (solutionPath);
-#line 1091 "rename_folder_dialog.c"
 							goto __catch0_g_error;
 						}
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp115_ = gdk_pixbuf_scale_simple (_tmp113_, 16, 16, GDK_INTERP_BILINEAR);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_object_unref0 (itemPixbuf);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						itemPixbuf = _tmp115_;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_g_object_unref0 (_tmp113_);
-#line 1102 "rename_folder_dialog.c"
 					} else {
 						gboolean _tmp116_ = FALSE;
 						const gchar* _tmp117_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						_tmp117_ = itemName;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						if (g_str_has_suffix (_tmp117_, ".png")) {
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp116_ = TRUE;
-#line 1112 "rename_folder_dialog.c"
 						} else {
 							const gchar* _tmp118_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp118_ = itemName;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp116_ = g_str_has_suffix (_tmp118_, ".svg");
-#line 1119 "rename_folder_dialog.c"
 						}
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 						if (_tmp116_) {
-#line 1123 "rename_folder_dialog.c"
 							GdkPixbuf* _tmp119_ = NULL;
 							GdkPixbuf* _tmp120_;
 							GdkPixbuf* _tmp121_;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp120_ = gdk_pixbuf_new_from_resource ("/valaDevelop/picture.svg.png", &_inner_error0_);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp119_ = _tmp120_;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_free0 (itemName);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_object_unref0 (itemPixbuf);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_free0 (cType);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_object_unref0 (fullNewPath);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_object_unref0 (fullOldPath);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_free0 (orgPathName);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_free0 (solutionPath);
-#line 1147 "rename_folder_dialog.c"
 								goto __catch0_g_error;
 							}
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp121_ = gdk_pixbuf_scale_simple (_tmp119_, 16, 16, GDK_INTERP_BILINEAR);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_object_unref0 (itemPixbuf);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							itemPixbuf = _tmp121_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_g_object_unref0 (_tmp119_);
-#line 1158 "rename_folder_dialog.c"
 						} else {
 							gboolean _tmp122_ = FALSE;
 							gboolean _tmp123_ = FALSE;
 							const gchar* _tmp124_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							_tmp124_ = itemName;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							if (g_str_has_suffix (_tmp124_, ".vala")) {
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp123_ = TRUE;
-#line 1169 "rename_folder_dialog.c"
 							} else {
 								const gchar* _tmp125_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp125_ = itemName;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp123_ = g_str_has_suffix (_tmp125_, ".vapi");
-#line 1176 "rename_folder_dialog.c"
 							}
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							if (_tmp123_) {
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp122_ = TRUE;
-#line 1182 "rename_folder_dialog.c"
 							} else {
 								const gchar* _tmp126_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp126_ = itemName;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp122_ = g_str_has_suffix (_tmp126_, ".c");
-#line 1189 "rename_folder_dialog.c"
 							}
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 							if (_tmp122_) {
-#line 1193 "rename_folder_dialog.c"
 								GdkPixbuf* _tmp127_ = NULL;
 								GdkPixbuf* _tmp128_;
 								GdkPixbuf* _tmp129_;
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp128_ = gdk_pixbuf_new_from_resource ("/valaDevelop/source.svg.png", &_inner_error0_);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp127_ = _tmp128_;
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_free0 (itemName);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_object_unref0 (itemPixbuf);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_free0 (cType);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_object_unref0 (fullNewPath);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_object_unref0 (fullOldPath);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_free0 (orgPathName);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 									_g_free0 (solutionPath);
-#line 1217 "rename_folder_dialog.c"
 									goto __catch0_g_error;
 								}
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_tmp129_ = gdk_pixbuf_scale_simple (_tmp127_, 16, 16, GDK_INTERP_BILINEAR);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_object_unref0 (itemPixbuf);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								itemPixbuf = _tmp129_;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 								_g_object_unref0 (_tmp127_);
-#line 1228 "rename_folder_dialog.c"
 							}
 						}
 					}
 				}
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp130_ = itemPixbuf;
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				if (_tmp130_ != NULL) {
-#line 1237 "rename_folder_dialog.c"
 					valaDevelopOverviewTreeStore* _tmp131_;
 					GtkTreeIter _tmp132_;
 					GdkPixbuf* _tmp133_;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp131_ = vala_develop_main_paned_overviewTreeModel;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp132_ = self->priv->_overviewTreeIter;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					_tmp133_ = itemPixbuf;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 					vala_develop_overview_tree_store_set_item_pixbuf (_tmp131_, &_tmp132_, _tmp133_);
-#line 1249 "rename_folder_dialog.c"
 				}
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp134_ = vala_develop_main_paned_overviewTreeModel;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp135_ = self->priv->_overviewTreeIter;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp136_ = self->priv->itemname;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp137_ = gtk_entry_get_text (_tmp136_);
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp138_ = _tmp137_;
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_set_item_name (_tmp134_, &_tmp135_, _tmp138_);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp139_ = vala_develop_main_paned_overviewTreeModel;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp140_ = vala_develop_main_paned_overviewTreeModel;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp141_ = self->priv->_overviewTreeIter;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp142_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp140_, &_tmp141_);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp143_ = _tmp142_;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_tmp144_ = *_tmp143_;
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				vala_develop_overview_tree_store_save_project (_tmp139_, &_tmp144_);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (_tmp143_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (itemName);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_object_unref0 (itemPixbuf);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 				_g_free0 (cType);
-#line 1285 "rename_folder_dialog.c"
 			}
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (fullNewPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_object_unref0 (fullOldPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_g_free0 (orgPathName);
-#line 1293 "rename_folder_dialog.c"
 		}
-#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp145_ = self->priv->_parent;
-#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		if (_tmp145_ != NULL) {
-#line 1299 "rename_folder_dialog.c"
 			valaDevelopMainPaned* _tmp146_;
 			GtkBox* _tmp147_;
 			GList* _tmp148_;
@@ -1303,29 +893,17 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 			gconstpointer _tmp150_;
 			GtkWidget* _tmp151_;
 			GtkTreeIter _tmp152_;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp146_ = self->priv->_parent;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp147_ = _tmp146_->toolWindow;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp148_ = gtk_container_get_children ((GtkContainer*) _tmp147_);
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp149_ = _tmp148_;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp150_ = g_list_nth_data (_tmp149_, (guint) 0);
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp151_ = (GtkWidget*) _tmp150_;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			_tmp152_ = self->priv->_overviewTreeIter;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			vala_develop_ioption_widget_set_iter (G_TYPE_CHECK_INSTANCE_TYPE (_tmp151_, VALA_DEVELOP_TYPE_IOPTION_WIDGET) ? ((valaDevelopIOptionWidget*) _tmp151_) : NULL, &_tmp152_);
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 			(_tmp149_ == NULL) ? NULL : (_tmp149_ = (g_list_free (_tmp149_), NULL));
-#line 1325 "rename_folder_dialog.c"
 		}
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_g_free0 (solutionPath);
-#line 1329 "rename_folder_dialog.c"
 	}
 	goto __finally0;
 	__catch0_g_error:
@@ -1337,131 +915,83 @@ vala_develop_rename_OnAccept (valaDevelopRename* self)
 		GtkMessageDialog* _tmp155_;
 		GtkMessageDialog* _tmp156_;
 		GtkMessageDialog* _tmp157_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		e = _inner_error0_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_inner_error0_ = NULL;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp153_ = e;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp154_ = _tmp153_->message;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp155_ = (GtkMessageDialog*) gtk_message_dialog_new ((GtkWindow*) self, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp154_);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		g_object_ref_sink (_tmp155_);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		messagedialog = _tmp155_;
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp156_ = messagedialog;
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp156_);
-#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_tmp157_ = messagedialog;
-#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp157_);
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_g_object_unref0 (messagedialog);
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		_g_error_free0 (e);
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		return;
-#line 1369 "rename_folder_dialog.c"
 	}
 	__finally0:
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		g_clear_error (&_inner_error0_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 		return;
-#line 1380 "rename_folder_dialog.c"
 	}
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_ACCEPT);
-#line 1384 "rename_folder_dialog.c"
 }
 
 static void
 _vala_develop_rename_OnAccept_gtk_button_clicked (GtkButton* _sender,
                                                   gpointer self)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	vala_develop_rename_OnAccept ((valaDevelopRename*) self);
-#line 1393 "rename_folder_dialog.c"
 }
 
 static void
 vala_develop_rename_OnCancel (valaDevelopRename* self)
 {
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	g_return_if_fail (self != NULL);
-#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_CANCEL);
-#line 1403 "rename_folder_dialog.c"
 }
 
 static void
 _vala_develop_rename_OnCancel_gtk_button_clicked (GtkButton* _sender,
                                                   gpointer self)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	vala_develop_rename_OnCancel ((valaDevelopRename*) self);
-#line 1412 "rename_folder_dialog.c"
 }
 
 static void
 vala_develop_rename_class_init (valaDevelopRenameClass * klass,
                                 gpointer klass_data)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	vala_develop_rename_parent_class = g_type_class_peek_parent (klass);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopRename_private_offset);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_rename_finalize;
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/rename.glade");
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "itemname", FALSE, valaDevelopRename_private_offset + G_STRUCT_OFFSET (valaDevelopRenamePrivate, itemname));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "rename", FALSE, valaDevelopRename_private_offset + G_STRUCT_OFFSET (valaDevelopRenamePrivate, rename));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnAccept", G_CALLBACK(_vala_develop_rename_OnAccept_gtk_button_clicked));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnCancel", G_CALLBACK(_vala_develop_rename_OnCancel_gtk_button_clicked));
-#line 1435 "rename_folder_dialog.c"
 }
 
 static void
 vala_develop_rename_instance_init (valaDevelopRename * self,
                                    gpointer klass)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self->priv = vala_develop_rename_get_instance_private (self);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
-#line 1446 "rename_folder_dialog.c"
 }
 
 static void
 vala_develop_rename_finalize (GObject * obj)
 {
 	valaDevelopRename * self;
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_RENAME, valaDevelopRename);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_object_unref0 (self->priv->itemname);
-#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_object_unref0 (self->priv->rename);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_free0 (self->priv->_orgName);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	_g_object_unref0 (self->priv->_parent);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/rename_folder_dialog.vala"
 	G_OBJECT_CLASS (vala_develop_rename_parent_class)->finalize (obj);
-#line 1465 "rename_folder_dialog.c"
 }
 
 GType

@@ -4,18 +4,174 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include <glib-object.h>
-#include <gdk/gdk.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
-#include "vala.h"
-#include <gee.h>
 #include <gtk/gtk.h>
+#include <glib-object.h>
+#include <gio/gio.h>
+#include <gee.h>
+#include <glib/gi18n-lib.h>
 #include <gtksourceview/gtksource.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gdk/gdk.h>
+#include <vala.h>
 #include <webkit2/webkit2.h>
 #include <cairo.h>
 #include <libxml/tree.h>
-#include <gio/gio.h>
 #include <gobject/gvaluecollector.h>
+
+#define VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG (vala_develop_solution_create_dialog_get_type ())
+#define VALA_DEVELOP_SOLUTION_CREATE_DIALOG(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG, valaDevelopSolutionCreateDialog))
+#define VALA_DEVELOP_SOLUTION_CREATE_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG, valaDevelopSolutionCreateDialogClass))
+#define VALA_DEVELOP_IS_SOLUTION_CREATE_DIALOG(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG))
+#define VALA_DEVELOP_IS_SOLUTION_CREATE_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG))
+#define VALA_DEVELOP_SOLUTION_CREATE_DIALOG_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_SOLUTION_CREATE_DIALOG, valaDevelopSolutionCreateDialogClass))
+
+typedef struct _valaDevelopSolutionCreateDialog valaDevelopSolutionCreateDialog;
+typedef struct _valaDevelopSolutionCreateDialogClass valaDevelopSolutionCreateDialogClass;
+typedef enum  {
+	VALA_DEVELOP_ITEM_TYPE_None = 0,
+	VALA_DEVELOP_ITEM_TYPE_Solution = 1,
+	VALA_DEVELOP_ITEM_TYPE_Project = 2,
+	VALA_DEVELOP_ITEM_TYPE_Resource = 4,
+	VALA_DEVELOP_ITEM_TYPE_Source = 8,
+	VALA_DEVELOP_ITEM_TYPE_Package = 16,
+	VALA_DEVELOP_ITEM_TYPE_Directory = 32,
+	VALA_DEVELOP_ITEM_TYPE_Vapi = 64
+} valaDevelopItemType;
+
+#define VALA_DEVELOP_TYPE_ITEM_TYPE (vala_develop_item_type_get_type ())
+
+#define VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE (vala_develop_overview_tree_store_get_type ())
+#define VALA_DEVELOP_OVERVIEW_TREE_STORE(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStore))
+#define VALA_DEVELOP_OVERVIEW_TREE_STORE_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStoreClass))
+#define VALA_DEVELOP_IS_OVERVIEW_TREE_STORE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE))
+#define VALA_DEVELOP_IS_OVERVIEW_TREE_STORE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE))
+#define VALA_DEVELOP_OVERVIEW_TREE_STORE_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStoreClass))
+
+typedef struct _valaDevelopOverviewTreeStore valaDevelopOverviewTreeStore;
+typedef struct _valaDevelopOverviewTreeStoreClass valaDevelopOverviewTreeStoreClass;
+#define _g_free0(var) (var = (g_free (var), NULL))
+#define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
+typedef enum  {
+	VALA_DEVELOP_ITEM_BUILD_TYPE_None,
+	VALA_DEVELOP_ITEM_BUILD_TYPE_Compile,
+	VALA_DEVELOP_ITEM_BUILD_TYPE_Resource,
+	VALA_DEVELOP_ITEM_BUILD_TYPE_Package,
+	VALA_DEVELOP_ITEM_BUILD_TYPE_Executable,
+	VALA_DEVELOP_ITEM_BUILD_TYPE_SharedObject
+} valaDevelopItemBuildType;
+
+#define VALA_DEVELOP_TYPE_ITEM_BUILD_TYPE (vala_develop_item_build_type_get_type ())
+
+#define VALA_DEVELOP_TYPE_SYMBOL_FINDER (vala_develop_symbol_finder_get_type ())
+#define VALA_DEVELOP_SYMBOL_FINDER(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_SYMBOL_FINDER, valaDevelopSymbolFinder))
+#define VALA_DEVELOP_SYMBOL_FINDER_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_SYMBOL_FINDER, valaDevelopSymbolFinderClass))
+#define VALA_DEVELOP_IS_SYMBOL_FINDER(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_SYMBOL_FINDER))
+#define VALA_DEVELOP_IS_SYMBOL_FINDER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_SYMBOL_FINDER))
+#define VALA_DEVELOP_SYMBOL_FINDER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_SYMBOL_FINDER, valaDevelopSymbolFinderClass))
+
+typedef struct _valaDevelopSymbolFinder valaDevelopSymbolFinder;
+typedef struct _valaDevelopSymbolFinderClass valaDevelopSymbolFinderClass;
+
+#define VALA_DEVELOP_TYPE_RENAME (vala_develop_rename_get_type ())
+#define VALA_DEVELOP_RENAME(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_RENAME, valaDevelopRename))
+#define VALA_DEVELOP_RENAME_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_RENAME, valaDevelopRenameClass))
+#define VALA_DEVELOP_IS_RENAME(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_RENAME))
+#define VALA_DEVELOP_IS_RENAME_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_RENAME))
+#define VALA_DEVELOP_RENAME_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_RENAME, valaDevelopRenameClass))
+
+typedef struct _valaDevelopRename valaDevelopRename;
+typedef struct _valaDevelopRenameClass valaDevelopRenameClass;
+#define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
+
+#define VALA_DEVELOP_TYPE_MAIN_PANED (vala_develop_main_paned_get_type ())
+#define VALA_DEVELOP_MAIN_PANED(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_MAIN_PANED, valaDevelopMainPaned))
+#define VALA_DEVELOP_MAIN_PANED_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_MAIN_PANED, valaDevelopMainPanedClass))
+#define VALA_DEVELOP_IS_MAIN_PANED(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_MAIN_PANED))
+#define VALA_DEVELOP_IS_MAIN_PANED_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_MAIN_PANED))
+#define VALA_DEVELOP_MAIN_PANED_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_MAIN_PANED, valaDevelopMainPanedClass))
+
+typedef struct _valaDevelopMainPaned valaDevelopMainPaned;
+typedef struct _valaDevelopMainPanedClass valaDevelopMainPanedClass;
+typedef struct _valaDevelopMainPanedPrivate valaDevelopMainPanedPrivate;
+
+#define VALA_DEVELOP_TYPE_STATUS_LIST (vala_develop_status_list_get_type ())
+#define VALA_DEVELOP_STATUS_LIST(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_STATUS_LIST, valaDevelopStatusList))
+#define VALA_DEVELOP_STATUS_LIST_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_STATUS_LIST, valaDevelopStatusListClass))
+#define VALA_DEVELOP_IS_STATUS_LIST(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_STATUS_LIST))
+#define VALA_DEVELOP_IS_STATUS_LIST_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_STATUS_LIST))
+#define VALA_DEVELOP_STATUS_LIST_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_STATUS_LIST, valaDevelopStatusListClass))
+
+typedef struct _valaDevelopStatusList valaDevelopStatusList;
+typedef struct _valaDevelopStatusListClass valaDevelopStatusListClass;
+
+#define VALA_DEVELOP_TYPE_ITEM_OPTIONS (vala_develop_item_options_get_type ())
+#define VALA_DEVELOP_ITEM_OPTIONS(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptions))
+#define VALA_DEVELOP_ITEM_OPTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptionsClass))
+#define VALA_DEVELOP_IS_ITEM_OPTIONS(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_ITEM_OPTIONS))
+#define VALA_DEVELOP_IS_ITEM_OPTIONS_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_ITEM_OPTIONS))
+#define VALA_DEVELOP_ITEM_OPTIONS_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptionsClass))
+
+typedef struct _valaDevelopItemOptions valaDevelopItemOptions;
+typedef struct _valaDevelopItemOptionsClass valaDevelopItemOptionsClass;
+
+#define VALA_DEVELOP_TYPE_MAIN_WINDOW (vala_develop_main_window_get_type ())
+#define VALA_DEVELOP_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_MAIN_WINDOW, valaDevelopmainWindow))
+#define VALA_DEVELOP_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_MAIN_WINDOW, valaDevelopmainWindowClass))
+#define VALA_DEVELOP_IS_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_MAIN_WINDOW))
+#define VALA_DEVELOP_IS_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_MAIN_WINDOW))
+#define VALA_DEVELOP_MAIN_WINDOW_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_MAIN_WINDOW, valaDevelopmainWindowClass))
+
+typedef struct _valaDevelopmainWindow valaDevelopmainWindow;
+typedef struct _valaDevelopmainWindowClass valaDevelopmainWindowClass;
+
+#define VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE (vala_develop_resource_create_file_get_type ())
+#define VALA_DEVELOP_RESOURCE_CREATE_FILE(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE, valaDevelopResourceCreateFile))
+#define VALA_DEVELOP_RESOURCE_CREATE_FILE_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE, valaDevelopResourceCreateFileClass))
+#define VALA_DEVELOP_IS_RESOURCE_CREATE_FILE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE))
+#define VALA_DEVELOP_IS_RESOURCE_CREATE_FILE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE))
+#define VALA_DEVELOP_RESOURCE_CREATE_FILE_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE, valaDevelopResourceCreateFileClass))
+
+typedef struct _valaDevelopResourceCreateFile valaDevelopResourceCreateFile;
+typedef struct _valaDevelopResourceCreateFileClass valaDevelopResourceCreateFileClass;
+
+#define VALA_DEVELOP_TYPE_NEW_FOLDER (vala_develop_new_folder_get_type ())
+#define VALA_DEVELOP_NEW_FOLDER(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_NEW_FOLDER, valaDevelopNewFolder))
+#define VALA_DEVELOP_NEW_FOLDER_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_NEW_FOLDER, valaDevelopNewFolderClass))
+#define VALA_DEVELOP_IS_NEW_FOLDER(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_NEW_FOLDER))
+#define VALA_DEVELOP_IS_NEW_FOLDER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_NEW_FOLDER))
+#define VALA_DEVELOP_NEW_FOLDER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_NEW_FOLDER, valaDevelopNewFolderClass))
+
+typedef struct _valaDevelopNewFolder valaDevelopNewFolder;
+typedef struct _valaDevelopNewFolderClass valaDevelopNewFolderClass;
+typedef enum  {
+	VALA_DEVELOP_IMPORT_OPTIONS_Use,
+	VALA_DEVELOP_IMPORT_OPTIONS_Copy,
+	VALA_DEVELOP_IMPORT_OPTIONS_Move,
+	VALA_DEVELOP_IMPORT_OPTIONS_Link,
+	VALA_DEVELOP_IMPORT_OPTIONS_Cancel
+} valaDevelopImportOptions;
+
+#define VALA_DEVELOP_TYPE_IMPORT_OPTIONS (vala_develop_import_options_get_type ())
+
+#define VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE (vala_develop_source_create_file_get_type ())
+#define VALA_DEVELOP_SOURCE_CREATE_FILE(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE, valaDevelopSourceCreateFile))
+#define VALA_DEVELOP_SOURCE_CREATE_FILE_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE, valaDevelopSourceCreateFileClass))
+#define VALA_DEVELOP_IS_SOURCE_CREATE_FILE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE))
+#define VALA_DEVELOP_IS_SOURCE_CREATE_FILE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE))
+#define VALA_DEVELOP_SOURCE_CREATE_FILE_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_SOURCE_CREATE_FILE, valaDevelopSourceCreateFileClass))
+
+typedef struct _valaDevelopSourceCreateFile valaDevelopSourceCreateFile;
+typedef struct _valaDevelopSourceCreateFileClass valaDevelopSourceCreateFileClass;
+
+#define VALA_DEVELOP_TYPE_WRONG_LOCATION (vala_develop_wrong_location_get_type ())
+#define VALA_DEVELOP_WRONG_LOCATION(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_WRONG_LOCATION, valaDevelopWrongLocation))
+#define VALA_DEVELOP_WRONG_LOCATION_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), VALA_DEVELOP_TYPE_WRONG_LOCATION, valaDevelopWrongLocationClass))
+#define VALA_DEVELOP_IS_WRONG_LOCATION(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VALA_DEVELOP_TYPE_WRONG_LOCATION))
+#define VALA_DEVELOP_IS_WRONG_LOCATION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VALA_DEVELOP_TYPE_WRONG_LOCATION))
+#define VALA_DEVELOP_WRONG_LOCATION_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), VALA_DEVELOP_TYPE_WRONG_LOCATION, valaDevelopWrongLocationClass))
+
+typedef struct _valaDevelopWrongLocation valaDevelopWrongLocation;
+typedef struct _valaDevelopWrongLocationClass valaDevelopWrongLocationClass;
 
 #define VALA_DEVELOP_TYPE_GLOBALS (vala_develop_globals_get_type ())
 #define VALA_DEVELOP_GLOBALS(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_GLOBALS, valaDevelopGlobals))
@@ -27,11 +183,51 @@
 typedef struct _valaDevelopGlobals valaDevelopGlobals;
 typedef struct _valaDevelopGlobalsClass valaDevelopGlobalsClass;
 typedef struct _valaDevelopGlobalsPrivate valaDevelopGlobalsPrivate;
-#define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
-#define _g_free0(var) (var = (g_free (var), NULL))
 #define _g_regex_unref0(var) ((var == NULL) ? NULL : (var = (g_regex_unref (var), NULL)))
-#define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 typedef struct _valaDevelopParamSpecGlobals valaDevelopParamSpecGlobals;
+
+struct _valaDevelopMainPaned {
+	GtkBox parent_instance;
+	valaDevelopMainPanedPrivate * priv;
+	GtkTreeView* solutionTreeView;
+	GtkBox* optionWindow;
+	GtkBox* solutionWindow;
+	GtkBox* toolWindow;
+	GtkBox* statusWindow;
+	GtkPaned* mainPaned;
+	GtkPaned* childPaned;
+	GtkPaned* infoPaned;
+	GtkImage* closeOverview;
+	GtkImage* closeOptions;
+	GtkImage* closeStatus;
+	GtkImage* expandOverview;
+	GtkEventBox* solutionCaption;
+	GtkNotebook* documentTab;
+	GtkNotebook* infoTab;
+	GtkCheckButton* showerrors;
+	GtkCheckButton* showwarnings;
+	GtkTextView* buildTextView;
+	GtkTreeView* searchList;
+	GtkTreeView* breakPoints;
+	GtkTreeView* callStack;
+	GtkTreeView* localSymbols;
+	GtkTextView* appOutput;
+	valaDevelopStatusList* statusList;
+	GtkSwitch* statusSwitch;
+	GtkStack* statusStack;
+	GtkBox* resolveSymbolsBox;
+	GtkButton* resolveSymbols;
+	GtkTreeView* symbolTree;
+	GtkTreeStore* symbolTreeModel;
+	valaDevelopItemOptions* _itemOptions;
+	GtkAccelGroup* accelGroup;
+	valaDevelopmainWindow* _parentClass;
+	GtkSourceStyleSchemeManager* _styleSchemeManager;
+};
+
+struct _valaDevelopMainPanedClass {
+	GtkBoxClass parent_class;
+};
 
 struct _valaDevelopGlobals {
 	GTypeInstance parent_instance;
@@ -50,6 +246,8 @@ struct _valaDevelopParamSpecGlobals {
 
 extern gchar* vala_develop__vsln;
 gchar* vala_develop__vsln = NULL;
+extern valaDevelopOverviewTreeStore* vala_develop_main_paned_overviewTreeModel;
+extern GeeHashMap* vala_develop_main_paned__symbol_finder;
 static gpointer vala_develop_globals_parent_class = NULL;
 static GdkCursor* vala_develop_globals_waitCursor;
 static GdkCursor* vala_develop_globals_waitCursor = NULL;
@@ -68,6 +266,163 @@ static GeeHashMap* vala_develop_globals__fastVapis = NULL;
 static GeeHashSet* vala_develop_globals__packages;
 static GeeHashSet* vala_develop_globals__packages = NULL;
 
+void vala_develop_add_new_project (GtkWidget* widget,
+                                   GtkTreeIter* selectionIter);
+GType vala_develop_solution_create_dialog_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSolutionCreateDialog, g_object_unref)
+GType vala_develop_item_type_get_type (void) G_GNUC_CONST;
+valaDevelopSolutionCreateDialog* vala_develop_solution_create_dialog_new (GtkWidget* parent,
+                                                                          valaDevelopItemType item_type);
+valaDevelopSolutionCreateDialog* vala_develop_solution_create_dialog_construct (GType object_type,
+                                                                                GtkWidget* parent,
+                                                                                valaDevelopItemType item_type);
+GType vala_develop_overview_tree_store_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopOverviewTreeStore, g_object_unref)
+gchar* vala_develop_overview_tree_store_get_item_path (valaDevelopOverviewTreeStore* self,
+                                                       GtkTreeIter* iter);
+void vala_develop_solution_create_dialog_set_solution_location (valaDevelopSolutionCreateDialog* self,
+                                                                const gchar* value);
+gchar* vala_develop_overview_tree_store_get_item_name (valaDevelopOverviewTreeStore* self,
+                                                       GtkTreeIter* iter);
+void vala_develop_solution_create_dialog_set_solution_name (valaDevelopSolutionCreateDialog* self,
+                                                            const gchar* value);
+const gchar* vala_develop_solution_create_dialog_get_solution_location (valaDevelopSolutionCreateDialog* self);
+const gchar* vala_develop_solution_create_dialog_get_project_name (valaDevelopSolutionCreateDialog* self);
+GType vala_develop_item_build_type_get_type (void) G_GNUC_CONST;
+void vala_develop_create_new_project_file (valaDevelopItemBuildType buildType,
+                                           gboolean withVapi,
+                                           const gchar* solutionDirectory,
+                                           const gchar* projectDirectory,
+                                           const gchar* projectFile,
+                                           const gchar* projectName,
+                                           const gchar* projectNamespace);
+valaDevelopItemBuildType vala_develop_solution_create_dialog_get_buildtype (valaDevelopSolutionCreateDialog* self);
+gboolean vala_develop_solution_create_dialog_get_withvapi (valaDevelopSolutionCreateDialog* self);
+const gchar* vala_develop_solution_create_dialog_get_project_namespace (valaDevelopSolutionCreateDialog* self);
+GtkTreeIter* vala_develop_overview_tree_store_get_project_iter_by_name (valaDevelopOverviewTreeStore* self,
+                                                                        const gchar* projectName);
+GType vala_develop_symbol_finder_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSymbolFinder, g_object_unref)
+valaDevelopSymbolFinder* vala_develop_symbol_finder_new (GtkTreeIter* projectIter);
+valaDevelopSymbolFinder* vala_develop_symbol_finder_construct (GType object_type,
+                                                               GtkTreeIter* projectIter);
+void vala_develop_rename_directory (GtkWidget* widget,
+                                    GtkTreeIter* iter);
+GType vala_develop_rename_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopRename, g_object_unref)
+gint vala_develop_overview_tree_store_get_item_type (valaDevelopOverviewTreeStore* self,
+                                                     GtkTreeIter* iter);
+valaDevelopRename* vala_develop_rename_new (GtkWidget* parent,
+                                            GtkTreeIter* iter,
+                                            valaDevelopItemType itemType);
+valaDevelopRename* vala_develop_rename_construct (GType object_type,
+                                                  GtkWidget* parent,
+                                                  GtkTreeIter* iter,
+                                                  valaDevelopItemType itemType);
+gboolean vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* self,
+                                                        GtkTreeIter* iter);
+void vala_develop_rename_item (GtkWidget* widget,
+                               GtkTreeIter* iter);
+void vala_develop_remove_item (GtkWidget* widget,
+                               GtkTreeIter* selectionIter);
+GtkTreeIter* vala_develop_overview_tree_store_get_project_iter_by_iter (valaDevelopOverviewTreeStore* self,
+                                                                        GtkTreeIter* iter);
+GType vala_develop_main_paned_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopMainPaned, g_object_unref)
+GType vala_develop_status_list_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopStatusList, g_object_unref)
+GType vala_develop_item_options_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopItemOptions, g_object_unref)
+GType vala_develop_main_window_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopmainWindow, g_object_unref)
+void vala_develop_add_new_resource (GtkWidget* widget,
+                                    GtkTreeIter* selectionIter);
+GType vala_develop_resource_create_file_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopResourceCreateFile, g_object_unref)
+valaDevelopResourceCreateFile* vala_develop_resource_create_file_new (GtkWidget* parent,
+                                                                      GtkTreeIter* iter);
+valaDevelopResourceCreateFile* vala_develop_resource_create_file_construct (GType object_type,
+                                                                            GtkWidget* parent,
+                                                                            GtkTreeIter* iter);
+void vala_develop_add_existing_resource (GtkWidget* widget,
+                                         GtkTreeIter* iter);
+void vala_develop_import_and_add (GtkWidget* widget,
+                                  GtkFileChooserDialog* chooser,
+                                  valaDevelopItemType itemType,
+                                  GtkTreeIter* iter);
+void vala_develop_remove_directory (GtkWidget* widget,
+                                    GtkTreeIter* iter);
+void vala_develop_globals_delete_directory (GFile* directory);
+void vala_develop_add_new_directory (GtkWidget* widget,
+                                     GtkTreeIter* iter);
+GType vala_develop_new_folder_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopNewFolder, g_object_unref)
+valaDevelopNewFolder* vala_develop_new_folder_new (GtkWidget* parent,
+                                                   GtkTreeIter* iter);
+valaDevelopNewFolder* vala_develop_new_folder_construct (GType object_type,
+                                                         GtkWidget* parent,
+                                                         GtkTreeIter* iter);
+GType vala_develop_import_options_get_type (void) G_GNUC_CONST;
+void vala_develop_add_existing_file (GtkWidget* widget,
+                                     valaDevelopImportOptions importOption,
+                                     GtkTreeIter* iter,
+                                     valaDevelopItemType itemType,
+                                     GFile* src,
+                                     valaDevelopItemBuildType itemBuildType,
+                                     const gchar* mimeType);
+gboolean vala_develop_check_location (const gchar* file,
+                                      GtkTreeIter* iter);
+void vala_develop_overview_tree_store_set_item_type (valaDevelopOverviewTreeStore* self,
+                                                     GtkTreeIter* iter,
+                                                     gint itemType);
+void vala_develop_overview_tree_store_set_item_name (valaDevelopOverviewTreeStore* self,
+                                                     GtkTreeIter* iter,
+                                                     const gchar* name);
+void vala_develop_overview_tree_store_set_item_buildtype (valaDevelopOverviewTreeStore* self,
+                                                          GtkTreeIter* iter,
+                                                          gint itemBuildType);
+void vala_develop_overview_tree_store_set_item_mimetype (valaDevelopOverviewTreeStore* self,
+                                                         GtkTreeIter* iter,
+                                                         const gchar* mimeType);
+void vala_develop_symbol_finder_AddSourceFile (valaDevelopSymbolFinder* self,
+                                               const gchar* source);
+void vala_develop_overview_tree_store_set_item_pixbuf (valaDevelopOverviewTreeStore* self,
+                                                       GtkTreeIter* iter,
+                                                       GdkPixbuf* itemPixbuf);
+void vala_develop_overview_tree_store_set_item_resource_id (valaDevelopOverviewTreeStore* self,
+                                                            GtkTreeIter* iter,
+                                                            const gchar* resourceId);
+void vala_develop_overview_tree_store_set_item_resource_alias (valaDevelopOverviewTreeStore* self,
+                                                               GtkTreeIter* iter,
+                                                               const gchar* resourceAlias);
+void vala_develop_overview_tree_store_set_item_resource_compress (valaDevelopOverviewTreeStore* self,
+                                                                  GtkTreeIter* iter,
+                                                                  gboolean resourceCompress);
+void vala_develop_overview_tree_store_set_item_resource_stripblanks (valaDevelopOverviewTreeStore* self,
+                                                                     GtkTreeIter* iter,
+                                                                     gboolean resourceStripBlanks);
+void vala_develop_add_new_file (GtkWidget* widget,
+                                GtkTreeIter* selectionIter);
+GType vala_develop_source_create_file_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopSourceCreateFile, g_object_unref)
+valaDevelopSourceCreateFile* vala_develop_source_create_file_new (GtkWidget* parent,
+                                                                  GtkTreeIter* iter);
+valaDevelopSourceCreateFile* vala_develop_source_create_file_construct (GType object_type,
+                                                                        GtkWidget* parent,
+                                                                        GtkTreeIter* iter);
+void vala_develop_add_existing_source (GtkWidget* widget,
+                                       GtkTreeIter* iter);
+static void _g_object_unref0_ (gpointer var);
+static inline void _g_slist_free__g_object_unref0_ (GSList* self);
+GType vala_develop_wrong_location_get_type (void) G_GNUC_CONST;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopWrongLocation, g_object_unref)
+valaDevelopWrongLocation* vala_develop_wrong_location_new (GtkWidget* parent);
+valaDevelopWrongLocation* vala_develop_wrong_location_construct (GType object_type,
+                                                                 GtkWidget* parent);
+gboolean vala_develop_wrong_location_get_Same4All (valaDevelopWrongLocation* self);
+void vala_develop_wrong_location_set_Same4AllVisible (valaDevelopWrongLocation* self,
+                                                      gboolean value);
+valaDevelopImportOptions vala_develop_wrong_location_get_ImportOption (valaDevelopWrongLocation* self);
 gpointer vala_develop_globals_ref (gpointer instance);
 void vala_develop_globals_unref (gpointer instance);
 GParamSpec* vala_develop_param_spec_globals (const gchar* name,
@@ -115,7 +470,6 @@ gboolean vala_develop_globals_allocation_contains (GtkWidget* widget,
                                                    gint y);
 gchar* vala_develop_globals_get_node_attribute (xmlNode* node,
                                                 const gchar* attrname);
-void vala_develop_globals_delete_directory (GFile* directory);
 valaDevelopGlobals* vala_develop_globals_new (void);
 valaDevelopGlobals* vala_develop_globals_construct (GType object_type);
 GdkPixbuf* vala_develop_globals_get_ModifiedImage (void);
@@ -126,6 +480,1970 @@ GeeHashSet* vala_develop_globals_get_Packages (void);
 static void vala_develop_globals_finalize (valaDevelopGlobals * obj);
 
 void
+vala_develop_add_new_project (GtkWidget* widget,
+                              GtkTreeIter* selectionIter)
+{
+	valaDevelopSolutionCreateDialog* dialog = NULL;
+	valaDevelopSolutionCreateDialog* _tmp0_;
+	GtkTreeIter firstIter = {0};
+	valaDevelopOverviewTreeStore* _tmp1_;
+	GtkTreeIter _tmp2_ = {0};
+	gboolean _tmp3_;
+	valaDevelopSolutionCreateDialog* _tmp66_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (selectionIter != NULL);
+	_tmp0_ = vala_develop_solution_create_dialog_new (widget, VALA_DEVELOP_ITEM_TYPE_Project);
+	g_object_ref_sink (_tmp0_);
+	dialog = _tmp0_;
+	_tmp1_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp3_ = gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp1_, &_tmp2_);
+	firstIter = _tmp2_;
+	if (_tmp3_) {
+		valaDevelopSolutionCreateDialog* _tmp4_;
+		valaDevelopOverviewTreeStore* _tmp5_;
+		GtkTreeIter _tmp6_;
+		gchar* _tmp7_;
+		gchar* _tmp8_;
+		valaDevelopSolutionCreateDialog* _tmp9_;
+		valaDevelopOverviewTreeStore* _tmp10_;
+		GtkTreeIter _tmp11_;
+		gchar* _tmp12_;
+		gchar* _tmp13_;
+		valaDevelopSolutionCreateDialog* _tmp14_;
+		_tmp4_ = dialog;
+		_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp6_ = firstIter;
+		_tmp7_ = vala_develop_overview_tree_store_get_item_path (_tmp5_, &_tmp6_);
+		_tmp8_ = _tmp7_;
+		vala_develop_solution_create_dialog_set_solution_location (_tmp4_, _tmp8_);
+		_g_free0 (_tmp8_);
+		_tmp9_ = dialog;
+		_tmp10_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp11_ = firstIter;
+		_tmp12_ = vala_develop_overview_tree_store_get_item_name (_tmp10_, &_tmp11_);
+		_tmp13_ = _tmp12_;
+		vala_develop_solution_create_dialog_set_solution_name (_tmp9_, _tmp13_);
+		_g_free0 (_tmp13_);
+		_tmp14_ = dialog;
+		if (gtk_dialog_run ((GtkDialog*) _tmp14_) == ((gint) GTK_RESPONSE_ACCEPT)) {
+			gchar* projectFile = NULL;
+			valaDevelopSolutionCreateDialog* _tmp15_;
+			const gchar* _tmp16_;
+			const gchar* _tmp17_;
+			GFile* _tmp18_;
+			GFile* _tmp19_;
+			valaDevelopSolutionCreateDialog* _tmp20_;
+			const gchar* _tmp21_;
+			const gchar* _tmp22_;
+			GFile* _tmp23_;
+			GFile* _tmp24_;
+			valaDevelopSolutionCreateDialog* _tmp25_;
+			const gchar* _tmp26_;
+			const gchar* _tmp27_;
+			gchar* _tmp28_;
+			gchar* _tmp29_;
+			GFile* _tmp30_;
+			GFile* _tmp31_;
+			gchar* _tmp32_;
+			gchar* _tmp33_;
+			valaDevelopSolutionCreateDialog* _tmp34_;
+			valaDevelopItemBuildType _tmp35_;
+			valaDevelopItemBuildType _tmp36_;
+			valaDevelopSolutionCreateDialog* _tmp37_;
+			gboolean _tmp38_;
+			gboolean _tmp39_;
+			valaDevelopSolutionCreateDialog* _tmp40_;
+			const gchar* _tmp41_;
+			const gchar* _tmp42_;
+			const gchar* _tmp43_;
+			gchar* _tmp44_;
+			gchar* _tmp45_;
+			const gchar* _tmp46_;
+			valaDevelopSolutionCreateDialog* _tmp47_;
+			const gchar* _tmp48_;
+			const gchar* _tmp49_;
+			valaDevelopSolutionCreateDialog* _tmp50_;
+			const gchar* _tmp51_;
+			const gchar* _tmp52_;
+			GtkTreeIter* proJectIter = NULL;
+			valaDevelopOverviewTreeStore* _tmp53_;
+			valaDevelopSolutionCreateDialog* _tmp54_;
+			const gchar* _tmp55_;
+			const gchar* _tmp56_;
+			GtkTreeIter* _tmp57_;
+			valaDevelopSymbolFinder* sf = NULL;
+			GtkTreeIter* _tmp58_;
+			GtkTreeIter _tmp59_;
+			valaDevelopSymbolFinder* _tmp60_;
+			GeeHashMap* _tmp61_;
+			valaDevelopSolutionCreateDialog* _tmp62_;
+			const gchar* _tmp63_;
+			const gchar* _tmp64_;
+			valaDevelopSymbolFinder* _tmp65_;
+			_tmp15_ = dialog;
+			_tmp16_ = vala_develop_solution_create_dialog_get_solution_location (_tmp15_);
+			_tmp17_ = _tmp16_;
+			_tmp18_ = g_file_new_for_path (_tmp17_);
+			_tmp19_ = _tmp18_;
+			_tmp20_ = dialog;
+			_tmp21_ = vala_develop_solution_create_dialog_get_project_name (_tmp20_);
+			_tmp22_ = _tmp21_;
+			_tmp23_ = g_file_get_child (_tmp19_, _tmp22_);
+			_tmp24_ = _tmp23_;
+			_tmp25_ = dialog;
+			_tmp26_ = vala_develop_solution_create_dialog_get_project_name (_tmp25_);
+			_tmp27_ = _tmp26_;
+			_tmp28_ = g_strconcat (_tmp27_, ".vprj", NULL);
+			_tmp29_ = _tmp28_;
+			_tmp30_ = g_file_get_child (_tmp24_, _tmp29_);
+			_tmp31_ = _tmp30_;
+			_tmp32_ = g_file_get_path (_tmp31_);
+			_tmp33_ = _tmp32_;
+			_g_object_unref0 (_tmp31_);
+			_g_free0 (_tmp29_);
+			_g_object_unref0 (_tmp24_);
+			_g_object_unref0 (_tmp19_);
+			projectFile = _tmp33_;
+			_tmp34_ = dialog;
+			_tmp35_ = vala_develop_solution_create_dialog_get_buildtype (_tmp34_);
+			_tmp36_ = _tmp35_;
+			_tmp37_ = dialog;
+			_tmp38_ = vala_develop_solution_create_dialog_get_withvapi (_tmp37_);
+			_tmp39_ = _tmp38_;
+			_tmp40_ = dialog;
+			_tmp41_ = vala_develop_solution_create_dialog_get_solution_location (_tmp40_);
+			_tmp42_ = _tmp41_;
+			_tmp43_ = projectFile;
+			_tmp44_ = g_path_get_dirname (_tmp43_);
+			_tmp45_ = _tmp44_;
+			_tmp46_ = projectFile;
+			_tmp47_ = dialog;
+			_tmp48_ = vala_develop_solution_create_dialog_get_project_name (_tmp47_);
+			_tmp49_ = _tmp48_;
+			_tmp50_ = dialog;
+			_tmp51_ = vala_develop_solution_create_dialog_get_project_namespace (_tmp50_);
+			_tmp52_ = _tmp51_;
+			vala_develop_create_new_project_file (_tmp36_, _tmp39_, _tmp42_, _tmp45_, _tmp46_, _tmp49_, _tmp52_);
+			_g_free0 (_tmp45_);
+			_tmp53_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp54_ = dialog;
+			_tmp55_ = vala_develop_solution_create_dialog_get_project_name (_tmp54_);
+			_tmp56_ = _tmp55_;
+			_tmp57_ = vala_develop_overview_tree_store_get_project_iter_by_name (_tmp53_, _tmp56_);
+			proJectIter = _tmp57_;
+			_tmp58_ = proJectIter;
+			_tmp59_ = *_tmp58_;
+			_tmp60_ = vala_develop_symbol_finder_new (&_tmp59_);
+			sf = _tmp60_;
+			_tmp61_ = vala_develop_main_paned__symbol_finder;
+			_tmp62_ = dialog;
+			_tmp63_ = vala_develop_solution_create_dialog_get_project_name (_tmp62_);
+			_tmp64_ = _tmp63_;
+			_tmp65_ = sf;
+			gee_abstract_map_set ((GeeAbstractMap*) _tmp61_, _tmp64_, _tmp65_);
+			_g_object_unref0 (sf);
+			_g_free0 (proJectIter);
+			_g_free0 (projectFile);
+		}
+	}
+	_tmp66_ = dialog;
+	gtk_widget_destroy ((GtkWidget*) _tmp66_);
+	_g_object_unref0 (dialog);
+}
+
+void
+vala_develop_rename_directory (GtkWidget* widget,
+                               GtkTreeIter* iter)
+{
+	valaDevelopRename* dialog = NULL;
+	GtkTreeIter _tmp0_;
+	valaDevelopOverviewTreeStore* _tmp1_;
+	GtkTreeIter _tmp2_;
+	valaDevelopRename* _tmp3_;
+	gint retVal = 0;
+	valaDevelopRename* _tmp4_;
+	valaDevelopRename* _tmp5_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = *iter;
+	_tmp1_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp2_ = *iter;
+	_tmp3_ = vala_develop_rename_new (widget, &_tmp0_, (valaDevelopItemType) vala_develop_overview_tree_store_get_item_type (_tmp1_, &_tmp2_));
+	g_object_ref_sink (_tmp3_);
+	dialog = _tmp3_;
+	_tmp4_ = dialog;
+	retVal = gtk_dialog_run ((GtkDialog*) _tmp4_);
+	_tmp5_ = dialog;
+	gtk_widget_destroy ((GtkWidget*) _tmp5_);
+	if (retVal == ((gint) GTK_RESPONSE_ACCEPT)) {
+		valaDevelopOverviewTreeStore* _tmp6_;
+		GtkTreeIter _tmp7_;
+		_tmp6_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp7_ = *iter;
+		vala_develop_overview_tree_store_save_project (_tmp6_, &_tmp7_);
+	}
+	_g_object_unref0 (dialog);
+}
+
+void
+vala_develop_rename_item (GtkWidget* widget,
+                          GtkTreeIter* iter)
+{
+	valaDevelopRename* dialog = NULL;
+	GtkTreeIter _tmp0_;
+	valaDevelopOverviewTreeStore* _tmp1_;
+	GtkTreeIter _tmp2_;
+	valaDevelopRename* _tmp3_;
+	gint retVal = 0;
+	valaDevelopRename* _tmp4_;
+	valaDevelopRename* _tmp5_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = *iter;
+	_tmp1_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp2_ = *iter;
+	_tmp3_ = vala_develop_rename_new (widget, &_tmp0_, (valaDevelopItemType) vala_develop_overview_tree_store_get_item_type (_tmp1_, &_tmp2_));
+	g_object_ref_sink (_tmp3_);
+	dialog = _tmp3_;
+	_tmp4_ = dialog;
+	retVal = gtk_dialog_run ((GtkDialog*) _tmp4_);
+	_tmp5_ = dialog;
+	gtk_widget_destroy ((GtkWidget*) _tmp5_);
+	if (retVal == ((gint) GTK_RESPONSE_ACCEPT)) {
+		valaDevelopOverviewTreeStore* _tmp6_;
+		GtkTreeIter _tmp7_;
+		_tmp6_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp7_ = *iter;
+		vala_develop_overview_tree_store_save_project (_tmp6_, &_tmp7_);
+	}
+	_g_object_unref0 (dialog);
+}
+
+static const gchar*
+string_to_string (const gchar* self)
+{
+	const gchar* result = NULL;
+	g_return_val_if_fail (self != NULL, NULL);
+	result = self;
+	return result;
+}
+
+void
+vala_develop_remove_item (GtkWidget* widget,
+                          GtkTreeIter* selectionIter)
+{
+	GtkTreeIter* projectIter = NULL;
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_;
+	GtkTreeIter* _tmp2_;
+	gchar* file = NULL;
+	valaDevelopOverviewTreeStore* _tmp3_;
+	GtkTreeIter _tmp4_;
+	gchar* _tmp5_;
+	GtkMessageDialog* messagedialog = NULL;
+	GtkWidget* _tmp6_;
+	const gchar* _tmp7_;
+	const gchar* _tmp8_;
+	gchar* _tmp9_;
+	gchar* _tmp10_;
+	GtkMessageDialog* _tmp11_;
+	GtkMessageDialog* _tmp12_;
+	GtkMessageDialog* _tmp13_;
+	GtkButton* _tmp14_;
+	GtkButton* _tmp15_;
+	GtkMessageDialog* _tmp16_;
+	GtkButton* _tmp17_;
+	GtkButton* _tmp18_;
+	GtkMessageDialog* _tmp19_;
+	GtkButton* _tmp20_;
+	GtkButton* _tmp21_;
+	GtkMessageDialog* _tmp22_;
+	const gchar* _tmp23_;
+	gchar* _tmp24_;
+	gchar* _tmp25_;
+	GtkMessageDialog* _tmp26_;
+	gint response = 0;
+	GtkTreeIter parentIter = {0};
+	GFile* fullFilePath = NULL;
+	GError* _inner_error0_ = NULL;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (selectionIter != NULL);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp1_ = *selectionIter;
+	_tmp2_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp0_, &_tmp1_);
+	projectIter = _tmp2_;
+	_tmp3_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp4_ = *selectionIter;
+	_tmp5_ = vala_develop_overview_tree_store_get_item_name (_tmp3_, &_tmp4_);
+	file = _tmp5_;
+	_tmp6_ = gtk_widget_get_toplevel (widget);
+	_tmp7_ = file;
+	_tmp8_ = string_to_string (_tmp7_);
+	_tmp9_ = g_strconcat ("Are you sure you want to delete the file ", _tmp8_, "?", NULL);
+	_tmp10_ = _tmp9_;
+	_tmp11_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp6_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "%s", _ (_tmp10_));
+	g_object_ref_sink (_tmp11_);
+	_tmp12_ = _tmp11_;
+	_g_free0 (_tmp10_);
+	messagedialog = _tmp12_;
+	_tmp13_ = messagedialog;
+	_tmp14_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Yes"));
+	g_object_ref_sink (_tmp14_);
+	_tmp15_ = _tmp14_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp13_, (GtkWidget*) _tmp15_, (gint) GTK_RESPONSE_YES);
+	_g_object_unref0 (_tmp15_);
+	_tmp16_ = messagedialog;
+	_tmp17_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_No"));
+	g_object_ref_sink (_tmp17_);
+	_tmp18_ = _tmp17_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp16_, (GtkWidget*) _tmp18_, (gint) GTK_RESPONSE_NO);
+	_g_object_unref0 (_tmp18_);
+	_tmp19_ = messagedialog;
+	_tmp20_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Remove"));
+	g_object_ref_sink (_tmp20_);
+	_tmp21_ = _tmp20_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp19_, (GtkWidget*) _tmp21_, (gint) GTK_RESPONSE_APPLY);
+	_g_object_unref0 (_tmp21_);
+	_tmp22_ = messagedialog;
+	_tmp23_ = string_to_string (_ ("Remove"));
+	_tmp24_ = g_strconcat ("The file will be permanently removed from your storage. Click '", _tmp23_, "' if you just want to remove it from your current project.", NULL);
+	_tmp25_ = _tmp24_;
+	g_object_set (_tmp22_, "secondary-text", _ (_tmp25_), NULL);
+	_g_free0 (_tmp25_);
+	_tmp26_ = messagedialog;
+	gtk_widget_hide_on_delete ((GtkWidget*) _tmp26_);
+	response = (gint) GTK_RESPONSE_DELETE_EVENT;
+	{
+		gboolean _tmp27_ = FALSE;
+		_tmp27_ = TRUE;
+		while (TRUE) {
+			GtkMessageDialog* _tmp28_;
+			GtkMessageDialog* _tmp29_;
+			if (!_tmp27_) {
+				if (!(response == ((gint) GTK_RESPONSE_DELETE_EVENT))) {
+					break;
+				}
+			}
+			_tmp27_ = FALSE;
+			_tmp28_ = messagedialog;
+			gtk_widget_show_all ((GtkWidget*) _tmp28_);
+			_tmp29_ = messagedialog;
+			response = gtk_dialog_run ((GtkDialog*) _tmp29_);
+		}
+	}
+	if (response == ((gint) GTK_RESPONSE_NO)) {
+		GtkMessageDialog* _tmp30_;
+		_tmp30_ = messagedialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp30_);
+		_g_object_unref0 (messagedialog);
+		_g_free0 (file);
+		_g_free0 (projectIter);
+		return;
+	}
+	fullFilePath = NULL;
+	{
+		valaDevelopOverviewTreeStore* _tmp31_;
+		GtkTreeIter _tmp32_;
+		GtkTreeIter _tmp33_ = {0};
+		gchar* filePath = NULL;
+		valaDevelopOverviewTreeStore* _tmp34_;
+		GtkTreeIter _tmp35_;
+		gchar* _tmp36_;
+		GtkTreeIter firstIter = {0};
+		valaDevelopOverviewTreeStore* _tmp37_;
+		GtkTreeIter _tmp38_ = {0};
+		gchar* basePath = NULL;
+		valaDevelopOverviewTreeStore* _tmp39_;
+		GtkTreeIter _tmp40_;
+		gchar* _tmp41_;
+		const gchar* _tmp42_;
+		GFile* _tmp43_;
+		GFile* _tmp44_;
+		const gchar* _tmp45_;
+		GFile* _tmp46_;
+		GFile* _tmp47_;
+		const gchar* _tmp48_;
+		GFile* _tmp49_;
+		_tmp31_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp32_ = *selectionIter;
+		gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp31_, &_tmp33_, &_tmp32_);
+		parentIter = _tmp33_;
+		_tmp34_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp35_ = parentIter;
+		_tmp36_ = vala_develop_overview_tree_store_get_item_path (_tmp34_, &_tmp35_);
+		filePath = _tmp36_;
+		_tmp37_ = vala_develop_main_paned_overviewTreeModel;
+		gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp37_, &_tmp38_);
+		firstIter = _tmp38_;
+		_tmp39_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp40_ = firstIter;
+		_tmp41_ = vala_develop_overview_tree_store_get_item_path (_tmp39_, &_tmp40_);
+		basePath = _tmp41_;
+		_tmp42_ = basePath;
+		_tmp43_ = g_file_new_for_path (_tmp42_);
+		_tmp44_ = _tmp43_;
+		_tmp45_ = filePath;
+		_tmp46_ = g_file_get_child (_tmp44_, _tmp45_);
+		_tmp47_ = _tmp46_;
+		_tmp48_ = file;
+		_tmp49_ = g_file_get_child (_tmp47_, _tmp48_);
+		_g_object_unref0 (fullFilePath);
+		fullFilePath = _tmp49_;
+		_g_object_unref0 (_tmp47_);
+		_g_object_unref0 (_tmp44_);
+		if (response == ((gint) GTK_RESPONSE_YES)) {
+			GFile* _tmp50_;
+			_tmp50_ = fullFilePath;
+			g_file_delete (_tmp50_, NULL, &_inner_error0_);
+			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+				_g_free0 (basePath);
+				_g_free0 (filePath);
+				goto __catch37_g_error;
+			}
+		}
+		_g_free0 (basePath);
+		_g_free0 (filePath);
+	}
+	goto __finally37;
+	__catch37_g_error:
+	{
+		GError* e = NULL;
+		GtkMessageDialog* errorDialog = NULL;
+		GtkMessageDialog* _tmp51_;
+		GtkWidget* _tmp52_;
+		GError* _tmp53_;
+		const gchar* _tmp54_;
+		GtkMessageDialog* _tmp55_;
+		GtkMessageDialog* _tmp56_;
+		GtkMessageDialog* _tmp57_;
+		e = _inner_error0_;
+		_inner_error0_ = NULL;
+		_tmp51_ = messagedialog;
+		_tmp52_ = gtk_widget_get_toplevel ((GtkWidget*) _tmp51_);
+		_tmp53_ = e;
+		_tmp54_ = _tmp53_->message;
+		_tmp55_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp52_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp54_);
+		g_object_ref_sink (_tmp55_);
+		errorDialog = _tmp55_;
+		_tmp56_ = errorDialog;
+		gtk_dialog_run ((GtkDialog*) _tmp56_);
+		_tmp57_ = errorDialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp57_);
+		_g_object_unref0 (errorDialog);
+		_g_error_free0 (e);
+		{
+			GError* _inner_error0_ = NULL;
+			valaDevelopOverviewTreeStore* _tmp58_;
+			GtkTreeView* _tmp59_;
+			GtkTreeSelection* _tmp60_;
+			GtkTreeIter _tmp61_;
+			GtkMessageDialog* _tmp62_;
+			valaDevelopOverviewTreeStore* _tmp63_;
+			GtkTreeIter* _tmp64_;
+			GtkTreeIter _tmp65_;
+			_tmp58_ = vala_develop_main_paned_overviewTreeModel;
+			gtk_tree_store_remove ((GtkTreeStore*) _tmp58_, selectionIter);
+			_tmp59_ = (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) widget) : NULL)->solutionTreeView;
+			_tmp60_ = gtk_tree_view_get_selection (_tmp59_);
+			_tmp61_ = parentIter;
+			gtk_tree_selection_select_iter (_tmp60_, &_tmp61_);
+			_tmp62_ = messagedialog;
+			gtk_widget_destroy ((GtkWidget*) _tmp62_);
+			_tmp63_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp64_ = projectIter;
+			_tmp65_ = *_tmp64_;
+			vala_develop_overview_tree_store_save_project (_tmp63_, &_tmp65_);
+		}
+		_g_object_unref0 (fullFilePath);
+		_g_object_unref0 (messagedialog);
+		_g_free0 (file);
+		_g_free0 (projectIter);
+		return;
+	}
+	__finally37:
+	{
+		GError* _inner_error1_ = NULL;
+		valaDevelopOverviewTreeStore* _tmp66_;
+		GtkTreeView* _tmp67_;
+		GtkTreeSelection* _tmp68_;
+		GtkTreeIter _tmp69_;
+		GtkMessageDialog* _tmp70_;
+		valaDevelopOverviewTreeStore* _tmp71_;
+		GtkTreeIter* _tmp72_;
+		GtkTreeIter _tmp73_;
+		_tmp66_ = vala_develop_main_paned_overviewTreeModel;
+		gtk_tree_store_remove ((GtkTreeStore*) _tmp66_, selectionIter);
+		_tmp67_ = (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) widget) : NULL)->solutionTreeView;
+		_tmp68_ = gtk_tree_view_get_selection (_tmp67_);
+		_tmp69_ = parentIter;
+		gtk_tree_selection_select_iter (_tmp68_, &_tmp69_);
+		_tmp70_ = messagedialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp70_);
+		_tmp71_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp72_ = projectIter;
+		_tmp73_ = *_tmp72_;
+		vala_develop_overview_tree_store_save_project (_tmp71_, &_tmp73_);
+	}
+	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+		_g_object_unref0 (fullFilePath);
+		_g_object_unref0 (messagedialog);
+		_g_free0 (file);
+		_g_free0 (projectIter);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+		g_clear_error (&_inner_error0_);
+		return;
+	}
+	_g_object_unref0 (fullFilePath);
+	_g_object_unref0 (messagedialog);
+	_g_free0 (file);
+	_g_free0 (projectIter);
+}
+
+void
+vala_develop_add_new_resource (GtkWidget* widget,
+                               GtkTreeIter* selectionIter)
+{
+	GtkTreeIter* projectIter = NULL;
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_;
+	GtkTreeIter* _tmp2_;
+	valaDevelopResourceCreateFile* dialog = NULL;
+	GtkTreeIter _tmp3_;
+	valaDevelopResourceCreateFile* _tmp4_;
+	valaDevelopOverviewTreeStore* _tmp5_;
+	GtkTreeIter _tmp6_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (selectionIter != NULL);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp1_ = *selectionIter;
+	_tmp2_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp0_, &_tmp1_);
+	projectIter = _tmp2_;
+	_tmp3_ = *selectionIter;
+	_tmp4_ = vala_develop_resource_create_file_new (widget, &_tmp3_);
+	g_object_ref_sink (_tmp4_);
+	dialog = _tmp4_;
+	gtk_dialog_run ((GtkDialog*) dialog);
+	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp6_ = *projectIter;
+	vala_develop_overview_tree_store_save_project (_tmp5_, &_tmp6_);
+	gtk_widget_destroy ((GtkWidget*) dialog);
+	_g_object_unref0 (dialog);
+	_g_free0 (projectIter);
+}
+
+static gpointer
+_g_object_ref0 (gpointer self)
+{
+	return self ? g_object_ref (self) : NULL;
+}
+
+void
+vala_develop_add_existing_resource (GtkWidget* widget,
+                                    GtkTreeIter* iter)
+{
+	GtkFileChooserDialog* chooser = NULL;
+	GtkWidget* _tmp0_;
+	GtkFileChooserDialog* _tmp1_;
+	GtkFileChooserDialog* _tmp2_;
+	GtkFileFilter* filter = NULL;
+	GtkFileFilter* _tmp3_;
+	GtkFileFilter* _tmp4_;
+	GtkFileChooserDialog* _tmp5_;
+	GtkFileFilter* _tmp6_;
+	GtkFileFilter* _tmp7_;
+	GtkFileFilter* _tmp8_;
+	GtkFileFilter* _tmp9_;
+	GtkFileFilter* _tmp10_;
+	GtkFileFilter* _tmp11_;
+	GtkFileFilter* _tmp12_;
+	GtkFileFilter* _tmp13_;
+	GtkFileFilter* _tmp14_;
+	GtkFileFilter* _tmp15_;
+	GtkFileChooserDialog* _tmp16_;
+	GtkFileFilter* _tmp17_;
+	GtkFileFilter* _tmp18_;
+	GtkFileFilter* _tmp19_;
+	GtkFileChooserDialog* _tmp20_;
+	GtkFileChooserDialog* _tmp29_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = gtk_widget_get_toplevel (widget);
+	_tmp1_ = (GtkFileChooserDialog*) gtk_file_chooser_dialog_new (_ ("Select resource files"), G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow), GTK_FILE_CHOOSER_ACTION_OPEN, _ ("_Cancel"), GTK_RESPONSE_CANCEL, _ ("_Open"), GTK_RESPONSE_ACCEPT, NULL);
+	g_object_ref_sink (_tmp1_);
+	chooser = _tmp1_;
+	_tmp2_ = chooser;
+	gtk_file_chooser_set_select_multiple ((GtkFileChooser*) _tmp2_, TRUE);
+	_tmp3_ = gtk_file_filter_new ();
+	g_object_ref_sink (_tmp3_);
+	filter = _tmp3_;
+	_tmp4_ = filter;
+	gtk_file_filter_set_name (_tmp4_, _ ("valaDevelop resource files"));
+	_tmp5_ = chooser;
+	_tmp6_ = filter;
+	_tmp7_ = _g_object_ref0 (_tmp6_);
+	gtk_file_chooser_add_filter ((GtkFileChooser*) _tmp5_, _tmp7_);
+	_tmp8_ = filter;
+	gtk_file_filter_add_pattern (_tmp8_, "*.glade");
+	_tmp9_ = filter;
+	gtk_file_filter_add_pattern (_tmp9_, "*.xml");
+	_tmp10_ = filter;
+	gtk_file_filter_add_pattern (_tmp10_, "*.css");
+	_tmp11_ = filter;
+	gtk_file_filter_add_pattern (_tmp11_, "*.png");
+	_tmp12_ = filter;
+	gtk_file_filter_add_pattern (_tmp12_, "*.jpg");
+	_tmp13_ = filter;
+	gtk_file_filter_add_pattern (_tmp13_, "*.bmp");
+	_tmp14_ = gtk_file_filter_new ();
+	g_object_ref_sink (_tmp14_);
+	_g_object_unref0 (filter);
+	filter = _tmp14_;
+	_tmp15_ = filter;
+	gtk_file_filter_set_name (_tmp15_, _ ("All files"));
+	_tmp16_ = chooser;
+	_tmp17_ = filter;
+	_tmp18_ = _g_object_ref0 (_tmp17_);
+	gtk_file_chooser_add_filter ((GtkFileChooser*) _tmp16_, _tmp18_);
+	_tmp19_ = filter;
+	gtk_file_filter_add_pattern (_tmp19_, "*.*");
+	_tmp20_ = chooser;
+	if (gtk_dialog_run ((GtkDialog*) _tmp20_) == ((gint) GTK_RESPONSE_ACCEPT)) {
+		GtkTreeIter* projectIter = NULL;
+		valaDevelopOverviewTreeStore* _tmp21_;
+		GtkTreeIter _tmp22_;
+		GtkTreeIter* _tmp23_;
+		GtkFileChooserDialog* _tmp24_;
+		GtkTreeIter _tmp25_;
+		valaDevelopOverviewTreeStore* _tmp26_;
+		GtkTreeIter* _tmp27_;
+		GtkTreeIter _tmp28_;
+		_tmp21_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp22_ = *iter;
+		_tmp23_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp21_, &_tmp22_);
+		projectIter = _tmp23_;
+		_tmp24_ = chooser;
+		_tmp25_ = *iter;
+		vala_develop_import_and_add (widget, _tmp24_, VALA_DEVELOP_ITEM_TYPE_Resource, &_tmp25_);
+		_tmp26_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp27_ = projectIter;
+		_tmp28_ = *_tmp27_;
+		vala_develop_overview_tree_store_save_project (_tmp26_, &_tmp28_);
+		_g_free0 (projectIter);
+	}
+	_tmp29_ = chooser;
+	gtk_widget_destroy ((GtkWidget*) _tmp29_);
+	_g_object_unref0 (filter);
+	_g_object_unref0 (chooser);
+}
+
+void
+vala_develop_remove_directory (GtkWidget* widget,
+                               GtkTreeIter* iter)
+{
+	gchar* file = NULL;
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_;
+	gchar* _tmp2_;
+	GtkTreeIter* projectIter = NULL;
+	valaDevelopOverviewTreeStore* _tmp3_;
+	GtkTreeIter _tmp4_;
+	GtkTreeIter* _tmp5_;
+	GtkMessageDialog* messagedialog = NULL;
+	GtkWidget* _tmp6_;
+	const gchar* _tmp7_;
+	const gchar* _tmp8_;
+	gchar* _tmp9_;
+	gchar* _tmp10_;
+	GtkMessageDialog* _tmp11_;
+	GtkMessageDialog* _tmp12_;
+	GtkMessageDialog* _tmp13_;
+	GtkButton* _tmp14_;
+	GtkButton* _tmp15_;
+	GtkMessageDialog* _tmp16_;
+	GtkButton* _tmp17_;
+	GtkButton* _tmp18_;
+	GtkMessageDialog* _tmp19_;
+	GtkButton* _tmp20_;
+	GtkButton* _tmp21_;
+	GtkMessageDialog* _tmp22_;
+	const gchar* _tmp23_;
+	gchar* _tmp24_;
+	gchar* _tmp25_;
+	GtkMessageDialog* _tmp26_;
+	gint response = 0;
+	GError* _inner_error0_ = NULL;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp1_ = *iter;
+	_tmp2_ = vala_develop_overview_tree_store_get_item_name (_tmp0_, &_tmp1_);
+	file = _tmp2_;
+	_tmp3_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp4_ = *iter;
+	_tmp5_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp3_, &_tmp4_);
+	projectIter = _tmp5_;
+	_tmp6_ = gtk_widget_get_toplevel (widget);
+	_tmp7_ = file;
+	_tmp8_ = string_to_string (_tmp7_);
+	_tmp9_ = g_strconcat ("Are you sure you want to delete the directory ", _tmp8_, "?", NULL);
+	_tmp10_ = _tmp9_;
+	_tmp11_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp6_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_NONE, "%s", _ (_tmp10_));
+	g_object_ref_sink (_tmp11_);
+	_tmp12_ = _tmp11_;
+	_g_free0 (_tmp10_);
+	messagedialog = _tmp12_;
+	_tmp13_ = messagedialog;
+	_tmp14_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Yes"));
+	g_object_ref_sink (_tmp14_);
+	_tmp15_ = _tmp14_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp13_, (GtkWidget*) _tmp15_, (gint) GTK_RESPONSE_YES);
+	_g_object_unref0 (_tmp15_);
+	_tmp16_ = messagedialog;
+	_tmp17_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_No"));
+	g_object_ref_sink (_tmp17_);
+	_tmp18_ = _tmp17_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp16_, (GtkWidget*) _tmp18_, (gint) GTK_RESPONSE_NO);
+	_g_object_unref0 (_tmp18_);
+	_tmp19_ = messagedialog;
+	_tmp20_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Remove"));
+	g_object_ref_sink (_tmp20_);
+	_tmp21_ = _tmp20_;
+	gtk_dialog_add_action_widget ((GtkDialog*) _tmp19_, (GtkWidget*) _tmp21_, (gint) GTK_RESPONSE_APPLY);
+	_g_object_unref0 (_tmp21_);
+	_tmp22_ = messagedialog;
+	_tmp23_ = string_to_string (_ ("Remove"));
+	_tmp24_ = g_strconcat ("This directory and all its files and subfolders are permanently remove" \
+"d from your storage. Click '", _tmp23_, "' if you just want to remove it from your current project.", NULL);
+	_tmp25_ = _tmp24_;
+	g_object_set (_tmp22_, "secondary-text", _ (_tmp25_), NULL);
+	_g_free0 (_tmp25_);
+	_tmp26_ = messagedialog;
+	gtk_widget_hide_on_delete ((GtkWidget*) _tmp26_);
+	response = (gint) GTK_RESPONSE_DELETE_EVENT;
+	{
+		gboolean _tmp27_ = FALSE;
+		_tmp27_ = TRUE;
+		while (TRUE) {
+			GtkMessageDialog* _tmp28_;
+			GtkMessageDialog* _tmp29_;
+			if (!_tmp27_) {
+				if (!(response == ((gint) GTK_RESPONSE_DELETE_EVENT))) {
+					break;
+				}
+			}
+			_tmp27_ = FALSE;
+			_tmp28_ = messagedialog;
+			gtk_widget_show_all ((GtkWidget*) _tmp28_);
+			_tmp29_ = messagedialog;
+			response = gtk_dialog_run ((GtkDialog*) _tmp29_);
+		}
+	}
+	if (response == ((gint) GTK_RESPONSE_NO)) {
+		GtkMessageDialog* _tmp30_;
+		_tmp30_ = messagedialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp30_);
+		_g_object_unref0 (messagedialog);
+		_g_free0 (projectIter);
+		_g_free0 (file);
+		return;
+	}
+	{
+		if (response == ((gint) GTK_RESPONSE_YES)) {
+			gchar* filePath = NULL;
+			valaDevelopOverviewTreeStore* _tmp31_;
+			GtkTreeIter _tmp32_;
+			gchar* _tmp33_;
+			GtkTreeIter parentIter = {0};
+			valaDevelopOverviewTreeStore* _tmp34_;
+			GtkTreeIter _tmp35_ = {0};
+			gchar* basePath = NULL;
+			valaDevelopOverviewTreeStore* _tmp36_;
+			GtkTreeIter _tmp37_;
+			gchar* _tmp38_;
+			GFile* fullFilePath = NULL;
+			const gchar* _tmp39_;
+			GFile* _tmp40_;
+			GFile* _tmp41_;
+			const gchar* _tmp42_;
+			GFile* _tmp43_;
+			GFile* _tmp44_;
+			GFile* _tmp45_;
+			_tmp31_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp32_ = *iter;
+			_tmp33_ = vala_develop_overview_tree_store_get_item_path (_tmp31_, &_tmp32_);
+			filePath = _tmp33_;
+			_tmp34_ = vala_develop_main_paned_overviewTreeModel;
+			gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp34_, &_tmp35_);
+			parentIter = _tmp35_;
+			_tmp36_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp37_ = parentIter;
+			_tmp38_ = vala_develop_overview_tree_store_get_item_path (_tmp36_, &_tmp37_);
+			basePath = _tmp38_;
+			_tmp39_ = basePath;
+			_tmp40_ = g_file_new_for_path (_tmp39_);
+			_tmp41_ = _tmp40_;
+			_tmp42_ = filePath;
+			_tmp43_ = g_file_get_child (_tmp41_, _tmp42_);
+			_tmp44_ = _tmp43_;
+			_g_object_unref0 (_tmp41_);
+			fullFilePath = _tmp44_;
+			_tmp45_ = fullFilePath;
+			vala_develop_globals_delete_directory (_tmp45_);
+			_g_object_unref0 (fullFilePath);
+			_g_free0 (basePath);
+			_g_free0 (filePath);
+		}
+	}
+	goto __finally38;
+	__catch38_g_error:
+	{
+		GError* e = NULL;
+		GtkMessageDialog* errordialog = NULL;
+		GtkMessageDialog* _tmp46_;
+		GtkWidget* _tmp47_;
+		GError* _tmp48_;
+		const gchar* _tmp49_;
+		GtkMessageDialog* _tmp50_;
+		GtkMessageDialog* _tmp51_;
+		GtkMessageDialog* _tmp52_;
+		e = _inner_error0_;
+		_inner_error0_ = NULL;
+		_tmp46_ = messagedialog;
+		_tmp47_ = gtk_widget_get_toplevel ((GtkWidget*) _tmp46_);
+		_tmp48_ = e;
+		_tmp49_ = _tmp48_->message;
+		_tmp50_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp47_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp49_);
+		g_object_ref_sink (_tmp50_);
+		errordialog = _tmp50_;
+		_tmp51_ = errordialog;
+		gtk_dialog_run ((GtkDialog*) _tmp51_);
+		_tmp52_ = errordialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp52_);
+		_g_object_unref0 (errordialog);
+		_g_error_free0 (e);
+		{
+			GtkTreeIter parentIter = {0};
+			valaDevelopOverviewTreeStore* _tmp53_;
+			GtkTreeIter _tmp54_;
+			GtkTreeIter _tmp55_ = {0};
+			valaDevelopOverviewTreeStore* _tmp56_;
+			GtkTreeView* _tmp57_;
+			GtkTreeSelection* _tmp58_;
+			GtkTreeIter _tmp59_;
+			GtkMessageDialog* _tmp60_;
+			valaDevelopOverviewTreeStore* _tmp61_;
+			GtkTreeIter* _tmp62_;
+			GtkTreeIter _tmp63_;
+			_tmp53_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp54_ = *iter;
+			gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp53_, &_tmp55_, &_tmp54_);
+			parentIter = _tmp55_;
+			_tmp56_ = vala_develop_main_paned_overviewTreeModel;
+			gtk_tree_store_remove ((GtkTreeStore*) _tmp56_, iter);
+			_tmp57_ = (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) widget) : NULL)->solutionTreeView;
+			_tmp58_ = gtk_tree_view_get_selection (_tmp57_);
+			_tmp59_ = parentIter;
+			gtk_tree_selection_select_iter (_tmp58_, &_tmp59_);
+			_tmp60_ = messagedialog;
+			gtk_widget_destroy ((GtkWidget*) _tmp60_);
+			_tmp61_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp62_ = projectIter;
+			_tmp63_ = *_tmp62_;
+			vala_develop_overview_tree_store_save_project (_tmp61_, &_tmp63_);
+		}
+		_g_object_unref0 (messagedialog);
+		_g_free0 (projectIter);
+		_g_free0 (file);
+		return;
+	}
+	__finally38:
+	{
+		GtkTreeIter parentIter = {0};
+		valaDevelopOverviewTreeStore* _tmp64_;
+		GtkTreeIter _tmp65_;
+		GtkTreeIter _tmp66_ = {0};
+		valaDevelopOverviewTreeStore* _tmp67_;
+		GtkTreeView* _tmp68_;
+		GtkTreeSelection* _tmp69_;
+		GtkTreeIter _tmp70_;
+		GtkMessageDialog* _tmp71_;
+		valaDevelopOverviewTreeStore* _tmp72_;
+		GtkTreeIter* _tmp73_;
+		GtkTreeIter _tmp74_;
+		_tmp64_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp65_ = *iter;
+		gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp64_, &_tmp66_, &_tmp65_);
+		parentIter = _tmp66_;
+		_tmp67_ = vala_develop_main_paned_overviewTreeModel;
+		gtk_tree_store_remove ((GtkTreeStore*) _tmp67_, iter);
+		_tmp68_ = (G_TYPE_CHECK_INSTANCE_TYPE (widget, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) widget) : NULL)->solutionTreeView;
+		_tmp69_ = gtk_tree_view_get_selection (_tmp68_);
+		_tmp70_ = parentIter;
+		gtk_tree_selection_select_iter (_tmp69_, &_tmp70_);
+		_tmp71_ = messagedialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp71_);
+		_tmp72_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp73_ = projectIter;
+		_tmp74_ = *_tmp73_;
+		vala_develop_overview_tree_store_save_project (_tmp72_, &_tmp74_);
+	}
+	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+		_g_object_unref0 (messagedialog);
+		_g_free0 (projectIter);
+		_g_free0 (file);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+		g_clear_error (&_inner_error0_);
+		return;
+	}
+	_g_object_unref0 (messagedialog);
+	_g_free0 (projectIter);
+	_g_free0 (file);
+}
+
+void
+vala_develop_add_new_directory (GtkWidget* widget,
+                                GtkTreeIter* iter)
+{
+	valaDevelopNewFolder* dialog = NULL;
+	GtkTreeIter _tmp0_;
+	valaDevelopNewFolder* _tmp1_;
+	valaDevelopOverviewTreeStore* _tmp2_;
+	GtkTreeIter _tmp3_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = *iter;
+	_tmp1_ = vala_develop_new_folder_new (widget, &_tmp0_);
+	g_object_ref_sink (_tmp1_);
+	dialog = _tmp1_;
+	gtk_dialog_run ((GtkDialog*) dialog);
+	gtk_widget_destroy ((GtkWidget*) dialog);
+	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp3_ = *iter;
+	vala_develop_overview_tree_store_save_project (_tmp2_, &_tmp3_);
+	_g_object_unref0 (dialog);
+}
+
+void
+vala_develop_add_existing_file (GtkWidget* widget,
+                                valaDevelopImportOptions importOption,
+                                GtkTreeIter* iter,
+                                valaDevelopItemType itemType,
+                                GFile* src,
+                                valaDevelopItemBuildType itemBuildType,
+                                const gchar* mimeType)
+{
+	GtkTreeIter firstIter = {0};
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_ = {0};
+	gchar* path = NULL;
+	valaDevelopOverviewTreeStore* _tmp2_;
+	GtkTreeIter _tmp3_;
+	gchar* _tmp4_;
+	GFile* dst = NULL;
+	const gchar* _tmp5_;
+	GFile* _tmp6_;
+	GFile* _tmp7_;
+	gchar* _tmp8_;
+	gchar* _tmp9_;
+	GFile* _tmp10_;
+	GFile* _tmp11_;
+	gboolean _tmp12_ = FALSE;
+	GFile* _tmp13_;
+	GtkTreeIter tmpIter = {0};
+	valaDevelopOverviewTreeStore* _tmp52_;
+	GtkTreeIter _tmp53_;
+	GtkTreeIter _tmp54_ = {0};
+	valaDevelopOverviewTreeStore* _tmp55_;
+	GtkTreeIter _tmp56_;
+	valaDevelopOverviewTreeStore* _tmp57_;
+	GtkTreeIter _tmp58_;
+	gchar* _tmp59_;
+	gchar* _tmp60_;
+	valaDevelopOverviewTreeStore* _tmp61_;
+	GtkTreeIter _tmp62_;
+	valaDevelopOverviewTreeStore* _tmp63_;
+	GtkTreeIter _tmp64_;
+	gchar* itemName = NULL;
+	gchar* _tmp65_;
+	GdkPixbuf* itemPixbuf = NULL;
+	gboolean _tmp66_ = FALSE;
+	const gchar* _tmp67_;
+	GdkPixbuf* _tmp106_;
+	GError* _inner_error0_ = NULL;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	g_return_if_fail (src != NULL);
+	g_return_if_fail (mimeType != NULL);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp0_, &_tmp1_);
+	firstIter = _tmp1_;
+	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp3_ = *iter;
+	_tmp4_ = vala_develop_overview_tree_store_get_item_path (_tmp2_, &_tmp3_);
+	path = _tmp4_;
+	_tmp5_ = path;
+	_tmp6_ = g_file_new_for_path (_tmp5_);
+	_tmp7_ = _tmp6_;
+	_tmp8_ = g_file_get_basename (src);
+	_tmp9_ = _tmp8_;
+	_tmp10_ = g_file_get_child (_tmp7_, _tmp9_);
+	_tmp11_ = _tmp10_;
+	_g_free0 (_tmp9_);
+	_g_object_unref0 (_tmp7_);
+	dst = _tmp11_;
+	_tmp13_ = dst;
+	if (g_file_query_exists (_tmp13_, NULL)) {
+		GFile* _tmp14_;
+		gchar* _tmp15_;
+		gchar* _tmp16_;
+		GtkTreeIter _tmp17_;
+		_tmp14_ = dst;
+		_tmp15_ = g_file_get_path (_tmp14_);
+		_tmp16_ = _tmp15_;
+		_tmp17_ = *iter;
+		_tmp12_ = !vala_develop_check_location (_tmp16_, &_tmp17_);
+		_g_free0 (_tmp16_);
+	} else {
+		_tmp12_ = FALSE;
+	}
+	if (_tmp12_) {
+		GtkMessageDialog* messagedialog = NULL;
+		GtkWidget* _tmp18_;
+		GFile* _tmp19_;
+		gchar* _tmp20_;
+		gchar* _tmp21_;
+		const gchar* _tmp22_;
+		gchar* _tmp23_;
+		gchar* _tmp24_;
+		GtkMessageDialog* _tmp25_;
+		GtkMessageDialog* _tmp26_;
+		GtkMessageDialog* _tmp27_;
+		GtkMessageDialog* _tmp28_;
+		_tmp18_ = gtk_widget_get_toplevel (widget);
+		_tmp19_ = dst;
+		_tmp20_ = g_file_get_path (_tmp19_);
+		_tmp21_ = _tmp20_;
+		_tmp22_ = string_to_string (_tmp21_);
+		_tmp23_ = g_strconcat ("The file ", _tmp22_, " already exists in the target directory, should it be overwritten?", NULL);
+		_tmp24_ = _tmp23_;
+		_tmp25_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp18_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_YES_NO, "%s", _tmp24_);
+		g_object_ref_sink (_tmp25_);
+		_tmp26_ = _tmp25_;
+		_g_free0 (_tmp24_);
+		_g_free0 (_tmp21_);
+		messagedialog = _tmp26_;
+		_tmp27_ = messagedialog;
+		if (gtk_dialog_run ((GtkDialog*) _tmp27_) == ((gint) GTK_RESPONSE_NO)) {
+			importOption = VALA_DEVELOP_IMPORT_OPTIONS_Use;
+		}
+		_tmp28_ = messagedialog;
+		gtk_widget_destroy ((GtkWidget*) _tmp28_);
+		_g_object_unref0 (messagedialog);
+	}
+	switch (importOption) {
+		case VALA_DEVELOP_IMPORT_OPTIONS_Copy:
+		{
+			{
+				GFile* _tmp29_;
+				_tmp29_ = dst;
+				g_file_copy (src, _tmp29_, G_FILE_COPY_NONE, NULL, NULL, NULL, &_inner_error0_);
+				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+					goto __catch39_g_error;
+				}
+			}
+			goto __finally39;
+			__catch39_g_error:
+			{
+				GError* e = NULL;
+				GtkMessageDialog* messagedialog = NULL;
+				GtkWidget* _tmp30_;
+				GError* _tmp31_;
+				const gchar* _tmp32_;
+				GtkMessageDialog* _tmp33_;
+				GtkMessageDialog* _tmp34_;
+				GtkMessageDialog* _tmp35_;
+				e = _inner_error0_;
+				_inner_error0_ = NULL;
+				_tmp30_ = gtk_widget_get_toplevel (widget);
+				_tmp31_ = e;
+				_tmp32_ = _tmp31_->message;
+				_tmp33_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp30_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp32_);
+				g_object_ref_sink (_tmp33_);
+				messagedialog = _tmp33_;
+				_tmp34_ = messagedialog;
+				gtk_dialog_run ((GtkDialog*) _tmp34_);
+				_tmp35_ = messagedialog;
+				gtk_widget_destroy ((GtkWidget*) _tmp35_);
+				_g_object_unref0 (messagedialog);
+				_g_error_free0 (e);
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				return;
+			}
+			__finally39:
+			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+				g_clear_error (&_inner_error0_);
+				return;
+			}
+			break;
+		}
+		case VALA_DEVELOP_IMPORT_OPTIONS_Move:
+		{
+			{
+				GFile* _tmp36_;
+				_tmp36_ = dst;
+				g_file_move (src, _tmp36_, G_FILE_COPY_NONE, NULL, NULL, NULL, &_inner_error0_);
+				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+					goto __catch40_g_error;
+				}
+			}
+			goto __finally40;
+			__catch40_g_error:
+			{
+				GError* e = NULL;
+				GtkMessageDialog* messagedialog = NULL;
+				GtkWidget* _tmp37_;
+				GError* _tmp38_;
+				const gchar* _tmp39_;
+				GtkMessageDialog* _tmp40_;
+				GtkMessageDialog* _tmp41_;
+				GtkMessageDialog* _tmp42_;
+				e = _inner_error0_;
+				_inner_error0_ = NULL;
+				_tmp37_ = gtk_widget_get_toplevel (widget);
+				_tmp38_ = e;
+				_tmp39_ = _tmp38_->message;
+				_tmp40_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp37_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp39_);
+				g_object_ref_sink (_tmp40_);
+				messagedialog = _tmp40_;
+				_tmp41_ = messagedialog;
+				gtk_dialog_run ((GtkDialog*) _tmp41_);
+				_tmp42_ = messagedialog;
+				gtk_widget_destroy ((GtkWidget*) _tmp42_);
+				_g_object_unref0 (messagedialog);
+				_g_error_free0 (e);
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				return;
+			}
+			__finally40:
+			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+				g_clear_error (&_inner_error0_);
+				return;
+			}
+			break;
+		}
+		case VALA_DEVELOP_IMPORT_OPTIONS_Link:
+		{
+			{
+				GFile* _tmp43_;
+				gchar* _tmp44_;
+				gchar* _tmp45_;
+				_tmp43_ = dst;
+				_tmp44_ = g_file_get_path (src);
+				_tmp45_ = _tmp44_;
+				g_file_make_symbolic_link (_tmp43_, _tmp45_, NULL, &_inner_error0_);
+				_g_free0 (_tmp45_);
+				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+					goto __catch41_g_error;
+				}
+			}
+			goto __finally41;
+			__catch41_g_error:
+			{
+				GError* e = NULL;
+				GtkMessageDialog* messagedialog = NULL;
+				GtkWidget* _tmp46_;
+				GError* _tmp47_;
+				const gchar* _tmp48_;
+				GtkMessageDialog* _tmp49_;
+				GtkMessageDialog* _tmp50_;
+				GtkMessageDialog* _tmp51_;
+				e = _inner_error0_;
+				_inner_error0_ = NULL;
+				_tmp46_ = gtk_widget_get_toplevel (widget);
+				_tmp47_ = e;
+				_tmp48_ = _tmp47_->message;
+				_tmp49_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp46_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp48_);
+				g_object_ref_sink (_tmp49_);
+				messagedialog = _tmp49_;
+				_tmp50_ = messagedialog;
+				gtk_dialog_run ((GtkDialog*) _tmp50_);
+				_tmp51_ = messagedialog;
+				gtk_widget_destroy ((GtkWidget*) _tmp51_);
+				_g_object_unref0 (messagedialog);
+				_g_error_free0 (e);
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				return;
+			}
+			__finally41:
+			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+				g_clear_error (&_inner_error0_);
+				return;
+			}
+			break;
+		}
+		default:
+		break;
+	}
+	_tmp52_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp53_ = *iter;
+	gtk_tree_store_append ((GtkTreeStore*) _tmp52_, &_tmp54_, &_tmp53_);
+	tmpIter = _tmp54_;
+	_tmp55_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp56_ = tmpIter;
+	vala_develop_overview_tree_store_set_item_type (_tmp55_, &_tmp56_, (gint) itemType);
+	_tmp57_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp58_ = tmpIter;
+	_tmp59_ = g_file_get_basename (src);
+	_tmp60_ = _tmp59_;
+	vala_develop_overview_tree_store_set_item_name (_tmp57_, &_tmp58_, _tmp60_);
+	_g_free0 (_tmp60_);
+	_tmp61_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp62_ = tmpIter;
+	vala_develop_overview_tree_store_set_item_buildtype (_tmp61_, &_tmp62_, (gint) itemBuildType);
+	_tmp63_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp64_ = tmpIter;
+	vala_develop_overview_tree_store_set_item_mimetype (_tmp63_, &_tmp64_, mimeType);
+	_tmp65_ = g_file_get_basename (src);
+	itemName = _tmp65_;
+	itemPixbuf = NULL;
+	_tmp67_ = itemName;
+	if (g_str_has_suffix (_tmp67_, ".glade")) {
+		_tmp66_ = TRUE;
+	} else {
+		const gchar* _tmp68_;
+		_tmp68_ = itemName;
+		_tmp66_ = g_str_has_suffix (_tmp68_, ".ui");
+	}
+	if (_tmp66_) {
+		GdkPixbuf* _tmp69_ = NULL;
+		GdkPixbuf* _tmp70_;
+		GdkPixbuf* _tmp71_;
+		_tmp70_ = gdk_pixbuf_new_from_resource ("/valaDevelop/glade.svg.png", &_inner_error0_);
+		_tmp69_ = _tmp70_;
+		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+			_g_object_unref0 (itemPixbuf);
+			_g_free0 (itemName);
+			_g_object_unref0 (dst);
+			_g_free0 (path);
+			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+			g_clear_error (&_inner_error0_);
+			return;
+		}
+		_tmp71_ = gdk_pixbuf_scale_simple (_tmp69_, 16, 16, GDK_INTERP_BILINEAR);
+		_g_object_unref0 (itemPixbuf);
+		itemPixbuf = _tmp71_;
+		_g_object_unref0 (_tmp69_);
+	} else {
+		gboolean _tmp72_ = FALSE;
+		const gchar* _tmp73_;
+		_tmp73_ = itemName;
+		if (g_str_has_suffix (_tmp73_, ".xml")) {
+			_tmp72_ = TRUE;
+		} else {
+			const gchar* _tmp74_;
+			_tmp74_ = itemName;
+			_tmp72_ = g_str_has_suffix (_tmp74_, ".css");
+		}
+		if (_tmp72_) {
+			GdkPixbuf* _tmp75_ = NULL;
+			GdkPixbuf* _tmp76_;
+			GdkPixbuf* _tmp77_;
+			_tmp76_ = gdk_pixbuf_new_from_resource ("/valaDevelop/xml.svg.png", &_inner_error0_);
+			_tmp75_ = _tmp76_;
+			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+				_g_object_unref0 (itemPixbuf);
+				_g_free0 (itemName);
+				_g_object_unref0 (dst);
+				_g_free0 (path);
+				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+				g_clear_error (&_inner_error0_);
+				return;
+			}
+			_tmp77_ = gdk_pixbuf_scale_simple (_tmp75_, 16, 16, GDK_INTERP_BILINEAR);
+			_g_object_unref0 (itemPixbuf);
+			itemPixbuf = _tmp77_;
+			_g_object_unref0 (_tmp75_);
+		} else {
+			gboolean _tmp78_ = FALSE;
+			const gchar* _tmp79_;
+			_tmp79_ = itemName;
+			if (g_str_has_suffix (_tmp79_, ".png")) {
+				_tmp78_ = TRUE;
+			} else {
+				const gchar* _tmp80_;
+				_tmp80_ = itemName;
+				_tmp78_ = g_str_has_suffix (_tmp80_, ".svg");
+			}
+			if (_tmp78_) {
+				GdkPixbuf* _tmp81_ = NULL;
+				GdkPixbuf* _tmp82_;
+				GdkPixbuf* _tmp83_;
+				_tmp82_ = gdk_pixbuf_new_from_resource ("/valaDevelop/picture.svg.png", &_inner_error0_);
+				_tmp81_ = _tmp82_;
+				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+					_g_object_unref0 (itemPixbuf);
+					_g_free0 (itemName);
+					_g_object_unref0 (dst);
+					_g_free0 (path);
+					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+					g_clear_error (&_inner_error0_);
+					return;
+				}
+				_tmp83_ = gdk_pixbuf_scale_simple (_tmp81_, 16, 16, GDK_INTERP_BILINEAR);
+				_g_object_unref0 (itemPixbuf);
+				itemPixbuf = _tmp83_;
+				_g_object_unref0 (_tmp81_);
+			} else {
+				gboolean _tmp84_ = FALSE;
+				gboolean _tmp85_ = FALSE;
+				const gchar* _tmp86_;
+				_tmp86_ = itemName;
+				if (g_str_has_suffix (_tmp86_, ".vala")) {
+					_tmp85_ = TRUE;
+				} else {
+					const gchar* _tmp87_;
+					_tmp87_ = itemName;
+					_tmp85_ = g_str_has_suffix (_tmp87_, ".vapi");
+				}
+				if (_tmp85_) {
+					_tmp84_ = TRUE;
+				} else {
+					const gchar* _tmp88_;
+					_tmp88_ = itemName;
+					_tmp84_ = g_str_has_suffix (_tmp88_, ".c");
+				}
+				if (_tmp84_) {
+					GdkPixbuf* _tmp89_ = NULL;
+					GdkPixbuf* _tmp90_;
+					GdkPixbuf* _tmp91_;
+					GtkTreeIter* projectIter = NULL;
+					valaDevelopOverviewTreeStore* _tmp92_;
+					GtkTreeIter _tmp93_;
+					GtkTreeIter* _tmp94_;
+					gchar* projectIterName = NULL;
+					valaDevelopOverviewTreeStore* _tmp95_;
+					GtkTreeIter* _tmp96_;
+					GtkTreeIter _tmp97_;
+					gchar* _tmp98_;
+					valaDevelopSymbolFinder* sf = NULL;
+					GeeHashMap* _tmp99_;
+					const gchar* _tmp100_;
+					gpointer _tmp101_;
+					valaDevelopSymbolFinder* _tmp102_;
+					GFile* _tmp103_;
+					gchar* _tmp104_;
+					gchar* _tmp105_;
+					_tmp90_ = gdk_pixbuf_new_from_resource ("/valaDevelop/source.svg.png", &_inner_error0_);
+					_tmp89_ = _tmp90_;
+					if (G_UNLIKELY (_inner_error0_ != NULL)) {
+						_g_object_unref0 (itemPixbuf);
+						_g_free0 (itemName);
+						_g_object_unref0 (dst);
+						_g_free0 (path);
+						g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+						g_clear_error (&_inner_error0_);
+						return;
+					}
+					_tmp91_ = gdk_pixbuf_scale_simple (_tmp89_, 16, 16, GDK_INTERP_BILINEAR);
+					_g_object_unref0 (itemPixbuf);
+					itemPixbuf = _tmp91_;
+					_tmp92_ = vala_develop_main_paned_overviewTreeModel;
+					_tmp93_ = tmpIter;
+					_tmp94_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp92_, &_tmp93_);
+					projectIter = _tmp94_;
+					_tmp95_ = vala_develop_main_paned_overviewTreeModel;
+					_tmp96_ = projectIter;
+					_tmp97_ = *_tmp96_;
+					_tmp98_ = vala_develop_overview_tree_store_get_item_name (_tmp95_, &_tmp97_);
+					projectIterName = _tmp98_;
+					_tmp99_ = vala_develop_main_paned__symbol_finder;
+					_tmp100_ = projectIterName;
+					_tmp101_ = gee_abstract_map_get ((GeeAbstractMap*) _tmp99_, _tmp100_);
+					sf = (valaDevelopSymbolFinder*) _tmp101_;
+					_tmp102_ = sf;
+					_tmp103_ = dst;
+					_tmp104_ = g_file_get_path (_tmp103_);
+					_tmp105_ = _tmp104_;
+					vala_develop_symbol_finder_AddSourceFile (_tmp102_, _tmp105_);
+					_g_free0 (_tmp105_);
+					_g_object_unref0 (sf);
+					_g_free0 (projectIterName);
+					_g_free0 (projectIter);
+					_g_object_unref0 (_tmp89_);
+				}
+			}
+		}
+	}
+	_tmp106_ = itemPixbuf;
+	if (_tmp106_ != NULL) {
+		valaDevelopOverviewTreeStore* _tmp107_;
+		GtkTreeIter _tmp108_;
+		GdkPixbuf* _tmp109_;
+		_tmp107_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp108_ = tmpIter;
+		_tmp109_ = itemPixbuf;
+		vala_develop_overview_tree_store_set_item_pixbuf (_tmp107_, &_tmp108_, _tmp109_);
+	}
+	if (itemType == VALA_DEVELOP_ITEM_TYPE_Resource) {
+		GtkTreeIter* projectIter = NULL;
+		valaDevelopOverviewTreeStore* _tmp110_;
+		GtkTreeIter _tmp111_;
+		GtkTreeIter* _tmp112_;
+		valaDevelopOverviewTreeStore* _tmp113_;
+		GtkTreeIter _tmp114_;
+		valaDevelopOverviewTreeStore* _tmp115_;
+		GtkTreeIter* _tmp116_;
+		GtkTreeIter _tmp117_;
+		gchar* _tmp118_;
+		gchar* _tmp119_;
+		const gchar* _tmp120_;
+		valaDevelopOverviewTreeStore* _tmp121_;
+		GtkTreeIter _tmp122_;
+		gchar* _tmp123_;
+		gchar* _tmp124_;
+		const gchar* _tmp125_;
+		gchar* _tmp126_;
+		gchar* _tmp127_;
+		valaDevelopOverviewTreeStore* _tmp128_;
+		GtkTreeIter _tmp129_;
+		valaDevelopOverviewTreeStore* _tmp130_;
+		GtkTreeIter _tmp131_;
+		gboolean _tmp132_ = FALSE;
+		gboolean _tmp133_ = FALSE;
+		GFile* _tmp134_;
+		gchar* _tmp135_;
+		gchar* _tmp136_;
+		gboolean _tmp137_;
+		_tmp110_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp111_ = tmpIter;
+		_tmp112_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp110_, &_tmp111_);
+		projectIter = _tmp112_;
+		_tmp113_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp114_ = tmpIter;
+		_tmp115_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp116_ = projectIter;
+		_tmp117_ = *_tmp116_;
+		_tmp118_ = vala_develop_overview_tree_store_get_item_name (_tmp115_, &_tmp117_);
+		_tmp119_ = _tmp118_;
+		_tmp120_ = string_to_string (_tmp119_);
+		_tmp121_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp122_ = tmpIter;
+		_tmp123_ = vala_develop_overview_tree_store_get_item_name (_tmp121_, &_tmp122_);
+		_tmp124_ = _tmp123_;
+		_tmp125_ = string_to_string (_tmp124_);
+		_tmp126_ = g_strconcat ("/", _tmp120_, "/", _tmp125_, NULL);
+		_tmp127_ = _tmp126_;
+		vala_develop_overview_tree_store_set_item_resource_id (_tmp113_, &_tmp114_, _tmp127_);
+		_g_free0 (_tmp127_);
+		_g_free0 (_tmp124_);
+		_g_free0 (_tmp119_);
+		_tmp128_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp129_ = tmpIter;
+		vala_develop_overview_tree_store_set_item_resource_alias (_tmp128_, &_tmp129_, "");
+		_tmp130_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp131_ = tmpIter;
+		vala_develop_overview_tree_store_set_item_resource_compress (_tmp130_, &_tmp131_, TRUE);
+		_tmp134_ = dst;
+		_tmp135_ = g_file_get_basename (_tmp134_);
+		_tmp136_ = _tmp135_;
+		_tmp137_ = g_str_has_suffix (_tmp136_, ".glade");
+		_g_free0 (_tmp136_);
+		if (_tmp137_) {
+			_tmp133_ = TRUE;
+		} else {
+			GFile* _tmp138_;
+			gchar* _tmp139_;
+			gchar* _tmp140_;
+			_tmp138_ = dst;
+			_tmp139_ = g_file_get_basename (_tmp138_);
+			_tmp140_ = _tmp139_;
+			_tmp133_ = g_str_has_suffix (_tmp140_, ".ui");
+			_g_free0 (_tmp140_);
+		}
+		if (_tmp133_) {
+			_tmp132_ = TRUE;
+		} else {
+			GFile* _tmp141_;
+			gchar* _tmp142_;
+			gchar* _tmp143_;
+			_tmp141_ = dst;
+			_tmp142_ = g_file_get_basename (_tmp141_);
+			_tmp143_ = _tmp142_;
+			_tmp132_ = g_str_has_suffix (_tmp143_, ".xml");
+			_g_free0 (_tmp143_);
+		}
+		if (_tmp132_) {
+			valaDevelopOverviewTreeStore* _tmp144_;
+			GtkTreeIter _tmp145_;
+			_tmp144_ = vala_develop_main_paned_overviewTreeModel;
+			_tmp145_ = tmpIter;
+			vala_develop_overview_tree_store_set_item_resource_stripblanks (_tmp144_, &_tmp145_, TRUE);
+		}
+		_g_free0 (projectIter);
+	}
+	_g_object_unref0 (itemPixbuf);
+	_g_free0 (itemName);
+	_g_object_unref0 (dst);
+	_g_free0 (path);
+}
+
+gboolean
+vala_develop_check_location (const gchar* file,
+                             GtkTreeIter* iter)
+{
+	gboolean result = FALSE;
+	GtkTreeIter firstIter = {0};
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_ = {0};
+	gchar* root = NULL;
+	valaDevelopOverviewTreeStore* _tmp2_;
+	GtkTreeIter _tmp3_;
+	gchar* _tmp4_;
+	gchar* path = NULL;
+	valaDevelopOverviewTreeStore* _tmp5_;
+	GtkTreeIter _tmp6_;
+	gchar* _tmp7_;
+	gchar* fullPath = NULL;
+	const gchar* _tmp8_;
+	GFile* _tmp9_;
+	GFile* _tmp10_;
+	const gchar* _tmp11_;
+	GFile* _tmp12_;
+	GFile* _tmp13_;
+	gchar* _tmp14_;
+	gchar* _tmp15_;
+	gchar* filePath = NULL;
+	GFile* _tmp16_;
+	GFile* _tmp17_;
+	GFile* _tmp18_;
+	GFile* _tmp19_;
+	gchar* _tmp20_;
+	gchar* _tmp21_;
+	const gchar* _tmp22_;
+	const gchar* _tmp23_;
+	g_return_val_if_fail (file != NULL, FALSE);
+	g_return_val_if_fail (iter != NULL, FALSE);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp0_, &_tmp1_);
+	firstIter = _tmp1_;
+	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp3_ = firstIter;
+	_tmp4_ = vala_develop_overview_tree_store_get_item_path (_tmp2_, &_tmp3_);
+	root = _tmp4_;
+	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp6_ = *iter;
+	_tmp7_ = vala_develop_overview_tree_store_get_item_path (_tmp5_, &_tmp6_);
+	path = _tmp7_;
+	_tmp8_ = root;
+	_tmp9_ = g_file_new_for_path (_tmp8_);
+	_tmp10_ = _tmp9_;
+	_tmp11_ = path;
+	_tmp12_ = g_file_get_child (_tmp10_, _tmp11_);
+	_tmp13_ = _tmp12_;
+	_tmp14_ = g_file_get_path (_tmp13_);
+	_tmp15_ = _tmp14_;
+	_g_object_unref0 (_tmp13_);
+	_g_object_unref0 (_tmp10_);
+	fullPath = _tmp15_;
+	_tmp16_ = g_file_new_for_path (file);
+	_tmp17_ = _tmp16_;
+	_tmp18_ = g_file_get_parent (_tmp17_);
+	_tmp19_ = _tmp18_;
+	_tmp20_ = g_file_get_path (_tmp19_);
+	_tmp21_ = _tmp20_;
+	_g_object_unref0 (_tmp19_);
+	_g_object_unref0 (_tmp17_);
+	filePath = _tmp21_;
+	_tmp22_ = filePath;
+	_tmp23_ = fullPath;
+	if (!g_str_has_prefix (_tmp22_, _tmp23_)) {
+		result = FALSE;
+		_g_free0 (filePath);
+		_g_free0 (fullPath);
+		_g_free0 (path);
+		_g_free0 (root);
+		return result;
+	}
+	result = TRUE;
+	_g_free0 (filePath);
+	_g_free0 (fullPath);
+	_g_free0 (path);
+	_g_free0 (root);
+	return result;
+}
+
+void
+vala_develop_add_new_file (GtkWidget* widget,
+                           GtkTreeIter* selectionIter)
+{
+	GtkTreeIter* projectIter = NULL;
+	valaDevelopOverviewTreeStore* _tmp0_;
+	GtkTreeIter _tmp1_;
+	GtkTreeIter* _tmp2_;
+	valaDevelopSourceCreateFile* dialog = NULL;
+	GtkTreeIter _tmp3_;
+	valaDevelopSourceCreateFile* _tmp4_;
+	valaDevelopOverviewTreeStore* _tmp5_;
+	GtkTreeIter _tmp6_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (selectionIter != NULL);
+	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp1_ = *selectionIter;
+	_tmp2_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp0_, &_tmp1_);
+	projectIter = _tmp2_;
+	_tmp3_ = *selectionIter;
+	_tmp4_ = vala_develop_source_create_file_new (widget, &_tmp3_);
+	g_object_ref_sink (_tmp4_);
+	dialog = _tmp4_;
+	gtk_dialog_run ((GtkDialog*) dialog);
+	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+	_tmp6_ = *projectIter;
+	vala_develop_overview_tree_store_save_project (_tmp5_, &_tmp6_);
+	gtk_widget_destroy ((GtkWidget*) dialog);
+	_g_object_unref0 (dialog);
+	_g_free0 (projectIter);
+}
+
+void
+vala_develop_add_existing_source (GtkWidget* widget,
+                                  GtkTreeIter* iter)
+{
+	GtkFileChooserDialog* chooser = NULL;
+	GtkWidget* _tmp0_;
+	GtkFileChooserDialog* _tmp1_;
+	GtkFileChooserDialog* _tmp2_;
+	GtkFileFilter* filter = NULL;
+	GtkFileFilter* _tmp3_;
+	GtkFileFilter* _tmp4_;
+	GtkFileChooserDialog* _tmp5_;
+	GtkFileFilter* _tmp6_;
+	GtkFileFilter* _tmp7_;
+	GtkFileFilter* _tmp8_;
+	GtkFileFilter* _tmp9_;
+	GtkFileFilter* _tmp10_;
+	GtkFileChooserDialog* _tmp11_;
+	GtkFileFilter* _tmp12_;
+	GtkFileFilter* _tmp13_;
+	GtkFileFilter* _tmp14_;
+	GtkFileFilter* _tmp15_;
+	GtkFileFilter* _tmp16_;
+	GtkFileChooserDialog* _tmp17_;
+	GtkFileFilter* _tmp18_;
+	GtkFileFilter* _tmp19_;
+	GtkFileFilter* _tmp20_;
+	GtkFileChooserDialog* _tmp21_;
+	GtkFileChooserDialog* _tmp30_;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = gtk_widget_get_toplevel (widget);
+	_tmp1_ = (GtkFileChooserDialog*) gtk_file_chooser_dialog_new (_ ("Select source files"), G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow), GTK_FILE_CHOOSER_ACTION_OPEN, _ ("_Cancel"), GTK_RESPONSE_CANCEL, _ ("_Open"), GTK_RESPONSE_ACCEPT, NULL);
+	g_object_ref_sink (_tmp1_);
+	chooser = _tmp1_;
+	_tmp2_ = chooser;
+	gtk_file_chooser_set_select_multiple ((GtkFileChooser*) _tmp2_, TRUE);
+	_tmp3_ = gtk_file_filter_new ();
+	g_object_ref_sink (_tmp3_);
+	filter = _tmp3_;
+	_tmp4_ = filter;
+	gtk_file_filter_set_name (_tmp4_, _ ("vala source files"));
+	_tmp5_ = chooser;
+	_tmp6_ = filter;
+	_tmp7_ = _g_object_ref0 (_tmp6_);
+	gtk_file_chooser_add_filter ((GtkFileChooser*) _tmp5_, _tmp7_);
+	_tmp8_ = filter;
+	gtk_file_filter_add_pattern (_tmp8_, "*.vala");
+	_tmp9_ = gtk_file_filter_new ();
+	g_object_ref_sink (_tmp9_);
+	_g_object_unref0 (filter);
+	filter = _tmp9_;
+	_tmp10_ = filter;
+	gtk_file_filter_set_name (_tmp10_, _ ("vapi files"));
+	_tmp11_ = chooser;
+	_tmp12_ = filter;
+	_tmp13_ = _g_object_ref0 (_tmp12_);
+	gtk_file_chooser_add_filter ((GtkFileChooser*) _tmp11_, _tmp13_);
+	_tmp14_ = filter;
+	gtk_file_filter_add_pattern (_tmp14_, "*.vapi");
+	_tmp15_ = gtk_file_filter_new ();
+	g_object_ref_sink (_tmp15_);
+	_g_object_unref0 (filter);
+	filter = _tmp15_;
+	_tmp16_ = filter;
+	gtk_file_filter_set_name (_tmp16_, _ ("C source files"));
+	_tmp17_ = chooser;
+	_tmp18_ = filter;
+	_tmp19_ = _g_object_ref0 (_tmp18_);
+	gtk_file_chooser_add_filter ((GtkFileChooser*) _tmp17_, _tmp19_);
+	_tmp20_ = filter;
+	gtk_file_filter_add_pattern (_tmp20_, "*.c");
+	_tmp21_ = chooser;
+	if (gtk_dialog_run ((GtkDialog*) _tmp21_) == ((gint) GTK_RESPONSE_ACCEPT)) {
+		GtkTreeIter* projectIter = NULL;
+		valaDevelopOverviewTreeStore* _tmp22_;
+		GtkTreeIter _tmp23_;
+		GtkTreeIter* _tmp24_;
+		GtkFileChooserDialog* _tmp25_;
+		GtkTreeIter _tmp26_;
+		valaDevelopOverviewTreeStore* _tmp27_;
+		GtkTreeIter* _tmp28_;
+		GtkTreeIter _tmp29_;
+		_tmp22_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp23_ = *iter;
+		_tmp24_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp22_, &_tmp23_);
+		projectIter = _tmp24_;
+		_tmp25_ = chooser;
+		_tmp26_ = *iter;
+		vala_develop_import_and_add (widget, _tmp25_, VALA_DEVELOP_ITEM_TYPE_Source, &_tmp26_);
+		_tmp27_ = vala_develop_main_paned_overviewTreeModel;
+		_tmp28_ = projectIter;
+		_tmp29_ = *_tmp28_;
+		vala_develop_overview_tree_store_save_project (_tmp27_, &_tmp29_);
+		_g_free0 (projectIter);
+	}
+	_tmp30_ = chooser;
+	gtk_widget_destroy ((GtkWidget*) _tmp30_);
+	_g_object_unref0 (filter);
+	_g_object_unref0 (chooser);
+}
+
+static void
+_g_object_unref0_ (gpointer var)
+{
+	(var == NULL) ? NULL : (var = (g_object_unref (var), NULL));
+}
+
+static inline void
+_g_slist_free__g_object_unref0_ (GSList* self)
+{
+	g_slist_free_full (self, (GDestroyNotify) _g_object_unref0_);
+}
+
+void
+vala_develop_import_and_add (GtkWidget* widget,
+                             GtkFileChooserDialog* chooser,
+                             valaDevelopItemType itemType,
+                             GtkTreeIter* iter)
+{
+	guint filesCount = 0U;
+	GSList* _tmp0_;
+	GSList* _tmp1_;
+	guint _tmp2_;
+	valaDevelopWrongLocation* message = NULL;
+	valaDevelopWrongLocation* _tmp3_;
+	valaDevelopImportOptions importOption = 0;
+	GSList* _tmp4_;
+	valaDevelopWrongLocation* _tmp52_;
+	GError* _inner_error0_ = NULL;
+	g_return_if_fail (widget != NULL);
+	g_return_if_fail (chooser != NULL);
+	g_return_if_fail (iter != NULL);
+	_tmp0_ = gtk_file_chooser_get_files ((GtkFileChooser*) chooser);
+	_tmp1_ = _tmp0_;
+	_tmp2_ = g_slist_length (_tmp1_);
+	(_tmp1_ == NULL) ? NULL : (_tmp1_ = (_g_slist_free__g_object_unref0_ (_tmp1_), NULL));
+	filesCount = _tmp2_;
+	_tmp3_ = vala_develop_wrong_location_new (widget);
+	g_object_ref_sink (_tmp3_);
+	message = _tmp3_;
+	importOption = VALA_DEVELOP_IMPORT_OPTIONS_Use;
+	_tmp4_ = gtk_file_chooser_get_files ((GtkFileChooser*) chooser);
+	{
+		GSList* file_collection = NULL;
+		GSList* file_it = NULL;
+		file_collection = _tmp4_;
+		for (file_it = file_collection; file_it != NULL; file_it = file_it->next) {
+			GFile* _tmp5_;
+			GFile* file = NULL;
+			_tmp5_ = _g_object_ref0 ((GFile*) file_it->data);
+			file = _tmp5_;
+			{
+				{
+					GFile* _tmp6_;
+					gchar* _tmp7_;
+					gchar* _tmp8_;
+					GtkTreeIter _tmp9_;
+					gboolean _tmp10_;
+					valaDevelopItemBuildType _tmp38_ = 0;
+					GFileInfo* _tmp39_ = NULL;
+					GFile* _tmp40_;
+					GFileInfo* _tmp41_;
+					valaDevelopImportOptions _tmp42_;
+					GtkTreeIter _tmp43_;
+					GFile* _tmp44_;
+					const gchar* _tmp45_;
+					_tmp6_ = file;
+					_tmp7_ = g_file_get_path (_tmp6_);
+					_tmp8_ = _tmp7_;
+					_tmp9_ = *iter;
+					_tmp10_ = !vala_develop_check_location (_tmp8_, &_tmp9_);
+					_g_free0 (_tmp8_);
+					if (_tmp10_) {
+						valaDevelopWrongLocation* _tmp11_;
+						gboolean _tmp12_;
+						gboolean _tmp13_;
+						_tmp11_ = message;
+						_tmp12_ = vala_develop_wrong_location_get_Same4All (_tmp11_);
+						_tmp13_ = _tmp12_;
+						if (!_tmp13_) {
+							valaDevelopWrongLocation* _tmp14_;
+							valaDevelopWrongLocation* _tmp15_;
+							GFile* _tmp16_;
+							gchar* _tmp17_;
+							gchar* _tmp18_;
+							const gchar* _tmp19_;
+							gchar* _tmp20_;
+							gchar* _tmp21_;
+							valaDevelopWrongLocation* _tmp22_;
+							valaDevelopWrongLocation* _tmp23_;
+							GtkButton* _tmp24_;
+							GtkButton* _tmp25_;
+							valaDevelopWrongLocation* _tmp26_;
+							GtkButton* _tmp27_;
+							GtkButton* _tmp28_;
+							valaDevelopWrongLocation* _tmp29_;
+							GtkResponseType respons = 0;
+							valaDevelopWrongLocation* _tmp30_;
+							GtkResponseType _tmp31_;
+							valaDevelopWrongLocation* _tmp34_;
+							valaDevelopImportOptions _tmp35_;
+							valaDevelopImportOptions _tmp36_;
+							valaDevelopWrongLocation* _tmp37_;
+							_tmp14_ = message;
+							vala_develop_wrong_location_set_Same4AllVisible (_tmp14_, filesCount != ((guint) 1));
+							_tmp15_ = message;
+							_tmp16_ = file;
+							_tmp17_ = g_file_get_path (_tmp16_);
+							_tmp18_ = _tmp17_;
+							_tmp19_ = string_to_string (_tmp18_);
+							_tmp20_ = g_strconcat ("The file ", _tmp19_, " is outside the target directory.", NULL);
+							_tmp21_ = _tmp20_;
+							g_object_set ((GtkMessageDialog*) _tmp15_, "text", _tmp21_, NULL);
+							_g_free0 (_tmp21_);
+							_g_free0 (_tmp18_);
+							_tmp22_ = message;
+							gtk_widget_set_visible ((GtkWidget*) _tmp22_, TRUE);
+							_tmp23_ = message;
+							_tmp24_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Cancel"));
+							g_object_ref_sink (_tmp24_);
+							_tmp25_ = _tmp24_;
+							gtk_dialog_add_action_widget ((GtkDialog*) _tmp23_, (GtkWidget*) _tmp25_, (gint) GTK_RESPONSE_CANCEL);
+							_g_object_unref0 (_tmp25_);
+							_tmp26_ = message;
+							_tmp27_ = (GtkButton*) gtk_button_new_with_mnemonic (_ ("_Ok"));
+							g_object_ref_sink (_tmp27_);
+							_tmp28_ = _tmp27_;
+							gtk_dialog_add_action_widget ((GtkDialog*) _tmp26_, (GtkWidget*) _tmp28_, (gint) GTK_RESPONSE_OK);
+							_g_object_unref0 (_tmp28_);
+							_tmp29_ = message;
+							gtk_widget_show_all ((GtkWidget*) _tmp29_);
+							_tmp30_ = message;
+							respons = (GtkResponseType) gtk_dialog_run ((GtkDialog*) _tmp30_);
+							_tmp31_ = respons;
+							switch (_tmp31_) {
+								case GTK_RESPONSE_CANCEL:
+								{
+									valaDevelopWrongLocation* _tmp32_;
+									_tmp32_ = message;
+									gtk_widget_destroy ((GtkWidget*) _tmp32_);
+									_g_object_unref0 (file);
+									(file_collection == NULL) ? NULL : (file_collection = (_g_slist_free__g_object_unref0_ (file_collection), NULL));
+									_g_object_unref0 (message);
+									return;
+								}
+								case GTK_RESPONSE_NO:
+								{
+									valaDevelopWrongLocation* _tmp33_;
+									_tmp33_ = message;
+									gtk_widget_hide ((GtkWidget*) _tmp33_);
+									continue;
+								}
+								default:
+								break;
+							}
+							_tmp34_ = message;
+							_tmp35_ = vala_develop_wrong_location_get_ImportOption (_tmp34_);
+							_tmp36_ = _tmp35_;
+							importOption = _tmp36_;
+							_tmp37_ = message;
+							gtk_widget_hide ((GtkWidget*) _tmp37_);
+						}
+					}
+					if (itemType == VALA_DEVELOP_ITEM_TYPE_Source) {
+						_tmp38_ = VALA_DEVELOP_ITEM_BUILD_TYPE_Compile;
+					} else {
+						_tmp38_ = VALA_DEVELOP_ITEM_BUILD_TYPE_Resource;
+					}
+					_tmp40_ = file;
+					_tmp41_ = g_file_query_info (_tmp40_, "standard::content-type", 0, NULL, &_inner_error0_);
+					_tmp39_ = _tmp41_;
+					if (G_UNLIKELY (_inner_error0_ != NULL)) {
+						goto __catch42_g_error;
+					}
+					_tmp42_ = importOption;
+					_tmp43_ = *iter;
+					_tmp44_ = file;
+					_tmp45_ = g_file_info_get_content_type (_tmp39_);
+					vala_develop_add_existing_file (widget, _tmp42_, &_tmp43_, itemType, _tmp44_, _tmp38_, _tmp45_);
+					_g_object_unref0 (_tmp39_);
+				}
+				goto __finally42;
+				__catch42_g_error:
+				{
+					GError* e = NULL;
+					GtkMessageDialog* messagedialog = NULL;
+					GtkWidget* _tmp46_;
+					GError* _tmp47_;
+					const gchar* _tmp48_;
+					GtkMessageDialog* _tmp49_;
+					GtkMessageDialog* _tmp50_;
+					GtkMessageDialog* _tmp51_;
+					e = _inner_error0_;
+					_inner_error0_ = NULL;
+					_tmp46_ = gtk_widget_get_toplevel (widget);
+					_tmp47_ = e;
+					_tmp48_ = _tmp47_->message;
+					_tmp49_ = (GtkMessageDialog*) gtk_message_dialog_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp46_, gtk_window_get_type (), GtkWindow), GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp48_);
+					g_object_ref_sink (_tmp49_);
+					messagedialog = _tmp49_;
+					_tmp50_ = messagedialog;
+					gtk_dialog_run ((GtkDialog*) _tmp50_);
+					_tmp51_ = messagedialog;
+					gtk_widget_destroy ((GtkWidget*) _tmp51_);
+					_g_object_unref0 (messagedialog);
+					_g_error_free0 (e);
+				}
+				__finally42:
+				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+					_g_object_unref0 (file);
+					(file_collection == NULL) ? NULL : (file_collection = (_g_slist_free__g_object_unref0_ (file_collection), NULL));
+					_g_object_unref0 (message);
+					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+					g_clear_error (&_inner_error0_);
+					return;
+				}
+				_g_object_unref0 (file);
+			}
+		}
+		(file_collection == NULL) ? NULL : (file_collection = (_g_slist_free__g_object_unref0_ (file_collection), NULL));
+	}
+	_tmp52_ = message;
+	gtk_widget_destroy ((GtkWidget*) _tmp52_);
+	_g_object_unref0 (message);
+}
+
+void
 vala_develop_globals_StdCursor (GtkWidget* widget)
 {
 	gboolean _tmp0_ = FALSE;
@@ -133,40 +2451,23 @@ vala_develop_globals_StdCursor (GtkWidget* widget)
 	GdkCursor* _tmp3_;
 	GdkWindow* _tmp4_;
 	GdkDisplay* _tmp5_;
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (widget != NULL);
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (widget == NULL) {
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = TRUE;
-#line 143 "globals.c"
 	} else {
 		GdkWindow* _tmp1_;
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = gtk_widget_get_window (widget);
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = _tmp1_ == NULL;
-#line 150 "globals.c"
 	}
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp0_) {
-#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return;
-#line 156 "globals.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = gtk_widget_get_window (widget);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = vala_develop_globals_defaultCursor;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gdk_window_set_cursor (_tmp2_, _tmp3_);
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = gtk_widget_get_window (widget);
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = gdk_window_get_display (_tmp4_);
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gdk_display_flush (_tmp5_);
-#line 170 "globals.c"
 }
 
 void
@@ -177,40 +2478,23 @@ vala_develop_globals_WaitCursor (GtkWidget* widget)
 	GdkCursor* _tmp3_;
 	GdkWindow* _tmp4_;
 	GdkDisplay* _tmp5_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (widget != NULL);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (widget == NULL) {
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = TRUE;
-#line 187 "globals.c"
 	} else {
 		GdkWindow* _tmp1_;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = gtk_widget_get_window (widget);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = _tmp1_ == NULL;
-#line 194 "globals.c"
 	}
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp0_) {
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return;
-#line 200 "globals.c"
 	}
-#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = gtk_widget_get_window (widget);
-#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = vala_develop_globals_waitCursor;
-#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gdk_window_set_cursor (_tmp2_, _tmp3_);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = gtk_widget_get_window (widget);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = gdk_window_get_display (_tmp4_);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gdk_display_flush (_tmp5_);
-#line 214 "globals.c"
 }
 
 gpointer
@@ -220,75 +2504,44 @@ vala_develop_globals_FindChildOfType (GType t_type,
                                       GtkWidget* parent)
 {
 	gpointer result = NULL;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_bin_get_type ())) {
-#line 228 "globals.c"
 		GtkWidget* _tmp0_;
 		gpointer _tmp1_;
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = gtk_bin_get_child (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_bin_get_type ()) ? ((GtkBin*) parent) : NULL);
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = vala_develop_globals_FindChildOfType (t_type, (GBoxedCopyFunc) t_dup_func, (GDestroyNotify) t_destroy_func, _tmp0_);
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = _tmp1_;
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 239 "globals.c"
 	}
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_container_get_type ())) {
-#line 243 "globals.c"
 		GList* _tmp2_;
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = gtk_container_get_children (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_container_get_type ()) ? ((GtkContainer*) parent) : NULL);
-#line 247 "globals.c"
 		{
 			GList* children_collection = NULL;
 			GList* children_it = NULL;
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			children_collection = _tmp2_;
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			for (children_it = children_collection; children_it != NULL; children_it = children_it->next) {
-#line 255 "globals.c"
 				GtkWidget* children = NULL;
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				children = (GtkWidget*) children_it->data;
-#line 259 "globals.c"
 				{
 					GtkWidget* _tmp3_;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp3_ = children;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp3_, t_type)) {
-#line 266 "globals.c"
 						GtkWidget* _tmp4_;
 						gpointer _tmp5_;
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp4_ = children;
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp5_ = ((((gconstpointer) _tmp4_) != NULL) && (t_dup_func != NULL)) ? t_dup_func ((gpointer) ((gconstpointer) _tmp4_)) : ((gpointer) ((gconstpointer) _tmp4_));
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						result = _tmp5_;
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						(children_collection == NULL) ? NULL : (children_collection = (g_list_free (children_collection), NULL));
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						return result;
-#line 279 "globals.c"
 					}
 				}
 			}
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			(children_collection == NULL) ? NULL : (children_collection = (g_list_free (children_collection), NULL));
-#line 285 "globals.c"
 		}
 	}
-#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = NULL;
-#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 292 "globals.c"
 }
 
 gpointer
@@ -299,44 +2552,26 @@ vala_develop_globals_FindChildOfName (GType t_type,
                                       const gchar* name)
 {
 	gpointer result = NULL;
-#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
-#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (name != NULL, NULL);
-#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_bin_get_type ())) {
-#line 309 "globals.c"
 		GtkWidget* _tmp0_;
 		gpointer _tmp1_;
-#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = gtk_bin_get_child (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_bin_get_type ()) ? ((GtkBin*) parent) : NULL);
-#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = vala_develop_globals_FindChildOfName (t_type, (GBoxedCopyFunc) t_dup_func, (GDestroyNotify) t_destroy_func, _tmp0_, name);
-#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = _tmp1_;
-#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 320 "globals.c"
 	}
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_container_get_type ())) {
-#line 324 "globals.c"
 		GList* _tmp2_;
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = gtk_container_get_children (G_TYPE_CHECK_INSTANCE_TYPE (parent, gtk_container_get_type ()) ? ((GtkContainer*) parent) : NULL);
-#line 328 "globals.c"
 		{
 			GList* children_collection = NULL;
 			GList* children_it = NULL;
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			children_collection = _tmp2_;
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			for (children_it = children_collection; children_it != NULL; children_it = children_it->next) {
-#line 336 "globals.c"
 				GtkWidget* children = NULL;
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				children = (GtkWidget*) children_it->data;
-#line 340 "globals.c"
 				{
 					gboolean _tmp3_ = FALSE;
 					GtkWidget* _tmp4_;
@@ -344,65 +2579,38 @@ vala_develop_globals_FindChildOfName (GType t_type,
 					GtkWidget* _tmp9_;
 					const gchar* _tmp10_;
 					const gchar* _tmp11_;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp4_ = children;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp4_, t_type)) {
-#line 352 "globals.c"
 						GtkWidget* _tmp5_;
 						const gchar* _tmp6_;
 						const gchar* _tmp7_;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp5_ = children;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp6_ = gtk_widget_get_name (_tmp5_);
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp7_ = _tmp6_;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp3_ = g_strcmp0 (_tmp7_, name) == 0;
-#line 364 "globals.c"
 					} else {
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp3_ = FALSE;
-#line 368 "globals.c"
 					}
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp8_ = children;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp9_ = children;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp10_ = gtk_widget_get_name (_tmp9_);
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp11_ = _tmp10_;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp8_, t_type) && (g_strcmp0 (_tmp11_, name) == 0)) {
-#line 380 "globals.c"
 						GtkWidget* _tmp12_;
 						gpointer _tmp13_;
-#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp12_ = children;
-#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						_tmp13_ = ((((gconstpointer) _tmp12_) != NULL) && (t_dup_func != NULL)) ? t_dup_func ((gpointer) ((gconstpointer) _tmp12_)) : ((gpointer) ((gconstpointer) _tmp12_));
-#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						result = _tmp13_;
-#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						(children_collection == NULL) ? NULL : (children_collection = (g_list_free (children_collection), NULL));
-#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 						return result;
-#line 393 "globals.c"
 					}
 				}
 			}
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			(children_collection == NULL) ? NULL : (children_collection = (g_list_free (children_collection), NULL));
-#line 399 "globals.c"
 		}
 	}
-#line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = NULL;
-#line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 406 "globals.c"
 }
 
 void
@@ -420,33 +2628,19 @@ vala_develop_globals_collapse_all_regions (GtkSourceBuffer* buffer)
 	GtkTextIter match_start = {0};
 	GtkTextIter match_end = {0};
 	gboolean wrapped = FALSE;
-#line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (buffer != NULL);
-#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gtk_source_search_settings_new ();
-#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	searchSettings = _tmp0_;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = searchSettings;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_source_search_settings_set_case_sensitive (_tmp1_, TRUE);
-#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = searchSettings;
-#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_source_search_settings_set_search_text (_tmp2_, "#if REGION");
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = searchSettings;
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = gtk_source_search_context_new (buffer, _tmp3_);
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	searchContext = _tmp4_;
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_buffer_get_start_iter ((GtkTextBuffer*) buffer, &_tmp5_);
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	startTextIter = _tmp5_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	while (TRUE) {
-#line 450 "globals.c"
 		GtkSourceSearchContext* _tmp6_;
 		GtkTextIter _tmp7_;
 		GtkTextIter _tmp8_ = {0};
@@ -455,58 +2649,28 @@ vala_develop_globals_collapse_all_regions (GtkSourceBuffer* buffer)
 		gboolean _tmp11_;
 		GtkTextIter _tmp12_;
 		GtkTextIter _tmp13_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp6_ = searchContext;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = startTextIter;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp11_ = gtk_source_search_context_forward2 (_tmp6_, &_tmp7_, &_tmp8_, &_tmp9_, &_tmp10_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		match_start = _tmp8_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		match_end = _tmp9_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		wrapped = _tmp10_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (!_tmp11_) {
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 475 "globals.c"
 		}
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp12_ = match_end;
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		startTextIter = _tmp12_;
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (gtk_text_iter_get_line_offset (&match_start) != 0) {
-#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			continue;
-#line 485 "globals.c"
 		}
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp13_ = match_start;
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals_toggle_region (&_tmp13_);
-#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (wrapped) {
-#line 159 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 495 "globals.c"
 		}
 	}
-#line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (searchContext);
-#line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (searchSettings);
-#line 502 "globals.c"
-}
-
-static gpointer
-_g_object_ref0 (gpointer self)
-{
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
-	return self ? g_object_ref (self) : NULL;
-#line 510 "globals.c"
 }
 
 static gchar*
@@ -518,43 +2682,24 @@ string_replace (const gchar* self,
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
 	GError* _inner_error0_ = NULL;
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (old != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (replacement != NULL, NULL);
-#line 1481 "glib-2.0.vapi"
 	if ((*((gchar*) self)) == '\0') {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
-#line 532 "globals.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
-#line 536 "globals.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
-#line 542 "globals.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
-#line 546 "globals.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 550 "globals.c"
 		gchar* _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
-#line 1482 "glib-2.0.vapi"
 		result = _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		return result;
-#line 558 "globals.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -566,96 +2711,54 @@ string_replace (const gchar* self,
 		GRegex* _tmp8_;
 		gchar* _tmp9_;
 		gchar* _tmp10_;
-#line 1485 "glib-2.0.vapi"
 		_tmp3_ = g_regex_escape_string (old, -1);
-#line 1485 "glib-2.0.vapi"
 		_tmp4_ = _tmp3_;
-#line 1485 "glib-2.0.vapi"
 		_tmp5_ = g_regex_new (_tmp4_, 0, 0, &_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 		_tmp6_ = _tmp5_;
-#line 1485 "glib-2.0.vapi"
 		_g_free0 (_tmp4_);
-#line 1485 "glib-2.0.vapi"
 		regex = _tmp6_;
-#line 1485 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 586 "globals.c"
-				goto __catch44_g_regex_error;
+				goto __catch43_g_regex_error;
 			}
-#line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1485 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 			return NULL;
-#line 595 "globals.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
-#line 1486 "glib-2.0.vapi"
 		_tmp9_ = g_regex_replace_literal (_tmp8_, self, (gssize) -1, 0, replacement, 0, &_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = _tmp9_;
-#line 1486 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 609 "globals.c"
-				goto __catch44_g_regex_error;
+				goto __catch43_g_regex_error;
 			}
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1486 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 			return NULL;
-#line 620 "globals.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = NULL;
-#line 1486 "glib-2.0.vapi"
 		result = _tmp10_;
-#line 1486 "glib-2.0.vapi"
 		_g_free0 (_tmp7_);
-#line 1486 "glib-2.0.vapi"
 		_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 		return result;
-#line 634 "globals.c"
 	}
-	goto __finally44;
-	__catch44_g_regex_error:
+	goto __finally43;
+	__catch43_g_regex_error:
 	{
 		GError* e = NULL;
-#line 1484 "glib-2.0.vapi"
 		e = _inner_error0_;
-#line 1484 "glib-2.0.vapi"
 		_inner_error0_ = NULL;
-#line 1488 "glib-2.0.vapi"
 		g_assert_not_reached ();
-#line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
-#line 648 "globals.c"
 	}
-	__finally44:
-#line 1484 "glib-2.0.vapi"
+	__finally43:
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1484 "glib-2.0.vapi"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1484 "glib-2.0.vapi"
 		g_clear_error (&_inner_error0_);
-#line 1484 "glib-2.0.vapi"
 		return NULL;
-#line 659 "globals.c"
 	}
 }
 
@@ -666,21 +2769,13 @@ string_strip (const gchar* self)
 	gchar* _result_ = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
-#line 1307 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1308 "glib-2.0.vapi"
 	_tmp0_ = g_strdup (self);
-#line 1308 "glib-2.0.vapi"
 	_result_ = _tmp0_;
-#line 1309 "glib-2.0.vapi"
 	_tmp1_ = _result_;
-#line 1309 "glib-2.0.vapi"
 	g_strstrip (_tmp1_);
-#line 1310 "glib-2.0.vapi"
 	result = _result_;
-#line 1310 "glib-2.0.vapi"
 	return result;
-#line 684 "globals.c"
 }
 
 void
@@ -731,25 +2826,15 @@ vala_develop_globals_toggle_region (GtkTextIter* iter)
 	GtkTextTag* _tmp100_;
 	GtkTextIter _tmp101_;
 	GtkTextIter _tmp102_;
-#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (iter != NULL);
-#line 165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_backward_chars (iter, gtk_text_iter_get_line_offset (iter));
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gtk_text_iter_get_buffer (iter);
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = *iter;
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp1_, "folding");
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = _tmp2_;
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = g_slist_length (_tmp3_) > ((guint) 0);
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	(_tmp3_ == NULL) ? NULL : (_tmp3_ = (g_slist_free (_tmp3_), NULL));
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp4_) {
-#line 753 "globals.c"
 		GtkSourceMark* source_mark = NULL;
 		GtkTextBuffer* _tmp5_;
 		GtkTextIter _tmp6_;
@@ -779,55 +2864,30 @@ vala_develop_globals_toggle_region (GtkTextIter* iter)
 		GtkTextTag* _tmp38_;
 		GtkTextTag* _tmp39_;
 		GtkTextTag* _tmp40_;
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = gtk_text_iter_get_buffer (iter);
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp6_ = *iter;
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp5_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp6_, "folding");
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp8_ = _tmp7_;
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp9_ = g_slist_nth_data (_tmp8_, (guint) 0);
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp10_ = _g_object_ref0 ((GtkSourceMark*) _tmp9_);
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp11_ = _tmp10_;
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		(_tmp8_ == NULL) ? NULL : (_tmp8_ = (g_slist_free (_tmp8_), NULL));
-#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		source_mark = _tmp11_;
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp12_ = gtk_text_iter_get_buffer (iter);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp13_ = source_mark;
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		gtk_text_buffer_delete_mark ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp12_, gtk_source_buffer_get_type (), GtkSourceBuffer), (GtkTextMark*) _tmp13_);
-#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp14_ = gtk_text_iter_get_buffer (iter);
-#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp15_ = gtk_text_buffer_get_tag_table ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp14_, gtk_source_buffer_get_type (), GtkSourceBuffer));
-#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp16_ = _g_object_ref0 (_tmp15_);
-#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		text_tag_table = _tmp16_;
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp17_ = text_tag_table;
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp18_ = source_mark;
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp19_ = gtk_text_mark_get_name ((GtkTextMark*) _tmp18_);
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp20_ = gtk_text_tag_table_lookup (_tmp17_, _tmp19_);
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp21_ = _g_object_ref0 (_tmp20_);
-#line 171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		removeTag = _tmp21_;
-#line 172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp22_ = removeTag;
-#line 172 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (_tmp22_ != NULL) {
-#line 831 "globals.c"
 			GtkTextIter startTextIter = {0};
 			GtkTextBuffer* _tmp23_;
 			GtkTextIter _tmp24_ = {0};
@@ -840,61 +2900,33 @@ vala_develop_globals_toggle_region (GtkTextIter* iter)
 			GtkTextIter _tmp30_;
 			GtkTextTagTable* _tmp31_;
 			GtkTextTag* _tmp32_;
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp23_ = gtk_text_iter_get_buffer (iter);
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_get_start_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp23_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp24_);
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			startTextIter = _tmp24_;
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp25_ = gtk_text_iter_get_buffer (iter);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_get_end_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp25_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp26_);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			endTextIter = _tmp26_;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp27_ = gtk_text_iter_get_buffer (iter);
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp28_ = removeTag;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp29_ = startTextIter;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp30_ = endTextIter;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_remove_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp27_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp28_, &_tmp29_, &_tmp30_);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp31_ = text_tag_table;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp32_ = removeTag;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_tag_table_remove (_tmp31_, _tmp32_);
-#line 872 "globals.c"
 		}
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp33_ = text_tag_table;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp34_ = source_mark;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp35_ = gtk_text_mark_get_name ((GtkTextMark*) _tmp34_);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp36_ = string_replace (_tmp35_, "FOLDING_", "READONLY_");
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp37_ = _tmp36_;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp38_ = gtk_text_tag_table_lookup (_tmp33_, _tmp37_);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp39_ = _g_object_ref0 (_tmp38_);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (removeTag);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		removeTag = _tmp39_;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_free0 (_tmp37_);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp40_ = removeTag;
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (_tmp40_ != NULL) {
-#line 898 "globals.c"
 			GtkTextTag* _tmp41_;
 			GtkTextIter startTextIter = {0};
 			GtkTextBuffer* _tmp42_;
@@ -908,71 +2940,38 @@ vala_develop_globals_toggle_region (GtkTextIter* iter)
 			GtkTextIter _tmp49_;
 			GtkTextTagTable* _tmp50_;
 			GtkTextTag* _tmp51_;
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp41_ = removeTag;
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			g_object_set (_tmp41_, "invisible", FALSE, NULL);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp42_ = gtk_text_iter_get_buffer (iter);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_get_start_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp42_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp43_);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			startTextIter = _tmp43_;
-#line 188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp44_ = gtk_text_iter_get_buffer (iter);
-#line 188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_get_end_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp44_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp45_);
-#line 188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			endTextIter = _tmp45_;
-#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp46_ = gtk_text_iter_get_buffer (iter);
-#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp47_ = removeTag;
-#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp48_ = startTextIter;
-#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp49_ = endTextIter;
-#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_buffer_remove_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp46_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp47_, &_tmp48_, &_tmp49_);
-#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp50_ = text_tag_table;
-#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp51_ = removeTag;
-#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			gtk_text_tag_table_remove (_tmp50_, _tmp51_);
-#line 944 "globals.c"
 		}
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (removeTag);
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (text_tag_table);
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (source_mark);
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return;
-#line 954 "globals.c"
 	}
-#line 195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	indent = 1;
-#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp52_ = *iter;
-#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	startIter = _tmp52_;
-#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_backward_chars (&startIter, gtk_text_iter_get_line_offset (&startIter));
-#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_forward_line (&startIter);
-#line 199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp53_ = startIter;
-#line 199 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	start_hidden_iter = _tmp53_;
-#line 200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp54_ = startIter;
-#line 200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	end_hidden_iter = _tmp54_;
-#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	while (TRUE) {
-#line 976 "globals.c"
 		GtkTextIter endIter = {0};
 		GtkTextIter _tmp55_;
 		gchar* word = NULL;
@@ -985,198 +2984,104 @@ vala_develop_globals_toggle_region (GtkTextIter* iter)
 		gchar* _tmp62_;
 		gboolean _tmp63_;
 		GtkTextIter _tmp70_;
-#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (!(indent != 0)) {
-#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 993 "globals.c"
 		}
-#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp55_ = startIter;
-#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		endIter = _tmp55_;
-#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		gtk_text_iter_forward_to_line_end (&endIter);
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp56_ = gtk_text_iter_get_buffer (iter);
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp57_ = startIter;
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp58_ = endIter;
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp59_ = gtk_text_buffer_get_text ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp56_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp57_, &_tmp58_, FALSE);
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		word = _tmp59_;
-#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (!gtk_text_iter_forward_line (&startIter)) {
-#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_free0 (word);
-#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 1017 "globals.c"
 		}
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp60_ = word;
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp61_ = string_strip (_tmp60_);
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp62_ = _tmp61_;
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp63_ = g_str_has_suffix (_tmp62_, "#if");
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_free0 (_tmp62_);
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (_tmp63_) {
-#line 1031 "globals.c"
 			gint _tmp64_;
-#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp64_ = indent;
-#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			indent = _tmp64_ + 1;
-#line 1037 "globals.c"
 		} else {
 			const gchar* _tmp65_;
 			gchar* _tmp66_;
 			gchar* _tmp67_;
 			gboolean _tmp68_;
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp65_ = word;
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp66_ = string_strip (_tmp65_);
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp67_ = _tmp66_;
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp68_ = g_str_has_suffix (_tmp67_, "#endif");
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_free0 (_tmp67_);
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (_tmp68_) {
-#line 1055 "globals.c"
 				gint _tmp69_;
-#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp69_ = indent;
-#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				indent = _tmp69_ - 1;
-#line 1061 "globals.c"
 			}
 		}
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp70_ = startIter;
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		end_hidden_iter = _tmp70_;
-#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_free0 (word);
-#line 1070 "globals.c"
 	}
-#line 214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (indent != 0) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return;
-#line 1076 "globals.c"
 	}
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp71_ = gtk_text_iter_get_buffer (iter);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp72_ = g_strdup_printf ("%i", gtk_text_iter_get_line (iter));
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp73_ = _tmp72_;
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp74_ = g_strconcat ("FOLDING_", _tmp73_, NULL);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp75_ = _tmp74_;
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp76_ = gtk_text_buffer_create_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp71_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp75_, NULL);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp77_ = _g_object_ref0 (_tmp76_);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp78_ = _tmp77_;
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp75_);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp73_);
-#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	textTag = _tmp78_;
-#line 217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp79_ = textTag;
-#line 217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_object_set (_tmp79_, "invisible", TRUE, NULL);
-#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_backward_line (&end_hidden_iter);
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp80_ = gtk_text_iter_get_buffer (iter);
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp81_ = textTag;
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp82_ = start_hidden_iter;
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp83_ = end_hidden_iter;
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_buffer_apply_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp80_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp81_, &_tmp82_, &_tmp83_);
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp84_ = gtk_text_iter_get_buffer (iter);
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp85_ = g_strdup_printf ("%i", gtk_text_iter_get_line (iter));
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp86_ = _tmp85_;
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp87_ = g_strconcat ("FOLDING_", _tmp86_, NULL);
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp88_ = _tmp87_;
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp89_ = *iter;
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_source_buffer_create_source_mark (G_TYPE_CHECK_INSTANCE_CAST (_tmp84_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp88_, "folding", &_tmp89_);
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp88_);
-#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp86_);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp90_ = gtk_text_iter_get_buffer (iter);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp91_ = g_strdup_printf ("%i", gtk_text_iter_get_line (iter));
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp92_ = _tmp91_;
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp93_ = g_strconcat ("READONLY_", _tmp92_, NULL);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp94_ = _tmp93_;
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp95_ = gtk_text_buffer_create_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp90_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp94_, NULL);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp96_ = _g_object_ref0 (_tmp95_);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (textTag);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	textTag = _tmp96_;
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp94_);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (_tmp92_);
-#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp97_ = textTag;
-#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_object_set (_tmp97_, "background", "lightgray", NULL);
-#line 223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp98_ = textTag;
-#line 223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_object_set (_tmp98_, "editable", FALSE, NULL);
-#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_backward_line (&start_hidden_iter);
-#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_forward_line (&end_hidden_iter);
-#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp99_ = gtk_text_iter_get_buffer (iter);
-#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp100_ = textTag;
-#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp101_ = start_hidden_iter;
-#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp102_ = end_hidden_iter;
-#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_buffer_apply_tag ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp99_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp100_, &_tmp101_, &_tmp102_);
-#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (textTag);
-#line 1180 "globals.c"
 }
 
 GtkSourceView*
@@ -1191,29 +3096,17 @@ vala_develop_globals_get_sourceview_from_overlay (GtkOverlay* overlay)
 	GList* _tmp4_;
 	gconstpointer _tmp5_;
 	gboolean _tmp6_;
-#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (overlay != NULL, NULL);
-#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gtk_bin_get_child ((GtkBin*) overlay);
-#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_box_get_type (), GtkBox));
-#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	box = _tmp1_;
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = box;
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = gtk_container_get_children ((GtkContainer*) _tmp2_);
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = _tmp3_;
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = g_list_nth_data (_tmp4_, (guint) 1);
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp6_ = G_TYPE_CHECK_INSTANCE_TYPE ((GtkWidget*) _tmp5_, gtk_bin_get_type ());
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	(_tmp4_ == NULL) ? NULL : (_tmp4_ = (g_list_free (_tmp4_), NULL));
-#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp6_) {
-#line 1217 "globals.c"
 		GtkBin* widget = NULL;
 		GtkBox* _tmp7_;
 		GList* _tmp8_;
@@ -1224,45 +3117,25 @@ vala_develop_globals_get_sourceview_from_overlay (GtkOverlay* overlay)
 		GtkBin* _tmp13_;
 		GtkWidget* _tmp14_;
 		GtkSourceView* _tmp15_;
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = box;
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp8_ = gtk_container_get_children ((GtkContainer*) _tmp7_);
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp9_ = _tmp8_;
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp10_ = g_list_nth_data (_tmp9_, (guint) 1);
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp11_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST ((GtkWidget*) _tmp10_, gtk_bin_get_type (), GtkBin));
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp12_ = _tmp11_;
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		(_tmp9_ == NULL) ? NULL : (_tmp9_ = (g_list_free (_tmp9_), NULL));
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		widget = _tmp12_;
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp13_ = widget;
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp14_ = gtk_bin_get_child (_tmp13_);
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp15_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp14_, gtk_source_view_get_type (), GtkSourceView));
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = _tmp15_;
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (widget);
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (box);
-#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 1258 "globals.c"
 	}
-#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = NULL;
-#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (box);
-#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1266 "globals.c"
 }
 
 gchar*
@@ -1273,23 +3146,14 @@ vala_develop_globals_format_line (const gchar* line)
 	gchar* _tmp0_;
 	gchar* ret_val = NULL;
 	gchar* _tmp1_;
-#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (line != NULL, NULL);
-#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = g_strdup ("\\s+(?=[^(\\)]*\\))");
-#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	parameter_match = _tmp0_;
-#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = g_strdup (line);
-#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	ret_val = _tmp1_;
-#line 244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = ret_val;
-#line 244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_free0 (parameter_match);
-#line 244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1293 "globals.c"
 }
 
 GtkWidget*
@@ -1304,29 +3168,17 @@ vala_develop_globals_get_widget_from_overlay (GtkOverlay* overlay)
 	GList* _tmp4_;
 	gconstpointer _tmp5_;
 	gboolean _tmp6_;
-#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (overlay != NULL, NULL);
-#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gtk_bin_get_child ((GtkBin*) overlay);
-#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_box_get_type (), GtkBox));
-#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	box = _tmp1_;
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = box;
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = gtk_container_get_children ((GtkContainer*) _tmp2_);
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = _tmp3_;
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = g_list_nth_data (_tmp4_, (guint) 1);
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp6_ = G_TYPE_CHECK_INSTANCE_TYPE ((GtkWidget*) _tmp5_, gtk_bin_get_type ());
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	(_tmp4_ == NULL) ? NULL : (_tmp4_ = (g_list_free (_tmp4_), NULL));
-#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp6_) {
-#line 1330 "globals.c"
 		GtkBin* widget = NULL;
 		GtkBox* _tmp7_;
 		GList* _tmp8_;
@@ -1337,94 +3189,55 @@ vala_develop_globals_get_widget_from_overlay (GtkOverlay* overlay)
 		GtkBin* _tmp13_;
 		GtkWidget* _tmp14_;
 		GtkWidget* _tmp15_;
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = box;
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp8_ = gtk_container_get_children ((GtkContainer*) _tmp7_);
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp9_ = _tmp8_;
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp10_ = g_list_nth_data (_tmp9_, (guint) 1);
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp11_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST ((GtkWidget*) _tmp10_, gtk_bin_get_type (), GtkBin));
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp12_ = _tmp11_;
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		(_tmp9_ == NULL) ? NULL : (_tmp9_ = (g_list_free (_tmp9_), NULL));
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		widget = _tmp12_;
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp13_ = widget;
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp14_ = gtk_bin_get_child (_tmp13_);
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp15_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp14_, gtk_widget_get_type (), GtkWidget));
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = _tmp15_;
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (widget);
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (box);
-#line 253 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 1371 "globals.c"
 	} else {
 		GtkBox* _tmp16_;
 		GList* _tmp17_;
 		GList* _tmp18_;
 		gconstpointer _tmp19_;
 		gboolean _tmp20_;
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp16_ = box;
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp17_ = gtk_container_get_children ((GtkContainer*) _tmp16_);
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp18_ = _tmp17_;
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp19_ = g_list_nth_data (_tmp18_, (guint) 1);
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp20_ = G_TYPE_CHECK_INSTANCE_TYPE ((GtkWidget*) _tmp19_, webkit_web_view_get_type ());
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		(_tmp18_ == NULL) ? NULL : (_tmp18_ = (g_list_free (_tmp18_), NULL));
-#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (_tmp20_) {
-#line 1392 "globals.c"
 			GtkBox* _tmp21_;
 			GList* _tmp22_;
 			GList* _tmp23_;
 			gconstpointer _tmp24_;
 			GtkWidget* _tmp25_;
 			GtkWidget* _tmp26_;
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp21_ = box;
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp22_ = gtk_container_get_children ((GtkContainer*) _tmp21_);
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp23_ = _tmp22_;
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp24_ = g_list_nth_data (_tmp23_, (guint) 1);
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp25_ = _g_object_ref0 ((GtkWidget*) G_TYPE_CHECK_INSTANCE_CAST ((GtkWidget*) _tmp24_, webkit_web_view_get_type (), WebKitWebView));
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp26_ = _tmp25_;
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			(_tmp23_ == NULL) ? NULL : (_tmp23_ = (g_list_free (_tmp23_), NULL));
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			result = _tmp26_;
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (box);
-#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			return result;
-#line 1419 "globals.c"
 		}
 	}
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = NULL;
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (box);
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1428 "globals.c"
 }
 
 WebKitWebView*
@@ -1437,27 +3250,16 @@ vala_develop_globals_get_webview_from_overlay (GtkOverlay* overlay)
 	gconstpointer _tmp3_;
 	WebKitWebView* _tmp4_;
 	WebKitWebView* _tmp5_;
-#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (overlay != NULL, NULL);
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gtk_bin_get_child ((GtkBin*) overlay);
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = gtk_container_get_children ((GtkContainer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_box_get_type (), GtkBox));
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = _tmp1_;
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = g_list_nth_data (_tmp2_, (guint) 1);
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST ((GtkWidget*) _tmp3_, webkit_web_view_get_type (), WebKitWebView));
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = _tmp4_;
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	(_tmp2_ == NULL) ? NULL : (_tmp2_ = (g_list_free (_tmp2_), NULL));
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp5_;
-#line 264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1461 "globals.c"
 }
 
 gchar*
@@ -1472,27 +3274,16 @@ vala_develop_globals_get_text_from_buffer (GtkTextBuffer* buffer,
 	GtkTextIter _tmp2_;
 	GtkTextIter _tmp3_;
 	gchar* _tmp4_;
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (buffer != NULL, NULL);
-#line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_buffer_get_start_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (buffer, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp0_);
-#line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	startTextIter = _tmp0_;
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_buffer_get_end_iter ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (buffer, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp1_);
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	endTextIter = _tmp1_;
-#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = startTextIter;
-#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = endTextIter;
-#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = gtk_text_buffer_get_text ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (buffer, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp2_, &_tmp3_, include_hidden_chars);
-#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp4_;
-#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1496 "globals.c"
 }
 
 static gchar*
@@ -1502,19 +3293,12 @@ g_unichar_to_string (gunichar self)
 	gchar* str = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
-#line 1019 "glib-2.0.vapi"
 	_tmp0_ = g_new0 (gchar, 7);
-#line 1019 "glib-2.0.vapi"
 	str = (gchar*) _tmp0_;
-#line 1020 "glib-2.0.vapi"
 	_tmp1_ = str;
-#line 1020 "glib-2.0.vapi"
 	g_unichar_to_utf8 (self, _tmp1_);
-#line 1021 "glib-2.0.vapi"
 	result = str;
-#line 1021 "glib-2.0.vapi"
 	return result;
-#line 1518 "globals.c"
 }
 
 gchar*
@@ -1530,138 +3314,79 @@ vala_develop_globals_get_word_at_iter (GtkSourceBuffer* buffer,
 	GtkTextIter _tmp11_;
 	GtkTextIter _tmp12_;
 	gchar* _tmp13_;
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (buffer != NULL, NULL);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = *iter;
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	startIter = _tmp0_;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	while (TRUE) {
-#line 1544 "globals.c"
 		gboolean _tmp1_ = FALSE;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (gtk_text_iter_backward_char (&startIter)) {
-#line 1548 "globals.c"
 			gboolean _tmp2_ = FALSE;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (g_unichar_isalnum (gtk_text_iter_get_char (&startIter))) {
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp2_ = TRUE;
-#line 1554 "globals.c"
 			} else {
 				gchar* _tmp3_;
 				gchar* _tmp4_;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp3_ = g_unichar_to_string (gtk_text_iter_get_char (&startIter));
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp4_ = _tmp3_;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp2_ = g_strcmp0 (_tmp4_, "_") == 0;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_free0 (_tmp4_);
-#line 1566 "globals.c"
 			}
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp1_ = _tmp2_;
-#line 1570 "globals.c"
 		} else {
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp1_ = FALSE;
-#line 1574 "globals.c"
 		}
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (!_tmp1_) {
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 1580 "globals.c"
 		}
 	}
-#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_text_iter_forward_char (&startIter);
-#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp5_ = startIter;
-#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	endIter = _tmp5_;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	while (TRUE) {
-#line 1591 "globals.c"
 		gboolean _tmp6_ = FALSE;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (gtk_text_iter_forward_char (&endIter)) {
-#line 1595 "globals.c"
 			gboolean _tmp7_ = FALSE;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (g_unichar_isalnum (gtk_text_iter_get_char (&endIter))) {
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp7_ = TRUE;
-#line 1601 "globals.c"
 			} else {
 				gchar* _tmp8_;
 				gchar* _tmp9_;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp8_ = g_unichar_to_string (gtk_text_iter_get_char (&endIter));
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp9_ = _tmp8_;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp7_ = g_strcmp0 (_tmp9_, "_") == 0;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_free0 (_tmp9_);
-#line 1613 "globals.c"
 			}
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp6_ = _tmp7_;
-#line 1617 "globals.c"
 		} else {
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp6_ = FALSE;
-#line 1621 "globals.c"
 		}
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (!_tmp6_) {
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			break;
-#line 1627 "globals.c"
 		}
 	}
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp10_ = startIter;
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	*iter = _tmp10_;
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp11_ = startIter;
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp12_ = endIter;
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp13_ = gtk_text_buffer_get_text ((GtkTextBuffer*) buffer, &_tmp11_, &_tmp12_, FALSE);
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp13_;
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1644 "globals.c"
 }
 
 static GtkTreeIter*
 _gtk_tree_iter_dup (GtkTreeIter* self)
 {
 	GtkTreeIter* dup;
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	dup = g_new0 (GtkTreeIter, 1);
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	memcpy (dup, self, sizeof (GtkTreeIter));
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return dup;
-#line 1657 "globals.c"
 }
 
 static gpointer
 __gtk_tree_iter_dup0 (gpointer self)
 {
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return self ? _gtk_tree_iter_dup (self) : NULL;
-#line 1665 "globals.c"
 }
 
 void
@@ -1672,61 +3397,35 @@ vala_develop_globals_projekt_child_nodes (GList* * items,
 	GtkTreeIter childIter = {0};
 	GtkTreeIter _tmp0_;
 	GtkTreeIter _tmp1_ = {0};
-#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (model != NULL);
-#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (iter != NULL);
-#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = *iter;
-#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_tree_model_iter_children ((GtkTreeModel*) model, &_tmp1_, &_tmp0_);
-#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	childIter = _tmp1_;
-#line 1686 "globals.c"
 	{
 		gboolean _tmp2_ = FALSE;
-#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = TRUE;
-#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		while (TRUE) {
-#line 1693 "globals.c"
 			GtkTreeIter _tmp4_;
-#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (!_tmp2_) {
-#line 1697 "globals.c"
 				gboolean _tmp3_;
-#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp3_ = gtk_tree_model_iter_next ((GtkTreeModel*) model, &childIter);
-#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (!_tmp3_) {
-#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					break;
-#line 1705 "globals.c"
 				}
 			}
-#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp2_ = FALSE;
-#line 336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp4_ = childIter;
-#line 336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (gtk_tree_model_iter_has_child ((GtkTreeModel*) model, &_tmp4_)) {
-#line 1714 "globals.c"
 				GtkTreeIter _tmp5_;
-#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp5_ = childIter;
-#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				vala_develop_globals_projekt_child_nodes (items, model, &_tmp5_);
-#line 1720 "globals.c"
 			} else {
 				GtkTreeIter _tmp6_;
 				GtkTreeIter* _tmp7_;
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp6_ = childIter;
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp7_ = __gtk_tree_iter_dup0 (&_tmp6_);
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				*items = g_list_append (*items, _tmp7_);
-#line 1730 "globals.c"
 			}
 		}
 	}
@@ -1742,71 +3441,39 @@ vala_develop_globals_rectangle_contains (GdkRectangle* rect,
 	gboolean _tmp1_ = FALSE;
 	gboolean _tmp2_ = FALSE;
 	GdkRectangle _tmp3_;
-#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (rect != NULL, FALSE);
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (x > _tmp3_.x) {
-#line 1752 "globals.c"
 		GdkRectangle _tmp4_;
 		GdkRectangle _tmp5_;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp4_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = x < (_tmp4_.x + _tmp5_.width);
-#line 1761 "globals.c"
 	} else {
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = FALSE;
-#line 1765 "globals.c"
 	}
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp2_) {
-#line 1769 "globals.c"
 		GdkRectangle _tmp6_;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp6_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = y > _tmp6_.y;
-#line 1775 "globals.c"
 	} else {
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = FALSE;
-#line 1779 "globals.c"
 	}
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp1_) {
-#line 1783 "globals.c"
 		GdkRectangle _tmp7_;
 		GdkRectangle _tmp8_;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp8_ = *rect;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = y < (_tmp7_.y + _tmp8_.height);
-#line 1792 "globals.c"
 	} else {
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = FALSE;
-#line 1796 "globals.c"
 	}
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp0_) {
-#line 346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = TRUE;
-#line 346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 1804 "globals.c"
 	}
-#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = FALSE;
-#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1810 "globals.c"
 }
 
 gboolean
@@ -1821,75 +3488,41 @@ vala_develop_globals_allocation_contains (GtkWidget* widget,
 	gboolean _tmp2_ = FALSE;
 	gboolean _tmp3_ = FALSE;
 	GtkAllocation _tmp4_;
-#line 350 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (widget != NULL, FALSE);
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	gtk_widget_get_allocation (widget, &_tmp0_);
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	allocation = _tmp0_;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (x > _tmp4_.x) {
-#line 1835 "globals.c"
 		GtkAllocation _tmp5_;
 		GtkAllocation _tmp6_;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp6_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp3_ = x < (_tmp5_.x + _tmp6_.width);
-#line 1844 "globals.c"
 	} else {
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp3_ = FALSE;
-#line 1848 "globals.c"
 	}
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp3_) {
-#line 1852 "globals.c"
 		GtkAllocation _tmp7_;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp7_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = y > _tmp7_.y;
-#line 1858 "globals.c"
 	} else {
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = FALSE;
-#line 1862 "globals.c"
 	}
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp2_) {
-#line 1866 "globals.c"
 		GtkAllocation _tmp8_;
 		GtkAllocation _tmp9_;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp8_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp9_ = allocation;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = y < (_tmp8_.y + _tmp9_.height);
-#line 1875 "globals.c"
 	} else {
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp1_ = FALSE;
-#line 1879 "globals.c"
 	}
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp1_) {
-#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		result = TRUE;
-#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return result;
-#line 1887 "globals.c"
 	}
-#line 356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = FALSE;
-#line 356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1893 "globals.c"
 }
 
 gchar*
@@ -1898,114 +3531,71 @@ vala_develop_globals_get_node_attribute (xmlNode* node,
 {
 	gchar* result = NULL;
 	gchar* _tmp11_;
-#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (attrname != NULL, NULL);
-#line 1904 "globals.c"
 	{
 		xmlAttr* attr = NULL;
 		xmlAttr* _tmp0_;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = node->properties;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		attr = _tmp0_;
-#line 1912 "globals.c"
 		{
 			gboolean _tmp1_ = FALSE;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp1_ = TRUE;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			while (TRUE) {
-#line 1919 "globals.c"
 				xmlAttr* _tmp4_;
 				xmlAttr* _tmp5_;
 				const gchar* _tmp6_;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (!_tmp1_) {
-#line 1925 "globals.c"
 					xmlAttr* _tmp2_;
 					xmlAttr* _tmp3_;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp2_ = attr;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp3_ = _tmp2_->next;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					attr = _tmp3_;
-#line 1934 "globals.c"
 				}
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp1_ = FALSE;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp4_ = attr;
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (!(_tmp4_ != NULL)) {
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					break;
-#line 1944 "globals.c"
 				}
-#line 363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp5_ = attr;
-#line 363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp6_ = _tmp5_->name;
-#line 363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (g_strcmp0 (_tmp6_, attrname) == 0) {
-#line 1952 "globals.c"
 					xmlAttr* _tmp7_;
 					xmlNode* _tmp8_;
 					const gchar* _tmp9_;
 					gchar* _tmp10_;
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp7_ = attr;
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp8_ = _tmp7_->children;
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp9_ = _tmp8_->content;
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					_tmp10_ = g_strdup (_tmp9_);
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					result = _tmp10_;
-#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 					return result;
-#line 1969 "globals.c"
 				}
 			}
 		}
 	}
-#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp11_ = g_strdup ("");
-#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp11_;
-#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 1980 "globals.c"
 }
 
 void
 vala_develop_globals_delete_directory (GFile* directory)
 {
 	GError* _inner_error0_ = NULL;
-#line 371 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (directory != NULL);
-#line 1989 "globals.c"
 	{
 		GFileEnumerator* enumerator = NULL;
 		GFileEnumerator* _tmp0_;
 		GFileInfo* file_info = NULL;
-#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = g_file_enumerate_children (directory, G_FILE_ATTRIBUTE_STANDARD_NAME, 0, NULL, &_inner_error0_);
-#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		enumerator = _tmp0_;
-#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (g_error_matches (_inner_error0_, G_IO_ERROR, G_IO_ERROR_NOT_FOUND)) {
-#line 2002 "globals.c"
-				goto __catch45_g_io_error_not_found;
+				goto __catch44_g_io_error_not_found;
 			}
-			goto __catch45_g_error;
+			goto __catch44_g_error;
 		}
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		while (TRUE) {
-#line 2009 "globals.c"
 			GFileInfo* _tmp1_ = NULL;
 			GFileEnumerator* _tmp2_;
 			GFileInfo* _tmp3_;
@@ -2019,175 +3609,102 @@ vala_develop_globals_delete_directory (GFile* directory)
 			const gchar* _tmp13_;
 			GFile* _tmp14_;
 			GFile* _tmp15_;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp2_ = enumerator;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp3_ = g_file_enumerator_next_file (_tmp2_, NULL, &_inner_error0_);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp1_ = _tmp3_;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (file_info);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (enumerator);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (g_error_matches (_inner_error0_, G_IO_ERROR, G_IO_ERROR_NOT_FOUND)) {
-#line 2037 "globals.c"
-					goto __catch45_g_io_error_not_found;
+					goto __catch44_g_io_error_not_found;
 				}
-				goto __catch45_g_error;
+				goto __catch44_g_error;
 			}
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp4_ = _tmp1_;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp1_ = NULL;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (file_info);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			file_info = _tmp4_;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp5_ = file_info;
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (!(_tmp5_ != NULL)) {
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (_tmp1_);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				break;
-#line 2058 "globals.c"
 			}
-#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp6_ = file_info;
-#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp7_ = g_file_info_get_name (_tmp6_);
-#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp8_ = g_strdup (_tmp7_);
-#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			file_name = _tmp8_;
-#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp9_ = file_info;
-#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (g_file_info_get_file_type (_tmp9_) == G_FILE_TYPE_DIRECTORY) {
-#line 2072 "globals.c"
 				const gchar* _tmp10_;
 				GFile* _tmp11_;
 				GFile* _tmp12_;
-#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp10_ = file_name;
-#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp11_ = g_file_get_child (directory, _tmp10_);
-#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_tmp12_ = _tmp11_;
-#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				vala_develop_globals_delete_directory (_tmp12_);
-#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (_tmp12_);
-#line 2086 "globals.c"
 			}
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp13_ = file_name;
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp14_ = g_file_get_child (directory, _tmp13_);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_tmp15_ = _tmp14_;
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			g_file_delete (_tmp15_, NULL, &_inner_error0_);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (_tmp15_);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_free0 (file_name);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (_tmp1_);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (file_info);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				_g_object_unref0 (enumerator);
-#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 				if (g_error_matches (_inner_error0_, G_IO_ERROR, G_IO_ERROR_NOT_FOUND)) {
-#line 2110 "globals.c"
-					goto __catch45_g_io_error_not_found;
+					goto __catch44_g_io_error_not_found;
 				}
-				goto __catch45_g_error;
+				goto __catch44_g_error;
 			}
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_free0 (file_name);
-#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (_tmp1_);
-#line 2119 "globals.c"
 		}
-#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_file_delete (directory, NULL, &_inner_error0_);
-#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (file_info);
-#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			_g_object_unref0 (enumerator);
-#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			if (g_error_matches (_inner_error0_, G_IO_ERROR, G_IO_ERROR_NOT_FOUND)) {
-#line 2131 "globals.c"
-				goto __catch45_g_io_error_not_found;
+				goto __catch44_g_io_error_not_found;
 			}
-			goto __catch45_g_error;
+			goto __catch44_g_error;
 		}
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (file_info);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (enumerator);
-#line 2140 "globals.c"
 	}
-	goto __finally45;
-	__catch45_g_io_error_not_found:
+	goto __finally44;
+	__catch44_g_io_error_not_found:
 	{
 		GError* e = NULL;
 		GError* _tmp16_;
 		const gchar* _tmp17_;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		e = _inner_error0_;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_inner_error0_ = NULL;
-#line 390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp16_ = e;
-#line 390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp17_ = _tmp16_->message;
-#line 390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "globals.vala:390: %s", _tmp17_);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
+		g_log (NULL, G_LOG_LEVEL_ERROR, "globals.vala:745: %s", _tmp17_);
 		_g_error_free0 (e);
-#line 2160 "globals.c"
 	}
-	goto __finally45;
-	__catch45_g_error:
+	goto __finally44;
+	__catch44_g_error:
 	{
 		GError* e = NULL;
 		GError* _tmp18_;
 		const gchar* _tmp19_;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		e = _inner_error0_;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_inner_error0_ = NULL;
-#line 394 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp18_ = e;
-#line 394 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp19_ = _tmp18_->message;
-#line 394 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "globals.vala:394: %s", _tmp19_);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
+		g_log (NULL, G_LOG_LEVEL_ERROR, "globals.vala:749: %s", _tmp19_);
 		_g_error_free0 (e);
-#line 2180 "globals.c"
 	}
-	__finally45:
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
+	__finally44:
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_clear_error (&_inner_error0_);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return;
-#line 2191 "globals.c"
 	}
 }
 
@@ -2195,19 +3712,14 @@ valaDevelopGlobals*
 vala_develop_globals_construct (GType object_type)
 {
 	valaDevelopGlobals* self = NULL;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	self = (valaDevelopGlobals*) g_type_create_instance (object_type);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return self;
-#line 2203 "globals.c"
 }
 
 valaDevelopGlobals*
 vala_develop_globals_new (void)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return vala_develop_globals_construct (VALA_DEVELOP_TYPE_GLOBALS);
-#line 2211 "globals.c"
 }
 
 GdkPixbuf*
@@ -2219,48 +3731,27 @@ vala_develop_globals_get_ModifiedImage (void)
 	GdkPixbuf* _tmp2_ = NULL;
 	GdkPixbuf* _tmp3_;
 	GError* _inner_error0_ = NULL;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = gdk_pixbuf_new_from_resource ("/valaDevelop/modified.svg.png", &_inner_error0_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = _tmp1_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_clear_error (&_inner_error0_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return NULL;
-#line 2235 "globals.c"
 	}
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = vala_develop_globals__modifiedImage;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = _tmp3_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp2_ == NULL) {
-#line 2243 "globals.c"
 		GdkPixbuf* _tmp4_;
 		GdkPixbuf* _tmp5_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp4_ = gdk_pixbuf_scale_simple (_tmp0_, 16, 16, GDK_INTERP_BILINEAR);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (vala_develop_globals__modifiedImage);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals__modifiedImage = _tmp4_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = vala_develop_globals__modifiedImage;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = _tmp5_;
-#line 2256 "globals.c"
 	}
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp2_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (_tmp0_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 2264 "globals.c"
 }
 
 GdkPixbuf*
@@ -2272,48 +3763,27 @@ vala_develop_globals_get_CloseImage (void)
 	GdkPixbuf* _tmp2_ = NULL;
 	GdkPixbuf* _tmp3_;
 	GError* _inner_error0_ = NULL;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = gdk_pixbuf_new_from_resource ("/valaDevelop/close.svg.png", &_inner_error0_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = _tmp1_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_clear_error (&_inner_error0_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return NULL;
-#line 2288 "globals.c"
 	}
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = vala_develop_globals__closeImage;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = _tmp3_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp2_ == NULL) {
-#line 2296 "globals.c"
 		GdkPixbuf* _tmp4_;
 		GdkPixbuf* _tmp5_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp4_ = gdk_pixbuf_scale_simple (_tmp0_, 16, 16, GDK_INTERP_BILINEAR);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (vala_develop_globals__closeImage);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals__closeImage = _tmp4_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = vala_develop_globals__closeImage;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = _tmp5_;
-#line 2309 "globals.c"
 	}
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp2_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (_tmp0_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 2317 "globals.c"
 }
 
 GdkPixbuf*
@@ -2325,50 +3795,28 @@ vala_develop_globals_get_EmptyImage (void)
 	GdkPixbuf* _tmp2_ = NULL;
 	GdkPixbuf* _tmp3_;
 	GError* _inner_error0_ = NULL;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = gdk_pixbuf_new_from_resource ("/valaDevelop/empty.png", &_inner_error0_);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = _tmp1_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_clear_error (&_inner_error0_);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return NULL;
-#line 2341 "globals.c"
 	}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = vala_develop_globals__emptyImage;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = _tmp3_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp2_ == NULL) {
-#line 2349 "globals.c"
 		GdkPixbuf* _tmp4_;
 		GdkPixbuf* _tmp5_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp4_ = _tmp0_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = NULL;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (vala_develop_globals__emptyImage);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals__emptyImage = _tmp4_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp5_ = vala_develop_globals__emptyImage;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = _tmp5_;
-#line 2364 "globals.c"
 	}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp2_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_g_object_unref0 (_tmp0_);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 2372 "globals.c"
 }
 
 GeeHashMap*
@@ -2377,32 +3825,19 @@ vala_develop_globals_get_FastVapis (void)
 	GeeHashMap* result;
 	GeeHashMap* _tmp0_ = NULL;
 	GeeHashMap* _tmp1_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = vala_develop_globals__fastVapis;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = _tmp1_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp0_ == NULL) {
-#line 2387 "globals.c"
 		GeeHashMap* _tmp2_;
 		GeeHashMap* _tmp3_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = gee_hash_map_new (G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (vala_develop_globals__fastVapis);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals__fastVapis = _tmp2_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp3_ = vala_develop_globals__fastVapis;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = _tmp3_;
-#line 2400 "globals.c"
 	}
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp0_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 2406 "globals.c"
 }
 
 GeeHashSet*
@@ -2411,50 +3846,32 @@ vala_develop_globals_get_Packages (void)
 	GeeHashSet* result;
 	GeeHashSet* _tmp0_ = NULL;
 	GeeHashSet* _tmp1_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = vala_develop_globals__packages;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = _tmp1_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (_tmp0_ == NULL) {
-#line 2421 "globals.c"
 		GeeHashSet* _tmp2_;
 		GeeHashSet* _tmp3_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp2_ = gee_hash_set_new (G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, NULL, NULL, NULL, NULL, NULL, NULL);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_g_object_unref0 (vala_develop_globals__packages);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals__packages = _tmp2_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp3_ = vala_develop_globals__packages;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		_tmp0_ = _tmp3_;
-#line 2434 "globals.c"
 	}
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	result = _tmp0_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return result;
-#line 2440 "globals.c"
 }
 
 static void
 vala_develop_value_globals_init (GValue* value)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	value->data[0].v_pointer = NULL;
-#line 2448 "globals.c"
 }
 
 static void
 vala_develop_value_globals_free_value (GValue* value)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (value->data[0].v_pointer) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals_unref (value->data[0].v_pointer);
-#line 2458 "globals.c"
 	}
 }
 
@@ -2462,24 +3879,17 @@ static void
 vala_develop_value_globals_copy_value (const GValue* src_value,
                                        GValue* dest_value)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (src_value->data[0].v_pointer) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		dest_value->data[0].v_pointer = vala_develop_globals_ref (src_value->data[0].v_pointer);
-#line 2470 "globals.c"
 	} else {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 2474 "globals.c"
 	}
 }
 
 static gpointer
 vala_develop_value_globals_peek_pointer (const GValue* value)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return value->data[0].v_pointer;
-#line 2483 "globals.c"
 }
 
 static gchar*
@@ -2488,32 +3898,19 @@ vala_develop_value_globals_collect_value (GValue* value,
                                           GTypeCValue* collect_values,
                                           guint collect_flags)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (collect_values[0].v_pointer) {
-#line 2494 "globals.c"
 		valaDevelopGlobals * object;
 		object = collect_values[0].v_pointer;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2501 "globals.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2505 "globals.c"
 		}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = vala_develop_globals_ref (object);
-#line 2509 "globals.c"
 	} else {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = NULL;
-#line 2513 "globals.c"
 	}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return NULL;
-#line 2517 "globals.c"
 }
 
 static gchar*
@@ -2524,29 +3921,17 @@ vala_develop_value_globals_lcopy_value (const GValue* value,
 {
 	valaDevelopGlobals ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (!object_p) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 2532 "globals.c"
 	}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (!value->data[0].v_pointer) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		*object_p = NULL;
-#line 2538 "globals.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		*object_p = value->data[0].v_pointer;
-#line 2542 "globals.c"
 	} else {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		*object_p = vala_develop_globals_ref (value->data[0].v_pointer);
-#line 2546 "globals.c"
 	}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return NULL;
-#line 2550 "globals.c"
 }
 
 GParamSpec*
@@ -2557,25 +3942,17 @@ vala_develop_param_spec_globals (const gchar* name,
                                  GParamFlags flags)
 {
 	valaDevelopParamSpecGlobals* spec;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_GLOBALS), NULL);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return G_PARAM_SPEC (spec);
-#line 2569 "globals.c"
 }
 
 gpointer
 vala_develop_value_get_globals (const GValue* value)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_GLOBALS), NULL);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return value->data[0].v_pointer;
-#line 2579 "globals.c"
 }
 
 void
@@ -2583,31 +3960,18 @@ vala_develop_value_set_globals (GValue* value,
                                 gpointer v_object)
 {
 	valaDevelopGlobals * old;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_GLOBALS));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	old = value->data[0].v_pointer;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (v_object) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_GLOBALS));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = v_object;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals_ref (value->data[0].v_pointer);
-#line 2601 "globals.c"
 	} else {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = NULL;
-#line 2605 "globals.c"
 	}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (old) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals_unref (old);
-#line 2611 "globals.c"
 	}
 }
 
@@ -2616,29 +3980,17 @@ vala_develop_value_take_globals (GValue* value,
                                  gpointer v_object)
 {
 	valaDevelopGlobals * old;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_GLOBALS));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	old = value->data[0].v_pointer;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (v_object) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_GLOBALS));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = v_object;
-#line 2632 "globals.c"
 	} else {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		value->data[0].v_pointer = NULL;
-#line 2636 "globals.c"
 	}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (old) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		vala_develop_globals_unref (old);
-#line 2642 "globals.c"
 	}
 }
 
@@ -2651,47 +4003,31 @@ vala_develop_globals_class_init (valaDevelopGlobalsClass * klass,
 	GdkDisplay* _tmp2_;
 	GdkCursor* _tmp3_;
 	ValaCodeContext* _tmp4_;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	vala_develop_globals_parent_class = g_type_class_peek_parent (klass);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	((valaDevelopGlobalsClass *) klass)->finalize = vala_develop_globals_finalize;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp0_ = gdk_display_get_default ();
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp1_ = gdk_cursor_new_from_name (_tmp0_, "wait");
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	vala_develop_globals_waitCursor = _tmp1_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp2_ = gdk_display_get_default ();
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp3_ = gdk_cursor_new_from_name (_tmp2_, "default");
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	vala_develop_globals_defaultCursor = _tmp3_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	_tmp4_ = vala_code_context_new ();
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	vala_develop_globals_CodeContext = _tmp4_;
-#line 2675 "globals.c"
 }
 
 static void
 vala_develop_globals_instance_init (valaDevelopGlobals * self,
                                     gpointer klass)
 {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	self->ref_count = 1;
-#line 2684 "globals.c"
 }
 
 static void
 vala_develop_globals_finalize (valaDevelopGlobals * obj)
 {
 	valaDevelopGlobals * self;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_GLOBALS, valaDevelopGlobals);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_signal_handlers_destroy (self);
-#line 2695 "globals.c"
 }
 
 GType
@@ -2714,11 +4050,8 @@ vala_develop_globals_ref (gpointer instance)
 {
 	valaDevelopGlobals * self;
 	self = instance;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	return instance;
-#line 2722 "globals.c"
 }
 
 void
@@ -2726,13 +4059,9 @@ vala_develop_globals_unref (gpointer instance)
 {
 	valaDevelopGlobals * self;
 	self = instance;
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		VALA_DEVELOP_GLOBALS_GET_CLASS (self)->finalize (self);
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/globals.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 2736 "globals.c"
 	}
 }
 

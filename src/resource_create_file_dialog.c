@@ -146,32 +146,21 @@ vala_develop_resource_create_file_construct (GType object_type,
 	valaDevelopResourceCreateFile * self = NULL;
 	GtkWidget* _tmp0_;
 	GtkTreeIter _tmp1_;
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	self = (valaDevelopResourceCreateFile*) g_object_new (object_type, NULL);
-#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_tmp0_ = gtk_widget_get_toplevel (parent);
-#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_window_set_transient_for ((GtkWindow*) self, G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow));
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_tmp1_ = *iter;
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	self->priv->_overviewTreeIter = _tmp1_;
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	return self;
-#line 166 "resource_create_file_dialog.c"
 }
 
 valaDevelopResourceCreateFile*
 vala_develop_resource_create_file_new (GtkWidget* parent,
                                        GtkTreeIter* iter)
 {
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	return vala_develop_resource_create_file_construct (VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE, parent, iter);
-#line 175 "resource_create_file_dialog.c"
 }
 
 static gchar*
@@ -183,43 +172,24 @@ string_replace (const gchar* self,
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
 	GError* _inner_error0_ = NULL;
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (old != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (replacement != NULL, NULL);
-#line 1481 "glib-2.0.vapi"
 	if ((*((gchar*) self)) == '\0') {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
-#line 197 "resource_create_file_dialog.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
-#line 201 "resource_create_file_dialog.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
-#line 207 "resource_create_file_dialog.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
-#line 211 "resource_create_file_dialog.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 215 "resource_create_file_dialog.c"
 		gchar* _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
-#line 1482 "glib-2.0.vapi"
 		result = _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		return result;
-#line 223 "resource_create_file_dialog.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -231,96 +201,54 @@ string_replace (const gchar* self,
 		GRegex* _tmp8_;
 		gchar* _tmp9_;
 		gchar* _tmp10_;
-#line 1485 "glib-2.0.vapi"
 		_tmp3_ = g_regex_escape_string (old, -1);
-#line 1485 "glib-2.0.vapi"
 		_tmp4_ = _tmp3_;
-#line 1485 "glib-2.0.vapi"
 		_tmp5_ = g_regex_new (_tmp4_, 0, 0, &_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 		_tmp6_ = _tmp5_;
-#line 1485 "glib-2.0.vapi"
 		_g_free0 (_tmp4_);
-#line 1485 "glib-2.0.vapi"
 		regex = _tmp6_;
-#line 1485 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 251 "resource_create_file_dialog.c"
 				goto __catch3_g_regex_error;
 			}
-#line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1485 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 			return NULL;
-#line 260 "resource_create_file_dialog.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
-#line 1486 "glib-2.0.vapi"
 		_tmp9_ = g_regex_replace_literal (_tmp8_, self, (gssize) -1, 0, replacement, 0, &_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = _tmp9_;
-#line 1486 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 274 "resource_create_file_dialog.c"
 				goto __catch3_g_regex_error;
 			}
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1486 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 			return NULL;
-#line 285 "resource_create_file_dialog.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = NULL;
-#line 1486 "glib-2.0.vapi"
 		result = _tmp10_;
-#line 1486 "glib-2.0.vapi"
 		_g_free0 (_tmp7_);
-#line 1486 "glib-2.0.vapi"
 		_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 		return result;
-#line 299 "resource_create_file_dialog.c"
 	}
 	goto __finally3;
 	__catch3_g_regex_error:
 	{
 		GError* e = NULL;
-#line 1484 "glib-2.0.vapi"
 		e = _inner_error0_;
-#line 1484 "glib-2.0.vapi"
 		_inner_error0_ = NULL;
-#line 1488 "glib-2.0.vapi"
 		g_assert_not_reached ();
-#line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
-#line 313 "resource_create_file_dialog.c"
 	}
 	__finally3:
-#line 1484 "glib-2.0.vapi"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1484 "glib-2.0.vapi"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1484 "glib-2.0.vapi"
 		g_clear_error (&_inner_error0_);
-#line 1484 "glib-2.0.vapi"
 		return NULL;
-#line 324 "resource_create_file_dialog.c"
 	}
 }
 
@@ -328,13 +256,9 @@ static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
-#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1517 "glib-2.0.vapi"
 	result = self;
-#line 1517 "glib-2.0.vapi"
 	return result;
-#line 338 "resource_create_file_dialog.c"
 }
 
 static void
@@ -346,47 +270,28 @@ vala_develop_resource_create_file_OnAccept (valaDevelopResourceCreateFile* self)
 	gboolean _tmp3_;
 	gint r = 0;
 	GError* _inner_error0_ = NULL;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	g_return_if_fail (self != NULL);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_tmp1_ = self->priv->window;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_tmp2_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp1_);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_tmp3_ = _tmp2_;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	if (_tmp3_) {
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp0_ = 3;
-#line 362 "resource_create_file_dialog.c"
 	} else {
 		gint _tmp4_ = 0;
 		GtkRadioButton* _tmp5_;
 		gboolean _tmp6_;
 		gboolean _tmp7_;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp5_ = self->priv->dialog;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp6_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp5_);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp7_ = _tmp6_;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (_tmp7_) {
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp4_ = 2;
-#line 378 "resource_create_file_dialog.c"
 		} else {
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp4_ = 1;
-#line 382 "resource_create_file_dialog.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp0_ = _tmp4_;
-#line 386 "resource_create_file_dialog.c"
 	}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	r = _tmp0_;
-#line 390 "resource_create_file_dialog.c"
 	{
 		GtkTreeIter solutionIter = {0};
 		valaDevelopOverviewTreeStore* _tmp8_;
@@ -485,216 +390,115 @@ vala_develop_resource_create_file_OnAccept (valaDevelopResourceCreateFile* self)
 		GtkTreeIter _tmp115_;
 		GdkPixbuf* _tmp116_;
 		GdkPixbuf* _tmp117_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp8_ = vala_develop_main_paned_overviewTreeModel;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp8_, &_tmp9_);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		solutionIter = _tmp9_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp10_ = vala_develop_main_paned_overviewTreeModel;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp11_ = solutionIter;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp12_ = vala_develop_overview_tree_store_get_item_path (_tmp10_, &_tmp11_);
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		solutionpath = _tmp12_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp13_ = vala_develop_main_paned_overviewTreeModel;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp14_ = vala_develop_main_paned_overviewTreeModel;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp15_ = self->priv->_overviewTreeIter;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp16_ = vala_develop_overview_tree_store_get_project_iter_by_iter (_tmp14_, &_tmp15_);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp17_ = _tmp16_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp18_ = *_tmp17_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp19_ = vala_develop_overview_tree_store_get_item_namespace (_tmp13_, &_tmp18_);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp20_ = _tmp19_;
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp17_);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		projectNamespace = _tmp20_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp21_ = vala_develop_main_paned_overviewTreeModel;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp22_ = vala_develop_main_paned_overviewTreeModel;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp23_ = self->priv->_overviewTreeIter;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp24_ = vala_develop_overview_tree_store_get_resource_iter (_tmp22_, &_tmp23_);
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp25_ = _tmp24_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp26_ = *_tmp25_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp27_ = vala_develop_overview_tree_store_get_item_path (_tmp21_, &_tmp26_);
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp28_ = _tmp27_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp25_);
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		path = _tmp28_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp30_ = self->priv->resourceName;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp31_ = gtk_entry_get_text (_tmp30_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp32_ = _tmp31_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (g_str_has_suffix (_tmp32_, ".glade")) {
-#line 551 "resource_create_file_dialog.c"
 			GtkEntry* _tmp33_;
 			const gchar* _tmp34_;
 			const gchar* _tmp35_;
 			gchar* _tmp36_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp33_ = self->priv->resourceName;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp34_ = gtk_entry_get_text (_tmp33_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp35_ = _tmp34_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp36_ = g_strdup (_tmp35_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp29_ = _tmp36_;
-#line 568 "resource_create_file_dialog.c"
 		} else {
 			GtkEntry* _tmp37_;
 			const gchar* _tmp38_;
 			const gchar* _tmp39_;
 			gchar* _tmp40_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp37_ = self->priv->resourceName;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp38_ = gtk_entry_get_text (_tmp37_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp39_ = _tmp38_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp40_ = g_strconcat (_tmp39_, ".glade", NULL);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp29_ = _tmp40_;
-#line 586 "resource_create_file_dialog.c"
 		}
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp41_ = g_strdup (_tmp29_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		file = _tmp41_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp42_ = solutionpath;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp43_ = g_file_new_for_path (_tmp42_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp44_ = _tmp43_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp45_ = path;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp46_ = g_file_get_child (_tmp44_, _tmp45_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp47_ = _tmp46_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp48_ = file;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp49_ = g_file_get_child (_tmp47_, _tmp48_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp50_ = _tmp49_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp47_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp44_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		fullPath = _tmp50_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp51_ = g_strdup_printf ("%i", r);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp52_ = _tmp51_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp53_ = g_strconcat ("resource:///valaDevelop/resource", _tmp52_, ".glade", NULL);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp54_ = _tmp53_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp55_ = g_file_new_for_uri (_tmp54_);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp56_ = _tmp55_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp54_);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp52_);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		source = _tmp56_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp58_ = source;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp59_ = g_file_read (_tmp58_, NULL, &_inner_error0_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp57_ = _tmp59_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (source);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (fullPath);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (file);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (path);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (projectNamespace);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (solutionpath);
-#line 656 "resource_create_file_dialog.c"
 			goto __catch2_g_error;
 		}
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp60_ = g_data_input_stream_new ((GInputStream*) _tmp57_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		dataInputStream = _tmp60_;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp62_ = fullPath;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp63_ = g_file_create (_tmp62_, G_FILE_CREATE_PRIVATE, NULL, &_inner_error0_);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp61_ = _tmp63_;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataInputStream);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp57_);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (source);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (fullPath);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (file);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (path);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (projectNamespace);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (solutionpath);
-#line 689 "resource_create_file_dialog.c"
 			goto __catch2_g_error;
 		}
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp64_ = g_data_output_stream_new ((GOutputStream*) _tmp61_);
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		dataOutputStream = _tmp64_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		while (TRUE) {
-#line 698 "resource_create_file_dialog.c"
 			gchar* _tmp65_ = NULL;
 			GDataInputStream* _tmp66_;
 			gchar* _tmp67_;
@@ -711,371 +515,191 @@ vala_develop_resource_create_file_OnAccept (valaDevelopResourceCreateFile* self)
 			gchar* _tmp78_;
 			gchar* _tmp79_;
 			GDataOutputStream* _tmp80_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp66_ = dataInputStream;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp67_ = g_data_input_stream_read_line_utf8 (_tmp66_, NULL, NULL, &_inner_error0_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp65_ = _tmp67_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (line);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataOutputStream);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp61_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataInputStream);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp57_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (source);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (fullPath);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (file);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp29_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (path);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (projectNamespace);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (solutionpath);
-#line 747 "resource_create_file_dialog.c"
 				goto __catch2_g_error;
 			}
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp68_ = _tmp65_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp65_ = NULL;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (line);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			line = _tmp68_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp69_ = line;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			if (!(_tmp69_ != NULL)) {
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp65_);
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				break;
-#line 766 "resource_create_file_dialog.c"
 			}
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp70_ = dataOutputStream;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp71_ = line;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp72_ = projectNamespace;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp73_ = string_replace (_tmp71_, "{projectNamespace}", _tmp72_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp74_ = _tmp73_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp75_ = self->priv->resourceName;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp76_ = gtk_entry_get_text (_tmp75_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp77_ = _tmp76_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp78_ = string_replace (_tmp74_, "{filename}", _tmp77_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp79_ = _tmp78_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			g_data_output_stream_put_string (_tmp70_, _tmp79_, NULL, &_inner_error0_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp79_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp74_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp65_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (line);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataOutputStream);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp61_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataInputStream);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp57_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (source);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (fullPath);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (file);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp29_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (path);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (projectNamespace);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (solutionpath);
-#line 822 "resource_create_file_dialog.c"
 				goto __catch2_g_error;
 			}
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_tmp80_ = dataOutputStream;
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			g_data_output_stream_put_string (_tmp80_, "\n", NULL, &_inner_error0_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp65_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (line);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataOutputStream);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp61_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (dataInputStream);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (_tmp57_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (source);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_object_unref0 (fullPath);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (file);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (_tmp29_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (path);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (projectNamespace);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 				_g_free0 (solutionpath);
-#line 857 "resource_create_file_dialog.c"
 				goto __catch2_g_error;
 			}
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp65_);
-#line 862 "resource_create_file_dialog.c"
 		}
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp81_ = dataInputStream;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		g_input_stream_close ((GInputStream*) _tmp81_, NULL, &_inner_error0_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (line);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataOutputStream);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp61_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataInputStream);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp57_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (source);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (fullPath);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (file);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (path);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (projectNamespace);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (solutionpath);
-#line 894 "resource_create_file_dialog.c"
 			goto __catch2_g_error;
 		}
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp82_ = dataOutputStream;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		g_output_stream_close ((GOutputStream*) _tmp82_, NULL, &_inner_error0_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (line);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataOutputStream);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp61_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataInputStream);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp57_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (source);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (fullPath);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (file);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (path);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (projectNamespace);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (solutionpath);
-#line 927 "resource_create_file_dialog.c"
 			goto __catch2_g_error;
 		}
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp83_ = vala_develop_main_paned_overviewTreeModel;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp84_ = vala_develop_main_paned_overviewTreeModel;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp85_ = self->priv->_overviewTreeIter;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp86_ = vala_develop_overview_tree_store_get_resource_iter (_tmp84_, &_tmp85_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp87_ = _tmp86_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		gtk_tree_store_append ((GtkTreeStore*) _tmp83_, &_tmp88_, _tmp87_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		tmpIter = _tmp88_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp87_);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp89_ = vala_develop_main_paned_overviewTreeModel;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp90_ = tmpIter;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_type (_tmp89_, &_tmp90_, (gint) VALA_DEVELOP_ITEM_TYPE_Resource);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp91_ = vala_develop_main_paned_overviewTreeModel;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp92_ = tmpIter;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp93_ = file;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_name (_tmp91_, &_tmp92_, _tmp93_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp94_ = vala_develop_main_paned_overviewTreeModel;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp95_ = tmpIter;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp96_ = projectNamespace;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp97_ = string_to_string (_tmp96_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp98_ = self->priv->resourceName;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp99_ = gtk_entry_get_text (_tmp98_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp100_ = _tmp99_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp101_ = string_to_string (_tmp100_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp102_ = g_strconcat ("/", _tmp97_, "/", _tmp101_, NULL);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp103_ = _tmp102_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_resource_id (_tmp94_, &_tmp95_, _tmp103_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp103_);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp104_ = vala_develop_main_paned_overviewTreeModel;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp105_ = tmpIter;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_resource_compress (_tmp104_, &_tmp105_, TRUE);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp106_ = vala_develop_main_paned_overviewTreeModel;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp107_ = tmpIter;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_resource_stripblanks (_tmp106_, &_tmp107_, TRUE);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp108_ = vala_develop_main_paned_overviewTreeModel;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp109_ = tmpIter;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_buildtype (_tmp108_, &_tmp109_, (gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Resource);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp110_ = vala_develop_main_paned_overviewTreeModel;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp111_ = tmpIter;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_mimetype (_tmp110_, &_tmp111_, "application/x-glade");
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp113_ = gdk_pixbuf_new_from_resource ("/valaDevelop/glade.svg.png", &_inner_error0_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp112_ = _tmp113_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (line);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataOutputStream);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp61_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (dataInputStream);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (_tmp57_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (source);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_object_unref0 (fullPath);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (file);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (_tmp29_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (path);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (projectNamespace);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 			_g_free0 (solutionpath);
-#line 1038 "resource_create_file_dialog.c"
 			goto __catch2_g_error;
 		}
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp114_ = vala_develop_main_paned_overviewTreeModel;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp115_ = tmpIter;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp116_ = gdk_pixbuf_scale_simple (_tmp112_, 16, 16, GDK_INTERP_BILINEAR);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp117_ = _tmp116_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		vala_develop_overview_tree_store_set_item_pixbuf (_tmp114_, &_tmp115_, _tmp117_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp117_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp112_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (line);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (dataOutputStream);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp61_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (dataInputStream);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (_tmp57_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (source);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (fullPath);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (file);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (_tmp29_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (path);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (projectNamespace);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_free0 (solutionpath);
-#line 1079 "resource_create_file_dialog.c"
 	}
 	goto __finally2;
 	__catch2_g_error:
@@ -1087,129 +711,82 @@ vala_develop_resource_create_file_OnAccept (valaDevelopResourceCreateFile* self)
 		GtkMessageDialog* _tmp120_;
 		GtkMessageDialog* _tmp121_;
 		GtkMessageDialog* _tmp122_;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		e = _inner_error0_;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_inner_error0_ = NULL;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp118_ = e;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp119_ = _tmp118_->message;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp120_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp119_);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		g_object_ref_sink (_tmp120_);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		messagedialog = _tmp120_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp121_ = messagedialog;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp121_);
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_tmp122_ = messagedialog;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp122_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_object_unref0 (messagedialog);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		_g_error_free0 (e);
-#line 1117 "resource_create_file_dialog.c"
 	}
 	__finally2:
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		g_clear_error (&_inner_error0_);
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 		return;
-#line 1128 "resource_create_file_dialog.c"
 	}
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_ACCEPT);
-#line 1132 "resource_create_file_dialog.c"
 }
 
 static void
 _vala_develop_resource_create_file_OnAccept_gtk_button_clicked (GtkButton* _sender,
                                                                 gpointer self)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	vala_develop_resource_create_file_OnAccept ((valaDevelopResourceCreateFile*) self);
-#line 1141 "resource_create_file_dialog.c"
 }
 
 static void
 vala_develop_resource_create_file_OnCancel (valaDevelopResourceCreateFile* self)
 {
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	g_return_if_fail (self != NULL);
-#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_CANCEL);
-#line 1151 "resource_create_file_dialog.c"
 }
 
 static void
 _vala_develop_resource_create_file_OnCancel_gtk_button_clicked (GtkButton* _sender,
                                                                 gpointer self)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	vala_develop_resource_create_file_OnCancel ((valaDevelopResourceCreateFile*) self);
-#line 1160 "resource_create_file_dialog.c"
 }
 
 static void
 vala_develop_resource_create_file_class_init (valaDevelopResourceCreateFileClass * klass,
                                               gpointer klass_data)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	vala_develop_resource_create_file_parent_class = g_type_class_peek_parent (klass);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopResourceCreateFile_private_offset);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_resource_create_file_finalize;
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/newResource.glade");
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "window", FALSE, valaDevelopResourceCreateFile_private_offset + G_STRUCT_OFFSET (valaDevelopResourceCreateFilePrivate, window));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "dialog", FALSE, valaDevelopResourceCreateFile_private_offset + G_STRUCT_OFFSET (valaDevelopResourceCreateFilePrivate, dialog));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "resourceName", FALSE, valaDevelopResourceCreateFile_private_offset + G_STRUCT_OFFSET (valaDevelopResourceCreateFilePrivate, resourceName));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnAccept", G_CALLBACK(_vala_develop_resource_create_file_OnAccept_gtk_button_clicked));
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnCancel", G_CALLBACK(_vala_develop_resource_create_file_OnCancel_gtk_button_clicked));
-#line 1185 "resource_create_file_dialog.c"
 }
 
 static void
 vala_develop_resource_create_file_instance_init (valaDevelopResourceCreateFile * self,
                                                  gpointer klass)
 {
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	self->priv = vala_develop_resource_create_file_get_instance_private (self);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
-#line 1196 "resource_create_file_dialog.c"
 }
 
 static void
 vala_develop_resource_create_file_finalize (GObject * obj)
 {
 	valaDevelopResourceCreateFile * self;
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_RESOURCE_CREATE_FILE, valaDevelopResourceCreateFile);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_g_object_unref0 (self->priv->window);
-#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_g_object_unref0 (self->priv->dialog);
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	_g_object_unref0 (self->priv->resourceName);
-#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionDialogs/resource_create_file_dialog.vala"
 	G_OBJECT_CLASS (vala_develop_resource_create_file_parent_class)->finalize (obj);
-#line 1213 "resource_create_file_dialog.c"
 }
 
 GType

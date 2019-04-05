@@ -107,87 +107,48 @@ vala_develop_source_gutter_renderer_folding_construct (GType object_type)
 	gint _tmp12_;
 	GdkPixbuf* _tmp13_;
 	GError* _inner_error0_ = NULL;
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self = (valaDevelopSourceGutterRendererFolding*) g_object_new (object_type, NULL);
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gtk_source_gutter_renderer_set_size ((GtkSourceGutterRenderer*) self, 16);
-#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_object_set ((GtkSourceGutterRenderer*) self, "yalign", 0.5f, NULL);
-#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_object_set ((GtkSourceGutterRenderer*) self, "xalign", 0.5f, NULL);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp1_ = gdk_pixbuf_new_from_resource ("/valaDevelop/plus.svg.png", &_inner_error0_);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp0_ = _tmp1_;
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		g_clear_error (&_inner_error0_);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		return NULL;
-#line 131 "source_gutter_renderer_folding.c"
 	}
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp2_ = gtk_source_gutter_renderer_get_size ((GtkSourceGutterRenderer*) self);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp3_ = _tmp2_;
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp4_ = gtk_source_gutter_renderer_get_size ((GtkSourceGutterRenderer*) self);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp5_ = _tmp4_;
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp6_ = gdk_pixbuf_scale_simple (_tmp0_, (_tmp3_ / 3) * 4, (_tmp5_ / 3) * 4, GDK_INTERP_BILINEAR);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (self->priv->foldingEnabled);
-#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self->priv->foldingEnabled = _tmp6_;
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp8_ = gdk_pixbuf_new_from_resource ("/valaDevelop/minus.svg.png", &_inner_error0_);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp7_ = _tmp8_;
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_g_object_unref0 (_tmp0_);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		g_clear_error (&_inner_error0_);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		return NULL;
-#line 161 "source_gutter_renderer_folding.c"
 	}
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp9_ = gtk_source_gutter_renderer_get_size ((GtkSourceGutterRenderer*) self);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp10_ = _tmp9_;
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp11_ = gtk_source_gutter_renderer_get_size ((GtkSourceGutterRenderer*) self);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp12_ = _tmp11_;
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp13_ = gdk_pixbuf_scale_simple (_tmp7_, (_tmp10_ / 3) * 4, (_tmp12_ / 3) * 4, GDK_INTERP_BILINEAR);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (self->priv->foldingDisabled);
-#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self->priv->foldingDisabled = _tmp13_;
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (_tmp7_);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (_tmp0_);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return self;
-#line 183 "source_gutter_renderer_folding.c"
 }
 
 valaDevelopSourceGutterRendererFolding*
 vala_develop_source_gutter_renderer_folding_new (void)
 {
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return vala_develop_source_gutter_renderer_folding_construct (VALA_DEVELOP_TYPE_SOURCE_GUTTER_RENDERER_FOLDING);
-#line 191 "source_gutter_renderer_folding.c"
 }
 
 static gboolean
@@ -200,45 +161,31 @@ vala_develop_source_gutter_renderer_folding_real_query_tooltip (GtkSourceGutterR
 {
 	valaDevelopSourceGutterRendererFolding * self;
 	gboolean result = FALSE;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self = (valaDevelopSourceGutterRendererFolding*) base;
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_val_if_fail (area != NULL, FALSE);
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_val_if_fail (tooltip != NULL, FALSE);
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gtk_tooltip_set_text (tooltip, _ ("Expand/Collapse Region"));
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	result = TRUE;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return result;
-#line 218 "source_gutter_renderer_folding.c"
 }
 
 static GdkEventButton*
 _vala_GdkEventButton_copy (GdkEventButton* self)
 {
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return g_boxed_copy (gdk_event_get_type (), self);
-#line 226 "source_gutter_renderer_folding.c"
 }
 
 static gpointer
 __vala_GdkEventButton_copy0 (gpointer self)
 {
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return self ? _vala_GdkEventButton_copy (self) : NULL;
-#line 234 "source_gutter_renderer_folding.c"
 }
 
 static void
 _vala_GdkEventButton_free (GdkEventButton* self)
 {
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_boxed_free (gdk_event_get_type (), self);
-#line 242 "source_gutter_renderer_folding.c"
 }
 
 static void
@@ -251,76 +198,47 @@ vala_develop_source_gutter_renderer_folding_real_activate (GtkSourceGutterRender
 	GdkEventButton* evntButton = NULL;
 	GdkEventButton* _tmp0_;
 	GdkEventButton* _tmp1_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self = (valaDevelopSourceGutterRendererFolding*) base;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (iter != NULL);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (area != NULL);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (evnt != NULL);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp0_ = __vala_GdkEventButton_copy0 ((GdkEventButton*) evnt);
-#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	evntButton = _tmp0_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp1_ = evntButton;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	if (_tmp1_ != NULL) {
-#line 271 "source_gutter_renderer_folding.c"
 		guint mouseButtonClicked = 0U;
 		GdkEventButton* _tmp2_;
 		gboolean _tmp3_ = FALSE;
 		GdkEventButton* _tmp4_;
 		GdkEventType _tmp5_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp2_ = evntButton;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		mouseButtonClicked = _tmp2_->button;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp4_ = evntButton;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp5_ = _tmp4_->type;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		if (_tmp5_ == GDK_BUTTON_PRESS) {
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp3_ = mouseButtonClicked == ((guint) 1);
-#line 289 "source_gutter_renderer_folding.c"
 		} else {
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp3_ = FALSE;
-#line 293 "source_gutter_renderer_folding.c"
 		}
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		if (_tmp3_) {
-#line 297 "source_gutter_renderer_folding.c"
 			GtkTextIter _tmp6_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp6_ = *iter;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			vala_develop_globals_toggle_region (&_tmp6_);
-#line 303 "source_gutter_renderer_folding.c"
 		}
 	}
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	__vala_GdkEventButton_free0 (evntButton);
-#line 308 "source_gutter_renderer_folding.c"
 }
 
 static gpointer
 _g_object_ref0 (gpointer self)
 {
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 316 "source_gutter_renderer_folding.c"
 }
 
 static void
 _vala_GdkEvent_free (GdkEvent* self)
 {
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_boxed_free (gdk_event_get_type (), self);
-#line 324 "source_gutter_renderer_folding.c"
 }
 
 static void
@@ -380,221 +298,122 @@ vala_develop_source_gutter_renderer_folding_real_draw (GtkSourceGutterRenderer* 
 	GdkRectangle _tmp40_;
 	GtkTextIter _tmp41_;
 	GtkTextIter _tmp42_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self = (valaDevelopSourceGutterRendererFolding*) base;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (cr != NULL);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (background_area != NULL);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (cell_area != NULL);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (start != NULL);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_return_if_fail (end != NULL);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp0_ = gdk_display_get_default ();
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp1_ = _g_object_ref0 (_tmp0_);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	display = _tmp1_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp2_ = display;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp3_ = gdk_display_get_default_seat (_tmp2_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp4_ = _g_object_ref0 (_tmp3_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	seat = _tmp4_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp5_ = seat;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp6_ = gdk_seat_get_pointer (_tmp5_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp7_ = _g_object_ref0 (_tmp6_);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	device = _tmp7_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp8_ = gtk_source_gutter_renderer_get_view ((GtkSourceGutterRenderer*) self);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp9_ = _tmp8_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp10_ = gtk_text_view_get_window (_tmp9_, GTK_TEXT_WINDOW_WIDGET);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp11_ = device;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gdk_window_get_device_position (_tmp10_, _tmp11_, &_tmp12_, &_tmp13_, &_tmp14_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	x = _tmp12_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	y = _tmp13_;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	mask = _tmp14_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	iterx = 0;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	itery = 0;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp15_ = gtk_source_gutter_renderer_get_view ((GtkSourceGutterRenderer*) self);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp16_ = _tmp15_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gtk_text_view_window_to_buffer_coords (_tmp16_, GTK_TEXT_WINDOW_WIDGET, x, y, &_tmp17_, &_tmp18_);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	iterx = _tmp17_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	itery = _tmp18_;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp19_ = gtk_source_gutter_renderer_get_view ((GtkSourceGutterRenderer*) self);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp20_ = _tmp19_;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gtk_text_view_get_iter_at_location (_tmp20_, &_tmp21_, iterx, itery);
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	iter = _tmp21_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	gtk_text_iter_backward_chars (start, gtk_text_iter_get_line_offset (start));
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp22_ = gtk_text_iter_get_buffer (start);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp23_ = *start;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp24_ = gtk_source_buffer_get_source_marks_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp22_, gtk_source_buffer_get_type (), GtkSourceBuffer), &_tmp23_, "folding");
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp25_ = _tmp24_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp26_ = g_slist_length (_tmp25_) > ((guint) 0);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	(_tmp25_ == NULL) ? NULL : (_tmp25_ = (g_slist_free (_tmp25_), NULL));
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	mark_list = _tmp26_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp28_ = iter;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp29_ = *cell_area;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp30_ = gdk_event_new (GDK_MOTION_NOTIFY);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp31_ = _tmp30_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp32_ = gtk_source_gutter_renderer_query_activatable ((GtkSourceGutterRenderer*) self, &_tmp28_, &_tmp29_, _tmp31_);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	__vala_GdkEvent_free0 (_tmp31_);
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	if (_tmp32_) {
-#line 486 "source_gutter_renderer_folding.c"
 		GdkRectangle _tmp33_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp33_ = *cell_area;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp27_ = vala_develop_globals_rectangle_contains (&_tmp33_, x, y);
-#line 492 "source_gutter_renderer_folding.c"
 	} else {
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp27_ = FALSE;
-#line 496 "source_gutter_renderer_folding.c"
 	}
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	if (_tmp27_) {
-#line 500 "source_gutter_renderer_folding.c"
 		GdkPixbuf* _tmp34_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		_tmp34_ = self->priv->foldingDisabled;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		gtk_source_gutter_renderer_pixbuf_set_pixbuf ((GtkSourceGutterRendererPixbuf*) self, _tmp34_);
-#line 506 "source_gutter_renderer_folding.c"
 	} else {
 		GdkPixbuf* _tmp35_ = NULL;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		if (mark_list) {
-#line 511 "source_gutter_renderer_folding.c"
 			GdkPixbuf* _tmp36_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp36_ = self->priv->foldingEnabled;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp35_ = _tmp36_;
-#line 517 "source_gutter_renderer_folding.c"
 		} else {
 			GdkPixbuf* _tmp37_;
 			GdkPixbuf* _tmp38_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp37_ = vala_develop_globals_get_EmptyImage ();
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp38_ = _tmp37_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 			_tmp35_ = _tmp38_;
-#line 527 "source_gutter_renderer_folding.c"
 		}
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 		gtk_source_gutter_renderer_pixbuf_set_pixbuf ((GtkSourceGutterRendererPixbuf*) self, _tmp35_);
-#line 531 "source_gutter_renderer_folding.c"
 	}
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp39_ = *background_area;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp40_ = *cell_area;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp41_ = *start;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_tmp42_ = *end;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	GTK_SOURCE_GUTTER_RENDERER_CLASS (vala_develop_source_gutter_renderer_folding_parent_class)->draw ((GtkSourceGutterRenderer*) G_TYPE_CHECK_INSTANCE_CAST (self, gtk_source_gutter_renderer_pixbuf_get_type (), GtkSourceGutterRendererPixbuf), cr, &_tmp39_, &_tmp40_, &_tmp41_, &_tmp42_, state);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (device);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (seat);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (display);
-#line 549 "source_gutter_renderer_folding.c"
 }
 
 static void
 vala_develop_source_gutter_renderer_folding_class_init (valaDevelopSourceGutterRendererFoldingClass * klass,
                                                         gpointer klass_data)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	vala_develop_source_gutter_renderer_folding_parent_class = g_type_class_peek_parent (klass);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSourceGutterRendererFolding_private_offset);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	((GtkSourceGutterRendererClass *) klass)->query_tooltip = (gboolean (*) (GtkSourceGutterRenderer*, GtkTextIter*, GdkRectangle*, gint, gint, GtkTooltip*)) vala_develop_source_gutter_renderer_folding_real_query_tooltip;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	((GtkSourceGutterRendererClass *) klass)->activate = (void (*) (GtkSourceGutterRenderer*, GtkTextIter*, GdkRectangle*, GdkEvent*)) vala_develop_source_gutter_renderer_folding_real_activate;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	((GtkSourceGutterRendererClass *) klass)->draw = (void (*) (GtkSourceGutterRenderer*, cairo_t*, GdkRectangle*, GdkRectangle*, GtkTextIter*, GtkTextIter*, GtkSourceGutterRendererState)) vala_develop_source_gutter_renderer_folding_real_draw;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_source_gutter_renderer_folding_finalize;
-#line 568 "source_gutter_renderer_folding.c"
 }
 
 static void
 vala_develop_source_gutter_renderer_folding_instance_init (valaDevelopSourceGutterRendererFolding * self,
                                                            gpointer klass)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self->priv = vala_develop_source_gutter_renderer_folding_get_instance_private (self);
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self->priv->foldingEnabled = NULL;
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self->priv->foldingDisabled = NULL;
-#line 581 "source_gutter_renderer_folding.c"
 }
 
 static void
 vala_develop_source_gutter_renderer_folding_finalize (GObject * obj)
 {
 	valaDevelopSourceGutterRendererFolding * self;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SOURCE_GUTTER_RENDERER_FOLDING, valaDevelopSourceGutterRendererFolding);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_free0 (self->priv->_full_path);
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (self->priv->foldingEnabled);
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	_g_object_unref0 (self->priv->foldingDisabled);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SourceGutter/source_gutter_renderer_folding.vala"
 	G_OBJECT_CLASS (vala_develop_source_gutter_renderer_folding_parent_class)->finalize (obj);
-#line 598 "source_gutter_renderer_folding.c"
 }
 
 GType

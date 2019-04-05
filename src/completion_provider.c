@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include "vala.h"
-#include "valagee.h"
+#include <vala.h>
+#include <valagee.h>
 #include <gtk/gtk.h>
-#include <gio/gio.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 #define VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER (vala_develop_vala_completion_provider_get_type ())
 #define VALA_DEVELOP_VALA_COMPLETION_PROVIDER(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER, valaDevelopValaCompletionProvider))
@@ -40,7 +40,10 @@ static GParamSpec* vala_develop_vala_completion_provider_properties[VALA_DEVELOP
 #define _g_free0(var) (var = (g_free (var), NULL))
 #define _vala_code_node_unref0(var) ((var == NULL) ? NULL : (var = (vala_code_node_unref (var), NULL)))
 #define _vala_iterable_unref0(var) ((var == NULL) ? NULL : (var = (vala_iterable_unref (var), NULL)))
+#define _vala_map_unref0(var) ((var == NULL) ? NULL : (var = (vala_map_unref (var), NULL)))
+#define _vala_iterator_unref0(var) ((var == NULL) ? NULL : (var = (vala_iterator_unref (var), NULL)))
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
+typedef struct _valaDevelopSymbolFinderPrivate valaDevelopSymbolFinderPrivate;
 
 struct _valaDevelopValaCompletionProvider {
 	GObject parent_instance;
@@ -54,10 +57,21 @@ struct _valaDevelopValaCompletionProviderClass {
 struct _valaDevelopValaCompletionProviderPrivate {
 	valaDevelopSymbolFinder* _symbol_finder;
 	gchar* _fullpath;
-	ValaSymbol* _symbol_match;
-	GRecMutex __lock__symbol_match;
+	ValaSymbol* current_symbol;
 	GList* proposals;
 	gint c;
+};
+
+struct _valaDevelopSymbolFinder {
+	GObject parent_instance;
+	valaDevelopSymbolFinderPrivate * priv;
+	ValaHashSet* _sources;
+	ValaHashSet* _packages;
+	gboolean need_update;
+};
+
+struct _valaDevelopSymbolFinderClass {
+	GObjectClass parent_class;
 };
 
 static gint valaDevelopValaCompletionProvider_private_offset;
@@ -77,26 +91,28 @@ valaDevelopValaCompletionProvider* vala_develop_vala_completion_provider_constru
                                                                                     valaDevelopSymbolFinder* symbol_finder);
 static void vala_develop_vala_completion_provider_real_populate (GtkSourceCompletionProvider* base,
                                                           GtkSourceCompletionContext* context);
+static void ___lambda54_ (valaDevelopValaCompletionProvider* self,
+                   GtkSourceCompletionItem* element);
+static void ____lambda54__gfunc (gconstpointer data,
+                          gpointer self);
 static gboolean vala_develop_vala_completion_provider_real_match (GtkSourceCompletionProvider* base,
                                                            GtkSourceCompletionContext* context);
 gchar* vala_develop_globals_get_word_at_iter (GtkSourceBuffer* buffer,
                                               GtkTextIter* iter);
+void vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
+                                        const gchar* file,
+                                        const gchar* content);
+gchar* vala_develop_globals_get_text_from_buffer (GtkTextBuffer* buffer,
+                                                  gboolean include_hidden_chars);
 ValaSymbol* vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
                                                             const gchar* word,
                                                             const gchar* file,
                                                             const gchar* content,
                                                             gint line,
                                                             gint col);
-gchar* vala_develop_globals_get_text_from_buffer (GtkTextBuffer* buffer,
-                                                  gboolean include_hidden_chars);
-static GIcon* vala_develop_vala_completion_provider_real_get_gicon (GtkSourceCompletionProvider* base);
-static const gchar* vala_develop_vala_completion_provider_real_get_icon_name (GtkSourceCompletionProvider* base);
-gchar* vala_develop_vala_completion_provider_get_info (valaDevelopValaCompletionProvider* self);
-gchar* vala_develop_vala_completion_provider_get_label (valaDevelopValaCompletionProvider* self);
-gchar* vala_develop_vala_completion_provider_get_markup (valaDevelopValaCompletionProvider* self);
-gchar* vala_develop_vala_completion_provider_get_text (valaDevelopValaCompletionProvider* self);
-static gint vala_develop_vala_completion_provider_real_get_interactive_delay (GtkSourceCompletionProvider* base);
-static GtkSourceCompletionActivation vala_develop_vala_completion_provider_real_get_activation (GtkSourceCompletionProvider* base);
+static gint vala_develop_vala_completion_provider_real_get_priority (GtkSourceCompletionProvider* base);
+static GdkPixbuf* vala_develop_vala_completion_provider_real_get_icon (GtkSourceCompletionProvider* base);
+static gchar* vala_develop_vala_completion_provider_real_get_name (GtkSourceCompletionProvider* base);
 static void vala_develop_vala_completion_provider_finalize (GObject * obj);
 
 static inline gpointer
@@ -108,25 +124,19 @@ vala_develop_vala_completion_provider_get_instance_private (valaDevelopValaCompl
 static void
 _g_object_unref0_ (gpointer var)
 {
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	(var == NULL) ? NULL : (var = (g_object_unref (var), NULL));
-#line 114 "completion_provider.c"
 }
 
 static inline void
 _g_list_free__g_object_unref0_ (GList* self)
 {
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_object_unref0_);
-#line 122 "completion_provider.c"
 }
 
 static gpointer
 _g_object_ref0 (gpointer self)
 {
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 130 "completion_provider.c"
 }
 
 valaDevelopValaCompletionProvider*
@@ -137,48 +147,46 @@ vala_develop_vala_completion_provider_construct (GType object_type,
 	valaDevelopValaCompletionProvider * self = NULL;
 	valaDevelopSymbolFinder* _tmp0_;
 	gchar* _tmp1_;
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_return_val_if_fail (fullpath != NULL, NULL);
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_return_val_if_fail (symbol_finder != NULL, NULL);
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self = (valaDevelopValaCompletionProvider*) g_object_new (object_type, NULL);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_tmp0_ = _g_object_ref0 (symbol_finder);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_g_object_unref0 (self->priv->_symbol_finder);
-#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self->priv->_symbol_finder = _tmp0_;
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_tmp1_ = g_strdup (fullpath);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_g_free0 (self->priv->_fullpath);
-#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self->priv->_fullpath = _tmp1_;
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	(self->priv->proposals == NULL) ? NULL : (self->priv->proposals = (_g_list_free__g_object_unref0_ (self->priv->proposals), NULL));
-#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self->priv->proposals = NULL;
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	return self;
-#line 165 "completion_provider.c"
 }
 
 valaDevelopValaCompletionProvider*
 vala_develop_vala_completion_provider_new (const gchar* fullpath,
                                            valaDevelopSymbolFinder* symbol_finder)
 {
-#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	return vala_develop_vala_completion_provider_construct (VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER, fullpath, symbol_finder);
-#line 174 "completion_provider.c"
+}
+
+static void
+___lambda54_ (valaDevelopValaCompletionProvider* self,
+              GtkSourceCompletionItem* element)
+{
+	g_return_if_fail (element != NULL);
+	self->priv->proposals = g_list_remove (self->priv->proposals, element);
+}
+
+static void
+____lambda54__gfunc (gconstpointer data,
+                     gpointer self)
+{
+	___lambda54_ ((valaDevelopValaCompletionProvider*) self, (GtkSourceCompletionItem*) data);
 }
 
 static gpointer
 _vala_code_node_ref0 (gpointer self)
 {
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	return self ? vala_code_node_ref (self) : NULL;
-#line 182 "completion_provider.c"
 }
 
 static void
@@ -186,650 +194,234 @@ vala_develop_vala_completion_provider_real_populate (GtkSourceCompletionProvider
                                                      GtkSourceCompletionContext* context)
 {
 	valaDevelopValaCompletionProvider * self;
-	GList* _tmp104_;
-	GError* _inner_error0_ = NULL;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	ValaSymbol* _tmp0_;
+	const gchar* _tmp1_;
+	const gchar* _tmp2_;
+	ValaSymbol* _tmp3_;
+	GList* _tmp77_;
 	self = (valaDevelopValaCompletionProvider*) base;
-#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_return_if_fail (context != NULL);
-#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_print ("[populate]\n");
-#line 198 "completion_provider.c"
-	{
-		ValaSymbol* _tmp0_;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp0_ = self->priv->_symbol_match;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_rec_mutex_lock (&self->priv->__lock__symbol_match);
-#line 205 "completion_provider.c"
-		{
-			ValaSymbol* _tmp1_;
-			ValaDataType* type_symbol = NULL;
-			ValaSymbol* _tmp3_;
-			ValaDataType* _tmp4_;
-			ValaDataType* _tmp5_;
-			ValaDataType* _tmp6_;
+	_tmp0_ = self->priv->current_symbol;
+	_tmp1_ = vala_code_node_get_type_name ((ValaCodeNode*) _tmp0_);
+	_tmp2_ = _tmp1_;
+	g_print ("popuate %s\n", _tmp2_);
+	_tmp3_ = self->priv->current_symbol;
+	if (_tmp3_ != NULL) {
+		GList* _tmp4_;
+		ValaTypeSymbol* type_symbol = NULL;
+		ValaSymbol* _tmp5_;
+		_tmp4_ = self->priv->proposals;
+		g_list_foreach (_tmp4_, ____lambda54__gfunc, self);
+		type_symbol = NULL;
+		_tmp5_ = self->priv->current_symbol;
+		if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp5_, VALA_TYPE_VARIABLE)) {
+			ValaSymbol* _tmp6_;
 			ValaDataType* _tmp7_;
-			gchar* _tmp8_;
-			gchar* _tmp9_;
-			ValaDataType* _tmp10_;
-			ValaDataType* _tmp55_;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp1_ = self->priv->_symbol_match;
-#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			if (!G_TYPE_CHECK_INSTANCE_TYPE (_tmp1_, VALA_TYPE_VARIABLE)) {
-#line 222 "completion_provider.c"
-				{
-					ValaSymbol* _tmp2_;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp2_ = self->priv->_symbol_match;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					g_rec_mutex_unlock (&self->priv->__lock__symbol_match);
-#line 229 "completion_provider.c"
+			ValaDataType* _tmp8_;
+			ValaTypeSymbol* _tmp9_;
+			ValaTypeSymbol* _tmp10_;
+			ValaTypeSymbol* _tmp11_;
+			_tmp6_ = self->priv->current_symbol;
+			_tmp7_ = vala_variable_get_variable_type (G_TYPE_CHECK_INSTANCE_TYPE (_tmp6_, VALA_TYPE_VARIABLE) ? ((ValaVariable*) _tmp6_) : NULL);
+			_tmp8_ = _tmp7_;
+			_tmp9_ = vala_data_type_get_data_type (_tmp8_);
+			_tmp10_ = _tmp9_;
+			_tmp11_ = _vala_code_node_ref0 (_tmp10_);
+			_vala_code_node_unref0 (type_symbol);
+			type_symbol = _tmp11_;
+		} else {
+			ValaSymbol* _tmp12_;
+			_tmp12_ = self->priv->current_symbol;
+			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp12_, VALA_TYPE_PROPERTY)) {
+				ValaSymbol* _tmp13_;
+				ValaDataType* _tmp14_;
+				ValaDataType* _tmp15_;
+				ValaTypeSymbol* _tmp16_;
+				ValaTypeSymbol* _tmp17_;
+				ValaTypeSymbol* _tmp18_;
+				_tmp13_ = self->priv->current_symbol;
+				_tmp14_ = vala_property_get_property_type (G_TYPE_CHECK_INSTANCE_TYPE (_tmp13_, VALA_TYPE_PROPERTY) ? ((ValaProperty*) _tmp13_) : NULL);
+				_tmp15_ = _tmp14_;
+				_tmp16_ = vala_data_type_get_data_type (_tmp15_);
+				_tmp17_ = _tmp16_;
+				_tmp18_ = _vala_code_node_ref0 (_tmp17_);
+				_vala_code_node_unref0 (type_symbol);
+				type_symbol = _tmp18_;
+			} else {
+				ValaSymbol* _tmp19_;
+				_tmp19_ = self->priv->current_symbol;
+				if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp19_, VALA_TYPE_CALLABLE)) {
+					ValaSymbol* _tmp20_;
+					ValaDataType* _tmp21_;
+					ValaDataType* _tmp22_;
+					ValaTypeSymbol* _tmp23_;
+					ValaTypeSymbol* _tmp24_;
+					ValaTypeSymbol* _tmp25_;
+					_tmp20_ = self->priv->current_symbol;
+					_tmp21_ = vala_callable_get_return_type (G_TYPE_CHECK_INSTANCE_TYPE (_tmp20_, VALA_TYPE_CALLABLE) ? ((ValaCallable*) _tmp20_) : NULL);
+					_tmp22_ = _tmp21_;
+					_tmp23_ = vala_data_type_get_data_type (_tmp22_);
+					_tmp24_ = _tmp23_;
+					_tmp25_ = _vala_code_node_ref0 (_tmp24_);
+					_vala_code_node_unref0 (type_symbol);
+					type_symbol = _tmp25_;
+				} else {
+					ValaSymbol* _tmp26_;
+					_tmp26_ = self->priv->current_symbol;
+					if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp26_, VALA_TYPE_OBJECT_TYPE_SYMBOL)) {
+						ValaSymbol* _tmp27_;
+						ValaObjectType* _tmp28_;
+						ValaObjectType* _tmp29_;
+						ValaTypeSymbol* _tmp30_;
+						ValaTypeSymbol* _tmp31_;
+						ValaTypeSymbol* _tmp32_;
+						_tmp27_ = self->priv->current_symbol;
+						_tmp28_ = vala_object_type_symbol_get_this_type (G_TYPE_CHECK_INSTANCE_TYPE (_tmp27_, VALA_TYPE_OBJECT_TYPE_SYMBOL) ? ((ValaObjectTypeSymbol*) _tmp27_) : NULL);
+						_tmp29_ = _tmp28_;
+						_tmp30_ = vala_data_type_get_data_type ((ValaDataType*) _tmp29_);
+						_tmp31_ = _tmp30_;
+						_tmp32_ = _vala_code_node_ref0 (_tmp31_);
+						_vala_code_node_unref0 (type_symbol);
+						type_symbol = _tmp32_;
+						_vala_code_node_unref0 (_tmp29_);
+					}
 				}
-#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				return;
-#line 233 "completion_provider.c"
 			}
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp3_ = self->priv->_symbol_match;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp4_ = vala_variable_get_variable_type (G_TYPE_CHECK_INSTANCE_TYPE (_tmp3_, VALA_TYPE_VARIABLE) ? ((ValaVariable*) _tmp3_) : NULL);
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp5_ = _tmp4_;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp6_ = vala_data_type_get_return_type (_tmp5_);
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			type_symbol = _tmp6_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp7_ = type_symbol;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp8_ = vala_code_node_to_string ((ValaCodeNode*) _tmp7_);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp9_ = _tmp8_;
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			g_print ("%s\n", _tmp9_);
-#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_g_free0 (_tmp9_);
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp10_ = type_symbol;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp10_, VALA_TYPE_CLASS)) {
-#line 259 "completion_provider.c"
-				ValaClass* klass = NULL;
-				ValaDataType* _tmp11_;
-				ValaClass* _tmp12_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp11_ = type_symbol;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp12_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp11_, VALA_TYPE_CLASS, ValaClass));
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				klass = _tmp12_;
-#line 269 "completion_provider.c"
-				{
-					ValaList* _s_list = NULL;
-					ValaClass* _tmp13_;
-					ValaList* _tmp14_;
-					gint _s_size = 0;
-					ValaList* _tmp15_;
-					gint _tmp16_;
-					gint _tmp17_;
-					gint _s_index = 0;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp13_ = klass;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp14_ = vala_object_type_symbol_get_enums ((ValaObjectTypeSymbol*) _tmp13_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp14_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp15_ = _s_list;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp16_ = vala_collection_get_size ((ValaCollection*) _tmp15_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp17_ = _tmp16_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp17_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 297 "completion_provider.c"
-						ValaEnum* s = NULL;
-						ValaList* _tmp18_;
-						gpointer _tmp19_;
-						GtkSourceCompletionItem* item = NULL;
-						GtkSourceCompletionItem* _tmp20_;
-						GtkSourceCompletionItem* _tmp21_;
-						ValaEnum* _tmp22_;
-						const gchar* _tmp23_;
-						const gchar* _tmp24_;
-						GtkSourceCompletionItem* _tmp25_;
-						GtkSourceCompletionItem* _tmp26_;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 315 "completion_provider.c"
-						}
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp18_ = _s_list;
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp19_ = vala_list_get (_tmp18_, _s_index);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaEnum*) _tmp19_;
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp20_ = gtk_source_completion_item_new2 ();
-#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						item = _tmp20_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp21_ = item;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp22_ = s;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp23_ = vala_symbol_get_name ((ValaSymbol*) _tmp22_);
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp24_ = _tmp23_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						g_object_set (_tmp21_, "label", _tmp24_, NULL);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp25_ = item;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp26_ = _g_object_ref0 (_tmp25_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						self->priv->proposals = g_list_append (self->priv->proposals, _tmp26_);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_g_object_unref0 (item);
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 347 "completion_provider.c"
+		}
+		while (TRUE) {
+			ValaTypeSymbol* _tmp33_;
+			ValaTypeSymbol* _tmp68_;
+			_tmp33_ = type_symbol;
+			if (!(_tmp33_ != NULL)) {
+				break;
+			}
+			{
+				ValaIterator* _sym_it = NULL;
+				ValaTypeSymbol* _tmp34_;
+				ValaScope* _tmp35_;
+				ValaScope* _tmp36_;
+				ValaMap* _tmp37_;
+				ValaMap* _tmp38_;
+				ValaCollection* _tmp39_;
+				ValaCollection* _tmp40_;
+				ValaIterator* _tmp41_;
+				ValaIterator* _tmp42_;
+				_tmp34_ = type_symbol;
+				_tmp35_ = vala_symbol_get_scope ((ValaSymbol*) _tmp34_);
+				_tmp36_ = _tmp35_;
+				_tmp37_ = vala_scope_get_symbol_table (_tmp36_);
+				_tmp38_ = _tmp37_;
+				_tmp39_ = vala_map_get_values (_tmp38_);
+				_tmp40_ = _tmp39_;
+				_tmp41_ = vala_iterable_iterator ((ValaIterable*) _tmp40_);
+				_tmp42_ = _tmp41_;
+				_vala_iterable_unref0 (_tmp40_);
+				_vala_map_unref0 (_tmp38_);
+				_sym_it = _tmp42_;
+				while (TRUE) {
+					ValaIterator* _tmp43_;
+					ValaSymbol* sym = NULL;
+					ValaIterator* _tmp44_;
+					gpointer _tmp45_;
+					gboolean _tmp46_ = FALSE;
+					ValaSymbol* _tmp47_;
+					ValaSymbolAccessibility _tmp48_;
+					ValaSymbolAccessibility _tmp49_;
+					_tmp43_ = _sym_it;
+					if (!vala_iterator_next (_tmp43_)) {
+						break;
 					}
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 351 "completion_provider.c"
-				}
-				{
-					ValaList* _s_list = NULL;
-					ValaClass* _tmp27_;
-					ValaList* _tmp28_;
-					gint _s_size = 0;
-					ValaList* _tmp29_;
-					gint _tmp30_;
-					gint _tmp31_;
-					gint _s_index = 0;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp27_ = klass;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp28_ = vala_object_type_symbol_get_structs ((ValaObjectTypeSymbol*) _tmp27_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp28_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp29_ = _s_list;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp30_ = vala_collection_get_size ((ValaCollection*) _tmp29_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp31_ = _tmp30_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp31_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 380 "completion_provider.c"
-						ValaStruct* s = NULL;
-						ValaList* _tmp32_;
-						gpointer _tmp33_;
-						GtkSourceCompletionItem* item = NULL;
-						GtkSourceCompletionItem* _tmp34_;
-						GtkSourceCompletionItem* _tmp35_;
-						ValaStruct* _tmp36_;
-						const gchar* _tmp37_;
-						const gchar* _tmp38_;
-						GtkSourceCompletionItem* _tmp39_;
-						GtkSourceCompletionItem* _tmp40_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 398 "completion_provider.c"
-						}
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp32_ = _s_list;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp33_ = vala_list_get (_tmp32_, _s_index);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaStruct*) _tmp33_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp34_ = gtk_source_completion_item_new2 ();
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						item = _tmp34_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp35_ = item;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp36_ = s;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp37_ = vala_symbol_get_name ((ValaSymbol*) _tmp36_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp38_ = _tmp37_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						g_object_set (_tmp35_, "label", _tmp38_, NULL);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp39_ = item;
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp40_ = _g_object_ref0 (_tmp39_);
-#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						self->priv->proposals = g_list_append (self->priv->proposals, _tmp40_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_g_object_unref0 (item);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 430 "completion_provider.c"
-					}
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 434 "completion_provider.c"
-				}
-				{
-					ValaList* _s_list = NULL;
-					ValaClass* _tmp41_;
-					ValaList* _tmp42_;
-					gint _s_size = 0;
-					ValaList* _tmp43_;
-					gint _tmp44_;
-					gint _tmp45_;
-					gint _s_index = 0;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp41_ = klass;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp42_ = vala_object_type_symbol_get_classes ((ValaObjectTypeSymbol*) _tmp41_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp42_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp43_ = _s_list;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp44_ = vala_collection_get_size ((ValaCollection*) _tmp43_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp45_ = _tmp44_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp45_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 463 "completion_provider.c"
-						ValaClass* s = NULL;
-						ValaList* _tmp46_;
-						gpointer _tmp47_;
-						GtkSourceCompletionItem* item = NULL;
-						GtkSourceCompletionItem* _tmp48_;
-						GtkSourceCompletionItem* _tmp49_;
-						ValaClass* _tmp50_;
+					_tmp44_ = _sym_it;
+					_tmp45_ = vala_iterator_get (_tmp44_);
+					sym = (ValaSymbol*) _tmp45_;
+					_tmp47_ = sym;
+					_tmp48_ = vala_symbol_get_access (_tmp47_);
+					_tmp49_ = _tmp48_;
+					if (_tmp49_ != VALA_SYMBOL_ACCESSIBILITY_PRIVATE) {
+						ValaSymbol* _tmp50_;
 						const gchar* _tmp51_;
 						const gchar* _tmp52_;
+						_tmp50_ = sym;
+						_tmp51_ = vala_symbol_get_name (_tmp50_);
+						_tmp52_ = _tmp51_;
+						_tmp46_ = g_strcmp0 (_tmp52_, ".new") != 0;
+					} else {
+						_tmp46_ = FALSE;
+					}
+					if (_tmp46_) {
+						GtkSourceCompletionItem* item = NULL;
 						GtkSourceCompletionItem* _tmp53_;
 						GtkSourceCompletionItem* _tmp54_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 481 "completion_provider.c"
-						}
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp46_ = _s_list;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp47_ = vala_list_get (_tmp46_, _s_index);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaClass*) _tmp47_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp48_ = gtk_source_completion_item_new2 ();
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						item = _tmp48_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp49_ = item;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp50_ = s;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp51_ = vala_symbol_get_name ((ValaSymbol*) _tmp50_);
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp52_ = _tmp51_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						g_object_set (_tmp49_, "label", _tmp52_, NULL);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp53_ = item;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp54_ = _g_object_ref0 (_tmp53_);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						self->priv->proposals = g_list_append (self->priv->proposals, _tmp54_);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+						ValaSymbol* _tmp55_;
+						const gchar* _tmp56_;
+						const gchar* _tmp57_;
+						GtkSourceCompletionItem* _tmp58_;
+						ValaSymbol* _tmp59_;
+						const gchar* _tmp60_;
+						const gchar* _tmp61_;
+						GtkSourceCompletionItem* _tmp62_;
+						ValaSymbol* _tmp63_;
+						gchar* _tmp64_;
+						gchar* _tmp65_;
+						GtkSourceCompletionItem* _tmp66_;
+						GtkSourceCompletionItem* _tmp67_;
+						_tmp53_ = gtk_source_completion_item_new2 ();
+						item = _tmp53_;
+						_tmp54_ = item;
+						_tmp55_ = sym;
+						_tmp56_ = vala_symbol_get_name (_tmp55_);
+						_tmp57_ = _tmp56_;
+						gtk_source_completion_item_set_label (_tmp54_, _tmp57_);
+						_tmp58_ = item;
+						_tmp59_ = sym;
+						_tmp60_ = vala_symbol_get_name (_tmp59_);
+						_tmp61_ = _tmp60_;
+						gtk_source_completion_item_set_text (_tmp58_, _tmp61_);
+						_tmp62_ = item;
+						_tmp63_ = sym;
+						_tmp64_ = vala_code_node_to_string ((ValaCodeNode*) _tmp63_);
+						_tmp65_ = _tmp64_;
+						gtk_source_completion_item_set_info (_tmp62_, _tmp65_);
+						_g_free0 (_tmp65_);
+						_tmp66_ = item;
+						_tmp67_ = _g_object_ref0 (_tmp66_);
+						self->priv->proposals = g_list_append (self->priv->proposals, _tmp67_);
 						_g_object_unref0 (item);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 513 "completion_provider.c"
 					}
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 517 "completion_provider.c"
+					_vala_code_node_unref0 (sym);
 				}
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_vala_code_node_unref0 (klass);
-#line 521 "completion_provider.c"
+				_vala_iterator_unref0 (_sym_it);
 			}
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp55_ = type_symbol;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp55_, VALA_TYPE_OBJECT_TYPE_SYMBOL)) {
-#line 527 "completion_provider.c"
-				ValaObjectTypeSymbol* objectTypeSymbol = NULL;
-				ValaDataType* _tmp56_;
-				ValaObjectTypeSymbol* _tmp57_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp56_ = type_symbol;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp57_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp56_, VALA_TYPE_OBJECT_TYPE_SYMBOL, ValaObjectTypeSymbol));
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				objectTypeSymbol = _tmp57_;
-#line 537 "completion_provider.c"
-				{
-					ValaList* _s_list = NULL;
-					ValaObjectTypeSymbol* _tmp58_;
-					ValaList* _tmp59_;
-					gint _s_size = 0;
-					ValaList* _tmp60_;
-					gint _tmp61_;
-					gint _tmp62_;
-					gint _s_index = 0;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp58_ = objectTypeSymbol;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp59_ = vala_object_type_symbol_get_properties (_tmp58_);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp59_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp60_ = _s_list;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp61_ = vala_collection_get_size ((ValaCollection*) _tmp60_);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp62_ = _tmp61_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp62_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 565 "completion_provider.c"
-						ValaProperty* s = NULL;
-						ValaList* _tmp63_;
-						gpointer _tmp64_;
-						ValaProperty* _tmp65_;
-						ValaPropertyAccessor* _tmp66_;
-						ValaPropertyAccessor* _tmp67_;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 578 "completion_provider.c"
-						}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp63_ = _s_list;
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp64_ = vala_list_get (_tmp63_, _s_index);
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaProperty*) _tmp64_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp65_ = s;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp66_ = vala_property_get_set_accessor (_tmp65_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp67_ = _tmp66_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (_tmp67_ != NULL) {
-#line 594 "completion_provider.c"
-							GtkSourceCompletionItem* item = NULL;
-							GtkSourceCompletionItem* _tmp68_;
-							GtkSourceCompletionItem* _tmp69_;
-							ValaProperty* _tmp70_;
-							const gchar* _tmp71_;
-							const gchar* _tmp72_;
-							GtkSourceCompletionItem* _tmp73_;
-							GtkSourceCompletionItem* _tmp74_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp68_ = gtk_source_completion_item_new2 ();
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							item = _tmp68_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp69_ = item;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp70_ = s;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp71_ = vala_symbol_get_name ((ValaSymbol*) _tmp70_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp72_ = _tmp71_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							g_object_set (_tmp69_, "label", _tmp72_, NULL);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp73_ = item;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_tmp74_ = _g_object_ref0 (_tmp73_);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							self->priv->proposals = g_list_append (self->priv->proposals, _tmp74_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							_g_object_unref0 (item);
-#line 625 "completion_provider.c"
-						}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 629 "completion_provider.c"
-					}
-#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 633 "completion_provider.c"
-				}
-				{
-					ValaList* _s_list = NULL;
-					ValaObjectTypeSymbol* _tmp75_;
-					ValaList* _tmp76_;
-					gint _s_size = 0;
-					ValaList* _tmp77_;
-					gint _tmp78_;
-					gint _tmp79_;
-					gint _s_index = 0;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp75_ = objectTypeSymbol;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp76_ = vala_object_type_symbol_get_methods (_tmp75_);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp76_;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp77_ = _s_list;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp78_ = vala_collection_get_size ((ValaCollection*) _tmp77_);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp79_ = _tmp78_;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp79_;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 662 "completion_provider.c"
-						ValaMethod* s = NULL;
-						ValaList* _tmp80_;
-						gpointer _tmp81_;
-						GtkSourceCompletionItem* item = NULL;
-						GtkSourceCompletionItem* _tmp82_;
-						GtkSourceCompletionItem* _tmp83_;
-						ValaMethod* _tmp84_;
-						const gchar* _tmp85_;
-						const gchar* _tmp86_;
-						GtkSourceCompletionItem* _tmp87_;
-						GtkSourceCompletionItem* _tmp88_;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 680 "completion_provider.c"
-						}
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp80_ = _s_list;
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp81_ = vala_list_get (_tmp80_, _s_index);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaMethod*) _tmp81_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp82_ = gtk_source_completion_item_new2 ();
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						item = _tmp82_;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp83_ = item;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp84_ = s;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp85_ = vala_symbol_get_name ((ValaSymbol*) _tmp84_);
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp86_ = _tmp85_;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						g_object_set (_tmp83_, "label", _tmp86_, NULL);
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp87_ = item;
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp88_ = _g_object_ref0 (_tmp87_);
-#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						self->priv->proposals = g_list_append (self->priv->proposals, _tmp88_);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_g_object_unref0 (item);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 712 "completion_provider.c"
-					}
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 716 "completion_provider.c"
-				}
-				{
-					ValaList* _s_list = NULL;
-					ValaObjectTypeSymbol* _tmp89_;
-					ValaList* _tmp90_;
-					gint _s_size = 0;
-					ValaList* _tmp91_;
-					gint _tmp92_;
-					gint _tmp93_;
-					gint _s_index = 0;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp89_ = objectTypeSymbol;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp90_ = vala_object_type_symbol_get_fields (_tmp89_);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_list = _tmp90_;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp91_ = _s_list;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp92_ = vala_collection_get_size ((ValaCollection*) _tmp91_);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_tmp93_ = _tmp92_;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_size = _tmp93_;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_s_index = -1;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					while (TRUE) {
-#line 745 "completion_provider.c"
-						ValaField* s = NULL;
-						ValaList* _tmp94_;
-						gpointer _tmp95_;
-						GtkSourceCompletionItem* item = NULL;
-						GtkSourceCompletionItem* _tmp96_;
-						GtkSourceCompletionItem* _tmp97_;
-						ValaField* _tmp98_;
-						const gchar* _tmp99_;
-						const gchar* _tmp100_;
-						GtkSourceCompletionItem* _tmp101_;
-						GtkSourceCompletionItem* _tmp102_;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_s_index = _s_index + 1;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						if (!(_s_index < _s_size)) {
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-							break;
-#line 763 "completion_provider.c"
-						}
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp94_ = _s_list;
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp95_ = vala_list_get (_tmp94_, _s_index);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						s = (ValaField*) _tmp95_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp96_ = gtk_source_completion_item_new2 ();
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						item = _tmp96_;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp97_ = item;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp98_ = s;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp99_ = vala_symbol_get_name ((ValaSymbol*) _tmp98_);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp100_ = _tmp99_;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						g_object_set (_tmp97_, "label", _tmp100_, NULL);
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp101_ = item;
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_tmp102_ = _g_object_ref0 (_tmp101_);
-#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						self->priv->proposals = g_list_append (self->priv->proposals, _tmp102_);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_g_object_unref0 (item);
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-						_vala_code_node_unref0 (s);
-#line 795 "completion_provider.c"
-					}
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-					_vala_iterable_unref0 (_s_list);
-#line 799 "completion_provider.c"
-				}
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_vala_code_node_unref0 (objectTypeSymbol);
-#line 803 "completion_provider.c"
+			_tmp68_ = type_symbol;
+			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp68_, VALA_TYPE_CLASS)) {
+				ValaTypeSymbol* _tmp69_;
+				ValaClass* _tmp70_;
+				ValaClass* _tmp71_;
+				ValaObjectType* _tmp72_;
+				ValaObjectType* _tmp73_;
+				ValaTypeSymbol* _tmp74_;
+				ValaTypeSymbol* _tmp75_;
+				ValaTypeSymbol* _tmp76_;
+				_tmp69_ = type_symbol;
+				_tmp70_ = vala_class_get_base_class (G_TYPE_CHECK_INSTANCE_TYPE (_tmp69_, VALA_TYPE_CLASS) ? ((ValaClass*) _tmp69_) : NULL);
+				_tmp71_ = _tmp70_;
+				_tmp72_ = vala_object_type_symbol_get_this_type ((ValaObjectTypeSymbol*) _tmp71_);
+				_tmp73_ = _tmp72_;
+				_tmp74_ = vala_data_type_get_data_type ((ValaDataType*) _tmp73_);
+				_tmp75_ = _tmp74_;
+				_tmp76_ = _vala_code_node_ref0 (_tmp75_);
+				_vala_code_node_unref0 (type_symbol);
+				type_symbol = _tmp76_;
+				_vala_code_node_unref0 (_tmp73_);
+			} else {
+				_vala_code_node_unref0 (type_symbol);
+				type_symbol = NULL;
 			}
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_vala_code_node_unref0 (type_symbol);
-#line 807 "completion_provider.c"
 		}
-		__finally23:
-		{
-			ValaSymbol* _tmp103_;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp103_ = self->priv->_symbol_match;
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			g_rec_mutex_unlock (&self->priv->__lock__symbol_match);
-#line 816 "completion_provider.c"
-		}
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			g_clear_error (&_inner_error0_);
-#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			return;
-#line 826 "completion_provider.c"
-		}
+		_vala_code_node_unref0 (type_symbol);
 	}
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp104_ = self->priv->proposals;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	gtk_source_completion_context_add_proposals (context, (GtkSourceCompletionProvider*) self, _tmp104_, TRUE);
-#line 833 "completion_provider.c"
+	_tmp77_ = self->priv->proposals;
+	gtk_source_completion_context_add_proposals (context, (GtkSourceCompletionProvider*) self, _tmp77_, TRUE);
 }
 
 static gchar*
@@ -839,19 +431,12 @@ g_unichar_to_string (gunichar self)
 	gchar* str = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
-#line 1019 "glib-2.0.vapi"
 	_tmp0_ = g_new0 (gchar, 7);
-#line 1019 "glib-2.0.vapi"
 	str = (gchar*) _tmp0_;
-#line 1020 "glib-2.0.vapi"
 	_tmp1_ = str;
-#line 1020 "glib-2.0.vapi"
 	g_unichar_to_utf8 (self, _tmp1_);
-#line 1021 "glib-2.0.vapi"
 	result = str;
-#line 1021 "glib-2.0.vapi"
 	return result;
-#line 855 "completion_provider.c"
 }
 
 static gchar*
@@ -861,21 +446,13 @@ string_strip (const gchar* self)
 	gchar* _result_ = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
-#line 1307 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1308 "glib-2.0.vapi"
 	_tmp0_ = g_strdup (self);
-#line 1308 "glib-2.0.vapi"
 	_result_ = _tmp0_;
-#line 1309 "glib-2.0.vapi"
 	_tmp1_ = _result_;
-#line 1309 "glib-2.0.vapi"
 	g_strstrip (_tmp1_);
-#line 1310 "glib-2.0.vapi"
 	result = _result_;
-#line 1310 "glib-2.0.vapi"
 	return result;
-#line 879 "completion_provider.c"
 }
 
 static gboolean
@@ -890,436 +467,311 @@ vala_develop_vala_completion_provider_real_match (GtkSourceCompletionProvider* b
 	gchar* _tmp2_;
 	gchar* _tmp3_;
 	gboolean _tmp4_;
-	gchar* word = NULL;
-	gchar* _tmp5_;
-	const gchar* _tmp11_;
-	gchar* _tmp12_;
-	gchar* _tmp13_;
-	const gchar* _tmp14_;
-	gchar* _tmp15_;
-	gchar* _tmp16_;
-	gboolean _tmp17_;
 	GError* _inner_error0_ = NULL;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self = (valaDevelopValaCompletionProvider*) base;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_return_val_if_fail (context != NULL, FALSE);
-#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	result = FALSE;
+	return result;
 	self->priv->c = 0;
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_object_get (context, "iter", &_tmp0_, NULL);
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_tmp1_ = _tmp0_;
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	currentIter = *_tmp1_;
-#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	gtk_text_iter_backward_char (&currentIter);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_tmp2_ = g_unichar_to_string (gtk_text_iter_get_char (&currentIter));
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_tmp3_ = _tmp2_;
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp4_ = g_strcmp0 (_tmp3_, ".") != 0;
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	_tmp4_ = g_strcmp0 (_tmp3_, ".") == 0;
 	_g_free0 (_tmp3_);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	if (_tmp4_) {
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		result = FALSE;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		return result;
-#line 932 "completion_provider.c"
-	}
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp5_ = g_strdup ("");
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	word = _tmp5_;
-#line 938 "completion_provider.c"
-	{
-		gchar* _tmp6_;
-		gchar* _tmp7_;
-		GtkTextBuffer* _tmp8_;
-		gchar* _tmp9_;
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp6_ = g_unichar_to_string (gtk_text_iter_get_char (&currentIter));
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp7_ = _tmp6_;
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_print ("[ITER]%s %d,%d\n", _tmp7_, gtk_text_iter_get_line (&currentIter), gtk_text_iter_get_line_offset (&currentIter));
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_free0 (_tmp7_);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		gtk_text_iter_backward_char (&currentIter);
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp8_ = gtk_text_iter_get_buffer (&currentIter);
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp9_ = vala_develop_globals_get_word_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, gtk_source_buffer_get_type (), GtkSourceBuffer), &currentIter);
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_free0 (word);
-#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		word = _tmp9_;
-#line 962 "completion_provider.c"
-	}
-	goto __finally24;
-	__catch24_g_error:
-	{
-		GError* e = NULL;
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		e = _inner_error0_;
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_inner_error0_ = NULL;
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		result = FALSE;
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_error_free0 (e);
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_free0 (word);
-#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		return result;
-#line 980 "completion_provider.c"
-	}
-	__finally24:
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 985 "completion_provider.c"
-		gboolean _tmp10_ = FALSE;
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_free0 (word);
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_clear_error (&_inner_error0_);
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		return _tmp10_;
-#line 995 "completion_provider.c"
-	}
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp11_ = word;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp12_ = string_strip (_tmp11_);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp13_ = _tmp12_;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_print ("[WORD] \"%s\"\n", _tmp13_);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_g_free0 (_tmp13_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp14_ = word;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp15_ = string_strip (_tmp14_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp16_ = _tmp15_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp17_ = g_strcmp0 (_tmp16_, "") == 0;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_g_free0 (_tmp16_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	if (_tmp17_) {
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		result = FALSE;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_free0 (word);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		return result;
-#line 1025 "completion_provider.c"
-	}
-	{
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_vala_code_node_unref0 (self->priv->_symbol_match);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		self->priv->_symbol_match = NULL;
-#line 1032 "completion_provider.c"
+		gchar* word = NULL;
+		gchar* _tmp5_;
+		const gchar* _tmp11_;
+		gchar* _tmp12_;
+		gchar* _tmp13_;
+		gboolean _tmp14_;
+		_tmp5_ = g_strdup ("");
+		word = _tmp5_;
 		{
-			ValaSymbol* _tmp18_;
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			_tmp18_ = self->priv->_symbol_match;
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			g_rec_mutex_lock (&self->priv->__lock__symbol_match);
-#line 1039 "completion_provider.c"
-			{
-				valaDevelopSymbolFinder* _tmp19_;
-				const gchar* _tmp20_;
-				gchar* _tmp21_;
-				gchar* _tmp22_;
-				const gchar* _tmp23_;
-				GtkTextBuffer* _tmp24_;
-				gchar* _tmp25_;
-				gchar* _tmp26_;
-				ValaSymbol* _tmp27_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp19_ = self->priv->_symbol_finder;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp20_ = word;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp21_ = string_strip (_tmp20_);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp22_ = _tmp21_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp23_ = self->priv->_fullpath;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp24_ = gtk_text_iter_get_buffer (&currentIter);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp25_ = vala_develop_globals_get_text_from_buffer ((GtkTextBuffer*) G_TYPE_CHECK_INSTANCE_CAST (_tmp24_, gtk_source_buffer_get_type (), GtkSourceBuffer), TRUE);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp26_ = _tmp25_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp27_ = vala_develop_symbol_finder_find_symbol_by_name (_tmp19_, _tmp22_, _tmp23_, _tmp26_, gtk_text_iter_get_line (&currentIter) + 1, gtk_text_iter_get_line_offset (&currentIter));
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_vala_code_node_unref0 (self->priv->_symbol_match);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				self->priv->_symbol_match = _tmp27_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_g_free0 (_tmp26_);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_g_free0 (_tmp22_);
-#line 1076 "completion_provider.c"
-			}
-			__finally26:
-			{
-				ValaSymbol* _tmp28_;
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				_tmp28_ = self->priv->_symbol_match;
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-				g_rec_mutex_unlock (&self->priv->__lock__symbol_match);
-#line 1085 "completion_provider.c"
-			}
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1089 "completion_provider.c"
-				goto __catch25_g_error;
-			}
+			gchar* _tmp6_;
+			gchar* _tmp7_;
+			GtkTextBuffer* _tmp8_;
+			gchar* _tmp9_;
+			_tmp6_ = g_unichar_to_string (gtk_text_iter_get_char (&currentIter));
+			_tmp7_ = _tmp6_;
+			g_print ("[ITER]%s %d,%d\n", _tmp7_, gtk_text_iter_get_line (&currentIter), gtk_text_iter_get_line_offset (&currentIter));
+			_g_free0 (_tmp7_);
+			gtk_text_iter_backward_char (&currentIter);
+			_tmp8_ = gtk_text_iter_get_buffer (&currentIter);
+			_tmp9_ = vala_develop_globals_get_word_at_iter (G_TYPE_CHECK_INSTANCE_CAST (_tmp8_, gtk_source_buffer_get_type (), GtkSourceBuffer), &currentIter);
+			_g_free0 (word);
+			word = _tmp9_;
 		}
-	}
-	goto __finally25;
-	__catch25_g_error:
-	{
-		GError* e = NULL;
-		GError* _tmp29_;
-		const gchar* _tmp30_;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		e = _inner_error0_;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_inner_error0_ = NULL;
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp29_ = e;
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_tmp30_ = _tmp29_->message;
-#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_log (NULL, G_LOG_LEVEL_ERROR, "completion_provider.vala:114: %s", _tmp30_);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		_g_error_free0 (e);
-#line 1112 "completion_provider.c"
-	}
-	__finally25:
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1117 "completion_provider.c"
-		gboolean _tmp31_ = FALSE;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+		goto __finally24;
+		__catch24_g_error:
+		{
+			GError* e = NULL;
+			e = _inner_error0_;
+			_inner_error0_ = NULL;
+			result = FALSE;
+			_g_error_free0 (e);
+			_g_free0 (word);
+			return result;
+		}
+		__finally24:
+		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+			gboolean _tmp10_ = FALSE;
+			_g_free0 (word);
+			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+			g_clear_error (&_inner_error0_);
+			return _tmp10_;
+		}
+		_tmp11_ = word;
+		_tmp12_ = string_strip (_tmp11_);
+		_tmp13_ = _tmp12_;
+		_tmp14_ = g_strcmp0 (_tmp13_, "") == 0;
+		_g_free0 (_tmp13_);
+		if (_tmp14_) {
+			result = FALSE;
+			_g_free0 (word);
+			return result;
+		}
+		{
+			GtkSourceSearchSettings* searchSettings = NULL;
+			GtkSourceSearchSettings* _tmp15_;
+			GtkSourceSearchSettings* _tmp16_;
+			GtkSourceSearchSettings* _tmp17_;
+			const gchar* _tmp18_;
+			GtkSourceSearchContext* searchContext = NULL;
+			GtkTextIter* _tmp19_;
+			GtkTextIter* _tmp20_;
+			GtkTextBuffer* _tmp21_;
+			GtkSourceSearchSettings* _tmp22_;
+			GtkSourceSearchContext* _tmp23_;
+			GtkSourceSearchContext* _tmp24_;
+			GtkTextIter matchStart = {0};
+			GtkTextIter matchEnd = {0};
+			gboolean wrapped = FALSE;
+			GtkTextIter iter = {0};
+			GtkTextIter* _tmp25_;
+			GtkTextIter* _tmp26_;
+			const gchar* _tmp27_;
+			gint _tmp28_;
+			gint _tmp29_;
+			GtkSourceSearchContext* _tmp30_;
+			GtkTextIter _tmp31_;
+			GtkTextIter _tmp32_ = {0};
+			GtkTextIter _tmp33_ = {0};
+			gboolean _tmp34_ = FALSE;
+			gboolean _tmp35_;
+			_tmp15_ = gtk_source_search_settings_new ();
+			searchSettings = _tmp15_;
+			_tmp16_ = searchSettings;
+			gtk_source_search_settings_set_wrap_around (_tmp16_, FALSE);
+			_tmp17_ = searchSettings;
+			_tmp18_ = word;
+			gtk_source_search_settings_set_search_text (_tmp17_, _tmp18_);
+			g_object_get (context, "iter", &_tmp19_, NULL);
+			_tmp20_ = _tmp19_;
+			_tmp21_ = gtk_text_iter_get_buffer (_tmp20_);
+			_tmp22_ = searchSettings;
+			_tmp23_ = gtk_source_search_context_new (G_TYPE_CHECK_INSTANCE_CAST (_tmp21_, gtk_source_buffer_get_type (), GtkSourceBuffer), _tmp22_);
+			searchContext = _tmp23_;
+			_tmp24_ = searchContext;
+			gtk_source_search_context_set_highlight (_tmp24_, FALSE);
+			g_object_get (context, "iter", &_tmp25_, NULL);
+			_tmp26_ = _tmp25_;
+			iter = *_tmp26_;
+			_tmp27_ = word;
+			_tmp28_ = strlen (_tmp27_);
+			_tmp29_ = _tmp28_;
+			gtk_text_iter_backward_chars (&iter, _tmp29_);
+			_tmp30_ = searchContext;
+			_tmp31_ = iter;
+			_tmp35_ = gtk_source_search_context_backward2 (_tmp30_, &_tmp31_, &_tmp32_, &_tmp33_, &_tmp34_);
+			matchStart = _tmp32_;
+			matchEnd = _tmp33_;
+			wrapped = _tmp34_;
+			if (_tmp35_) {
+				valaDevelopSymbolFinder* _tmp36_;
+				valaDevelopSymbolFinder* _tmp42_;
+				const gchar* _tmp43_;
+				const gchar* _tmp44_;
+				GtkTextBuffer* _tmp45_;
+				gchar* _tmp46_;
+				gchar* _tmp47_;
+				ValaSymbol* _tmp48_;
+				ValaSymbol* _tmp49_;
+				_tmp36_ = self->priv->_symbol_finder;
+				if (_tmp36_->need_update) {
+					valaDevelopSymbolFinder* _tmp37_;
+					const gchar* _tmp38_;
+					GtkTextBuffer* _tmp39_;
+					gchar* _tmp40_;
+					gchar* _tmp41_;
+					_tmp37_ = self->priv->_symbol_finder;
+					_tmp38_ = self->priv->_fullpath;
+					_tmp39_ = gtk_text_iter_get_buffer (&matchStart);
+					_tmp40_ = vala_develop_globals_get_text_from_buffer (_tmp39_, TRUE);
+					_tmp41_ = _tmp40_;
+					vala_develop_symbol_finder_Update (_tmp37_, _tmp38_, _tmp41_);
+					_g_free0 (_tmp41_);
+				}
+				_tmp42_ = self->priv->_symbol_finder;
+				_tmp43_ = word;
+				_tmp44_ = self->priv->_fullpath;
+				_tmp45_ = gtk_text_iter_get_buffer (&matchStart);
+				_tmp46_ = vala_develop_globals_get_text_from_buffer (_tmp45_, TRUE);
+				_tmp47_ = _tmp46_;
+				_tmp48_ = vala_develop_symbol_finder_find_symbol_by_name (_tmp42_, _tmp43_, _tmp44_, _tmp47_, gtk_text_iter_get_line (&matchStart) + 1, gtk_text_iter_get_line_offset (&matchStart));
+				_vala_code_node_unref0 (self->priv->current_symbol);
+				self->priv->current_symbol = _tmp48_;
+				_g_free0 (_tmp47_);
+				_tmp49_ = self->priv->current_symbol;
+				if (_tmp49_ != NULL) {
+					const gchar* _tmp50_;
+					_tmp50_ = word;
+					g_print ("[WORD match] '%s' %d,%d\n", _tmp50_, gtk_text_iter_get_line (&matchStart) + 1, gtk_text_iter_get_line_offset (&matchStart));
+					result = TRUE;
+					_g_object_unref0 (searchContext);
+					_g_object_unref0 (searchSettings);
+					_g_free0 (word);
+					return result;
+				}
+			} else {
+				valaDevelopSymbolFinder* _tmp51_;
+				const gchar* _tmp52_;
+				const gchar* _tmp53_;
+				GtkTextIter* _tmp54_;
+				GtkTextIter* _tmp55_;
+				GtkTextBuffer* _tmp56_;
+				gchar* _tmp57_;
+				gchar* _tmp58_;
+				ValaSymbol* _tmp59_;
+				ValaSymbol* _tmp60_;
+				_tmp51_ = self->priv->_symbol_finder;
+				_tmp52_ = word;
+				_tmp53_ = self->priv->_fullpath;
+				g_object_get (context, "iter", &_tmp54_, NULL);
+				_tmp55_ = _tmp54_;
+				_tmp56_ = gtk_text_iter_get_buffer (_tmp55_);
+				_tmp57_ = vala_develop_globals_get_text_from_buffer (_tmp56_, TRUE);
+				_tmp58_ = _tmp57_;
+				_tmp59_ = vala_develop_symbol_finder_find_symbol_by_name (_tmp51_, _tmp52_, _tmp53_, _tmp58_, 0, 0);
+				_vala_code_node_unref0 (self->priv->current_symbol);
+				self->priv->current_symbol = _tmp59_;
+				_g_free0 (_tmp58_);
+				_tmp60_ = self->priv->current_symbol;
+				if (_tmp60_ != NULL) {
+					const gchar* _tmp61_;
+					_tmp61_ = word;
+					g_print ("[WORD match] '%s' %d,%d\n", _tmp61_, 0, 0);
+					result = TRUE;
+					_g_object_unref0 (searchContext);
+					_g_object_unref0 (searchSettings);
+					_g_free0 (word);
+					return result;
+				}
+			}
+			_g_object_unref0 (searchContext);
+			_g_object_unref0 (searchSettings);
+		}
+		goto __finally25;
+		__catch25_g_error:
+		{
+			GError* e = NULL;
+			GError* _tmp62_;
+			const gchar* _tmp63_;
+			e = _inner_error0_;
+			_inner_error0_ = NULL;
+			_tmp62_ = e;
+			_tmp63_ = _tmp62_->message;
+			g_log (NULL, G_LOG_LEVEL_ERROR, "completion_provider.vala:124: %s", _tmp63_);
+			_g_error_free0 (e);
+		}
+		__finally25:
+		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+			gboolean _tmp64_ = FALSE;
+			_g_free0 (word);
+			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+			g_clear_error (&_inner_error0_);
+			return _tmp64_;
+		}
 		_g_free0 (word);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		g_clear_error (&_inner_error0_);
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-		return _tmp31_;
-#line 1127 "completion_provider.c"
 	}
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	result = TRUE;
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_g_free0 (word);
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	return result;
-#line 1135 "completion_provider.c"
-}
-
-static GIcon*
-vala_develop_vala_completion_provider_real_get_gicon (GtkSourceCompletionProvider* base)
-{
-	valaDevelopValaCompletionProvider * self;
-	GIcon* result = NULL;
-#line 118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	self = (valaDevelopValaCompletionProvider*) base;
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = NULL;
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1149 "completion_provider.c"
-}
-
-static const gchar*
-vala_develop_vala_completion_provider_real_get_icon_name (GtkSourceCompletionProvider* base)
-{
-	valaDevelopValaCompletionProvider * self;
-	const gchar* result = NULL;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	self = (valaDevelopValaCompletionProvider*) base;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = NULL;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1163 "completion_provider.c"
-}
-
-gchar*
-vala_develop_vala_completion_provider_get_info (valaDevelopValaCompletionProvider* self)
-{
-	gchar* result = NULL;
-	gchar* _tmp0_;
-#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_return_val_if_fail (self != NULL, NULL);
-#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp0_ = g_strdup ("blablablabla");
-#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = _tmp0_;
-#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1179 "completion_provider.c"
-}
-
-gchar*
-vala_develop_vala_completion_provider_get_label (valaDevelopValaCompletionProvider* self)
-{
-	gchar* result = NULL;
-	gchar* _tmp0_;
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_return_val_if_fail (self != NULL, NULL);
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp0_ = g_strdup ("blablabla");
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = _tmp0_;
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1195 "completion_provider.c"
-}
-
-gchar*
-vala_develop_vala_completion_provider_get_markup (valaDevelopValaCompletionProvider* self)
-{
-	gchar* result = NULL;
-	gchar* _tmp0_;
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_return_val_if_fail (self != NULL, NULL);
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp0_ = g_strdup ("blabla");
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = _tmp0_;
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1211 "completion_provider.c"
-}
-
-gchar*
-vala_develop_vala_completion_provider_get_text (valaDevelopValaCompletionProvider* self)
-{
-	gchar* result = NULL;
-	gchar* _tmp0_;
-#line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_return_val_if_fail (self != NULL, NULL);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_tmp0_ = g_strdup ("bla");
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = _tmp0_;
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	return result;
-#line 1227 "completion_provider.c"
 }
 
 static gint
-vala_develop_vala_completion_provider_real_get_interactive_delay (GtkSourceCompletionProvider* base)
+vala_develop_vala_completion_provider_real_get_priority (GtkSourceCompletionProvider* base)
 {
 	valaDevelopValaCompletionProvider * self;
 	gint result = 0;
-#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self = (valaDevelopValaCompletionProvider*) base;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = 250;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	result = 1;
 	return result;
-#line 1241 "completion_provider.c"
 }
 
-static GtkSourceCompletionActivation
-vala_develop_vala_completion_provider_real_get_activation (GtkSourceCompletionProvider* base)
+static GdkPixbuf*
+vala_develop_vala_completion_provider_real_get_icon (GtkSourceCompletionProvider* base)
 {
 	valaDevelopValaCompletionProvider * self;
-	GtkSourceCompletionActivation result = 0U;
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	GdkPixbuf* result = NULL;
 	self = (valaDevelopValaCompletionProvider*) base;
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	result = GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE | GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED;
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	result = NULL;
 	return result;
-#line 1255 "completion_provider.c"
+}
+
+static gchar*
+vala_develop_vala_completion_provider_real_get_name (GtkSourceCompletionProvider* base)
+{
+	valaDevelopValaCompletionProvider * self;
+	gchar* result = NULL;
+	gchar* _tmp0_;
+	self = (valaDevelopValaCompletionProvider*) base;
+	_tmp0_ = g_strdup ("valaDevelopCompletionProvider");
+	result = _tmp0_;
+	return result;
 }
 
 static void
 vala_develop_vala_completion_provider_class_init (valaDevelopValaCompletionProviderClass * klass,
                                                   gpointer klass_data)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	vala_develop_vala_completion_provider_parent_class = g_type_class_peek_parent (klass);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopValaCompletionProvider_private_offset);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_vala_completion_provider_finalize;
-#line 1268 "completion_provider.c"
 }
 
 static void
 vala_develop_vala_completion_provider_gtk_source_completion_provider_interface_init (GtkSourceCompletionProviderIface * iface,
                                                                                      gpointer iface_data)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	vala_develop_vala_completion_provider_gtk_source_completion_provider_parent_iface = g_type_interface_peek_parent (iface);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	iface->populate = (void (*) (GtkSourceCompletionProvider*, GtkSourceCompletionContext*)) vala_develop_vala_completion_provider_real_populate;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	iface->match = (gboolean (*) (GtkSourceCompletionProvider*, GtkSourceCompletionContext*)) vala_develop_vala_completion_provider_real_match;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	iface->get_gicon = (GIcon* (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_gicon;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	iface->get_icon_name = (const gchar* (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_icon_name;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	iface->get_interactive_delay = (gint (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_interactive_delay;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	iface->get_activation = (GtkSourceCompletionActivation (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_activation;
-#line 1289 "completion_provider.c"
+	iface->get_priority = (gint (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_priority;
+	iface->get_icon = (GdkPixbuf* (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_icon;
+	iface->get_name = (gchar* (*) (GtkSourceCompletionProvider*)) vala_develop_vala_completion_provider_real_get_name;
 }
 
 static void
 vala_develop_vala_completion_provider_instance_init (valaDevelopValaCompletionProvider * self,
                                                      gpointer klass)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self->priv = vala_develop_vala_completion_provider_get_instance_private (self);
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_rec_mutex_init (&self->priv->__lock__symbol_match);
-#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self->priv->c = 0;
-#line 1302 "completion_provider.c"
 }
 
 static void
 vala_develop_vala_completion_provider_finalize (GObject * obj)
 {
 	valaDevelopValaCompletionProvider * self;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_VALA_COMPLETION_PROVIDER, valaDevelopValaCompletionProvider);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_g_object_unref0 (self->priv->_symbol_finder);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	_g_free0 (self->priv->_fullpath);
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	g_rec_mutex_clear (&self->priv->__lock__symbol_match);
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
-	_vala_code_node_unref0 (self->priv->_symbol_match);
-#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
+	_vala_code_node_unref0 (self->priv->current_symbol);
 	(self->priv->proposals == NULL) ? NULL : (self->priv->proposals = (_g_list_free__g_object_unref0_ (self->priv->proposals), NULL));
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/completion_provider.vala"
 	G_OBJECT_CLASS (vala_develop_vala_completion_provider_parent_class)->finalize (obj);
-#line 1323 "completion_provider.c"
 }
 
 GType

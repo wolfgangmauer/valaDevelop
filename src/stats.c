@@ -59,21 +59,15 @@ valaDevelopSSysStats*
 vala_develop_ssys_stats_dup (const valaDevelopSSysStats* self)
 {
 	valaDevelopSSysStats* dup;
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	dup = g_new0 (valaDevelopSSysStats, 1);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	memcpy (dup, self, sizeof (valaDevelopSSysStats));
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	return dup;
-#line 69 "stats.c"
 }
 
 void
 vala_develop_ssys_stats_free (valaDevelopSSysStats* self)
 {
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	g_free (self);
-#line 77 "stats.c"
 }
 
 GType
@@ -102,19 +96,12 @@ _vala_array_add21 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if ((*length) == (*size)) {
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 112 "stats.c"
 	}
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[(*length)++] = value;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[*length] = NULL;
-#line 118 "stats.c"
 }
 
 static void
@@ -123,19 +110,12 @@ _vala_array_add22 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if ((*length) == (*size)) {
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 133 "stats.c"
 	}
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[(*length)++] = value;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[*length] = NULL;
-#line 139 "stats.c"
 }
 
 static void
@@ -144,19 +124,12 @@ _vala_array_add23 (gchar** * array,
                    int* size,
                    gchar* value)
 {
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if ((*length) == (*size)) {
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*size = (*size) ? (2 * (*size)) : 4;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		*array = g_renew (gchar*, *array, (*size) + 1);
-#line 154 "stats.c"
 	}
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[(*length)++] = value;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	(*array)[*length] = NULL;
-#line 160 "stats.c"
 }
 
 static glong
@@ -167,28 +140,17 @@ string_strnlen (gchar* str,
 	gchar* end = NULL;
 	gchar* _tmp0_;
 	gchar* _tmp1_;
-#line 1395 "glib-2.0.vapi"
 	_tmp0_ = memchr (str, 0, (gsize) maxlen);
-#line 1395 "glib-2.0.vapi"
 	end = _tmp0_;
-#line 1396 "glib-2.0.vapi"
 	_tmp1_ = end;
-#line 1396 "glib-2.0.vapi"
 	if (_tmp1_ == NULL) {
-#line 1397 "glib-2.0.vapi"
 		result = maxlen;
-#line 1397 "glib-2.0.vapi"
 		return result;
-#line 183 "stats.c"
 	} else {
 		gchar* _tmp2_;
-#line 1399 "glib-2.0.vapi"
 		_tmp2_ = end;
-#line 1399 "glib-2.0.vapi"
 		result = (glong) (_tmp2_ - str);
-#line 1399 "glib-2.0.vapi"
 		return result;
-#line 192 "stats.c"
 	}
 }
 
@@ -201,61 +163,34 @@ string_substring (const gchar* self,
 	glong string_length = 0L;
 	gboolean _tmp0_ = FALSE;
 	gchar* _tmp3_;
-#line 1406 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1408 "glib-2.0.vapi"
 	if (offset >= ((glong) 0)) {
-#line 1408 "glib-2.0.vapi"
 		_tmp0_ = len >= ((glong) 0);
-#line 211 "stats.c"
 	} else {
-#line 1408 "glib-2.0.vapi"
 		_tmp0_ = FALSE;
-#line 215 "stats.c"
 	}
-#line 1408 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 1410 "glib-2.0.vapi"
 		string_length = string_strnlen ((gchar*) self, offset + len);
-#line 221 "stats.c"
 	} else {
 		gint _tmp1_;
 		gint _tmp2_;
-#line 1412 "glib-2.0.vapi"
 		_tmp1_ = strlen (self);
-#line 1412 "glib-2.0.vapi"
 		_tmp2_ = _tmp1_;
-#line 1412 "glib-2.0.vapi"
 		string_length = (glong) _tmp2_;
-#line 231 "stats.c"
 	}
-#line 1415 "glib-2.0.vapi"
 	if (offset < ((glong) 0)) {
-#line 1416 "glib-2.0.vapi"
 		offset = string_length + offset;
-#line 1417 "glib-2.0.vapi"
 		g_return_val_if_fail (offset >= ((glong) 0), NULL);
-#line 239 "stats.c"
 	} else {
-#line 1419 "glib-2.0.vapi"
 		g_return_val_if_fail (offset <= string_length, NULL);
-#line 243 "stats.c"
 	}
-#line 1421 "glib-2.0.vapi"
 	if (len < ((glong) 0)) {
-#line 1422 "glib-2.0.vapi"
 		len = string_length - offset;
-#line 249 "stats.c"
 	}
-#line 1424 "glib-2.0.vapi"
 	g_return_val_if_fail ((offset + len) <= string_length, NULL);
-#line 1425 "glib-2.0.vapi"
 	_tmp3_ = g_strndup (((gchar*) self) + offset, (gsize) len);
-#line 1425 "glib-2.0.vapi"
 	result = _tmp3_;
-#line 1425 "glib-2.0.vapi"
 	return result;
-#line 259 "stats.c"
 }
 
 static gint
@@ -267,31 +202,18 @@ string_index_of_char (const gchar* self,
 	gchar* _result_ = NULL;
 	gchar* _tmp0_;
 	gchar* _tmp1_;
-#line 1101 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, 0);
-#line 1102 "glib-2.0.vapi"
 	_tmp0_ = g_utf8_strchr (((gchar*) self) + start_index, (gssize) -1, c);
-#line 1102 "glib-2.0.vapi"
 	_result_ = _tmp0_;
-#line 1104 "glib-2.0.vapi"
 	_tmp1_ = _result_;
-#line 1104 "glib-2.0.vapi"
 	if (_tmp1_ != NULL) {
-#line 281 "stats.c"
 		gchar* _tmp2_;
-#line 1105 "glib-2.0.vapi"
 		_tmp2_ = _result_;
-#line 1105 "glib-2.0.vapi"
 		result = (gint) (_tmp2_ - ((gchar*) self));
-#line 1105 "glib-2.0.vapi"
 		return result;
-#line 289 "stats.c"
 	} else {
-#line 1107 "glib-2.0.vapi"
 		result = -1;
-#line 1107 "glib-2.0.vapi"
 		return result;
-#line 295 "stats.c"
 	}
 }
 
@@ -302,21 +224,13 @@ string_chug (const gchar* self)
 	gchar* _result_ = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
-#line 1299 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1300 "glib-2.0.vapi"
 	_tmp0_ = g_strdup (self);
-#line 1300 "glib-2.0.vapi"
 	_result_ = _tmp0_;
-#line 1301 "glib-2.0.vapi"
 	_tmp1_ = _result_;
-#line 1301 "glib-2.0.vapi"
 	g_strchug (_tmp1_);
-#line 1302 "glib-2.0.vapi"
 	result = _result_;
-#line 1302 "glib-2.0.vapi"
 	return result;
-#line 320 "stats.c"
 }
 
 void
@@ -326,9 +240,7 @@ vala_develop_GetSysStats (GPid pid,
 {
 	valaDevelopSSysStats inf = {0};
 	valaDevelopSSysStats _tmp0_ = {0};
-#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	static const guint pageSizeK = 4U;
-#line 332 "stats.c"
 	gchar* _tmp1_ = NULL;
 	gchar* procDir = NULL;
 	gchar* _tmp4_;
@@ -337,66 +249,36 @@ vala_develop_GetSysStats (GPid pid,
 	gchar* _tmp7_;
 	gboolean _tmp8_;
 	GError* _inner_error0_ = NULL;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.priv = (guint) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.shared = (guint) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.privPlusShared = (guint) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.total = (guint) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.used = (guint) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.cpuTotal = (guint64) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.cpuUsed = (guint64) 0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.loadAvg1 = 0.0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.loadAvg5 = 0.0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp0_.loadAvg15 = 0.0;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	inf = _tmp0_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if (pid == ((GPid) -1)) {
-#line 365 "stats.c"
 		gchar* _tmp2_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_tmp2_ = g_strdup ("/proc/self/");
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_g_free0 (_tmp1_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_tmp1_ = _tmp2_;
-#line 373 "stats.c"
 	} else {
 		gchar* _tmp3_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_tmp3_ = g_strdup_printf ("/proc/%lld/", pid);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_g_free0 (_tmp1_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		_tmp1_ = _tmp3_;
-#line 382 "stats.c"
 	}
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp4_ = g_strdup (_tmp1_);
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	procDir = _tmp4_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp5_ = procDir;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp6_ = g_strconcat (_tmp5_, "smaps", NULL);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp7_ = _tmp6_;
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_tmp8_ = g_file_test (_tmp7_, G_FILE_TEST_EXISTS);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_g_free0 (_tmp7_);
-#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if (_tmp8_) {
-#line 400 "stats.c"
 		{
 			GFile* file = NULL;
 			const gchar* _tmp9_;
@@ -435,391 +317,227 @@ vala_develop_GetSysStats (GPid pid,
 			gint _tmp56__length1;
 			valaDevelopSSysStats _tmp57_;
 			valaDevelopSSysStats _tmp58_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp9_ = procDir;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp10_ = g_strconcat (_tmp9_, "smaps", NULL);
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp11_ = _tmp10_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp12_ = g_file_new_for_path (_tmp11_);
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp13_ = _tmp12_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (_tmp11_);
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			file = _tmp13_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp15_ = file;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp16_ = g_file_read (_tmp15_, NULL, &_inner_error0_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp14_ = _tmp16_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_object_unref0 (file);
-#line 463 "stats.c"
 				goto __catch64_g_error;
 			}
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp17_ = g_data_input_stream_new ((GInputStream*) _tmp14_);
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			dis = _tmp17_;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp18_ = g_new0 (gchar*, 0 + 1);
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			priLines = _tmp18_;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			priLines_length1 = 0;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_priLines_size_ = priLines_length1;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp19_ = g_new0 (gchar*, 0 + 1);
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shaLines = _tmp19_;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shaLines_length1 = 0;
-#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_shaLines_size_ = shaLines_length1;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp20_ = g_new0 (gchar*, 0 + 1);
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			pssLines = _tmp20_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			pssLines_length1 = 0;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_pssLines_size_ = pssLines_length1;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			while (TRUE) {
-#line 496 "stats.c"
 				gchar* _tmp21_ = NULL;
 				GDataInputStream* _tmp22_;
 				gchar* _tmp23_;
 				gchar* _tmp24_;
 				const gchar* _tmp25_;
 				const gchar* _tmp26_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp22_ = dis;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp23_ = g_data_input_stream_read_line (_tmp22_, NULL, NULL, &_inner_error0_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp21_ = _tmp23_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					pssLines = (_vala_array_free (pssLines, pssLines_length1, (GDestroyNotify) g_free), NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					shaLines = (_vala_array_free (shaLines, shaLines_length1, (GDestroyNotify) g_free), NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					priLines = (_vala_array_free (priLines, priLines_length1, (GDestroyNotify) g_free), NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (line);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_object_unref0 (dis);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_object_unref0 (_tmp14_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_object_unref0 (file);
-#line 525 "stats.c"
 					goto __catch64_g_error;
 				}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp24_ = _tmp21_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp21_ = NULL;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (line);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				line = _tmp24_;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp25_ = line;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (!(_tmp25_ != NULL)) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (_tmp21_);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					break;
-#line 544 "stats.c"
 				}
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp26_ = line;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (g_str_has_prefix (_tmp26_, "Shared")) {
-#line 550 "stats.c"
 					gchar** _tmp27_;
 					gint _tmp27__length1;
 					const gchar* _tmp28_;
 					gchar* _tmp29_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp27_ = shaLines;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp27__length1 = shaLines_length1;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp28_ = line;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp29_ = g_strdup (_tmp28_);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_vala_array_add21 (&shaLines, &shaLines_length1, &_shaLines_size_, _tmp29_);
-#line 565 "stats.c"
 				} else {
 					const gchar* _tmp30_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp30_ = line;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					if (g_str_has_prefix (_tmp30_, "Private")) {
-#line 572 "stats.c"
 						gchar** _tmp31_;
 						gint _tmp31__length1;
 						const gchar* _tmp32_;
 						gchar* _tmp33_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp31_ = priLines;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp31__length1 = priLines_length1;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp32_ = line;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp33_ = g_strdup (_tmp32_);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_vala_array_add22 (&priLines, &priLines_length1, &_priLines_size_, _tmp33_);
-#line 587 "stats.c"
 					} else {
 						const gchar* _tmp34_;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp34_ = line;
-#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						if (g_str_has_prefix (_tmp34_, "Pss")) {
-#line 594 "stats.c"
 							gchar** _tmp35_;
 							gint _tmp35__length1;
 							const gchar* _tmp36_;
 							gchar* _tmp37_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp35_ = pssLines;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp35__length1 = pssLines_length1;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp36_ = line;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp37_ = g_strdup (_tmp36_);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_vala_array_add23 (&pssLines, &pssLines_length1, &_pssLines_size_, _tmp37_);
-#line 609 "stats.c"
 						}
 					}
 				}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (_tmp21_);
-#line 615 "stats.c"
 			}
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			priKb = (guint) 0;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shaKb = (guint) 0;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			pssKb = (guint) 0;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp38_ = priLines;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp38__length1 = priLines_length1;
-#line 627 "stats.c"
 			{
 				gchar** str_collection = NULL;
 				gint str_collection_length1 = 0;
 				gint _str_collection_size_ = 0;
 				gint str_it = 0;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection = _tmp38_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection_length1 = _tmp38__length1;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				for (str_it = 0; str_it < _tmp38__length1; str_it = str_it + 1) {
-#line 639 "stats.c"
 					gchar* _tmp39_;
 					gchar* str = NULL;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp39_ = g_strdup (str_collection[str_it]);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					str = _tmp39_;
-#line 646 "stats.c"
 					{
 						const gchar* _tmp40_;
 						const gchar* _tmp41_;
 						gchar* _tmp42_;
 						gchar* _tmp43_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp40_ = str;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp41_ = str;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp42_ = string_substring (_tmp40_, (glong) (string_index_of_char (_tmp41_, (gunichar) ':', 0) + 1), (glong) -1);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp43_ = _tmp42_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						priKb += (guint) atoi (_tmp43_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (_tmp43_);
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (str);
-#line 666 "stats.c"
 					}
 				}
 			}
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp44_ = shaLines;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp44__length1 = shaLines_length1;
-#line 674 "stats.c"
 			{
 				gchar** str_collection = NULL;
 				gint str_collection_length1 = 0;
 				gint _str_collection_size_ = 0;
 				gint str_it = 0;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection = _tmp44_;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection_length1 = _tmp44__length1;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				for (str_it = 0; str_it < _tmp44__length1; str_it = str_it + 1) {
-#line 686 "stats.c"
 					gchar* _tmp45_;
 					gchar* str = NULL;
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp45_ = g_strdup (str_collection[str_it]);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					str = _tmp45_;
-#line 693 "stats.c"
 					{
 						const gchar* _tmp46_;
 						const gchar* _tmp47_;
 						gchar* _tmp48_;
 						gchar* _tmp49_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp46_ = str;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp47_ = str;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp48_ = string_substring (_tmp46_, (glong) (string_index_of_char (_tmp47_, (gunichar) ':', 0) + 1), (glong) -1);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp49_ = _tmp48_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						shaKb += (guint) atoi (_tmp49_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (_tmp49_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (str);
-#line 713 "stats.c"
 					}
 				}
 			}
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp50_ = pssLines;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp50__length1 = pssLines_length1;
-#line 721 "stats.c"
 			{
 				gchar** str_collection = NULL;
 				gint str_collection_length1 = 0;
 				gint _str_collection_size_ = 0;
 				gint str_it = 0;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection = _tmp50_;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				str_collection_length1 = _tmp50__length1;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				for (str_it = 0; str_it < _tmp50__length1; str_it = str_it + 1) {
-#line 733 "stats.c"
 					gchar* _tmp51_;
 					gchar* str = NULL;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp51_ = g_strdup (str_collection[str_it]);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					str = _tmp51_;
-#line 740 "stats.c"
 					{
 						const gchar* _tmp52_;
 						const gchar* _tmp53_;
 						gchar* _tmp54_;
 						gchar* _tmp55_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp52_ = str;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp53_ = str;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp54_ = string_substring (_tmp52_, (glong) (string_index_of_char (_tmp53_, (gunichar) ':', 0) + 1), (glong) -1);
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp55_ = _tmp54_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						pssKb += (guint) atoi (_tmp55_);
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (_tmp55_);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_g_free0 (str);
-#line 760 "stats.c"
 					}
 				}
 			}
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp56_ = pssLines;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp56__length1 = pssLines_length1;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			pssKb += (guint) ((_tmp56__length1 * 5) / 10);
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shaKb = pssKb - priKb;
-#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.priv = priKb;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.shared = shaKb;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp57_ = inf;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp58_ = inf;
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.privPlusShared = _tmp57_.priv + _tmp58_.shared;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			pssLines = (_vala_array_free (pssLines, pssLines_length1, (GDestroyNotify) g_free), NULL);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shaLines = (_vala_array_free (shaLines, shaLines_length1, (GDestroyNotify) g_free), NULL);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			priLines = (_vala_array_free (priLines, priLines_length1, (GDestroyNotify) g_free), NULL);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (line);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_object_unref0 (dis);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_object_unref0 (_tmp14_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_object_unref0 (file);
-#line 796 "stats.c"
 		}
 		goto __finally64;
 		__catch64_g_error:
 		{
 			GError* err = NULL;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			err = _inner_error0_;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_inner_error0_ = NULL;
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_error_free0 (err);
-#line 808 "stats.c"
 		}
 		__finally64:
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (procDir);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (_tmp1_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_clear_error (&_inner_error0_);
-#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			return;
-#line 823 "stats.c"
 		}
 	} else {
 		{
@@ -844,126 +562,70 @@ vala_develop_GetSysStats (GPid pid,
 			const gchar* _tmp69_;
 			valaDevelopSSysStats _tmp70_;
 			valaDevelopSSysStats _tmp71_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp59_ = procDir;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp60_ = g_strconcat (_tmp59_, "statm", NULL);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp61_ = _tmp60_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_file_get_contents (_tmp61_, &_tmp62_, NULL, &_inner_error0_);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (content);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			content = _tmp62_;
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (_tmp61_);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (content);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (_inner_error0_->domain == G_FILE_ERROR) {
-#line 868 "stats.c"
 					goto __catch65_g_file_error;
 				}
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (content);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (procDir);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (_tmp1_);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				g_clear_error (&_inner_error0_);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				return;
-#line 883 "stats.c"
 			}
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp63_ = content;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp65_ = _tmp64_ = g_strsplit (_tmp63_, " ", 0);
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			infStrArr = _tmp65_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			infStrArr_length1 = _vala_array_length (_tmp64_);
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_infStrArr_size_ = infStrArr_length1;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp66_ = infStrArr;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp66__length1 = infStrArr_length1;
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp67_ = _tmp66_[1];
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			rss = ((guint) atoi (_tmp67_)) * pageSizeK;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp68_ = infStrArr;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp68__length1 = infStrArr_length1;
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp69_ = _tmp68_[2];
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			shared = ((guint) atoi (_tmp69_)) * pageSizeK;
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.priv = rss - shared;
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.shared = shared;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp70_ = inf;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp71_ = inf;
-#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			inf.privPlusShared = _tmp70_.priv + _tmp71_.shared;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			infStrArr = (_vala_array_free (infStrArr, infStrArr_length1, (GDestroyNotify) g_free), NULL);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (content);
-#line 925 "stats.c"
 		}
 		goto __finally65;
 		__catch65_g_file_error:
 		{
 			GError* err = NULL;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			err = _inner_error0_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_inner_error0_ = NULL;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_error_free0 (err);
-#line 937 "stats.c"
 		}
 		__finally65:
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (procDir);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (_tmp1_);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_clear_error (&_inner_error0_);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			return;
-#line 952 "stats.c"
 		}
 	}
-#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	if (totalStats) {
-#line 957 "stats.c"
 		{
 			gchar* memInf = NULL;
 			gchar* _tmp72_;
-#line 94 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_tmp72_ = g_strdup ("");
-#line 94 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			memInf = _tmp72_;
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			if (g_file_test ("/proc/meminfo", G_FILE_TEST_EXISTS)) {
-#line 967 "stats.c"
 				gint totalKB = 0;
 				gint freeKB = 0;
 				gint bufKB = 0;
@@ -978,66 +640,37 @@ vala_develop_GetSysStats (GPid pid,
 				gboolean _tmp109_ = FALSE;
 				gboolean _tmp110_ = FALSE;
 				gboolean _tmp111_ = FALSE;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				totalKB = -1;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				freeKB = -1;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				bufKB = -1;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				cacheKB = -1;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				g_file_get_contents ("/proc/meminfo", &_tmp73_, NULL, &_inner_error0_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_g_free0 (memInf);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				memInf = _tmp73_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (memInf);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					if (_inner_error0_->domain == G_FILE_ERROR) {
-#line 1002 "stats.c"
 						goto __catch66_g_file_error;
 					}
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (memInf);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (procDir);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_g_free0 (_tmp1_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					g_clear_error (&_inner_error0_);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					return;
-#line 1017 "stats.c"
 				}
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp74_ = memInf;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_tmp76_ = _tmp75_ = g_strsplit (_tmp74_, "\n", 0);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				lines = _tmp76_;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				lines_length1 = _vala_array_length (_tmp75_);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				_lines_size_ = lines_length1;
-#line 1029 "stats.c"
 				{
 					gint idx = 0;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					idx = 0;
-#line 1034 "stats.c"
 					{
 						gboolean _tmp77_ = FALSE;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						_tmp77_ = TRUE;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 						while (TRUE) {
-#line 1041 "stats.c"
 							gchar** _tmp79_;
 							gint _tmp79__length1;
 							gboolean _tmp80_ = FALSE;
@@ -1053,113 +686,61 @@ vala_develop_GetSysStats (GPid pid,
 							gint _tok_size_;
 							gchar** _tmp87_;
 							gint _tmp87__length1;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (!_tmp77_) {
-#line 1059 "stats.c"
 								gint _tmp78_;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp78_ = idx;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								idx = _tmp78_ + 1;
-#line 1065 "stats.c"
 							}
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp77_ = FALSE;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp79_ = lines;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp79__length1 = lines_length1;
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (!(idx < _tmp79__length1)) {
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								break;
-#line 1077 "stats.c"
 							}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (totalKB != -1) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp82_ = freeKB != -1;
-#line 1083 "stats.c"
 							} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp82_ = FALSE;
-#line 1087 "stats.c"
 							}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (_tmp82_) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp81_ = bufKB != -1;
-#line 1093 "stats.c"
 							} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp81_ = FALSE;
-#line 1097 "stats.c"
 							}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (_tmp81_) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp80_ = cacheKB != -1;
-#line 1103 "stats.c"
 							} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp80_ = FALSE;
-#line 1107 "stats.c"
 							}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (_tmp80_) {
-#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								break;
-#line 1113 "stats.c"
 							}
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp83_ = lines;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp83__length1 = lines_length1;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp84_ = _tmp83_[idx];
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp86_ = _tmp85_ = g_strsplit (_tmp84_, ":", 0);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							tok = _tmp86_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							tok_length1 = _vala_array_length (_tmp85_);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tok_size_ = tok_length1;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp87_ = tok;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							_tmp87__length1 = tok_length1;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							if (_tmp87__length1 == 2) {
-#line 1135 "stats.c"
 								gchar** _tmp88_;
 								gint _tmp88__length1;
 								const gchar* _tmp89_;
 								const gchar* _tmp90_;
 								GQuark _tmp92_ = 0U;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								static GQuark _tmp91_label0 = 0;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								static GQuark _tmp91_label1 = 0;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								static GQuark _tmp91_label2 = 0;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								static GQuark _tmp91_label3 = 0;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp88_ = tok;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp88__length1 = tok_length1;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp89_ = _tmp88_[0];
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp90_ = _tmp89_;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								_tmp92_ = (NULL == _tmp90_) ? 0 : g_quark_from_string (_tmp90_);
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 								if (_tmp92_ == ((0 != _tmp91_label0) ? _tmp91_label0 : (_tmp91_label0 = g_quark_from_static_string ("MemTotal")))) {
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 									switch (0) {
-#line 1163 "stats.c"
 										default:
 										{
 											gchar** _tmp93_;
@@ -1167,29 +748,18 @@ vala_develop_GetSysStats (GPid pid,
 											const gchar* _tmp94_;
 											gchar* _tmp95_;
 											gchar* _tmp96_;
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp93_ = tok;
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp93__length1 = tok_length1;
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp94_ = _tmp93_[1];
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp95_ = string_chug (_tmp94_);
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp96_ = _tmp95_;
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											totalKB = atoi (_tmp96_);
-#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_g_free0 (_tmp96_);
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											break;
-#line 1187 "stats.c"
 										}
 									}
 								} else if (_tmp92_ == ((0 != _tmp91_label1) ? _tmp91_label1 : (_tmp91_label1 = g_quark_from_static_string ("MemFree")))) {
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 									switch (0) {
-#line 1193 "stats.c"
 										default:
 										{
 											gchar** _tmp97_;
@@ -1197,29 +767,18 @@ vala_develop_GetSysStats (GPid pid,
 											const gchar* _tmp98_;
 											gchar* _tmp99_;
 											gchar* _tmp100_;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp97_ = tok;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp97__length1 = tok_length1;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp98_ = _tmp97_[1];
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp99_ = string_chug (_tmp98_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp100_ = _tmp99_;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											freeKB = atoi (_tmp100_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_g_free0 (_tmp100_);
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											break;
-#line 1217 "stats.c"
 										}
 									}
 								} else if (_tmp92_ == ((0 != _tmp91_label2) ? _tmp91_label2 : (_tmp91_label2 = g_quark_from_static_string ("Buffers")))) {
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 									switch (0) {
-#line 1223 "stats.c"
 										default:
 										{
 											gchar** _tmp101_;
@@ -1227,29 +786,18 @@ vala_develop_GetSysStats (GPid pid,
 											const gchar* _tmp102_;
 											gchar* _tmp103_;
 											gchar* _tmp104_;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp101_ = tok;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp101__length1 = tok_length1;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp102_ = _tmp101_[1];
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp103_ = string_chug (_tmp102_);
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp104_ = _tmp103_;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											bufKB = atoi (_tmp104_);
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_g_free0 (_tmp104_);
-#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											break;
-#line 1247 "stats.c"
 										}
 									}
 								} else if (_tmp92_ == ((0 != _tmp91_label3) ? _tmp91_label3 : (_tmp91_label3 = g_quark_from_static_string ("Cached")))) {
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 									switch (0) {
-#line 1253 "stats.c"
 										default:
 										{
 											gchar** _tmp105_;
@@ -1257,116 +805,66 @@ vala_develop_GetSysStats (GPid pid,
 											const gchar* _tmp106_;
 											gchar* _tmp107_;
 											gchar* _tmp108_;
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp105_ = tok;
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp105__length1 = tok_length1;
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp106_ = _tmp105_[1];
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp107_ = string_chug (_tmp106_);
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_tmp108_ = _tmp107_;
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											cacheKB = atoi (_tmp108_);
-#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											_g_free0 (_tmp108_);
-#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 											break;
-#line 1277 "stats.c"
 										}
 									}
 								}
 							}
-#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 							tok = (_vala_array_free (tok, tok_length1, (GDestroyNotify) g_free), NULL);
-#line 1284 "stats.c"
 						}
 					}
 				}
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (totalKB != -1) {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp111_ = freeKB != -1;
-#line 1292 "stats.c"
 				} else {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp111_ = FALSE;
-#line 1296 "stats.c"
 				}
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (_tmp111_) {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp110_ = bufKB != -1;
-#line 1302 "stats.c"
 				} else {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp110_ = FALSE;
-#line 1306 "stats.c"
 				}
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (_tmp110_) {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp109_ = cacheKB != -1;
-#line 1312 "stats.c"
 				} else {
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					_tmp109_ = FALSE;
-#line 1316 "stats.c"
 				}
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				if (_tmp109_) {
-#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					inf.total = (guint) totalKB;
-#line 133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 					inf.used = (guint) (((totalKB - freeKB) - bufKB) - cacheKB);
-#line 1324 "stats.c"
 				}
-#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 				lines = (_vala_array_free (lines, lines_length1, (GDestroyNotify) g_free), NULL);
-#line 1328 "stats.c"
 			}
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (memInf);
-#line 1332 "stats.c"
 		}
 		goto __finally66;
 		__catch66_g_file_error:
 		{
 			GError* err = NULL;
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			err = _inner_error0_;
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_inner_error0_ = NULL;
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_error_free0 (err);
-#line 1344 "stats.c"
 		}
 		__finally66:
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (procDir);
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			_g_free0 (_tmp1_);
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			g_clear_error (&_inner_error0_);
-#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 			return;
-#line 1359 "stats.c"
 		}
 	}
-#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	*result = inf;
-#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_g_free0 (procDir);
-#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	_g_free0 (_tmp1_);
-#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/stats.vala"
 	return;
-#line 1370 "stats.c"
 }
 
 static void

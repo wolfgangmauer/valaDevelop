@@ -36,247 +36,136 @@ gchar*
 vala_develop_overview_tree_columns_to_string (valaDevelopOverviewTreeColumns self)
 {
 	gchar* result = NULL;
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 	switch (self) {
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type:
-#line 44 "overview_tree_columns.c"
 		{
 			gchar* _tmp0_;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp0_ = g_strdup ("Type");
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp0_;
-#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 53 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name:
-#line 57 "overview_tree_columns.c"
 		{
 			gchar* _tmp1_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp1_ = g_strdup ("Name");
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp1_;
-#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 66 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Namespace:
-#line 70 "overview_tree_columns.c"
 		{
 			gchar* _tmp2_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp2_ = g_strdup ("Namespace");
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp2_;
-#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 79 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Pixbuf:
-#line 83 "overview_tree_columns.c"
 		{
 			gchar* _tmp3_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp3_ = g_strdup ("Pixbuf");
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp3_;
-#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 92 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path:
-#line 96 "overview_tree_columns.c"
 		{
 			gchar* _tmp4_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp4_ = g_strdup ("Path");
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp4_;
-#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 105 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildType:
-#line 109 "overview_tree_columns.c"
 		{
 			gchar* _tmp5_;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp5_ = g_strdup ("BuildType");
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp5_;
-#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 118 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_WithVapi:
-#line 122 "overview_tree_columns.c"
 		{
 			gchar* _tmp6_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp6_ = g_strdup ("WithVapi");
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp6_;
-#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 131 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_MimeType:
-#line 135 "overview_tree_columns.c"
 		{
 			gchar* _tmp7_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp7_ = g_strdup ("MimeType");
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp7_;
-#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 144 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceId:
-#line 148 "overview_tree_columns.c"
 		{
 			gchar* _tmp8_;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp8_ = g_strdup ("ResourceId");
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp8_;
-#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 157 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceCompress:
-#line 161 "overview_tree_columns.c"
 		{
 			gchar* _tmp9_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp9_ = g_strdup ("ResourceCompress");
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp9_;
-#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 170 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceStripBlanks:
-#line 174 "overview_tree_columns.c"
 		{
 			gchar* _tmp10_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp10_ = g_strdup ("ResourceStripBlanks");
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp10_;
-#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 183 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceAlias:
-#line 187 "overview_tree_columns.c"
 		{
 			gchar* _tmp11_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp11_ = g_strdup ("ResourceAlias");
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp11_;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 196 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Comment:
-#line 200 "overview_tree_columns.c"
 		{
 			gchar* _tmp12_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp12_ = g_strdup ("Comment");
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp12_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 209 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_CompilerOptions:
-#line 213 "overview_tree_columns.c"
 		{
 			gchar* _tmp13_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp13_ = g_strdup ("CompilerOptions");
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp13_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 222 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_OutputPath:
-#line 226 "overview_tree_columns.c"
 		{
 			gchar* _tmp14_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp14_ = g_strdup ("OutputPath");
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp14_;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 235 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildCommand:
-#line 239 "overview_tree_columns.c"
 		{
 			gchar* _tmp15_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp15_ = g_strdup ("BuildCommand");
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp15_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 248 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakCriticals:
-#line 252 "overview_tree_columns.c"
 		{
 			gchar* _tmp16_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp16_ = g_strdup ("DebugBreakCriticals");
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp16_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 261 "overview_tree_columns.c"
 		}
-#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 		case VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakWarnings:
-#line 265 "overview_tree_columns.c"
 		{
 			gchar* _tmp17_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			_tmp17_ = g_strdup ("DebugBreakWarnings");
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			result = _tmp17_;
-#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			return result;
-#line 274 "overview_tree_columns.c"
 		}
 		default:
 		{
-#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_columns.vala"
 			g_assert_not_reached ();
-#line 280 "overview_tree_columns.c"
 		}
 	}
 }

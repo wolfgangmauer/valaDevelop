@@ -408,7 +408,7 @@ static void block5_data_unref (void * _userdata_);
 valaDevelopBreakpointTable* vala_develop_breakpoint_table_new (void);
 valaDevelopBreakpointTable* vala_develop_breakpoint_table_construct (GType object_type);
 static JsonNode* _vala_JsonNode_copy (JsonNode* self);
-static void __lambda65_ (Block5Data* _data5_,
+static void __lambda66_ (Block5Data* _data5_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -420,7 +420,7 @@ void vala_develop_breakpoint_table_set_hdr (valaDevelopBreakpointTable* self,
                                             GList* value);
 static void _vala_develop_hdr_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_hdr_unref0_ (GList* self);
-static void ___lambda66_ (Block5Data* _data5_,
+static void ___lambda67_ (Block5Data* _data5_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
@@ -435,7 +435,7 @@ void vala_develop_hdr_set_col_name (valaDevelopHdr* self,
 void vala_develop_hdr_set_colhdr (valaDevelopHdr* self,
                                   const gchar* value);
 GList* vala_develop_breakpoint_table_get_hdr (valaDevelopBreakpointTable* self);
-static void ____lambda66__json_array_foreach (JsonArray* array,
+static void ____lambda67__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
@@ -443,17 +443,17 @@ void vala_develop_breakpoint_table_set_body (valaDevelopBreakpointTable* self,
                                              GList* value);
 static void _vala_develop_breakpoint_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_breakpoint_unref0_ (GList* self);
-static void ___lambda67_ (Block5Data* _data5_,
+static void ___lambda68_ (Block5Data* _data5_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
 valaDevelopBreakpoint* vala_develop_breakpoint_parse_object (JsonObject* obj);
 GList* vala_develop_breakpoint_table_get_body (valaDevelopBreakpointTable* self);
-static void ____lambda67__json_array_foreach (JsonArray* array,
+static void ____lambda68__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
-static void ___lambda65__json_object_foreach (JsonObject* object,
+static void ___lambda66__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -499,7 +499,7 @@ static Block6Data* block6_data_ref (Block6Data* _data6_);
 static void block6_data_unref (void * _userdata_);
 valaDevelopStopHit* vala_develop_stop_hit_new (void);
 valaDevelopStopHit* vala_develop_stop_hit_construct (GType object_type);
-static void __lambda63_ (Block6Data* _data6_,
+static void __lambda64_ (Block6Data* _data6_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -512,7 +512,7 @@ void vala_develop_stop_hit_set_stopped_threads (valaDevelopStopHit* self,
 valaDevelopStackFrame* vala_develop_stack_frame_parse (JsonObject* obj);
 void vala_develop_stop_hit_set_frame (valaDevelopStopHit* self,
                                       valaDevelopStackFrame* value);
-static void ___lambda63__json_object_foreach (JsonObject* object,
+static void ___lambda64__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -540,7 +540,7 @@ static Block7Data* block7_data_ref (Block7Data* _data7_);
 static void block7_data_unref (void * _userdata_);
 valaDevelopCallStack* vala_develop_call_stack_new (void);
 valaDevelopCallStack* vala_develop_call_stack_construct (GType object_type);
-static void __lambda56_ (Block7Data* _data7_,
+static void __lambda57_ (Block7Data* _data7_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -548,16 +548,16 @@ void vala_develop_call_stack_set_stack (valaDevelopCallStack* self,
                                         GList* value);
 static void _vala_develop_stack_frame_unref0_ (gpointer var);
 static inline void _g_list_free__vala_develop_stack_frame_unref0_ (GList* self);
-static void ___lambda57_ (Block7Data* _data7_,
+static void ___lambda58_ (Block7Data* _data7_,
                    JsonArray* array,
                    guint index_,
                    JsonNode* element);
 GList* vala_develop_call_stack_get_stack (valaDevelopCallStack* self);
-static void ____lambda57__json_array_foreach (JsonArray* array,
+static void ____lambda58__json_array_foreach (JsonArray* array,
                                        guint index_,
                                        JsonNode* element_node,
                                        gpointer self);
-static void ___lambda56__json_object_foreach (JsonObject* object,
+static void ___lambda57__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -641,7 +641,7 @@ static Block9Data* block9_data_ref (Block9Data* _data9_);
 static void block9_data_unref (void * _userdata_);
 valaDevelopBreakpointHit* vala_develop_breakpoint_hit_new (void);
 valaDevelopBreakpointHit* vala_develop_breakpoint_hit_construct (GType object_type);
-static void __lambda59_ (Block9Data* _data9_,
+static void __lambda60_ (Block9Data* _data9_,
                   JsonObject* object,
                   const gchar* member_name,
                   JsonNode* member_node);
@@ -657,7 +657,7 @@ void vala_develop_breakpoint_hit_set_stopped_threads (valaDevelopBreakpointHit* 
                                                       const gchar* value);
 void vala_develop_breakpoint_hit_set_core (valaDevelopBreakpointHit* self,
                                            gint value);
-static void ___lambda59__json_object_foreach (JsonObject* object,
+static void ___lambda60__json_object_foreach (JsonObject* object,
                                        const gchar* member_name,
                                        JsonNode* member_node,
                                        gpointer self);
@@ -748,43 +748,24 @@ string_replace (const gchar* self,
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
 	GError* _inner_error0_ = NULL;
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (old != NULL, NULL);
-#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (replacement != NULL, NULL);
-#line 1481 "glib-2.0.vapi"
 	if ((*((gchar*) self)) == '\0') {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
-#line 762 "breakpoint_hit.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
-#line 766 "breakpoint_hit.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
-#line 772 "breakpoint_hit.c"
 	} else {
-#line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
-#line 776 "breakpoint_hit.c"
 	}
-#line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
-#line 780 "breakpoint_hit.c"
 		gchar* _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
-#line 1482 "glib-2.0.vapi"
 		result = _tmp2_;
-#line 1482 "glib-2.0.vapi"
 		return result;
-#line 788 "breakpoint_hit.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -796,96 +777,54 @@ string_replace (const gchar* self,
 		GRegex* _tmp8_;
 		gchar* _tmp9_;
 		gchar* _tmp10_;
-#line 1485 "glib-2.0.vapi"
 		_tmp3_ = g_regex_escape_string (old, -1);
-#line 1485 "glib-2.0.vapi"
 		_tmp4_ = _tmp3_;
-#line 1485 "glib-2.0.vapi"
 		_tmp5_ = g_regex_new (_tmp4_, 0, 0, &_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 		_tmp6_ = _tmp5_;
-#line 1485 "glib-2.0.vapi"
 		_g_free0 (_tmp4_);
-#line 1485 "glib-2.0.vapi"
 		regex = _tmp6_;
-#line 1485 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 816 "breakpoint_hit.c"
-				goto __catch20_g_regex_error;
+				goto __catch21_g_regex_error;
 			}
-#line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1485 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1485 "glib-2.0.vapi"
 			return NULL;
-#line 825 "breakpoint_hit.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
-#line 1486 "glib-2.0.vapi"
 		_tmp9_ = g_regex_replace_literal (_tmp8_, self, (gssize) -1, 0, replacement, 0, &_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = _tmp9_;
-#line 1486 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 839 "breakpoint_hit.c"
-				goto __catch20_g_regex_error;
+				goto __catch21_g_regex_error;
 			}
-#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1486 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
-#line 1486 "glib-2.0.vapi"
 			return NULL;
-#line 850 "breakpoint_hit.c"
 		}
-#line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
-#line 1486 "glib-2.0.vapi"
 		_tmp7_ = NULL;
-#line 1486 "glib-2.0.vapi"
 		result = _tmp10_;
-#line 1486 "glib-2.0.vapi"
 		_g_free0 (_tmp7_);
-#line 1486 "glib-2.0.vapi"
 		_g_regex_unref0 (regex);
-#line 1486 "glib-2.0.vapi"
 		return result;
-#line 864 "breakpoint_hit.c"
 	}
-	goto __finally20;
-	__catch20_g_regex_error:
+	goto __finally21;
+	__catch21_g_regex_error:
 	{
 		GError* e = NULL;
-#line 1484 "glib-2.0.vapi"
 		e = _inner_error0_;
-#line 1484 "glib-2.0.vapi"
 		_inner_error0_ = NULL;
-#line 1488 "glib-2.0.vapi"
 		g_assert_not_reached ();
-#line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
-#line 878 "breakpoint_hit.c"
 	}
-	__finally20:
-#line 1484 "glib-2.0.vapi"
+	__finally21:
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 1484 "glib-2.0.vapi"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 1484 "glib-2.0.vapi"
 		g_clear_error (&_inner_error0_);
-#line 1484 "glib-2.0.vapi"
 		return NULL;
-#line 889 "breakpoint_hit.c"
 	}
 }
 
@@ -966,229 +905,117 @@ vala_develop_correct_json (const gchar* json)
 	gchar* _tmp69_;
 	gchar* _tmp70_;
 	gchar* _tmp71_;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = string_replace (json, "=", ":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = _tmp0_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = string_replace (_tmp1_, "-", "_");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _tmp2_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = string_replace (_tmp3_, "\"y\"", "true");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = _tmp4_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = string_replace (_tmp5_, "\"n\"", "false");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = _tmp6_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = string_replace (_tmp7_, "number:", "\"number\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = _tmp8_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = string_replace (_tmp9_, "type:", "\"type\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp11_ = _tmp10_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp12_ = string_replace (_tmp11_, "disp:", "\"disp\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp13_ = _tmp12_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp14_ = string_replace (_tmp13_, "enabled:", "\"enabled\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp15_ = _tmp14_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp16_ = string_replace (_tmp15_, "addr:", "\"addr\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp17_ = _tmp16_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp18_ = string_replace (_tmp17_, "func:", "\"func\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp19_ = _tmp18_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp20_ = string_replace (_tmp19_, "file:", "\"file\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp21_ = _tmp20_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp22_ = string_replace (_tmp21_, "fullname:", "\"fullname\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp23_ = _tmp22_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp24_ = string_replace (_tmp23_, "line:", "\"line\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp25_ = _tmp24_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp26_ = string_replace (_tmp25_, "thread_groups:", "\"thread_groups\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp27_ = _tmp26_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp28_ = string_replace (_tmp27_, "times:", "\"times\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp29_ = _tmp28_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp30_ = string_replace (_tmp29_, "nr_rows:", "\"nr_rows\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp31_ = _tmp30_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp32_ = string_replace (_tmp31_, "nr_cols:", "\"nr_cols\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp33_ = _tmp32_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp34_ = string_replace (_tmp33_, "colhdr:", "\"colhdr\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp35_ = _tmp34_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp36_ = string_replace (_tmp35_, "hdr:", "\"hdr\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp37_ = _tmp36_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp38_ = string_replace (_tmp37_, "width:", "\"width\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp39_ = _tmp38_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp40_ = string_replace (_tmp39_, "alignment:", "\"alignment\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp41_ = _tmp40_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp42_ = string_replace (_tmp41_, "col_name:", "\"col_name\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp43_ = _tmp42_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp44_ = string_replace (_tmp43_, "body:", "\"body\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp45_ = _tmp44_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp46_ = string_replace (_tmp45_, "original_location:", "\"original_location\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp47_ = _tmp46_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp48_ = string_replace (_tmp47_, "bkptno:", "\"bkptno\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp49_ = _tmp48_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp50_ = string_replace (_tmp49_, "bkpt:", "\"bkpt\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp51_ = _tmp50_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp52_ = string_replace (_tmp51_, "frame:", "\"frame\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp53_ = _tmp52_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp54_ = string_replace (_tmp53_, "args:", "\"args\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp55_ = _tmp54_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp56_ = string_replace (_tmp55_, "name:", "\"name\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp57_ = _tmp56_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp58_ = string_replace (_tmp57_, "value:", "\"value\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp59_ = _tmp58_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp60_ = string_replace (_tmp59_, "thread_id:", "\"thread_id\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp61_ = _tmp60_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp62_ = string_replace (_tmp61_, "stopped_threads:", "\"stopped_threads\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp63_ = _tmp62_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp64_ = string_replace (_tmp63_, "core:", "\"core\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp65_ = _tmp64_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp66_ = string_replace (_tmp65_, "stack:", "\"stack\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp67_ = _tmp66_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp68_ = string_replace (_tmp67_, "level:", "\"level\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp69_ = _tmp68_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp70_ = string_replace (_tmp69_, "from:", "\"from\":");
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp71_ = _tmp70_;
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp69_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp67_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp65_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp63_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp61_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp59_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp57_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp55_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp53_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp51_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp49_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp47_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp45_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp43_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp41_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp39_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp37_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp35_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp33_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp31_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp29_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp27_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp25_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp23_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp21_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp19_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp17_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp15_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp13_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp11_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp9_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp7_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp5_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp3_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp1_);
-#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	retVal = _tmp71_;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = retVal;
-#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1192 "breakpoint_hit.c"
 }
 
 static inline gpointer
@@ -1200,11 +1027,8 @@ vala_develop_breakpoint_table_get_instance_private (valaDevelopBreakpointTable* 
 static Block5Data*
 block5_data_ref (Block5Data* _data5_)
 {
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data5_->_ref_count_);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data5_;
-#line 1208 "breakpoint_hit.c"
 }
 
 static void
@@ -1212,66 +1036,50 @@ block5_data_unref (void * _userdata_)
 {
 	Block5Data* _data5_;
 	_data5_ = (Block5Data*) _userdata_;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data5_->_ref_count_)) {
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_breakpoint_table_unref0 (_data5_->retVal);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block5Data, _data5_);
-#line 1222 "breakpoint_hit.c"
 	}
 }
 
 static JsonNode*
 _vala_JsonNode_copy (JsonNode* self)
 {
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return g_boxed_copy (json_node_get_type (), self);
-#line 1231 "breakpoint_hit.c"
 }
 
 static gpointer
 __vala_JsonNode_copy0 (gpointer self)
 {
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? _vala_JsonNode_copy (self) : NULL;
-#line 1239 "breakpoint_hit.c"
 }
 
 static gpointer
 _json_object_ref0 (gpointer self)
 {
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? json_object_ref (self) : NULL;
-#line 1247 "breakpoint_hit.c"
 }
 
 static void
 _vala_develop_hdr_unref0_ (gpointer var)
 {
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	(var == NULL) ? NULL : (var = (vala_develop_hdr_unref (var), NULL));
-#line 1255 "breakpoint_hit.c"
 }
 
 static inline void
 _g_list_free__vala_develop_hdr_unref0_ (GList* self)
 {
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_list_free_full (self, (GDestroyNotify) _vala_develop_hdr_unref0_);
-#line 1263 "breakpoint_hit.c"
 }
 
 static gpointer
 _vala_develop_hdr_ref0 (gpointer self)
 {
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_hdr_ref (self) : NULL;
-#line 1271 "breakpoint_hit.c"
 }
 
 static void
-___lambda66_ (Block5Data* _data5_,
+___lambda67_ (Block5Data* _data5_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -1288,86 +1096,57 @@ ___lambda66_ (Block5Data* _data5_,
 	const gchar* _tmp8_;
 	GList* _tmp9_;
 	valaDevelopHdr* _tmp10_;
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (array != NULL);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (element != NULL);
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_hdr_new ();
-#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	fArgs = _tmp0_;
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = json_node_get_object (element);
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = json_object_get_string_member (_tmp1_, "width");
-#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_hdr_set_width (fArgs, atoi (_tmp2_));
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = json_node_get_object (element);
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = json_object_get_string_member (_tmp3_, "alignment");
-#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_hdr_set_alignment (fArgs, _tmp4_);
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = json_node_get_object (element);
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = json_object_get_string_member (_tmp5_, "col_name");
-#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_hdr_set_col_name (fArgs, _tmp6_);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = json_node_get_object (element);
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = json_object_get_string_member (_tmp7_, "colhdr");
-#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_hdr_set_colhdr (fArgs, _tmp8_);
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = _data5_->retVal->priv->_hdr;
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = _vala_develop_hdr_ref0 (fArgs);
-#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_table_set_hdr (_data5_->retVal, g_list_append (_tmp9_, _tmp10_));
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_hdr_unref0 (fArgs);
-#line 1332 "breakpoint_hit.c"
 }
 
 static void
-____lambda66__json_array_foreach (JsonArray* array,
+____lambda67__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda66_ (self, array, index_, element_node);
-#line 1343 "breakpoint_hit.c"
+	___lambda67_ (self, array, index_, element_node);
 }
 
 static void
 _vala_develop_breakpoint_unref0_ (gpointer var)
 {
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	(var == NULL) ? NULL : (var = (vala_develop_breakpoint_unref (var), NULL));
-#line 1351 "breakpoint_hit.c"
 }
 
 static inline void
 _g_list_free__vala_develop_breakpoint_unref0_ (GList* self)
 {
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_list_free_full (self, (GDestroyNotify) _vala_develop_breakpoint_unref0_);
-#line 1359 "breakpoint_hit.c"
 }
 
 static gpointer
 _vala_develop_breakpoint_ref0 (gpointer self)
 {
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_breakpoint_ref (self) : NULL;
-#line 1367 "breakpoint_hit.c"
 }
 
 static void
-___lambda67_ (Block5Data* _data5_,
+___lambda68_ (Block5Data* _data5_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -1377,171 +1156,113 @@ ___lambda67_ (Block5Data* _data5_,
 	valaDevelopBreakpoint* _tmp1_;
 	GList* _tmp2_;
 	valaDevelopBreakpoint* _tmp3_;
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (array != NULL);
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (element != NULL);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = json_node_get_object (element);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = vala_develop_breakpoint_parse_object (_tmp0_);
-#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	fArgs = _tmp1_;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = _data5_->retVal->priv->_body;
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _vala_develop_breakpoint_ref0 (fArgs);
-#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_table_set_body (_data5_->retVal, g_list_append (_tmp2_, _tmp3_));
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_breakpoint_unref0 (fArgs);
-#line 1399 "breakpoint_hit.c"
 }
 
 static void
-____lambda67__json_array_foreach (JsonArray* array,
+____lambda68__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda67_ (self, array, index_, element_node);
-#line 1410 "breakpoint_hit.c"
+	___lambda68_ (self, array, index_, element_node);
 }
 
 static void
-__lambda65_ (Block5Data* _data5_,
+__lambda66_ (Block5Data* _data5_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label1 = 0;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label2 = 0;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label3 = 0;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("nr_rows")))) {
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 1443 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp3_;
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = json_object_get_string_member (object, member_name);
-#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_table_set_nr_rows (_data5_->retVal, atoi (_tmp3_));
-#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 1453 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label1) ? _tmp1_label1 : (_tmp1_label1 = g_quark_from_static_string ("nr_cols")))) {
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 1459 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp4_;
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_string_member (object, member_name);
-#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_table_set_nr_cols (_data5_->retVal, atoi (_tmp4_));
-#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 1469 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label2) ? _tmp1_label2 : (_tmp1_label2 = g_quark_from_static_string ("hdr")))) {
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 1475 "breakpoint_hit.c"
 			default:
 			{
 				GList* _tmp5_;
 				JsonArray* _tmp6_;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp5_ = NULL;
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_table_set_hdr (_data5_->retVal, _tmp5_);
-#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				(_tmp5_ == NULL) ? NULL : (_tmp5_ = (_g_list_free__vala_develop_hdr_unref0_ (_tmp5_), NULL));
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = json_object_get_array_member (object, member_name);
-#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp6_, ____lambda66__json_array_foreach, _data5_);
-#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+				json_array_foreach_element (_tmp6_, ____lambda67__json_array_foreach, _data5_);
 				break;
-#line 1492 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label3) ? _tmp1_label3 : (_tmp1_label3 = g_quark_from_static_string ("body")))) {
-#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 1498 "breakpoint_hit.c"
 			default:
 			{
 				GList* _tmp7_;
 				JsonArray* _tmp8_;
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp7_ = NULL;
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_table_set_body (_data5_->retVal, _tmp7_);
-#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				(_tmp7_ == NULL) ? NULL : (_tmp7_ = (_g_list_free__vala_develop_breakpoint_unref0_ (_tmp7_), NULL));
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = json_object_get_array_member (object, member_name);
-#line 88 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp8_, ____lambda67__json_array_foreach, _data5_);
-#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+				json_array_foreach_element (_tmp8_, ____lambda68__json_array_foreach, _data5_);
 				break;
-#line 1515 "breakpoint_hit.c"
 			}
 		}
 	}
 }
 
 static void
-___lambda65__json_object_foreach (JsonObject* object,
+___lambda66__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda65_ (self, object, member_name, member_node);
-#line 1529 "breakpoint_hit.c"
+	__lambda66_ (self, object, member_name, member_node);
 }
 
 static gpointer
 _vala_develop_breakpoint_table_ref0 (gpointer self)
 {
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_breakpoint_table_ref (self) : NULL;
-#line 1537 "breakpoint_hit.c"
 }
 
 static void
 _vala_JsonNode_free (JsonNode* self)
 {
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_boxed_free (json_node_get_type (), self);
-#line 1545 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointTable*
@@ -1566,152 +1287,93 @@ vala_develop_breakpoint_table_parse (const gchar* json)
 	JsonObject* _tmp11_;
 	valaDevelopBreakpointTable* _tmp12_;
 	GError* _inner_error0_ = NULL;
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data5_ = g_slice_new0 (Block5Data);
-#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data5_->_ref_count_ = 1;
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_breakpoint_table_new ();
-#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data5_->retVal = _tmp0_;
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = json_parser_new ();
-#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	parser = _tmp1_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = string_replace (json, "bkpt=", "");
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _tmp2_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = vala_develop_correct_json (_tmp3_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = _tmp4_;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_parser_load_from_data (parser, _tmp5_, (gssize) -1, &_inner_error0_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp5_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp3_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_object_unref0 (parser);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		block5_data_unref (_data5_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_data5_ = NULL;
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return NULL;
-#line 1612 "breakpoint_hit.c"
 	}
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = json_parser_get_root (parser);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = __vala_JsonNode_copy0 (_tmp6_);
-#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	node = _tmp7_;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = node;
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = json_node_get_object (_tmp8_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = _json_object_ref0 (_tmp9_);
-#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	obj = _tmp10_;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp11_ = obj;
-#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp11_, ___lambda65__json_object_foreach, _data5_);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	json_object_foreach_member (_tmp11_, ___lambda66__json_object_foreach, _data5_);
 	_tmp12_ = _vala_develop_breakpoint_table_ref0 (_data5_->retVal);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp12_;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_json_object_unref0 (obj);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__vala_JsonNode_free0 (node);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_object_unref0 (parser);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block5_data_unref (_data5_);
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data5_ = NULL;
-#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1648 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointTable*
 vala_develop_breakpoint_table_construct (GType object_type)
 {
 	valaDevelopBreakpointTable* self = NULL;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopBreakpointTable*) g_type_create_instance (object_type);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 1659 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointTable*
 vala_develop_breakpoint_table_new (void)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_breakpoint_table_construct (VALA_DEVELOP_TYPE_BREAKPOINT_TABLE);
-#line 1667 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_table_get_nr_rows (valaDevelopBreakpointTable* self)
 {
 	gint result;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_nr_rows;
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1680 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_table_set_nr_rows (valaDevelopBreakpointTable* self,
                                            gint value)
 {
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_nr_rows = value;
-#line 1691 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_table_get_nr_cols (valaDevelopBreakpointTable* self)
 {
 	gint result;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_nr_cols;
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1704 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_table_set_nr_cols (valaDevelopBreakpointTable* self,
                                            gint value)
 {
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_nr_cols = value;
-#line 1715 "breakpoint_hit.c"
 }
 
 GList*
@@ -1719,26 +1381,18 @@ vala_develop_breakpoint_table_get_hdr (valaDevelopBreakpointTable* self)
 {
 	GList* result;
 	GList* _tmp0_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_hdr;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1731 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_table_set_hdr (valaDevelopBreakpointTable* self,
                                        GList* value)
 {
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_hdr = value;
-#line 1742 "breakpoint_hit.c"
 }
 
 GList*
@@ -1746,44 +1400,31 @@ vala_develop_breakpoint_table_get_body (valaDevelopBreakpointTable* self)
 {
 	GList* result;
 	GList* _tmp0_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_body;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 1758 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_table_set_body (valaDevelopBreakpointTable* self,
                                         GList* value)
 {
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_body = value;
-#line 1769 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_table_init (GValue* value)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 1777 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_table_free_value (GValue* value)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_table_unref (value->data[0].v_pointer);
-#line 1787 "breakpoint_hit.c"
 	}
 }
 
@@ -1791,24 +1432,17 @@ static void
 vala_develop_value_breakpoint_table_copy_value (const GValue* src_value,
                                                 GValue* dest_value)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_breakpoint_table_ref (src_value->data[0].v_pointer);
-#line 1799 "breakpoint_hit.c"
 	} else {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 1803 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_breakpoint_table_peek_pointer (const GValue* value)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 1812 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -1817,32 +1451,19 @@ vala_develop_value_breakpoint_table_collect_value (GValue* value,
                                                    GTypeCValue* collect_values,
                                                    guint collect_flags)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 1823 "breakpoint_hit.c"
 		valaDevelopBreakpointTable * object;
 		object = collect_values[0].v_pointer;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 1830 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 1834 "breakpoint_hit.c"
 		}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_breakpoint_table_ref (object);
-#line 1838 "breakpoint_hit.c"
 	} else {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 1842 "breakpoint_hit.c"
 	}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 1846 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -1853,29 +1474,17 @@ vala_develop_value_breakpoint_table_lcopy_value (const GValue* value,
 {
 	valaDevelopBreakpointTable ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 1861 "breakpoint_hit.c"
 	}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 1867 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 1871 "breakpoint_hit.c"
 	} else {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_breakpoint_table_ref (value->data[0].v_pointer);
-#line 1875 "breakpoint_hit.c"
 	}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 1879 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -1886,25 +1495,17 @@ vala_develop_param_spec_breakpoint_table (const gchar* name,
                                           GParamFlags flags)
 {
 	valaDevelopParamSpecBreakpointTable* spec;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE), NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 1898 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_breakpoint_table (const GValue* value)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE), NULL);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 1908 "breakpoint_hit.c"
 }
 
 void
@@ -1912,31 +1513,18 @@ vala_develop_value_set_breakpoint_table (GValue* value,
                                          gpointer v_object)
 {
 	valaDevelopBreakpointTable * old;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_table_ref (value->data[0].v_pointer);
-#line 1930 "breakpoint_hit.c"
 	} else {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 1934 "breakpoint_hit.c"
 	}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_table_unref (old);
-#line 1940 "breakpoint_hit.c"
 	}
 }
 
@@ -1945,29 +1533,17 @@ vala_develop_value_take_breakpoint_table (GValue* value,
                                           gpointer v_object)
 {
 	valaDevelopBreakpointTable * old;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 1961 "breakpoint_hit.c"
 	} else {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 1965 "breakpoint_hit.c"
 	}
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_table_unref (old);
-#line 1971 "breakpoint_hit.c"
 	}
 }
 
@@ -1975,35 +1551,25 @@ static void
 vala_develop_breakpoint_table_class_init (valaDevelopBreakpointTableClass * klass,
                                           gpointer klass_data)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_table_parent_class = g_type_class_peek_parent (klass);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopBreakpointTableClass *) klass)->finalize = vala_develop_breakpoint_table_finalize;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopBreakpointTable_private_offset);
-#line 1985 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_table_instance_init (valaDevelopBreakpointTable * self,
                                              gpointer klass)
 {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_breakpoint_table_get_instance_private (self);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 1996 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_table_finalize (valaDevelopBreakpointTable * obj)
 {
 	valaDevelopBreakpointTable * self;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_BREAKPOINT_TABLE, valaDevelopBreakpointTable);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 2007 "breakpoint_hit.c"
 }
 
 GType
@@ -2027,11 +1593,8 @@ vala_develop_breakpoint_table_ref (gpointer instance)
 {
 	valaDevelopBreakpointTable * self;
 	self = instance;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 2035 "breakpoint_hit.c"
 }
 
 void
@@ -2039,13 +1602,9 @@ vala_develop_breakpoint_table_unref (gpointer instance)
 {
 	valaDevelopBreakpointTable * self;
 	self = instance;
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_BREAKPOINT_TABLE_GET_CLASS (self)->finalize (self);
-#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 2049 "breakpoint_hit.c"
 	}
 }
 
@@ -2059,43 +1618,31 @@ valaDevelopHdr*
 vala_develop_hdr_construct (GType object_type)
 {
 	valaDevelopHdr* self = NULL;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopHdr*) g_type_create_instance (object_type);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 2067 "breakpoint_hit.c"
 }
 
 valaDevelopHdr*
 vala_develop_hdr_new (void)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_hdr_construct (VALA_DEVELOP_TYPE_HDR);
-#line 2075 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_hdr_get_width (valaDevelopHdr* self)
 {
 	gint result;
-#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_width;
-#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2088 "breakpoint_hit.c"
 }
 
 void
 vala_develop_hdr_set_width (valaDevelopHdr* self,
                             gint value)
 {
-#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_width = value;
-#line 2099 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -2103,15 +1650,10 @@ vala_develop_hdr_get_alignment (valaDevelopHdr* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_alignment;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2115 "breakpoint_hit.c"
 }
 
 void
@@ -2119,15 +1661,10 @@ vala_develop_hdr_set_alignment (valaDevelopHdr* self,
                                 const gchar* value)
 {
 	gchar* _tmp0_;
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_alignment);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_alignment = _tmp0_;
-#line 2131 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -2135,15 +1672,10 @@ vala_develop_hdr_get_col_name (valaDevelopHdr* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_col_name;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2147 "breakpoint_hit.c"
 }
 
 void
@@ -2151,15 +1683,10 @@ vala_develop_hdr_set_col_name (valaDevelopHdr* self,
                                const gchar* value)
 {
 	gchar* _tmp0_;
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_col_name);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_col_name = _tmp0_;
-#line 2163 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -2167,15 +1694,10 @@ vala_develop_hdr_get_colhdr (valaDevelopHdr* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_colhdr;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2179 "breakpoint_hit.c"
 }
 
 void
@@ -2183,33 +1705,23 @@ vala_develop_hdr_set_colhdr (valaDevelopHdr* self,
                              const gchar* value)
 {
 	gchar* _tmp0_;
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_colhdr);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_colhdr = _tmp0_;
-#line 2195 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_hdr_init (GValue* value)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 2203 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_hdr_free_value (GValue* value)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_hdr_unref (value->data[0].v_pointer);
-#line 2213 "breakpoint_hit.c"
 	}
 }
 
@@ -2217,24 +1729,17 @@ static void
 vala_develop_value_hdr_copy_value (const GValue* src_value,
                                    GValue* dest_value)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_hdr_ref (src_value->data[0].v_pointer);
-#line 2225 "breakpoint_hit.c"
 	} else {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 2229 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_hdr_peek_pointer (const GValue* value)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 2238 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -2243,32 +1748,19 @@ vala_develop_value_hdr_collect_value (GValue* value,
                                       GTypeCValue* collect_values,
                                       guint collect_flags)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 2249 "breakpoint_hit.c"
 		valaDevelopHdr * object;
 		object = collect_values[0].v_pointer;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2256 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2260 "breakpoint_hit.c"
 		}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_hdr_ref (object);
-#line 2264 "breakpoint_hit.c"
 	} else {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 2268 "breakpoint_hit.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 2272 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -2279,29 +1771,17 @@ vala_develop_value_hdr_lcopy_value (const GValue* value,
 {
 	valaDevelopHdr ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 2287 "breakpoint_hit.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 2293 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 2297 "breakpoint_hit.c"
 	} else {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_hdr_ref (value->data[0].v_pointer);
-#line 2301 "breakpoint_hit.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 2305 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -2312,25 +1792,17 @@ vala_develop_param_spec_hdr (const gchar* name,
                              GParamFlags flags)
 {
 	valaDevelopParamSpecHdr* spec;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_HDR), NULL);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 2324 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_hdr (const GValue* value)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_HDR), NULL);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 2334 "breakpoint_hit.c"
 }
 
 void
@@ -2338,31 +1810,18 @@ vala_develop_value_set_hdr (GValue* value,
                             gpointer v_object)
 {
 	valaDevelopHdr * old;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_HDR));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_HDR));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_hdr_ref (value->data[0].v_pointer);
-#line 2356 "breakpoint_hit.c"
 	} else {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 2360 "breakpoint_hit.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_hdr_unref (old);
-#line 2366 "breakpoint_hit.c"
 	}
 }
 
@@ -2371,29 +1830,17 @@ vala_develop_value_take_hdr (GValue* value,
                              gpointer v_object)
 {
 	valaDevelopHdr * old;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_HDR));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_HDR));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 2387 "breakpoint_hit.c"
 	} else {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 2391 "breakpoint_hit.c"
 	}
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_hdr_unref (old);
-#line 2397 "breakpoint_hit.c"
 	}
 }
 
@@ -2401,41 +1848,28 @@ static void
 vala_develop_hdr_class_init (valaDevelopHdrClass * klass,
                              gpointer klass_data)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_hdr_parent_class = g_type_class_peek_parent (klass);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopHdrClass *) klass)->finalize = vala_develop_hdr_finalize;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopHdr_private_offset);
-#line 2411 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_hdr_instance_init (valaDevelopHdr * self,
                                 gpointer klass)
 {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_hdr_get_instance_private (self);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 2422 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_hdr_finalize (valaDevelopHdr * obj)
 {
 	valaDevelopHdr * self;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_HDR, valaDevelopHdr);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_alignment);
-#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_col_name);
-#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_colhdr);
-#line 2439 "breakpoint_hit.c"
 }
 
 GType
@@ -2459,11 +1893,8 @@ vala_develop_hdr_ref (gpointer instance)
 {
 	valaDevelopHdr * self;
 	self = instance;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 2467 "breakpoint_hit.c"
 }
 
 void
@@ -2471,13 +1902,9 @@ vala_develop_hdr_unref (gpointer instance)
 {
 	valaDevelopHdr * self;
 	self = instance;
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_HDR_GET_CLASS (self)->finalize (self);
-#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 2481 "breakpoint_hit.c"
 	}
 }
 
@@ -2490,11 +1917,8 @@ vala_develop_stop_hit_get_instance_private (valaDevelopStopHit* self)
 static Block6Data*
 block6_data_ref (Block6Data* _data6_)
 {
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data6_->_ref_count_);
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data6_;
-#line 2498 "breakpoint_hit.c"
 }
 
 static void
@@ -2502,135 +1926,90 @@ block6_data_unref (void * _userdata_)
 {
 	Block6Data* _data6_;
 	_data6_ = (Block6Data*) _userdata_;
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data6_->_ref_count_)) {
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_stop_hit_unref0 (_data6_->retVal);
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block6Data, _data6_);
-#line 2512 "breakpoint_hit.c"
 	}
 }
 
 static void
-__lambda63_ (Block6Data* _data6_,
+__lambda64_ (Block6Data* _data6_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label1 = 0;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label2 = 0;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label3 = 0;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("thread_id")))) {
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 2546 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp3_;
-#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = json_object_get_string_member (object, member_name);
-#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stop_hit_set_thread_id (_data6_->retVal, atoi (_tmp3_));
-#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 2556 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label1) ? _tmp1_label1 : (_tmp1_label1 = g_quark_from_static_string ("core")))) {
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 2562 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp4_;
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_string_member (object, member_name);
-#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stop_hit_set_core (_data6_->retVal, atoi (_tmp4_));
-#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 2572 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label2) ? _tmp1_label2 : (_tmp1_label2 = g_quark_from_static_string ("stopped_threads")))) {
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 2578 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp5_;
-#line 133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp5_ = json_object_get_string_member (object, member_name);
-#line 133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stop_hit_set_stopped_threads (_data6_->retVal, _tmp5_);
-#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 2588 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label3) ? _tmp1_label3 : (_tmp1_label3 = g_quark_from_static_string ("frame")))) {
-#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 2594 "breakpoint_hit.c"
 			default:
 			{
 				JsonObject* _tmp6_;
 				valaDevelopStackFrame* _tmp7_;
 				valaDevelopStackFrame* _tmp8_;
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = json_object_get_object_member (object, member_name);
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp7_ = vala_develop_stack_frame_parse (_tmp6_);
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = _tmp7_;
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stop_hit_set_frame (_data6_->retVal, _tmp8_);
-#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_vala_develop_stack_frame_unref0 (_tmp8_);
-#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 2612 "breakpoint_hit.c"
 			}
 		}
 	}
 }
 
 static void
-___lambda63__json_object_foreach (JsonObject* object,
+___lambda64__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda63_ (self, object, member_name, member_node);
-#line 2626 "breakpoint_hit.c"
+	__lambda64_ (self, object, member_name, member_node);
 }
 
 static gpointer
 _vala_develop_stop_hit_ref0 (gpointer self)
 {
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_stop_hit_ref (self) : NULL;
-#line 2634 "breakpoint_hit.c"
 }
 
 valaDevelopStopHit*
@@ -2653,98 +2032,56 @@ vala_develop_stop_hit_parse (const gchar* json)
 	JsonObject* _tmp9_;
 	valaDevelopStopHit* _tmp10_;
 	GError* _inner_error0_ = NULL;
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data6_ = g_slice_new0 (Block6Data);
-#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data6_->_ref_count_ = 1;
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_stop_hit_new ();
-#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data6_->retVal = _tmp0_;
-#line 118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = json_parser_new ();
-#line 118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	parser = _tmp1_;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = vala_develop_correct_json (json);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _tmp2_;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_parser_load_from_data (parser, _tmp3_, (gssize) -1, &_inner_error0_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp3_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_object_unref0 (parser);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		block6_data_unref (_data6_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_data6_ = NULL;
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return NULL;
-#line 2693 "breakpoint_hit.c"
 	}
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = json_parser_get_root (parser);
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = __vala_JsonNode_copy0 (_tmp4_);
-#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	node = _tmp5_;
-#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = node;
-#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = json_node_get_object (_tmp6_);
-#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = _json_object_ref0 (_tmp7_);
-#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	obj = _tmp8_;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = obj;
-#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp9_, ___lambda63__json_object_foreach, _data6_);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	json_object_foreach_member (_tmp9_, ___lambda64__json_object_foreach, _data6_);
 	_tmp10_ = _vala_develop_stop_hit_ref0 (_data6_->retVal);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp10_;
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_json_object_unref0 (obj);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__vala_JsonNode_free0 (node);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_object_unref0 (parser);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block6_data_unref (_data6_);
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data6_ = NULL;
-#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2729 "breakpoint_hit.c"
 }
 
 valaDevelopStopHit*
 vala_develop_stop_hit_construct (GType object_type)
 {
 	valaDevelopStopHit* self = NULL;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopStopHit*) g_type_create_instance (object_type);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 2740 "breakpoint_hit.c"
 }
 
 valaDevelopStopHit*
 vala_develop_stop_hit_new (void)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_stop_hit_construct (VALA_DEVELOP_TYPE_STOP_HIT);
-#line 2748 "breakpoint_hit.c"
 }
 
 valaDevelopStackFrame*
@@ -2752,23 +2089,16 @@ vala_develop_stop_hit_get_frame (valaDevelopStopHit* self)
 {
 	valaDevelopStackFrame* result;
 	valaDevelopStackFrame* _tmp0_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_frame;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2764 "breakpoint_hit.c"
 }
 
 static gpointer
 _vala_develop_stack_frame_ref0 (gpointer self)
 {
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_stack_frame_ref (self) : NULL;
-#line 2772 "breakpoint_hit.c"
 }
 
 void
@@ -2776,39 +2106,27 @@ vala_develop_stop_hit_set_frame (valaDevelopStopHit* self,
                                  valaDevelopStackFrame* value)
 {
 	valaDevelopStackFrame* _tmp0_;
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = _vala_develop_stack_frame_ref0 (value);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_stack_frame_unref0 (self->priv->_frame);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_frame = _tmp0_;
-#line 2788 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_stop_hit_get_thread_id (valaDevelopStopHit* self)
 {
 	gint result;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_thread_id;
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2801 "breakpoint_hit.c"
 }
 
 void
 vala_develop_stop_hit_set_thread_id (valaDevelopStopHit* self,
                                      gint value)
 {
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_thread_id = value;
-#line 2812 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -2816,15 +2134,10 @@ vala_develop_stop_hit_get_stopped_threads (valaDevelopStopHit* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_stopped_threads;
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2828 "breakpoint_hit.c"
 }
 
 void
@@ -2832,57 +2145,40 @@ vala_develop_stop_hit_set_stopped_threads (valaDevelopStopHit* self,
                                            const gchar* value)
 {
 	gchar* _tmp0_;
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_stopped_threads);
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_stopped_threads = _tmp0_;
-#line 2844 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_stop_hit_get_core (valaDevelopStopHit* self)
 {
 	gint result;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_core;
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 2857 "breakpoint_hit.c"
 }
 
 void
 vala_develop_stop_hit_set_core (valaDevelopStopHit* self,
                                 gint value)
 {
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_core = value;
-#line 2868 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_stop_hit_init (GValue* value)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 2876 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_stop_hit_free_value (GValue* value)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stop_hit_unref (value->data[0].v_pointer);
-#line 2886 "breakpoint_hit.c"
 	}
 }
 
@@ -2890,24 +2186,17 @@ static void
 vala_develop_value_stop_hit_copy_value (const GValue* src_value,
                                         GValue* dest_value)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_stop_hit_ref (src_value->data[0].v_pointer);
-#line 2898 "breakpoint_hit.c"
 	} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 2902 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_stop_hit_peek_pointer (const GValue* value)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 2911 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -2916,32 +2205,19 @@ vala_develop_value_stop_hit_collect_value (GValue* value,
                                            GTypeCValue* collect_values,
                                            guint collect_flags)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 2922 "breakpoint_hit.c"
 		valaDevelopStopHit * object;
 		object = collect_values[0].v_pointer;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2929 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 2933 "breakpoint_hit.c"
 		}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_stop_hit_ref (object);
-#line 2937 "breakpoint_hit.c"
 	} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 2941 "breakpoint_hit.c"
 	}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 2945 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -2952,29 +2228,17 @@ vala_develop_value_stop_hit_lcopy_value (const GValue* value,
 {
 	valaDevelopStopHit ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 2960 "breakpoint_hit.c"
 	}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 2966 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 2970 "breakpoint_hit.c"
 	} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_stop_hit_ref (value->data[0].v_pointer);
-#line 2974 "breakpoint_hit.c"
 	}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 2978 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -2985,25 +2249,17 @@ vala_develop_param_spec_stop_hit (const gchar* name,
                                   GParamFlags flags)
 {
 	valaDevelopParamSpecStopHit* spec;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_STOP_HIT), NULL);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 2997 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_stop_hit (const GValue* value)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STOP_HIT), NULL);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 3007 "breakpoint_hit.c"
 }
 
 void
@@ -3011,31 +2267,18 @@ vala_develop_value_set_stop_hit (GValue* value,
                                  gpointer v_object)
 {
 	valaDevelopStopHit * old;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STOP_HIT));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_STOP_HIT));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stop_hit_ref (value->data[0].v_pointer);
-#line 3029 "breakpoint_hit.c"
 	} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 3033 "breakpoint_hit.c"
 	}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stop_hit_unref (old);
-#line 3039 "breakpoint_hit.c"
 	}
 }
 
@@ -3044,29 +2287,17 @@ vala_develop_value_take_stop_hit (GValue* value,
                                   gpointer v_object)
 {
 	valaDevelopStopHit * old;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STOP_HIT));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_STOP_HIT));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 3060 "breakpoint_hit.c"
 	} else {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 3064 "breakpoint_hit.c"
 	}
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stop_hit_unref (old);
-#line 3070 "breakpoint_hit.c"
 	}
 }
 
@@ -3074,39 +2305,27 @@ static void
 vala_develop_stop_hit_class_init (valaDevelopStopHitClass * klass,
                                   gpointer klass_data)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_stop_hit_parent_class = g_type_class_peek_parent (klass);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopStopHitClass *) klass)->finalize = vala_develop_stop_hit_finalize;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopStopHit_private_offset);
-#line 3084 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_stop_hit_instance_init (valaDevelopStopHit * self,
                                      gpointer klass)
 {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_stop_hit_get_instance_private (self);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 3095 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_stop_hit_finalize (valaDevelopStopHit * obj)
 {
 	valaDevelopStopHit * self;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_STOP_HIT, valaDevelopStopHit);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_stack_frame_unref0 (self->priv->_frame);
-#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_stopped_threads);
-#line 3110 "breakpoint_hit.c"
 }
 
 GType
@@ -3130,11 +2349,8 @@ vala_develop_stop_hit_ref (gpointer instance)
 {
 	valaDevelopStopHit * self;
 	self = instance;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 3138 "breakpoint_hit.c"
 }
 
 void
@@ -3142,13 +2358,9 @@ vala_develop_stop_hit_unref (gpointer instance)
 {
 	valaDevelopStopHit * self;
 	self = instance;
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_STOP_HIT_GET_CLASS (self)->finalize (self);
-#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 3152 "breakpoint_hit.c"
 	}
 }
 
@@ -3161,11 +2373,8 @@ vala_develop_call_stack_get_instance_private (valaDevelopCallStack* self)
 static Block7Data*
 block7_data_ref (Block7Data* _data7_)
 {
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data7_->_ref_count_);
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data7_;
-#line 3169 "breakpoint_hit.c"
 }
 
 static void
@@ -3173,34 +2382,26 @@ block7_data_unref (void * _userdata_)
 {
 	Block7Data* _data7_;
 	_data7_ = (Block7Data*) _userdata_;
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data7_->_ref_count_)) {
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_call_stack_unref0 (_data7_->retVal);
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block7Data, _data7_);
-#line 3183 "breakpoint_hit.c"
 	}
 }
 
 static void
 _vala_develop_stack_frame_unref0_ (gpointer var)
 {
-#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	(var == NULL) ? NULL : (var = (vala_develop_stack_frame_unref (var), NULL));
-#line 3192 "breakpoint_hit.c"
 }
 
 static inline void
 _g_list_free__vala_develop_stack_frame_unref0_ (GList* self)
 {
-#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_list_free_full (self, (GDestroyNotify) _vala_develop_stack_frame_unref0_);
-#line 3200 "breakpoint_hit.c"
 }
 
 static void
-___lambda57_ (Block7Data* _data7_,
+___lambda58_ (Block7Data* _data7_,
               JsonArray* array,
               guint index_,
               JsonNode* element)
@@ -3210,102 +2411,70 @@ ___lambda57_ (Block7Data* _data7_,
 	valaDevelopStackFrame* _tmp1_;
 	GList* _tmp2_;
 	valaDevelopStackFrame* _tmp3_;
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (array != NULL);
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (element != NULL);
-#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = json_node_get_object (element);
-#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = vala_develop_stack_frame_parse (_tmp0_);
-#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	fArgs = _tmp1_;
-#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = _data7_->retVal->priv->_stack;
-#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _vala_develop_stack_frame_ref0 (fArgs);
-#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_call_stack_set_stack (_data7_->retVal, g_list_append (_tmp2_, _tmp3_));
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_stack_frame_unref0 (fArgs);
-#line 3232 "breakpoint_hit.c"
 }
 
 static void
-____lambda57__json_array_foreach (JsonArray* array,
+____lambda58__json_array_foreach (JsonArray* array,
                                   guint index_,
                                   JsonNode* element_node,
                                   gpointer self)
 {
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	___lambda57_ (self, array, index_, element_node);
-#line 3243 "breakpoint_hit.c"
+	___lambda58_ (self, array, index_, element_node);
 }
 
 static void
-__lambda56_ (Block7Data* _data7_,
+__lambda57_ (Block7Data* _data7_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("stack")))) {
-#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 3270 "breakpoint_hit.c"
 			default:
 			{
 				GList* _tmp3_;
 				JsonArray* _tmp4_;
-#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = NULL;
-#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_call_stack_set_stack (_data7_->retVal, _tmp3_);
-#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				(_tmp3_ == NULL) ? NULL : (_tmp3_ = (_g_list_free__vala_develop_stack_frame_unref0_ (_tmp3_), NULL));
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_array_member (object, member_name);
-#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-				json_array_foreach_element (_tmp4_, ____lambda57__json_array_foreach, _data7_);
-#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+				json_array_foreach_element (_tmp4_, ____lambda58__json_array_foreach, _data7_);
 				break;
-#line 3287 "breakpoint_hit.c"
 			}
 		}
 	}
 }
 
 static void
-___lambda56__json_object_foreach (JsonObject* object,
+___lambda57__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda56_ (self, object, member_name, member_node);
-#line 3301 "breakpoint_hit.c"
+	__lambda57_ (self, object, member_name, member_node);
 }
 
 static gpointer
 _vala_develop_call_stack_ref0 (gpointer self)
 {
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_call_stack_ref (self) : NULL;
-#line 3309 "breakpoint_hit.c"
 }
 
 valaDevelopCallStack*
@@ -3330,104 +2499,59 @@ vala_develop_call_stack_parse (const gchar* json)
 	JsonObject* _tmp11_;
 	valaDevelopCallStack* _tmp12_;
 	GError* _inner_error0_ = NULL;
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data7_ = g_slice_new0 (Block7Data);
-#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data7_->_ref_count_ = 1;
-#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_call_stack_new ();
-#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data7_->retVal = _tmp0_;
-#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = json_parser_new ();
-#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	parser = _tmp1_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = string_replace (json, "frame=", "");
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _tmp2_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = vala_develop_correct_json (_tmp3_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = _tmp4_;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_parser_load_from_data (parser, _tmp5_, (gssize) -1, &_inner_error0_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp5_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp3_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_object_unref0 (parser);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		block7_data_unref (_data7_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_data7_ = NULL;
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return NULL;
-#line 3376 "breakpoint_hit.c"
 	}
-#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = json_parser_get_root (parser);
-#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = __vala_JsonNode_copy0 (_tmp6_);
-#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	node = _tmp7_;
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = node;
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = json_node_get_object (_tmp8_);
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp10_ = _json_object_ref0 (_tmp9_);
-#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	obj = _tmp10_;
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp11_ = obj;
-#line 155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp11_, ___lambda56__json_object_foreach, _data7_);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	json_object_foreach_member (_tmp11_, ___lambda57__json_object_foreach, _data7_);
 	_tmp12_ = _vala_develop_call_stack_ref0 (_data7_->retVal);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp12_;
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_json_object_unref0 (obj);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__vala_JsonNode_free0 (node);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_object_unref0 (parser);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block7_data_unref (_data7_);
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data7_ = NULL;
-#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 3412 "breakpoint_hit.c"
 }
 
 valaDevelopCallStack*
 vala_develop_call_stack_construct (GType object_type)
 {
 	valaDevelopCallStack* self = NULL;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopCallStack*) g_type_create_instance (object_type);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 3423 "breakpoint_hit.c"
 }
 
 valaDevelopCallStack*
 vala_develop_call_stack_new (void)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_call_stack_construct (VALA_DEVELOP_TYPE_CALL_STACK);
-#line 3431 "breakpoint_hit.c"
 }
 
 GList*
@@ -3435,44 +2559,31 @@ vala_develop_call_stack_get_stack (valaDevelopCallStack* self)
 {
 	GList* result;
 	GList* _tmp0_;
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_stack;
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 3447 "breakpoint_hit.c"
 }
 
 void
 vala_develop_call_stack_set_stack (valaDevelopCallStack* self,
                                    GList* value)
 {
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_stack = value;
-#line 3458 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_call_stack_init (GValue* value)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 3466 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_call_stack_free_value (GValue* value)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_call_stack_unref (value->data[0].v_pointer);
-#line 3476 "breakpoint_hit.c"
 	}
 }
 
@@ -3480,24 +2591,17 @@ static void
 vala_develop_value_call_stack_copy_value (const GValue* src_value,
                                           GValue* dest_value)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_call_stack_ref (src_value->data[0].v_pointer);
-#line 3488 "breakpoint_hit.c"
 	} else {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 3492 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_call_stack_peek_pointer (const GValue* value)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 3501 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -3506,32 +2610,19 @@ vala_develop_value_call_stack_collect_value (GValue* value,
                                              GTypeCValue* collect_values,
                                              guint collect_flags)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 3512 "breakpoint_hit.c"
 		valaDevelopCallStack * object;
 		object = collect_values[0].v_pointer;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 3519 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 3523 "breakpoint_hit.c"
 		}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_call_stack_ref (object);
-#line 3527 "breakpoint_hit.c"
 	} else {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 3531 "breakpoint_hit.c"
 	}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 3535 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -3542,29 +2633,17 @@ vala_develop_value_call_stack_lcopy_value (const GValue* value,
 {
 	valaDevelopCallStack ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 3550 "breakpoint_hit.c"
 	}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 3556 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 3560 "breakpoint_hit.c"
 	} else {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_call_stack_ref (value->data[0].v_pointer);
-#line 3564 "breakpoint_hit.c"
 	}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 3568 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -3575,25 +2654,17 @@ vala_develop_param_spec_call_stack (const gchar* name,
                                     GParamFlags flags)
 {
 	valaDevelopParamSpecCallStack* spec;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_CALL_STACK), NULL);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 3587 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_call_stack (const GValue* value)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_CALL_STACK), NULL);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 3597 "breakpoint_hit.c"
 }
 
 void
@@ -3601,31 +2672,18 @@ vala_develop_value_set_call_stack (GValue* value,
                                    gpointer v_object)
 {
 	valaDevelopCallStack * old;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_CALL_STACK));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_CALL_STACK));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_call_stack_ref (value->data[0].v_pointer);
-#line 3619 "breakpoint_hit.c"
 	} else {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 3623 "breakpoint_hit.c"
 	}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_call_stack_unref (old);
-#line 3629 "breakpoint_hit.c"
 	}
 }
 
@@ -3634,29 +2692,17 @@ vala_develop_value_take_call_stack (GValue* value,
                                     gpointer v_object)
 {
 	valaDevelopCallStack * old;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_CALL_STACK));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_CALL_STACK));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 3650 "breakpoint_hit.c"
 	} else {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 3654 "breakpoint_hit.c"
 	}
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_call_stack_unref (old);
-#line 3660 "breakpoint_hit.c"
 	}
 }
 
@@ -3664,35 +2710,25 @@ static void
 vala_develop_call_stack_class_init (valaDevelopCallStackClass * klass,
                                     gpointer klass_data)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_call_stack_parent_class = g_type_class_peek_parent (klass);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopCallStackClass *) klass)->finalize = vala_develop_call_stack_finalize;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopCallStack_private_offset);
-#line 3674 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_call_stack_instance_init (valaDevelopCallStack * self,
                                        gpointer klass)
 {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_call_stack_get_instance_private (self);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 3685 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_call_stack_finalize (valaDevelopCallStack * obj)
 {
 	valaDevelopCallStack * self;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_CALL_STACK, valaDevelopCallStack);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 3696 "breakpoint_hit.c"
 }
 
 GType
@@ -3716,11 +2752,8 @@ vala_develop_call_stack_ref (gpointer instance)
 {
 	valaDevelopCallStack * self;
 	self = instance;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 3724 "breakpoint_hit.c"
 }
 
 void
@@ -3728,13 +2761,9 @@ vala_develop_call_stack_unref (gpointer instance)
 {
 	valaDevelopCallStack * self;
 	self = instance;
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_CALL_STACK_GET_CLASS (self)->finalize (self);
-#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 3738 "breakpoint_hit.c"
 	}
 }
 
@@ -3754,19 +2783,12 @@ vala_develop_breakpoint_parse (const gchar* json)
 	gchar* data = NULL;
 	gchar* _tmp1_;
 	GError* _inner_error0_ = NULL;
-#line 188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	retVal = NULL;
-#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = json_parser_new ();
-#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	parser = _tmp0_;
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = vala_develop_correct_json (json);
-#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	data = _tmp1_;
-#line 3770 "breakpoint_hit.c"
 	{
 		JsonNode* node = NULL;
 		JsonNode* _tmp2_;
@@ -3777,99 +2799,58 @@ vala_develop_breakpoint_parse (const gchar* json)
 		JsonObject* _tmp6_;
 		JsonObject* _tmp7_;
 		valaDevelopBreakpoint* _tmp8_;
-#line 195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		json_parser_load_from_data (parser, data, (gssize) -1, &_inner_error0_);
-#line 195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 3785 "breakpoint_hit.c"
-			goto __catch21_g_error;
+			goto __catch22_g_error;
 		}
-#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp2_ = json_parser_get_root (parser);
-#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp3_ = __vala_JsonNode_copy0 (_tmp2_);
-#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		node = _tmp3_;
-#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp4_ = node;
-#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp5_ = json_node_get_object (_tmp4_);
-#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp6_ = _json_object_ref0 (_tmp5_);
-#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		obj = _tmp6_;
-#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp7_ = obj;
-#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp8_ = vala_develop_breakpoint_parse_object (_tmp7_);
-#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_breakpoint_unref0 (retVal);
-#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		retVal = _tmp8_;
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_json_object_unref0 (obj);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		__vala_JsonNode_free0 (node);
-#line 3814 "breakpoint_hit.c"
 	}
-	goto __finally21;
-	__catch21_g_error:
+	goto __finally22;
+	__catch22_g_error:
 	{
 		GError* ex = NULL;
 		GError* _tmp9_;
 		const gchar* _tmp10_;
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		ex = _inner_error0_;
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_inner_error0_ = NULL;
-#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp9_ = ex;
-#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp10_ = _tmp9_->message;
-#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_hit.vala:202: %s", _tmp10_);
-#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_print ("[JSON-DATA] \"%s\"\n", data);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_error_free0 (ex);
-#line 3836 "breakpoint_hit.c"
 	}
-	__finally21:
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	__finally22:
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_free0 (data);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_object_unref0 (parser);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_breakpoint_unref0 (retVal);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return NULL;
-#line 3853 "breakpoint_hit.c"
 	}
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = retVal;
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (data);
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_object_unref0 (parser);
-#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 3863 "breakpoint_hit.c"
 }
 
 static Block8Data*
 block8_data_ref (Block8Data* _data8_)
 {
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data8_->_ref_count_);
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data8_;
-#line 3873 "breakpoint_hit.c"
 }
 
 static void
@@ -3877,13 +2858,9 @@ block8_data_unref (void * _userdata_)
 {
 	Block8Data* _data8_;
 	_data8_ = (Block8Data*) _userdata_;
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data8_->_ref_count_)) {
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_breakpoint_unref0 (_data8_->retVal);
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block8Data, _data8_);
-#line 3887 "breakpoint_hit.c"
 	}
 }
 
@@ -3891,29 +2868,21 @@ static gdouble
 double_parse (const gchar* str)
 {
 	gdouble result = 0.0;
-#line 944 "glib-2.0.vapi"
 	g_return_val_if_fail (str != NULL, 0.0);
-#line 945 "glib-2.0.vapi"
 	result = g_ascii_strtod (str, NULL);
-#line 945 "glib-2.0.vapi"
 	return result;
-#line 3901 "breakpoint_hit.c"
 }
 
 static void
 _g_free0_ (gpointer var)
 {
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	var = (g_free (var), NULL);
-#line 3909 "breakpoint_hit.c"
 }
 
 static inline void
 _g_list_free__g_free0_ (GList* self)
 {
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_free0_);
-#line 3917 "breakpoint_hit.c"
 }
 
 static void
@@ -3926,21 +2895,13 @@ ___lambda26_ (Block8Data* _data8_,
 	GList* _tmp1_;
 	const gchar* _tmp2_;
 	gchar* _tmp3_;
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (array != NULL);
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (element != NULL);
-#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = _data8_->retVal;
-#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = _tmp0_->priv->_thread_groups;
-#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = json_node_get_string (element);
-#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = g_strdup (_tmp2_);
-#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_set_thread_groups (_tmp0_, g_list_append (_tmp1_, _tmp3_));
-#line 3944 "breakpoint_hit.c"
 }
 
 static void
@@ -3949,9 +2910,7 @@ ____lambda26__json_array_foreach (JsonArray* array,
                                   JsonNode* element_node,
                                   gpointer self)
 {
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	___lambda26_ (self, array, index_, element_node);
-#line 3955 "breakpoint_hit.c"
 }
 
 static void
@@ -3962,271 +2921,167 @@ __lambda25_ (Block8Data* _data8_,
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label1 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label2 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label3 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label4 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label5 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label6 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label7 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label8 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label9 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label10 = 0;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label11 = 0;
-#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("number")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4004 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp3_;
 				const gchar* _tmp4_;
-#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = _data8_->retVal;
-#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_string_member (object, member_name);
-#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_number (_tmp3_, (gfloat) double_parse (_tmp4_));
-#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4017 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label1) ? _tmp1_label1 : (_tmp1_label1 = g_quark_from_static_string ("type")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4023 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp5_;
 				const gchar* _tmp6_;
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp5_ = _data8_->retVal;
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = json_object_get_string_member (object, member_name);
-#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_typ (_tmp5_, _tmp6_);
-#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4036 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label2) ? _tmp1_label2 : (_tmp1_label2 = g_quark_from_static_string ("disp")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4042 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp7_;
 				const gchar* _tmp8_;
-#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp7_ = _data8_->retVal;
-#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = json_object_get_string_member (object, member_name);
-#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_display (_tmp7_, _tmp8_);
-#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4055 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label3) ? _tmp1_label3 : (_tmp1_label3 = g_quark_from_static_string ("enabled")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4061 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp9_;
-#line 227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp9_ = _data8_->retVal;
-#line 227 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_enabled (_tmp9_, json_object_get_boolean_member (object, member_name));
-#line 228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4071 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label4) ? _tmp1_label4 : (_tmp1_label4 = g_quark_from_static_string ("addr")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4077 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp10_;
 				const gchar* _tmp11_;
-#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp10_ = _data8_->retVal;
-#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp11_ = json_object_get_string_member (object, member_name);
-#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_address (_tmp10_, _tmp11_);
-#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4090 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label5) ? _tmp1_label5 : (_tmp1_label5 = g_quark_from_static_string ("func")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4096 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp12_;
 				const gchar* _tmp13_;
-#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp12_ = _data8_->retVal;
-#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp13_ = json_object_get_string_member (object, member_name);
-#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_function (_tmp12_, _tmp13_);
-#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4109 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label6) ? _tmp1_label6 : (_tmp1_label6 = g_quark_from_static_string ("file")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4115 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp14_;
 				const gchar* _tmp15_;
-#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp14_ = _data8_->retVal;
-#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp15_ = json_object_get_string_member (object, member_name);
-#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_file (_tmp14_, _tmp15_);
-#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4128 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label7) ? _tmp1_label7 : (_tmp1_label7 = g_quark_from_static_string ("fullname")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4134 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp16_;
 				const gchar* _tmp17_;
-#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp16_ = _data8_->retVal;
-#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp17_ = json_object_get_string_member (object, member_name);
-#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_fullname (_tmp16_, _tmp17_);
-#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4147 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label8) ? _tmp1_label8 : (_tmp1_label8 = g_quark_from_static_string ("line")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4153 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp18_;
 				const gchar* _tmp19_;
-#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp18_ = _data8_->retVal;
-#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp19_ = json_object_get_string_member (object, member_name);
-#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_line (_tmp18_, atoi (_tmp19_));
-#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4166 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label9) ? _tmp1_label9 : (_tmp1_label9 = g_quark_from_static_string ("times")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4172 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp20_;
 				const gchar* _tmp21_;
-#line 245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp20_ = _data8_->retVal;
-#line 245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp21_ = json_object_get_string_member (object, member_name);
-#line 245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_times (_tmp20_, atoi (_tmp21_));
-#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4185 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label10) ? _tmp1_label10 : (_tmp1_label10 = g_quark_from_static_string ("original_location")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4191 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp22_;
 				const gchar* _tmp23_;
-#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp22_ = _data8_->retVal;
-#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp23_ = json_object_get_string_member (object, member_name);
-#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_original_location (_tmp22_, _tmp23_);
-#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4204 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label11) ? _tmp1_label11 : (_tmp1_label11 = g_quark_from_static_string ("thread_groups")))) {
-#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 4210 "breakpoint_hit.c"
 			default:
 			{
 				valaDevelopBreakpoint* _tmp24_;
 				GList* _tmp25_;
 				JsonArray* _tmp26_;
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp24_ = _data8_->retVal;
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp25_ = NULL;
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_set_thread_groups (_tmp24_, _tmp25_);
-#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				(_tmp25_ == NULL) ? NULL : (_tmp25_ = (_g_list_free__g_free0_ (_tmp25_), NULL));
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp26_ = json_object_get_array_member (object, member_name);
-#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				json_array_foreach_element (_tmp26_, ____lambda26__json_array_foreach, _data8_);
-#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 4230 "breakpoint_hit.c"
 			}
 		}
 	}
@@ -4238,9 +3093,7 @@ ___lambda25__json_object_foreach (JsonObject* object,
                                   JsonNode* member_node,
                                   gpointer self)
 {
-#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__lambda25_ (self, object, member_name, member_node);
-#line 4244 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpoint*
@@ -4251,91 +3104,58 @@ vala_develop_breakpoint_parse_object (JsonObject* obj)
 	valaDevelopBreakpoint* _tmp0_;
 	valaDevelopBreakpoint* _tmp3_;
 	valaDevelopBreakpoint* _tmp4_;
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data8_ = g_slice_new0 (Block8Data);
-#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data8_->_ref_count_ = 1;
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_breakpoint_new ();
-#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data8_->retVal = _tmp0_;
-#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (obj == NULL) {
-#line 4265 "breakpoint_hit.c"
 		valaDevelopBreakpoint* _tmp1_;
 		valaDevelopBreakpoint* _tmp2_;
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp1_ = _data8_->retVal;
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp2_ = _vala_develop_breakpoint_ref0 (_tmp1_);
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		result = _tmp2_;
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		block8_data_unref (_data8_);
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_data8_ = NULL;
-#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return result;
-#line 4280 "breakpoint_hit.c"
 	}
-#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_object_foreach_member (obj, ___lambda25__json_object_foreach, _data8_);
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _data8_->retVal;
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = _vala_develop_breakpoint_ref0 (_tmp3_);
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp4_;
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block8_data_unref (_data8_);
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data8_ = NULL;
-#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4296 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpoint*
 vala_develop_breakpoint_construct (GType object_type)
 {
 	valaDevelopBreakpoint* self = NULL;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopBreakpoint*) g_type_create_instance (object_type);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 4307 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpoint*
 vala_develop_breakpoint_new (void)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_breakpoint_construct (VALA_DEVELOP_TYPE_BREAKPOINT);
-#line 4315 "breakpoint_hit.c"
 }
 
 gfloat
 vala_develop_breakpoint_get_number (valaDevelopBreakpoint* self)
 {
 	gfloat result;
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0.0F);
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_number;
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4328 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_set_number (valaDevelopBreakpoint* self,
                                     gfloat value)
 {
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_number = value;
-#line 4339 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4343,15 +3163,10 @@ vala_develop_breakpoint_get_typ (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_typ;
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4355 "breakpoint_hit.c"
 }
 
 void
@@ -4359,15 +3174,10 @@ vala_develop_breakpoint_set_typ (valaDevelopBreakpoint* self,
                                  const gchar* value)
 {
 	gchar* _tmp0_;
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_typ);
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_typ = _tmp0_;
-#line 4371 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4375,15 +3185,10 @@ vala_develop_breakpoint_get_display (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_display;
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4387 "breakpoint_hit.c"
 }
 
 void
@@ -4391,39 +3196,27 @@ vala_develop_breakpoint_set_display (valaDevelopBreakpoint* self,
                                      const gchar* value)
 {
 	gchar* _tmp0_;
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_display);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_display = _tmp0_;
-#line 4403 "breakpoint_hit.c"
 }
 
 gboolean
 vala_develop_breakpoint_get_enabled (valaDevelopBreakpoint* self)
 {
 	gboolean result;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_enabled;
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4416 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_set_enabled (valaDevelopBreakpoint* self,
                                      gboolean value)
 {
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_enabled = value;
-#line 4427 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4431,15 +3224,10 @@ vala_develop_breakpoint_get_address (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_address;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4443 "breakpoint_hit.c"
 }
 
 void
@@ -4447,15 +3235,10 @@ vala_develop_breakpoint_set_address (valaDevelopBreakpoint* self,
                                      const gchar* value)
 {
 	gchar* _tmp0_;
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_address);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_address = _tmp0_;
-#line 4459 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4463,15 +3246,10 @@ vala_develop_breakpoint_get_function (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_function;
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4475 "breakpoint_hit.c"
 }
 
 void
@@ -4479,15 +3257,10 @@ vala_develop_breakpoint_set_function (valaDevelopBreakpoint* self,
                                       const gchar* value)
 {
 	gchar* _tmp0_;
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_function);
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_function = _tmp0_;
-#line 4491 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4495,15 +3268,10 @@ vala_develop_breakpoint_get_file (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_file;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4507 "breakpoint_hit.c"
 }
 
 void
@@ -4511,15 +3279,10 @@ vala_develop_breakpoint_set_file (valaDevelopBreakpoint* self,
                                   const gchar* value)
 {
 	gchar* _tmp0_;
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_file);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_file = _tmp0_;
-#line 4523 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4527,15 +3290,10 @@ vala_develop_breakpoint_get_fullname (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_fullname;
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4539 "breakpoint_hit.c"
 }
 
 void
@@ -4543,39 +3301,27 @@ vala_develop_breakpoint_set_fullname (valaDevelopBreakpoint* self,
                                       const gchar* value)
 {
 	gchar* _tmp0_;
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_fullname);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_fullname = _tmp0_;
-#line 4555 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_get_line (valaDevelopBreakpoint* self)
 {
 	gint result;
-#line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_line;
-#line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4568 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_set_line (valaDevelopBreakpoint* self,
                                   gint value)
 {
-#line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 183 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_line = value;
-#line 4579 "breakpoint_hit.c"
 }
 
 GList*
@@ -4583,50 +3329,35 @@ vala_develop_breakpoint_get_thread_groups (valaDevelopBreakpoint* self)
 {
 	GList* result;
 	GList* _tmp0_;
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_thread_groups;
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4595 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_set_thread_groups (valaDevelopBreakpoint* self,
                                            GList* value)
 {
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_thread_groups = value;
-#line 4606 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_get_times (valaDevelopBreakpoint* self)
 {
 	gint result;
-#line 185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_times;
-#line 185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4619 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_set_times (valaDevelopBreakpoint* self,
                                    gint value)
 {
-#line 185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 185 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_times = value;
-#line 4630 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -4634,15 +3365,10 @@ vala_develop_breakpoint_get_original_location (valaDevelopBreakpoint* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_original_location;
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 4646 "breakpoint_hit.c"
 }
 
 void
@@ -4650,33 +3376,23 @@ vala_develop_breakpoint_set_original_location (valaDevelopBreakpoint* self,
                                                const gchar* value)
 {
 	gchar* _tmp0_;
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_original_location);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_original_location = _tmp0_;
-#line 4662 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_init (GValue* value)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 4670 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_free_value (GValue* value)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_unref (value->data[0].v_pointer);
-#line 4680 "breakpoint_hit.c"
 	}
 }
 
@@ -4684,24 +3400,17 @@ static void
 vala_develop_value_breakpoint_copy_value (const GValue* src_value,
                                           GValue* dest_value)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_breakpoint_ref (src_value->data[0].v_pointer);
-#line 4692 "breakpoint_hit.c"
 	} else {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 4696 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_breakpoint_peek_pointer (const GValue* value)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 4705 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -4710,32 +3419,19 @@ vala_develop_value_breakpoint_collect_value (GValue* value,
                                              GTypeCValue* collect_values,
                                              guint collect_flags)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 4716 "breakpoint_hit.c"
 		valaDevelopBreakpoint * object;
 		object = collect_values[0].v_pointer;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 4723 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 4727 "breakpoint_hit.c"
 		}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_breakpoint_ref (object);
-#line 4731 "breakpoint_hit.c"
 	} else {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 4735 "breakpoint_hit.c"
 	}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 4739 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -4746,29 +3442,17 @@ vala_develop_value_breakpoint_lcopy_value (const GValue* value,
 {
 	valaDevelopBreakpoint ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 4754 "breakpoint_hit.c"
 	}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 4760 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 4764 "breakpoint_hit.c"
 	} else {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_breakpoint_ref (value->data[0].v_pointer);
-#line 4768 "breakpoint_hit.c"
 	}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 4772 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -4779,25 +3463,17 @@ vala_develop_param_spec_breakpoint (const gchar* name,
                                     GParamFlags flags)
 {
 	valaDevelopParamSpecBreakpoint* spec;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_BREAKPOINT), NULL);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 4791 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_breakpoint (const GValue* value)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT), NULL);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 4801 "breakpoint_hit.c"
 }
 
 void
@@ -4805,31 +3481,18 @@ vala_develop_value_set_breakpoint (GValue* value,
                                    gpointer v_object)
 {
 	valaDevelopBreakpoint * old;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_ref (value->data[0].v_pointer);
-#line 4823 "breakpoint_hit.c"
 	} else {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 4827 "breakpoint_hit.c"
 	}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_unref (old);
-#line 4833 "breakpoint_hit.c"
 	}
 }
 
@@ -4838,29 +3501,17 @@ vala_develop_value_take_breakpoint (GValue* value,
                                     gpointer v_object)
 {
 	valaDevelopBreakpoint * old;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 4854 "breakpoint_hit.c"
 	} else {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 4858 "breakpoint_hit.c"
 	}
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_unref (old);
-#line 4864 "breakpoint_hit.c"
 	}
 }
 
@@ -4868,49 +3519,32 @@ static void
 vala_develop_breakpoint_class_init (valaDevelopBreakpointClass * klass,
                                     gpointer klass_data)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_parent_class = g_type_class_peek_parent (klass);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopBreakpointClass *) klass)->finalize = vala_develop_breakpoint_finalize;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopBreakpoint_private_offset);
-#line 4878 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_instance_init (valaDevelopBreakpoint * self,
                                        gpointer klass)
 {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_breakpoint_get_instance_private (self);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 4889 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_finalize (valaDevelopBreakpoint * obj)
 {
 	valaDevelopBreakpoint * self;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_BREAKPOINT, valaDevelopBreakpoint);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_typ);
-#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_display);
-#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_address);
-#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_function);
-#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_file);
-#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_fullname);
-#line 186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_original_location);
-#line 4914 "breakpoint_hit.c"
 }
 
 GType
@@ -4934,11 +3568,8 @@ vala_develop_breakpoint_ref (gpointer instance)
 {
 	valaDevelopBreakpoint * self;
 	self = instance;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 4942 "breakpoint_hit.c"
 }
 
 void
@@ -4946,13 +3577,9 @@ vala_develop_breakpoint_unref (gpointer instance)
 {
 	valaDevelopBreakpoint * self;
 	self = instance;
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_BREAKPOINT_GET_CLASS (self)->finalize (self);
-#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 4956 "breakpoint_hit.c"
 	}
 }
 
@@ -4965,11 +3592,8 @@ vala_develop_breakpoint_hit_get_instance_private (valaDevelopBreakpointHit* self
 static Block9Data*
 block9_data_ref (Block9Data* _data9_)
 {
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data9_->_ref_count_);
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data9_;
-#line 4973 "breakpoint_hit.c"
 }
 
 static void
@@ -4977,171 +3601,112 @@ block9_data_unref (void * _userdata_)
 {
 	Block9Data* _data9_;
 	_data9_ = (Block9Data*) _userdata_;
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data9_->_ref_count_)) {
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_breakpoint_hit_unref0 (_data9_->retVal);
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block9Data, _data9_);
-#line 4987 "breakpoint_hit.c"
 	}
 }
 
 static void
-__lambda59_ (Block9Data* _data9_,
+__lambda60_ (Block9Data* _data9_,
              JsonObject* object,
              const gchar* member_name,
              JsonNode* member_node)
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label1 = 0;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label2 = 0;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label3 = 0;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label4 = 0;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label5 = 0;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("disp")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5025 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp3_;
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = json_object_get_string_member (object, member_name);
-#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_display (_data9_->retVal, _tmp3_);
-#line 285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5035 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label1) ? _tmp1_label1 : (_tmp1_label1 = g_quark_from_static_string ("bkptno")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5041 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp4_;
-#line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_string_member (object, member_name);
-#line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_number (_data9_->retVal, atoi (_tmp4_));
-#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5051 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label2) ? _tmp1_label2 : (_tmp1_label2 = g_quark_from_static_string ("frame")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5057 "breakpoint_hit.c"
 			default:
 			{
 				JsonObject* _tmp5_;
 				valaDevelopStackFrame* _tmp6_;
 				valaDevelopStackFrame* _tmp7_;
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp5_ = json_object_get_object_member (object, member_name);
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = vala_develop_stack_frame_parse (_tmp5_);
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp7_ = _tmp6_;
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_stack_frame (_data9_->retVal, _tmp7_);
-#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_vala_develop_stack_frame_unref0 (_tmp7_);
-#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5075 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label3) ? _tmp1_label3 : (_tmp1_label3 = g_quark_from_static_string ("thread_id")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5081 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp8_;
-#line 293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = json_object_get_string_member (object, member_name);
-#line 293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_thread_id (_data9_->retVal, atoi (_tmp8_));
-#line 294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5091 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label4) ? _tmp1_label4 : (_tmp1_label4 = g_quark_from_static_string ("stopped_threads")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5097 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp9_;
-#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp9_ = json_object_get_string_member (object, member_name);
-#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_stopped_threads (_data9_->retVal, _tmp9_);
-#line 297 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5107 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label5) ? _tmp1_label5 : (_tmp1_label5 = g_quark_from_static_string ("core")))) {
-#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 5113 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp10_;
-#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp10_ = json_object_get_string_member (object, member_name);
-#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_breakpoint_hit_set_core (_data9_->retVal, atoi (_tmp10_));
-#line 300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 5123 "breakpoint_hit.c"
 			}
 		}
 	}
 }
 
 static void
-___lambda59__json_object_foreach (JsonObject* object,
+___lambda60__json_object_foreach (JsonObject* object,
                                   const gchar* member_name,
                                   JsonNode* member_node,
                                   gpointer self)
 {
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	__lambda59_ (self, object, member_name, member_node);
-#line 5137 "breakpoint_hit.c"
+	__lambda60_ (self, object, member_name, member_node);
 }
 
 static gpointer
 _vala_develop_breakpoint_hit_ref0 (gpointer self)
 {
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_breakpoint_hit_ref (self) : NULL;
-#line 5145 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointHit*
@@ -5164,98 +3729,56 @@ vala_develop_breakpoint_hit_parse (const gchar* json)
 	JsonObject* _tmp9_;
 	valaDevelopBreakpointHit* _tmp10_;
 	GError* _inner_error0_ = NULL;
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (json != NULL, NULL);
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data9_ = g_slice_new0 (Block9Data);
-#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data9_->_ref_count_ = 1;
-#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_breakpoint_hit_new ();
-#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data9_->retVal = _tmp0_;
-#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = json_parser_new ();
-#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	parser = _tmp1_;
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = vala_develop_correct_json (json);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp3_ = _tmp2_;
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_parser_load_from_data (parser, _tmp3_, (gssize) -1, &_inner_error0_);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (_tmp3_);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_object_unref0 (parser);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		block9_data_unref (_data9_);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_data9_ = NULL;
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return NULL;
-#line 5204 "breakpoint_hit.c"
 	}
-#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp4_ = json_parser_get_root (parser);
-#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp5_ = __vala_JsonNode_copy0 (_tmp4_);
-#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	node = _tmp5_;
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp6_ = node;
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp7_ = json_node_get_object (_tmp6_);
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp8_ = _json_object_ref0 (_tmp7_);
-#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	obj = _tmp8_;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp9_ = obj;
-#line 279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
-	json_object_foreach_member (_tmp9_, ___lambda59__json_object_foreach, _data9_);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	json_object_foreach_member (_tmp9_, ___lambda60__json_object_foreach, _data9_);
 	_tmp10_ = _vala_develop_breakpoint_hit_ref0 (_data9_->retVal);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp10_;
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_json_object_unref0 (obj);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__vala_JsonNode_free0 (node);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_object_unref0 (parser);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block9_data_unref (_data9_);
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data9_ = NULL;
-#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5240 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointHit*
 vala_develop_breakpoint_hit_construct (GType object_type)
 {
 	valaDevelopBreakpointHit* self = NULL;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopBreakpointHit*) g_type_create_instance (object_type);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 5251 "breakpoint_hit.c"
 }
 
 valaDevelopBreakpointHit*
 vala_develop_breakpoint_hit_new (void)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_breakpoint_hit_construct (VALA_DEVELOP_TYPE_BREAKPOINT_HIT);
-#line 5259 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -5263,15 +3786,10 @@ vala_develop_breakpoint_hit_get_display (valaDevelopBreakpointHit* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_display;
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5275 "breakpoint_hit.c"
 }
 
 void
@@ -5279,39 +3797,27 @@ vala_develop_breakpoint_hit_set_display (valaDevelopBreakpointHit* self,
                                          const gchar* value)
 {
 	gchar* _tmp0_;
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_display);
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_display = _tmp0_;
-#line 5291 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_hit_get_number (valaDevelopBreakpointHit* self)
 {
 	gint result;
-#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_number;
-#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5304 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_hit_set_number (valaDevelopBreakpointHit* self,
                                         gint value)
 {
-#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_number = value;
-#line 5315 "breakpoint_hit.c"
 }
 
 valaDevelopStackFrame*
@@ -5319,15 +3825,10 @@ vala_develop_breakpoint_hit_get_stack_frame (valaDevelopBreakpointHit* self)
 {
 	valaDevelopStackFrame* result;
 	valaDevelopStackFrame* _tmp0_;
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_stack_frame;
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5331 "breakpoint_hit.c"
 }
 
 void
@@ -5335,39 +3836,27 @@ vala_develop_breakpoint_hit_set_stack_frame (valaDevelopBreakpointHit* self,
                                              valaDevelopStackFrame* value)
 {
 	valaDevelopStackFrame* _tmp0_;
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = _vala_develop_stack_frame_ref0 (value);
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_stack_frame_unref0 (self->priv->_stack_frame);
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_stack_frame = _tmp0_;
-#line 5347 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_hit_get_thread_id (valaDevelopBreakpointHit* self)
 {
 	gint result;
-#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_thread_id;
-#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5360 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_hit_set_thread_id (valaDevelopBreakpointHit* self,
                                            gint value)
 {
-#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_thread_id = value;
-#line 5371 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -5375,15 +3864,10 @@ vala_develop_breakpoint_hit_get_stopped_threads (valaDevelopBreakpointHit* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_stopped_threads;
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5387 "breakpoint_hit.c"
 }
 
 void
@@ -5391,57 +3875,40 @@ vala_develop_breakpoint_hit_set_stopped_threads (valaDevelopBreakpointHit* self,
                                                  const gchar* value)
 {
 	gchar* _tmp0_;
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_stopped_threads);
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_stopped_threads = _tmp0_;
-#line 5403 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_breakpoint_hit_get_core (valaDevelopBreakpointHit* self)
 {
 	gint result;
-#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_core;
-#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5416 "breakpoint_hit.c"
 }
 
 void
 vala_develop_breakpoint_hit_set_core (valaDevelopBreakpointHit* self,
                                       gint value)
 {
-#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_core = value;
-#line 5427 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_hit_init (GValue* value)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 5435 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_breakpoint_hit_free_value (GValue* value)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_hit_unref (value->data[0].v_pointer);
-#line 5445 "breakpoint_hit.c"
 	}
 }
 
@@ -5449,24 +3916,17 @@ static void
 vala_develop_value_breakpoint_hit_copy_value (const GValue* src_value,
                                               GValue* dest_value)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_breakpoint_hit_ref (src_value->data[0].v_pointer);
-#line 5457 "breakpoint_hit.c"
 	} else {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 5461 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_breakpoint_hit_peek_pointer (const GValue* value)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 5470 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -5475,32 +3935,19 @@ vala_develop_value_breakpoint_hit_collect_value (GValue* value,
                                                  GTypeCValue* collect_values,
                                                  guint collect_flags)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 5481 "breakpoint_hit.c"
 		valaDevelopBreakpointHit * object;
 		object = collect_values[0].v_pointer;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 5488 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 5492 "breakpoint_hit.c"
 		}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_breakpoint_hit_ref (object);
-#line 5496 "breakpoint_hit.c"
 	} else {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5500 "breakpoint_hit.c"
 	}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 5504 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -5511,29 +3958,17 @@ vala_develop_value_breakpoint_hit_lcopy_value (const GValue* value,
 {
 	valaDevelopBreakpointHit ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 5519 "breakpoint_hit.c"
 	}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 5525 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 5529 "breakpoint_hit.c"
 	} else {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_breakpoint_hit_ref (value->data[0].v_pointer);
-#line 5533 "breakpoint_hit.c"
 	}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 5537 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -5544,25 +3979,17 @@ vala_develop_param_spec_breakpoint_hit (const gchar* name,
                                         GParamFlags flags)
 {
 	valaDevelopParamSpecBreakpointHit* spec;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_BREAKPOINT_HIT), NULL);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 5556 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_breakpoint_hit (const GValue* value)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_HIT), NULL);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 5566 "breakpoint_hit.c"
 }
 
 void
@@ -5570,31 +3997,18 @@ vala_develop_value_set_breakpoint_hit (GValue* value,
                                        gpointer v_object)
 {
 	valaDevelopBreakpointHit * old;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_HIT));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT_HIT));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_hit_ref (value->data[0].v_pointer);
-#line 5588 "breakpoint_hit.c"
 	} else {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5592 "breakpoint_hit.c"
 	}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_hit_unref (old);
-#line 5598 "breakpoint_hit.c"
 	}
 }
 
@@ -5603,29 +4017,17 @@ vala_develop_value_take_breakpoint_hit (GValue* value,
                                         gpointer v_object)
 {
 	valaDevelopBreakpointHit * old;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_BREAKPOINT_HIT));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_BREAKPOINT_HIT));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 5619 "breakpoint_hit.c"
 	} else {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5623 "breakpoint_hit.c"
 	}
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_breakpoint_hit_unref (old);
-#line 5629 "breakpoint_hit.c"
 	}
 }
 
@@ -5633,41 +4035,28 @@ static void
 vala_develop_breakpoint_hit_class_init (valaDevelopBreakpointHitClass * klass,
                                         gpointer klass_data)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_breakpoint_hit_parent_class = g_type_class_peek_parent (klass);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopBreakpointHitClass *) klass)->finalize = vala_develop_breakpoint_hit_finalize;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopBreakpointHit_private_offset);
-#line 5643 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_hit_instance_init (valaDevelopBreakpointHit * self,
                                            gpointer klass)
 {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_breakpoint_hit_get_instance_private (self);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 5654 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_breakpoint_hit_finalize (valaDevelopBreakpointHit * obj)
 {
 	valaDevelopBreakpointHit * self;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_BREAKPOINT_HIT, valaDevelopBreakpointHit);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_display);
-#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_stack_frame_unref0 (self->priv->_stack_frame);
-#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_stopped_threads);
-#line 5671 "breakpoint_hit.c"
 }
 
 GType
@@ -5691,11 +4080,8 @@ vala_develop_breakpoint_hit_ref (gpointer instance)
 {
 	valaDevelopBreakpointHit * self;
 	self = instance;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 5699 "breakpoint_hit.c"
 }
 
 void
@@ -5703,13 +4089,9 @@ vala_develop_breakpoint_hit_unref (gpointer instance)
 {
 	valaDevelopBreakpointHit * self;
 	self = instance;
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_BREAKPOINT_HIT_GET_CLASS (self)->finalize (self);
-#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 5713 "breakpoint_hit.c"
 	}
 }
 
@@ -5723,19 +4105,14 @@ valaDevelopFunctionArgs*
 vala_develop_function_args_construct (GType object_type)
 {
 	valaDevelopFunctionArgs* self = NULL;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopFunctionArgs*) g_type_create_instance (object_type);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 5731 "breakpoint_hit.c"
 }
 
 valaDevelopFunctionArgs*
 vala_develop_function_args_new (void)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_function_args_construct (VALA_DEVELOP_TYPE_FUNCTION_ARGS);
-#line 5739 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -5743,15 +4120,10 @@ vala_develop_function_args_get_name (valaDevelopFunctionArgs* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_name;
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5755 "breakpoint_hit.c"
 }
 
 void
@@ -5759,15 +4131,10 @@ vala_develop_function_args_set_name (valaDevelopFunctionArgs* self,
                                      const gchar* value)
 {
 	gchar* _tmp0_;
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_name);
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_name = _tmp0_;
-#line 5771 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -5775,15 +4142,10 @@ vala_develop_function_args_get_val (valaDevelopFunctionArgs* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_val;
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 5787 "breakpoint_hit.c"
 }
 
 void
@@ -5791,33 +4153,23 @@ vala_develop_function_args_set_val (valaDevelopFunctionArgs* self,
                                     const gchar* value)
 {
 	gchar* _tmp0_;
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_val);
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_val = _tmp0_;
-#line 5803 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_function_args_init (GValue* value)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 5811 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_function_args_free_value (GValue* value)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_function_args_unref (value->data[0].v_pointer);
-#line 5821 "breakpoint_hit.c"
 	}
 }
 
@@ -5825,24 +4177,17 @@ static void
 vala_develop_value_function_args_copy_value (const GValue* src_value,
                                              GValue* dest_value)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_function_args_ref (src_value->data[0].v_pointer);
-#line 5833 "breakpoint_hit.c"
 	} else {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 5837 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_function_args_peek_pointer (const GValue* value)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 5846 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -5851,32 +4196,19 @@ vala_develop_value_function_args_collect_value (GValue* value,
                                                 GTypeCValue* collect_values,
                                                 guint collect_flags)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 5857 "breakpoint_hit.c"
 		valaDevelopFunctionArgs * object;
 		object = collect_values[0].v_pointer;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 5864 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 5868 "breakpoint_hit.c"
 		}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_function_args_ref (object);
-#line 5872 "breakpoint_hit.c"
 	} else {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5876 "breakpoint_hit.c"
 	}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 5880 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -5887,29 +4219,17 @@ vala_develop_value_function_args_lcopy_value (const GValue* value,
 {
 	valaDevelopFunctionArgs ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 5895 "breakpoint_hit.c"
 	}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 5901 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 5905 "breakpoint_hit.c"
 	} else {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_function_args_ref (value->data[0].v_pointer);
-#line 5909 "breakpoint_hit.c"
 	}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 5913 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -5920,25 +4240,17 @@ vala_develop_param_spec_function_args (const gchar* name,
                                        GParamFlags flags)
 {
 	valaDevelopParamSpecFunctionArgs* spec;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_FUNCTION_ARGS), NULL);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 5932 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_function_args (const GValue* value)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_FUNCTION_ARGS), NULL);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 5942 "breakpoint_hit.c"
 }
 
 void
@@ -5946,31 +4258,18 @@ vala_develop_value_set_function_args (GValue* value,
                                       gpointer v_object)
 {
 	valaDevelopFunctionArgs * old;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_FUNCTION_ARGS));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_FUNCTION_ARGS));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_function_args_ref (value->data[0].v_pointer);
-#line 5964 "breakpoint_hit.c"
 	} else {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5968 "breakpoint_hit.c"
 	}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_function_args_unref (old);
-#line 5974 "breakpoint_hit.c"
 	}
 }
 
@@ -5979,29 +4278,17 @@ vala_develop_value_take_function_args (GValue* value,
                                        gpointer v_object)
 {
 	valaDevelopFunctionArgs * old;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_FUNCTION_ARGS));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_FUNCTION_ARGS));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 5995 "breakpoint_hit.c"
 	} else {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 5999 "breakpoint_hit.c"
 	}
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_function_args_unref (old);
-#line 6005 "breakpoint_hit.c"
 	}
 }
 
@@ -6009,39 +4296,27 @@ static void
 vala_develop_function_args_class_init (valaDevelopFunctionArgsClass * klass,
                                        gpointer klass_data)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_function_args_parent_class = g_type_class_peek_parent (klass);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopFunctionArgsClass *) klass)->finalize = vala_develop_function_args_finalize;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopFunctionArgs_private_offset);
-#line 6019 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_function_args_instance_init (valaDevelopFunctionArgs * self,
                                           gpointer klass)
 {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_function_args_get_instance_private (self);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 6030 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_function_args_finalize (valaDevelopFunctionArgs * obj)
 {
 	valaDevelopFunctionArgs * self;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_FUNCTION_ARGS, valaDevelopFunctionArgs);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_name);
-#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_val);
-#line 6045 "breakpoint_hit.c"
 }
 
 GType
@@ -6065,11 +4340,8 @@ vala_develop_function_args_ref (gpointer instance)
 {
 	valaDevelopFunctionArgs * self;
 	self = instance;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 6073 "breakpoint_hit.c"
 }
 
 void
@@ -6077,13 +4349,9 @@ vala_develop_function_args_unref (gpointer instance)
 {
 	valaDevelopFunctionArgs * self;
 	self = instance;
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_FUNCTION_ARGS_GET_CLASS (self)->finalize (self);
-#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 6087 "breakpoint_hit.c"
 	}
 }
 
@@ -6096,11 +4364,8 @@ vala_develop_stack_frame_get_instance_private (valaDevelopStackFrame* self)
 static Block10Data*
 block10_data_ref (Block10Data* _data10_)
 {
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&_data10_->_ref_count_);
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return _data10_;
-#line 6104 "breakpoint_hit.c"
 }
 
 static void
@@ -6108,38 +4373,28 @@ block10_data_unref (void * _userdata_)
 {
 	Block10Data* _data10_;
 	_data10_ = (Block10Data*) _userdata_;
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&_data10_->_ref_count_)) {
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_stack_frame_unref0 (_data10_->retVal);
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_slice_free (Block10Data, _data10_);
-#line 6118 "breakpoint_hit.c"
 	}
 }
 
 static void
 _vala_develop_function_args_unref0_ (gpointer var)
 {
-#line 344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	(var == NULL) ? NULL : (var = (vala_develop_function_args_unref (var), NULL));
-#line 6127 "breakpoint_hit.c"
 }
 
 static inline void
 _g_list_free__vala_develop_function_args_unref0_ (GList* self)
 {
-#line 344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_list_free_full (self, (GDestroyNotify) _vala_develop_function_args_unref0_);
-#line 6135 "breakpoint_hit.c"
 }
 
 static gpointer
 _vala_develop_function_args_ref0 (gpointer self)
 {
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self ? vala_develop_function_args_ref (self) : NULL;
-#line 6143 "breakpoint_hit.c"
 }
 
 static void
@@ -6151,103 +4406,62 @@ ___lambda6_ (Block10Data* _data10_,
 	valaDevelopFunctionArgs* fArgs = NULL;
 	valaDevelopFunctionArgs* _tmp0_;
 	GError* _inner_error0_ = NULL;
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (array != NULL);
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (element != NULL);
-#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_function_args_new ();
-#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	fArgs = _tmp0_;
-#line 6163 "breakpoint_hit.c"
 	{
 		JsonObject* _tmp1_;
 		JsonObject* _tmp5_;
 		GList* _tmp9_;
 		valaDevelopFunctionArgs* _tmp10_;
 		valaDevelopFunctionArgs* _tmp11_;
-#line 350 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp1_ = json_node_get_object (element);
-#line 350 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (json_object_has_member (_tmp1_, "name")) {
-#line 6174 "breakpoint_hit.c"
 			valaDevelopFunctionArgs* _tmp2_;
 			JsonObject* _tmp3_;
 			const gchar* _tmp4_;
-#line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp2_ = fArgs;
-#line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp3_ = json_node_get_object (element);
-#line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp4_ = json_object_get_string_member (_tmp3_, "name");
-#line 351 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			vala_develop_function_args_set_name (_tmp2_, _tmp4_);
-#line 6186 "breakpoint_hit.c"
 		}
-#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp5_ = json_node_get_object (element);
-#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (json_object_has_member (_tmp5_, "value")) {
-#line 6192 "breakpoint_hit.c"
 			valaDevelopFunctionArgs* _tmp6_;
 			JsonObject* _tmp7_;
 			const gchar* _tmp8_;
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp6_ = fArgs;
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp7_ = json_node_get_object (element);
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			_tmp8_ = json_object_get_string_member (_tmp7_, "value");
-#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			vala_develop_function_args_set_val (_tmp6_, _tmp8_);
-#line 6204 "breakpoint_hit.c"
 		}
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp9_ = _data10_->retVal->priv->_args;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp10_ = fArgs;
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp11_ = _vala_develop_function_args_ref0 (_tmp10_);
-#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stack_frame_set_args (_data10_->retVal, g_list_append (_tmp9_, _tmp11_));
-#line 6214 "breakpoint_hit.c"
 	}
-	goto __finally22;
-	__catch22_g_error:
+	goto __finally23;
+	__catch23_g_error:
 	{
 		GError* ex = NULL;
 		GError* _tmp12_;
 		const gchar* _tmp13_;
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		ex = _inner_error0_;
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_inner_error0_ = NULL;
-#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp12_ = ex;
-#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_tmp13_ = _tmp12_->message;
-#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_hit.vala:358: %s", _tmp13_);
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_g_error_free0 (ex);
-#line 6234 "breakpoint_hit.c"
 	}
-	__finally22:
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
+	__finally23:
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		_vala_develop_function_args_unref0 (fArgs);
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_clear_error (&_inner_error0_);
-#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return;
-#line 6247 "breakpoint_hit.c"
 	}
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_vala_develop_function_args_unref0 (fArgs);
-#line 6251 "breakpoint_hit.c"
 }
 
 static void
@@ -6256,9 +4470,7 @@ ____lambda6__json_array_foreach (JsonArray* array,
                                  JsonNode* element_node,
                                  gpointer self)
 {
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	___lambda6_ (self, array, index_, element_node);
-#line 6262 "breakpoint_hit.c"
 }
 
 static void
@@ -6269,166 +4481,101 @@ __lambda5_ (Block10Data* _data10_,
 {
 	const gchar* _tmp0_;
 	GQuark _tmp2_ = 0U;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label0 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label1 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label2 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label3 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label4 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label5 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label6 = 0;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	static GQuark _tmp1_label7 = 0;
-#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (object != NULL);
-#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_name != NULL);
-#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (member_node != NULL);
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = member_name;
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp2_ = (NULL == _tmp0_) ? 0 : g_quark_from_string (_tmp0_);
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (_tmp2_ == ((0 != _tmp1_label0) ? _tmp1_label0 : (_tmp1_label0 = g_quark_from_static_string ("level")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6303 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp3_;
-#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp3_ = json_object_get_string_member (object, member_name);
-#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_level (_data10_->retVal, atoi (_tmp3_));
-#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6313 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label1) ? _tmp1_label1 : (_tmp1_label1 = g_quark_from_static_string ("from")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6319 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp4_;
-#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp4_ = json_object_get_string_member (object, member_name);
-#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_from (_data10_->retVal, _tmp4_);
-#line 336 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6329 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label2) ? _tmp1_label2 : (_tmp1_label2 = g_quark_from_static_string ("addr")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6335 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp5_;
-#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp5_ = json_object_get_string_member (object, member_name);
-#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_address (_data10_->retVal, _tmp5_);
-#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6345 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label3) ? _tmp1_label3 : (_tmp1_label3 = g_quark_from_static_string ("func")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6351 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp6_;
-#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp6_ = json_object_get_string_member (object, member_name);
-#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_function (_data10_->retVal, _tmp6_);
-#line 342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6361 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label4) ? _tmp1_label4 : (_tmp1_label4 = g_quark_from_static_string ("args")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6367 "breakpoint_hit.c"
 			default:
 			{
 				GList* _tmp7_;
 				JsonArray* _tmp8_;
-#line 344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp7_ = NULL;
-#line 344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_args (_data10_->retVal, _tmp7_);
-#line 344 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				(_tmp7_ == NULL) ? NULL : (_tmp7_ = (_g_list_free__vala_develop_function_args_unref0_ (_tmp7_), NULL));
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp8_ = json_object_get_array_member (object, member_name);
-#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				json_array_foreach_element (_tmp8_, ____lambda6__json_array_foreach, _data10_);
-#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6384 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label5) ? _tmp1_label5 : (_tmp1_label5 = g_quark_from_static_string ("file")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6390 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp9_;
-#line 363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp9_ = json_object_get_string_member (object, member_name);
-#line 363 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_file (_data10_->retVal, _tmp9_);
-#line 364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6400 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label6) ? _tmp1_label6 : (_tmp1_label6 = g_quark_from_static_string ("fullname")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6406 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp10_;
-#line 366 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp10_ = json_object_get_string_member (object, member_name);
-#line 366 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_fullname (_data10_->retVal, _tmp10_);
-#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6416 "breakpoint_hit.c"
 			}
 		}
 	} else if (_tmp2_ == ((0 != _tmp1_label7) ? _tmp1_label7 : (_tmp1_label7 = g_quark_from_static_string ("line")))) {
-#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		switch (0) {
-#line 6422 "breakpoint_hit.c"
 			default:
 			{
 				const gchar* _tmp11_;
-#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				_tmp11_ = json_object_get_string_member (object, member_name);
-#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				vala_develop_stack_frame_set_line (_data10_->retVal, atoi (_tmp11_));
-#line 370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 				break;
-#line 6432 "breakpoint_hit.c"
 			}
 		}
 	}
@@ -6440,9 +4587,7 @@ ___lambda5__json_object_foreach (JsonObject* object,
                                  JsonNode* member_node,
                                  gpointer self)
 {
-#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	__lambda5_ (self, object, member_name, member_node);
-#line 6446 "breakpoint_hit.c"
 }
 
 valaDevelopStackFrame*
@@ -6452,72 +4597,48 @@ vala_develop_stack_frame_parse (JsonObject* obj)
 	Block10Data* _data10_;
 	valaDevelopStackFrame* _tmp0_;
 	valaDevelopStackFrame* _tmp1_;
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (obj != NULL, NULL);
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data10_ = g_slice_new0 (Block10Data);
-#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data10_->_ref_count_ = 1;
-#line 326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = vala_develop_stack_frame_new ();
-#line 326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data10_->retVal = _tmp0_;
-#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	json_object_foreach_member (obj, ___lambda5__json_object_foreach, _data10_);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp1_ = _vala_develop_stack_frame_ref0 (_data10_->retVal);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp1_;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	block10_data_unref (_data10_);
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_data10_ = NULL;
-#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6478 "breakpoint_hit.c"
 }
 
 valaDevelopStackFrame*
 vala_develop_stack_frame_construct (GType object_type)
 {
 	valaDevelopStackFrame* self = NULL;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = (valaDevelopStackFrame*) g_type_create_instance (object_type);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return self;
-#line 6489 "breakpoint_hit.c"
 }
 
 valaDevelopStackFrame*
 vala_develop_stack_frame_new (void)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return vala_develop_stack_frame_construct (VALA_DEVELOP_TYPE_STACK_FRAME);
-#line 6497 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_stack_frame_get_level (valaDevelopStackFrame* self)
 {
 	gint result;
-#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_level;
-#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6510 "breakpoint_hit.c"
 }
 
 void
 vala_develop_stack_frame_set_level (valaDevelopStackFrame* self,
                                     gint value)
 {
-#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_level = value;
-#line 6521 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -6525,15 +4646,10 @@ vala_develop_stack_frame_get_address (valaDevelopStackFrame* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_address;
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6537 "breakpoint_hit.c"
 }
 
 void
@@ -6541,15 +4657,10 @@ vala_develop_stack_frame_set_address (valaDevelopStackFrame* self,
                                       const gchar* value)
 {
 	gchar* _tmp0_;
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_address);
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_address = _tmp0_;
-#line 6553 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -6557,15 +4668,10 @@ vala_develop_stack_frame_get_from (valaDevelopStackFrame* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_from;
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6569 "breakpoint_hit.c"
 }
 
 void
@@ -6573,15 +4679,10 @@ vala_develop_stack_frame_set_from (valaDevelopStackFrame* self,
                                    const gchar* value)
 {
 	gchar* _tmp0_;
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_from);
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_from = _tmp0_;
-#line 6585 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -6589,15 +4690,10 @@ vala_develop_stack_frame_get_function (valaDevelopStackFrame* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_function;
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6601 "breakpoint_hit.c"
 }
 
 void
@@ -6605,15 +4701,10 @@ vala_develop_stack_frame_set_function (valaDevelopStackFrame* self,
                                        const gchar* value)
 {
 	gchar* _tmp0_;
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_function);
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_function = _tmp0_;
-#line 6617 "breakpoint_hit.c"
 }
 
 GList*
@@ -6621,26 +4712,18 @@ vala_develop_stack_frame_get_args (valaDevelopStackFrame* self)
 {
 	GList* result;
 	GList* _tmp0_;
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_args;
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6633 "breakpoint_hit.c"
 }
 
 void
 vala_develop_stack_frame_set_args (valaDevelopStackFrame* self,
                                    GList* value)
 {
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_args = value;
-#line 6644 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -6648,15 +4731,10 @@ vala_develop_stack_frame_get_file (valaDevelopStackFrame* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_file;
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6660 "breakpoint_hit.c"
 }
 
 void
@@ -6664,15 +4742,10 @@ vala_develop_stack_frame_set_file (valaDevelopStackFrame* self,
                                    const gchar* value)
 {
 	gchar* _tmp0_;
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_file);
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_file = _tmp0_;
-#line 6676 "breakpoint_hit.c"
 }
 
 const gchar*
@@ -6680,15 +4753,10 @@ vala_develop_stack_frame_get_fullname (valaDevelopStackFrame* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, NULL);
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = self->priv->_fullname;
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = _tmp0_;
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6692 "breakpoint_hit.c"
 }
 
 void
@@ -6696,57 +4764,40 @@ vala_develop_stack_frame_set_fullname (valaDevelopStackFrame* self,
                                        const gchar* value)
 {
 	gchar* _tmp0_;
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_tmp0_ = g_strdup (value);
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_fullname);
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_fullname = _tmp0_;
-#line 6708 "breakpoint_hit.c"
 }
 
 gint
 vala_develop_stack_frame_get_line (valaDevelopStackFrame* self)
 {
 	gint result;
-#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (self != NULL, 0);
-#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	result = self->priv->_line;
-#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return result;
-#line 6721 "breakpoint_hit.c"
 }
 
 void
 vala_develop_stack_frame_set_line (valaDevelopStackFrame* self,
                                    gint value)
 {
-#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (self != NULL);
-#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv->_line = value;
-#line 6732 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_stack_frame_init (GValue* value)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	value->data[0].v_pointer = NULL;
-#line 6740 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_value_stack_frame_free_value (GValue* value)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (value->data[0].v_pointer) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stack_frame_unref (value->data[0].v_pointer);
-#line 6750 "breakpoint_hit.c"
 	}
 }
 
@@ -6754,24 +4805,17 @@ static void
 vala_develop_value_stack_frame_copy_value (const GValue* src_value,
                                            GValue* dest_value)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (src_value->data[0].v_pointer) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = vala_develop_stack_frame_ref (src_value->data[0].v_pointer);
-#line 6762 "breakpoint_hit.c"
 	} else {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 6766 "breakpoint_hit.c"
 	}
 }
 
 static gpointer
 vala_develop_value_stack_frame_peek_pointer (const GValue* value)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 6775 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -6780,32 +4824,19 @@ vala_develop_value_stack_frame_collect_value (GValue* value,
                                               GTypeCValue* collect_values,
                                               guint collect_flags)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (collect_values[0].v_pointer) {
-#line 6786 "breakpoint_hit.c"
 		valaDevelopStackFrame * object;
 		object = collect_values[0].v_pointer;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		if (object->parent_instance.g_class == NULL) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 6793 "breakpoint_hit.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 6797 "breakpoint_hit.c"
 		}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = vala_develop_stack_frame_ref (object);
-#line 6801 "breakpoint_hit.c"
 	} else {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 6805 "breakpoint_hit.c"
 	}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 6809 "breakpoint_hit.c"
 }
 
 static gchar*
@@ -6816,29 +4847,17 @@ vala_develop_value_stack_frame_lcopy_value (const GValue* value,
 {
 	valaDevelopStackFrame ** object_p;
 	object_p = collect_values[0].v_pointer;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!object_p) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 6824 "breakpoint_hit.c"
 	}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (!value->data[0].v_pointer) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = NULL;
-#line 6830 "breakpoint_hit.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = value->data[0].v_pointer;
-#line 6834 "breakpoint_hit.c"
 	} else {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		*object_p = vala_develop_stack_frame_ref (value->data[0].v_pointer);
-#line 6838 "breakpoint_hit.c"
 	}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return NULL;
-#line 6842 "breakpoint_hit.c"
 }
 
 GParamSpec*
@@ -6849,25 +4868,17 @@ vala_develop_param_spec_stack_frame (const gchar* name,
                                      GParamFlags flags)
 {
 	valaDevelopParamSpecStackFrame* spec;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (g_type_is_a (object_type, VALA_DEVELOP_TYPE_STACK_FRAME), NULL);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	spec = g_param_spec_internal (G_TYPE_PARAM_OBJECT, name, nick, blurb, flags);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	G_PARAM_SPEC (spec)->value_type = object_type;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return G_PARAM_SPEC (spec);
-#line 6861 "breakpoint_hit.c"
 }
 
 gpointer
 vala_develop_value_get_stack_frame (const GValue* value)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STACK_FRAME), NULL);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return value->data[0].v_pointer;
-#line 6871 "breakpoint_hit.c"
 }
 
 void
@@ -6875,31 +4886,18 @@ vala_develop_value_set_stack_frame (GValue* value,
                                     gpointer v_object)
 {
 	valaDevelopStackFrame * old;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STACK_FRAME));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_STACK_FRAME));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stack_frame_ref (value->data[0].v_pointer);
-#line 6893 "breakpoint_hit.c"
 	} else {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 6897 "breakpoint_hit.c"
 	}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stack_frame_unref (old);
-#line 6903 "breakpoint_hit.c"
 	}
 }
 
@@ -6908,29 +4906,17 @@ vala_develop_value_take_stack_frame (GValue* value,
                                      gpointer v_object)
 {
 	valaDevelopStackFrame * old;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_return_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, VALA_DEVELOP_TYPE_STACK_FRAME));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	old = value->data[0].v_pointer;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (v_object) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (G_TYPE_CHECK_INSTANCE_TYPE (v_object, VALA_DEVELOP_TYPE_STACK_FRAME));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = v_object;
-#line 6924 "breakpoint_hit.c"
 	} else {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		value->data[0].v_pointer = NULL;
-#line 6928 "breakpoint_hit.c"
 	}
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (old) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		vala_develop_stack_frame_unref (old);
-#line 6934 "breakpoint_hit.c"
 	}
 }
 
@@ -6938,45 +4924,30 @@ static void
 vala_develop_stack_frame_class_init (valaDevelopStackFrameClass * klass,
                                      gpointer klass_data)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	vala_develop_stack_frame_parent_class = g_type_class_peek_parent (klass);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	((valaDevelopStackFrameClass *) klass)->finalize = vala_develop_stack_frame_finalize;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopStackFrame_private_offset);
-#line 6948 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_stack_frame_instance_init (valaDevelopStackFrame * self,
                                         gpointer klass)
 {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->priv = vala_develop_stack_frame_get_instance_private (self);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self->ref_count = 1;
-#line 6959 "breakpoint_hit.c"
 }
 
 static void
 vala_develop_stack_frame_finalize (valaDevelopStackFrame * obj)
 {
 	valaDevelopStackFrame * self;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_STACK_FRAME, valaDevelopStackFrame);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_signal_handlers_destroy (self);
-#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_address);
-#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_from);
-#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_function);
-#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_file);
-#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	_g_free0 (self->priv->_fullname);
-#line 6980 "breakpoint_hit.c"
 }
 
 GType
@@ -7000,11 +4971,8 @@ vala_develop_stack_frame_ref (gpointer instance)
 {
 	valaDevelopStackFrame * self;
 	self = instance;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	g_atomic_int_inc (&self->ref_count);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	return instance;
-#line 7008 "breakpoint_hit.c"
 }
 
 void
@@ -7012,13 +4980,9 @@ vala_develop_stack_frame_unref (gpointer instance)
 {
 	valaDevelopStackFrame * self;
 	self = instance;
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 	if (g_atomic_int_dec_and_test (&self->ref_count)) {
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		VALA_DEVELOP_STACK_FRAME_GET_CLASS (self)->finalize (self);
-#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_hit.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 7022 "breakpoint_hit.c"
 	}
 }
 

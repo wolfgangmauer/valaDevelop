@@ -1,4 +1,3 @@
-
 #transparentBK {
     all: unset;
     background-color: transparent;
@@ -272,7 +271,3 @@ treeview.view:selected:backdrop {
 #vdHeaderLabel {
     all: unset;
 }
-
-
-
-

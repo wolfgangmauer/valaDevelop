@@ -44,30 +44,22 @@ valaDevelopSearchReplaceDialog*
 vala_develop_search_replace_dialog_construct (GType object_type)
 {
 	valaDevelopSearchReplaceDialog * self = NULL;
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	self = (valaDevelopSearchReplaceDialog*) g_object_new (object_type, NULL);
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	return self;
-#line 52 "search_replace_dialog.c"
 }
 
 valaDevelopSearchReplaceDialog*
 vala_develop_search_replace_dialog_new (void)
 {
-#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	return vala_develop_search_replace_dialog_construct (VALA_DEVELOP_TYPE_SEARCH_REPLACE_DIALOG);
-#line 60 "search_replace_dialog.c"
 }
 
 static void
 vala_develop_search_replace_dialog_class_init (valaDevelopSearchReplaceDialogClass * klass,
                                                gpointer klass_data)
 {
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	vala_develop_search_replace_dialog_parent_class = g_type_class_peek_parent (klass);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_search_replace_dialog_finalize;
-#line 71 "search_replace_dialog.c"
 }
 
 static void
@@ -80,13 +72,9 @@ static void
 vala_develop_search_replace_dialog_finalize (GObject * obj)
 {
 	valaDevelopSearchReplaceDialog * self;
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SEARCH_REPLACE_DIALOG, valaDevelopSearchReplaceDialog);
-#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	_g_object_unref0 (self->_parent);
-#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_replace_dialog.vala"
 	G_OBJECT_CLASS (vala_develop_search_replace_dialog_parent_class)->finalize (obj);
-#line 90 "search_replace_dialog.c"
 }
 
 GType
