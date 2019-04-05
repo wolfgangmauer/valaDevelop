@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 Wolfgang Mauer <wolfgang.mauer@kabelmail.de> -->
+<component type="desktop">
+  <id>com.github.wolfgangmauer.valadevelop</id>
+  <metadata_license>MIT</metadata_license>
+  <name>valaDevelop</name>
+  <summary>An IDE for developing Vala applications/libraries, much like MonoDevelop for C#</summary>
+  <description>
+    <p>To be done</p>
+  </description>
+</component>
