@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=valaDevelop
+GenericName=Integrated Development Environment for Vala
+Comment=Allows the development of Vala applications in an integrated environment
+Categories=GNOME;GTK;Development;IDE;Vala;VALA;
+Exec=valaDevelop
+Icon=valaDevelop
+Terminal=false
+Type=Application
+Keywords=Vala;IDE;Code;
+
+Version=0.1
+StartupNotify=true
+MimeType=application/x-vsln;
