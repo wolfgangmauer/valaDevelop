@@ -30,6 +30,7 @@ F11           -> Step into function (debug)
 SHIFT+F11     -> Step out of function (debug)
 F9            -> Toggle breakpoint
 CTRL+B        -> Toggle bookmark
+CTRL+SHIFT+U  -> Toggle line comments
 CTRL+F        -> Search (actual source)
 CTRL+H        -> Search & Replace (actual source)
 CTRL+G        -> Goto line
