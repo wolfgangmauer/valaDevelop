@@ -267,20 +267,30 @@ vala_develop_search_and_replace_get_instance_private (valaDevelopSearchAndReplac
 static gpointer
 _g_object_ref0 (gpointer self)
 {
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return self ? g_object_ref (self) : NULL;
+#line 273 "search_and_replace.c"
 }
 
 static gboolean
 bool_parse (const gchar* str)
 {
 	gboolean result = FALSE;
+#line 44 "glib-2.0.vapi"
 	g_return_val_if_fail (str != NULL, FALSE);
+#line 45 "glib-2.0.vapi"
 	if (g_strcmp0 (str, "true") == 0) {
+#line 46 "glib-2.0.vapi"
 		result = TRUE;
+#line 46 "glib-2.0.vapi"
 		return result;
+#line 288 "search_and_replace.c"
 	} else {
+#line 48 "glib-2.0.vapi"
 		result = FALSE;
+#line 48 "glib-2.0.vapi"
 		return result;
+#line 294 "search_and_replace.c"
 	}
 }
 
@@ -288,15 +298,20 @@ static void
 __lambda86_ (valaDevelopSearchAndReplace* self)
 {
 	GtkSourceSearchContext* _tmp0_;
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchContext;
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_context_set_highlight (_tmp0_, FALSE);
+#line 306 "search_and_replace.c"
 }
 
 static void
 ___lambda86__gtk_widget_hide (GtkWidget* _sender,
                               gpointer self)
 {
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	__lambda86_ ((valaDevelopSearchAndReplace*) self);
+#line 315 "search_and_replace.c"
 }
 
 static void
@@ -305,18 +320,29 @@ __lambda87_ (valaDevelopSearchAndReplace* self,
              GParamSpec* property)
 {
 	const gchar* _tmp0_;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (sender != NULL);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (property != NULL);
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = property->name;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (g_strcmp0 (_tmp0_, "occurrences_count") == 0) {
+#line 332 "search_and_replace.c"
 		GtkSourceSearchContext* _tmp1_;
 		gint _tmp2_;
 		gint _tmp3_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp1_ = self->priv->_searchContext;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp2_ = gtk_source_search_context_get_occurrences_count (_tmp1_);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp3_ = _tmp2_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		if (_tmp3_ > 0) {
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 346 "search_and_replace.c"
 		}
 	}
 }
@@ -326,7 +352,9 @@ ___lambda87__g_object_notify (GObject* _sender,
                               GParamSpec* pspec,
                               gpointer self)
 {
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	__lambda87_ ((valaDevelopSearchAndReplace*) self, _sender, pspec);
+#line 358 "search_and_replace.c"
 }
 
 valaDevelopSearchAndReplace*
@@ -392,139 +420,273 @@ vala_develop_search_and_replace_construct (GType object_type,
 	gboolean _tmp56_;
 	GtkSourceSearchContext* _tmp57_;
 	GError* _inner_error0_ = NULL;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (view != NULL, NULL);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (buffer != NULL, NULL);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self = (valaDevelopSearchAndReplace*) g_object_new (object_type, NULL);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = _g_object_ref0 (view);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_view);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv->_view = _tmp0_;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = _g_object_ref0 (buffer);
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_buffer);
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv->_buffer = _tmp1_;
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_set_SearchType (self, searchType);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = gdk_pixbuf_new_from_resource ("/valaDevelop/close.svg.png", &_inner_error0_);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp3_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_clear_error (&_inner_error0_);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return NULL;
+#line 456 "search_and_replace.c"
 	}
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = self->priv->closeImage;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = gdk_pixbuf_scale_simple (_tmp2_, 16, 16, GDK_INTERP_BILINEAR);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp6_ = _tmp5_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_set (_tmp4_, "pixbuf", _tmp6_, NULL);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp6_);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = gdk_pixbuf_new_from_resource ("/valaDevelop/down.svg.png", &_inner_error0_);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp7_ = _tmp8_;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_object_unref0 (_tmp2_);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_clear_error (&_inner_error0_);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return NULL;
+#line 482 "search_and_replace.c"
 	}
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = self->priv->downImage;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp10_ = gdk_pixbuf_scale_simple (_tmp7_, 16, 16, GDK_INTERP_BILINEAR);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp11_ = _tmp10_;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_set (_tmp9_, "pixbuf", _tmp11_, NULL);
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp11_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp13_ = gdk_pixbuf_new_from_resource ("/valaDevelop/up.svg.png", &_inner_error0_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp12_ = _tmp13_;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_object_unref0 (_tmp7_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_object_unref0 (_tmp2_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_clear_error (&_inner_error0_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return NULL;
+#line 510 "search_and_replace.c"
 	}
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp14_ = self->priv->upImage;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp15_ = gdk_pixbuf_scale_simple (_tmp12_, 16, 16, GDK_INTERP_BILINEAR);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp16_ = _tmp15_;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_set (_tmp14_, "pixbuf", _tmp16_, NULL);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp16_);
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp17_ = gtk_source_search_settings_new ();
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_searchSettings);
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv->_searchSettings = _tmp17_;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp18_ = self->priv->_searchSettings;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_wrap_around (_tmp18_, TRUE);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp19_ = self->priv->_buffer;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp20_ = self->priv->_searchSettings;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp21_ = gtk_source_search_context_new (_tmp19_, _tmp20_);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_searchContext);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv->_searchContext = _tmp21_;
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp22_ = self->priv->_searchContext;
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_context_set_highlight (_tmp22_, TRUE);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (searchType == VALA_DEVELOP_SEARCH_TYPE_ENUM_Find) {
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp23_ = TRUE;
+#line 550 "search_and_replace.c"
 	} else {
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp23_ = searchType == VALA_DEVELOP_SEARCH_TYPE_ENUM_Replace;
+#line 554 "search_and_replace.c"
 	}
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp24_ = self->search;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp24_, _tmp23_);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp25_ = self->replace;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp25_, searchType == VALA_DEVELOP_SEARCH_TYPE_ENUM_Replace);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp26_ = self->gotoLine;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp26_, searchType == VALA_DEVELOP_SEARCH_TYPE_ENUM_Goto);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp28_ = vala_develop_xml_configuration_get_Setting ();
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp29_ = _tmp28_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp30_ = vala_develop_settings_get (_tmp29_, "case_sensitive");
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp27_ = _tmp30_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp27_ == NULL) {
+#line 578 "search_and_replace.c"
 		gchar* _tmp31_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp31_ = g_strdup ("false");
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp27_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp27_ = _tmp31_;
+#line 586 "search_and_replace.c"
 	}
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp32_ = self->priv->_searchSettings;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_case_sensitive (_tmp32_, bool_parse (_tmp27_));
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp34_ = vala_develop_xml_configuration_get_Setting ();
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp35_ = _tmp34_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp36_ = vala_develop_settings_get (_tmp35_, "regex_enabled");
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp33_ = _tmp36_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp33_ == NULL) {
+#line 602 "search_and_replace.c"
 		gchar* _tmp37_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp37_ = g_strdup ("false");
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp33_);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp33_ = _tmp37_;
+#line 610 "search_and_replace.c"
 	}
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp38_ = self->priv->_searchSettings;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_regex_enabled (_tmp38_, bool_parse (_tmp33_));
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp40_ = vala_develop_xml_configuration_get_Setting ();
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp41_ = _tmp40_;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp42_ = vala_develop_settings_get (_tmp41_, "at_word_boundaries");
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp39_ = _tmp42_;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp39_ == NULL) {
+#line 626 "search_and_replace.c"
 		gchar* _tmp43_;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp43_ = g_strdup ("false");
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp39_);
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp39_ = _tmp43_;
+#line 634 "search_and_replace.c"
 	}
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp44_ = self->priv->_searchSettings;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_at_word_boundaries (_tmp44_, bool_parse (_tmp39_));
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp45_ = self->caseSensitive;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp46_ = self->priv->_searchSettings;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp47_ = gtk_source_search_settings_get_case_sensitive (_tmp46_);
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp48_ = _tmp47_;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_check_menu_item_set_active (_tmp45_, _tmp48_);
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp49_ = self->regexSearch;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp50_ = self->priv->_searchSettings;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp51_ = gtk_source_search_settings_get_regex_enabled (_tmp50_);
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp52_ = _tmp51_;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_check_menu_item_set_active (_tmp49_, _tmp52_);
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp53_ = self->wholeWord;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp54_ = self->priv->_searchSettings;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp55_ = gtk_source_search_settings_get_at_word_boundaries (_tmp54_);
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp56_ = _tmp55_;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_check_menu_item_set_active (_tmp53_, _tmp56_);
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_signal_connect_object ((GtkWidget*) self, "hide", (GCallback) ___lambda86__gtk_widget_hide, self, 0);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp57_ = self->priv->_searchContext;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_signal_connect_object ((GObject*) _tmp57_, "notify", (GCallback) ___lambda87__g_object_notify, self, 0);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp39_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp33_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp27_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp12_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp7_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (_tmp2_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return self;
+#line 690 "search_and_replace.c"
 }
 
 valaDevelopSearchAndReplace*
@@ -532,7 +694,9 @@ vala_develop_search_and_replace_new (valaDevelopSearchTypeEnum searchType,
                                      GtkSourceView* view,
                                      GtkSourceBuffer* buffer)
 {
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return vala_develop_search_and_replace_construct (VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE, searchType, view, buffer);
+#line 700 "search_and_replace.c"
 }
 
 static gboolean
@@ -541,19 +705,33 @@ vala_develop_search_and_replace_on_key_press_event (valaDevelopSearchAndReplace*
                                                     GdkEventKey* event)
 {
 	gboolean result = FALSE;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (sender != NULL, FALSE);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (event->keyval == GDK_KEY_Escape) {
+#line 717 "search_and_replace.c"
 		GtkSourceView* _tmp0_;
+#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp0_ = self->priv->_view;
+#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_widget_grab_focus ((GtkWidget*) _tmp0_);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_widget_destroy ((GtkWidget*) self);
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		result = TRUE;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return result;
+#line 729 "search_and_replace.c"
 	}
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 735 "search_and_replace.c"
 }
 
 static gboolean
@@ -563,7 +741,9 @@ _vala_develop_search_and_replace_on_key_press_event_gtk_widget_key_press_event (
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_on_key_press_event ((valaDevelopSearchAndReplace*) self, _sender, event);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 747 "search_and_replace.c"
 }
 
 static gboolean
@@ -580,41 +760,76 @@ int64_try_parse (const gchar* str,
 	gchar* _tmp2_;
 	gint _tmp3_;
 	gint _tmp4_;
+#line 727 "glib-2.0.vapi"
 	g_return_val_if_fail (str != NULL, FALSE);
+#line 729 "glib-2.0.vapi"
 	_tmp1_ = g_ascii_strtoll (str, &_tmp0_, (guint) 0);
+#line 729 "glib-2.0.vapi"
 	endptr = _tmp0_;
+#line 729 "glib-2.0.vapi"
 	_vala__result_ = _tmp1_;
+#line 730 "glib-2.0.vapi"
 	_tmp2_ = endptr;
+#line 730 "glib-2.0.vapi"
 	_tmp3_ = strlen (str);
+#line 730 "glib-2.0.vapi"
 	_tmp4_ = _tmp3_;
+#line 730 "glib-2.0.vapi"
 	if (_tmp2_ == (((gchar*) str) + _tmp4_)) {
+#line 731 "glib-2.0.vapi"
 		_vala_unparsed = "";
+#line 732 "glib-2.0.vapi"
 		result = TRUE;
+#line 732 "glib-2.0.vapi"
 		if (_result_) {
+#line 732 "glib-2.0.vapi"
 			*_result_ = _vala__result_;
+#line 788 "search_and_replace.c"
 		}
+#line 732 "glib-2.0.vapi"
 		if (unparsed) {
+#line 732 "glib-2.0.vapi"
 			*unparsed = _vala_unparsed;
+#line 794 "search_and_replace.c"
 		}
+#line 732 "glib-2.0.vapi"
 		return result;
+#line 798 "search_and_replace.c"
 	} else {
 		gchar* _tmp5_;
+#line 734 "glib-2.0.vapi"
 		_tmp5_ = endptr;
+#line 734 "glib-2.0.vapi"
 		_vala_unparsed = (const gchar*) _tmp5_;
+#line 735 "glib-2.0.vapi"
 		result = FALSE;
+#line 735 "glib-2.0.vapi"
 		if (_result_) {
+#line 735 "glib-2.0.vapi"
 			*_result_ = _vala__result_;
+#line 811 "search_and_replace.c"
 		}
+#line 735 "glib-2.0.vapi"
 		if (unparsed) {
+#line 735 "glib-2.0.vapi"
 			*unparsed = _vala_unparsed;
+#line 817 "search_and_replace.c"
 		}
+#line 735 "glib-2.0.vapi"
 		return result;
+#line 821 "search_and_replace.c"
 	}
+#line 727 "glib-2.0.vapi"
 	if (_result_) {
+#line 727 "glib-2.0.vapi"
 		*_result_ = _vala__result_;
+#line 827 "search_and_replace.c"
 	}
+#line 727 "glib-2.0.vapi"
 	if (unparsed) {
+#line 727 "glib-2.0.vapi"
 		*unparsed = _vala_unparsed;
+#line 833 "search_and_replace.c"
 	}
 }
 
@@ -635,28 +850,51 @@ vala_develop_search_and_replace_OnGoto (valaDevelopSearchAndReplace* self)
 	GtkTextIter _tmp8_;
 	GtkSourceView* _tmp9_;
 	GtkTextIter _tmp10_;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->gotoText;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_entry_get_text (_tmp0_);
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = int64_try_parse (_tmp2_, &_tmp3_, NULL);
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	line = _tmp3_;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (!_tmp4_) {
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		result = TRUE;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return result;
+#line 872 "search_and_replace.c"
 	}
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = self->priv->_buffer;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_text_buffer_get_start_iter ((GtkTextBuffer*) _tmp5_, &_tmp6_);
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	iter = _tmp6_;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_text_iter_set_line (&iter, ((gint) line) - 1);
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp7_ = self->priv->_buffer;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = iter;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_text_buffer_place_cursor ((GtkTextBuffer*) _tmp7_, &_tmp8_);
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = self->priv->_view;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp10_ = iter;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp9_, &_tmp10_, (gdouble) 0, TRUE, 0.5, 0.5);
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 898 "search_and_replace.c"
 }
 
 static gboolean
@@ -666,7 +904,9 @@ _vala_develop_search_and_replace_OnGoto_gtk_widget_button_release_event (GtkWidg
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnGoto ((valaDevelopSearchAndReplace*) self);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 910 "search_and_replace.c"
 }
 
 static gboolean
@@ -676,14 +916,23 @@ vala_develop_search_and_replace_OnClearEntry (valaDevelopSearchAndReplace* self,
 {
 	gboolean result = FALSE;
 	GtkEntry* _tmp0_;
+#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (widget != NULL, FALSE);
+#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
+#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->searchText;
+#line 115 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_entry_set_text (_tmp0_, "");
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 936 "search_and_replace.c"
 }
 
 static gboolean
@@ -693,23 +942,31 @@ _vala_develop_search_and_replace_OnClearEntry_gtk_widget_button_release_event (G
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnClearEntry ((valaDevelopSearchAndReplace*) self, _sender, event);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 948 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_OnNextActivate (valaDevelopSearchAndReplace* self,
                                                 GtkEntry* entry)
 {
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (entry != NULL);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnSelectNext (self);
+#line 961 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_OnNextActivate_gtk_entry_activate (GtkEntry* _sender,
                                                                     gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnNextActivate ((valaDevelopSearchAndReplace*) self, _sender);
+#line 970 "search_and_replace.c"
 }
 
 static gboolean
@@ -719,14 +976,23 @@ vala_develop_search_and_replace_OnSearchClose (valaDevelopSearchAndReplace* self
 {
 	gboolean result = FALSE;
 	GtkSourceView* _tmp0_;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (widget != NULL, FALSE);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_view;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_grab_focus ((GtkWidget*) _tmp0_);
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_destroy ((GtkWidget*) self);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 996 "search_and_replace.c"
 }
 
 static gboolean
@@ -736,23 +1002,31 @@ _vala_develop_search_and_replace_OnSearchClose_gtk_widget_button_release_event (
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnSearchClose ((valaDevelopSearchAndReplace*) self, _sender, event);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1008 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_OnGoToActivate (valaDevelopSearchAndReplace* self,
                                                 GtkWidget* widget)
 {
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (widget != NULL);
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnGoto (self);
+#line 1021 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_OnGoToActivate_gtk_entry_activate (GtkEntry* _sender,
                                                                     gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnGoToActivate ((valaDevelopSearchAndReplace*) self, _sender);
+#line 1030 "search_and_replace.c"
 }
 
 static void
@@ -763,16 +1037,27 @@ vala_develop_search_and_replace_OnIconRelease (valaDevelopSearchAndReplace* self
 	GtkMenu* _tmp0_;
 	GtkMenu* _tmp1_;
 	GtkEntry* _tmp2_;
+#line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (event != NULL);
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (icon_pos != GTK_ENTRY_ICON_PRIMARY) {
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return;
+#line 1049 "search_and_replace.c"
 	}
+#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->menu;
+#line 144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_show_all ((GtkWidget*) _tmp0_);
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = self->menu;
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = self->searchText;
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_menu_popup_at_widget (_tmp1_, (GtkWidget*) _tmp2_, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent*) event);
+#line 1061 "search_and_replace.c"
 }
 
 static void
@@ -781,23 +1066,35 @@ _vala_develop_search_and_replace_OnIconRelease_gtk_entry_icon_release (GtkEntry*
                                                                        GdkEventButton* event,
                                                                        gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnIconRelease ((valaDevelopSearchAndReplace*) self, icon_pos, event);
+#line 1072 "search_and_replace.c"
 }
 
 static gchar*
 bool_to_string (gboolean self)
 {
 	gchar* result = NULL;
+#line 37 "glib-2.0.vapi"
 	if (self) {
+#line 1081 "search_and_replace.c"
 		gchar* _tmp0_;
+#line 38 "glib-2.0.vapi"
 		_tmp0_ = g_strdup ("true");
+#line 38 "glib-2.0.vapi"
 		result = _tmp0_;
+#line 38 "glib-2.0.vapi"
 		return result;
+#line 1089 "search_and_replace.c"
 	} else {
 		gchar* _tmp1_;
+#line 40 "glib-2.0.vapi"
 		_tmp1_ = g_strdup ("false");
+#line 40 "glib-2.0.vapi"
 		result = _tmp1_;
+#line 40 "glib-2.0.vapi"
 		return result;
+#line 1098 "search_and_replace.c"
 	}
 }
 
@@ -815,30 +1112,50 @@ vala_develop_search_and_replace_CaseSensitiveToggle (valaDevelopSearchAndReplace
 	gboolean _tmp7_;
 	gchar* _tmp8_;
 	gchar* _tmp9_;
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (menuItem != NULL);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchSettings;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_check_menu_item_get_active (menuItem);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_case_sensitive (_tmp0_, _tmp2_);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_SearchForwardAsync (self);
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = vala_develop_xml_configuration_get_Setting ();
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = _tmp3_;
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = self->priv->_searchSettings;
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp6_ = gtk_source_search_settings_get_case_sensitive (_tmp5_);
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp7_ = _tmp6_;
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = bool_to_string (_tmp7_);
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = _tmp8_;
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_settings_set (_tmp4_, "case_sensitive", _tmp9_);
+#line 153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp9_);
+#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 1150 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_CaseSensitiveToggle_gtk_check_menu_item_toggled (GtkCheckMenuItem* _sender,
                                                                                   gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_CaseSensitiveToggle ((valaDevelopSearchAndReplace*) self, _sender);
+#line 1159 "search_and_replace.c"
 }
 
 static void
@@ -855,44 +1172,69 @@ vala_develop_search_and_replace_RegexSearchToggle (valaDevelopSearchAndReplace* 
 	gboolean _tmp7_;
 	gchar* _tmp8_;
 	gchar* _tmp9_;
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (menuItem != NULL);
+#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchSettings;
+#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_check_menu_item_get_active (menuItem);
+#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_regex_enabled (_tmp0_, _tmp2_);
+#line 161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_SearchForwardAsync (self);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = vala_develop_xml_configuration_get_Setting ();
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = _tmp3_;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = self->priv->_searchSettings;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp6_ = gtk_source_search_settings_get_regex_enabled (_tmp5_);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp7_ = _tmp6_;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = bool_to_string (_tmp7_);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = _tmp8_;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_settings_set (_tmp4_, "regex_enabled", _tmp9_);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp9_);
+#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 1210 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_RegexSearchToggle_gtk_check_menu_item_toggled (GtkCheckMenuItem* _sender,
                                                                                 gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_RegexSearchToggle ((valaDevelopSearchAndReplace*) self, _sender);
+#line 1219 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_SearchSelectionToggle (valaDevelopSearchAndReplace* self)
 {
+#line 167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 1229 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_SearchSelectionToggle_gtk_check_menu_item_toggled (GtkCheckMenuItem* _sender,
                                                                                     gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_SearchSelectionToggle ((valaDevelopSearchAndReplace*) self);
+#line 1238 "search_and_replace.c"
 }
 
 static void
@@ -909,44 +1251,69 @@ vala_develop_search_and_replace_WholeWordToggle (valaDevelopSearchAndReplace* se
 	gboolean _tmp7_;
 	gchar* _tmp8_;
 	gchar* _tmp9_;
+#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (menuItem != NULL);
+#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchSettings;
+#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_check_menu_item_get_active (menuItem);
+#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 175 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_at_word_boundaries (_tmp0_, _tmp2_);
+#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_SearchForwardAsync (self);
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = vala_develop_xml_configuration_get_Setting ();
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = _tmp3_;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = self->priv->_searchSettings;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp6_ = gtk_source_search_settings_get_at_word_boundaries (_tmp5_);
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp7_ = _tmp6_;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = bool_to_string (_tmp7_);
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = _tmp8_;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_settings_set (_tmp4_, "at_word_boundaries", _tmp9_);
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp9_);
+#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 1289 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_WholeWordToggle_gtk_check_menu_item_toggled (GtkCheckMenuItem* _sender,
                                                                               gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_WholeWordToggle ((valaDevelopSearchAndReplace*) self, _sender);
+#line 1298 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_OnReplaceChanged (valaDevelopSearchAndReplace* self)
 {
+#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 1308 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_OnReplaceChanged_gtk_editable_changed (GtkEditable* _sender,
                                                                         gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnReplaceChanged ((valaDevelopSearchAndReplace*) self);
+#line 1317 "search_and_replace.c"
 }
 
 static gchar*
@@ -958,24 +1325,43 @@ string_replace (const gchar* self,
 	gboolean _tmp0_ = FALSE;
 	gboolean _tmp1_ = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (old != NULL, NULL);
+#line 1480 "glib-2.0.vapi"
 	g_return_val_if_fail (replacement != NULL, NULL);
+#line 1481 "glib-2.0.vapi"
 	if ((*((gchar*) self)) == '\0') {
+#line 1481 "glib-2.0.vapi"
 		_tmp1_ = TRUE;
+#line 1339 "search_and_replace.c"
 	} else {
+#line 1481 "glib-2.0.vapi"
 		_tmp1_ = (*((gchar*) old)) == '\0';
+#line 1343 "search_and_replace.c"
 	}
+#line 1481 "glib-2.0.vapi"
 	if (_tmp1_) {
+#line 1481 "glib-2.0.vapi"
 		_tmp0_ = TRUE;
+#line 1349 "search_and_replace.c"
 	} else {
+#line 1481 "glib-2.0.vapi"
 		_tmp0_ = g_strcmp0 (old, replacement) == 0;
+#line 1353 "search_and_replace.c"
 	}
+#line 1481 "glib-2.0.vapi"
 	if (_tmp0_) {
+#line 1357 "search_and_replace.c"
 		gchar* _tmp2_;
+#line 1482 "glib-2.0.vapi"
 		_tmp2_ = g_strdup (self);
+#line 1482 "glib-2.0.vapi"
 		result = _tmp2_;
+#line 1482 "glib-2.0.vapi"
 		return result;
+#line 1365 "search_and_replace.c"
 	}
 	{
 		GRegex* regex = NULL;
@@ -987,54 +1373,96 @@ string_replace (const gchar* self,
 		GRegex* _tmp8_;
 		gchar* _tmp9_;
 		gchar* _tmp10_;
+#line 1485 "glib-2.0.vapi"
 		_tmp3_ = g_regex_escape_string (old, -1);
+#line 1485 "glib-2.0.vapi"
 		_tmp4_ = _tmp3_;
+#line 1485 "glib-2.0.vapi"
 		_tmp5_ = g_regex_new (_tmp4_, 0, 0, &_inner_error0_);
+#line 1485 "glib-2.0.vapi"
 		_tmp6_ = _tmp5_;
+#line 1485 "glib-2.0.vapi"
 		_g_free0 (_tmp4_);
+#line 1485 "glib-2.0.vapi"
 		regex = _tmp6_;
+#line 1485 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 1485 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
+#line 1393 "search_and_replace.c"
 				goto __catch7_g_regex_error;
 			}
+#line 1485 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 1485 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
+#line 1485 "glib-2.0.vapi"
 			return NULL;
+#line 1402 "search_and_replace.c"
 		}
+#line 1486 "glib-2.0.vapi"
 		_tmp8_ = regex;
+#line 1486 "glib-2.0.vapi"
 		_tmp9_ = g_regex_replace_literal (_tmp8_, self, (gssize) -1, 0, replacement, 0, &_inner_error0_);
+#line 1486 "glib-2.0.vapi"
 		_tmp7_ = _tmp9_;
+#line 1486 "glib-2.0.vapi"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
+#line 1486 "glib-2.0.vapi"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
+#line 1416 "search_and_replace.c"
 				goto __catch7_g_regex_error;
 			}
+#line 1486 "glib-2.0.vapi"
 			_g_regex_unref0 (regex);
+#line 1486 "glib-2.0.vapi"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 1486 "glib-2.0.vapi"
 			g_clear_error (&_inner_error0_);
+#line 1486 "glib-2.0.vapi"
 			return NULL;
+#line 1427 "search_and_replace.c"
 		}
+#line 1486 "glib-2.0.vapi"
 		_tmp10_ = _tmp7_;
+#line 1486 "glib-2.0.vapi"
 		_tmp7_ = NULL;
+#line 1486 "glib-2.0.vapi"
 		result = _tmp10_;
+#line 1486 "glib-2.0.vapi"
 		_g_free0 (_tmp7_);
+#line 1486 "glib-2.0.vapi"
 		_g_regex_unref0 (regex);
+#line 1486 "glib-2.0.vapi"
 		return result;
+#line 1441 "search_and_replace.c"
 	}
 	goto __finally7;
 	__catch7_g_regex_error:
 	{
 		GError* e = NULL;
+#line 1484 "glib-2.0.vapi"
 		e = _inner_error0_;
+#line 1484 "glib-2.0.vapi"
 		_inner_error0_ = NULL;
+#line 1488 "glib-2.0.vapi"
 		g_assert_not_reached ();
+#line 1484 "glib-2.0.vapi"
 		_g_error_free0 (e);
+#line 1455 "search_and_replace.c"
 	}
 	__finally7:
+#line 1484 "glib-2.0.vapi"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 1484 "glib-2.0.vapi"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 1484 "glib-2.0.vapi"
 		g_clear_error (&_inner_error0_);
+#line 1484 "glib-2.0.vapi"
 		return NULL;
+#line 1466 "search_and_replace.c"
 	}
 }
 
@@ -1047,30 +1475,46 @@ vala_develop_search_and_replace_OnTextChanged (valaDevelopSearchAndReplace* self
 	const gchar* _tmp3_;
 	gchar* _tmp4_;
 	gchar* _tmp5_;
+#line 188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchSettings;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = self->searchText;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = gtk_entry_get_text (_tmp1_);
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = _tmp2_;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = string_replace (_tmp3_, "\\t", "\t");
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = _tmp4_;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_settings_set_search_text (_tmp0_, _tmp5_);
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp5_);
+#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_SearchForwardAsync (self);
+#line 1499 "search_and_replace.c"
 }
 
 static void
 _vala_develop_search_and_replace_OnTextChanged_gtk_editable_changed (GtkEditable* _sender,
                                                                      gpointer self)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_OnTextChanged ((valaDevelopSearchAndReplace*) self);
+#line 1508 "search_and_replace.c"
 }
 
 static Block2Data*
 block2_data_ref (Block2Data* _data2_)
 {
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_atomic_int_inc (&_data2_->_ref_count_);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return _data2_;
+#line 1518 "search_and_replace.c"
 }
 
 static void
@@ -1078,11 +1522,17 @@ block2_data_unref (void * _userdata_)
 {
 	Block2Data* _data2_;
 	_data2_ = (Block2Data*) _userdata_;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (g_atomic_int_dec_and_test (&_data2_->_ref_count_)) {
+#line 1528 "search_and_replace.c"
 		valaDevelopSearchAndReplace* self;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		self = _data2_->self;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_object_unref0 (self);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_slice_free (Block2Data, _data2_);
+#line 1536 "search_and_replace.c"
 	}
 }
 
@@ -1093,15 +1543,25 @@ ___lambda89_ (Block2Data* _data2_)
 	gboolean result = FALSE;
 	GtkSourceView* _tmp0_;
 	GtkTextIter _tmp1_;
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self = _data2_->self;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_view;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = _data2_->matchStart;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp0_, &_tmp1_, (gdouble) 0, TRUE, 0.5, 0.5)) {
+#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		result = FALSE;
+#line 237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return result;
+#line 1559 "search_and_replace.c"
 	}
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = TRUE;
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1565 "search_and_replace.c"
 }
 
 static gboolean
@@ -1109,7 +1569,9 @@ ____lambda89__gsource_func (gpointer self)
 {
 	gboolean result;
 	result = ___lambda89_ (self);
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1575 "search_and_replace.c"
 }
 
 static void
@@ -1126,35 +1588,63 @@ __lambda88_ (valaDevelopSearchAndReplace* self,
 	gboolean _tmp3_ = FALSE;
 	gboolean _tmp4_;
 	GError* _inner_error0_ = NULL;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (res != NULL);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_data2_ = g_slice_new0 (Block2Data);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_data2_->_ref_count_ = 1;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_data2_->self = g_object_ref (self);
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = gtk_source_search_context_forward_finish2 (G_TYPE_CHECK_INSTANCE_TYPE (source_object, gtk_source_search_context_get_type ()) ? ((GtkSourceSearchContext*) source_object) : NULL, res, &_tmp1_, &_tmp2_, &_tmp3_, &_inner_error0_);
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_data2_->matchStart = _tmp1_;
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	matchEnd = _tmp2_;
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	wrapped = _tmp3_;
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = _tmp4_;
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		block2_data_unref (_data2_);
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_data2_ = NULL;
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_clear_error (&_inner_error0_);
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		return;
+#line 1622 "search_and_replace.c"
 	}
+#line 231 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp0_) {
+#line 1626 "search_and_replace.c"
 		GtkSourceBuffer* _tmp5_;
 		GtkTextIter _tmp6_;
 		GtkTextIter _tmp7_;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp5_ = self->priv->_buffer;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp6_ = _data2_->matchStart;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp7_ = matchEnd;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_text_buffer_select_range ((GtkTextBuffer*) _tmp5_, &_tmp6_, &_tmp7_);
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_idle_add_full (G_PRIORITY_DEFAULT_IDLE, ____lambda89__gsource_func, block2_data_ref (_data2_), block2_data_unref);
+#line 1640 "search_and_replace.c"
 	}
+#line 241 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	block2_data_unref (_data2_);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_data2_ = NULL;
+#line 1648 "search_and_replace.c"
 }
 
 static void
@@ -1162,8 +1652,11 @@ ___lambda88__gasync_ready_callback (GObject* source_object,
                                     GAsyncResult* res,
                                     gpointer self)
 {
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	__lambda88_ ((valaDevelopSearchAndReplace*) self, source_object, res);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_unref (self);
+#line 1660 "search_and_replace.c"
 }
 
 static void
@@ -1176,41 +1669,69 @@ vala_develop_search_and_replace_SearchForwardAsync (valaDevelopSearchAndReplace*
 	GtkTextIter _tmp3_ = {0};
 	GtkSourceSearchContext* _tmp4_;
 	GtkTextIter _tmp5_;
+#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_buffer;
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = self->priv->_buffer;
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = gtk_text_buffer_get_insert ((GtkTextBuffer*) _tmp1_);
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_text_buffer_get_iter_at_mark ((GtkTextBuffer*) _tmp0_, &_tmp3_, _tmp2_);
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	currentIter = _tmp3_;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = self->priv->_searchContext;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp5_ = currentIter;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_source_search_context_forward_async (_tmp4_, &_tmp5_, NULL, ___lambda88__gasync_ready_callback, g_object_ref (self));
+#line 1691 "search_and_replace.c"
 }
 
 void
 vala_develop_search_and_replace_entry_grab_focus (valaDevelopSearchAndReplace* self)
 {
 	valaDevelopSearchTypeEnum _tmp0_;
+#line 250 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchType;
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	switch (_tmp0_) {
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Find:
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Replace:
+#line 1708 "search_and_replace.c"
 		{
 			GtkEntry* _tmp1_;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp1_ = self->searchText;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_grab_focus ((GtkWidget*) _tmp1_);
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			break;
+#line 1717 "search_and_replace.c"
 		}
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Goto:
+#line 1721 "search_and_replace.c"
 		{
 			GtkEntry* _tmp2_;
+#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp2_ = self->gotoText;
+#line 259 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_grab_focus ((GtkWidget*) _tmp2_);
+#line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			break;
+#line 1730 "search_and_replace.c"
 		}
 		default:
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 1735 "search_and_replace.c"
 	}
 }
 
@@ -1228,26 +1749,42 @@ vala_develop_search_and_replace_OnSelectPrev (valaDevelopSearchAndReplace* self)
 	GtkTextIter matchEnd = {0};
 	gboolean wrapped = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_buffer;
+#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = gtk_text_buffer_get_selection_bounds ((GtkTextBuffer*) _tmp0_, &_tmp1_, &_tmp2_);
+#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	start = _tmp1_;
+#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	end = _tmp2_;
+#line 269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (!_tmp3_) {
+#line 1765 "search_and_replace.c"
 		GtkSourceBuffer* _tmp4_;
 		GtkSourceBuffer* _tmp5_;
 		GtkTextMark* _tmp6_;
 		GtkTextIter _tmp7_ = {0};
+#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp4_ = self->priv->_buffer;
+#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp5_ = self->priv->_buffer;
+#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp6_ = gtk_text_buffer_get_insert ((GtkTextBuffer*) _tmp5_);
+#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_text_buffer_get_iter_at_mark ((GtkTextBuffer*) _tmp4_, &_tmp7_, _tmp6_);
+#line 270 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		start = _tmp7_;
+#line 1780 "search_and_replace.c"
 	}
 	{
 		GtkSourceSearchContext* _tmp8_;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp8_ = self->priv->_searchContext;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_rec_mutex_lock (&self->priv->__lock__searchContext);
+#line 1788 "search_and_replace.c"
 		{
 			GtkSourceSearchContext* _tmp9_;
 			GtkTextIter _tmp10_;
@@ -1255,43 +1792,72 @@ vala_develop_search_and_replace_OnSelectPrev (valaDevelopSearchAndReplace* self)
 			GtkTextIter _tmp12_ = {0};
 			gboolean _tmp13_ = FALSE;
 			gboolean _tmp14_;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp9_ = self->priv->_searchContext;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp10_ = start;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp14_ = gtk_source_search_context_backward2 (_tmp9_, &_tmp10_, &_tmp11_, &_tmp12_, &_tmp13_);
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			matchStart = _tmp11_;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			matchEnd = _tmp12_;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			wrapped = _tmp13_;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (_tmp14_) {
+#line 1810 "search_and_replace.c"
 				GtkSourceBuffer* _tmp15_;
 				GtkTextIter _tmp16_;
 				GtkTextIter _tmp17_;
 				GtkSourceView* _tmp18_;
 				GtkTextIter _tmp19_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp15_ = self->priv->_buffer;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp16_ = matchStart;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp17_ = matchEnd;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				gtk_text_buffer_select_range ((GtkTextBuffer*) _tmp15_, &_tmp16_, &_tmp17_);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp18_ = self->priv->_view;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp19_ = matchStart;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp18_, &_tmp19_, (gdouble) 0, TRUE, 0.5, 0.5);
+#line 1832 "search_and_replace.c"
 			}
 		}
 		__finally8:
 		{
 			GtkSourceSearchContext* _tmp20_;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp20_ = self->priv->_searchContext;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_rec_mutex_unlock (&self->priv->__lock__searchContext);
+#line 1842 "search_and_replace.c"
 		}
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 1846 "search_and_replace.c"
 			gboolean _tmp21_ = FALSE;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_clear_error (&_inner_error0_);
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			return _tmp21_;
+#line 1854 "search_and_replace.c"
 		}
 	}
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1861 "search_and_replace.c"
 }
 
 static gboolean
@@ -1301,7 +1867,9 @@ _vala_develop_search_and_replace_OnSelectPrev_gtk_widget_button_release_event (G
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnSelectPrev ((valaDevelopSearchAndReplace*) self);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1873 "search_and_replace.c"
 }
 
 gboolean
@@ -1318,26 +1886,42 @@ vala_develop_search_and_replace_OnSelectNext (valaDevelopSearchAndReplace* self)
 	GtkTextIter matchEnd = {0};
 	gboolean wrapped = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_buffer;
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = gtk_text_buffer_get_selection_bounds ((GtkTextBuffer*) _tmp0_, &_tmp1_, &_tmp2_);
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	start = _tmp1_;
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	end = _tmp2_;
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (!_tmp3_) {
+#line 1902 "search_and_replace.c"
 		GtkSourceBuffer* _tmp4_;
 		GtkSourceBuffer* _tmp5_;
 		GtkTextMark* _tmp6_;
 		GtkTextIter _tmp7_ = {0};
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp4_ = self->priv->_buffer;
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp5_ = self->priv->_buffer;
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp6_ = gtk_text_buffer_get_insert ((GtkTextBuffer*) _tmp5_);
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		gtk_text_buffer_get_iter_at_mark ((GtkTextBuffer*) _tmp4_, &_tmp7_, _tmp6_);
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		start = _tmp7_;
+#line 1917 "search_and_replace.c"
 	}
 	{
 		GtkSourceSearchContext* _tmp8_;
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp8_ = self->priv->_searchContext;
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_rec_mutex_lock (&self->priv->__lock__searchContext);
+#line 1925 "search_and_replace.c"
 		{
 			GtkSourceSearchContext* _tmp9_;
 			GtkTextIter _tmp10_;
@@ -1345,43 +1929,72 @@ vala_develop_search_and_replace_OnSelectNext (valaDevelopSearchAndReplace* self)
 			GtkTextIter _tmp12_ = {0};
 			gboolean _tmp13_ = FALSE;
 			gboolean _tmp14_;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp9_ = self->priv->_searchContext;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp10_ = end;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp14_ = gtk_source_search_context_forward2 (_tmp9_, &_tmp10_, &_tmp11_, &_tmp12_, &_tmp13_);
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			matchStart = _tmp11_;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			matchEnd = _tmp12_;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			wrapped = _tmp13_;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (_tmp14_) {
+#line 1947 "search_and_replace.c"
 				GtkSourceBuffer* _tmp15_;
 				GtkTextIter _tmp16_;
 				GtkTextIter _tmp17_;
 				GtkSourceView* _tmp18_;
 				GtkTextIter _tmp19_;
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp15_ = self->priv->_buffer;
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp16_ = matchStart;
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp17_ = matchEnd;
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				gtk_text_buffer_select_range ((GtkTextBuffer*) _tmp15_, &_tmp16_, &_tmp17_);
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp18_ = self->priv->_view;
+#line 301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp19_ = matchStart;
+#line 301 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				gtk_text_view_scroll_to_iter ((GtkTextView*) _tmp18_, &_tmp19_, (gdouble) 0, TRUE, 0.5, 0.5);
+#line 1969 "search_and_replace.c"
 			}
 		}
 		__finally9:
 		{
 			GtkSourceSearchContext* _tmp20_;
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp20_ = self->priv->_searchContext;
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_rec_mutex_unlock (&self->priv->__lock__searchContext);
+#line 1979 "search_and_replace.c"
 		}
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 1983 "search_and_replace.c"
 			gboolean _tmp21_ = FALSE;
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_clear_error (&_inner_error0_);
+#line 295 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			return _tmp21_;
+#line 1991 "search_and_replace.c"
 		}
 	}
+#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 1998 "search_and_replace.c"
 }
 
 static gboolean
@@ -1391,7 +2004,9 @@ _vala_develop_search_and_replace_OnSelectNext_gtk_widget_button_release_event (G
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnSelectNext ((valaDevelopSearchAndReplace*) self);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2010 "search_and_replace.c"
 }
 
 static gboolean
@@ -1400,11 +2015,17 @@ string_contains (const gchar* self,
 {
 	gboolean result = FALSE;
 	gchar* _tmp0_;
+#line 1476 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 1476 "glib-2.0.vapi"
 	g_return_val_if_fail (needle != NULL, FALSE);
+#line 1477 "glib-2.0.vapi"
 	_tmp0_ = strstr ((gchar*) self, (gchar*) needle);
+#line 1477 "glib-2.0.vapi"
 	result = _tmp0_ != NULL;
+#line 1477 "glib-2.0.vapi"
 	return result;
+#line 2029 "search_and_replace.c"
 }
 
 static gboolean
@@ -1427,50 +2048,88 @@ vala_develop_search_and_replace_OnReplace (valaDevelopSearchAndReplace* self,
 	GtkTextIter _tmp10_ = {0};
 	gboolean _tmp11_;
 	GError* _inner_error0_ = NULL;
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (widget != NULL, FALSE);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->searchText;
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_entry_get_text (_tmp0_);
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp3_ = g_strdup (_tmp2_);
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	search = _tmp3_;
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp4_ = search;
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (string_contains (_tmp4_, "\\t")) {
+#line 2072 "search_and_replace.c"
 		const gchar* _tmp5_;
 		gchar* _tmp6_;
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp5_ = search;
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp6_ = string_replace (_tmp5_, "\\t", "\t");
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (search);
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		search = _tmp6_;
+#line 2083 "search_and_replace.c"
 	}
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp8_ = self->priv->_buffer;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp11_ = gtk_text_buffer_get_selection_bounds ((GtkTextBuffer*) _tmp8_, &_tmp9_, &_tmp10_);
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	start = _tmp9_;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	end = _tmp10_;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp11_) {
+#line 2095 "search_and_replace.c"
 		GtkSourceBuffer* _tmp12_;
 		GtkTextIter _tmp13_;
 		GtkTextIter _tmp14_;
 		gchar* _tmp15_;
 		gchar* _tmp16_;
 		const gchar* _tmp17_;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp12_ = self->priv->_buffer;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp13_ = start;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp14_ = end;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp15_ = gtk_text_buffer_get_text ((GtkTextBuffer*) _tmp12_, &_tmp13_, &_tmp14_, FALSE);
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp16_ = _tmp15_;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp17_ = search;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp7_ = g_strcmp0 (_tmp16_, _tmp17_) == 0;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp16_);
+#line 2118 "search_and_replace.c"
 	} else {
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp7_ = FALSE;
+#line 2122 "search_and_replace.c"
 	}
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (_tmp7_) {
+#line 2126 "search_and_replace.c"
 		{
 			GtkSourceSearchContext* _tmp18_;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp18_ = self->priv->_searchContext;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_rec_mutex_lock (&self->priv->__lock__searchContext);
+#line 2133 "search_and_replace.c"
 			{
 				gchar* replace = NULL;
 				GtkEntry* _tmp19_;
@@ -1483,57 +2142,101 @@ vala_develop_search_and_replace_OnReplace (valaDevelopSearchAndReplace* self,
 				GtkTextIter _tmp28_;
 				GtkTextIter _tmp29_;
 				const gchar* _tmp30_;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp19_ = self->replaceText;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp20_ = gtk_entry_get_text (_tmp19_);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp21_ = _tmp20_;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp22_ = g_strdup (_tmp21_);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				replace = _tmp22_;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp23_ = replace;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				if (string_contains (_tmp23_, "\\t")) {
+#line 2160 "search_and_replace.c"
 					const gchar* _tmp24_;
 					gchar* _tmp25_;
+#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					_tmp24_ = replace;
+#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					_tmp25_ = string_replace (_tmp24_, "\\t", "\t");
+#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					_g_free0 (replace);
+#line 320 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					replace = _tmp25_;
+#line 2171 "search_and_replace.c"
 				}
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp27_ = self->priv->_searchContext;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp28_ = start;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp29_ = end;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp30_ = replace;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp26_ = gtk_source_search_context_replace2 (_tmp27_, &_tmp28_, &_tmp29_, _tmp30_, -1, &_inner_error0_);
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					_g_free0 (replace);
+#line 2187 "search_and_replace.c"
 					goto __finally10;
 				}
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				if (_tmp26_) {
+#line 2192 "search_and_replace.c"
 					GtkSourceBuffer* _tmp31_;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					_tmp31_ = self->priv->_buffer;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					gtk_text_buffer_set_modified ((GtkTextBuffer*) _tmp31_, TRUE);
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 					vala_develop_search_and_replace_OnSelectNext (self);
+#line 2200 "search_and_replace.c"
 				}
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_g_free0 (replace);
+#line 2204 "search_and_replace.c"
 			}
 			__finally10:
 			{
 				GError* _inner_error1_ = NULL;
 				GtkSourceSearchContext* _tmp32_;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp32_ = self->priv->_searchContext;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				g_rec_mutex_unlock (&self->priv->__lock__searchContext);
+#line 2214 "search_and_replace.c"
 			}
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2218 "search_and_replace.c"
 				gboolean _tmp33_ = FALSE;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_g_free0 (search);
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				g_clear_error (&_inner_error0_);
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				return _tmp33_;
+#line 2228 "search_and_replace.c"
 			}
 		}
 	}
+#line 328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (search);
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2240 "search_and_replace.c"
 }
 
 static gboolean
@@ -1543,7 +2246,9 @@ _vala_develop_search_and_replace_OnReplace_gtk_widget_button_release_event (GtkW
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnReplace ((valaDevelopSearchAndReplace*) self, _sender, event);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2252 "search_and_replace.c"
 }
 
 static gboolean
@@ -1553,13 +2258,20 @@ vala_develop_search_and_replace_OnReplaceAll (valaDevelopSearchAndReplace* self,
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (widget != NULL, FALSE);
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (event != NULL, FALSE);
+#line 2268 "search_and_replace.c"
 	{
 		GtkSourceSearchContext* _tmp0_;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp0_ = self->priv->_searchContext;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_rec_mutex_lock (&self->priv->__lock__searchContext);
+#line 2275 "search_and_replace.c"
 		{
 			gchar* replace = NULL;
 			GtkEntry* _tmp1_;
@@ -1570,51 +2282,90 @@ vala_develop_search_and_replace_OnReplaceAll (valaDevelopSearchAndReplace* self,
 			guint replaced = 0U;
 			GtkSourceSearchContext* _tmp8_;
 			const gchar* _tmp9_;
+#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp1_ = self->replaceText;
+#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp2_ = gtk_entry_get_text (_tmp1_);
+#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp3_ = _tmp2_;
+#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp4_ = g_strdup (_tmp3_);
+#line 337 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			replace = _tmp4_;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp5_ = replace;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (string_contains (_tmp5_, "\\t")) {
+#line 2300 "search_and_replace.c"
 				const gchar* _tmp6_;
 				gchar* _tmp7_;
+#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp6_ = replace;
+#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp7_ = string_replace (_tmp6_, "\\t", "\t");
+#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_g_free0 (replace);
+#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				replace = _tmp7_;
+#line 2311 "search_and_replace.c"
 			}
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp8_ = self->priv->_searchContext;
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp9_ = replace;
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			replaced = gtk_source_search_context_replace_all (_tmp8_, _tmp9_, -1, &_inner_error0_);
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_g_free0 (replace);
+#line 2323 "search_and_replace.c"
 				goto __finally11;
 			}
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			if (replaced > ((guint) 0)) {
+#line 2328 "search_and_replace.c"
 				GtkSourceBuffer* _tmp10_;
+#line 342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				_tmp10_ = self->priv->_buffer;
+#line 342 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 				gtk_text_buffer_set_modified ((GtkTextBuffer*) _tmp10_, TRUE);
+#line 2334 "search_and_replace.c"
 			}
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			vala_develop_search_and_replace_UpdateResult (self, FALSE);
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_g_free0 (replace);
+#line 2340 "search_and_replace.c"
 		}
 		__finally11:
 		{
 			GError* _inner_error1_ = NULL;
 			GtkSourceSearchContext* _tmp11_;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp11_ = self->priv->_searchContext;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_rec_mutex_unlock (&self->priv->__lock__searchContext);
+#line 2350 "search_and_replace.c"
 		}
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2354 "search_and_replace.c"
 			gboolean _tmp12_ = FALSE;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			g_clear_error (&_inner_error0_);
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			return _tmp12_;
+#line 2362 "search_and_replace.c"
 		}
 	}
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = FALSE;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2369 "search_and_replace.c"
 }
 
 static gboolean
@@ -1624,16 +2375,22 @@ _vala_develop_search_and_replace_OnReplaceAll_gtk_widget_button_release_event (G
 {
 	gboolean result;
 	result = vala_develop_search_and_replace_OnReplaceAll ((valaDevelopSearchAndReplace*) self, _sender, event);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2381 "search_and_replace.c"
 }
 
 static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
+#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1517 "glib-2.0.vapi"
 	result = self;
+#line 1517 "glib-2.0.vapi"
 	return result;
+#line 2394 "search_and_replace.c"
 }
 
 void
@@ -1658,52 +2415,95 @@ vala_develop_search_and_replace_UpdateResult (valaDevelopSearchAndReplace* self,
 	GtkEntry* _tmp18_;
 	const gchar* _tmp19_;
 	const gchar* _tmp20_;
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 350 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (withForward) {
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		vala_develop_search_and_replace_SearchForwardAsync (self);
+#line 2425 "search_and_replace.c"
 	}
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchContext;
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp1_ = gtk_source_search_context_get_occurrences_count (_tmp0_);
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp2_ = _tmp1_;
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	matches = _tmp2_;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	if (matches > 0) {
+#line 2437 "search_and_replace.c"
 		gchar* _tmp4_;
 		gchar* _tmp5_;
 		gchar* _tmp6_;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp4_ = g_strdup_printf ("%i", matches);
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp5_ = _tmp4_;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp6_ = g_strconcat (_tmp5_, " matches", NULL);
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp3_);
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp3_ = _tmp6_;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp5_);
+#line 2453 "search_and_replace.c"
 	} else {
 		const gchar* _tmp7_;
 		gchar* _tmp8_;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp7_ = string_to_string (_ ("Not found"));
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp8_ = g_strconcat ("<span color=\"red\">", _tmp7_, "</span>", NULL);
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_g_free0 (_tmp3_);
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		_tmp3_ = _tmp8_;
+#line 2465 "search_and_replace.c"
 	}
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp9_ = self->text;
+#line 355 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_label_set_markup (_tmp9_, _tmp3_);
+#line 356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	sensitive = matches > 0;
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp10_ = self->prevResult;
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp10_, sensitive);
+#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp11_ = self->prevResult;
+#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_has_tooltip ((GtkWidget*) _tmp11_, TRUE);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp12_ = self->nextResult;
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp12_, sensitive);
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp13_ = self->replaceEventBox;
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp14_ = self->searchText;
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp15_ = gtk_entry_get_text (_tmp14_);
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp16_ = _tmp15_;
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp13_, g_strcmp0 (_tmp16_, "") != 0);
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp17_ = self->replaceAllEventBox;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp18_ = self->searchText;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp19_ = gtk_entry_get_text (_tmp18_);
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp20_ = _tmp19_;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp17_, g_strcmp0 (_tmp20_, "") != 0);
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_free0 (_tmp3_);
+#line 2507 "search_and_replace.c"
 }
 
 valaDevelopSearchTypeEnum
@@ -1711,10 +2511,15 @@ vala_develop_search_and_replace_get_SearchType (valaDevelopSearchAndReplace* sel
 {
 	valaDevelopSearchTypeEnum result;
 	valaDevelopSearchTypeEnum _tmp0_;
+#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_val_if_fail (self != NULL, 0);
+#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchType;
+#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	result = _tmp0_;
+#line 197 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	return result;
+#line 2523 "search_and_replace.c"
 }
 
 void
@@ -1722,145 +2527,260 @@ vala_develop_search_and_replace_set_SearchType (valaDevelopSearchAndReplace* sel
                                                 valaDevelopSearchTypeEnum value)
 {
 	valaDevelopSearchTypeEnum _tmp0_;
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_return_if_fail (self != NULL);
+#line 200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv->_searchType = value;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_tmp0_ = self->priv->_searchType;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	switch (_tmp0_) {
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Find:
+#line 2541 "search_and_replace.c"
 		{
 			GtkFrame* _tmp1_;
 			GtkFrame* _tmp2_;
 			GtkFrame* _tmp3_;
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp1_ = self->gotoLine;
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp1_, FALSE);
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp2_ = self->replace;
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp2_, FALSE);
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp3_ = self->search;
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp3_, TRUE);
+#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			break;
+#line 2560 "search_and_replace.c"
 		}
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Replace:
+#line 2564 "search_and_replace.c"
 		{
 			GtkFrame* _tmp4_;
 			GtkFrame* _tmp5_;
 			GtkFrame* _tmp6_;
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp4_ = self->gotoLine;
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp4_, FALSE);
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp5_ = self->replace;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp5_, TRUE);
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp6_ = self->search;
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp6_, TRUE);
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			break;
+#line 2583 "search_and_replace.c"
 		}
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_TYPE_ENUM_Goto:
+#line 2587 "search_and_replace.c"
 		{
 			GtkFrame* _tmp7_;
 			GtkFrame* _tmp8_;
 			GtkFrame* _tmp9_;
+#line 214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp7_ = self->gotoLine;
+#line 214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp7_, TRUE);
+#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp8_ = self->replace;
+#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp8_, FALSE);
+#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			_tmp9_ = self->search;
+#line 216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp9_, FALSE);
+#line 217 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 			break;
+#line 2606 "search_and_replace.c"
 		}
 		default:
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 2611 "search_and_replace.c"
 	}
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_notify_by_pspec ((GObject *) self, vala_develop_search_and_replace_properties[VALA_DEVELOP_SEARCH_AND_REPLACE_SEARCH_TYPE_PROPERTY]);
+#line 2615 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_class_init (valaDevelopSearchAndReplaceClass * klass,
                                             gpointer klass_data)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	vala_develop_search_and_replace_parent_class = g_type_class_peek_parent (klass);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSearchAndReplace_private_offset);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	G_OBJECT_CLASS (klass)->get_property = _vala_vala_develop_search_and_replace_get_property;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	G_OBJECT_CLASS (klass)->set_property = _vala_vala_develop_search_and_replace_set_property;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_search_and_replace_finalize;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_SEARCH_AND_REPLACE_SEARCH_TYPE_PROPERTY, vala_develop_search_and_replace_properties[VALA_DEVELOP_SEARCH_AND_REPLACE_SEARCH_TYPE_PROPERTY] = g_param_spec_enum ("SearchType", "SearchType", "SearchType", VALA_DEVELOP_TYPE_SEARCH_TYPE_ENUM, 0, G_PARAM_STATIC_STRINGS | G_PARAM_READABLE | G_PARAM_WRITABLE));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/findReplace.glade");
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchText", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, searchText));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "replaceText", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, replaceText));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "gotoText", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, gotoText));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "text", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, text));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "menu", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, menu));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "caseSensitive", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, caseSensitive));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "regexSearch", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, regexSearch));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "selectionSearch", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, selectionSearch));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "wholeWord", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, wholeWord));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "prevResult", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, prevResult));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "nextResult", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, nextResult));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "gotoEventBox", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, gotoEventBox));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "replaceEventBox", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, replaceEventBox));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "replaceAllEventBox", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, replaceAllEventBox));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "search", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, search));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "replace", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, replace));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "gotoLine", FALSE, G_STRUCT_OFFSET (valaDevelopSearchAndReplace, gotoLine));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "closeImage", FALSE, valaDevelopSearchAndReplace_private_offset + G_STRUCT_OFFSET (valaDevelopSearchAndReplacePrivate, closeImage));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "downImage", FALSE, valaDevelopSearchAndReplace_private_offset + G_STRUCT_OFFSET (valaDevelopSearchAndReplacePrivate, downImage));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "upImage", FALSE, valaDevelopSearchAndReplace_private_offset + G_STRUCT_OFFSET (valaDevelopSearchAndReplacePrivate, upImage));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "on_key_press_event", G_CALLBACK(_vala_develop_search_and_replace_on_key_press_event_gtk_widget_key_press_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnGoto", G_CALLBACK(_vala_develop_search_and_replace_OnGoto_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnClearEntry", G_CALLBACK(_vala_develop_search_and_replace_OnClearEntry_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnNextActivate", G_CALLBACK(_vala_develop_search_and_replace_OnNextActivate_gtk_entry_activate));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnSearchClose", G_CALLBACK(_vala_develop_search_and_replace_OnSearchClose_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnGoToActivate", G_CALLBACK(_vala_develop_search_and_replace_OnGoToActivate_gtk_entry_activate));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnIconRelease", G_CALLBACK(_vala_develop_search_and_replace_OnIconRelease_gtk_entry_icon_release));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "CaseSensitiveToggle", G_CALLBACK(_vala_develop_search_and_replace_CaseSensitiveToggle_gtk_check_menu_item_toggled));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "RegexSearchToggle", G_CALLBACK(_vala_develop_search_and_replace_RegexSearchToggle_gtk_check_menu_item_toggled));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "SearchSelectionToggle", G_CALLBACK(_vala_develop_search_and_replace_SearchSelectionToggle_gtk_check_menu_item_toggled));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "WholeWordToggle", G_CALLBACK(_vala_develop_search_and_replace_WholeWordToggle_gtk_check_menu_item_toggled));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnReplaceChanged", G_CALLBACK(_vala_develop_search_and_replace_OnReplaceChanged_gtk_editable_changed));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnTextChanged", G_CALLBACK(_vala_develop_search_and_replace_OnTextChanged_gtk_editable_changed));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnSelectPrev", G_CALLBACK(_vala_develop_search_and_replace_OnSelectPrev_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnSelectNext", G_CALLBACK(_vala_develop_search_and_replace_OnSelectNext_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnReplace", G_CALLBACK(_vala_develop_search_and_replace_OnReplace_gtk_widget_button_release_event));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnReplaceAll", G_CALLBACK(_vala_develop_search_and_replace_OnReplaceAll_gtk_widget_button_release_event));
+#line 2710 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_instance_init (valaDevelopSearchAndReplace * self,
                                                gpointer klass)
 {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self->priv = vala_develop_search_and_replace_get_instance_private (self);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_rec_mutex_init (&self->priv->__lock__searchContext);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
+#line 2723 "search_and_replace.c"
 }
 
 static void
 vala_develop_search_and_replace_finalize (GObject * obj)
 {
 	valaDevelopSearchAndReplace * self;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE, valaDevelopSearchAndReplace);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->searchText);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->replaceText);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->gotoText);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->text);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->menu);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->caseSensitive);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->regexSearch);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->selectionSearch);
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->wholeWord);
+#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->prevResult);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->nextResult);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->gotoEventBox);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->replaceEventBox);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->replaceAllEventBox);
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->search);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->replace);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->gotoLine);
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->closeImage);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->downImage);
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->upImage);
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_view);
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_buffer);
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_searchSettings);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	g_rec_mutex_clear (&self->priv->__lock__searchContext);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	_g_object_unref0 (self->priv->_searchContext);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	G_OBJECT_CLASS (vala_develop_search_and_replace_parent_class)->finalize (obj);
+#line 2784 "search_and_replace.c"
 }
 
 GType
@@ -1885,13 +2805,21 @@ _vala_vala_develop_search_and_replace_get_property (GObject * object,
 {
 	valaDevelopSearchAndReplace * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE, valaDevelopSearchAndReplace);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	switch (property_id) {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_AND_REPLACE_SEARCH_TYPE_PROPERTY:
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		g_value_set_enum (value, vala_develop_search_and_replace_get_SearchType (self));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 2817 "search_and_replace.c"
 		default:
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 2823 "search_and_replace.c"
 	}
 }
 
@@ -1903,13 +2831,21 @@ _vala_vala_develop_search_and_replace_set_property (GObject * object,
 {
 	valaDevelopSearchAndReplace * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_SEARCH_AND_REPLACE, valaDevelopSearchAndReplace);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 	switch (property_id) {
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		case VALA_DEVELOP_SEARCH_AND_REPLACE_SEARCH_TYPE_PROPERTY:
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		vala_develop_search_and_replace_set_SearchType (self, g_value_get_enum (value));
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 2843 "search_and_replace.c"
 		default:
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_and_replace.vala"
 		break;
+#line 2849 "search_and_replace.c"
 	}
 }
 

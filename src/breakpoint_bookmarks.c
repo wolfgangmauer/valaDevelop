@@ -42,20 +42,33 @@ vala_develop_load_breakpoints (GtkListStore* breakPointModel,
 	xmlXPathObject* breakpoints = NULL;
 	xmlXPathContext* _tmp1_;
 	xmlXPathObject* _tmp2_;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (breakPointModel != NULL);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	gtk_list_store_clear (breakPointModel);
+#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp0_ = xmlXPathNewContext (xDoc);
+#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	ctx = _tmp0_;
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp1_ = ctx;
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp2_ = xmlXPathEvalExpression ((xmlChar*) "/Item/Breakpoints/Breakpoint", _tmp1_);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	breakpoints = _tmp2_;
+#line 60 "breakpoint_bookmarks.c"
 	{
 		gint i = 0;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		i = 0;
+#line 65 "breakpoint_bookmarks.c"
 		{
 			gboolean _tmp3_ = FALSE;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp3_ = TRUE;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			while (TRUE) {
+#line 72 "breakpoint_bookmarks.c"
 				xmlXPathObject* _tmp5_;
 				xmlNodeSet* _tmp6_;
 				xmlNode* item = NULL;
@@ -79,67 +92,122 @@ vala_develop_load_breakpoints (GtkListStore* breakPointModel,
 				xmlNode* _tmp23_;
 				gchar* _tmp24_;
 				GValue _tmp25_ = {0};
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (!_tmp3_) {
+#line 98 "breakpoint_bookmarks.c"
 					gint _tmp4_;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					_tmp4_ = i;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					i = _tmp4_ + 1;
+#line 104 "breakpoint_bookmarks.c"
 				}
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp3_ = FALSE;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp5_ = breakpoints;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp6_ = _tmp5_->nodesetval;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (!(i < xmlXPathNodeSetGetLength (_tmp6_))) {
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					break;
+#line 116 "breakpoint_bookmarks.c"
 				}
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp7_ = breakpoints;
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp8_ = _tmp7_->nodesetval;
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp9_ = xmlXPathNodeSetItem (_tmp8_, i);
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				item = _tmp9_;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp10_ = item;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp11_ = _tmp10_->type;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (_tmp11_ != XML_ELEMENT_NODE) {
+#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					continue;
+#line 134 "breakpoint_bookmarks.c"
 				}
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_list_store_append (breakPointModel, &_tmp12_);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				iter = _tmp12_;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp13_ = iter;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_init (&_tmp14_, G_TYPE_INT);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_set_int (&_tmp14_, i + 1);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_list_store_set_value (breakPointModel, &_tmp13_, 0, &_tmp14_);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				G_IS_VALUE (&_tmp14_) ? (g_value_unset (&_tmp14_), NULL) : NULL;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp15_ = iter;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_init (&_tmp16_, G_TYPE_BOOLEAN);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_set_boolean (&_tmp16_, TRUE);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_list_store_set_value (breakPointModel, &_tmp15_, 1, &_tmp16_);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				G_IS_VALUE (&_tmp16_) ? (g_value_unset (&_tmp16_), NULL) : NULL;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp17_ = iter;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp18_ = item;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp19_ = vala_develop_globals_get_node_attribute (_tmp18_, "Line");
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp20_ = _tmp19_;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_init (&_tmp21_, G_TYPE_INT);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_set_int (&_tmp21_, atoi (_tmp20_));
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_list_store_set_value (breakPointModel, &_tmp17_, 2, &_tmp21_);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				G_IS_VALUE (&_tmp21_) ? (g_value_unset (&_tmp21_), NULL) : NULL;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_g_free0 (_tmp20_);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp22_ = iter;
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp23_ = item;
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp24_ = vala_develop_globals_get_node_attribute (_tmp23_, "Filename");
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_init (&_tmp25_, G_TYPE_STRING);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				g_value_take_string (&_tmp25_, _tmp24_);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_list_store_set_value (breakPointModel, &_tmp22_, 3, &_tmp25_);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				G_IS_VALUE (&_tmp25_) ? (g_value_unset (&_tmp25_), NULL) : NULL;
+#line 192 "breakpoint_bookmarks.c"
 			}
 		}
 	}
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_xmlXPathFreeContext0 (ctx);
+#line 198 "breakpoint_bookmarks.c"
 }
 
 static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
+#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1517 "glib-2.0.vapi"
 	result = self;
+#line 1517 "glib-2.0.vapi"
 	return result;
+#line 211 "breakpoint_bookmarks.c"
 }
 
 void
@@ -159,29 +227,51 @@ vala_develop_load_bookmarks (GtkSourceBuffer* buffer,
 	gchar* _tmp6_;
 	xmlXPathObject* _tmp7_;
 	xmlXPathObject* _tmp8_;
+#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (buffer != NULL);
+#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (file != NULL);
+#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (solution != NULL);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp0_ = xmlParseFile (solution);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	xDoc = _tmp0_;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp1_ = xDoc;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp2_ = xmlXPathNewContext (_tmp1_);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	ctx = _tmp2_;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp3_ = ctx;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp4_ = string_to_string (file);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp5_ = g_strconcat ("/Item/Bookmarks/Bookmark[@Filename='", _tmp4_, "']", NULL);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp6_ = _tmp5_;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp7_ = xmlXPathEvalExpression ((xmlChar*) _tmp6_, _tmp3_);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_tmp8_ = _tmp7_;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_g_free0 (_tmp6_);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	bookmarks = _tmp8_;
+#line 263 "breakpoint_bookmarks.c"
 	{
 		gint i = 0;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		i = 0;
+#line 268 "breakpoint_bookmarks.c"
 		{
 			gboolean _tmp9_ = FALSE;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp9_ = TRUE;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			while (TRUE) {
+#line 275 "breakpoint_bookmarks.c"
 				xmlXPathObject* _tmp11_;
 				xmlNodeSet* _tmp12_;
 				xmlNode* item = NULL;
@@ -196,39 +286,71 @@ vala_develop_load_bookmarks (GtkSourceBuffer* buffer,
 				gchar* _tmp20_;
 				gchar* _tmp21_;
 				GtkTextIter _tmp22_;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (!_tmp9_) {
+#line 292 "breakpoint_bookmarks.c"
 					gint _tmp10_;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					_tmp10_ = i;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					i = _tmp10_ + 1;
+#line 298 "breakpoint_bookmarks.c"
 				}
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp9_ = FALSE;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp11_ = bookmarks;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp12_ = _tmp11_->nodesetval;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (!(i < xmlXPathNodeSetGetLength (_tmp12_))) {
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					break;
+#line 310 "breakpoint_bookmarks.c"
 				}
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp13_ = bookmarks;
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp14_ = _tmp13_->nodesetval;
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp15_ = xmlXPathNodeSetItem (_tmp14_, i);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				item = _tmp15_;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp16_ = item;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp17_ = _tmp16_->type;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				if (_tmp17_ != XML_ELEMENT_NODE) {
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 					continue;
+#line 328 "breakpoint_bookmarks.c"
 				}
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_text_buffer_get_start_iter ((GtkTextBuffer*) buffer, &_tmp18_);
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				iter = _tmp18_;
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp19_ = item;
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp20_ = vala_develop_globals_get_node_attribute (_tmp19_, "Line");
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp21_ = _tmp20_;
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_text_iter_forward_lines (&iter, atoi (_tmp21_));
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_g_free0 (_tmp21_);
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp22_ = iter;
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				gtk_source_buffer_create_source_mark (buffer, NULL, "bookmark", &_tmp22_);
+#line 348 "breakpoint_bookmarks.c"
 			}
 		}
 	}
+#line 24 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	_xmlXPathFreeContext0 (ctx);
+#line 354 "breakpoint_bookmarks.c"
 }
 
 void
@@ -236,7 +358,9 @@ vala_develop_add_bookmark_to_solution (gint line,
                                        const gchar* fileName)
 {
 	GError* _inner_error0_ = NULL;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (fileName != NULL);
+#line 364 "breakpoint_bookmarks.c"
 	{
 		xmlDoc* doc = NULL;
 		const gchar* _tmp0_;
@@ -257,42 +381,76 @@ vala_develop_add_bookmark_to_solution (gint line,
 		xmlXPathObject* _tmp13_;
 		xmlXPathObject* _tmp32_;
 		xmlDoc* _tmp33_;
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp0_ = vala_develop__vsln;
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp1_ = xmlParseFile (_tmp0_);
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		doc = _tmp1_;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp2_ = doc;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp3_ = xmlXPathNewContext (_tmp2_);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ctx = _tmp3_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp4_ = ctx;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp5_ = string_to_string (fileName);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp6_ = g_strdup_printf ("%i", line);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp7_ = _tmp6_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp8_ = g_strconcat ("/Item/Bookmarks/Bookmark[@Filename='", _tmp5_, "'][@Line='", _tmp7_, "']", NULL);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp9_ = _tmp8_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp10_ = xmlXPathEvalExpression ((xmlChar*) _tmp9_, _tmp4_);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp11_ = _tmp10_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp9_);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp7_);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		obj = _tmp11_;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp13_ = obj;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp13_ != NULL) {
+#line 423 "breakpoint_bookmarks.c"
 			xmlXPathObject* _tmp14_;
 			xmlNodeSet* _tmp15_;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp14_ = obj;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp15_ = _tmp14_->nodesetval;
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp12_ = xmlXPathNodeSetGetLength (_tmp15_) == 0;
+#line 432 "breakpoint_bookmarks.c"
 		} else {
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp12_ = FALSE;
+#line 436 "breakpoint_bookmarks.c"
 		}
+#line 48 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp12_) {
+#line 440 "breakpoint_bookmarks.c"
 			xmlXPathContext* _tmp16_;
 			xmlXPathObject* _tmp17_;
 			xmlXPathObject* _tmp18_;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp16_ = ctx;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp17_ = xmlXPathEvalExpression ((xmlChar*) "/Item/Bookmarks", _tmp16_);
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			obj = _tmp17_;
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp18_ = obj;
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			if (_tmp18_ != NULL) {
+#line 454 "breakpoint_bookmarks.c"
 				xmlNode* node = NULL;
 				xmlXPathObject* _tmp19_;
 				xmlNodeSet* _tmp20_;
@@ -308,33 +466,60 @@ vala_develop_add_bookmark_to_solution (gint line,
 				xmlNode* _tmp29_;
 				xmlDoc* _tmp30_;
 				const gchar* _tmp31_;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp19_ = obj;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp20_ = _tmp19_->nodesetval;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp21_ = xmlXPathNodeSetItem (_tmp20_, 0);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				node = _tmp21_;
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp22_ = doc;
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp23_ = xmlNewDocNode (_tmp22_, NULL, (xmlChar*) "Bookmark", (xmlChar*) NULL);
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				newBreakpoint = _tmp23_;
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp24_ = newBreakpoint;
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlNewProp (_tmp24_, (xmlChar*) "Filename", (xmlChar*) fileName);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp25_ = newBreakpoint;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp26_ = g_strdup_printf ("%i", line);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp27_ = _tmp26_;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlNewProp (_tmp25_, (xmlChar*) "Line", (xmlChar*) _tmp27_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_g_free0 (_tmp27_);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp28_ = node;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp29_ = newBreakpoint;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlAddChild (_tmp28_, _tmp29_);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp30_ = doc;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp31_ = vala_develop__vsln;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlSaveFormatFile (_tmp31_, _tmp30_, 0);
+#line 510 "breakpoint_bookmarks.c"
 			}
 		}
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp32_ = obj;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlXPathFreeObject (_tmp32_);
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp33_ = doc;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlFreeDoc (_tmp33_);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_xmlXPathFreeContext0 (ctx);
+#line 523 "breakpoint_bookmarks.c"
 	}
 	goto __finally17;
 	__catch17_g_error:
@@ -342,18 +527,30 @@ vala_develop_add_bookmark_to_solution (gint line,
 		GError* ex = NULL;
 		GError* _tmp34_;
 		const gchar* _tmp35_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ex = _inner_error0_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_inner_error0_ = NULL;
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp34_ = ex;
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp35_ = _tmp34_->message;
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_bookmarks.vala:66: %s", _tmp35_);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_error_free0 (ex);
+#line 543 "breakpoint_bookmarks.c"
 	}
 	__finally17:
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_clear_error (&_inner_error0_);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		return;
+#line 554 "breakpoint_bookmarks.c"
 	}
 }
 
@@ -363,7 +560,9 @@ vala_develop_add_breakpoint_to_solution (gint line,
                                          gboolean enabled)
 {
 	GError* _inner_error0_ = NULL;
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (fileName != NULL);
+#line 566 "breakpoint_bookmarks.c"
 	{
 		xmlDoc* doc = NULL;
 		const gchar* _tmp0_;
@@ -384,42 +583,76 @@ vala_develop_add_breakpoint_to_solution (gint line,
 		xmlXPathObject* _tmp13_;
 		xmlXPathObject* _tmp32_;
 		xmlDoc* _tmp33_;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp0_ = vala_develop__vsln;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp1_ = xmlParseFile (_tmp0_);
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		doc = _tmp1_;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp2_ = doc;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp3_ = xmlXPathNewContext (_tmp2_);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ctx = _tmp3_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp4_ = ctx;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp5_ = string_to_string (fileName);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp6_ = g_strdup_printf ("%i", line);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp7_ = _tmp6_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp8_ = g_strconcat ("/Item/Breakpoints/Breakpoint[@Filename='", _tmp5_, "'][@Line='", _tmp7_, "']", NULL);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp9_ = _tmp8_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp10_ = xmlXPathEvalExpression ((xmlChar*) _tmp9_, _tmp4_);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp11_ = _tmp10_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp9_);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp7_);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		obj = _tmp11_;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp13_ = obj;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp13_ != NULL) {
+#line 625 "breakpoint_bookmarks.c"
 			xmlXPathObject* _tmp14_;
 			xmlNodeSet* _tmp15_;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp14_ = obj;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp15_ = _tmp14_->nodesetval;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp12_ = xmlXPathNodeSetGetLength (_tmp15_) == 0;
+#line 634 "breakpoint_bookmarks.c"
 		} else {
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp12_ = FALSE;
+#line 638 "breakpoint_bookmarks.c"
 		}
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp12_) {
+#line 642 "breakpoint_bookmarks.c"
 			xmlXPathContext* _tmp16_;
 			xmlXPathObject* _tmp17_;
 			xmlXPathObject* _tmp18_;
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp16_ = ctx;
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp17_ = xmlXPathEvalExpression ((xmlChar*) "/Item/Breakpoints", _tmp16_);
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			obj = _tmp17_;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp18_ = obj;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			if (_tmp18_ != NULL) {
+#line 656 "breakpoint_bookmarks.c"
 				xmlNode* node = NULL;
 				xmlXPathObject* _tmp19_;
 				xmlNodeSet* _tmp20_;
@@ -435,33 +668,60 @@ vala_develop_add_breakpoint_to_solution (gint line,
 				xmlNode* _tmp29_;
 				xmlDoc* _tmp30_;
 				const gchar* _tmp31_;
+#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp19_ = obj;
+#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp20_ = _tmp19_->nodesetval;
+#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp21_ = xmlXPathNodeSetItem (_tmp20_, 0);
+#line 82 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				node = _tmp21_;
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp22_ = doc;
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp23_ = xmlNewDocNode (_tmp22_, NULL, (xmlChar*) "Breakpoint", (xmlChar*) NULL);
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				newBreakpoint = _tmp23_;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp24_ = newBreakpoint;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlNewProp (_tmp24_, (xmlChar*) "Filename", (xmlChar*) fileName);
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp25_ = newBreakpoint;
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp26_ = g_strdup_printf ("%i", line);
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp27_ = _tmp26_;
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlNewProp (_tmp25_, (xmlChar*) "Line", (xmlChar*) _tmp27_);
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_g_free0 (_tmp27_);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp28_ = node;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp29_ = newBreakpoint;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlAddChild (_tmp28_, _tmp29_);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp30_ = doc;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				_tmp31_ = vala_develop__vsln;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 				xmlSaveFormatFile (_tmp31_, _tmp30_, 0);
+#line 712 "breakpoint_bookmarks.c"
 			}
 		}
+#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp32_ = obj;
+#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlXPathFreeObject (_tmp32_);
+#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp33_ = doc;
+#line 91 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlFreeDoc (_tmp33_);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_xmlXPathFreeContext0 (ctx);
+#line 725 "breakpoint_bookmarks.c"
 	}
 	goto __finally18;
 	__catch18_g_error:
@@ -469,18 +729,30 @@ vala_develop_add_breakpoint_to_solution (gint line,
 		GError* ex = NULL;
 		GError* _tmp34_;
 		const gchar* _tmp35_;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ex = _inner_error0_;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_inner_error0_ = NULL;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp34_ = ex;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp35_ = _tmp34_->message;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_bookmarks.vala:95: %s", _tmp35_);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_error_free0 (ex);
+#line 745 "breakpoint_bookmarks.c"
 	}
 	__finally18:
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_clear_error (&_inner_error0_);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		return;
+#line 756 "breakpoint_bookmarks.c"
 	}
 }
 
@@ -489,7 +761,9 @@ vala_develop_del_bookmark_from_solution (gint line,
                                          const gchar* fileName)
 {
 	GError* _inner_error0_ = NULL;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (fileName != NULL);
+#line 767 "breakpoint_bookmarks.c"
 	{
 		xmlDoc* doc = NULL;
 		const gchar* _tmp0_;
@@ -509,25 +783,45 @@ vala_develop_del_bookmark_from_solution (gint line,
 		xmlXPathObject* _tmp12_;
 		xmlXPathObject* _tmp19_;
 		xmlDoc* _tmp20_;
+#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp0_ = vala_develop__vsln;
+#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp1_ = xmlParseFile (_tmp0_);
+#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		doc = _tmp1_;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp2_ = doc;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp3_ = xmlXPathNewContext (_tmp2_);
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ctx = _tmp3_;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp4_ = ctx;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp5_ = string_to_string (fileName);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp6_ = g_strdup_printf ("%i", line);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp7_ = _tmp6_;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp8_ = g_strconcat ("/Item/Bookmarks/Bookmark[@Filename='", _tmp5_, "'][@Line='", _tmp7_, "']", NULL);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp9_ = _tmp8_;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp10_ = xmlXPathEvalExpression ((xmlChar*) _tmp9_, _tmp4_);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp11_ = _tmp10_;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp9_);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp7_);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		nodeHit = _tmp11_;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp12_ = nodeHit;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp12_ != NULL) {
+#line 825 "breakpoint_bookmarks.c"
 			xmlNode* node = NULL;
 			xmlXPathObject* _tmp13_;
 			xmlNodeSet* _tmp14_;
@@ -535,21 +829,37 @@ vala_develop_del_bookmark_from_solution (gint line,
 			xmlNode* _tmp16_;
 			xmlDoc* _tmp17_;
 			const gchar* _tmp18_;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp13_ = nodeHit;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp14_ = _tmp13_->nodesetval;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp15_ = xmlXPathNodeSetItem (_tmp14_, 0);
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			node = _tmp15_;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp16_ = node;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			xmlUnlinkNode (_tmp16_);
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp17_ = doc;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp18_ = vala_develop__vsln;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			xmlSaveFormatFile (_tmp18_, _tmp17_, 0);
+#line 851 "breakpoint_bookmarks.c"
 		}
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp19_ = nodeHit;
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlXPathFreeObject (_tmp19_);
+#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp20_ = doc;
+#line 113 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlFreeDoc (_tmp20_);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_xmlXPathFreeContext0 (ctx);
+#line 863 "breakpoint_bookmarks.c"
 	}
 	goto __finally19;
 	__catch19_g_error:
@@ -557,18 +867,30 @@ vala_develop_del_bookmark_from_solution (gint line,
 		GError* ex = NULL;
 		GError* _tmp21_;
 		const gchar* _tmp22_;
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ex = _inner_error0_;
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_inner_error0_ = NULL;
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp21_ = ex;
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp22_ = _tmp21_->message;
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_bookmarks.vala:117: %s", _tmp22_);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_error_free0 (ex);
+#line 883 "breakpoint_bookmarks.c"
 	}
 	__finally19:
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_clear_error (&_inner_error0_);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		return;
+#line 894 "breakpoint_bookmarks.c"
 	}
 }
 
@@ -577,7 +899,9 @@ vala_develop_del_breakpoint_from_solution (gint line,
                                            const gchar* fileName)
 {
 	GError* _inner_error0_ = NULL;
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	g_return_if_fail (fileName != NULL);
+#line 905 "breakpoint_bookmarks.c"
 	{
 		xmlDoc* doc = NULL;
 		const gchar* _tmp0_;
@@ -597,25 +921,45 @@ vala_develop_del_breakpoint_from_solution (gint line,
 		xmlXPathObject* _tmp12_;
 		xmlXPathObject* _tmp19_;
 		xmlDoc* _tmp20_;
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp0_ = vala_develop__vsln;
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp1_ = xmlParseFile (_tmp0_);
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		doc = _tmp1_;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp2_ = doc;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp3_ = xmlXPathNewContext (_tmp2_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ctx = _tmp3_;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp4_ = ctx;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp5_ = string_to_string (fileName);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp6_ = g_strdup_printf ("%i", line);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp7_ = _tmp6_;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp8_ = g_strconcat ("/Item/Breakpoints/Breakpoint[@Filename='", _tmp5_, "'][@Line='", _tmp7_, "']", NULL);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp9_ = _tmp8_;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp10_ = xmlXPathEvalExpression ((xmlChar*) _tmp9_, _tmp4_);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp11_ = _tmp10_;
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp9_);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_free0 (_tmp7_);
+#line 127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		nodeHit = _tmp11_;
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp12_ = nodeHit;
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		if (_tmp12_ != NULL) {
+#line 963 "breakpoint_bookmarks.c"
 			xmlNode* node = NULL;
 			xmlXPathObject* _tmp13_;
 			xmlNodeSet* _tmp14_;
@@ -623,21 +967,37 @@ vala_develop_del_breakpoint_from_solution (gint line,
 			xmlNode* _tmp16_;
 			xmlDoc* _tmp17_;
 			const gchar* _tmp18_;
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp13_ = nodeHit;
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp14_ = _tmp13_->nodesetval;
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp15_ = xmlXPathNodeSetItem (_tmp14_, 0);
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			node = _tmp15_;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp16_ = node;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			xmlUnlinkNode (_tmp16_);
+#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp17_ = doc;
+#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			_tmp18_ = vala_develop__vsln;
+#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 			xmlSaveFormatFile (_tmp18_, _tmp17_, 0);
+#line 989 "breakpoint_bookmarks.c"
 		}
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp19_ = nodeHit;
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlXPathFreeObject (_tmp19_);
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp20_ = doc;
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		xmlFreeDoc (_tmp20_);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_xmlXPathFreeContext0 (ctx);
+#line 1001 "breakpoint_bookmarks.c"
 	}
 	goto __finally20;
 	__catch20_g_error:
@@ -645,18 +1005,30 @@ vala_develop_del_breakpoint_from_solution (gint line,
 		GError* ex = NULL;
 		GError* _tmp21_;
 		const gchar* _tmp22_;
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		ex = _inner_error0_;
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_inner_error0_ = NULL;
+#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp21_ = ex;
+#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_tmp22_ = _tmp21_->message;
+#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_log (NULL, G_LOG_LEVEL_ERROR, "breakpoint_bookmarks.vala:139: %s", _tmp22_);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		_g_error_free0 (ex);
+#line 1021 "breakpoint_bookmarks.c"
 	}
 	__finally20:
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		g_clear_error (&_inner_error0_);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/breakpoint_bookmarks.vala"
 		return;
+#line 1032 "breakpoint_bookmarks.c"
 	}
 }
 

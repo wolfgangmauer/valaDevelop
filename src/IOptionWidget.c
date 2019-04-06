@@ -28,16 +28,22 @@ void
 vala_develop_ioption_widget_get_iter (valaDevelopIOptionWidget* self,
                                       GtkTreeIter * result)
 {
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/IOptionWidget.vala"
 	g_return_if_fail (self != NULL);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/IOptionWidget.vala"
 	VALA_DEVELOP_IOPTION_WIDGET_GET_INTERFACE (self)->get_iter (self, result);
+#line 36 "IOptionWidget.c"
 }
 
 void
 vala_develop_ioption_widget_set_iter (valaDevelopIOptionWidget* self,
                                       GtkTreeIter * value)
 {
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/IOptionWidget.vala"
 	g_return_if_fail (self != NULL);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/IOptionWidget.vala"
 	VALA_DEVELOP_IOPTION_WIDGET_GET_INTERFACE (self)->set_iter (self, value);
+#line 47 "IOptionWidget.c"
 }
 
 static void

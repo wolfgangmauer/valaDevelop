@@ -180,17 +180,25 @@ vala_develop_item_options_construct (GType object_type,
 {
 	valaDevelopItemOptions * self = NULL;
 	GtkTreeIter _tmp0_;
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self = (valaDevelopItemOptions*) g_object_new (object_type, NULL);
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = *iter;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_ioption_widget_set_iter ((valaDevelopIOptionWidget*) self, &_tmp0_);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	return self;
+#line 194 "item_options.c"
 }
 
 valaDevelopItemOptions*
 vala_develop_item_options_new (GtkTreeIter* iter)
 {
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	return vala_develop_item_options_construct (VALA_DEVELOP_TYPE_ITEM_OPTIONS, iter);
+#line 202 "item_options.c"
 }
 
 static void
@@ -203,16 +211,27 @@ vala_develop_item_options_Compress_Toggled (valaDevelopItemOptions* self)
 	gboolean _tmp4_;
 	valaDevelopOverviewTreeStore* _tmp5_;
 	GtkTreeIter _tmp6_;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_return_if_fail (self != NULL);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp1_ = self->priv->_iter;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp2_ = self->priv->compress;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp3_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp2_);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp4_ = _tmp3_;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_set_item_resource_compress (_tmp0_, &_tmp1_, _tmp4_);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp6_ = self->priv->_iter;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_save_project (_tmp5_, &_tmp6_);
+#line 235 "item_options.c"
 }
 
 static void
@@ -225,16 +244,27 @@ vala_develop_item_options_Stripblanks_Toggled (valaDevelopItemOptions* self)
 	gboolean _tmp4_;
 	valaDevelopOverviewTreeStore* _tmp5_;
 	GtkTreeIter _tmp6_;
+#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_return_if_fail (self != NULL);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp1_ = self->priv->_iter;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp2_ = self->priv->stripblanks;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp3_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp2_);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp4_ = _tmp3_;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_set_item_resource_stripblanks (_tmp0_, &_tmp1_, _tmp4_);
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp6_ = self->priv->_iter;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_save_project (_tmp5_, &_tmp6_);
+#line 268 "item_options.c"
 }
 
 static void
@@ -247,16 +277,27 @@ vala_develop_item_options_FileAlias_Changed (valaDevelopItemOptions* self)
 	const gchar* _tmp4_;
 	valaDevelopOverviewTreeStore* _tmp5_;
 	GtkTreeIter _tmp6_;
+#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_return_if_fail (self != NULL);
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp1_ = self->priv->_iter;
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp2_ = self->priv->fileAlias;
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp3_ = gtk_entry_get_text (_tmp2_);
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp4_ = _tmp3_;
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_set_item_resource_alias (_tmp0_, &_tmp1_, _tmp4_);
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp6_ = self->priv->_iter;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_save_project (_tmp5_, &_tmp6_);
+#line 301 "item_options.c"
 }
 
 static void
@@ -267,52 +308,88 @@ vala_develop_item_options_Build_Toggled (valaDevelopItemOptions* self)
 	GtkTreeIter _tmp1_;
 	valaDevelopOverviewTreeStore* _tmp14_;
 	GtkTreeIter _tmp15_;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_return_if_fail (self != NULL);
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp1_ = self->priv->_iter;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	itemType = vala_develop_overview_tree_store_get_item_type (_tmp0_, &_tmp1_);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	if (itemType == ((gint) VALA_DEVELOP_ITEM_TYPE_Resource)) {
+#line 322 "item_options.c"
 		valaDevelopItemBuildType _tmp2_ = 0;
 		GtkCheckButton* _tmp3_;
 		gboolean _tmp4_;
 		gboolean _tmp5_;
 		valaDevelopOverviewTreeStore* _tmp6_;
 		GtkTreeIter _tmp7_;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp3_ = self->priv->build;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp4_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp3_);
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp5_ = _tmp4_;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		if (_tmp5_) {
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp2_ = VALA_DEVELOP_ITEM_BUILD_TYPE_Resource;
+#line 339 "item_options.c"
 		} else {
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp2_ = VALA_DEVELOP_ITEM_BUILD_TYPE_None;
+#line 343 "item_options.c"
 		}
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp6_ = vala_develop_main_paned_overviewTreeModel;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp7_ = self->priv->_iter;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		vala_develop_overview_tree_store_set_item_buildtype (_tmp6_, &_tmp7_, (gint) _tmp2_);
+#line 351 "item_options.c"
 	} else {
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		if (itemType == ((gint) VALA_DEVELOP_ITEM_TYPE_Source)) {
+#line 355 "item_options.c"
 			valaDevelopItemBuildType _tmp8_ = 0;
 			GtkCheckButton* _tmp9_;
 			gboolean _tmp10_;
 			gboolean _tmp11_;
 			valaDevelopOverviewTreeStore* _tmp12_;
 			GtkTreeIter _tmp13_;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp9_ = self->priv->build;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp10_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp9_);
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp11_ = _tmp10_;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			if (_tmp11_) {
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 				_tmp8_ = VALA_DEVELOP_ITEM_BUILD_TYPE_Compile;
+#line 372 "item_options.c"
 			} else {
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 				_tmp8_ = VALA_DEVELOP_ITEM_BUILD_TYPE_None;
+#line 376 "item_options.c"
 			}
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp12_ = vala_develop_main_paned_overviewTreeModel;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp13_ = self->priv->_iter;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			vala_develop_overview_tree_store_set_item_buildtype (_tmp12_, &_tmp13_, (gint) _tmp8_);
+#line 384 "item_options.c"
 		}
 	}
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp14_ = vala_develop_main_paned_overviewTreeModel;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp15_ = self->priv->_iter;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_overview_tree_store_save_project (_tmp14_, &_tmp15_);
+#line 393 "item_options.c"
 }
 
 static void
@@ -321,38 +398,51 @@ vala_develop_item_options_real_get_iter (valaDevelopIOptionWidget* base,
 {
 	valaDevelopItemOptions* self;
 	GtkTreeIter _tmp0_;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self = (valaDevelopItemOptions*) base;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = self->priv->_iter;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	*result = _tmp0_;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	return;
+#line 410 "item_options.c"
 }
 
 static void
 _vala_develop_item_options_Build_Toggled_gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                                                     gpointer self)
 {
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_Build_Toggled ((valaDevelopItemOptions*) self);
+#line 419 "item_options.c"
 }
 
 static void
 _vala_develop_item_options_Compress_Toggled_gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                                                        gpointer self)
 {
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_Compress_Toggled ((valaDevelopItemOptions*) self);
+#line 428 "item_options.c"
 }
 
 static void
 _vala_develop_item_options_Stripblanks_Toggled_gtk_toggle_button_toggled (GtkToggleButton* _sender,
                                                                           gpointer self)
 {
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_Stripblanks_Toggled ((valaDevelopItemOptions*) self);
+#line 437 "item_options.c"
 }
 
 static void
 _vala_develop_item_options_FileAlias_Changed_gtk_editable_changed (GtkEditable* _sender,
                                                                    gpointer self)
 {
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_FileAlias_Changed ((valaDevelopItemOptions*) self);
+#line 446 "item_options.c"
 }
 
 static void
@@ -404,102 +494,190 @@ vala_develop_item_options_real_set_iter (valaDevelopIOptionWidget* base,
 	GtkCheckButton* _tmp60_;
 	GtkCheckButton* _tmp61_;
 	GtkEntry* _tmp62_;
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self = (valaDevelopItemOptions*) base;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp0_ = *value;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self->priv->_iter = _tmp0_;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp1_ = self->priv->build;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_parse_name ("toggled", gtk_toggle_button_get_type (), &_tmp2_, NULL, FALSE);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_handlers_disconnect_matched ((GtkToggleButton*) _tmp1_, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA, _tmp2_, 0, NULL, (GCallback) _vala_develop_item_options_Build_Toggled_gtk_toggle_button_toggled, self);
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp3_ = self->priv->compress;
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_parse_name ("toggled", gtk_toggle_button_get_type (), &_tmp4_, NULL, FALSE);
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_handlers_disconnect_matched ((GtkToggleButton*) _tmp3_, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA, _tmp4_, 0, NULL, (GCallback) _vala_develop_item_options_Compress_Toggled_gtk_toggle_button_toggled, self);
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp5_ = self->priv->stripblanks;
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_parse_name ("toggled", gtk_toggle_button_get_type (), &_tmp6_, NULL, FALSE);
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_handlers_disconnect_matched ((GtkToggleButton*) _tmp5_, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA, _tmp6_, 0, NULL, (GCallback) _vala_develop_item_options_Stripblanks_Toggled_gtk_toggle_button_toggled, self);
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp7_ = self->priv->fileAlias;
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_parse_name ("changed", gtk_editable_get_type (), &_tmp8_, NULL, FALSE);
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_handlers_disconnect_matched ((GtkEditable*) _tmp7_, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA, _tmp8_, 0, NULL, (GCallback) _vala_develop_item_options_FileAlias_Changed_gtk_editable_changed, self);
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp9_ = vala_develop_main_paned_overviewTreeModel;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp10_ = self->priv->_iter;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	itemType = vala_develop_overview_tree_store_get_item_type (_tmp9_, &_tmp10_);
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	if (itemType == ((gint) VALA_DEVELOP_ITEM_TYPE_Resource)) {
+#line 536 "item_options.c"
 		GtkCheckButton* _tmp11_;
 		GtkSeparator* _tmp12_;
 		GtkBox* _tmp13_;
 		GtkBox* _tmp14_;
 		GtkBox* _tmp15_;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp11_ = self->priv->build;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_button_set_label ((GtkButton*) _tmp11_, _ ("Embed resource"));
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp12_ = self->priv->separator;
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp12_, TRUE);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp13_ = self->priv->optionBox;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp13_, TRUE);
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp14_ = self->priv->aliasBox;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp14_, TRUE);
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp15_ = self->priv->resBox;
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_widget_set_visible ((GtkWidget*) _tmp15_, TRUE);
+#line 562 "item_options.c"
 	} else {
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		if (itemType == ((gint) VALA_DEVELOP_ITEM_TYPE_Source)) {
+#line 566 "item_options.c"
 			GtkCheckButton* _tmp16_;
 			GtkSeparator* _tmp17_;
 			GtkBox* _tmp18_;
 			GtkBox* _tmp19_;
 			GtkBox* _tmp20_;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp16_ = self->priv->build;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_button_set_label ((GtkButton*) _tmp16_, _ ("Compile"));
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp17_ = self->priv->separator;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp17_, FALSE);
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp18_ = self->priv->optionBox;
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp18_, FALSE);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp19_ = self->priv->aliasBox;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp19_, FALSE);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp20_ = self->priv->resBox;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_widget_set_visible ((GtkWidget*) _tmp20_, FALSE);
+#line 592 "item_options.c"
 		}
 	}
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp21_ = self->priv->fileName;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp22_ = vala_develop_main_paned_overviewTreeModel;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp23_ = self->priv->_iter;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp24_ = vala_develop_overview_tree_store_get_item_name (_tmp22_, &_tmp23_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp25_ = _tmp24_;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_entry_set_text (_tmp21_, _tmp25_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_free0 (_tmp25_);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp26_ = vala_develop_main_paned_overviewTreeModel;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp27_ = self->priv->_iter;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_tree_model_iter_parent ((GtkTreeModel*) _tmp26_, &_tmp28_, &_tmp27_);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	parentIter = _tmp28_;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp29_ = self->priv->fileRoot;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp30_ = vala_develop_main_paned_overviewTreeModel;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp31_ = parentIter;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp32_ = vala_develop_overview_tree_store_get_item_path (_tmp30_, &_tmp31_);
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp33_ = _tmp32_;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_entry_set_text (_tmp29_, _tmp33_);
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_free0 (_tmp33_);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp34_ = self->priv->fileResourceId;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp35_ = vala_develop_main_paned_overviewTreeModel;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp36_ = self->priv->_iter;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp37_ = vala_develop_overview_tree_store_get_item_resource_id (_tmp35_, &_tmp36_);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp38_ = _tmp37_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_entry_set_text (_tmp34_, _tmp38_);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_free0 (_tmp38_);
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp39_ = self->priv->fileType;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp40_ = vala_develop_main_paned_overviewTreeModel;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp41_ = self->priv->_iter;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp42_ = vala_develop_overview_tree_store_get_item_mimetype (_tmp40_, &_tmp41_);
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp43_ = _tmp42_;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_entry_set_text (_tmp39_, _tmp43_);
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_free0 (_tmp43_);
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp44_ = vala_develop_main_paned_overviewTreeModel;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp45_ = self->priv->_iter;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	itemBuildType = vala_develop_overview_tree_store_get_item_buildtype (_tmp44_, &_tmp45_);
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp46_ = self->priv->build;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_toggle_button_set_active ((GtkToggleButton*) _tmp46_, itemBuildType != ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_None));
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	if (itemBuildType == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Compile)) {
+#line 671 "item_options.c"
 		GtkCheckButton* _tmp47_;
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		_tmp47_ = self->priv->build;
+#line 69 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		gtk_widget_set_sensitive ((GtkWidget*) _tmp47_, TRUE);
+#line 677 "item_options.c"
 	} else {
+#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		if (itemBuildType == ((gint) VALA_DEVELOP_ITEM_BUILD_TYPE_Resource)) {
+#line 681 "item_options.c"
 			GtkCheckButton* _tmp48_;
 			valaDevelopOverviewTreeStore* _tmp49_;
 			GtkTreeIter _tmp50_;
@@ -511,92 +689,158 @@ vala_develop_item_options_real_set_iter (valaDevelopIOptionWidget* base,
 			GtkTreeIter _tmp56_;
 			gchar* _tmp57_;
 			gchar* _tmp58_;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp48_ = self->priv->compress;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp49_ = vala_develop_main_paned_overviewTreeModel;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp50_ = self->priv->_iter;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_toggle_button_set_active ((GtkToggleButton*) _tmp48_, vala_develop_overview_tree_store_get_item_resource_compress (_tmp49_, &_tmp50_));
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp51_ = self->priv->stripblanks;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp52_ = vala_develop_main_paned_overviewTreeModel;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp53_ = self->priv->_iter;
+#line 74 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_toggle_button_set_active ((GtkToggleButton*) _tmp51_, vala_develop_overview_tree_store_get_item_resource_stripblanks (_tmp52_, &_tmp53_));
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp54_ = self->priv->fileAlias;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp55_ = vala_develop_main_paned_overviewTreeModel;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp56_ = self->priv->_iter;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp57_ = vala_develop_overview_tree_store_get_item_resource_alias (_tmp55_, &_tmp56_);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_tmp58_ = _tmp57_;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			gtk_entry_set_text (_tmp54_, _tmp58_);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 			_g_free0 (_tmp58_);
+#line 723 "item_options.c"
 		}
 	}
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp59_ = self->priv->build;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_connect_object ((GtkToggleButton*) _tmp59_, "toggled", (GCallback) _vala_develop_item_options_Build_Toggled_gtk_toggle_button_toggled, self, 0);
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp60_ = self->priv->compress;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_connect_object ((GtkToggleButton*) _tmp60_, "toggled", (GCallback) _vala_develop_item_options_Compress_Toggled_gtk_toggle_button_toggled, self, 0);
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp61_ = self->priv->stripblanks;
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_connect_object ((GtkToggleButton*) _tmp61_, "toggled", (GCallback) _vala_develop_item_options_Stripblanks_Toggled_gtk_toggle_button_toggled, self, 0);
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_tmp62_ = self->priv->fileAlias;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_signal_connect_object ((GtkEditable*) _tmp62_, "changed", (GCallback) _vala_develop_item_options_FileAlias_Changed_gtk_editable_changed, self, 0);
+#line 742 "item_options.c"
 }
 
 static void
 vala_develop_item_options_class_init (valaDevelopItemOptionsClass * klass,
                                       gpointer klass_data)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_parent_class = g_type_class_peek_parent (klass);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopItemOptions_private_offset);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	G_OBJECT_CLASS (klass)->get_property = _vala_vala_develop_item_options_get_property;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	G_OBJECT_CLASS (klass)->set_property = _vala_vala_develop_item_options_set_property;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_item_options_finalize;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/itemoptions.glade");
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileName", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, fileName));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileRoot", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, fileRoot));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileType", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, fileType));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "build", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, build));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileResourceId", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, fileResourceId));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileAlias", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, fileAlias));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "compress", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, compress));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "stripblanks", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, stripblanks));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "separator", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, separator));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "optionBox", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, optionBox));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "aliasBox", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, aliasBox));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "resBox", FALSE, valaDevelopItemOptions_private_offset + G_STRUCT_OFFSET (valaDevelopItemOptionsPrivate, resBox));
+#line 785 "item_options.c"
 }
 
 static void
 vala_develop_item_options_vala_develop_ioption_widget_interface_init (valaDevelopIOptionWidgetIface * iface,
                                                                       gpointer iface_data)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	vala_develop_item_options_vala_develop_ioption_widget_parent_iface = g_type_interface_peek_parent (iface);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	iface->get_iter = vala_develop_item_options_real_get_iter;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	iface->set_iter = vala_develop_item_options_real_set_iter;
+#line 798 "item_options.c"
 }
 
 static void
 vala_develop_item_options_instance_init (valaDevelopItemOptions * self,
                                          gpointer klass)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self->priv = vala_develop_item_options_get_instance_private (self);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
+#line 809 "item_options.c"
 }
 
 static void
 vala_develop_item_options_finalize (GObject * obj)
 {
 	valaDevelopItemOptions * self;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptions);
+#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->fileName);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->fileRoot);
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->fileType);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->build);
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->fileResourceId);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->fileAlias);
+#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->compress);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->stripblanks);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->separator);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->optionBox);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->aliasBox);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	_g_object_unref0 (self->priv->resBox);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	G_OBJECT_CLASS (vala_develop_item_options_parent_class)->finalize (obj);
+#line 844 "item_options.c"
 }
 
 GType
@@ -623,10 +867,15 @@ _vala_vala_develop_item_options_get_property (GObject * object,
 {
 	valaDevelopItemOptions * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptions);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	switch (property_id) {
+#line 873 "item_options.c"
 		default:
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		break;
+#line 879 "item_options.c"
 	}
 }
 
@@ -638,10 +887,15 @@ _vala_vala_develop_item_options_set_property (GObject * object,
 {
 	valaDevelopItemOptions * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_ITEM_OPTIONS, valaDevelopItemOptions);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 	switch (property_id) {
+#line 893 "item_options.c"
 		default:
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/item_options.vala"
 		break;
+#line 899 "item_options.c"
 	}
 }
 

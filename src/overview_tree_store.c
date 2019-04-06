@@ -64,7 +64,7 @@ typedef enum  {
 } valaDevelopItemType;
 
 #define VALA_DEVELOP_TYPE_ITEM_TYPE (vala_develop_item_type_get_type ())
-typedef struct _Block51Data Block51Data;
+typedef struct _Block52Data Block52Data;
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 #define _xmlFreeTextWriter0(var) ((var == NULL) ? NULL : (var = (xmlFreeTextWriter (var), NULL)))
 #define _xmlFreeTextReader0(var) ((var == NULL) ? NULL : (var = (xmlFreeTextReader (var), NULL)))
@@ -88,7 +88,7 @@ struct _valaDevelopOverviewTreeStoreClass {
 	GtkTreeStoreClass parent_class;
 };
 
-struct _Block51Data {
+struct _Block52Data {
 	int _ref_count_;
 	valaDevelopOverviewTreeStore* self;
 	GtkTreeIter* itemIter;
@@ -207,9 +207,9 @@ GtkTreeIter* vala_develop_overview_tree_store_get_project_iter_by_name (valaDeve
                                                                         const gchar* projectName);
 GtkTreeIter* vala_develop_overview_tree_store_get_iter_by_full_path (valaDevelopOverviewTreeStore* self,
                                                                      const gchar* full_path);
-static Block51Data* block51_data_ref (Block51Data* _data51_);
-static void block51_data_unref (void * _userdata_);
-static gboolean __lambda4_ (Block51Data* _data51_,
+static Block52Data* block52_data_ref (Block52Data* _data52_);
+static void block52_data_unref (void * _userdata_);
+static gboolean __lambda4_ (Block52Data* _data52_,
                      GtkTreeModel* m,
                      GtkTreePath* p,
                      GtkTreeIter* i);
@@ -248,16 +248,22 @@ vala_develop_overview_tree_store_construct (GType object_type,
                                             gint types_length1)
 {
 	valaDevelopOverviewTreeStore * self = NULL;
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	self = (valaDevelopOverviewTreeStore*) g_object_new (object_type, NULL);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_column_types ((GtkTreeStore*) self, (gint) types_length1, types);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return self;
+#line 258 "overview_tree_store.c"
 }
 
 valaDevelopOverviewTreeStore*
 vala_develop_overview_tree_store_new (GType* types,
                                       gint types_length1)
 {
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return vala_develop_overview_tree_store_construct (VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, types, types_length1);
+#line 267 "overview_tree_store.c"
 }
 
 gint
@@ -269,17 +275,29 @@ vala_develop_overview_tree_store_get_item_type (valaDevelopOverviewTreeStore* se
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
 	gint ret_val = 0;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, 0);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, 0);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type, &_tmp1_);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_int (&val);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 301 "overview_tree_store.c"
 }
 
 void
@@ -289,13 +307,21 @@ vala_develop_overview_tree_store_set_item_type (valaDevelopOverviewTreeStore* se
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_INT);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_int (&_tmp1_, itemType);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type, &_tmp1_);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 325 "overview_tree_store.c"
 }
 
 void
@@ -303,21 +329,34 @@ vala_develop_overview_tree_store_set_item_pixbuf (valaDevelopOverviewTreeStore* 
                                                   GtkTreeIter* iter,
                                                   GdkPixbuf* itemPixbuf)
 {
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (itemPixbuf != NULL);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (itemPixbuf != NULL) {
+#line 341 "overview_tree_store.c"
 		GValue val = {0};
 		GValue _tmp0_ = {0};
 		GtkTreeIter _tmp1_;
 		GValue _tmp2_;
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_value_init (&_tmp0_, gdk_pixbuf_get_type ());
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_value_set_object (&_tmp0_, itemPixbuf);
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		val = _tmp0_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp1_ = *iter;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = val;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp1_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Pixbuf, &_tmp2_);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 360 "overview_tree_store.c"
 	}
 }
 
@@ -330,17 +369,29 @@ vala_develop_overview_tree_store_get_item_buildtype (valaDevelopOverviewTreeStor
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
 	gint ret_val = 0;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, 0);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, 0);
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildType, &_tmp1_);
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 51 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_int (&val);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 395 "overview_tree_store.c"
 }
 
 void
@@ -350,13 +401,21 @@ vala_develop_overview_tree_store_set_item_buildtype (valaDevelopOverviewTreeStor
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_INT);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_int (&_tmp1_, itemBuildType);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildType, &_tmp1_);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 419 "overview_tree_store.c"
 }
 
 gboolean
@@ -369,18 +428,31 @@ vala_develop_overview_tree_store_get_item_withvapi (valaDevelopOverviewTreeStore
 	GValue _tmp1_ = {0};
 	gboolean ret_val = FALSE;
 	GValue _tmp2_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_WithVapi, &_tmp1_);
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = val;
+#line 65 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_boolean (&_tmp2_);
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 456 "overview_tree_store.c"
 }
 
 void
@@ -390,13 +462,21 @@ vala_develop_overview_tree_store_set_item_withvapi (valaDevelopOverviewTreeStore
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_BOOLEAN);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_boolean (&_tmp1_, withVapi);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_WithVapi, &_tmp1_);
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 480 "overview_tree_store.c"
 }
 
 gchar*
@@ -411,23 +491,41 @@ vala_develop_overview_tree_store_get_item_name (valaDevelopOverviewTreeStore* se
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name, &_tmp1_);
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 515 "overview_tree_store.c"
 	}
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 79 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 529 "overview_tree_store.c"
 }
 
 void
@@ -437,14 +535,23 @@ vala_develop_overview_tree_store_set_item_name (valaDevelopOverviewTreeStore* se
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (name != NULL);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, name);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name, &_tmp1_);
+#line 86 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 555 "overview_tree_store.c"
 }
 
 gchar*
@@ -459,23 +566,41 @@ vala_develop_overview_tree_store_get_item_namespace (valaDevelopOverviewTreeStor
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Namespace, &_tmp1_);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 590 "overview_tree_store.c"
 	}
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 94 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 95 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 604 "overview_tree_store.c"
 }
 
 void
@@ -485,14 +610,23 @@ vala_develop_overview_tree_store_set_item_namespace (valaDevelopOverviewTreeStor
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 98 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (namesp != NULL);
+#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, namesp);
+#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Namespace, &_tmp1_);
+#line 100 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 630 "overview_tree_store.c"
 }
 
 gchar*
@@ -507,23 +641,41 @@ vala_develop_overview_tree_store_get_item_path (valaDevelopOverviewTreeStore* se
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 103 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path, &_tmp1_);
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 106 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 665 "overview_tree_store.c"
 	}
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 679 "overview_tree_store.c"
 }
 
 void
@@ -533,14 +685,23 @@ vala_develop_overview_tree_store_set_item_path (valaDevelopOverviewTreeStore* se
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (path != NULL);
+#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, path);
+#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path, &_tmp1_);
+#line 114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 705 "overview_tree_store.c"
 }
 
 gchar*
@@ -555,23 +716,41 @@ vala_develop_overview_tree_store_get_item_mimetype (valaDevelopOverviewTreeStore
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_MimeType, &_tmp1_);
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 740 "overview_tree_store.c"
 	}
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 122 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 754 "overview_tree_store.c"
 }
 
 void
@@ -581,14 +760,23 @@ vala_develop_overview_tree_store_set_item_mimetype (valaDevelopOverviewTreeStore
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (mimeType != NULL);
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, mimeType);
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_MimeType, &_tmp1_);
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 780 "overview_tree_store.c"
 }
 
 gchar*
@@ -603,23 +791,41 @@ vala_develop_overview_tree_store_get_item_resource_id (valaDevelopOverviewTreeSt
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceId, &_tmp1_);
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 815 "overview_tree_store.c"
 	}
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 829 "overview_tree_store.c"
 }
 
 void
@@ -629,14 +835,23 @@ vala_develop_overview_tree_store_set_item_resource_id (valaDevelopOverviewTreeSt
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (resourceId != NULL);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, resourceId);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceId, &_tmp1_);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 855 "overview_tree_store.c"
 }
 
 gboolean
@@ -649,18 +864,31 @@ vala_develop_overview_tree_store_get_item_resource_compress (valaDevelopOverview
 	GValue _tmp1_ = {0};
 	gboolean ret_val = FALSE;
 	GValue _tmp2_;
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceCompress, &_tmp1_);
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = val;
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_boolean (&_tmp2_);
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 892 "overview_tree_store.c"
 }
 
 void
@@ -670,13 +898,21 @@ vala_develop_overview_tree_store_set_item_resource_compress (valaDevelopOverview
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_BOOLEAN);
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_boolean (&_tmp1_, resourceCompress);
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceCompress, &_tmp1_);
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 916 "overview_tree_store.c"
 }
 
 gboolean
@@ -689,18 +925,31 @@ vala_develop_overview_tree_store_get_item_resource_stripblanks (valaDevelopOverv
 	GValue _tmp1_ = {0};
 	gboolean ret_val = FALSE;
 	GValue _tmp2_;
+#line 159 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 159 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceStripBlanks, &_tmp1_);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = val;
+#line 163 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_boolean (&_tmp2_);
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 953 "overview_tree_store.c"
 }
 
 void
@@ -710,13 +959,21 @@ vala_develop_overview_tree_store_set_item_resource_stripblanks (valaDevelopOverv
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_BOOLEAN);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_boolean (&_tmp1_, resourceStripBlanks);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceStripBlanks, &_tmp1_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 977 "overview_tree_store.c"
 }
 
 gboolean
@@ -729,18 +986,31 @@ vala_develop_overview_tree_store_get_item_debug_break_criticals (valaDevelopOver
 	GValue _tmp1_ = {0};
 	gboolean ret_val = FALSE;
 	GValue _tmp2_;
+#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 173 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakCriticals, &_tmp1_);
+#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = val;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_boolean (&_tmp2_);
+#line 178 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1014 "overview_tree_store.c"
 }
 
 void
@@ -750,13 +1020,21 @@ vala_develop_overview_tree_store_set_item_debug_break_criticals (valaDevelopOver
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 182 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_BOOLEAN);
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_boolean (&_tmp1_, criticals);
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakCriticals, &_tmp1_);
+#line 184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1038 "overview_tree_store.c"
 }
 
 gboolean
@@ -769,18 +1047,31 @@ vala_develop_overview_tree_store_get_item_debug_break_warnings (valaDevelopOverv
 	GValue _tmp1_ = {0};
 	gboolean ret_val = FALSE;
 	GValue _tmp2_;
+#line 187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakWarnings, &_tmp1_);
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 190 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = val;
+#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = g_value_get_boolean (&_tmp2_);
+#line 192 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1075 "overview_tree_store.c"
 }
 
 void
@@ -790,13 +1081,21 @@ vala_develop_overview_tree_store_set_item_debug_break_warnings (valaDevelopOverv
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 196 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_BOOLEAN);
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_boolean (&_tmp1_, warnings);
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakWarnings, &_tmp1_);
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1099 "overview_tree_store.c"
 }
 
 gchar*
@@ -811,23 +1110,41 @@ vala_develop_overview_tree_store_get_item_resource_alias (valaDevelopOverviewTre
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceAlias, &_tmp1_);
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 204 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 1134 "overview_tree_store.c"
 	}
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1148 "overview_tree_store.c"
 }
 
 void
@@ -837,14 +1154,23 @@ vala_develop_overview_tree_store_set_item_resource_alias (valaDevelopOverviewTre
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (resourceAlias != NULL);
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, resourceAlias);
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_ResourceAlias, &_tmp1_);
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1174 "overview_tree_store.c"
 }
 
 gchar*
@@ -859,23 +1185,41 @@ vala_develop_overview_tree_store_get_item_comment (valaDevelopOverviewTreeStore*
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Comment, &_tmp1_);
+#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 1209 "overview_tree_store.c"
 	}
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1223 "overview_tree_store.c"
 }
 
 void
@@ -885,14 +1229,23 @@ vala_develop_overview_tree_store_set_item_comment (valaDevelopOverviewTreeStore*
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (comment != NULL);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, comment);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Comment, &_tmp1_);
+#line 226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1249 "overview_tree_store.c"
 }
 
 gchar*
@@ -907,23 +1260,41 @@ vala_develop_overview_tree_store_get_item_compileroptions (valaDevelopOverviewTr
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_CompilerOptions, &_tmp1_);
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 1284 "overview_tree_store.c"
 	}
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1298 "overview_tree_store.c"
 }
 
 void
@@ -933,14 +1304,23 @@ vala_develop_overview_tree_store_set_item_compileroptions (valaDevelopOverviewTr
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (compilerOptions != NULL);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, compilerOptions);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_CompilerOptions, &_tmp1_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1324 "overview_tree_store.c"
 }
 
 gchar*
@@ -955,23 +1335,41 @@ vala_develop_overview_tree_store_get_item_buildcommand (valaDevelopOverviewTreeS
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildCommand, &_tmp1_);
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 1359 "overview_tree_store.c"
 	}
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1373 "overview_tree_store.c"
 }
 
 void
@@ -981,14 +1379,23 @@ vala_develop_overview_tree_store_set_item_buildcommand (valaDevelopOverviewTreeS
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (buildCommand != NULL);
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, buildCommand);
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildCommand, &_tmp1_);
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1399 "overview_tree_store.c"
 }
 
 gchar*
@@ -1003,23 +1410,41 @@ vala_develop_overview_tree_store_get_item_outputpath (valaDevelopOverviewTreeSto
 	GValue _tmp3_;
 	gchar* ret_val = NULL;
 	gchar* _tmp4_;
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_value ((GtkTreeModel*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_OutputPath, &_tmp1_);
+#line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	val = _tmp1_;
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = val;
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = g_value_get_string (&_tmp3_);
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = "";
+#line 1434 "overview_tree_store.c"
 	}
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = g_strdup (_tmp2_);
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	ret_val = _tmp4_;
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_unset (&val);
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = ret_val;
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1448 "overview_tree_store.c"
 }
 
 void
@@ -1029,14 +1454,23 @@ vala_develop_overview_tree_store_set_item_outputpath (valaDevelopOverviewTreeSto
 {
 	GtkTreeIter _tmp0_;
 	GValue _tmp1_ = {0};
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (outputPath != NULL);
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_init (&_tmp1_, G_TYPE_STRING);
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_value_set_string (&_tmp1_, outputPath);
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_set_value ((GtkTreeStore*) self, &_tmp0_, (gint) VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_OutputPath, &_tmp1_);
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_IS_VALUE (&_tmp1_) ? (g_value_unset (&_tmp1_), NULL) : NULL;
+#line 1474 "overview_tree_store.c"
 }
 
 gchar*
@@ -1059,44 +1493,74 @@ vala_develop_overview_tree_store_get_item_relative_path (valaDevelopOverviewTree
 	GFile* _tmp9_;
 	gchar* _tmp10_;
 	gchar* _tmp11_;
+#line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 271 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp0_);
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	fileName = _tmp1_;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = *iter;
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_iter_parent ((GtkTreeModel*) self, &_tmp3_, &_tmp2_);
+#line 275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	parentIter = _tmp3_;
+#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = parentIter;
+#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp4_);
+#line 276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	path = _tmp5_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp6_ = g_file_new_for_path (path);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp7_ = _tmp6_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp8_ = g_file_get_child (_tmp7_, fileName);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp9_ = _tmp8_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp10_ = g_file_get_path (_tmp9_);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp11_ = _tmp10_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_object_unref0 (_tmp9_);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_object_unref0 (_tmp7_);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = _tmp11_;
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (path);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (fileName);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1543 "overview_tree_store.c"
 }
 
 static GtkTreeIter*
 _gtk_tree_iter_dup (GtkTreeIter* self)
 {
 	GtkTreeIter* dup;
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	dup = g_new0 (GtkTreeIter, 1);
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	memcpy (dup, self, sizeof (GtkTreeIter));
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return dup;
+#line 1556 "overview_tree_store.c"
 }
 
 static gpointer
 __gtk_tree_iter_dup0 (gpointer self)
 {
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return self ? _gtk_tree_iter_dup (self) : NULL;
+#line 1564 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1112,51 +1576,92 @@ vala_develop_overview_tree_store_get_package_iter (valaDevelopOverviewTreeStore*
 	GtkTreeIter* _tmp3_;
 	GtkTreeIter _tmp4_ = {0};
 	gboolean _tmp5_;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (startIter != NULL, NULL);
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *startIter;
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = vala_develop_overview_tree_store_get_project_iter_by_iter (self, &_tmp0_);
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	retVal = _tmp1_;
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = retVal;
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = NULL;
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (retVal);
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 1600 "overview_tree_store.c"
 	}
+#line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = retVal;
+#line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp4_, _tmp3_);
+#line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	childIter = _tmp4_;
+#line 286 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (!_tmp5_) {
+#line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = NULL;
+#line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (retVal);
+#line 287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 1616 "overview_tree_store.c"
 	}
 	{
 		gboolean _tmp6_ = FALSE;
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp6_ = TRUE;
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		while (TRUE) {
+#line 1624 "overview_tree_store.c"
 			GtkTreeIter _tmp8_;
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (!_tmp6_) {
+#line 1628 "overview_tree_store.c"
 				gboolean _tmp7_;
+#line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp7_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &childIter);
+#line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!_tmp7_) {
+#line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					break;
+#line 1636 "overview_tree_store.c"
 				}
 			}
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = FALSE;
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = childIter;
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (vala_develop_overview_tree_store_get_item_type (self, &_tmp8_) == ((gint) (VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Directory))) {
+#line 1645 "overview_tree_store.c"
 				GtkTreeIter* _tmp9_;
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp9_ = __gtk_tree_iter_dup0 (&childIter);
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				result = _tmp9_;
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (retVal);
+#line 291 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				return result;
+#line 1655 "overview_tree_store.c"
 			}
 		}
 	}
+#line 293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = NULL;
+#line 293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (retVal);
+#line 293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1665 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1172,51 +1677,92 @@ vala_develop_overview_tree_store_get_resource_iter (valaDevelopOverviewTreeStore
 	GtkTreeIter* _tmp3_;
 	GtkTreeIter _tmp4_ = {0};
 	gboolean _tmp5_;
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (startIter != NULL, NULL);
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *startIter;
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = vala_develop_overview_tree_store_get_project_iter_by_iter (self, &_tmp0_);
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	retVal = _tmp1_;
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = retVal;
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_ == NULL) {
+#line 300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = NULL;
+#line 300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (retVal);
+#line 300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 1701 "overview_tree_store.c"
 	}
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = retVal;
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp4_, _tmp3_);
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	childIter = _tmp4_;
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (!_tmp5_) {
+#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = NULL;
+#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (retVal);
+#line 303 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 1717 "overview_tree_store.c"
 	}
 	{
 		gboolean _tmp6_ = FALSE;
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp6_ = TRUE;
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		while (TRUE) {
+#line 1725 "overview_tree_store.c"
 			GtkTreeIter _tmp8_;
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (!_tmp6_) {
+#line 1729 "overview_tree_store.c"
 				gboolean _tmp7_;
+#line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp7_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &childIter);
+#line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!_tmp7_) {
+#line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					break;
+#line 1737 "overview_tree_store.c"
 				}
 			}
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = FALSE;
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = childIter;
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (vala_develop_overview_tree_store_get_item_type (self, &_tmp8_) == ((gint) (VALA_DEVELOP_ITEM_TYPE_Resource | VALA_DEVELOP_ITEM_TYPE_Directory))) {
+#line 1746 "overview_tree_store.c"
 				GtkTreeIter* _tmp9_;
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp9_ = __gtk_tree_iter_dup0 (&childIter);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				result = _tmp9_;
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (retVal);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				return result;
+#line 1756 "overview_tree_store.c"
 			}
 		}
 	}
+#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = NULL;
+#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (retVal);
+#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1766 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1230,48 +1776,83 @@ vala_develop_overview_tree_store_get_project_iter_by_name (valaDevelopOverviewTr
 	GtkTreeIter _tmp1_;
 	GtkTreeIter _tmp2_ = {0};
 	gboolean _tmp3_;
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (projectName != NULL, NULL);
+#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_model_get_iter_first ((GtkTreeModel*) self, &_tmp0_);
+#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	firstIter = _tmp0_;
+#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = firstIter;
+#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp2_, &_tmp1_);
+#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectIter = _tmp2_;
+#line 317 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (!_tmp3_) {
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = NULL;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 1800 "overview_tree_store.c"
 	}
 	{
 		gboolean _tmp4_ = FALSE;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = TRUE;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		while (TRUE) {
+#line 1808 "overview_tree_store.c"
 			GtkTreeIter _tmp6_;
 			gchar* _tmp7_;
 			gchar* _tmp8_;
 			gboolean _tmp9_;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (!_tmp4_) {
+#line 1815 "overview_tree_store.c"
 				gboolean _tmp5_;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp5_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &projectIter);
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!_tmp5_) {
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					break;
+#line 1823 "overview_tree_store.c"
 				}
 			}
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp4_ = FALSE;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = projectIter;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp7_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp6_);
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = _tmp7_;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp9_ = g_strcmp0 (_tmp8_, projectName) == 0;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp8_);
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (_tmp9_) {
+#line 1840 "overview_tree_store.c"
 				GtkTreeIter* _tmp10_;
+#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp10_ = __gtk_tree_iter_dup0 (&projectIter);
+#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				result = _tmp10_;
+#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				return result;
+#line 1848 "overview_tree_store.c"
 			}
 		}
 	}
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = NULL;
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1856 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1281,10 +1862,15 @@ vala_develop_overview_tree_store_get_project_iter_by_iter (valaDevelopOverviewTr
 	GtkTreeIter* result = NULL;
 	GtkTreeIter* projectIter = NULL;
 	GtkTreeIter* _tmp0_;
+#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = __gtk_tree_iter_dup0 (iter);
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectIter = _tmp0_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	while (TRUE) {
+#line 1874 "overview_tree_store.c"
 		gboolean _tmp1_ = FALSE;
 		GtkTreeIter* _tmp2_;
 		GtkTreeIter* _tmp5_;
@@ -1293,60 +1879,98 @@ vala_develop_overview_tree_store_get_project_iter_by_iter (valaDevelopOverviewTr
 		gboolean _tmp8_;
 		GtkTreeIter _tmp9_;
 		GtkTreeIter* _tmp10_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = projectIter;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (_tmp2_ != NULL) {
+#line 1887 "overview_tree_store.c"
 			GtkTreeIter* _tmp3_;
 			GtkTreeIter _tmp4_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp3_ = projectIter;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp4_ = *_tmp3_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp1_ = vala_develop_overview_tree_store_get_item_type (self, &_tmp4_) != ((gint) (VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory));
+#line 1896 "overview_tree_store.c"
 		} else {
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp1_ = FALSE;
+#line 1900 "overview_tree_store.c"
 		}
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp1_) {
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 1906 "overview_tree_store.c"
 		}
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp5_ = projectIter;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp7_ = *_tmp5_;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp8_ = gtk_tree_model_iter_parent ((GtkTreeModel*) self, &_tmp6_, &_tmp7_);
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (projectIter);
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp9_ = _tmp6_;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp10_ = __gtk_tree_iter_dup0 (&_tmp9_);
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		projectIter = _tmp10_;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp8_) {
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = NULL;
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (projectIter);
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			return result;
+#line 1930 "overview_tree_store.c"
 		}
 	}
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = projectIter;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 1937 "overview_tree_store.c"
 }
 
-static Block51Data*
-block51_data_ref (Block51Data* _data51_)
+static Block52Data*
+block52_data_ref (Block52Data* _data52_)
 {
-	g_atomic_int_inc (&_data51_->_ref_count_);
-	return _data51_;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	g_atomic_int_inc (&_data52_->_ref_count_);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	return _data52_;
+#line 1947 "overview_tree_store.c"
 }
 
 static void
-block51_data_unref (void * _userdata_)
+block52_data_unref (void * _userdata_)
 {
-	Block51Data* _data51_;
-	_data51_ = (Block51Data*) _userdata_;
-	if (g_atomic_int_dec_and_test (&_data51_->_ref_count_)) {
+	Block52Data* _data52_;
+	_data52_ = (Block52Data*) _userdata_;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	if (g_atomic_int_dec_and_test (&_data52_->_ref_count_)) {
+#line 1957 "overview_tree_store.c"
 		valaDevelopOverviewTreeStore* self;
-		self = _data51_->self;
-		_g_free0 (_data51_->itemIter);
-		_g_free0 (_data51_->full_path);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+		self = _data52_->self;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+		_g_free0 (_data52_->itemIter);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+		_g_free0 (_data52_->full_path);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (self);
-		g_slice_free (Block51Data, _data51_);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+		g_slice_free (Block52Data, _data52_);
+#line 1969 "overview_tree_store.c"
 	}
 }
 
 static gboolean
-__lambda4_ (Block51Data* _data51_,
+__lambda4_ (Block52Data* _data52_,
             GtkTreeModel* m,
             GtkTreePath* p,
             GtkTreeIter* i)
@@ -1355,42 +1979,74 @@ __lambda4_ (Block51Data* _data51_,
 	gboolean result = FALSE;
 	gboolean _tmp0_ = FALSE;
 	GtkTreeIter _tmp1_;
-	self = _data51_->self;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	self = _data52_->self;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (m != NULL, FALSE);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (p != NULL, FALSE);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (i != NULL, FALSE);
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = *i;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (vala_develop_overview_tree_store_get_item_type (G_TYPE_CHECK_INSTANCE_CAST (m, VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStore), &_tmp1_) == ((gint) VALA_DEVELOP_ITEM_TYPE_Source)) {
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp0_ = TRUE;
+#line 1997 "overview_tree_store.c"
 	} else {
 		GtkTreeIter _tmp2_;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = *i;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp0_ = vala_develop_overview_tree_store_get_item_type (G_TYPE_CHECK_INSTANCE_CAST (m, VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStore), &_tmp2_) == ((gint) VALA_DEVELOP_ITEM_TYPE_Resource);
+#line 2004 "overview_tree_store.c"
 	}
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp0_) {
+#line 2008 "overview_tree_store.c"
 		gchar* fullPath = NULL;
 		GtkTreeIter _tmp3_;
 		gchar* _tmp4_;
 		const gchar* _tmp5_;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp3_ = *i;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = vala_develop_overview_tree_store_get_item_relative_path (self, &_tmp3_);
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		fullPath = _tmp4_;
+#line 346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp5_ = fullPath;
-		if (g_strcmp0 (_tmp5_, _data51_->full_path) == 0) {
+#line 346 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+		if (g_strcmp0 (_tmp5_, _data52_->full_path) == 0) {
+#line 2023 "overview_tree_store.c"
 			GtkTreeIter _tmp6_;
 			GtkTreeIter* _tmp7_;
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = *i;
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp7_ = __gtk_tree_iter_dup0 (&_tmp6_);
-			_g_free0 (_data51_->itemIter);
-			_data51_->itemIter = _tmp7_;
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+			_g_free0 (_data52_->itemIter);
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+			_data52_->itemIter = _tmp7_;
+#line 349 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = TRUE;
+#line 349 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (fullPath);
+#line 349 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			return result;
+#line 2040 "overview_tree_store.c"
 		}
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (fullPath);
+#line 2044 "overview_tree_store.c"
 	}
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = FALSE;
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2050 "overview_tree_store.c"
 }
 
 static gboolean
@@ -1401,7 +2057,9 @@ ___lambda4__gtk_tree_model_foreach_func (GtkTreeModel* model,
 {
 	gboolean result;
 	result = __lambda4_ (self, model, path, iter);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2063 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1409,24 +2067,40 @@ vala_develop_overview_tree_store_get_iter_by_full_path (valaDevelopOverviewTreeS
                                                         const gchar* full_path)
 {
 	GtkTreeIter* result = NULL;
-	Block51Data* _data51_;
+	Block52Data* _data52_;
 	gchar* _tmp0_;
 	GtkTreeIter* _tmp1_;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (full_path != NULL, NULL);
-	_data51_ = g_slice_new0 (Block51Data);
-	_data51_->_ref_count_ = 1;
-	_data51_->self = g_object_ref (self);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_ = g_slice_new0 (Block52Data);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_->_ref_count_ = 1;
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_->self = g_object_ref (self);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = g_strdup (full_path);
-	_g_free0 (_data51_->full_path);
-	_data51_->full_path = _tmp0_;
-	_data51_->itemIter = NULL;
-	gtk_tree_model_foreach ((GtkTreeModel*) self, ___lambda4__gtk_tree_model_foreach_func, _data51_);
-	_tmp1_ = __gtk_tree_iter_dup0 (_data51_->itemIter);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_g_free0 (_data52_->full_path);
+#line 338 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_->full_path = _tmp0_;
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_->itemIter = NULL;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	gtk_tree_model_foreach ((GtkTreeModel*) self, ___lambda4__gtk_tree_model_foreach_func, _data52_);
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_tmp1_ = __gtk_tree_iter_dup0 (_data52_->itemIter);
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = _tmp1_;
-	block51_data_unref (_data51_);
-	_data51_ = NULL;
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	block52_data_unref (_data52_);
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
+	_data52_ = NULL;
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2104 "overview_tree_store.c"
 }
 
 GtkTreeIter*
@@ -1437,23 +2111,40 @@ vala_develop_overview_tree_store_get_project_iter_by_full_path (valaDevelopOverv
 	GtkTreeIter* itemIter = NULL;
 	GtkTreeIter* _tmp0_;
 	GtkTreeIter* _tmp1_;
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (full_path != NULL, NULL);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = vala_develop_overview_tree_store_get_iter_by_full_path (self, full_path);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	itemIter = _tmp0_;
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = itemIter;
+#line 360 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp1_ != NULL) {
+#line 2127 "overview_tree_store.c"
 		GtkTreeIter* _tmp2_;
 		GtkTreeIter* _tmp3_;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = itemIter;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp3_ = vala_develop_overview_tree_store_get_project_iter_by_iter (self, _tmp2_);
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = _tmp3_;
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (itemIter);
+#line 361 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 2140 "overview_tree_store.c"
 	}
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = NULL;
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (itemIter);
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2148 "overview_tree_store.c"
 }
 
 gchar*
@@ -1465,30 +2156,51 @@ vala_develop_overview_tree_store_get_project_path (valaDevelopOverviewTreeStore*
 	GtkTreeIter _tmp0_;
 	GtkTreeIter _tmp5_;
 	gchar* _tmp6_;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectIter = _tmp0_;
+#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	while (TRUE) {
+#line 2170 "overview_tree_store.c"
 		GtkTreeIter _tmp1_;
 		GtkTreeIter _tmp2_;
 		GtkTreeIter _tmp3_ = {0};
 		gboolean _tmp4_;
+#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp1_ = projectIter;
+#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!(vala_develop_overview_tree_store_get_item_type (self, &_tmp1_) != ((gint) (VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory)))) {
+#line 368 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 2181 "overview_tree_store.c"
 		}
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = projectIter;
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = gtk_tree_model_iter_parent ((GtkTreeModel*) self, &_tmp3_, &_tmp2_);
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		projectIter = _tmp3_;
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp4_) {
+#line 370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 2193 "overview_tree_store.c"
 		}
 	}
+#line 371 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = projectIter;
+#line 371 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp6_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp5_);
+#line 371 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = _tmp6_;
+#line 371 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2204 "overview_tree_store.c"
 }
 
 gboolean
@@ -1497,8 +2209,11 @@ vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* sel
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (iter != NULL, FALSE);
+#line 2217 "overview_tree_store.c"
 	{
 		GtkTreeIter projectIter = {0};
 		GtkTreeIter _tmp0_;
@@ -1506,21 +2221,33 @@ vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* sel
 		GtkTreeIter* _tmp2_;
 		GtkTreeIter _tmp3_;
 		GtkTreeIter _tmp4_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp0_ = *iter;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp1_ = vala_develop_overview_tree_store_get_project_iter_by_iter (self, &_tmp0_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = _tmp1_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp3_ = *_tmp2_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp2_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		projectIter = _tmp3_;
+#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = projectIter;
+#line 379 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		vala_develop_overview_tree_store_save_project_items (self, &_tmp4_);
+#line 2241 "overview_tree_store.c"
 	}
 	goto __finally58;
 	__catch58_g_error:
 	{
 		GError* e = NULL;
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 2251 "overview_tree_store.c"
 		{
 			GtkMessageDialog* messagedialog = NULL;
 			GError* _tmp5_;
@@ -1528,30 +2255,54 @@ vala_develop_overview_tree_store_save_project (valaDevelopOverviewTreeStore* sel
 			GtkMessageDialog* _tmp7_;
 			GtkMessageDialog* _tmp8_;
 			GtkMessageDialog* _tmp9_;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp5_ = e;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = _tmp5_->message;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp7_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp6_);
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			g_object_ref_sink (_tmp7_);
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			messagedialog = _tmp7_;
+#line 385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = messagedialog;
+#line 385 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_dialog_run ((GtkDialog*) _tmp8_);
+#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp9_ = messagedialog;
+#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_widget_destroy ((GtkWidget*) _tmp9_);
+#line 383 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_object_unref0 (messagedialog);
+#line 2279 "overview_tree_store.c"
 		}
+#line 388 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 388 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 388 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 2287 "overview_tree_store.c"
 	}
 	__finally58:
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2292 "overview_tree_store.c"
 		gboolean _tmp10_ = FALSE;
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp10_;
+#line 2300 "overview_tree_store.c"
 	}
+#line 390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = TRUE;
+#line 390 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2306 "overview_tree_store.c"
 }
 
 gboolean
@@ -1559,7 +2310,9 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 393 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 2316 "overview_tree_store.c"
 	{
 		GtkTreeIter root = {0};
 		GtkTreeIter _tmp0_ = {0};
@@ -1568,34 +2321,60 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 		GtkTreeIter _tmp2_;
 		GtkTreeIter _tmp3_ = {0};
 		gboolean _tmp4_;
+#line 398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp1_ = gtk_tree_model_get_iter_first ((GtkTreeModel*) self, &_tmp0_);
+#line 398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		root = _tmp0_;
+#line 398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp1_) {
+#line 398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = FALSE;
+#line 398 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			return result;
+#line 2335 "overview_tree_store.c"
 		}
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = root;
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp3_, &_tmp2_);
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		projectIter = _tmp3_;
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp4_) {
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = FALSE;
+#line 400 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			return result;
+#line 2349 "overview_tree_store.c"
 		}
 		{
 			gboolean _tmp5_ = FALSE;
+#line 401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp5_ = TRUE;
+#line 401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			while (TRUE) {
+#line 2357 "overview_tree_store.c"
 				GtkTreeIter _tmp7_;
+#line 401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!_tmp5_) {
+#line 2361 "overview_tree_store.c"
 					gboolean _tmp6_;
+#line 404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					_tmp6_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &projectIter);
+#line 404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					if (!_tmp6_) {
+#line 404 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 2369 "overview_tree_store.c"
 					}
 				}
+#line 401 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp5_ = FALSE;
+#line 403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp7_ = projectIter;
+#line 403 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				vala_develop_overview_tree_store_save_project_items (self, &_tmp7_);
+#line 2378 "overview_tree_store.c"
 			}
 		}
 	}
@@ -1603,8 +2382,11 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 	__catch59_g_error:
 	{
 		GError* e = NULL;
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 2390 "overview_tree_store.c"
 		{
 			GtkMessageDialog* messagedialog = NULL;
 			GError* _tmp8_;
@@ -1612,46 +2394,80 @@ vala_develop_overview_tree_store_save_projects (valaDevelopOverviewTreeStore* se
 			GtkMessageDialog* _tmp10_;
 			GtkMessageDialog* _tmp11_;
 			GtkMessageDialog* _tmp12_;
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = e;
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp9_ = _tmp8_->message;
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp10_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp9_);
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			g_object_ref_sink (_tmp10_);
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			messagedialog = _tmp10_;
+#line 410 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp11_ = messagedialog;
+#line 410 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_dialog_run ((GtkDialog*) _tmp11_);
+#line 411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp12_ = messagedialog;
+#line 411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_widget_destroy ((GtkWidget*) _tmp12_);
+#line 408 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_object_unref0 (messagedialog);
+#line 2418 "overview_tree_store.c"
 		}
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 2426 "overview_tree_store.c"
 	}
 	__finally59:
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2431 "overview_tree_store.c"
 		gboolean _tmp13_ = FALSE;
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp13_;
+#line 2439 "overview_tree_store.c"
 	}
+#line 415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = TRUE;
+#line 415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2445 "overview_tree_store.c"
 }
 
 static gchar*
 bool_to_string (gboolean self)
 {
 	gchar* result = NULL;
+#line 37 "glib-2.0.vapi"
 	if (self) {
+#line 2454 "overview_tree_store.c"
 		gchar* _tmp0_;
+#line 38 "glib-2.0.vapi"
 		_tmp0_ = g_strdup ("true");
+#line 38 "glib-2.0.vapi"
 		result = _tmp0_;
+#line 38 "glib-2.0.vapi"
 		return result;
+#line 2462 "overview_tree_store.c"
 	} else {
 		gchar* _tmp1_;
+#line 40 "glib-2.0.vapi"
 		_tmp1_ = g_strdup ("false");
+#line 40 "glib-2.0.vapi"
 		result = _tmp1_;
+#line 40 "glib-2.0.vapi"
 		return result;
+#line 2471 "overview_tree_store.c"
 	}
 }
 
@@ -1688,42 +2504,79 @@ vala_develop_overview_tree_store_save_project_items (valaDevelopOverviewTreeStor
 	gchar* _tmp19_;
 	gchar* _tmp20_;
 	GError* _inner_error0_ = NULL;
+#line 418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 418 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (projectIter != NULL, FALSE);
+#line 420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	retVal = TRUE;
+#line 422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = gtk_tree_model_get_iter_first ((GtkTreeModel*) self, &_tmp0_);
+#line 422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	root = _tmp0_;
+#line 422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (!_tmp1_) {
+#line 422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 422 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 2524 "overview_tree_store.c"
 	}
+#line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = root;
+#line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp2_);
+#line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	solutionPath = _tmp3_;
+#line 426 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = *projectIter;
+#line 426 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp4_);
+#line 426 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectName = _tmp5_;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp6_ = *projectIter;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp7_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp6_);
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectPath = _tmp7_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp8_ = solutionPath;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp9_ = g_file_new_for_path (_tmp8_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp10_ = _tmp9_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp11_ = projectPath;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp12_ = g_file_get_child (_tmp10_, _tmp11_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp13_ = _tmp12_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp14_ = projectName;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp15_ = g_strconcat (_tmp14_, ".vprj", NULL);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp16_ = _tmp15_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp17_ = g_file_get_child (_tmp13_, _tmp16_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp18_ = _tmp17_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp19_ = g_file_get_path (_tmp18_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp20_ = _tmp19_;
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_object_unref0 (_tmp18_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (_tmp16_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_object_unref0 (_tmp13_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_object_unref0 (_tmp10_);
+#line 428 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	projectFile = _tmp20_;
+#line 2580 "overview_tree_store.c"
 	{
 		xmlTextWriter* writer = NULL;
 		const gchar* _tmp21_;
@@ -1803,129 +2656,253 @@ vala_develop_overview_tree_store_save_project_items (valaDevelopOverviewTreeStor
 		xmlTextWriter* _tmp95_;
 		xmlTextWriter* _tmp96_;
 		xmlTextWriter* _tmp97_;
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp21_ = projectFile;
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp22_ = xmlNewTextWriterFilename (_tmp21_, FALSE);
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		writer = _tmp22_;
+#line 432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp23_ = writer;
+#line 432 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterSetIndent (_tmp23_, TRUE);
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp24_ = writer;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterSetIndentString (_tmp24_, (xmlChar*) "\t");
+#line 435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp25_ = writer;
+#line 435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterStartDocument (_tmp25_, NULL, NULL, NULL);
+#line 436 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp26_ = writer;
+#line 436 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteComment (_tmp26_, (xmlChar*) "generated by valaDevelop");
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp27_ = writer;
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterStartElement (_tmp27_, (xmlChar*) "Item");
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp28_ = writer;
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp29_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type);
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp30_ = _tmp29_;
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp31_ = g_strdup_printf ("%i", (gint) (VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory));
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp32_ = _tmp31_;
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp28_, (xmlChar*) _tmp30_, (xmlChar*) _tmp32_);
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp32_);
+#line 438 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp30_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp33_ = writer;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp34_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp35_ = _tmp34_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp36_ = *projectIter;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp37_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp36_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp38_ = _tmp37_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp33_, (xmlChar*) _tmp35_, (xmlChar*) _tmp38_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp38_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp35_);
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp39_ = writer;
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp40_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Namespace);
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp41_ = _tmp40_;
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp42_ = *projectIter;
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp43_ = vala_develop_overview_tree_store_get_item_namespace (self, &_tmp42_);
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp44_ = _tmp43_;
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp39_, (xmlChar*) _tmp41_, (xmlChar*) _tmp44_);
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp44_);
+#line 440 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp41_);
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp45_ = writer;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp46_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildType);
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp47_ = _tmp46_;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp48_ = *projectIter;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp49_ = g_strdup_printf ("%i", (gint) vala_develop_overview_tree_store_get_item_buildtype (self, &_tmp48_));
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp50_ = _tmp49_;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp45_, (xmlChar*) _tmp47_, (xmlChar*) _tmp50_);
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp50_);
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp47_);
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp51_ = writer;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp52_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_WithVapi);
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp53_ = _tmp52_;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp54_ = *projectIter;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp55_ = bool_to_string (vala_develop_overview_tree_store_get_item_withvapi (self, &_tmp54_));
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp56_ = _tmp55_;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp51_, (xmlChar*) _tmp53_, (xmlChar*) _tmp56_);
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp56_);
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp53_);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp57_ = writer;
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp58_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp59_ = _tmp58_;
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp60_ = *projectIter;
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp61_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp60_);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp62_ = _tmp61_;
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp57_, (xmlChar*) _tmp59_, (xmlChar*) _tmp62_);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp62_);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp59_);
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp63_ = writer;
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp64_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildCommand);
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp65_ = _tmp64_;
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp66_ = *projectIter;
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp67_ = vala_develop_overview_tree_store_get_item_buildcommand (self, &_tmp66_);
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp68_ = _tmp67_;
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp63_, (xmlChar*) _tmp65_, (xmlChar*) _tmp68_);
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp68_);
+#line 444 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp65_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp69_ = writer;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp70_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_CompilerOptions);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp71_ = _tmp70_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp72_ = *projectIter;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp73_ = vala_develop_overview_tree_store_get_item_compileroptions (self, &_tmp72_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp74_ = _tmp73_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp69_, (xmlChar*) _tmp71_, (xmlChar*) _tmp74_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp74_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp71_);
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp75_ = writer;
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp76_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakCriticals);
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp77_ = _tmp76_;
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp78_ = *projectIter;
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp79_ = bool_to_string (vala_develop_overview_tree_store_get_item_debug_break_criticals (self, &_tmp78_));
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp80_ = _tmp79_;
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp75_, (xmlChar*) _tmp77_, (xmlChar*) _tmp80_);
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp80_);
+#line 446 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp77_);
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp81_ = writer;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp82_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakWarnings);
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp83_ = _tmp82_;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp84_ = *projectIter;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp85_ = bool_to_string (vala_develop_overview_tree_store_get_item_debug_break_warnings (self, &_tmp84_));
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp86_ = _tmp85_;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteAttribute (_tmp81_, (xmlChar*) _tmp83_, (xmlChar*) _tmp86_);
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp86_);
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp83_);
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp87_ = writer;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp88_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Comment);
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp89_ = _tmp88_;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp90_ = *projectIter;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp91_ = vala_develop_overview_tree_store_get_item_comment (self, &_tmp90_);
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp92_ = _tmp91_;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterWriteElement (_tmp87_, (xmlChar*) _tmp89_, (xmlChar*) _tmp92_);
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp92_);
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp89_);
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp93_ = writer;
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp94_ = *projectIter;
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		vala_develop_overview_tree_store_save_project_nodes (self, _tmp93_, &_tmp94_);
+#line 450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp95_ = writer;
+#line 450 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterEndElement (_tmp95_);
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp96_ = writer;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterEndDocument (_tmp96_);
+#line 452 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp97_ = writer;
+#line 452 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		xmlTextWriterFlush (_tmp97_);
+#line 453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_xmlFreeTextWriter0 (writer);
+#line 453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		writer = NULL;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_xmlFreeTextWriter0 (writer);
+#line 2906 "overview_tree_store.c"
 	}
 	goto __finally60;
 	__catch60_g_error:
@@ -1937,38 +2914,70 @@ vala_develop_overview_tree_store_save_project_items (valaDevelopOverviewTreeStor
 		GtkMessageDialog* _tmp100_;
 		GtkMessageDialog* _tmp101_;
 		GtkMessageDialog* _tmp102_;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp98_ = e;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp99_ = _tmp98_->message;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp100_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp99_);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_object_ref_sink (_tmp100_);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		messagedialog = _tmp100_;
+#line 458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp101_ = messagedialog;
+#line 458 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp101_);
+#line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp102_ = messagedialog;
+#line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp102_);
+#line 460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		retVal = FALSE;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (messagedialog);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 2946 "overview_tree_store.c"
 	}
 	__finally60:
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2951 "overview_tree_store.c"
 		gboolean _tmp103_ = FALSE;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (projectFile);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (projectPath);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (projectName);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (solutionPath);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp103_;
+#line 2967 "overview_tree_store.c"
 	}
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = retVal;
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (projectFile);
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (projectPath);
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (projectName);
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (solutionPath);
+#line 462 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 2981 "overview_tree_store.c"
 }
 
 static void
@@ -1980,37 +2989,66 @@ vala_develop_overview_tree_store_save_project_nodes (valaDevelopOverviewTreeStor
 	GtkTreeIter _tmp0_;
 	GtkTreeIter _tmp1_ = {0};
 	gboolean _tmp2_;
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (writer != NULL);
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp1_, &_tmp0_);
+#line 468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	childIter = _tmp1_;
+#line 468 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (_tmp2_) {
+#line 3007 "overview_tree_store.c"
 		{
 			gboolean _tmp3_ = FALSE;
+#line 470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp3_ = TRUE;
+#line 470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			while (TRUE) {
+#line 3014 "overview_tree_store.c"
 				GtkTreeIter _tmp5_;
 				GtkTreeIter _tmp6_;
+#line 470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!_tmp3_) {
+#line 3019 "overview_tree_store.c"
 					gboolean _tmp4_;
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					_tmp4_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &childIter);
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					if (!_tmp4_) {
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 3027 "overview_tree_store.c"
 					}
 				}
+#line 470 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp3_ = FALSE;
+#line 472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				xmlTextWriterStartElement (writer, (xmlChar*) "Item");
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp5_ = childIter;
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				vala_develop_overview_tree_store_save_project_attribute (self, writer, &_tmp5_);
+#line 474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp6_ = childIter;
+#line 474 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (gtk_tree_model_iter_has_child ((GtkTreeModel*) self, &_tmp6_)) {
+#line 3042 "overview_tree_store.c"
 					GtkTreeIter _tmp7_;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					_tmp7_ = childIter;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					vala_develop_overview_tree_store_save_project_nodes (self, writer, &_tmp7_);
+#line 3048 "overview_tree_store.c"
 				}
+#line 476 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				xmlTextWriterEndElement (writer);
+#line 3052 "overview_tree_store.c"
 			}
 		}
 	}
@@ -2029,35 +3067,62 @@ vala_develop_overview_tree_store_save_project_attribute (valaDevelopOverviewTree
 	gchar* _tmp3_;
 	gchar* _tmp4_;
 	const gchar* _tmp5_;
+#line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (self != NULL);
+#line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (writer != NULL);
+#line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_if_fail (iter != NULL);
+#line 484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp0_ = *iter;
+#line 484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	itemType = vala_develop_overview_tree_store_get_item_type (self, &_tmp0_);
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp1_ = *iter;
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp2_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp1_);
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	name = _tmp2_;
+#line 486 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp3_ = g_strdup_printf ("%i", (gint) itemType);
+#line 486 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp4_ = _tmp3_;
+#line 486 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	xmlTextWriterWriteAttribute (writer, (xmlChar*) "Type", (xmlChar*) _tmp4_);
+#line 486 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (_tmp4_);
+#line 487 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_tmp5_ = name;
+#line 487 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	xmlTextWriterWriteAttribute (writer, (xmlChar*) "Name", (xmlChar*) _tmp5_);
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	switch (itemType) {
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Directory:
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource | VALA_DEVELOP_ITEM_TYPE_Directory:
+#line 3105 "overview_tree_store.c"
 		{
 			GtkTreeIter _tmp6_;
 			gchar* _tmp7_;
 			gchar* _tmp8_;
+#line 492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp6_ = *iter;
+#line 492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp7_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp6_);
+#line 492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp8_ = _tmp7_;
+#line 492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "Path", (xmlChar*) _tmp8_);
+#line 492 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp8_);
+#line 493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 3122 "overview_tree_store.c"
 		}
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Resource:
+#line 3126 "overview_tree_store.c"
 		{
 			GtkTreeIter _tmp9_;
 			gchar* _tmp10_;
@@ -2074,49 +3139,89 @@ vala_develop_overview_tree_store_save_project_attribute (valaDevelopOverviewTree
 			GtkTreeIter _tmp21_;
 			gchar* _tmp22_;
 			gchar* _tmp23_;
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp9_ = *iter;
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp10_ = g_strdup_printf ("%i", (gint) vala_develop_overview_tree_store_get_item_buildtype (self, &_tmp9_));
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp11_ = _tmp10_;
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "BuildType", (xmlChar*) _tmp11_);
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp11_);
+#line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp12_ = *iter;
+#line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp13_ = vala_develop_overview_tree_store_get_item_resource_id (self, &_tmp12_);
+#line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp14_ = _tmp13_;
+#line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "ResourceId", (xmlChar*) _tmp14_);
+#line 496 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp14_);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp15_ = *iter;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp16_ = bool_to_string (vala_develop_overview_tree_store_get_item_resource_compress (self, &_tmp15_));
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp17_ = _tmp16_;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "ResourceCompress", (xmlChar*) _tmp17_);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp17_);
+#line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp18_ = *iter;
+#line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp19_ = bool_to_string (vala_develop_overview_tree_store_get_item_resource_stripblanks (self, &_tmp18_));
+#line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp20_ = _tmp19_;
+#line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "ResourceStripBlanks", (xmlChar*) _tmp20_);
+#line 498 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp20_);
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp21_ = *iter;
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp22_ = vala_develop_overview_tree_store_get_item_resource_alias (self, &_tmp21_);
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp23_ = _tmp22_;
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "ResourceAlias", (xmlChar*) _tmp23_);
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp23_);
+#line 500 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 3195 "overview_tree_store.c"
 		}
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		case VALA_DEVELOP_ITEM_TYPE_Source:
+#line 3199 "overview_tree_store.c"
 		{
 			GtkTreeIter _tmp24_;
 			gchar* _tmp25_;
 			gchar* _tmp26_;
+#line 502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp24_ = *iter;
+#line 502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp25_ = g_strdup_printf ("%i", (gint) vala_develop_overview_tree_store_get_item_buildtype (self, &_tmp24_));
+#line 502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp26_ = _tmp25_;
+#line 502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (writer, (xmlChar*) "BuildType", (xmlChar*) _tmp26_);
+#line 502 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp26_);
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			break;
+#line 3216 "overview_tree_store.c"
 		}
 		default:
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		break;
+#line 3221 "overview_tree_store.c"
 	}
+#line 482 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	_g_free0 (name);
+#line 3225 "overview_tree_store.c"
 }
 
 gboolean
@@ -2124,7 +3229,9 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 3235 "overview_tree_store.c"
 	{
 		GtkTreeIter root = {0};
 		GtkTreeIter _tmp0_ = {0};
@@ -2146,32 +3253,59 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 		GFile* _tmp13_;
 		gchar* _tmp14_;
 		gchar* _tmp15_;
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp1_ = gtk_tree_model_get_iter_first ((GtkTreeModel*) self, &_tmp0_);
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		root = _tmp0_;
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		if (!_tmp1_) {
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			result = FALSE;
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			return result;
+#line 3267 "overview_tree_store.c"
 		}
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp2_ = root;
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp3_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp2_);
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		solutionName = _tmp3_;
+#line 514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp4_ = root;
+#line 514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp5_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp4_);
+#line 514 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		solutionPath = _tmp5_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp6_ = solutionPath;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp7_ = g_file_new_for_path (_tmp6_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp8_ = _tmp7_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp9_ = solutionName;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp10_ = g_strconcat (_tmp9_, ".vsln", NULL);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp11_ = _tmp10_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp12_ = g_file_get_child (_tmp8_, _tmp11_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp13_ = _tmp12_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp14_ = g_file_get_path (_tmp13_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp15_ = _tmp14_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (_tmp13_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (_tmp11_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (_tmp8_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		solutionFile = _tmp15_;
+#line 3309 "overview_tree_store.c"
 		{
 			xmlTextWriter* writer = NULL;
 			const gchar* _tmp16_;
@@ -2197,41 +3331,76 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 			xmlTextWriter* _tmp56_;
 			xmlTextWriter* _tmp57_;
 			xmlTextWriter* _tmp58_;
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp16_ = solutionFile;
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp17_ = xmlNewTextWriterFilename (_tmp16_, FALSE);
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			writer = _tmp17_;
+#line 518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp18_ = writer;
+#line 518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterSetIndent (_tmp18_, TRUE);
+#line 519 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp19_ = writer;
+#line 519 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterSetIndentString (_tmp19_, (xmlChar*) "\t");
+#line 520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp20_ = writer;
+#line 520 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterStartDocument (_tmp20_, NULL, NULL, NULL);
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp21_ = writer;
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteComment (_tmp21_, (xmlChar*) "generated by valaDevelop");
+#line 522 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp22_ = writer;
+#line 522 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterStartElement (_tmp22_, (xmlChar*) "Item");
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp23_ = writer;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp24_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp25_ = _tmp24_;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp26_ = g_strdup_printf ("%i", (gint) VALA_DEVELOP_ITEM_TYPE_Solution);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp27_ = _tmp26_;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (_tmp23_, (xmlChar*) _tmp25_, (xmlChar*) _tmp27_);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp27_);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp25_);
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp28_ = writer;
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp29_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp30_ = _tmp29_;
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp31_ = solutionName;
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterWriteAttribute (_tmp28_, (xmlChar*) _tmp30_, (xmlChar*) _tmp31_);
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (_tmp30_);
+#line 526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp32_ = root;
+#line 526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp34_ = gtk_tree_model_iter_children ((GtkTreeModel*) self, &_tmp33_, &_tmp32_);
+#line 526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			iter = _tmp33_;
+#line 526 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			if (_tmp34_) {
+#line 3397 "overview_tree_store.c"
 				{
 					gboolean _tmp35_ = FALSE;
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					_tmp35_ = TRUE;
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					while (TRUE) {
+#line 3404 "overview_tree_store.c"
 						gchar* pName = NULL;
 						GtkTreeIter _tmp37_;
 						gchar* _tmp38_;
@@ -2253,67 +3422,122 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 						gchar* _tmp53_;
 						const gchar* _tmp54_;
 						xmlTextWriter* _tmp55_;
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						if (!_tmp35_) {
+#line 3428 "overview_tree_store.c"
 							gboolean _tmp36_;
+#line 538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp36_ = gtk_tree_model_iter_next ((GtkTreeModel*) self, &iter);
+#line 538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							if (!_tmp36_) {
+#line 538 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 								break;
+#line 3436 "overview_tree_store.c"
 							}
 						}
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp35_ = FALSE;
+#line 530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp37_ = iter;
+#line 530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp38_ = vala_develop_overview_tree_store_get_item_name (self, &_tmp37_);
+#line 530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						pName = _tmp38_;
+#line 532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp39_ = iter;
+#line 532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp40_ = vala_develop_overview_tree_store_get_item_path (self, &_tmp39_);
+#line 532 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						pPath = _tmp40_;
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp41_ = writer;
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						xmlTextWriterStartElement (_tmp41_, (xmlChar*) "Item");
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp42_ = writer;
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp43_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type);
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp44_ = _tmp43_;
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp45_ = g_strdup_printf ("%i", (gint) (VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory));
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp46_ = _tmp45_;
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						xmlTextWriterWriteAttribute (_tmp42_, (xmlChar*) _tmp44_, (xmlChar*) _tmp46_);
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp46_);
+#line 534 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp44_);
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp47_ = writer;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp48_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp49_ = _tmp48_;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp50_ = pName;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						xmlTextWriterWriteAttribute (_tmp47_, (xmlChar*) _tmp49_, (xmlChar*) _tmp50_);
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp49_);
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp51_ = writer;
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp52_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path);
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp53_ = _tmp52_;
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp54_ = pPath;
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						xmlTextWriterWriteAttribute (_tmp51_, (xmlChar*) _tmp53_, (xmlChar*) _tmp54_);
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp53_);
+#line 537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp55_ = writer;
+#line 537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						xmlTextWriterEndElement (_tmp55_);
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (pPath);
+#line 528 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (pName);
+#line 3505 "overview_tree_store.c"
 					}
 				}
 			}
+#line 540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp56_ = writer;
+#line 540 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterEndElement (_tmp56_);
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp57_ = writer;
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterEndDocument (_tmp57_);
+#line 542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp58_ = writer;
+#line 542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			xmlTextWriterFlush (_tmp58_);
+#line 516 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_xmlFreeTextWriter0 (writer);
+#line 3523 "overview_tree_store.c"
 		}
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (solutionFile);
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (solutionPath);
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_free0 (solutionName);
+#line 3531 "overview_tree_store.c"
 	}
 	goto __finally61;
 	__catch61_g_error:
 	{
 		GError* e = NULL;
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 3541 "overview_tree_store.c"
 		{
 			GtkMessageDialog* messagedialog = NULL;
 			GError* _tmp59_;
@@ -2321,30 +3545,54 @@ vala_develop_overview_tree_store_save_solution (valaDevelopOverviewTreeStore* se
 			GtkMessageDialog* _tmp61_;
 			GtkMessageDialog* _tmp62_;
 			GtkMessageDialog* _tmp63_;
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp59_ = e;
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp60_ = _tmp59_->message;
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp61_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp60_);
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			g_object_ref_sink (_tmp61_);
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			messagedialog = _tmp61_;
+#line 549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp62_ = messagedialog;
+#line 549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_dialog_run ((GtkDialog*) _tmp62_);
+#line 550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_tmp63_ = messagedialog;
+#line 550 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			gtk_widget_destroy ((GtkWidget*) _tmp63_);
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_object_unref0 (messagedialog);
+#line 3569 "overview_tree_store.c"
 		}
+#line 552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 3577 "overview_tree_store.c"
 	}
 	__finally61:
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 3582 "overview_tree_store.c"
 		gboolean _tmp64_ = FALSE;
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp64_;
+#line 3590 "overview_tree_store.c"
 	}
+#line 554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = TRUE;
+#line 554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 3596 "overview_tree_store.c"
 }
 
 gboolean
@@ -2353,18 +3601,28 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (solutionFile != NULL, FALSE);
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_clear ((GtkTreeStore*) self);
+#line 3611 "overview_tree_store.c"
 	{
 		xmlTextReader* reader = NULL;
 		xmlTextReader* _tmp0_;
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp0_ = xmlNewTextReaderFilename (solutionFile);
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		reader = _tmp0_;
+#line 3619 "overview_tree_store.c"
 		{
 			GtkTreeIter* rootIter = NULL;
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			rootIter = NULL;
+#line 565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			while (TRUE) {
+#line 3626 "overview_tree_store.c"
 				xmlTextReader* _tmp1_;
 				xmlTextReader* _tmp2_;
 				gchar* name = NULL;
@@ -2376,26 +3634,47 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 				valaDevelopItemType itemType = 0;
 				const gchar* _tmp8_;
 				valaDevelopItemType _tmp9_;
+#line 565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp1_ = reader;
+#line 565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!(xmlTextReaderRead (_tmp1_) == 1)) {
+#line 565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					break;
+#line 3644 "overview_tree_store.c"
 				}
+#line 567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp2_ = reader;
+#line 567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (xmlTextReaderNodeType (_tmp2_) != ((gint) XML_ELEMENT_NODE)) {
+#line 567 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					continue;
+#line 3652 "overview_tree_store.c"
 				}
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp3_ = reader;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp4_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp5_ = _tmp4_;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp6_ = (gchar*) xmlTextReaderGetAttribute (_tmp3_, _tmp5_);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp7_ = _tmp6_;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (_tmp5_);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				name = _tmp7_;
+#line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp8_ = name;
+#line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				itemType = (valaDevelopItemType) atoi (_tmp8_);
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp9_ = itemType;
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				switch (_tmp9_) {
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					case VALA_DEVELOP_ITEM_TYPE_Solution:
+#line 3678 "overview_tree_store.c"
 					{
 						GtkTreeIter _tmp10_ = {0};
 						GtkTreeIter _tmp11_;
@@ -2410,28 +3689,51 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 						gchar* _tmp20_;
 						gchar* _tmp21_;
 						GtkTreeIter _tmp22_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						gtk_tree_store_append ((GtkTreeStore*) self, &_tmp10_, NULL);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (rootIter);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp11_ = _tmp10_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp12_ = __gtk_tree_iter_dup0 (&_tmp11_);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						rootIter = _tmp12_;
+#line 574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp13_ = rootIter;
+#line 574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp14_ = itemType;
+#line 574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp15_ = *_tmp13_;
+#line 574 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_type (self, &_tmp15_, (gint) _tmp14_);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp16_ = rootIter;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp17_ = reader;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp18_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp19_ = _tmp18_;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp20_ = (gchar*) xmlTextReaderGetAttribute (_tmp17_, _tmp19_);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp21_ = _tmp20_;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp22_ = *_tmp16_;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_name (self, &_tmp22_, _tmp21_);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp21_);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp19_);
+#line 576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 3733 "overview_tree_store.c"
 					}
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					case VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory:
+#line 3737 "overview_tree_store.c"
 					{
 						gchar* rootpath = NULL;
 						GFile* _tmp23_;
@@ -2467,76 +3769,141 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 						gchar* _tmp50_;
 						gchar* _tmp51_;
 						GtkTreeIter* _tmp52_;
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp23_ = g_file_new_for_path (solutionFile);
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp24_ = _tmp23_;
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp25_ = g_file_get_parent (_tmp24_);
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp26_ = _tmp25_;
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp27_ = g_file_get_path (_tmp26_);
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp28_ = _tmp27_;
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_object_unref0 (_tmp26_);
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_object_unref0 (_tmp24_);
+#line 578 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						rootpath = _tmp28_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp29_ = reader;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp30_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp31_ = _tmp30_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp32_ = (gchar*) xmlTextReaderGetAttribute (_tmp29_, _tmp31_);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp33_ = _tmp32_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp31_);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						projectPath = _tmp33_;
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp34_ = reader;
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp35_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp36_ = _tmp35_;
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp37_ = (gchar*) xmlTextReaderGetAttribute (_tmp34_, _tmp36_);
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp38_ = _tmp37_;
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp36_);
+#line 580 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						projectName = _tmp38_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp39_ = rootpath;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp40_ = g_file_new_for_path (_tmp39_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp41_ = _tmp40_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp42_ = projectPath;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp43_ = g_file_get_child (_tmp41_, _tmp42_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp44_ = _tmp43_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp45_ = projectName;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp46_ = g_strconcat (_tmp45_, ".vprj", NULL);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp47_ = _tmp46_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp48_ = g_file_get_child (_tmp44_, _tmp47_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp49_ = _tmp48_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp50_ = g_file_get_path (_tmp49_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp51_ = _tmp50_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_object_unref0 (_tmp49_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp47_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_object_unref0 (_tmp44_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_object_unref0 (_tmp41_);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						projectFile = _tmp51_;
+#line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp52_ = rootIter;
+#line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						if (_tmp52_ != NULL) {
+#line 3859 "overview_tree_store.c"
 							GtkTreeIter* _tmp53_;
 							const gchar* _tmp54_;
 							GtkTreeIter _tmp55_;
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp53_ = rootIter;
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp54_ = projectFile;
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp55_ = *_tmp53_;
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							vala_develop_overview_tree_store_load_project (self, &_tmp55_, _tmp54_);
+#line 3871 "overview_tree_store.c"
 						}
+#line 584 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (projectFile);
+#line 584 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (projectName);
+#line 584 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (projectPath);
+#line 584 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (rootpath);
+#line 584 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 3883 "overview_tree_store.c"
 					}
 					default:
 					{
 						FILE* _tmp56_;
+#line 586 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp56_ = stdout;
+#line 586 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						fprintf (_tmp56_, "%s", "Invalid token {itemType} !!");
+#line 587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 3894 "overview_tree_store.c"
 					}
 				}
+#line 565 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (name);
+#line 3899 "overview_tree_store.c"
 			}
+#line 563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			_g_free0 (rootIter);
+#line 3903 "overview_tree_store.c"
 		}
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_xmlFreeTextReader0 (reader);
+#line 3907 "overview_tree_store.c"
 	}
 	goto __finally62;
 	__catch62_g_error:
@@ -2548,31 +3915,56 @@ vala_develop_overview_tree_store_load_solution (valaDevelopOverviewTreeStore* se
 		GtkMessageDialog* _tmp59_;
 		GtkMessageDialog* _tmp60_;
 		GtkMessageDialog* _tmp61_;
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp57_ = e;
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp58_ = _tmp57_->message;
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp59_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp58_);
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_object_ref_sink (_tmp59_);
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		messagedialog = _tmp59_;
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp60_ = messagedialog;
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp60_);
+#line 596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp61_ = messagedialog;
+#line 596 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp61_);
+#line 597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (messagedialog);
+#line 597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 597 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 3949 "overview_tree_store.c"
 	}
 	__finally62:
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 3954 "overview_tree_store.c"
 		gboolean _tmp62_ = FALSE;
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp62_;
+#line 3962 "overview_tree_store.c"
 	}
+#line 599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = TRUE;
+#line 599 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 3968 "overview_tree_store.c"
 }
 
 static gboolean
@@ -2582,17 +3974,26 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 {
 	gboolean result = FALSE;
 	GError* _inner_error0_ = NULL;
+#line 602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (rootIter != NULL, FALSE);
+#line 602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	g_return_val_if_fail (projectFile != NULL, FALSE);
+#line 3984 "overview_tree_store.c"
 	{
 		xmlTextReader* reader = NULL;
 		xmlTextReader* _tmp0_;
+#line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp0_ = xmlNewTextReaderFilename (projectFile);
+#line 606 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		reader = _tmp0_;
+#line 3992 "overview_tree_store.c"
 		{
 			GtkTreeIter projectIter = {0};
+#line 609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 			while (TRUE) {
+#line 3997 "overview_tree_store.c"
 				xmlTextReader* _tmp1_;
 				xmlTextReader* _tmp2_;
 				gchar* name = NULL;
@@ -2604,26 +4005,47 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 				valaDevelopItemType itemType = 0;
 				const gchar* _tmp8_;
 				valaDevelopItemType _tmp9_;
+#line 609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp1_ = reader;
+#line 609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (!(xmlTextReaderRead (_tmp1_) == 1)) {
+#line 609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					break;
+#line 4015 "overview_tree_store.c"
 				}
+#line 611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp2_ = reader;
+#line 611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				if (xmlTextReaderNodeType (_tmp2_) != ((gint) XML_ELEMENT_NODE)) {
+#line 611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					continue;
+#line 4023 "overview_tree_store.c"
 				}
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp3_ = reader;
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp4_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Type);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp5_ = _tmp4_;
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp6_ = (gchar*) xmlTextReaderGetAttribute (_tmp3_, _tmp5_);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp7_ = _tmp6_;
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (_tmp5_);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				name = _tmp7_;
+#line 613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp8_ = name;
+#line 613 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				itemType = (valaDevelopItemType) atoi (_tmp8_);
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_tmp9_ = itemType;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				switch (_tmp9_) {
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					case VALA_DEVELOP_ITEM_TYPE_Project | VALA_DEVELOP_ITEM_TYPE_Directory:
+#line 4049 "overview_tree_store.c"
 					{
 						GtkTreeIter _tmp10_;
 						GtkTreeIter _tmp11_ = {0};
@@ -2677,111 +4099,212 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 						gchar* _tmp59_;
 						gboolean _tmp60_;
 						GtkTreeIter _tmp61_;
+#line 617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp10_ = *rootIter;
+#line 617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						gtk_tree_store_append ((GtkTreeStore*) self, &_tmp11_, &_tmp10_);
+#line 617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						projectIter = _tmp11_;
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp12_ = projectIter;
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp13_ = itemType;
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_type (self, &_tmp12_, (gint) _tmp13_);
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp14_ = projectIter;
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp15_ = reader;
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp16_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Path);
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp17_ = _tmp16_;
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp18_ = (gchar*) xmlTextReaderGetAttribute (_tmp15_, _tmp17_);
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp19_ = _tmp18_;
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_path (self, &_tmp14_, _tmp19_);
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp19_);
+#line 619 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp17_);
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp20_ = projectIter;
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp21_ = reader;
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp22_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Name);
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp23_ = _tmp22_;
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp24_ = (gchar*) xmlTextReaderGetAttribute (_tmp21_, _tmp23_);
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp25_ = _tmp24_;
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_name (self, &_tmp20_, _tmp25_);
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp25_);
+#line 620 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp23_);
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp26_ = projectIter;
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp27_ = reader;
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp28_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_Namespace);
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp29_ = _tmp28_;
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp30_ = (gchar*) xmlTextReaderGetAttribute (_tmp27_, _tmp29_);
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp31_ = _tmp30_;
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_namespace (self, &_tmp26_, _tmp31_);
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp31_);
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp29_);
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp32_ = projectIter;
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp33_ = reader;
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp34_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_BuildType);
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp35_ = _tmp34_;
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp36_ = (gchar*) xmlTextReaderGetAttribute (_tmp33_, _tmp35_);
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp37_ = _tmp36_;
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_buildtype (self, &_tmp32_, (gint) ((valaDevelopItemBuildType) atoi (_tmp37_)));
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp37_);
+#line 622 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp35_);
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp39_ = reader;
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp40_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_WithVapi);
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp41_ = _tmp40_;
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp42_ = (gchar*) xmlTextReaderGetAttribute (_tmp39_, _tmp41_);
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp43_ = _tmp42_;
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp44_ = g_strcmp0 (_tmp43_, "true") == 0;
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp43_);
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp41_);
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						if (_tmp44_) {
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp38_ = TRUE;
+#line 4207 "overview_tree_store.c"
 						} else {
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp38_ = FALSE;
+#line 4211 "overview_tree_store.c"
 						}
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp45_ = projectIter;
+#line 623 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_withvapi (self, &_tmp45_, _tmp38_);
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp47_ = reader;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp48_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakCriticals);
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp49_ = _tmp48_;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp50_ = (gchar*) xmlTextReaderGetAttribute (_tmp47_, _tmp49_);
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp51_ = _tmp50_;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp52_ = g_strcmp0 (_tmp51_, "true") == 0;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp51_);
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp49_);
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						if (_tmp52_) {
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp46_ = TRUE;
+#line 4237 "overview_tree_store.c"
 						} else {
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp46_ = FALSE;
+#line 4241 "overview_tree_store.c"
 						}
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp53_ = projectIter;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_debug_break_criticals (self, &_tmp53_, _tmp46_);
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp55_ = reader;
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp56_ = vala_develop_overview_tree_columns_to_string (VALA_DEVELOP_OVERVIEW_TREE_COLUMNS_DebugBreakWarnings);
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp57_ = _tmp56_;
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp58_ = (gchar*) xmlTextReaderGetAttribute (_tmp55_, _tmp57_);
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp59_ = _tmp58_;
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp60_ = g_strcmp0 (_tmp59_, "true") == 0;
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp59_);
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_g_free0 (_tmp57_);
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						if (_tmp60_) {
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp54_ = TRUE;
+#line 4267 "overview_tree_store.c"
 						} else {
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 							_tmp54_ = FALSE;
+#line 4271 "overview_tree_store.c"
 						}
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp61_ = projectIter;
+#line 625 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						vala_develop_overview_tree_store_set_item_debug_break_warnings (self, &_tmp61_, _tmp54_);
+#line 626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 4279 "overview_tree_store.c"
 					}
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 					case VALA_DEVELOP_ITEM_TYPE_Package | VALA_DEVELOP_ITEM_TYPE_Directory:
+#line 4283 "overview_tree_store.c"
 					{
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 4287 "overview_tree_store.c"
 					}
 					default:
 					{
 						FILE* _tmp62_;
+#line 630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						_tmp62_ = stdout;
+#line 630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						fprintf (_tmp62_, "%s", "Invalid token {itemType} !!");
+#line 631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 						break;
+#line 4298 "overview_tree_store.c"
 					}
 				}
+#line 609 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 				_g_free0 (name);
+#line 4303 "overview_tree_store.c"
 			}
 		}
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_xmlFreeTextReader0 (reader);
+#line 4308 "overview_tree_store.c"
 	}
 	goto __finally63;
 	__catch63_g_error:
@@ -2793,39 +4316,67 @@ vala_develop_overview_tree_store_load_project (valaDevelopOverviewTreeStore* sel
 		GtkMessageDialog* _tmp65_;
 		GtkMessageDialog* _tmp66_;
 		GtkMessageDialog* _tmp67_;
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		e = _inner_error0_;
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_inner_error0_ = NULL;
+#line 638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp63_ = e;
+#line 638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp64_ = _tmp63_->message;
+#line 638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp65_ = (GtkMessageDialog*) gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", _tmp64_);
+#line 638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_object_ref_sink (_tmp65_);
+#line 638 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		messagedialog = _tmp65_;
+#line 639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp66_ = messagedialog;
+#line 639 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_dialog_run ((GtkDialog*) _tmp66_);
+#line 640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_tmp67_ = messagedialog;
+#line 640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		gtk_widget_destroy ((GtkWidget*) _tmp67_);
+#line 641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		result = FALSE;
+#line 641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_object_unref0 (messagedialog);
+#line 641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		_g_error_free0 (e);
+#line 641 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return result;
+#line 4350 "overview_tree_store.c"
 	}
 	__finally63:
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 4355 "overview_tree_store.c"
 		gboolean _tmp68_ = FALSE;
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		g_clear_error (&_inner_error0_);
+#line 604 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 		return _tmp68_;
+#line 4363 "overview_tree_store.c"
 	}
+#line 643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	result = TRUE;
+#line 643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	return result;
+#line 4369 "overview_tree_store.c"
 }
 
 static void
 vala_develop_overview_tree_store_class_init (valaDevelopOverviewTreeStoreClass * klass,
                                              gpointer klass_data)
 {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	vala_develop_overview_tree_store_parent_class = g_type_class_peek_parent (klass);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_overview_tree_store_finalize;
+#line 4380 "overview_tree_store.c"
 }
 
 static void
@@ -2838,9 +4389,13 @@ static void
 vala_develop_overview_tree_store_finalize (GObject * obj)
 {
 	valaDevelopOverviewTreeStore * self;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_OVERVIEW_TREE_STORE, valaDevelopOverviewTreeStore);
+#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	gtk_tree_store_clear ((GtkTreeStore*) self);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/overview_tree_store.vala"
 	G_OBJECT_CLASS (vala_develop_overview_tree_store_parent_class)->finalize (obj);
+#line 4399 "overview_tree_store.c"
 }
 
 GType

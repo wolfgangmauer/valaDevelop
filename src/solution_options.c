@@ -113,31 +113,53 @@ vala_develop_solution_options_construct (GType object_type,
 	GtkTreeIter _tmp8_;
 	gchar* _tmp9_;
 	gchar* _tmp10_;
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	g_return_val_if_fail (iter != NULL, NULL);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self = (valaDevelopSolutionOptions*) g_object_new (object_type, NULL);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp0_ = *iter;
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self->priv->_iter = _tmp0_;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp1_ = self->priv->fileName;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp3_ = self->priv->_iter;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp4_ = vala_develop_overview_tree_store_get_item_name (_tmp2_, &_tmp3_);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp5_ = _tmp4_;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_entry_set_text (_tmp1_, _tmp5_);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_free0 (_tmp5_);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp6_ = self->priv->fileRoot;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp7_ = vala_develop_main_paned_overviewTreeModel;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp8_ = self->priv->_iter;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp9_ = vala_develop_overview_tree_store_get_item_path (_tmp7_, &_tmp8_);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp10_ = _tmp9_;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_entry_set_text (_tmp6_, _tmp10_);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_free0 (_tmp10_);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	return self;
+#line 155 "solution_options.c"
 }
 
 valaDevelopSolutionOptions*
 vala_develop_solution_options_new (GtkTreeIter* iter)
 {
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	return vala_develop_solution_options_construct (VALA_DEVELOP_TYPE_SOLUTION_OPTIONS, iter);
+#line 163 "solution_options.c"
 }
 
 static void
@@ -146,10 +168,15 @@ vala_develop_solution_options_real_get_iter (valaDevelopIOptionWidget* base,
 {
 	valaDevelopSolutionOptions* self;
 	GtkTreeIter _tmp0_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self = (valaDevelopSolutionOptions*) base;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp0_ = self->priv->_iter;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	*result = _tmp0_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	return;
+#line 180 "solution_options.c"
 }
 
 static void
@@ -168,64 +195,103 @@ vala_develop_solution_options_real_set_iter (valaDevelopIOptionWidget* base,
 	GtkTreeIter _tmp8_;
 	gchar* _tmp9_;
 	gchar* _tmp10_;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self = (valaDevelopSolutionOptions*) base;
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp0_ = *value;
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self->priv->_iter = _tmp0_;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp1_ = self->priv->fileName;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp3_ = self->priv->_iter;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp4_ = vala_develop_overview_tree_store_get_item_name (_tmp2_, &_tmp3_);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp5_ = _tmp4_;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_entry_set_text (_tmp1_, _tmp5_);
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_free0 (_tmp5_);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp6_ = self->priv->fileRoot;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp7_ = vala_develop_main_paned_overviewTreeModel;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp8_ = self->priv->_iter;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp9_ = vala_develop_overview_tree_store_get_item_path (_tmp7_, &_tmp8_);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_tmp10_ = _tmp9_;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_entry_set_text (_tmp6_, _tmp10_);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_free0 (_tmp10_);
+#line 233 "solution_options.c"
 }
 
 static void
 vala_develop_solution_options_class_init (valaDevelopSolutionOptionsClass * klass,
                                           gpointer klass_data)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	vala_develop_solution_options_parent_class = g_type_class_peek_parent (klass);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSolutionOptions_private_offset);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	G_OBJECT_CLASS (klass)->get_property = _vala_vala_develop_solution_options_get_property;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	G_OBJECT_CLASS (klass)->set_property = _vala_vala_develop_solution_options_set_property;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_solution_options_finalize;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/solutionoptions.glade");
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileName", FALSE, valaDevelopSolutionOptions_private_offset + G_STRUCT_OFFSET (valaDevelopSolutionOptionsPrivate, fileName));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "fileRoot", FALSE, valaDevelopSolutionOptions_private_offset + G_STRUCT_OFFSET (valaDevelopSolutionOptionsPrivate, fileRoot));
+#line 256 "solution_options.c"
 }
 
 static void
 vala_develop_solution_options_vala_develop_ioption_widget_interface_init (valaDevelopIOptionWidgetIface * iface,
                                                                           gpointer iface_data)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	vala_develop_solution_options_vala_develop_ioption_widget_parent_iface = g_type_interface_peek_parent (iface);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	iface->get_iter = vala_develop_solution_options_real_get_iter;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	iface->set_iter = vala_develop_solution_options_real_set_iter;
+#line 269 "solution_options.c"
 }
 
 static void
 vala_develop_solution_options_instance_init (valaDevelopSolutionOptions * self,
                                              gpointer klass)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self->priv = vala_develop_solution_options_get_instance_private (self);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
+#line 280 "solution_options.c"
 }
 
 static void
 vala_develop_solution_options_finalize (GObject * obj)
 {
 	valaDevelopSolutionOptions * self;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SOLUTION_OPTIONS, valaDevelopSolutionOptions);
+#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_object_unref0 (self->priv->fileName);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	_g_object_unref0 (self->priv->fileRoot);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	G_OBJECT_CLASS (vala_develop_solution_options_parent_class)->finalize (obj);
+#line 295 "solution_options.c"
 }
 
 GType
@@ -252,10 +318,15 @@ _vala_vala_develop_solution_options_get_property (GObject * object,
 {
 	valaDevelopSolutionOptions * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_SOLUTION_OPTIONS, valaDevelopSolutionOptions);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	switch (property_id) {
+#line 324 "solution_options.c"
 		default:
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 		break;
+#line 330 "solution_options.c"
 	}
 }
 
@@ -267,10 +338,15 @@ _vala_vala_develop_solution_options_set_property (GObject * object,
 {
 	valaDevelopSolutionOptions * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_SOLUTION_OPTIONS, valaDevelopSolutionOptions);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 	switch (property_id) {
+#line 344 "solution_options.c"
 		default:
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/OptionWidgets/solution_options.vala"
 		break;
+#line 350 "solution_options.c"
 	}
 }
 

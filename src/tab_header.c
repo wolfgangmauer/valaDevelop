@@ -87,34 +87,34 @@ GdkPixbuf* vala_develop_globals_get_CloseImage (void);
 static void vala_develop_tab_header_set_image (valaDevelopTabHeader* self,
                                         GtkImage* value);
 GtkImage* vala_develop_tab_header_get_image (valaDevelopTabHeader* self);
-static gboolean __lambda7_ (valaDevelopTabHeader* self,
+static gboolean __lambda8_ (valaDevelopTabHeader* self,
                      GdkEventButton* evnt);
-static gboolean ___lambda7__gtk_widget_button_release_event (GtkWidget* _sender,
+static gboolean ___lambda8__gtk_widget_button_release_event (GtkWidget* _sender,
                                                       GdkEventButton* event,
                                                       gpointer self);
-static gboolean __lambda8_ (valaDevelopTabHeader* self,
+static gboolean __lambda9_ (valaDevelopTabHeader* self,
                      gint x,
                      gint y,
                      gboolean keyboard_tooltip,
                      GtkTooltip* tooltip);
 const gchar* vala_develop_tab_header_get_full_path (valaDevelopTabHeader* self);
-static gboolean ___lambda8__gtk_widget_query_tooltip (GtkWidget* _sender,
+static gboolean ___lambda9__gtk_widget_query_tooltip (GtkWidget* _sender,
                                                gint x,
                                                gint y,
                                                gboolean keyboard_tooltip,
                                                GtkTooltip* tooltip,
                                                gpointer self);
-static gboolean __lambda9_ (valaDevelopTabHeader* self,
-                     GdkEventCrossing* evnt);
-static gboolean ___lambda9__gtk_widget_enter_notify_event (GtkWidget* _sender,
-                                                    GdkEventCrossing* event,
-                                                    gpointer self);
 static gboolean __lambda10_ (valaDevelopTabHeader* self,
+                      GdkEventCrossing* evnt);
+static gboolean ___lambda10__gtk_widget_enter_notify_event (GtkWidget* _sender,
+                                                     GdkEventCrossing* event,
+                                                     gpointer self);
+static gboolean __lambda11_ (valaDevelopTabHeader* self,
                       GdkEventCrossing* evnt);
 GdkPixbuf* vala_develop_globals_get_ModifiedImage (void);
 gboolean vala_develop_tab_header_get_active (valaDevelopTabHeader* self);
 GdkPixbuf* vala_develop_globals_get_EmptyImage (void);
-static gboolean ___lambda10__gtk_widget_leave_notify_event (GtkWidget* _sender,
+static gboolean ___lambda11__gtk_widget_leave_notify_event (GtkWidget* _sender,
                                                      GdkEventCrossing* event,
                                                      gpointer self);
 gchar* vala_develop_tab_header_get_text (valaDevelopTabHeader* self);
@@ -148,41 +148,54 @@ vala_develop_tab_header_get_instance_private (valaDevelopTabHeader* self)
 static gpointer
 _g_object_ref0 (gpointer self)
 {
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return self ? g_object_ref (self) : NULL;
+#line 154 "tab_header.c"
 }
 
 static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
+#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1517 "glib-2.0.vapi"
 	result = self;
+#line 1517 "glib-2.0.vapi"
 	return result;
-}
-
-static gboolean
-__lambda7_ (valaDevelopTabHeader* self,
-            GdkEventButton* evnt)
-{
-	gboolean result = FALSE;
-	g_return_val_if_fail (evnt != NULL, FALSE);
-	g_signal_emit (self, vala_develop_tab_header_signals[VALA_DEVELOP_TAB_HEADER_CLOSE_CLICKED_SIGNAL], 0, self, evnt);
-	result = FALSE;
-	return result;
-}
-
-static gboolean
-___lambda7__gtk_widget_button_release_event (GtkWidget* _sender,
-                                             GdkEventButton* event,
-                                             gpointer self)
-{
-	gboolean result;
-	result = __lambda7_ ((valaDevelopTabHeader*) self, event);
-	return result;
+#line 167 "tab_header.c"
 }
 
 static gboolean
 __lambda8_ (valaDevelopTabHeader* self,
+            GdkEventButton* evnt)
+{
+	gboolean result = FALSE;
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_return_val_if_fail (evnt != NULL, FALSE);
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_signal_emit (self, vala_develop_tab_header_signals[VALA_DEVELOP_TAB_HEADER_CLOSE_CLICKED_SIGNAL], 0, self, evnt);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	result = FALSE;
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	return result;
+#line 183 "tab_header.c"
+}
+
+static gboolean
+___lambda8__gtk_widget_button_release_event (GtkWidget* _sender,
+                                             GdkEventButton* event,
+                                             gpointer self)
+{
+	gboolean result;
+	result = __lambda8_ ((valaDevelopTabHeader*) self, event);
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	return result;
+#line 195 "tab_header.c"
+}
+
+static gboolean
+__lambda9_ (valaDevelopTabHeader* self,
             gint x,
             gint y,
             gboolean keyboard_tooltip,
@@ -190,15 +203,21 @@ __lambda8_ (valaDevelopTabHeader* self,
 {
 	gboolean result = FALSE;
 	const gchar* _tmp0_;
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (tooltip != NULL, FALSE);
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = self->priv->_full_path;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_tooltip_set_markup (tooltip, _tmp0_);
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = TRUE;
+#line 45 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 217 "tab_header.c"
 }
 
 static gboolean
-___lambda8__gtk_widget_query_tooltip (GtkWidget* _sender,
+___lambda9__gtk_widget_query_tooltip (GtkWidget* _sender,
                                       gint x,
                                       gint y,
                                       gboolean keyboard_tooltip,
@@ -206,35 +225,10 @@ ___lambda8__gtk_widget_query_tooltip (GtkWidget* _sender,
                                       gpointer self)
 {
 	gboolean result;
-	result = __lambda8_ ((valaDevelopTabHeader*) self, x, y, keyboard_tooltip, tooltip);
+	result = __lambda9_ ((valaDevelopTabHeader*) self, x, y, keyboard_tooltip, tooltip);
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
-}
-
-static gboolean
-__lambda9_ (valaDevelopTabHeader* self,
-            GdkEventCrossing* evnt)
-{
-	gboolean result = FALSE;
-	GtkImage* _tmp0_;
-	GdkPixbuf* _tmp1_;
-	GdkPixbuf* _tmp2_;
-	g_return_val_if_fail (evnt != NULL, FALSE);
-	_tmp0_ = self->priv->_image;
-	_tmp1_ = vala_develop_globals_get_CloseImage ();
-	_tmp2_ = _tmp1_;
-	g_object_set (_tmp0_, "pixbuf", _tmp2_, NULL);
-	result = FALSE;
-	return result;
-}
-
-static gboolean
-___lambda9__gtk_widget_enter_notify_event (GtkWidget* _sender,
-                                           GdkEventCrossing* event,
-                                           gpointer self)
-{
-	gboolean result;
-	result = __lambda9_ ((valaDevelopTabHeader*) self, event);
-	return result;
+#line 232 "tab_header.c"
 }
 
 static gboolean
@@ -242,48 +236,112 @@ __lambda10_ (valaDevelopTabHeader* self,
              GdkEventCrossing* evnt)
 {
 	gboolean result = FALSE;
+	GtkImage* _tmp0_;
+	GdkPixbuf* _tmp1_;
+	GdkPixbuf* _tmp2_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (evnt != NULL, FALSE);
-	if (self->priv->_modified) {
-		GtkImage* _tmp0_;
-		GdkPixbuf* _tmp1_;
-		GdkPixbuf* _tmp2_;
-		_tmp0_ = self->priv->_image;
-		_tmp1_ = vala_develop_globals_get_ModifiedImage ();
-		_tmp2_ = _tmp1_;
-		g_object_set (_tmp0_, "pixbuf", _tmp2_, NULL);
-	} else {
-		GdkPixbuf* _tmp3_ = NULL;
-		gboolean _tmp4_;
-		GtkImage* _tmp9_;
-		_tmp4_ = self->priv->_active;
-		if (_tmp4_) {
-			GdkPixbuf* _tmp5_;
-			GdkPixbuf* _tmp6_;
-			_tmp5_ = vala_develop_globals_get_CloseImage ();
-			_tmp6_ = _tmp5_;
-			_tmp3_ = _tmp6_;
-		} else {
-			GdkPixbuf* _tmp7_;
-			GdkPixbuf* _tmp8_;
-			_tmp7_ = vala_develop_globals_get_EmptyImage ();
-			_tmp8_ = _tmp7_;
-			_tmp3_ = _tmp8_;
-		}
-		_tmp9_ = self->priv->_image;
-		g_object_set (_tmp9_, "pixbuf", _tmp3_, NULL);
-	}
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	_tmp0_ = self->priv->_image;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	_tmp1_ = vala_develop_globals_get_CloseImage ();
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	_tmp2_ = _tmp1_;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_object_set (_tmp0_, "pixbuf", _tmp2_, NULL);
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = FALSE;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 257 "tab_header.c"
 }
 
 static gboolean
-___lambda10__gtk_widget_leave_notify_event (GtkWidget* _sender,
+___lambda10__gtk_widget_enter_notify_event (GtkWidget* _sender,
                                             GdkEventCrossing* event,
                                             gpointer self)
 {
 	gboolean result;
 	result = __lambda10_ ((valaDevelopTabHeader*) self, event);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 269 "tab_header.c"
+}
+
+static gboolean
+__lambda11_ (valaDevelopTabHeader* self,
+             GdkEventCrossing* evnt)
+{
+	gboolean result = FALSE;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_return_val_if_fail (evnt != NULL, FALSE);
+#line 54 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	if (self->priv->_modified) {
+#line 281 "tab_header.c"
+		GtkImage* _tmp0_;
+		GdkPixbuf* _tmp1_;
+		GdkPixbuf* _tmp2_;
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		_tmp0_ = self->priv->_image;
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		_tmp1_ = vala_develop_globals_get_ModifiedImage ();
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		_tmp2_ = _tmp1_;
+#line 55 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		g_object_set (_tmp0_, "pixbuf", _tmp2_, NULL);
+#line 293 "tab_header.c"
+	} else {
+		GdkPixbuf* _tmp3_ = NULL;
+		gboolean _tmp4_;
+		GtkImage* _tmp9_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		_tmp4_ = self->priv->_active;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		if (_tmp4_) {
+#line 302 "tab_header.c"
+			GdkPixbuf* _tmp5_;
+			GdkPixbuf* _tmp6_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp5_ = vala_develop_globals_get_CloseImage ();
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp6_ = _tmp5_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp3_ = _tmp6_;
+#line 311 "tab_header.c"
+		} else {
+			GdkPixbuf* _tmp7_;
+			GdkPixbuf* _tmp8_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp7_ = vala_develop_globals_get_EmptyImage ();
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp8_ = _tmp7_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+			_tmp3_ = _tmp8_;
+#line 321 "tab_header.c"
+		}
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		_tmp9_ = self->priv->_image;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+		g_object_set (_tmp9_, "pixbuf", _tmp3_, NULL);
+#line 327 "tab_header.c"
+	}
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	result = FALSE;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	return result;
+#line 333 "tab_header.c"
+}
+
+static gboolean
+___lambda11__gtk_widget_leave_notify_event (GtkWidget* _sender,
+                                            GdkEventCrossing* event,
+                                            gpointer self)
+{
+	gboolean result;
+	result = __lambda11_ ((valaDevelopTabHeader*) self, event);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	return result;
+#line 345 "tab_header.c"
 }
 
 valaDevelopTabHeader*
@@ -314,58 +372,111 @@ vala_develop_tab_header_construct (GType object_type,
 	GtkImage* _tmp18_;
 	GtkBox* _tmp19_;
 	GtkBox* _tmp20_;
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (text != NULL, NULL);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (fullPath != NULL, NULL);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self = (valaDevelopTabHeader*) g_object_new (object_type, NULL);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = _g_object_ref0 (parent);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_parent);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self->priv->_parent = _tmp0_;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	vala_develop_tab_header_set_full_path (self, fullPath);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp1_ = (GtkLabel*) gtk_label_new (text);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_ref_sink (_tmp1_);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_label);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self->priv->_label = _tmp1_;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp2_ = self->priv->_label;
+#line 26 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_widget_set_name ((GtkWidget*) _tmp2_, "vdHeaderLabel");
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp3_ = self->priv->_label;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_label_set_xalign (_tmp3_, (gfloat) 0);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp4_ = self->priv->_label;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_label_set_use_markup (_tmp4_, TRUE);
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp5_ = self->priv->_label;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp6_ = string_to_string (text);
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp7_ = g_strconcat ("<span size='smaller' weight='light'>", _tmp6_, "</span>", NULL);
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp8_ = _tmp7_;
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_label_set_markup (_tmp5_, _tmp8_);
+#line 29 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_free0 (_tmp8_);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp9_ = vala_develop_globals_get_CloseImage ();
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp10_ = _tmp9_;
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp11_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp10_);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_ref_sink (_tmp11_);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp12_ = _tmp11_;
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	vala_develop_tab_header_set_image (self, _tmp12_);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (_tmp12_);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp13_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 10);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_ref_sink (_tmp13_);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_box);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self->priv->_box = _tmp13_;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp14_ = self->priv->_box;
+#line 32 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_widget_set_has_tooltip ((GtkWidget*) _tmp14_, TRUE);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp15_ = self->priv->_box;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp16_ = self->priv->_label;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_box_pack_start (_tmp15_, (GtkWidget*) _tmp16_, FALSE, FALSE, (guint) 0);
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp17_ = self->priv->_box;
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp18_ = self->priv->_image;
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_box_pack_start (_tmp17_, (GtkWidget*) _tmp18_, FALSE, FALSE, (guint) 0);
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp19_ = self->priv->_box;
+#line 35 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp19_);
-	g_signal_connect_object ((GtkWidget*) self, "button-release-event", (GCallback) ___lambda7__gtk_widget_button_release_event, self, 0);
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_signal_connect_object ((GtkWidget*) self, "button-release-event", (GCallback) ___lambda8__gtk_widget_button_release_event, self, 0);
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp20_ = self->priv->_box;
-	g_signal_connect_object ((GtkWidget*) _tmp20_, "query-tooltip", (GCallback) ___lambda8__gtk_widget_query_tooltip, self, 0);
-	g_signal_connect_object ((GtkWidget*) self, "enter-notify-event", (GCallback) ___lambda9__gtk_widget_enter_notify_event, self, 0);
-	g_signal_connect_object ((GtkWidget*) self, "leave-notify-event", (GCallback) ___lambda10__gtk_widget_leave_notify_event, self, 0);
+#line 42 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_signal_connect_object ((GtkWidget*) _tmp20_, "query-tooltip", (GCallback) ___lambda9__gtk_widget_query_tooltip, self, 0);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_signal_connect_object ((GtkWidget*) self, "enter-notify-event", (GCallback) ___lambda10__gtk_widget_enter_notify_event, self, 0);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
+	g_signal_connect_object ((GtkWidget*) self, "leave-notify-event", (GCallback) ___lambda11__gtk_widget_leave_notify_event, self, 0);
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return self;
+#line 480 "tab_header.c"
 }
 
 valaDevelopTabHeader*
@@ -373,7 +484,9 @@ vala_develop_tab_header_new (valaDevelopMainPaned* parent,
                              const gchar* text,
                              const gchar* fullPath)
 {
+#line 20 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return vala_develop_tab_header_construct (VALA_DEVELOP_TYPE_TAB_HEADER, parent, text, fullPath);
+#line 490 "tab_header.c"
 }
 
 gchar*
@@ -383,12 +496,19 @@ vala_develop_tab_header_get_text (valaDevelopTabHeader* self)
 	GtkLabel* _tmp0_;
 	const gchar* _tmp1_;
 	gchar* _tmp2_;
+#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = self->priv->_label;
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp1_ = gtk_label_get_text (_tmp0_);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp2_ = g_strdup (_tmp1_);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = _tmp2_;
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 512 "tab_header.c"
 }
 
 void
@@ -397,35 +517,59 @@ vala_develop_tab_header_UpdateModify (valaDevelopTabHeader* self,
 {
 	GdkPixbuf* _tmp0_ = NULL;
 	GtkImage* _tmp9_;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_if_fail (self != NULL);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self->priv->_modified = modified;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	if (modified) {
+#line 527 "tab_header.c"
 		GdkPixbuf* _tmp1_;
 		GdkPixbuf* _tmp2_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp1_ = vala_develop_globals_get_ModifiedImage ();
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp2_ = _tmp1_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp0_ = _tmp2_;
+#line 536 "tab_header.c"
 	} else {
 		GdkPixbuf* _tmp3_ = NULL;
 		gboolean _tmp4_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp4_ = self->priv->_active;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		if (_tmp4_) {
+#line 544 "tab_header.c"
 			GdkPixbuf* _tmp5_;
 			GdkPixbuf* _tmp6_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp5_ = vala_develop_globals_get_CloseImage ();
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp6_ = _tmp5_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp3_ = _tmp6_;
+#line 553 "tab_header.c"
 		} else {
 			GdkPixbuf* _tmp7_;
 			GdkPixbuf* _tmp8_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp7_ = vala_develop_globals_get_EmptyImage ();
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp8_ = _tmp7_;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 			_tmp3_ = _tmp8_;
+#line 563 "tab_header.c"
 		}
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp0_ = _tmp3_;
+#line 567 "tab_header.c"
 	}
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp9_ = self->priv->_image;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_set (_tmp9_, "pixbuf", _tmp0_, NULL);
+#line 573 "tab_header.c"
 }
 
 const gchar*
@@ -434,11 +578,17 @@ vala_develop_tab_header_get_label (valaDevelopTabHeader* self)
 	const gchar* result;
 	GtkLabel* _tmp0_;
 	const gchar* _tmp1_;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = self->priv->_label;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp1_ = gtk_label_get_text (_tmp0_);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = _tmp1_;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 592 "tab_header.c"
 }
 
 const gchar*
@@ -446,23 +596,36 @@ vala_develop_tab_header_get_full_path (valaDevelopTabHeader* self)
 {
 	const gchar* result;
 	const gchar* _tmp0_;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = self->priv->_full_path;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = _tmp0_;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 608 "tab_header.c"
 }
 
 static void
 vala_develop_tab_header_set_full_path (valaDevelopTabHeader* self,
                                        const gchar* value)
 {
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_if_fail (self != NULL);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	if (g_strcmp0 (value, vala_develop_tab_header_get_full_path (self)) != 0) {
+#line 619 "tab_header.c"
 		gchar* _tmp0_;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp0_ = g_strdup (value);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_g_free0 (self->priv->_full_path);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		self->priv->_full_path = _tmp0_;
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_object_notify_by_pspec ((GObject *) self, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_FULL_PATH_PROPERTY]);
+#line 629 "tab_header.c"
 	}
 }
 
@@ -470,19 +633,28 @@ gboolean
 vala_develop_tab_header_get_active (valaDevelopTabHeader* self)
 {
 	gboolean result;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = self->priv->_active;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 643 "tab_header.c"
 }
 
 void
 vala_develop_tab_header_set_active (valaDevelopTabHeader* self,
                                     gboolean value)
 {
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_if_fail (self != NULL);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	if (vala_develop_tab_header_get_active (self) != value) {
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		self->priv->_active = value;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_object_notify_by_pspec ((GObject *) self, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_ACTIVE_PROPERTY]);
+#line 658 "tab_header.c"
 	}
 }
 
@@ -491,23 +663,36 @@ vala_develop_tab_header_get_image (valaDevelopTabHeader* self)
 {
 	GtkImage* result;
 	GtkImage* _tmp0_;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_tmp0_ = self->priv->_image;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	result = _tmp0_;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	return result;
+#line 675 "tab_header.c"
 }
 
 static void
 vala_develop_tab_header_set_image (valaDevelopTabHeader* self,
                                    GtkImage* value)
 {
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_if_fail (self != NULL);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	if (vala_develop_tab_header_get_image (self) != value) {
+#line 686 "tab_header.c"
 		GtkImage* _tmp0_;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_tmp0_ = _g_object_ref0 (value);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		_g_object_unref0 (self->priv->_image);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		self->priv->_image = _tmp0_;
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_object_notify_by_pspec ((GObject *) self, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_IMAGE_PROPERTY]);
+#line 696 "tab_header.c"
 	}
 }
 
@@ -525,52 +710,84 @@ g_cclosure_user_marshal_VOID__OBJECT_BOXED (GClosure * closure,
 	register gpointer data1;
 	register gpointer data2;
 	cc = (GCClosure *) closure;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_return_if_fail (n_param_values == 3);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	if (G_CCLOSURE_SWAP_DATA (closure)) {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		data1 = closure->data;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		data2 = param_values->data[0].v_pointer;
+#line 722 "tab_header.c"
 	} else {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		data1 = param_values->data[0].v_pointer;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		data2 = closure->data;
+#line 728 "tab_header.c"
 	}
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	callback = (GMarshalFunc_VOID__OBJECT_BOXED) (marshal_data ? marshal_data : cc->callback);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	callback (data1, g_value_get_object (param_values + 1), g_value_get_boxed (param_values + 2), data2);
+#line 734 "tab_header.c"
 }
 
 static void
 vala_develop_tab_header_class_init (valaDevelopTabHeaderClass * klass,
                                     gpointer klass_data)
 {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	vala_develop_tab_header_parent_class = g_type_class_peek_parent (klass);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopTabHeader_private_offset);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	G_OBJECT_CLASS (klass)->get_property = _vala_vala_develop_tab_header_get_property;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	G_OBJECT_CLASS (klass)->set_property = _vala_vala_develop_tab_header_set_property;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_tab_header_finalize;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_TAB_HEADER_LABEL_PROPERTY, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_LABEL_PROPERTY] = g_param_spec_string ("label", "label", "label", NULL, G_PARAM_STATIC_STRINGS | G_PARAM_READABLE));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_TAB_HEADER_FULL_PATH_PROPERTY, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_FULL_PATH_PROPERTY] = g_param_spec_string ("full-path", "full-path", "full-path", NULL, G_PARAM_STATIC_STRINGS | G_PARAM_READABLE));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_TAB_HEADER_ACTIVE_PROPERTY, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_ACTIVE_PROPERTY] = g_param_spec_boolean ("active", "active", "active", FALSE, G_PARAM_STATIC_STRINGS | G_PARAM_READABLE | G_PARAM_WRITABLE));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	g_object_class_install_property (G_OBJECT_CLASS (klass), VALA_DEVELOP_TAB_HEADER_IMAGE_PROPERTY, vala_develop_tab_header_properties[VALA_DEVELOP_TAB_HEADER_IMAGE_PROPERTY] = g_param_spec_object ("image", "image", "image", gtk_image_get_type (), G_PARAM_STATIC_STRINGS | G_PARAM_READABLE));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	vala_develop_tab_header_signals[VALA_DEVELOP_TAB_HEADER_CLOSE_CLICKED_SIGNAL] = g_signal_new ("close-clicked", VALA_DEVELOP_TYPE_TAB_HEADER, G_SIGNAL_RUN_LAST, 0, NULL, NULL, g_cclosure_user_marshal_VOID__OBJECT_BOXED, G_TYPE_NONE, 2, VALA_DEVELOP_TYPE_TAB_HEADER, gdk_event_get_type ());
+#line 761 "tab_header.c"
 }
 
 static void
 vala_develop_tab_header_instance_init (valaDevelopTabHeader * self,
                                        gpointer klass)
 {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self->priv = vala_develop_tab_header_get_instance_private (self);
+#line 770 "tab_header.c"
 }
 
 static void
 vala_develop_tab_header_finalize (GObject * obj)
 {
 	valaDevelopTabHeader * self;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_TAB_HEADER, valaDevelopTabHeader);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_box);
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_label);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_parent);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_free0 (self->priv->_full_path);
+#line 18 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	_g_object_unref0 (self->priv->_image);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	G_OBJECT_CLASS (vala_develop_tab_header_parent_class)->finalize (obj);
+#line 791 "tab_header.c"
 }
 
 GType
@@ -595,22 +812,39 @@ _vala_vala_develop_tab_header_get_property (GObject * object,
 {
 	valaDevelopTabHeader * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_TAB_HEADER, valaDevelopTabHeader);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	switch (property_id) {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_LABEL_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_value_set_string (value, vala_develop_tab_header_get_label (self));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_FULL_PATH_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_value_set_string (value, vala_develop_tab_header_get_full_path (self));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_ACTIVE_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_value_set_boolean (value, vala_develop_tab_header_get_active (self));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_IMAGE_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		g_value_set_object (value, vala_develop_tab_header_get_image (self));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 842 "tab_header.c"
 		default:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 848 "tab_header.c"
 	}
 }
 
@@ -622,19 +856,33 @@ _vala_vala_develop_tab_header_set_property (GObject * object,
 {
 	valaDevelopTabHeader * self;
 	self = G_TYPE_CHECK_INSTANCE_CAST (object, VALA_DEVELOP_TYPE_TAB_HEADER, valaDevelopTabHeader);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 	switch (property_id) {
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_FULL_PATH_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		vala_develop_tab_header_set_full_path (self, g_value_get_string (value));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_ACTIVE_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		vala_develop_tab_header_set_active (self, g_value_get_boolean (value));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		case VALA_DEVELOP_TAB_HEADER_IMAGE_PROPERTY:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		vala_develop_tab_header_set_image (self, g_value_get_object (value));
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 880 "tab_header.c"
 		default:
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+#line 5 "/home/wolfgang/Projekte/vDevelop/valaDevelop/tab_header.vala"
 		break;
+#line 886 "tab_header.c"
 	}
 }
 

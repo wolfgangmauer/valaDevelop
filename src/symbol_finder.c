@@ -207,9 +207,9 @@ static Block3Data* block3_data_ref (Block3Data* _data3_);
 static void _g_free0_ (gpointer var);
 static inline void _g_list_free__g_free0_ (GList* self);
 static void block3_data_unref (void * _userdata_);
-static void __lambda11_ (Block3Data* _data3_,
+static void __lambda12_ (Block3Data* _data3_,
                   GtkTextTag* tag);
-static void ___lambda11__gtk_text_tag_table_foreach (GtkTextTag* tag,
+static void ___lambda12__gtk_text_tag_table_foreach (GtkTextTag* tag,
                                               gpointer self);
 GType vala_develop_status_list_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopStatusList, g_object_unref)
@@ -217,11 +217,11 @@ GType vala_develop_item_options_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopItemOptions, g_object_unref)
 GType vala_develop_main_window_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopmainWindow, g_object_unref)
-static gboolean __lambda12_ (Block3Data* _data3_,
+static gboolean __lambda13_ (Block3Data* _data3_,
                       GtkTreeModel* m,
                       GtkTreePath* p,
                       GtkTreeIter* i);
-static gboolean ___lambda12__gtk_tree_model_foreach_func (GtkTreeModel* model,
+static gboolean ___lambda13__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                                    GtkTreePath* path,
                                                    GtkTreeIter* iter,
                                                    gpointer self);
@@ -229,14 +229,14 @@ void vala_develop_symbol_finder_AddSourceFile (valaDevelopSymbolFinder* self,
                                                const gchar* source);
 static Block4Data* block4_data_ref (Block4Data* _data4_);
 static void block4_data_unref (void * _userdata_);
-static gint __lambda13_ (Block4Data* _data4_);
+static gint __lambda14_ (Block4Data* _data4_);
 GType vala_develop_overview_tree_store_get_type (void) G_GNUC_CONST;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (valaDevelopOverviewTreeStore, g_object_unref)
 gchar* vala_develop_overview_tree_store_get_item_path (valaDevelopOverviewTreeStore* self,
                                                        GtkTreeIter* iter);
 gchar* vala_develop_overview_tree_store_get_project_path (valaDevelopOverviewTreeStore* self,
                                                           GtkTreeIter* iter);
-static gpointer ___lambda13__gthread_func (gpointer self);
+static gpointer ___lambda14__gthread_func (gpointer self);
 void vala_develop_symbol_finder_RemoveSourceFile (valaDevelopSymbolFinder* self,
                                                   const gchar* source);
 void vala_develop_symbol_finder_AddPackage (valaDevelopSymbolFinder* self,
@@ -329,42 +329,59 @@ vala_develop_symbol_finder_construct (GType object_type,
 {
 	valaDevelopSymbolFinder * self = NULL;
 	GtkTreeIter _tmp0_;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (projectIter != NULL, NULL);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self = (valaDevelopSymbolFinder*) g_object_new (object_type, NULL);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = *projectIter;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->priv->_projectIter = _tmp0_;
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return self;
+#line 343 "symbol_finder.c"
 }
 
 valaDevelopSymbolFinder*
 vala_develop_symbol_finder_new (GtkTreeIter* projectIter)
 {
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return vala_develop_symbol_finder_construct (VALA_DEVELOP_TYPE_SYMBOL_FINDER, projectIter);
+#line 351 "symbol_finder.c"
 }
 
 static gpointer
 _g_object_ref0 (gpointer self)
 {
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return self ? g_object_ref (self) : NULL;
+#line 359 "symbol_finder.c"
 }
 
 static Block3Data*
 block3_data_ref (Block3Data* _data3_)
 {
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_atomic_int_inc (&_data3_->_ref_count_);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return _data3_;
+#line 369 "symbol_finder.c"
 }
 
 static void
 _g_free0_ (gpointer var)
 {
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	var = (g_free (var), NULL);
+#line 377 "symbol_finder.c"
 }
 
 static inline void
 _g_list_free__g_free0_ (GList* self)
 {
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_free0_);
+#line 385 "symbol_finder.c"
 }
 
 static void
@@ -372,21 +389,32 @@ block3_data_unref (void * _userdata_)
 {
 	Block3Data* _data3_;
 	_data3_ = (Block3Data*) _userdata_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (g_atomic_int_dec_and_test (&_data3_->_ref_count_)) {
+#line 395 "symbol_finder.c"
 		valaDevelopSymbolFinder* self;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		self = _data3_->self;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		(_data3_->removeTags == NULL) ? NULL : (_data3_->removeTags = (_g_list_free__g_free0_ (_data3_->removeTags), NULL));
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_data3_->textTag);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_data3_->text_tag_table);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_data3_->textView);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (_data3_->full_path);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (self);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_slice_free (Block3Data, _data3_);
+#line 413 "symbol_finder.c"
 	}
 }
 
 static void
-__lambda11_ (Block3Data* _data3_,
+__lambda12_ (Block3Data* _data3_,
              GtkTextTag* tag)
 {
 	valaDevelopSymbolFinder* self;
@@ -395,39 +423,64 @@ __lambda11_ (Block3Data* _data3_,
 	gchar* _tmp2_;
 	gchar* _tmp3_;
 	gboolean _tmp4_;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self = _data3_->self;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (tag != NULL);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_object_get (tag, "name", &_tmp1_, NULL);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = _tmp1_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = _tmp2_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = _tmp3_ != NULL;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp3_);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp4_) {
+#line 443 "symbol_finder.c"
 		gchar* _tmp5_;
 		gchar* _tmp6_;
 		gchar* _tmp7_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_object_get (tag, "name", &_tmp5_, NULL);
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp6_ = _tmp5_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp7_ = _tmp6_;
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = g_str_has_prefix (_tmp7_, "Report");
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (_tmp7_);
+#line 457 "symbol_finder.c"
 	} else {
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = FALSE;
+#line 461 "symbol_finder.c"
 	}
+#line 43 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp0_) {
+#line 465 "symbol_finder.c"
 		gchar* _tmp8_;
 		gchar* _tmp9_;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_object_get (tag, "name", &_tmp8_, NULL);
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = _tmp8_;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_data3_->removeTags = g_list_append (_data3_->removeTags, _tmp9_);
+#line 474 "symbol_finder.c"
 	}
 }
 
 static void
-___lambda11__gtk_text_tag_table_foreach (GtkTextTag* tag,
+___lambda12__gtk_text_tag_table_foreach (GtkTextTag* tag,
                                          gpointer self)
 {
-	__lambda11_ (self, tag);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+	__lambda12_ (self, tag);
+#line 484 "symbol_finder.c"
 }
 
 static gboolean
@@ -436,20 +489,30 @@ string_contains (const gchar* self,
 {
 	gboolean result = FALSE;
 	gchar* _tmp0_;
+#line 1476 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, FALSE);
+#line 1476 "glib-2.0.vapi"
 	g_return_val_if_fail (needle != NULL, FALSE);
+#line 1477 "glib-2.0.vapi"
 	_tmp0_ = strstr ((gchar*) self, (gchar*) needle);
+#line 1477 "glib-2.0.vapi"
 	result = _tmp0_ != NULL;
+#line 1477 "glib-2.0.vapi"
 	return result;
+#line 503 "symbol_finder.c"
 }
 
 static const gchar*
 string_to_string (const gchar* self)
 {
 	const gchar* result = NULL;
+#line 1516 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1517 "glib-2.0.vapi"
 	result = self;
+#line 1517 "glib-2.0.vapi"
 	return result;
+#line 516 "symbol_finder.c"
 }
 
 static gchar*
@@ -459,17 +522,25 @@ string_strip (const gchar* self)
 	gchar* _result_ = NULL;
 	gchar* _tmp0_;
 	const gchar* _tmp1_;
+#line 1307 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1308 "glib-2.0.vapi"
 	_tmp0_ = g_strdup (self);
+#line 1308 "glib-2.0.vapi"
 	_result_ = _tmp0_;
+#line 1309 "glib-2.0.vapi"
 	_tmp1_ = _result_;
+#line 1309 "glib-2.0.vapi"
 	g_strstrip (_tmp1_);
+#line 1310 "glib-2.0.vapi"
 	result = _result_;
+#line 1310 "glib-2.0.vapi"
 	return result;
+#line 540 "symbol_finder.c"
 }
 
 static gboolean
-__lambda12_ (Block3Data* _data3_,
+__lambda13_ (Block3Data* _data3_,
              GtkTreeModel* m,
              GtkTreePath* p,
              GtkTreeIter* i)
@@ -494,43 +565,81 @@ __lambda12_ (Block3Data* _data3_,
 	GValue _tmp11_;
 	gchar* _tmp12_;
 	const gchar* _tmp13_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self = _data3_->self;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (m != NULL, FALSE);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (p != NULL, FALSE);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (i != NULL, FALSE);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = *i;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_tree_model_get_value (m, &_tmp0_, 4, &_tmp1_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	val = _tmp1_;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = val;
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = g_strdup (g_value_get_string (&_tmp2_));
+#line 61 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	fullPath = _tmp3_;
+#line 62 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_value_unset (&val);
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = fullPath;
+#line 63 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (g_strcmp0 (_tmp4_, _data3_->full_path) != 0) {
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = FALSE;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (fullPath);
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 605 "symbol_finder.c"
 	}
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = *i;
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_tree_model_get_value (m, &_tmp5_, 2, &_tmp6_);
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	val = _tmp6_;
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp7_ = val;
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp8_ = g_strdup (g_value_get_string (&_tmp7_));
+#line 67 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	message = _tmp8_;
+#line 68 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_value_unset (&val);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp9_ = *i;
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_tree_model_get_value (m, &_tmp9_, 6, &_tmp10_);
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 70 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	val = _tmp10_;
+#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp11_ = val;
+#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = g_strdup (g_value_get_string (&_tmp11_));
+#line 71 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	line = _tmp12_;
+#line 72 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_value_unset (&val);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = line;
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (string_contains (_tmp13_, "-")) {
+#line 643 "symbol_finder.c"
 		gchar** lineInfo = NULL;
 		const gchar* _tmp14_;
 		gchar** _tmp15_;
@@ -607,96 +716,184 @@ __lambda12_ (Block3Data* _data3_,
 		GtkTextTag* _tmp76_;
 		GtkTextIter _tmp77_;
 		GtkTextIter _tmp78_;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp14_ = line;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = _tmp15_ = g_strsplit (_tmp14_, "-", 0);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		lineInfo = _tmp16_;
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		lineInfo_length1 = _vala_array_length (_tmp15_);
+#line 75 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_lineInfo_size_ = lineInfo_length1;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = line;
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = string_to_string (_tmp17_);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = g_strconcat ("Report-", _tmp18_, NULL);
+#line 76 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		textTagName = _tmp19_;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = lineInfo;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20__length1 = lineInfo_length1;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = _tmp20_[0];
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp23_ = _tmp22_ = g_strsplit (_tmp21_, ".", 0);
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		startPos = _tmp23_;
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		startPos_length1 = _vala_array_length (_tmp22_);
+#line 77 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_startPos_size_ = startPos_length1;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp24_ = lineInfo;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp24__length1 = lineInfo_length1;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp25_ = _tmp24_[1];
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp27_ = _tmp26_ = g_strsplit (_tmp25_, ".", 0);
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		endPos = _tmp27_;
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		endPos_length1 = _vala_array_length (_tmp26_);
+#line 78 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_endPos_size_ = endPos_length1;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp28_ = startPos;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp28__length1 = startPos_length1;
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp29_ = _tmp28_[0];
+#line 80 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		x = atoi (_tmp29_) - 1;
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp30_ = startPos;
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp30__length1 = startPos_length1;
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp31_ = _tmp30_[1];
+#line 81 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		y = atoi (_tmp31_) - 1;
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp32_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp33_ = _tmp32_;
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_buffer_get_iter_at_line_index (_tmp33_, &_tmp34_, x, y);
+#line 83 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		startIter = _tmp34_;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp35_ = endPos;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp35__length1 = endPos_length1;
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp36_ = _tmp35_[0];
+#line 84 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		x = atoi (_tmp36_) - 1;
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp37_ = endPos;
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp37__length1 = endPos_length1;
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp38_ = _tmp37_[1];
+#line 85 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		y = atoi (_tmp38_);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp39_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp40_ = _tmp39_;
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_buffer_get_iter_at_line_index (_tmp40_, &_tmp41_, x, y);
+#line 87 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		endIter = _tmp41_;
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp42_ = textTagName;
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp43_ = gtk_text_tag_new (_tmp42_);
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_data3_->textTag);
+#line 89 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_data3_->textTag = _tmp43_;
+#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp44_ = _data3_->textTag;
+#line 90 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_object_set (_tmp44_, "underline", PANGO_UNDERLINE_ERROR, NULL);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp45_ = *i;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_tree_model_get_value (m, &_tmp45_, 5, &_tmp46_);
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 92 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		val = _tmp46_;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp47_ = val;
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp48_ = string_strip (g_value_get_string (&_tmp47_));
+#line 93 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		type = _tmp48_;
+#line 94 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_value_unset (&val);
+#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp49_ = type;
+#line 96 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (g_strcmp0 (_tmp49_, "error") == 0) {
+#line 846 "symbol_finder.c"
 			GtkTextTag* _tmp50_;
 			GdkRGBA _tmp51_ = {0};
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp50_ = _data3_->textTag;
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			memset (&_tmp51_, 0, sizeof (GdkRGBA));
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp51_.red = (gdouble) 1;
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp51_.green = (gdouble) 0;
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp51_.blue = (gdouble) 0;
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp51_.alpha = 1.0;
+#line 97 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_object_set (_tmp50_, "underline-rgba", &_tmp51_, NULL);
+#line 863 "symbol_finder.c"
 		} else {
 			GtkTextTag* _tmp52_;
 			GdkRGBA _tmp53_ = {0};
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp52_ = _data3_->textTag;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			memset (&_tmp53_, 0, sizeof (GdkRGBA));
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_.red = (gdouble) 1;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_.green = 0.6;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_.blue = (gdouble) 0;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_.alpha = 1.0;
+#line 99 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_object_set (_tmp52_, "underline-rgba", &_tmp53_, NULL);
+#line 881 "symbol_finder.c"
 		}
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp54_ = _data3_->text_tag_table;
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp55_ = textTagName;
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp56_ = gtk_text_tag_table_lookup (_tmp54_, _tmp55_);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp57_ = _g_object_ref0 (_tmp56_);
+#line 101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		removeTag = _tmp57_;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp58_ = removeTag;
+#line 102 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp58_ != NULL) {
+#line 897 "symbol_finder.c"
 			GtkTextBuffer* _tmp59_;
 			GtkTextBuffer* _tmp60_;
 			GtkTextTag* _tmp61_;
@@ -704,57 +901,100 @@ __lambda12_ (Block3Data* _data3_,
 			GtkTextIter _tmp63_;
 			GtkTextTagTable* _tmp64_;
 			GtkTextTag* _tmp65_;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp59_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp60_ = _tmp59_;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp61_ = removeTag;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp62_ = _data3_->startTextIter;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp63_ = _data3_->endTextIter;
+#line 104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			gtk_text_buffer_remove_tag (_tmp60_, _tmp61_, &_tmp62_, &_tmp63_);
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp64_ = _data3_->text_tag_table;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp65_ = removeTag;
+#line 105 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			gtk_text_tag_table_remove (_tmp64_, _tmp65_);
+#line 923 "symbol_finder.c"
 		}
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp66_ = _data3_->textTag;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp67_ = message;
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp68_ = g_strdup (_tmp67_);
+#line 107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_object_set_data_full ((GObject*) _tmp66_, "message", _tmp68_, g_free);
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp69_ = _data3_->textTag;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp70_ = type;
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp71_ = g_strdup (_tmp70_);
+#line 108 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_object_set_data_full ((GObject*) _tmp69_, "type", _tmp71_, g_free);
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp72_ = _data3_->text_tag_table;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp73_ = _data3_->textTag;
+#line 109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_tag_table_add (_tmp72_, _tmp73_);
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp74_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp75_ = _tmp74_;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp76_ = _data3_->textTag;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp77_ = startIter;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp78_ = endIter;
+#line 110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_buffer_apply_tag (_tmp75_, _tmp76_, &_tmp77_, &_tmp78_);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (removeTag);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (type);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		endPos = (_vala_array_free (endPos, endPos_length1, (GDestroyNotify) g_free), NULL);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		startPos = (_vala_array_free (startPos, startPos_length1, (GDestroyNotify) g_free), NULL);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (textTagName);
+#line 73 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		lineInfo = (_vala_array_free (lineInfo, lineInfo_length1, (GDestroyNotify) g_free), NULL);
+#line 971 "symbol_finder.c"
 	}
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = FALSE;
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (line);
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (message);
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (fullPath);
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_IS_VALUE (&val) ? (g_value_unset (&val), NULL) : NULL;
+#line 112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 985 "symbol_finder.c"
 }
 
 static gboolean
-___lambda12__gtk_tree_model_foreach_func (GtkTreeModel* model,
+___lambda13__gtk_tree_model_foreach_func (GtkTreeModel* model,
                                           GtkTreePath* path,
                                           GtkTreeIter* iter,
                                           gpointer self)
 {
 	gboolean result;
-	result = __lambda12_ (self, model, path, iter);
+	result = __lambda13_ (self, model, path, iter);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 998 "symbol_finder.c"
 }
 
 void
@@ -804,37 +1044,69 @@ vala_develop_symbol_finder_analyse (valaDevelopSymbolFinder* self,
 	GtkTreeModel* _tmp57_;
 	GtkTreeModel* _tmp58_;
 	GtkTreeModel* _tmp59_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (mainPaned != NULL);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (textView != NULL);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_ = g_slice_new0 (Block3Data);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->_ref_count_ = 1;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->self = g_object_ref (self);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = _g_object_ref0 (textView);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_data3_->textView);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->textView = _tmp0_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = g_strdup (full_path);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_data3_->full_path);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->full_path = _tmp1_;
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = _tmp2_;
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_text_buffer_get_start_iter (_tmp3_, &_tmp4_);
+#line 25 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->startTextIter = _tmp4_;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = _tmp5_;
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_text_buffer_get_end_iter (_tmp6_, &_tmp7_);
+#line 27 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->endTextIter = _tmp7_;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp8_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp9_ = _tmp8_;
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp10_ = gtk_text_buffer_get_tag_table (_tmp9_);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp11_ = _g_object_ref0 (_tmp10_);
+#line 28 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->text_tag_table = _tmp11_;
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = _data3_->text_tag_table;
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = gtk_text_tag_table_lookup (_tmp12_, "GLOBAL");
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp14_ = _g_object_ref0 (_tmp13_);
+#line 30 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->textTag = _tmp14_;
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp15_ = _data3_->textTag;
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp15_ != NULL) {
+#line 1110 "symbol_finder.c"
 		GtkTextBuffer* _tmp16_;
 		GtkTextBuffer* _tmp17_;
 		GtkTextTag* _tmp18_;
@@ -842,47 +1114,86 @@ vala_develop_symbol_finder_analyse (valaDevelopSymbolFinder* self,
 		GtkTextIter _tmp20_;
 		GtkTextTagTable* _tmp21_;
 		GtkTextTag* _tmp22_;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = _tmp16_;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = _data3_->textTag;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _data3_->startTextIter;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = _data3_->endTextIter;
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_buffer_remove_tag (_tmp17_, _tmp18_, &_tmp19_, &_tmp20_);
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = _data3_->text_tag_table;
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp22_ = _data3_->textTag;
+#line 34 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		gtk_text_tag_table_remove (_tmp21_, _tmp22_);
+#line 1136 "symbol_finder.c"
 	}
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp23_ = gtk_text_tag_new ("GLOBAL");
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_data3_->textTag);
+#line 36 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->textTag = _tmp23_;
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24_ = _data3_->text_tag_table;
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp25_ = _data3_->textTag;
+#line 37 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_text_tag_table_add (_tmp24_, _tmp25_);
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp26_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp27_ = _tmp26_;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp28_ = _data3_->textTag;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp29_ = _data3_->startTextIter;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp30_ = _data3_->endTextIter;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_text_buffer_apply_tag (_tmp27_, _tmp28_, &_tmp29_, &_tmp30_);
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->removeTags = NULL;
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp31_ = _data3_->text_tag_table;
-	gtk_text_tag_table_foreach (_tmp31_, ___lambda11__gtk_text_tag_table_foreach, _data3_);
+#line 41 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+	gtk_text_tag_table_foreach (_tmp31_, ___lambda12__gtk_text_tag_table_foreach, _data3_);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp32_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp33_ = _tmp32_;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp34_ = gtk_text_buffer_get_tag_table (_tmp33_);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp35_ = _g_object_ref0 (_tmp34_);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_data3_->text_tag_table);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->text_tag_table = _tmp35_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp36_ = _data3_->removeTags;
+#line 1182 "symbol_finder.c"
 	{
 		GList* removetagstr_collection = NULL;
 		GList* removetagstr_it = NULL;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		removetagstr_collection = _tmp36_;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		for (removetagstr_it = removetagstr_collection; removetagstr_it != NULL; removetagstr_it = removetagstr_it->next) {
+#line 1190 "symbol_finder.c"
 			gchar* _tmp37_;
 			gchar* removetagstr = NULL;
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp37_ = g_strdup ((const gchar*) removetagstr_it->data);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			removetagstr = _tmp37_;
+#line 1197 "symbol_finder.c"
 			{
 				GtkTextTag* removeTag = NULL;
 				GtkTextTagTable* _tmp38_;
@@ -890,13 +1201,21 @@ vala_develop_symbol_finder_analyse (valaDevelopSymbolFinder* self,
 				GtkTextTag* _tmp40_;
 				GtkTextTag* _tmp41_;
 				GtkTextTag* _tmp42_;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp38_ = _data3_->text_tag_table;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp39_ = removetagstr;
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp40_ = gtk_text_tag_table_lookup (_tmp38_, _tmp39_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp41_ = _g_object_ref0 (_tmp40_);
+#line 49 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				removeTag = _tmp41_;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp42_ = removeTag;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp42_ != NULL) {
+#line 1219 "symbol_finder.c"
 					GtkTextBuffer* _tmp43_;
 					GtkTextBuffer* _tmp44_;
 					GtkTextTag* _tmp45_;
@@ -904,44 +1223,77 @@ vala_develop_symbol_finder_analyse (valaDevelopSymbolFinder* self,
 					GtkTextIter _tmp47_;
 					GtkTextTagTable* _tmp48_;
 					GtkTextTag* _tmp49_;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp43_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp44_ = _tmp43_;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp45_ = removeTag;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp46_ = _data3_->startTextIter;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp47_ = _data3_->endTextIter;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					gtk_text_buffer_remove_tag (_tmp44_, _tmp45_, &_tmp46_, &_tmp47_);
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp48_ = _data3_->text_tag_table;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp49_ = removeTag;
+#line 53 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					gtk_text_tag_table_remove (_tmp48_, _tmp49_);
+#line 1245 "symbol_finder.c"
 				}
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_object_unref0 (removeTag);
+#line 47 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (removetagstr);
+#line 1251 "symbol_finder.c"
 			}
 		}
 	}
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp50_ = gtk_text_view_get_buffer ((GtkTextView*) _data3_->textView);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp51_ = _tmp50_;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp52_ = gtk_text_buffer_get_tag_table (_tmp51_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp53_ = _g_object_ref0 (_tmp52_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_data3_->text_tag_table);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_->text_tag_table = _tmp53_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp54_ = mainPaned->statusList;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp55_ = gtk_tree_view_get_model ((GtkTreeView*) _tmp54_);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp56_ = _tmp55_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_object_get (G_TYPE_CHECK_INSTANCE_CAST (_tmp56_, gtk_tree_model_filter_get_type (), GtkTreeModelFilter), "child-model", &_tmp57_, NULL);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp58_ = _tmp57_;
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp59_ = _tmp58_;
-	gtk_tree_model_foreach (_tmp59_, ___lambda12__gtk_tree_model_foreach_func, _data3_);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+	gtk_tree_model_foreach (_tmp59_, ___lambda13__gtk_tree_model_foreach_func, _data3_);
+#line 57 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp59_);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	block3_data_unref (_data3_);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data3_ = NULL;
+#line 1287 "symbol_finder.c"
 }
 
 static Block4Data*
 block4_data_ref (Block4Data* _data4_)
 {
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_atomic_int_inc (&_data4_->_ref_count_);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return _data4_;
+#line 1297 "symbol_finder.c"
 }
 
 static void
@@ -949,17 +1301,24 @@ block4_data_unref (void * _userdata_)
 {
 	Block4Data* _data4_;
 	_data4_ = (Block4Data*) _userdata_;
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (g_atomic_int_dec_and_test (&_data4_->_ref_count_)) {
+#line 1307 "symbol_finder.c"
 		valaDevelopSymbolFinder* self;
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		self = _data4_->self;
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (_data4_->source);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (self);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_slice_free (Block4Data, _data4_);
+#line 1317 "symbol_finder.c"
 	}
 }
 
 static gint
-__lambda13_ (Block4Data* _data4_)
+__lambda14_ (Block4Data* _data4_)
 {
 	valaDevelopSymbolFinder* self;
 	gint result = 0;
@@ -1029,73 +1388,138 @@ __lambda13_ (Block4Data* _data4_)
 	GFile* _tmp68_;
 	gchar* _tmp69_;
 	gchar* _tmp70_;
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self = _data4_->self;
+#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = vala_develop_main_paned_overviewTreeModel;
+#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp0_, &_tmp1_);
+#line 124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	solutionIter = _tmp1_;
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = vala_develop_main_paned_overviewTreeModel;
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = solutionIter;
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = vala_develop_overview_tree_store_get_item_path (_tmp2_, &_tmp3_);
+#line 125 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	solutionPath = _tmp4_;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = solutionPath;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = g_file_new_for_path (_tmp5_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp7_ = _tmp6_;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp8_ = vala_develop_main_paned_overviewTreeModel;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp9_ = self->priv->_projectIter;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp10_ = vala_develop_overview_tree_store_get_project_path (_tmp8_, &_tmp9_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp11_ = _tmp10_;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = g_file_get_child (_tmp7_, _tmp11_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = _tmp12_;
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp11_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp7_);
+#line 126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	projectPath = _tmp13_;
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp14_ = vala_code_context_new ();
+#line 128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	ctx = _tmp14_;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp15_ = ctx;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp16_ = vala_develop_vala_develop_package_datadir;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp17_ = g_strconcat (_tmp16_, "/vapi", NULL);
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp18_ = g_new0 (gchar*, 1 + 1);
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp18_[0] = _tmp17_;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp19_ = _tmp18_;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp19__length1 = 1;
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_vapi_directories (_tmp15_, _tmp19_, 1);
+#line 129 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp19_ = (_vala_array_free (_tmp19_, _tmp19__length1, (GDestroyNotify) g_free), NULL);
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp20_ = ctx;
+#line 130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_push (_tmp20_);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp21_ = ctx;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp22_ = projectPath;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp23_ = g_file_get_path (_tmp22_);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24_ = _tmp23_;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp25_ = vala_code_context_realpath (_tmp24_);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp26_ = _tmp25_;
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_basedir (_tmp21_, _tmp26_);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp26_);
+#line 131 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp24_);
+#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp27_ = ctx;
+#line 132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_assert (_tmp27_, FALSE);
+#line 133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp28_ = ctx;
+#line 133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_checking (_tmp28_, FALSE);
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp29_ = ctx;
+#line 134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_experimental (_tmp29_, FALSE);
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp30_ = ctx;
+#line 135 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_experimental_non_null (_tmp30_, FALSE);
+#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp31_ = ctx;
+#line 136 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_compile_only (_tmp31_, TRUE);
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp32_ = ctx;
+#line 137 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_profile (_tmp32_, VALA_PROFILE_GOBJECT);
+#line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp33_ = ctx;
+#line 138 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (!vala_code_context_is_defined (_tmp33_, "GOBJECT")) {
+#line 1504 "symbol_finder.c"
 		ValaCodeContext* _tmp34_;
+#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp34_ = ctx;
+#line 139 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_code_context_add_define (_tmp34_, "GOBJECT");
+#line 1510 "symbol_finder.c"
 	}
 	{
 		gint i = 0;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		i = 2;
+#line 1516 "symbol_finder.c"
 		{
 			gboolean _tmp35_ = FALSE;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = TRUE;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 1523 "symbol_finder.c"
 				const gchar* _tmp36_;
 				ValaCodeContext* _tmp37_;
 				gchar* _tmp38_;
@@ -1103,98 +1527,178 @@ __lambda13_ (Block4Data* _data4_)
 				gchar* _tmp40_;
 				gchar* _tmp41_;
 				gboolean _tmp42_;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!_tmp35_) {
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					i += 2;
+#line 1535 "symbol_finder.c"
 				}
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp35_ = FALSE;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp36_ = vala_develop_vala_develop_package_suffix;
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(i <= (atoi (_tmp36_) * -1))) {
+#line 140 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 1545 "symbol_finder.c"
 				}
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp37_ = ctx;
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp38_ = g_strdup_printf ("%i", i);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp39_ = _tmp38_;
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp40_ = g_strconcat ("VALA_0_", _tmp39_, NULL);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp41_ = _tmp40_;
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp42_ = !vala_code_context_is_defined (_tmp37_, _tmp41_);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (_tmp41_);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (_tmp39_);
+#line 142 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp42_) {
+#line 1565 "symbol_finder.c"
 					ValaCodeContext* _tmp43_;
 					gchar* _tmp44_;
 					gchar* _tmp45_;
 					gchar* _tmp46_;
 					gchar* _tmp47_;
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp43_ = ctx;
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp44_ = g_strdup_printf ("%i", i);
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp45_ = _tmp44_;
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp46_ = g_strconcat ("VALA_0_", _tmp45_, NULL);
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp47_ = _tmp46_;
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					vala_code_context_add_define (_tmp43_, _tmp47_);
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (_tmp47_);
+#line 143 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (_tmp45_);
+#line 1587 "symbol_finder.c"
 				}
 			}
 		}
 	}
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp48_ = ctx;
+#line 145 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_nostdpkg (_tmp48_, TRUE);
+#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp49_ = ctx;
+#line 146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_add_source_filename (_tmp49_, _data4_->source, FALSE, FALSE);
+#line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp50_ = vala_parser_new ();
+#line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp51_ = _tmp50_;
+#line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp52_ = ctx;
+#line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_parser_parse (_tmp51_, _tmp52_);
+#line 147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_visitor_unref0 (_tmp51_);
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp53_ = vala_code_writer_new (VALA_CODE_WRITER_TYPE_FAST);
+#line 148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	interface_writer = _tmp53_;
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp54_ = g_file_new_for_path (_data4_->source);
+#line 149 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	sourcePath = _tmp54_;
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp55_ = g_file_get_parent (sourcePath);
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp56_ = _tmp55_;
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp57_ = g_file_get_path (_tmp56_);
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp58_ = _tmp57_;
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp56_);
+#line 150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	path = _tmp58_;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp59_ = g_file_get_basename (sourcePath);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp60_ = _tmp59_;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp61_ = string_to_string (_tmp60_);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp62_ = g_strconcat (_tmp61_, ".vapi", NULL);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp63_ = _tmp62_;
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp60_);
+#line 151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vapifile = _tmp63_;
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp64_ = ctx;
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp65_ = g_file_new_for_path (path);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp66_ = _tmp65_;
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp67_ = g_file_get_child (_tmp66_, vapifile);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp68_ = _tmp67_;
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp69_ = g_file_get_path (_tmp68_);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp70_ = _tmp69_;
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_writer_write_file (interface_writer, _tmp64_, _tmp70_);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp70_);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp68_);
+#line 152 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp66_);
+#line 156 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_pop ();
+#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (ctx);
+#line 157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	ctx = NULL;
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = 0;
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (vapifile);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (path);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (sourcePath);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_visitor_unref0 (interface_writer);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (ctx);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (projectPath);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (solutionPath);
+#line 158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 1690 "symbol_finder.c"
 }
 
 static gpointer
-___lambda13__gthread_func (gpointer self)
+___lambda14__gthread_func (gpointer self)
 {
 	gpointer result;
-	result = (gpointer) ((gintptr) __lambda13_ (self));
+	result = (gpointer) ((gintptr) __lambda14_ (self));
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	block4_data_unref (self);
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 1702 "symbol_finder.c"
 }
 
 void
@@ -1207,27 +1711,49 @@ vala_develop_symbol_finder_AddSourceFile (valaDevelopSymbolFinder* self,
 	ValaHashSet* _tmp2_;
 	GThread* _tmp3_;
 	GThread* _tmp4_;
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (source != NULL);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data4_ = g_slice_new0 (Block4Data);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data4_->_ref_count_ = 1;
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data4_->self = g_object_ref (self);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = g_strdup (source);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_data4_->source);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data4_->source = _tmp0_;
+#line 118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = self->_sources;
+#line 118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_collection_contains ((ValaCollection*) _tmp1_, _data4_->source)) {
+#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		block4_data_unref (_data4_);
+#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_data4_ = NULL;
+#line 119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return;
+#line 1741 "symbol_finder.c"
 	}
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = self->_sources;
+#line 120 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_collection_add ((ValaCollection*) _tmp2_, _data4_->source);
-	_tmp3_ = g_thread_new (NULL, ___lambda13__gthread_func, block4_data_ref (_data4_));
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+	_tmp3_ = g_thread_new (NULL, ___lambda14__gthread_func, block4_data_ref (_data4_));
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = _tmp3_;
+#line 121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_thread_unref0 (_tmp4_);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	block4_data_unref (_data4_);
+#line 116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_data4_ = NULL;
+#line 1757 "symbol_finder.c"
 }
 
 void
@@ -1236,10 +1762,15 @@ vala_develop_symbol_finder_RemoveSourceFile (valaDevelopSymbolFinder* self,
 {
 	ValaHashSet* _tmp0_;
 	GError* _inner_error0_ = NULL;
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (source != NULL);
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = self->_sources;
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_collection_contains ((ValaCollection*) _tmp0_, source)) {
+#line 1774 "symbol_finder.c"
 		ValaHashSet* _tmp1_;
 		GFile* sourcePath = NULL;
 		GFile* _tmp2_;
@@ -1262,45 +1793,85 @@ vala_develop_symbol_finder_RemoveSourceFile (valaDevelopSymbolFinder* self,
 		const gchar* _tmp17_;
 		GFile* _tmp18_;
 		GFile* _tmp19_;
+#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = self->_sources;
+#line 166 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_collection_remove ((ValaCollection*) _tmp1_, source);
+#line 167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = g_file_new_for_path (source);
+#line 167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		sourcePath = _tmp2_;
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = sourcePath;
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = g_file_get_parent (_tmp3_);
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp5_ = _tmp4_;
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp6_ = g_file_get_path (_tmp5_);
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp7_ = _tmp6_;
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_tmp5_);
+#line 168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		path = _tmp7_;
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp8_ = sourcePath;
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = g_file_get_basename (_tmp8_);
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp10_ = _tmp9_;
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = string_to_string (_tmp10_);
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp12_ = g_strconcat (".", _tmp11_, ".vapi", NULL);
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp13_ = _tmp12_;
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (_tmp10_);
+#line 169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vapifile = _tmp13_;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp14_ = path;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp15_ = g_file_new_for_path (_tmp14_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = _tmp15_;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = vapifile;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = g_file_get_child (_tmp16_, _tmp17_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _tmp18_;
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_file_delete (_tmp19_, NULL, &_inner_error0_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_tmp19_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_tmp16_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (vapifile);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (path);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_object_unref0 (sourcePath);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_clear_error (&_inner_error0_);
+#line 170 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return;
+#line 1867 "symbol_finder.c"
 		}
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (vapifile);
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (path);
+#line 164 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (sourcePath);
+#line 1875 "symbol_finder.c"
 	}
 }
 
@@ -1310,14 +1881,23 @@ vala_develop_symbol_finder_AddPackage (valaDevelopSymbolFinder* self,
 {
 	ValaHashSet* _tmp0_;
 	ValaHashSet* _tmp1_;
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (package != NULL);
+#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = self->_packages;
+#line 179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_collection_contains ((ValaCollection*) _tmp0_, package)) {
+#line 180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return;
+#line 1895 "symbol_finder.c"
 	}
+#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = self->_packages;
+#line 181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_collection_add ((ValaCollection*) _tmp1_, package);
+#line 1901 "symbol_finder.c"
 }
 
 void
@@ -1325,20 +1905,30 @@ vala_develop_symbol_finder_RemovePackage (valaDevelopSymbolFinder* self,
                                           const gchar* package)
 {
 	ValaHashSet* _tmp0_;
+#line 187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (package != NULL);
+#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = self->_packages;
+#line 189 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_collection_contains ((ValaCollection*) _tmp0_, package)) {
+#line 1917 "symbol_finder.c"
 		ValaHashSet* _tmp1_;
+#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = self->_packages;
+#line 191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_collection_remove ((ValaCollection*) _tmp1_, package);
+#line 1923 "symbol_finder.c"
 	}
 }
 
 static gpointer
 _vala_code_node_ref0 (gpointer self)
 {
+#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return self ? vala_code_node_ref (self) : NULL;
+#line 1932 "symbol_finder.c"
 }
 
 static void
@@ -1347,10 +1937,15 @@ vala_develop_symbol_finder_vanish_file (valaDevelopSymbolFinder* self,
 {
 	GeeLinkedList* nodes = NULL;
 	GeeLinkedList* _tmp0_;
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (file != NULL);
+#line 200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = gee_linked_list_new (VALA_TYPE_CODE_NODE, (GBoxedCopyFunc) vala_code_node_ref, (GDestroyNotify) vala_code_node_unref, NULL, NULL, NULL);
+#line 200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	nodes = _tmp0_;
+#line 1949 "symbol_finder.c"
 	{
 		ValaList* _node_list = NULL;
 		ValaList* _tmp1_;
@@ -1359,32 +1954,55 @@ vala_develop_symbol_finder_vanish_file (valaDevelopSymbolFinder* self,
 		gint _tmp3_;
 		gint _tmp4_;
 		gint _node_index = 0;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = vala_source_file_get_nodes (file);
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_list = _tmp1_;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = _node_list;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = vala_collection_get_size ((ValaCollection*) _tmp2_);
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _tmp3_;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_size = _tmp4_;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_index = -1;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 1974 "symbol_finder.c"
 			ValaCodeNode* node = NULL;
 			ValaList* _tmp5_;
 			gpointer _tmp6_;
 			GeeLinkedList* _tmp7_;
 			ValaCodeNode* _tmp8_;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_node_index = _node_index + 1;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_node_index < _node_size)) {
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 1986 "symbol_finder.c"
 			}
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp5_ = _node_list;
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = vala_list_get (_tmp5_, _node_index);
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			node = (ValaCodeNode*) _tmp6_;
+#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = nodes;
+#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = node;
+#line 202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			gee_abstract_collection_add ((GeeAbstractCollection*) _tmp7_, _tmp8_);
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (node);
+#line 2002 "symbol_finder.c"
 		}
+#line 201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_node_list);
+#line 2006 "symbol_finder.c"
 	}
 	{
 		GeeLinkedList* _node_list = NULL;
@@ -1395,31 +2013,53 @@ vala_develop_symbol_finder_vanish_file (valaDevelopSymbolFinder* self,
 		gint _tmp12_;
 		gint _tmp13_;
 		gint _node_index = 0;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = nodes;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp10_ = _g_object_ref0 (_tmp9_);
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_list = _tmp10_;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = _node_list;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp12_ = gee_abstract_collection_get_size ((GeeAbstractCollection*) _tmp11_);
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp13_ = _tmp12_;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_size = _tmp13_;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_index = -1;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 2035 "symbol_finder.c"
 			ValaCodeNode* node = NULL;
 			GeeLinkedList* _tmp14_;
 			gpointer _tmp15_;
 			ValaCodeNode* _tmp16_;
 			ValaCodeNode* _tmp17_;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_node_index = _node_index + 1;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_node_index < _node_size)) {
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 2047 "symbol_finder.c"
 			}
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _node_list;
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = gee_abstract_list_get ((GeeAbstractList*) _tmp14_, _node_index);
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			node = (ValaCodeNode*) _tmp15_;
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = node;
+#line 205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_source_file_remove_node (file, _tmp16_);
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp17_ = node;
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (G_TYPE_CHECK_INSTANCE_TYPE (_tmp17_, VALA_TYPE_SYMBOL)) {
+#line 2063 "symbol_finder.c"
 				ValaSymbol* sym = NULL;
 				ValaCodeNode* _tmp18_;
 				ValaSymbol* _tmp19_;
@@ -1431,45 +2071,80 @@ vala_develop_symbol_finder_vanish_file (valaDevelopSymbolFinder* self,
 				ValaMethod* _tmp31_;
 				ValaSymbol* _tmp32_;
 				ValaSymbol* _tmp34_;
+#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = node;
+#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp18_, VALA_TYPE_SYMBOL, ValaSymbol));
+#line 208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp19_;
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp20_ = sym;
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp21_ = vala_symbol_get_owner (_tmp20_);
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp22_ = _tmp21_;
+#line 209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp22_ != NULL) {
+#line 2089 "symbol_finder.c"
 					ValaSymbol* _tmp23_;
 					ValaScope* _tmp24_;
 					ValaScope* _tmp25_;
 					ValaSymbol* _tmp26_;
 					const gchar* _tmp27_;
 					const gchar* _tmp28_;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp23_ = sym;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp24_ = vala_symbol_get_owner (_tmp23_);
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp25_ = _tmp24_;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp26_ = sym;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp27_ = vala_symbol_get_name (_tmp26_);
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp28_ = _tmp27_;
+#line 210 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					vala_scope_remove (_tmp25_, _tmp28_);
+#line 2110 "symbol_finder.c"
 				}
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp29_ = self->priv->_ctx;
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp30_ = vala_code_context_get_entry_point (_tmp29_);
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp31_ = _tmp30_;
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp32_ = sym;
+#line 211 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (G_TYPE_CHECK_INSTANCE_CAST (_tmp31_, VALA_TYPE_SYMBOL, ValaSymbol) == _tmp32_) {
+#line 2122 "symbol_finder.c"
 					ValaCodeContext* _tmp33_;
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp33_ = self->priv->_ctx;
+#line 212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					vala_code_context_set_entry_point (_tmp33_, NULL);
+#line 2128 "symbol_finder.c"
 				}
+#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp34_ = sym;
+#line 213 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_symbol_set_name (_tmp34_, "");
+#line 206 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 2136 "symbol_finder.c"
 			}
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (node);
+#line 2140 "symbol_finder.c"
 		}
+#line 203 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_object_unref0 (_node_list);
+#line 2144 "symbol_finder.c"
 	}
+#line 198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (nodes);
+#line 2148 "symbol_finder.c"
 }
 
 void
@@ -1508,62 +2183,118 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 	gint _tmp24__length1;
 	GTimer* _tmp139_;
 	GError* _inner_error0_ = NULL;
+#line 218 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_if_fail (self != NULL);
+#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (file == NULL) {
+#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = content == NULL;
+#line 2193 "symbol_finder.c"
 	} else {
+#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = FALSE;
+#line 2197 "symbol_finder.c"
 	}
+#line 220 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp0_) {
+#line 221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return;
+#line 2203 "symbol_finder.c"
 	}
+#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = self->priv->_ctx;
+#line 222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp1_ != NULL) {
+#line 2209 "symbol_finder.c"
 		ValaCodeContext* _tmp2_;
+#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = self->priv->_ctx;
+#line 224 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_code_context_set_report (_tmp2_, NULL);
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_context_unref0 (self->priv->_ctx);
+#line 225 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		self->priv->_ctx = NULL;
+#line 2219 "symbol_finder.c"
 	}
+#line 228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = vala_develop_main_paned_overviewTreeModel;
+#line 228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	gtk_tree_model_get_iter_first ((GtkTreeModel*) _tmp3_, &_tmp4_);
+#line 228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	solutionIter = _tmp4_;
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = vala_develop_main_paned_overviewTreeModel;
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = solutionIter;
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp7_ = vala_develop_overview_tree_store_get_item_path (_tmp5_, &_tmp6_);
+#line 229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	solutionPath = _tmp7_;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp8_ = solutionPath;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp9_ = g_file_new_for_path (_tmp8_);
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp10_ = _tmp9_;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp11_ = vala_develop_main_paned_overviewTreeModel;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = self->priv->_projectIter;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = vala_develop_overview_tree_store_get_project_path (_tmp11_, &_tmp12_);
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp14_ = _tmp13_;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp15_ = g_file_get_child (_tmp10_, _tmp14_);
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp16_ = _tmp15_;
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp14_);
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (_tmp10_);
+#line 230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	projectPath = _tmp16_;
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp17_ = g_timer_new ();
+#line 232 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	timer = _tmp17_;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp18_ = timer;
+#line 233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_timer_start (_tmp18_);
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp19_ = vala_code_context_new ();
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (self->priv->_ctx);
+#line 234 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->priv->_ctx = _tmp19_;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp20_ = self->priv->_ctx;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp21_ = vala_develop_vala_develop_package_datadir;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp22_ = g_strconcat (_tmp21_, "/vapi", NULL);
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp23_ = g_new0 (gchar*, 1 + 1);
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp23_[0] = _tmp22_;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24_ = _tmp23_;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24__length1 = 1;
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_vapi_directories (_tmp20_, _tmp24_, 1);
+#line 235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24_ = (_vala_array_free (_tmp24_, _tmp24__length1, (GDestroyNotify) g_free), NULL);
+#line 2291 "symbol_finder.c"
 	{
 		ValaCodeContext* _tmp25_;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp25_ = self->priv->_ctx;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		g_rec_mutex_lock (&self->priv->__lock__ctx);
+#line 2298 "symbol_finder.c"
 		{
 			ValaCodeContext* _tmp26_;
 			ValaCodeContext* _tmp27_;
@@ -1585,47 +2316,86 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 			ValaCodeContext* _tmp57_;
 			ValaCodeContext* _tmp58_;
 			ValaParser* _tmp116_;
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = self->priv->_ctx;
+#line 238 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_push (_tmp26_);
+#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp27_ = self->priv->_ctx;
+#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp28_ = vala_develop_reporter_new ();
+#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp29_ = _tmp28_;
+#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_report (_tmp27_, (ValaReport*) _tmp29_);
+#line 239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_report_unref0 (_tmp29_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp30_ = self->priv->_ctx;
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp31_ = projectPath;
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp32_ = g_file_get_path (_tmp31_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp33_ = _tmp32_;
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp34_ = vala_code_context_realpath (_tmp33_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = _tmp34_;
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_basedir (_tmp30_, _tmp35_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (_tmp35_);
+#line 240 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (_tmp33_);
+#line 241 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp36_ = self->priv->_ctx;
+#line 241 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_assert (_tmp36_, FALSE);
+#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp37_ = self->priv->_ctx;
+#line 242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_checking (_tmp37_, FALSE);
+#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp38_ = self->priv->_ctx;
+#line 243 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_experimental (_tmp38_, FALSE);
+#line 244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp39_ = self->priv->_ctx;
+#line 244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_experimental_non_null (_tmp39_, FALSE);
+#line 245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp40_ = self->priv->_ctx;
+#line 245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_compile_only (_tmp40_, TRUE);
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp41_ = self->priv->_ctx;
+#line 246 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_set_profile (_tmp41_, VALA_PROFILE_GOBJECT);
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp42_ = self->priv->_ctx;
+#line 247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!vala_code_context_is_defined (_tmp42_, "GOBJECT")) {
+#line 2380 "symbol_finder.c"
 				ValaCodeContext* _tmp43_;
+#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp43_ = self->priv->_ctx;
+#line 248 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_code_context_add_define (_tmp43_, "GOBJECT");
+#line 2386 "symbol_finder.c"
 			}
 			{
 				gint i = 0;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				i = 2;
+#line 2392 "symbol_finder.c"
 				{
 					gboolean _tmp44_ = FALSE;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp44_ = TRUE;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					while (TRUE) {
+#line 2399 "symbol_finder.c"
 						const gchar* _tmp45_;
 						ValaCodeContext* _tmp46_;
 						gchar* _tmp47_;
@@ -1633,80 +2403,136 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 						gchar* _tmp49_;
 						gchar* _tmp50_;
 						gboolean _tmp51_;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (!_tmp44_) {
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							i += 2;
+#line 2411 "symbol_finder.c"
 						}
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp44_ = FALSE;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp45_ = vala_develop_vala_develop_package_suffix;
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (!(i <= (atoi (_tmp45_) * -1))) {
+#line 249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							break;
+#line 2421 "symbol_finder.c"
 						}
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp46_ = self->priv->_ctx;
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp47_ = g_strdup_printf ("%i", i);
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp48_ = _tmp47_;
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp49_ = g_strconcat ("VALA_0_", _tmp48_, NULL);
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp50_ = _tmp49_;
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp51_ = !vala_code_context_is_defined (_tmp46_, _tmp50_);
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp50_);
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp48_);
+#line 251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (_tmp51_) {
+#line 2441 "symbol_finder.c"
 							ValaCodeContext* _tmp52_;
 							gchar* _tmp53_;
 							gchar* _tmp54_;
 							gchar* _tmp55_;
 							gchar* _tmp56_;
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp52_ = self->priv->_ctx;
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp53_ = g_strdup_printf ("%i", i);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp54_ = _tmp53_;
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp55_ = g_strconcat ("VALA_0_", _tmp54_, NULL);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp56_ = _tmp55_;
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							vala_code_context_add_define (_tmp52_, _tmp56_);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_g_free0 (_tmp56_);
+#line 252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_g_free0 (_tmp54_);
+#line 2463 "symbol_finder.c"
 						}
 					}
 				}
 			}
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp57_ = self->priv->_ctx;
+#line 254 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_add_external_package (_tmp57_, "glib-2.0");
+#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp58_ = self->priv->_ctx;
+#line 255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_add_external_package (_tmp58_, "gobject-2.0");
+#line 2476 "symbol_finder.c"
 			{
 				ValaIterator* _package_it = NULL;
 				ValaHashSet* _tmp59_;
 				ValaIterator* _tmp60_;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp59_ = self->_packages;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp60_ = vala_iterable_iterator ((ValaIterable*) _tmp59_);
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_package_it = _tmp60_;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				while (TRUE) {
+#line 2489 "symbol_finder.c"
 					ValaIterator* _tmp61_;
 					gchar* package = NULL;
 					ValaIterator* _tmp62_;
 					gpointer _tmp63_;
 					ValaCodeContext* _tmp64_;
 					const gchar* _tmp65_;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp61_ = _package_it;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (!vala_iterator_next (_tmp61_)) {
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						break;
+#line 2502 "symbol_finder.c"
 					}
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp62_ = _package_it;
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp63_ = vala_iterator_get (_tmp62_);
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					package = (gchar*) _tmp63_;
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp64_ = self->priv->_ctx;
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp65_ = package;
+#line 257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					vala_code_context_add_external_package (_tmp64_, _tmp65_);
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (package);
+#line 2518 "symbol_finder.c"
 				}
+#line 256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterator_unref0 (_package_it);
+#line 2522 "symbol_finder.c"
 			}
 			{
 				ValaIterator* _source_it = NULL;
 				ValaHashSet* _tmp66_;
 				ValaIterator* _tmp67_;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp66_ = self->_sources;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp67_ = vala_iterable_iterator ((ValaIterable*) _tmp66_);
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_source_it = _tmp67_;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				while (TRUE) {
+#line 2536 "symbol_finder.c"
 					ValaIterator* _tmp68_;
 					gchar* source = NULL;
 					ValaIterator* _tmp69_;
@@ -1721,25 +2547,45 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 					gchar* _tmp76_;
 					gchar* _tmp77_;
 					const gchar* _tmp78_;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp68_ = _source_it;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (!vala_iterator_next (_tmp68_)) {
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						break;
+#line 2557 "symbol_finder.c"
 					}
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp69_ = _source_it;
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp70_ = vala_iterator_get (_tmp69_);
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					source = (gchar*) _tmp70_;
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp71_ = source;
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp72_ = g_file_new_for_path (_tmp71_);
+#line 261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					sourcePath = _tmp72_;
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp73_ = sourcePath;
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp74_ = g_file_get_parent (_tmp73_);
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp75_ = _tmp74_;
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp76_ = g_file_get_path (_tmp75_);
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp77_ = _tmp76_;
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_object_unref0 (_tmp75_);
+#line 262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					path = _tmp77_;
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp78_ = source;
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (g_strcmp0 (_tmp78_, file) != 0) {
+#line 2589 "symbol_finder.c"
 						gchar* sourcefile = NULL;
 						const gchar* _tmp79_;
 						GFile* _tmp80_;
@@ -1761,35 +2607,65 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 						ValaCodeContext* _tmp95_;
 						ValaSourceFile* _tmp96_;
 						ValaCodeContext* _tmp97_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp79_ = path;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp80_ = g_file_new_for_path (_tmp79_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp81_ = _tmp80_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp82_ = sourcePath;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp83_ = g_file_get_basename (_tmp82_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp84_ = _tmp83_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp85_ = g_file_get_child (_tmp81_, _tmp84_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp86_ = _tmp85_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp87_ = g_file_get_path (_tmp86_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp88_ = _tmp87_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp89_ = string_to_string (_tmp88_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp90_ = g_strconcat (_tmp89_, ".vapi", NULL);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp91_ = _tmp90_;
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp88_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_object_unref0 (_tmp86_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp84_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_object_unref0 (_tmp81_);
+#line 265 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						sourcefile = _tmp91_;
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp92_ = self->priv->_ctx;
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp93_ = sourcefile;
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp94_ = vala_source_file_new (_tmp92_, VALA_SOURCE_FILE_TYPE_FAST, _tmp93_, NULL, FALSE);
+#line 266 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						valasourcefile = _tmp94_;
+#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp95_ = self->priv->_ctx;
+#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp96_ = valasourcefile;
+#line 267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						vala_code_context_add_source_file (_tmp95_, _tmp96_);
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp97_ = self->priv->_ctx;
+#line 268 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						vala_code_context_set_use_fast_vapi (_tmp97_, TRUE);
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_source_file_unref0 (valasourcefile);
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (sourcefile);
+#line 2669 "symbol_finder.c"
 					} else {
 						gchar* sourcefile = NULL;
 						const gchar* _tmp98_;
@@ -1811,43 +2687,81 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 						ValaSourceFile* _tmp113_;
 						ValaCodeContext* _tmp114_;
 						ValaSourceFile* _tmp115_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp98_ = path;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp99_ = g_file_new_for_path (_tmp98_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp100_ = _tmp99_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp101_ = sourcePath;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp102_ = g_file_get_basename (_tmp101_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp103_ = _tmp102_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp104_ = g_file_get_child (_tmp100_, _tmp103_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp105_ = _tmp104_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp106_ = g_file_get_path (_tmp105_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp107_ = _tmp106_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp108_ = string_to_string (_tmp107_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp109_ = g_strdup (_tmp108_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp110_ = _tmp109_;
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp107_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_object_unref0 (_tmp105_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (_tmp103_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_object_unref0 (_tmp100_);
+#line 272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						sourcefile = _tmp110_;
+#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp111_ = self->priv->_ctx;
+#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp112_ = sourcefile;
+#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp113_ = vala_source_file_new (_tmp111_, VALA_SOURCE_FILE_TYPE_SOURCE, _tmp112_, content, FALSE);
+#line 273 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						valasourcefile = _tmp113_;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp114_ = self->priv->_ctx;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp115_ = valasourcefile;
+#line 274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						vala_code_context_add_source_file (_tmp114_, _tmp115_);
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_source_file_unref0 (valasourcefile);
+#line 263 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_g_free0 (sourcefile);
+#line 2745 "symbol_finder.c"
 					}
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (path);
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_object_unref0 (sourcePath);
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (source);
+#line 2753 "symbol_finder.c"
 				}
+#line 258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterator_unref0 (_source_it);
+#line 2757 "symbol_finder.c"
 			}
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp116_ = vala_parser_new ();
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_visitor_unref0 (self->priv->_parser);
+#line 277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			self->priv->_parser = _tmp116_;
+#line 2765 "symbol_finder.c"
 			{
 				ValaParser* _tmp117_;
 				ValaCodeContext* _tmp118_;
@@ -1867,29 +2781,53 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 				ValaUsedAttr* _tmp132_;
 				ValaUsedAttr* _tmp133_;
 				ValaCodeContext* _tmp134_;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp117_ = self->priv->_parser;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp118_ = self->priv->_ctx;
+#line 280 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_parser_parse (_tmp117_, _tmp118_);
+#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp119_ = self->priv->_ctx;
+#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp120_ = vala_code_context_get_resolver (_tmp119_);
+#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp121_ = _tmp120_;
+#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp122_ = self->priv->_ctx;
+#line 281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_symbol_resolver_resolve (_tmp121_, _tmp122_);
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp123_ = self->priv->_ctx;
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp124_ = vala_code_context_get_analyzer (_tmp123_);
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp125_ = _tmp124_;
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp126_ = self->priv->_ctx;
+#line 282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_semantic_analyzer_analyze (_tmp125_, _tmp126_);
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp127_ = self->priv->_ctx;
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp128_ = vala_code_context_get_flow_analyzer (_tmp127_);
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp129_ = _tmp128_;
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp130_ = self->priv->_ctx;
+#line 283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_flow_analyzer_analyze (_tmp129_, _tmp130_);
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp131_ = self->priv->_ctx;
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp132_ = vala_code_context_get_used_attr (_tmp131_);
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp133_ = _tmp132_;
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp134_ = self->priv->_ctx;
+#line 284 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_used_attr_check_unused (_tmp133_, _tmp134_);
+#line 2831 "symbol_finder.c"
 			}
 			goto __finally13;
 			__catch13_g_error:
@@ -1897,51 +2835,91 @@ vala_develop_symbol_finder_Update (valaDevelopSymbolFinder* self,
 				GError* ex = NULL;
 				GError* _tmp135_;
 				const gchar* _tmp136_;
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				ex = _inner_error0_;
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_inner_error0_ = NULL;
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp135_ = ex;
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp136_ = _tmp135_->message;
-				g_log (NULL, G_LOG_LEVEL_ERROR, "symbol_finder.vala:285: %s", _tmp136_);
+#line 288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+				g_log (NULL, G_LOG_LEVEL_ERROR, "symbol_finder.vala:288: %s", _tmp136_);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_error_free0 (ex);
+#line 2851 "symbol_finder.c"
 			}
 			__finally13:
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 2856 "symbol_finder.c"
 				{
 					ValaCodeContext* _tmp137_;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp137_ = self->priv->_ctx;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					g_rec_mutex_unlock (&self->priv->__lock__ctx);
+#line 2863 "symbol_finder.c"
 				}
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_timer_destroy0 (timer);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_object_unref0 (projectPath);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (solutionPath);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				g_clear_error (&_inner_error0_);
+#line 278 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return;
+#line 2877 "symbol_finder.c"
 			}
+#line 290 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_pop ();
+#line 2881 "symbol_finder.c"
 		}
 		__finally12:
 		{
 			ValaCodeContext* _tmp138_;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp138_ = self->priv->_ctx;
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_rec_mutex_unlock (&self->priv->__lock__ctx);
+#line 2890 "symbol_finder.c"
 		}
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_timer_destroy0 (timer);
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_object_unref0 (projectPath);
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (solutionPath);
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			g_clear_error (&_inner_error0_);
+#line 236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return;
+#line 2906 "symbol_finder.c"
 		}
 	}
+#line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp139_ = timer;
+#line 292 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_timer_stop (_tmp139_);
+#line 298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->need_update = FALSE;
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_timer_destroy0 (timer);
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (projectPath);
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (solutionPath);
+#line 299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return;
+#line 2923 "symbol_finder.c"
 }
 
 static glong
@@ -1952,17 +2930,28 @@ string_strnlen (gchar* str,
 	gchar* end = NULL;
 	gchar* _tmp0_;
 	gchar* _tmp1_;
+#line 1395 "glib-2.0.vapi"
 	_tmp0_ = memchr (str, 0, (gsize) maxlen);
+#line 1395 "glib-2.0.vapi"
 	end = _tmp0_;
+#line 1396 "glib-2.0.vapi"
 	_tmp1_ = end;
+#line 1396 "glib-2.0.vapi"
 	if (_tmp1_ == NULL) {
+#line 1397 "glib-2.0.vapi"
 		result = maxlen;
+#line 1397 "glib-2.0.vapi"
 		return result;
+#line 2946 "symbol_finder.c"
 	} else {
 		gchar* _tmp2_;
+#line 1399 "glib-2.0.vapi"
 		_tmp2_ = end;
+#line 1399 "glib-2.0.vapi"
 		result = (glong) (_tmp2_ - str);
+#line 1399 "glib-2.0.vapi"
 		return result;
+#line 2955 "symbol_finder.c"
 	}
 }
 
@@ -1975,40 +2964,69 @@ string_substring (const gchar* self,
 	glong string_length = 0L;
 	gboolean _tmp0_ = FALSE;
 	gchar* _tmp3_;
+#line 1406 "glib-2.0.vapi"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1408 "glib-2.0.vapi"
 	if (offset >= ((glong) 0)) {
+#line 1408 "glib-2.0.vapi"
 		_tmp0_ = len >= ((glong) 0);
+#line 2974 "symbol_finder.c"
 	} else {
+#line 1408 "glib-2.0.vapi"
 		_tmp0_ = FALSE;
+#line 2978 "symbol_finder.c"
 	}
+#line 1408 "glib-2.0.vapi"
 	if (_tmp0_) {
+#line 1410 "glib-2.0.vapi"
 		string_length = string_strnlen ((gchar*) self, offset + len);
+#line 2984 "symbol_finder.c"
 	} else {
 		gint _tmp1_;
 		gint _tmp2_;
+#line 1412 "glib-2.0.vapi"
 		_tmp1_ = strlen (self);
+#line 1412 "glib-2.0.vapi"
 		_tmp2_ = _tmp1_;
+#line 1412 "glib-2.0.vapi"
 		string_length = (glong) _tmp2_;
+#line 2994 "symbol_finder.c"
 	}
+#line 1415 "glib-2.0.vapi"
 	if (offset < ((glong) 0)) {
+#line 1416 "glib-2.0.vapi"
 		offset = string_length + offset;
+#line 1417 "glib-2.0.vapi"
 		g_return_val_if_fail (offset >= ((glong) 0), NULL);
+#line 3002 "symbol_finder.c"
 	} else {
+#line 1419 "glib-2.0.vapi"
 		g_return_val_if_fail (offset <= string_length, NULL);
+#line 3006 "symbol_finder.c"
 	}
+#line 1421 "glib-2.0.vapi"
 	if (len < ((glong) 0)) {
+#line 1422 "glib-2.0.vapi"
 		len = string_length - offset;
+#line 3012 "symbol_finder.c"
 	}
+#line 1424 "glib-2.0.vapi"
 	g_return_val_if_fail ((offset + len) <= string_length, NULL);
+#line 1425 "glib-2.0.vapi"
 	_tmp3_ = g_strndup (((gchar*) self) + offset, (gsize) len);
+#line 1425 "glib-2.0.vapi"
 	result = _tmp3_;
+#line 1425 "glib-2.0.vapi"
 	return result;
+#line 3022 "symbol_finder.c"
 }
 
 static gpointer
 _vala_iterable_ref0 (gpointer self)
 {
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return self ? vala_iterable_ref (self) : NULL;
+#line 3030 "symbol_finder.c"
 }
 
 ValaSymbol*
@@ -2067,175 +3085,317 @@ vala_develop_symbol_finder_find_symbol_in_source_file (valaDevelopSymbolFinder* 
 	ValaSourceFile* _tmp67_;
 	ValaList* _tmp68_;
 	ValaCodeContext* _tmp96_;
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (vapiFile != NULL, NULL);
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = vala_code_context_new ();
+#line 304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	ctx = _tmp0_;
+#line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = ctx;
+#line 305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_push (_tmp1_);
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = ctx;
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = vala_develop_reporter_new ();
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = _tmp3_;
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_report (_tmp2_, (ValaReport*) _tmp4_);
+#line 306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_report_unref0 (_tmp4_);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = ctx;
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = vala_code_context_realpath (".");
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp7_ = _tmp6_;
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_basedir (_tmp5_, _tmp7_);
+#line 307 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (_tmp7_);
+#line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp8_ = ctx;
+#line 308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_assert (_tmp8_, FALSE);
+#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp9_ = ctx;
+#line 309 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_checking (_tmp9_, FALSE);
+#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp10_ = ctx;
+#line 310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_experimental (_tmp10_, FALSE);
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp11_ = ctx;
+#line 311 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_experimental_non_null (_tmp11_, FALSE);
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = ctx;
+#line 312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_compile_only (_tmp12_, TRUE);
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = ctx;
+#line 313 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_profile (_tmp13_, VALA_PROFILE_GOBJECT);
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp14_ = ctx;
+#line 314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (!vala_code_context_is_defined (_tmp14_, "GOBJECT")) {
+#line 3149 "symbol_finder.c"
 		ValaCodeContext* _tmp15_;
+#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp15_ = ctx;
+#line 315 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_code_context_add_define (_tmp15_, "GOBJECT");
+#line 3155 "symbol_finder.c"
 	}
 	{
 		gint i = 0;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		i = 2;
+#line 3161 "symbol_finder.c"
 		{
 			gboolean _tmp16_ = FALSE;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = TRUE;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 3168 "symbol_finder.c"
 				ValaCodeContext* _tmp17_;
 				gchar* _tmp18_;
 				gchar* _tmp19_;
 				gchar* _tmp20_;
 				gchar* _tmp21_;
 				gboolean _tmp22_;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!_tmp16_) {
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					i += 2;
+#line 3179 "symbol_finder.c"
 				}
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp16_ = FALSE;
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(i <= 44)) {
+#line 316 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 3187 "symbol_finder.c"
 				}
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp17_ = ctx;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = g_strdup_printf ("%i", i);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = _tmp18_;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp20_ = g_strconcat ("VALA_0_", _tmp19_, NULL);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp21_ = _tmp20_;
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp22_ = !vala_code_context_is_defined (_tmp17_, _tmp21_);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (_tmp21_);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_g_free0 (_tmp19_);
+#line 318 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp22_) {
+#line 3207 "symbol_finder.c"
 					ValaCodeContext* _tmp23_;
 					gchar* _tmp24_;
 					gchar* _tmp25_;
 					gchar* _tmp26_;
 					gchar* _tmp27_;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp23_ = ctx;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp24_ = g_strdup_printf ("%i", i);
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp25_ = _tmp24_;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp26_ = g_strconcat ("VALA_0_", _tmp25_, NULL);
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp27_ = _tmp26_;
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					vala_code_context_add_define (_tmp23_, _tmp27_);
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (_tmp27_);
+#line 319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_g_free0 (_tmp25_);
+#line 3229 "symbol_finder.c"
 				}
 			}
 		}
 	}
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp28_ = ctx;
+#line 321 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_add_external_package (_tmp28_, "glib-2.0");
+#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp29_ = ctx;
+#line 322 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_add_external_package (_tmp29_, "gobject-2.0");
+#line 3242 "symbol_finder.c"
 	{
 		ValaIterator* _package_it = NULL;
 		ValaHashSet* _tmp30_;
 		ValaIterator* _tmp31_;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp30_ = self->_packages;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp31_ = vala_iterable_iterator ((ValaIterable*) _tmp30_);
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_package_it = _tmp31_;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3255 "symbol_finder.c"
 			ValaIterator* _tmp32_;
 			gchar* package = NULL;
 			ValaIterator* _tmp33_;
 			gpointer _tmp34_;
 			ValaCodeContext* _tmp35_;
 			const gchar* _tmp36_;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp32_ = _package_it;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!vala_iterator_next (_tmp32_)) {
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3268 "symbol_finder.c"
 			}
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp33_ = _package_it;
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp34_ = vala_iterator_get (_tmp33_);
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			package = (gchar*) _tmp34_;
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = ctx;
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp36_ = package;
+#line 324 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_code_context_add_external_package (_tmp35_, _tmp36_);
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_g_free0 (package);
+#line 3284 "symbol_finder.c"
 		}
+#line 323 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterator_unref0 (_package_it);
+#line 3288 "symbol_finder.c"
 	}
+#line 325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp37_ = vala_source_file_get_filename (vapiFile);
+#line 325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp38_ = _tmp37_;
+#line 325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp39_ = g_file_new_for_path (_tmp38_);
+#line 325 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	sourcePath = _tmp39_;
+#line 326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp40_ = sourcePath;
+#line 326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp41_ = g_file_get_basename (_tmp40_);
+#line 326 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vapifile = _tmp41_;
+#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp42_ = vapifile;
+#line 327 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (g_str_has_prefix (_tmp42_, ".")) {
+#line 3308 "symbol_finder.c"
 		const gchar* _tmp43_;
 		gchar* _tmp44_;
+#line 328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp43_ = vapifile;
+#line 328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp44_ = string_substring (_tmp43_, (glong) 1, (glong) -1);
+#line 328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (vapifile);
+#line 328 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vapifile = _tmp44_;
+#line 3319 "symbol_finder.c"
 	}
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp45_ = vapifile;
+#line 329 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (g_str_has_suffix (_tmp45_, ".vapi")) {
+#line 3325 "symbol_finder.c"
 		const gchar* _tmp46_;
 		const gchar* _tmp47_;
 		gint _tmp48_;
 		gint _tmp49_;
 		gchar* _tmp50_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp46_ = vapifile;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp47_ = vapifile;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp48_ = strlen (_tmp47_);
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp49_ = _tmp48_;
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp50_ = string_substring (_tmp46_, (glong) 0, (glong) (_tmp49_ - 5));
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_g_free0 (vapifile);
+#line 330 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vapifile = _tmp50_;
+#line 3345 "symbol_finder.c"
 	}
+#line 331 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp51_ = ctx;
+#line 331 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp52_ = vapifile;
+#line 331 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp53_ = vala_source_file_new (_tmp51_, VALA_SOURCE_FILE_TYPE_SOURCE, _tmp52_, content, FALSE);
+#line 331 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	sourceFile = _tmp53_;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp54_ = ctx;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp55_ = sourceFile;
+#line 332 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_add_source_file (_tmp54_, _tmp55_);
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp56_ = vala_parser_new ();
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp57_ = _tmp56_;
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp58_ = ctx;
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_parser_parse (_tmp57_, _tmp58_);
+#line 333 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_visitor_unref0 (_tmp57_);
+#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp59_ = ctx;
+#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp60_ = vala_code_context_get_resolver (_tmp59_);
+#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp61_ = _tmp60_;
+#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp62_ = ctx;
+#line 334 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_symbol_resolver_resolve (_tmp61_, _tmp62_);
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp63_ = ctx;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp64_ = vala_code_context_get_analyzer (_tmp63_);
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp65_ = _tmp64_;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp66_ = ctx;
+#line 335 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_semantic_analyzer_analyze (_tmp65_, _tmp66_);
+#line 339 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	current_symbol = NULL;
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp67_ = sourceFile;
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp68_ = vala_source_file_get_nodes (_tmp67_);
+#line 340 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	nodes = _tmp68_;
+#line 3399 "symbol_finder.c"
 	{
 		ValaList* _use_list = NULL;
 		ValaSourceFile* _tmp69_;
@@ -2247,17 +3407,29 @@ vala_develop_symbol_finder_find_symbol_in_source_file (valaDevelopSymbolFinder* 
 		gint _tmp74_;
 		gint _tmp75_;
 		gint _use_index = 0;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp69_ = sourceFile;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp70_ = vala_source_file_get_current_using_directives (_tmp69_);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp71_ = _tmp70_;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp72_ = _vala_iterable_ref0 (_tmp71_);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_list = _tmp72_;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp73_ = _use_list;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp74_ = vala_collection_get_size ((ValaCollection*) _tmp73_);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp75_ = _tmp74_;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_size = _tmp75_;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_index = -1;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3433 "symbol_finder.c"
 			ValaUsingDirective* use = NULL;
 			ValaList* _tmp76_;
 			gpointer _tmp77_;
@@ -2265,21 +3437,37 @@ vala_develop_symbol_finder_find_symbol_in_source_file (valaDevelopSymbolFinder* 
 			ValaUsingDirective* _tmp79_;
 			ValaSymbol* _tmp80_;
 			ValaSymbol* _tmp81_;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_use_index = _use_index + 1;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_use_index < _use_size)) {
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3447 "symbol_finder.c"
 			}
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp76_ = _use_list;
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp77_ = vala_list_get (_tmp76_, _use_index);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			use = (ValaUsingDirective*) _tmp77_;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp78_ = nodes;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp79_ = use;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp80_ = vala_using_directive_get_namespace_symbol (_tmp79_);
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp81_ = _tmp80_;
+#line 343 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_collection_add ((ValaCollection*) _tmp78_, (ValaCodeNode*) _tmp81_);
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (use);
+#line 3467 "symbol_finder.c"
 		}
+#line 341 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_use_list);
+#line 3471 "symbol_finder.c"
 	}
 	{
 		ValaList* _node_list = NULL;
@@ -2290,15 +3478,25 @@ vala_develop_symbol_finder_find_symbol_in_source_file (valaDevelopSymbolFinder* 
 		gint _tmp85_;
 		gint _tmp86_;
 		gint _node_index = 0;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp82_ = nodes;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp83_ = _vala_iterable_ref0 (_tmp82_);
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_list = _tmp83_;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp84_ = _node_list;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp85_ = vala_collection_get_size ((ValaCollection*) _tmp84_);
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp86_ = _tmp85_;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_size = _tmp86_;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_index = -1;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3500 "symbol_finder.c"
 			ValaCodeNode* node = NULL;
 			ValaList* _tmp87_;
 			gpointer _tmp88_;
@@ -2309,52 +3507,95 @@ vala_develop_symbol_finder_find_symbol_in_source_file (valaDevelopSymbolFinder* 
 			ValaSourceFile* _tmp93_;
 			ValaSymbol* _tmp94_;
 			ValaSymbol* _tmp95_;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_node_index = _node_index + 1;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_node_index < _node_size)) {
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3517 "symbol_finder.c"
 			}
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp87_ = _node_list;
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp88_ = vala_list_get (_tmp87_, _node_index);
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			node = (ValaCodeNode*) _tmp88_;
+#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp89_ = node;
+#line 347 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!G_TYPE_CHECK_INSTANCE_TYPE (_tmp89_, VALA_TYPE_NAMESPACE)) {
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (node);
+#line 348 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				continue;
+#line 3533 "symbol_finder.c"
 			}
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp90_ = node;
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp91_ = vala_symbol_get_name (symbol);
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp92_ = _tmp91_;
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp93_ = sourceFile;
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp94_ = vala_develop_symbol_finder_find_by_name (self, G_TYPE_CHECK_INSTANCE_CAST (_tmp90_, VALA_TYPE_NAMESPACE, ValaNamespace), _tmp92_, _tmp93_, 0, 0);
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (current_symbol);
+#line 352 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			current_symbol = _tmp94_;
+#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp95_ = current_symbol;
+#line 353 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp95_ != NULL) {
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (node);
+#line 354 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3557 "symbol_finder.c"
 			}
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (node);
+#line 3561 "symbol_finder.c"
 		}
+#line 345 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_node_list);
+#line 3565 "symbol_finder.c"
 	}
+#line 356 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_pop ();
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp96_ = ctx;
+#line 357 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_code_context_set_report (_tmp96_, NULL);
+#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (ctx);
+#line 358 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	ctx = NULL;
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = current_symbol;
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_iterable_unref0 (nodes);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_source_file_unref0 (sourceFile);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_free0 (vapifile);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_object_unref0 (sourcePath);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (ctx);
+#line 359 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 3591 "symbol_finder.c"
 }
 
 static gpointer
 _vala_source_file_ref0 (gpointer self)
 {
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return self ? vala_source_file_ref (self) : NULL;
+#line 3599 "symbol_finder.c"
 }
 
 ValaSymbol*
@@ -2378,10 +3619,15 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 	GTimer* _tmp30_;
 	ValaSymbol* _tmp43_;
 	GTimer* _tmp49_;
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 362 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (content != NULL, NULL);
+#line 364 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	sourceFile = NULL;
+#line 3631 "symbol_finder.c"
 	{
 		ValaList* _source_file_list = NULL;
 		ValaCodeContext* _tmp0_;
@@ -2391,57 +3637,103 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp3_;
 		gint _tmp4_;
 		gint _source_file_index = 0;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = self->priv->_ctx;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = vala_code_context_get_source_files (_tmp0_);
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_list = _tmp1_;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = _source_file_list;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = vala_collection_get_size ((ValaCollection*) _tmp2_);
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _tmp3_;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_size = _tmp4_;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_index = -1;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3659 "symbol_finder.c"
 			ValaSourceFile* source_file = NULL;
 			ValaList* _tmp5_;
 			gpointer _tmp6_;
 			ValaSourceFile* _tmp7_;
 			const gchar* _tmp8_;
 			const gchar* _tmp9_;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_source_file_index = _source_file_index + 1;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_source_file_index < _source_file_size)) {
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3672 "symbol_finder.c"
 			}
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp5_ = _source_file_list;
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = vala_list_get (_tmp5_, _source_file_index);
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			source_file = (ValaSourceFile*) _tmp6_;
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = source_file;
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = vala_source_file_get_filename (_tmp7_);
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp9_ = _tmp8_;
+#line 367 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (g_strcmp0 (_tmp9_, file) == 0) {
+#line 3688 "symbol_finder.c"
 				ValaSourceFile* _tmp10_;
 				ValaSourceFile* _tmp11_;
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp10_ = source_file;
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp11_ = _vala_source_file_ref0 (_tmp10_);
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_source_file_unref0 (sourceFile);
+#line 369 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sourceFile = _tmp11_;
+#line 370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_source_file_unref0 (source_file);
+#line 370 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3703 "symbol_finder.c"
 			}
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_source_file_unref0 (source_file);
+#line 3707 "symbol_finder.c"
 		}
+#line 365 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_source_file_list);
+#line 3711 "symbol_finder.c"
 	}
+#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = sourceFile;
+#line 373 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp12_ == NULL) {
+#line 374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_source_file_unref0 (sourceFile);
+#line 374 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 3723 "symbol_finder.c"
 	}
+#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp13_ = sourceFile;
+#line 375 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_source_file_set_content (_tmp13_, content);
+#line 376 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	current_symbol = NULL;
+#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp14_ = sourceFile;
+#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp15_ = vala_source_file_get_nodes (_tmp14_);
+#line 377 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	nodes = _tmp15_;
+#line 3737 "symbol_finder.c"
 	{
 		ValaList* _use_list = NULL;
 		ValaSourceFile* _tmp16_;
@@ -2453,17 +3745,29 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp21_;
 		gint _tmp22_;
 		gint _use_index = 0;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = sourceFile;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = vala_source_file_get_current_using_directives (_tmp16_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = _tmp17_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _vala_iterable_ref0 (_tmp18_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_list = _tmp19_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = _use_list;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = vala_collection_get_size ((ValaCollection*) _tmp20_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp22_ = _tmp21_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_size = _tmp22_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_use_index = -1;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3771 "symbol_finder.c"
 			ValaUsingDirective* use = NULL;
 			ValaList* _tmp23_;
 			gpointer _tmp24_;
@@ -2471,26 +3775,47 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 			ValaUsingDirective* _tmp26_;
 			ValaSymbol* _tmp27_;
 			ValaSymbol* _tmp28_;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_use_index = _use_index + 1;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_use_index < _use_size)) {
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3785 "symbol_finder.c"
 			}
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp23_ = _use_list;
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp24_ = vala_list_get (_tmp23_, _use_index);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			use = (ValaUsingDirective*) _tmp24_;
+#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp25_ = nodes;
+#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = use;
+#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp27_ = vala_using_directive_get_namespace_symbol (_tmp26_);
+#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp28_ = _tmp27_;
+#line 380 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_collection_add ((ValaCollection*) _tmp25_, (ValaCodeNode*) _tmp28_);
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (use);
+#line 3805 "symbol_finder.c"
 		}
+#line 378 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_use_list);
+#line 3809 "symbol_finder.c"
 	}
+#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp29_ = g_timer_new ();
+#line 382 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	timer = _tmp29_;
+#line 383 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp30_ = timer;
+#line 383 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_timer_start (_tmp30_);
+#line 3819 "symbol_finder.c"
 	{
 		ValaList* _node_list = NULL;
 		ValaList* _tmp31_;
@@ -2500,15 +3825,25 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp34_;
 		gint _tmp35_;
 		gint _node_index = 0;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp31_ = nodes;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp32_ = _vala_iterable_ref0 (_tmp31_);
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_list = _tmp32_;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp33_ = _node_list;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp34_ = vala_collection_get_size ((ValaCollection*) _tmp33_);
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp35_ = _tmp34_;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_size = _tmp35_;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_index = -1;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 3847 "symbol_finder.c"
 			ValaCodeNode* node = NULL;
 			ValaList* _tmp36_;
 			gpointer _tmp37_;
@@ -2517,54 +3852,99 @@ vala_develop_symbol_finder_find_symbol_by_name (valaDevelopSymbolFinder* self,
 			ValaSourceFile* _tmp40_;
 			ValaSymbol* _tmp41_;
 			ValaSymbol* _tmp42_;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_node_index = _node_index + 1;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_node_index < _node_size)) {
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3862 "symbol_finder.c"
 			}
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp36_ = _node_list;
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp37_ = vala_list_get (_tmp36_, _node_index);
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			node = (ValaCodeNode*) _tmp37_;
+#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp38_ = node;
+#line 386 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!G_TYPE_CHECK_INSTANCE_TYPE (_tmp38_, VALA_TYPE_NAMESPACE)) {
+#line 387 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (node);
+#line 387 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				continue;
+#line 3878 "symbol_finder.c"
 			}
+#line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp39_ = node;
+#line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp40_ = sourceFile;
+#line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp41_ = vala_develop_symbol_finder_find_by_name (self, G_TYPE_CHECK_INSTANCE_CAST (_tmp39_, VALA_TYPE_NAMESPACE, ValaNamespace), word, _tmp40_, line, col);
+#line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (current_symbol);
+#line 391 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			current_symbol = _tmp41_;
+#line 392 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp42_ = current_symbol;
+#line 392 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp42_ != NULL) {
+#line 393 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (node);
+#line 393 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 3898 "symbol_finder.c"
 			}
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (node);
+#line 3902 "symbol_finder.c"
 		}
+#line 384 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_node_list);
+#line 3906 "symbol_finder.c"
 	}
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp43_ = current_symbol;
+#line 395 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp43_ == NULL) {
+#line 3912 "symbol_finder.c"
 		ValaCodeContext* _tmp44_;
 		ValaNamespace* _tmp45_;
 		ValaNamespace* _tmp46_;
 		ValaSourceFile* _tmp47_;
 		ValaSymbol* _tmp48_;
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp44_ = self->priv->_ctx;
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp45_ = vala_code_context_get_root (_tmp44_);
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp46_ = _tmp45_;
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp47_ = sourceFile;
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp48_ = vala_develop_symbol_finder_find_by_name (self, _tmp46_, word, _tmp47_, line, col);
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (current_symbol);
+#line 397 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		current_symbol = _tmp48_;
+#line 3932 "symbol_finder.c"
 	}
+#line 399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp49_ = timer;
+#line 399 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_timer_stop (_tmp49_);
+#line 406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = current_symbol;
+#line 406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_g_timer_destroy0 (timer);
+#line 406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_iterable_unref0 (nodes);
+#line 406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_source_file_unref0 (sourceFile);
+#line 406 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 3948 "symbol_finder.c"
 }
 
 static ValaSymbol*
@@ -2580,50 +3960,88 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 	ValaSourceReference* _tmp1_;
 	const gchar* _tmp2_;
 	const gchar* _tmp3_;
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 409 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 411 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (symbol == NULL) {
+#line 412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 412 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 3974 "symbol_finder.c"
 	}
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = vala_code_node_get_source_reference ((ValaCodeNode*) symbol);
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = _tmp0_;
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = vala_symbol_get_name (symbol);
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = _tmp2_;
+#line 413 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_develop_symbol_finder_name_inside_source (_tmp1_, _tmp3_, file, word, line, col)) {
+#line 3986 "symbol_finder.c"
 		ValaSymbol* _tmp4_;
+#line 414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _vala_code_node_ref0 (symbol);
+#line 414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = _tmp4_;
+#line 414 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 3994 "symbol_finder.c"
 	}
+#line 415 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_VARIABLE)) {
+#line 3998 "symbol_finder.c"
 		ValaExpression* _tmp5_;
 		ValaExpression* _tmp6_;
+#line 417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp5_ = vala_variable_get_initializer (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_VARIABLE, ValaVariable));
+#line 417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp6_ = _tmp5_;
+#line 417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp6_ != NULL) {
+#line 4007 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaExpression* _tmp7_;
 			ValaExpression* _tmp8_;
 			ValaSymbol* _tmp9_;
 			ValaSymbol* _tmp10_;
+#line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = vala_variable_get_initializer (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_VARIABLE, ValaVariable));
+#line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = _tmp7_;
+#line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp9_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp8_, word, file, line, col);
+#line 419 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp9_;
+#line 420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp10_ = sym;
+#line 420 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp10_ != NULL) {
+#line 421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 421 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 4029 "symbol_finder.c"
 			}
+#line 417 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 4033 "symbol_finder.c"
 		}
 	}
+#line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_NAMESPACE)) {
+#line 4038 "symbol_finder.c"
 		ValaNamespace* namesp = NULL;
 		ValaNamespace* _tmp11_;
+#line 426 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_NAMESPACE, ValaNamespace));
+#line 426 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		namesp = _tmp11_;
+#line 4045 "symbol_finder.c"
 		{
 			ValaList* _s_list = NULL;
 			ValaNamespace* _tmp12_;
@@ -2633,15 +4051,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp15_;
 			gint _tmp16_;
 			gint _s_index = 0;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp12_ = namesp;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = vala_namespace_get_namespaces (_tmp12_);
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp13_;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _s_list;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = vala_collection_get_size ((ValaCollection*) _tmp14_);
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = _tmp15_;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp16_;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4073 "symbol_finder.c"
 				ValaNamespace* s = NULL;
 				ValaList* _tmp17_;
 				gpointer _tmp18_;
@@ -2649,28 +4077,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaNamespace* _tmp19_;
 				ValaSymbol* _tmp20_;
 				ValaSymbol* _tmp21_;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4087 "symbol_finder.c"
 				}
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp17_ = _s_list;
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = vala_list_get (_tmp17_, _s_index);
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaNamespace*) _tmp18_;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = s;
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp20_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp19_, word, file, line, col);
+#line 429 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp20_;
+#line 430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp21_ = sym;
+#line 430 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp21_ != NULL) {
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 431 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4115 "symbol_finder.c"
 				}
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4121 "symbol_finder.c"
 			}
+#line 427 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4125 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2681,15 +4132,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp25_;
 			gint _tmp26_;
 			gint _s_index = 0;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp22_ = namesp;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp23_ = vala_namespace_get_constants (_tmp22_);
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp23_;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp24_ = _s_list;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp25_ = vala_collection_get_size ((ValaCollection*) _tmp24_);
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = _tmp25_;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp26_;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4154 "symbol_finder.c"
 				ValaConstant* s = NULL;
 				ValaList* _tmp27_;
 				gpointer _tmp28_;
@@ -2697,28 +4158,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaConstant* _tmp29_;
 				ValaSymbol* _tmp30_;
 				ValaSymbol* _tmp31_;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4168 "symbol_finder.c"
 				}
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp27_ = _s_list;
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp28_ = vala_list_get (_tmp27_, _s_index);
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaConstant*) _tmp28_;
+#line 435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp29_ = s;
+#line 435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp30_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp29_, word, file, line, col);
+#line 435 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp30_;
+#line 436 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp31_ = sym;
+#line 436 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp31_ != NULL) {
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 437 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4196 "symbol_finder.c"
 				}
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4202 "symbol_finder.c"
 			}
+#line 433 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4206 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2729,15 +4213,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp35_;
 			gint _tmp36_;
 			gint _s_index = 0;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp32_ = namesp;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp33_ = vala_namespace_get_enums (_tmp32_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp33_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp34_ = _s_list;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = vala_collection_get_size ((ValaCollection*) _tmp34_);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp36_ = _tmp35_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp36_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4235 "symbol_finder.c"
 				ValaEnum* s = NULL;
 				ValaList* _tmp37_;
 				gpointer _tmp38_;
@@ -2745,28 +4239,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaEnum* _tmp39_;
 				ValaSymbol* _tmp40_;
 				ValaSymbol* _tmp41_;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4249 "symbol_finder.c"
 				}
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp37_ = _s_list;
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp38_ = vala_list_get (_tmp37_, _s_index);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaEnum*) _tmp38_;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp39_ = s;
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp40_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp39_, word, file, line, col);
+#line 441 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp40_;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp41_ = sym;
+#line 442 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp41_ != NULL) {
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 443 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4277 "symbol_finder.c"
 				}
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4283 "symbol_finder.c"
 			}
+#line 439 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4287 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2777,15 +4294,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp45_;
 			gint _tmp46_;
 			gint _s_index = 0;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp42_ = namesp;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp43_ = vala_namespace_get_error_domains (_tmp42_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp43_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp44_ = _s_list;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp45_ = vala_collection_get_size ((ValaCollection*) _tmp44_);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp46_ = _tmp45_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp46_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4316 "symbol_finder.c"
 				ValaErrorDomain* s = NULL;
 				ValaList* _tmp47_;
 				gpointer _tmp48_;
@@ -2793,28 +4320,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaErrorDomain* _tmp49_;
 				ValaSymbol* _tmp50_;
 				ValaSymbol* _tmp51_;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4330 "symbol_finder.c"
 				}
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp47_ = _s_list;
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp48_ = vala_list_get (_tmp47_, _s_index);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaErrorDomain*) _tmp48_;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp49_ = s;
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp50_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp49_, word, file, line, col);
+#line 447 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp50_;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp51_ = sym;
+#line 448 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp51_ != NULL) {
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 449 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4358 "symbol_finder.c"
 				}
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4364 "symbol_finder.c"
 			}
+#line 445 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4368 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2825,15 +4375,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp55_;
 			gint _tmp56_;
 			gint _s_index = 0;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp52_ = namesp;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_ = vala_namespace_get_structs (_tmp52_);
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp53_;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp54_ = _s_list;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp55_ = vala_collection_get_size ((ValaCollection*) _tmp54_);
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp56_ = _tmp55_;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp56_;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4397 "symbol_finder.c"
 				ValaStruct* s = NULL;
 				ValaList* _tmp57_;
 				gpointer _tmp58_;
@@ -2841,28 +4401,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaStruct* _tmp59_;
 				ValaSymbol* _tmp60_;
 				ValaSymbol* _tmp61_;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4411 "symbol_finder.c"
 				}
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp57_ = _s_list;
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp58_ = vala_list_get (_tmp57_, _s_index);
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaStruct*) _tmp58_;
+#line 453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp59_ = s;
+#line 453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp60_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp59_, word, file, line, col);
+#line 453 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp60_;
+#line 454 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp61_ = sym;
+#line 454 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp61_ != NULL) {
+#line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 455 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4439 "symbol_finder.c"
 				}
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4445 "symbol_finder.c"
 			}
+#line 451 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4449 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2873,15 +4456,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp65_;
 			gint _tmp66_;
 			gint _s_index = 0;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp62_ = namesp;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp63_ = vala_namespace_get_interfaces (_tmp62_);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp63_;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp64_ = _s_list;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp65_ = vala_collection_get_size ((ValaCollection*) _tmp64_);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp66_ = _tmp65_;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp66_;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4478 "symbol_finder.c"
 				ValaInterface* s = NULL;
 				ValaList* _tmp67_;
 				gpointer _tmp68_;
@@ -2889,28 +4482,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaInterface* _tmp69_;
 				ValaSymbol* _tmp70_;
 				ValaSymbol* _tmp71_;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4492 "symbol_finder.c"
 				}
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp67_ = _s_list;
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp68_ = vala_list_get (_tmp67_, _s_index);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaInterface*) _tmp68_;
+#line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp69_ = s;
+#line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp70_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp69_, word, file, line, col);
+#line 459 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp70_;
+#line 460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp71_ = sym;
+#line 460 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp71_ != NULL) {
+#line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 461 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4520 "symbol_finder.c"
 				}
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4526 "symbol_finder.c"
 			}
+#line 457 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4530 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2921,15 +4537,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp75_;
 			gint _tmp76_;
 			gint _s_index = 0;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp72_ = namesp;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp73_ = vala_namespace_get_classes (_tmp72_);
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp73_;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp74_ = _s_list;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp75_ = vala_collection_get_size ((ValaCollection*) _tmp74_);
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp76_ = _tmp75_;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp76_;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4559 "symbol_finder.c"
 				ValaClass* s = NULL;
 				ValaList* _tmp77_;
 				gpointer _tmp78_;
@@ -2937,28 +4563,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaClass* _tmp79_;
 				ValaSymbol* _tmp80_;
 				ValaSymbol* _tmp81_;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4573 "symbol_finder.c"
 				}
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp77_ = _s_list;
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp78_ = vala_list_get (_tmp77_, _s_index);
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaClass*) _tmp78_;
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp79_ = s;
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp80_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp79_, word, file, line, col);
+#line 465 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp80_;
+#line 466 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp81_ = sym;
+#line 466 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp81_ != NULL) {
+#line 467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 467 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4601 "symbol_finder.c"
 				}
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4607 "symbol_finder.c"
 			}
+#line 463 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4611 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -2969,15 +4618,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp85_;
 			gint _tmp86_;
 			gint _s_index = 0;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp82_ = namesp;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp83_ = vala_namespace_get_fields (_tmp82_);
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp83_;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp84_ = _s_list;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp85_ = vala_collection_get_size ((ValaCollection*) _tmp84_);
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp86_ = _tmp85_;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp86_;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4640 "symbol_finder.c"
 				ValaField* s = NULL;
 				ValaList* _tmp87_;
 				gpointer _tmp88_;
@@ -2985,28 +4644,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaField* _tmp89_;
 				ValaSymbol* _tmp90_;
 				ValaSymbol* _tmp91_;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4654 "symbol_finder.c"
 				}
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp87_ = _s_list;
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp88_ = vala_list_get (_tmp87_, _s_index);
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaField*) _tmp88_;
+#line 471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp89_ = s;
+#line 471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp90_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp89_, word, file, line, col);
+#line 471 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp90_;
+#line 472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp91_ = sym;
+#line 472 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp91_ != NULL) {
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 473 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4682 "symbol_finder.c"
 				}
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4688 "symbol_finder.c"
 			}
+#line 469 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4692 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3017,15 +4699,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp95_;
 			gint _tmp96_;
 			gint _s_index = 0;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp92_ = namesp;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp93_ = vala_namespace_get_delegates (_tmp92_);
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp93_;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp94_ = _s_list;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp95_ = vala_collection_get_size ((ValaCollection*) _tmp94_);
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp96_ = _tmp95_;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp96_;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4721 "symbol_finder.c"
 				ValaDelegate* s = NULL;
 				ValaList* _tmp97_;
 				gpointer _tmp98_;
@@ -3033,28 +4725,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaDelegate* _tmp99_;
 				ValaSymbol* _tmp100_;
 				ValaSymbol* _tmp101_;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4735 "symbol_finder.c"
 				}
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp97_ = _s_list;
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp98_ = vala_list_get (_tmp97_, _s_index);
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaDelegate*) _tmp98_;
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp99_ = s;
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp100_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp99_, word, file, line, col);
+#line 477 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp100_;
+#line 478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp101_ = sym;
+#line 478 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp101_ != NULL) {
+#line 479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 479 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4763 "symbol_finder.c"
 				}
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4769 "symbol_finder.c"
 			}
+#line 475 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4773 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3065,15 +4780,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp105_;
 			gint _tmp106_;
 			gint _s_index = 0;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp102_ = namesp;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp103_ = vala_namespace_get_methods (_tmp102_);
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp103_;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp104_ = _s_list;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp105_ = vala_collection_get_size ((ValaCollection*) _tmp104_);
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp106_ = _tmp105_;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp106_;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4802 "symbol_finder.c"
 				ValaMethod* s = NULL;
 				ValaList* _tmp107_;
 				gpointer _tmp108_;
@@ -3081,32 +4806,59 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaMethod* _tmp109_;
 				ValaSymbol* _tmp110_;
 				ValaSymbol* _tmp111_;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4816 "symbol_finder.c"
 				}
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp107_ = _s_list;
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp108_ = vala_list_get (_tmp107_, _s_index);
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaMethod*) _tmp108_;
+#line 483 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp109_ = s;
+#line 483 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp110_ = vala_develop_symbol_finder_find_name_inside_method (self, _tmp109_, word, file, line, col);
+#line 483 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp110_;
+#line 484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp111_ = sym;
+#line 484 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp111_ != NULL) {
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 485 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4844 "symbol_finder.c"
 				}
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4850 "symbol_finder.c"
 			}
+#line 481 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4854 "symbol_finder.c"
 		}
+#line 424 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (namesp);
+#line 4858 "symbol_finder.c"
 	}
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_CLASS)) {
+#line 4862 "symbol_finder.c"
 		ValaClass* klass = NULL;
 		ValaClass* _tmp112_;
 		ValaClass* _tmp143_;
@@ -3130,8 +4882,11 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 		ValaClass* _tmp191_;
 		ValaDestructor* _tmp192_;
 		ValaDestructor* _tmp193_;
+#line 490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp112_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_CLASS, ValaClass));
+#line 490 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		klass = _tmp112_;
+#line 4890 "symbol_finder.c"
 		{
 			ValaList* _s_list = NULL;
 			ValaClass* _tmp113_;
@@ -3141,15 +4896,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp116_;
 			gint _tmp117_;
 			gint _s_index = 0;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp113_ = klass;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp114_ = vala_object_type_symbol_get_enums ((ValaObjectTypeSymbol*) _tmp113_);
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp114_;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp115_ = _s_list;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp116_ = vala_collection_get_size ((ValaCollection*) _tmp115_);
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp117_ = _tmp116_;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp117_;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4918 "symbol_finder.c"
 				ValaEnum* s = NULL;
 				ValaList* _tmp118_;
 				gpointer _tmp119_;
@@ -3157,28 +4922,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaEnum* _tmp120_;
 				ValaSymbol* _tmp121_;
 				ValaSymbol* _tmp122_;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 4932 "symbol_finder.c"
 				}
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp118_ = _s_list;
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp119_ = vala_list_get (_tmp118_, _s_index);
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaEnum*) _tmp119_;
+#line 493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp120_ = s;
+#line 493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp121_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp120_, word, file, line, col);
+#line 493 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp121_;
+#line 494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp122_ = sym;
+#line 494 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp122_ != NULL) {
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 495 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 4960 "symbol_finder.c"
 				}
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 4966 "symbol_finder.c"
 			}
+#line 491 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 4970 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3189,15 +4977,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp126_;
 			gint _tmp127_;
 			gint _s_index = 0;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp123_ = klass;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp124_ = vala_object_type_symbol_get_structs ((ValaObjectTypeSymbol*) _tmp123_);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp124_;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp125_ = _s_list;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp126_ = vala_collection_get_size ((ValaCollection*) _tmp125_);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp127_ = _tmp126_;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp127_;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 4999 "symbol_finder.c"
 				ValaStruct* s = NULL;
 				ValaList* _tmp128_;
 				gpointer _tmp129_;
@@ -3205,28 +5003,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaStruct* _tmp130_;
 				ValaSymbol* _tmp131_;
 				ValaSymbol* _tmp132_;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5013 "symbol_finder.c"
 				}
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp128_ = _s_list;
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp129_ = vala_list_get (_tmp128_, _s_index);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaStruct*) _tmp129_;
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp130_ = s;
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp131_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp130_, word, file, line, col);
+#line 499 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp131_;
+#line 500 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp132_ = sym;
+#line 500 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp132_ != NULL) {
+#line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 501 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5041 "symbol_finder.c"
 				}
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5047 "symbol_finder.c"
 			}
+#line 497 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5051 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3237,15 +5058,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp136_;
 			gint _tmp137_;
 			gint _s_index = 0;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp133_ = klass;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp134_ = vala_object_type_symbol_get_classes ((ValaObjectTypeSymbol*) _tmp133_);
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp134_;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp135_ = _s_list;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp136_ = vala_collection_get_size ((ValaCollection*) _tmp135_);
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp137_ = _tmp136_;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp137_;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5080 "symbol_finder.c"
 				ValaClass* s = NULL;
 				ValaList* _tmp138_;
 				gpointer _tmp139_;
@@ -3253,197 +5084,353 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaClass* _tmp140_;
 				ValaSymbol* _tmp141_;
 				ValaSymbol* _tmp142_;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5094 "symbol_finder.c"
 				}
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp138_ = _s_list;
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp139_ = vala_list_get (_tmp138_, _s_index);
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaClass*) _tmp139_;
+#line 505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp140_ = s;
+#line 505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp141_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp140_, word, file, line, col);
+#line 505 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp141_;
+#line 506 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp142_ = sym;
+#line 506 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp142_ != NULL) {
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 507 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5122 "symbol_finder.c"
 				}
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5128 "symbol_finder.c"
 			}
+#line 503 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5132 "symbol_finder.c"
 		}
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp143_ = klass;
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp144_ = vala_class_get_constructor (_tmp143_);
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp145_ = _tmp144_;
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp145_ != NULL) {
+#line 5142 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp146_;
 			ValaConstructor* _tmp147_;
 			ValaConstructor* _tmp148_;
 			ValaSymbol* _tmp149_;
 			ValaSymbol* _tmp150_;
+#line 511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp146_ = klass;
+#line 511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp147_ = vala_class_get_constructor (_tmp146_);
+#line 511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp148_ = _tmp147_;
+#line 511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp149_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp148_, word, file, line, col);
+#line 511 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp149_;
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp150_ = sym;
+#line 512 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp150_ != NULL) {
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 513 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5169 "symbol_finder.c"
 			}
+#line 509 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5173 "symbol_finder.c"
 		}
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp151_ = klass;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp152_ = vala_class_get_class_constructor (_tmp151_);
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp153_ = _tmp152_;
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp153_ != NULL) {
+#line 5183 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp154_;
 			ValaConstructor* _tmp155_;
 			ValaConstructor* _tmp156_;
 			ValaSymbol* _tmp157_;
 			ValaSymbol* _tmp158_;
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp154_ = klass;
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp155_ = vala_class_get_class_constructor (_tmp154_);
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp156_ = _tmp155_;
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp157_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp156_, word, file, line, col);
+#line 517 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp157_;
+#line 518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp158_ = sym;
+#line 518 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp158_ != NULL) {
+#line 519 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 519 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 519 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5210 "symbol_finder.c"
 			}
+#line 515 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5214 "symbol_finder.c"
 		}
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp159_ = klass;
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp160_ = vala_class_get_constructor (_tmp159_);
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp161_ = _tmp160_;
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp161_ != NULL) {
+#line 5224 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp162_;
 			ValaConstructor* _tmp163_;
 			ValaConstructor* _tmp164_;
 			ValaSymbol* _tmp165_;
 			ValaSymbol* _tmp166_;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp162_ = klass;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp163_ = vala_class_get_constructor (_tmp162_);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp164_ = _tmp163_;
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp165_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp164_, word, file, line, col);
+#line 523 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp165_;
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp166_ = sym;
+#line 524 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp166_ != NULL) {
+#line 525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 525 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5251 "symbol_finder.c"
 			}
+#line 521 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5255 "symbol_finder.c"
 		}
+#line 527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp167_ = klass;
+#line 527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp168_ = vala_class_get_static_constructor (_tmp167_);
+#line 527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp169_ = _tmp168_;
+#line 527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp169_ != NULL) {
+#line 5265 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp170_;
 			ValaConstructor* _tmp171_;
 			ValaConstructor* _tmp172_;
 			ValaSymbol* _tmp173_;
 			ValaSymbol* _tmp174_;
+#line 529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp170_ = klass;
+#line 529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp171_ = vala_class_get_static_constructor (_tmp170_);
+#line 529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp172_ = _tmp171_;
+#line 529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp173_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp172_, word, file, line, col);
+#line 529 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp173_;
+#line 530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp174_ = sym;
+#line 530 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp174_ != NULL) {
+#line 531 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 531 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 531 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5292 "symbol_finder.c"
 			}
+#line 527 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5296 "symbol_finder.c"
 		}
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp175_ = klass;
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp176_ = vala_class_get_destructor (_tmp175_);
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp177_ = _tmp176_;
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp177_ != NULL) {
+#line 5306 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp178_;
 			ValaDestructor* _tmp179_;
 			ValaDestructor* _tmp180_;
 			ValaSymbol* _tmp181_;
 			ValaSymbol* _tmp182_;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp178_ = klass;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp179_ = vala_class_get_destructor (_tmp178_);
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp180_ = _tmp179_;
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp181_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp180_, word, file, line, col);
+#line 535 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp181_;
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp182_ = sym;
+#line 536 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp182_ != NULL) {
+#line 537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 537 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5333 "symbol_finder.c"
 			}
+#line 533 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5337 "symbol_finder.c"
 		}
+#line 539 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp183_ = klass;
+#line 539 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp184_ = vala_class_get_static_destructor (_tmp183_);
+#line 539 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp185_ = _tmp184_;
+#line 539 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp185_ != NULL) {
+#line 5347 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp186_;
 			ValaDestructor* _tmp187_;
 			ValaDestructor* _tmp188_;
 			ValaSymbol* _tmp189_;
 			ValaSymbol* _tmp190_;
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp186_ = klass;
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp187_ = vala_class_get_static_destructor (_tmp186_);
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp188_ = _tmp187_;
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp189_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp188_, word, file, line, col);
+#line 541 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp189_;
+#line 542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp190_ = sym;
+#line 542 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp190_ != NULL) {
+#line 543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 543 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5374 "symbol_finder.c"
 			}
+#line 539 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5378 "symbol_finder.c"
 		}
+#line 545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp191_ = klass;
+#line 545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp192_ = vala_class_get_class_destructor (_tmp191_);
+#line 545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp193_ = _tmp192_;
+#line 545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp193_ != NULL) {
+#line 5388 "symbol_finder.c"
 			ValaSymbol* sym = NULL;
 			ValaClass* _tmp194_;
 			ValaDestructor* _tmp195_;
 			ValaDestructor* _tmp196_;
 			ValaSymbol* _tmp197_;
 			ValaSymbol* _tmp198_;
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp194_ = klass;
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp195_ = vala_class_get_class_destructor (_tmp194_);
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp196_ = _tmp195_;
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp197_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp196_, word, file, line, col);
+#line 547 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			sym = _tmp197_;
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp198_ = sym;
+#line 548 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp198_ != NULL) {
+#line 549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = sym;
+#line 549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (klass);
+#line 549 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 5415 "symbol_finder.c"
 			}
+#line 545 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sym);
+#line 5419 "symbol_finder.c"
 		}
+#line 488 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (klass);
+#line 5423 "symbol_finder.c"
 	}
+#line 552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_OBJECT_TYPE_SYMBOL)) {
+#line 5427 "symbol_finder.c"
 		ValaObjectTypeSymbol* objectTypeSymbol = NULL;
 		ValaObjectTypeSymbol* _tmp199_;
+#line 554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp199_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_OBJECT_TYPE_SYMBOL, ValaObjectTypeSymbol));
+#line 554 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		objectTypeSymbol = _tmp199_;
+#line 5434 "symbol_finder.c"
 		{
 			ValaList* _s_list = NULL;
 			ValaObjectTypeSymbol* _tmp200_;
@@ -3453,15 +5440,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp203_;
 			gint _tmp204_;
 			gint _s_index = 0;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp200_ = objectTypeSymbol;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp201_ = vala_object_type_symbol_get_properties (_tmp200_);
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp201_;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp202_ = _s_list;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp203_ = vala_collection_get_size ((ValaCollection*) _tmp202_);
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp204_ = _tmp203_;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp204_;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5462 "symbol_finder.c"
 				ValaProperty* s = NULL;
 				ValaList* _tmp205_;
 				gpointer _tmp206_;
@@ -3475,28 +5472,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaProperty* _tmp220_;
 				ValaPropertyAccessor* _tmp221_;
 				ValaPropertyAccessor* _tmp222_;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5482 "symbol_finder.c"
 				}
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp205_ = _s_list;
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp206_ = vala_list_get (_tmp205_, _s_index);
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaProperty*) _tmp206_;
+#line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp207_ = s;
+#line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp208_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp207_, word, file, line, col);
+#line 557 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp208_;
+#line 558 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp209_ = sym;
+#line 558 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp209_ != NULL) {
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (objectTypeSymbol);
+#line 559 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5510 "symbol_finder.c"
 				}
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp210_ = s;
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp211_ = vala_property_get_get_accessor (_tmp210_);
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp212_ = _tmp211_;
+#line 560 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp212_ != NULL) {
+#line 5520 "symbol_finder.c"
 					ValaProperty* _tmp213_;
 					ValaPropertyAccessor* _tmp214_;
 					ValaPropertyAccessor* _tmp215_;
@@ -3504,27 +5524,48 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 					ValaBlock* _tmp217_;
 					ValaSymbol* _tmp218_;
 					ValaSymbol* _tmp219_;
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp213_ = s;
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp214_ = vala_property_get_get_accessor (_tmp213_);
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp215_ = _tmp214_;
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp216_ = vala_subroutine_get_body ((ValaSubroutine*) _tmp215_);
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp217_ = _tmp216_;
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp218_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp217_, word, file, line, col);
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (sym);
+#line 562 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					sym = _tmp218_;
+#line 563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp219_ = sym;
+#line 563 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp219_ != NULL) {
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = sym;
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (s);
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_iterable_unref0 (_s_list);
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (objectTypeSymbol);
+#line 564 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 5558 "symbol_finder.c"
 					}
 				}
+#line 566 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp220_ = s;
+#line 566 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp221_ = vala_property_get_set_accessor (_tmp220_);
+#line 566 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp222_ = _tmp221_;
+#line 566 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp222_ != NULL) {
+#line 5569 "symbol_finder.c"
 					ValaProperty* _tmp223_;
 					ValaPropertyAccessor* _tmp224_;
 					ValaPropertyAccessor* _tmp225_;
@@ -3532,27 +5573,48 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 					ValaBlock* _tmp227_;
 					ValaSymbol* _tmp228_;
 					ValaSymbol* _tmp229_;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp223_ = s;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp224_ = vala_property_get_set_accessor (_tmp223_);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp225_ = _tmp224_;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp226_ = vala_subroutine_get_body ((ValaSubroutine*) _tmp225_);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp227_ = _tmp226_;
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp228_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp227_, word, file, line, col);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (sym);
+#line 568 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					sym = _tmp228_;
+#line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp229_ = sym;
+#line 569 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp229_ != NULL) {
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = sym;
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (s);
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_iterable_unref0 (_s_list);
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (objectTypeSymbol);
+#line 570 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 5607 "symbol_finder.c"
 					}
 				}
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5614 "symbol_finder.c"
 			}
+#line 555 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5618 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3563,15 +5625,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp233_;
 			gint _tmp234_;
 			gint _s_index = 0;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp230_ = objectTypeSymbol;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp231_ = vala_object_type_symbol_get_methods (_tmp230_);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp231_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp232_ = _s_list;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp233_ = vala_collection_get_size ((ValaCollection*) _tmp232_);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp234_ = _tmp233_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp234_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5647 "symbol_finder.c"
 				ValaMethod* s = NULL;
 				ValaList* _tmp235_;
 				gpointer _tmp236_;
@@ -3579,28 +5651,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaMethod* _tmp237_;
 				ValaSymbol* _tmp238_;
 				ValaSymbol* _tmp239_;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5661 "symbol_finder.c"
 				}
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp235_ = _s_list;
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp236_ = vala_list_get (_tmp235_, _s_index);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaMethod*) _tmp236_;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp237_ = s;
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp238_ = vala_develop_symbol_finder_find_name_inside_method (self, _tmp237_, word, file, line, col);
+#line 575 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp238_;
+#line 576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp239_ = sym;
+#line 576 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp239_ != NULL) {
+#line 577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (objectTypeSymbol);
+#line 577 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5689 "symbol_finder.c"
 				}
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5695 "symbol_finder.c"
 			}
+#line 573 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5699 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3611,15 +5706,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp243_;
 			gint _tmp244_;
 			gint _s_index = 0;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp240_ = objectTypeSymbol;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp241_ = vala_object_type_symbol_get_fields (_tmp240_);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp241_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp242_ = _s_list;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp243_ = vala_collection_get_size ((ValaCollection*) _tmp242_);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp244_ = _tmp243_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp244_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5728 "symbol_finder.c"
 				ValaField* s = NULL;
 				ValaList* _tmp245_;
 				gpointer _tmp246_;
@@ -3627,28 +5732,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaField* _tmp247_;
 				ValaSymbol* _tmp248_;
 				ValaSymbol* _tmp249_;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5742 "symbol_finder.c"
 				}
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp245_ = _s_list;
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp246_ = vala_list_get (_tmp245_, _s_index);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaField*) _tmp246_;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp247_ = s;
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp248_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp247_, word, file, line, col);
+#line 581 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp248_;
+#line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp249_ = sym;
+#line 582 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp249_ != NULL) {
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (objectTypeSymbol);
+#line 583 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5770 "symbol_finder.c"
 				}
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5776 "symbol_finder.c"
 			}
+#line 579 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5780 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3659,15 +5787,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp253_;
 			gint _tmp254_;
 			gint _s_index = 0;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp250_ = objectTypeSymbol;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp251_ = vala_object_type_symbol_get_type_parameters (_tmp250_);
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp251_;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp252_ = _s_list;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp253_ = vala_collection_get_size ((ValaCollection*) _tmp252_);
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp254_ = _tmp253_;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp254_;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5809 "symbol_finder.c"
 				ValaTypeParameter* s = NULL;
 				ValaList* _tmp255_;
 				gpointer _tmp256_;
@@ -3675,28 +5813,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaTypeParameter* _tmp257_;
 				ValaSymbol* _tmp258_;
 				ValaSymbol* _tmp259_;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5823 "symbol_finder.c"
 				}
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp255_ = _s_list;
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp256_ = vala_list_get (_tmp255_, _s_index);
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaTypeParameter*) _tmp256_;
+#line 587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp257_ = s;
+#line 587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp258_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp257_, word, file, line, col);
+#line 587 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp258_;
+#line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp259_ = sym;
+#line 588 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp259_ != NULL) {
+#line 589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (objectTypeSymbol);
+#line 589 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5851 "symbol_finder.c"
 				}
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5857 "symbol_finder.c"
 			}
+#line 585 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5861 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -3707,15 +5868,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp263_;
 			gint _tmp264_;
 			gint _s_index = 0;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp260_ = objectTypeSymbol;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp261_ = vala_object_type_symbol_get_signals (_tmp260_);
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp261_;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp262_ = _s_list;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp263_ = vala_collection_get_size ((ValaCollection*) _tmp262_);
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp264_ = _tmp263_;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp264_;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 5890 "symbol_finder.c"
 				ValaSignal* s = NULL;
 				ValaList* _tmp265_;
 				gpointer _tmp266_;
@@ -3723,32 +5894,59 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaSignal* _tmp267_;
 				ValaSymbol* _tmp268_;
 				ValaSymbol* _tmp269_;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 5904 "symbol_finder.c"
 				}
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp265_ = _s_list;
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp266_ = vala_list_get (_tmp265_, _s_index);
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaSignal*) _tmp266_;
+#line 593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp267_ = s;
+#line 593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp268_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp267_, word, file, line, col);
+#line 593 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp268_;
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp269_ = sym;
+#line 594 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp269_ != NULL) {
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (objectTypeSymbol);
+#line 595 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 5932 "symbol_finder.c"
 				}
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 5938 "symbol_finder.c"
 			}
+#line 591 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 5942 "symbol_finder.c"
 		}
+#line 552 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (objectTypeSymbol);
+#line 5946 "symbol_finder.c"
 	}
+#line 598 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_SUBROUTINE)) {
+#line 5950 "symbol_finder.c"
 		ValaSubroutine* sub = NULL;
 		ValaSubroutine* _tmp270_;
 		ValaSymbol* sym = NULL;
@@ -3757,27 +5955,48 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 		ValaBlock* _tmp273_;
 		ValaSymbol* _tmp274_;
 		ValaSymbol* _tmp275_;
+#line 600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp270_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_SUBROUTINE, ValaSubroutine));
+#line 600 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		sub = _tmp270_;
+#line 601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp271_ = sub;
+#line 601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp272_ = vala_subroutine_get_body (_tmp271_);
+#line 601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp273_ = _tmp272_;
+#line 601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp274_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp273_, word, file, line, col);
+#line 601 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		sym = _tmp274_;
+#line 602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp275_ = sym;
+#line 602 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp275_ != NULL) {
+#line 603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = sym;
+#line 603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (sub);
+#line 603 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 5983 "symbol_finder.c"
 		}
+#line 598 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (sym);
+#line 598 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (sub);
+#line 5989 "symbol_finder.c"
 	}
+#line 605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (symbol, VALA_TYPE_BLOCK)) {
+#line 5993 "symbol_finder.c"
 		ValaBlock* bl = NULL;
 		ValaBlock* _tmp276_;
+#line 607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp276_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (symbol, VALA_TYPE_BLOCK, ValaBlock));
+#line 607 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		bl = _tmp276_;
+#line 6000 "symbol_finder.c"
 		{
 			ValaList* _local_list = NULL;
 			ValaBlock* _tmp277_;
@@ -3787,15 +6006,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp280_;
 			gint _tmp281_;
 			gint _local_index = 0;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp277_ = bl;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp278_ = vala_block_get_local_variables (_tmp277_);
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_local_list = _tmp278_;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp279_ = _local_list;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp280_ = vala_collection_get_size ((ValaCollection*) _tmp279_);
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp281_ = _tmp280_;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_local_size = _tmp281_;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_local_index = -1;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 6028 "symbol_finder.c"
 				ValaLocalVariable* local = NULL;
 				ValaList* _tmp282_;
 				gpointer _tmp283_;
@@ -3803,28 +6032,51 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaLocalVariable* _tmp284_;
 				ValaSymbol* _tmp285_;
 				ValaSymbol* _tmp286_;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_local_index = _local_index + 1;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_local_index < _local_size)) {
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 6042 "symbol_finder.c"
 				}
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp282_ = _local_list;
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp283_ = vala_list_get (_tmp282_, _local_index);
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				local = (ValaLocalVariable*) _tmp283_;
+#line 610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp284_ = local;
+#line 610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp285_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp284_, word, file, line, col);
+#line 610 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				retVal = _tmp285_;
+#line 611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp286_ = retVal;
+#line 611 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp286_ != NULL) {
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = retVal;
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (local);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_local_list);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (bl);
+#line 612 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 6070 "symbol_finder.c"
 				}
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (retVal);
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (local);
+#line 6076 "symbol_finder.c"
 			}
+#line 608 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_local_list);
+#line 6080 "symbol_finder.c"
 		}
 		{
 			ValaList* _st_list = NULL;
@@ -3835,15 +6087,25 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 			gint _tmp290_;
 			gint _tmp291_;
 			gint _st_index = 0;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp287_ = bl;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp288_ = vala_block_get_statements (_tmp287_);
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_list = _tmp288_;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp289_ = _st_list;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp290_ = vala_collection_get_size ((ValaCollection*) _tmp289_);
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp291_ = _tmp290_;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_size = _tmp291_;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_index = -1;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 6109 "symbol_finder.c"
 				ValaStatement* st = NULL;
 				ValaList* _tmp292_;
 				gpointer _tmp293_;
@@ -3851,33 +6113,61 @@ vala_develop_symbol_finder_find_name_inside_symbol (valaDevelopSymbolFinder* sel
 				ValaStatement* _tmp294_;
 				ValaSymbol* _tmp295_;
 				ValaSymbol* _tmp296_;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_st_index = _st_index + 1;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_st_index < _st_size)) {
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 6123 "symbol_finder.c"
 				}
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp292_ = _st_list;
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp293_ = vala_list_get (_tmp292_, _st_index);
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				st = (ValaStatement*) _tmp293_;
+#line 616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp294_ = st;
+#line 616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp295_ = vala_develop_symbol_finder_find_name_inside_statement (self, _tmp294_, word, file, line, col);
+#line 616 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				retVal = _tmp295_;
+#line 617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp296_ = retVal;
+#line 617 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp296_ != NULL) {
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = retVal;
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (st);
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_st_list);
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (bl);
+#line 618 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 6151 "symbol_finder.c"
 				}
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (retVal);
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 6157 "symbol_finder.c"
 			}
+#line 614 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_st_list);
+#line 6161 "symbol_finder.c"
 		}
+#line 605 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (bl);
+#line 6165 "symbol_finder.c"
 	}
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = NULL;
+#line 621 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 6171 "symbol_finder.c"
 }
 
 static gboolean
@@ -3894,76 +6184,136 @@ vala_develop_symbol_finder_name_inside_source (ValaSourceReference* srcref,
 	ValaSourceFile* _tmp2_;
 	ValaSourceFileType _tmp3_;
 	ValaSourceFileType _tmp4_;
+#line 624 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, FALSE);
+#line 626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (srcref == NULL) {
+#line 626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = TRUE;
+#line 6194 "symbol_finder.c"
 	} else {
+#line 626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = member == NULL;
+#line 6198 "symbol_finder.c"
 	}
+#line 626 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp0_) {
+#line 627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = FALSE;
+#line 627 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 6206 "symbol_finder.c"
 	}
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = vala_source_reference_get_file (srcref);
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = _tmp1_;
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = vala_source_file_get_file_type (_tmp2_);
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = _tmp3_;
+#line 628 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp4_ == VALA_SOURCE_FILE_TYPE_SOURCE) {
+#line 6218 "symbol_finder.c"
 		ValaSourceFile* _tmp5_;
 		ValaSourceFile* _tmp6_;
 		gboolean _tmp7_ = FALSE;
 		ValaSourceLocation _tmp8_ = {0};
 		ValaSourceLocation _tmp9_;
+#line 630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp5_ = vala_source_reference_get_file (srcref);
+#line 630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp6_ = _tmp5_;
+#line 630 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp6_ != file) {
+#line 631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = FALSE;
+#line 631 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6234 "symbol_finder.c"
 		}
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_source_reference_get_begin (srcref, &_tmp8_);
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = _tmp8_;
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp9_.line <= line) {
+#line 6242 "symbol_finder.c"
 			ValaSourceLocation _tmp10_ = {0};
 			ValaSourceLocation _tmp11_;
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_source_reference_get_end (srcref, &_tmp10_);
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp11_ = _tmp10_;
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = _tmp11_.line >= line;
+#line 6251 "symbol_finder.c"
 		} else {
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = FALSE;
+#line 6255 "symbol_finder.c"
 		}
+#line 632 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (!_tmp7_) {
+#line 633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = FALSE;
+#line 633 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6263 "symbol_finder.c"
 		}
+#line 634 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (word != NULL) {
+#line 6267 "symbol_finder.c"
 			gboolean _tmp12_ = FALSE;
 			ValaSourceLocation _tmp13_ = {0};
 			ValaSourceLocation _tmp14_;
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			vala_source_reference_get_begin (srcref, &_tmp13_);
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _tmp13_;
-			if (_tmp14_.column <= (col + 1)) {
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
+			if (_tmp14_.column <= col) {
+#line 6277 "symbol_finder.c"
 				ValaSourceLocation _tmp15_ = {0};
 				ValaSourceLocation _tmp16_;
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_source_reference_get_end (srcref, &_tmp15_);
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp16_ = _tmp15_;
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp12_ = _tmp16_.column >= col;
+#line 6286 "symbol_finder.c"
 			} else {
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp12_ = FALSE;
+#line 6290 "symbol_finder.c"
 			}
+#line 636 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!_tmp12_) {
+#line 637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = FALSE;
+#line 637 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 6298 "symbol_finder.c"
 			}
 		}
 	}
+#line 640 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (word != NULL) {
+#line 642 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (g_strcmp0 (member, word) != 0) {
+#line 643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = FALSE;
+#line 643 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6310 "symbol_finder.c"
 		}
 	}
+#line 645 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = TRUE;
+#line 645 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 6317 "symbol_finder.c"
 }
 
 static ValaSymbol*
@@ -3978,52 +6328,88 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 	gboolean _tmp0_ = FALSE;
 	ValaSymbol* _tmp1_;
 	ValaSymbol* _tmp2_;
+#line 648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 648 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 651 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (expression == NULL) {
+#line 652 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 652 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 6342 "symbol_finder.c"
 	}
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = vala_expression_get_symbol_reference (expression);
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = _tmp1_;
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp2_ != NULL) {
+#line 6350 "symbol_finder.c"
 		ValaSymbol* _tmp3_;
 		ValaSymbol* _tmp4_;
 		const gchar* _tmp5_;
 		const gchar* _tmp6_;
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = vala_expression_get_symbol_reference (expression);
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _tmp3_;
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp5_ = vala_symbol_get_name (_tmp4_);
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp6_ = _tmp5_;
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = _tmp6_ != NULL;
+#line 6365 "symbol_finder.c"
 	} else {
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = FALSE;
+#line 6369 "symbol_finder.c"
 	}
+#line 659 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp0_) {
+#line 6373 "symbol_finder.c"
 		ValaSourceReference* _tmp7_;
 		ValaSourceReference* _tmp8_;
 		ValaSymbol* _tmp9_;
 		ValaSymbol* _tmp10_;
 		const gchar* _tmp11_;
 		const gchar* _tmp12_;
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp7_ = vala_code_node_get_source_reference ((ValaCodeNode*) expression);
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp8_ = _tmp7_;
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = vala_expression_get_symbol_reference (expression);
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp10_ = _tmp9_;
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = vala_symbol_get_name (_tmp10_);
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp12_ = _tmp11_;
+#line 661 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (vala_develop_symbol_finder_name_inside_source (_tmp8_, _tmp12_, file, word, line, col)) {
+#line 6394 "symbol_finder.c"
 			ValaSymbol* _tmp13_;
 			ValaSymbol* _tmp14_;
 			ValaSymbol* _tmp15_;
+#line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = vala_expression_get_symbol_reference (expression);
+#line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _tmp13_;
+#line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = _vala_code_node_ref0 (_tmp14_);
+#line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = _tmp15_;
+#line 662 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6408 "symbol_finder.c"
 		}
 	}
+#line 664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_ASSIGNMENT)) {
+#line 6413 "symbol_finder.c"
 		ValaAssignment* assignment = NULL;
 		ValaAssignment* _tmp16_;
 		ValaSymbol* sym = NULL;
@@ -4037,53 +6423,94 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 		ValaExpression* _tmp24_;
 		ValaSymbol* _tmp25_;
 		ValaSymbol* _tmp26_;
+#line 666 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_ASSIGNMENT, ValaAssignment));
+#line 666 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		assignment = _tmp16_;
+#line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = assignment;
+#line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = vala_assignment_get_left (_tmp17_);
+#line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _tmp18_;
+#line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp19_, word, file, line, col);
+#line 667 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		sym = _tmp20_;
+#line 668 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = sym;
+#line 668 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp21_ != NULL) {
+#line 669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = sym;
+#line 669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (assignment);
+#line 669 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6451 "symbol_finder.c"
 		}
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp22_ = assignment;
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp23_ = vala_assignment_get_right (_tmp22_);
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp24_ = _tmp23_;
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp25_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp24_, word, file, line, col);
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (sym);
+#line 670 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		sym = _tmp25_;
+#line 671 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp26_ = sym;
+#line 671 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp26_ != NULL) {
+#line 672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = sym;
+#line 672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (assignment);
+#line 672 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 6475 "symbol_finder.c"
 		}
+#line 664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (sym);
+#line 664 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (assignment);
+#line 6481 "symbol_finder.c"
 	} else {
+#line 674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_ARRAY_CREATION_EXPRESSION)) {
+#line 6485 "symbol_finder.c"
 			ValaArrayCreationExpression* arrayCreationExpression = NULL;
 			ValaArrayCreationExpression* _tmp27_;
 			ValaArrayCreationExpression* _tmp28_;
 			ValaInitializerList* _tmp29_;
 			ValaInitializerList* _tmp30_;
+#line 676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp27_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_ARRAY_CREATION_EXPRESSION, ValaArrayCreationExpression));
+#line 676 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			arrayCreationExpression = _tmp27_;
+#line 677 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp28_ = arrayCreationExpression;
+#line 677 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp29_ = vala_array_creation_expression_get_initializer_list (_tmp28_);
+#line 677 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp30_ = _tmp29_;
+#line 677 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp30_ != NULL) {
+#line 6503 "symbol_finder.c"
 				ValaArrayList* used = NULL;
 				GEqualFunc _tmp31_;
 				ValaArrayList* _tmp32_;
 				ValaArrayList* _tmp45_;
+#line 679 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp31_ = g_direct_equal;
+#line 679 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp32_ = vala_array_list_new (VALA_TYPE_VARIABLE, (GBoxedCopyFunc) vala_code_node_ref, (GDestroyNotify) vala_code_node_unref, _tmp31_);
+#line 679 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				used = _tmp32_;
+#line 6514 "symbol_finder.c"
 				{
 					ValaList* _exp_list = NULL;
 					ValaArrayCreationExpression* _tmp33_;
@@ -4095,17 +6522,29 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 					gint _tmp38_;
 					gint _tmp39_;
 					gint _exp_index = 0;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp33_ = arrayCreationExpression;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp34_ = vala_array_creation_expression_get_initializer_list (_tmp33_);
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp35_ = _tmp34_;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp36_ = vala_initializer_list_get_initializers (_tmp35_);
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_exp_list = _tmp36_;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp37_ = _exp_list;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp38_ = vala_collection_get_size ((ValaCollection*) _tmp37_);
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp39_ = _tmp38_;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_exp_size = _tmp39_;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_exp_index = -1;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					while (TRUE) {
+#line 6548 "symbol_finder.c"
 						ValaExpression* exp = NULL;
 						ValaList* _tmp40_;
 						gpointer _tmp41_;
@@ -4113,37 +6552,69 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 						ValaExpression* _tmp42_;
 						ValaSymbol* _tmp43_;
 						ValaSymbol* _tmp44_;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_exp_index = _exp_index + 1;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (!(_exp_index < _exp_size)) {
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							break;
+#line 6562 "symbol_finder.c"
 						}
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp40_ = _exp_list;
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp41_ = vala_list_get (_tmp40_, _exp_index);
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						exp = (ValaExpression*) _tmp41_;
+#line 682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp42_ = exp;
+#line 682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp43_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp42_, word, file, line, col);
+#line 682 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						sym = _tmp43_;
+#line 683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp44_ = sym;
+#line 683 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (_tmp44_ != NULL) {
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							result = sym;
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (exp);
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_iterable_unref0 (_exp_list);
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_iterable_unref0 (used);
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (arrayCreationExpression);
+#line 684 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							return result;
+#line 6592 "symbol_finder.c"
 						}
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (sym);
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (exp);
+#line 6598 "symbol_finder.c"
 					}
+#line 680 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_exp_list);
+#line 6602 "symbol_finder.c"
 				}
+#line 686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp45_ = used;
+#line 686 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				vala_collection_clear ((ValaCollection*) _tmp45_);
+#line 677 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (used);
+#line 6610 "symbol_finder.c"
 			}
+#line 674 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (arrayCreationExpression);
+#line 6614 "symbol_finder.c"
 		} else {
+#line 689 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_BINARY_EXPRESSION)) {
+#line 6618 "symbol_finder.c"
 				ValaBinaryExpression* binaryExpression = NULL;
 				ValaBinaryExpression* _tmp46_;
 				ValaSymbol* sym = NULL;
@@ -4157,35 +6628,65 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 				ValaExpression* _tmp54_;
 				ValaSymbol* _tmp55_;
 				ValaSymbol* _tmp56_;
+#line 691 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp46_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_BINARY_EXPRESSION, ValaBinaryExpression));
+#line 691 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				binaryExpression = _tmp46_;
+#line 692 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp47_ = binaryExpression;
+#line 692 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp48_ = vala_binary_expression_get_left (_tmp47_);
+#line 692 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp49_ = _tmp48_;
+#line 692 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp50_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp49_, word, file, line, col);
+#line 692 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp50_;
+#line 693 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp51_ = sym;
+#line 693 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp51_ != NULL) {
+#line 694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (binaryExpression);
+#line 694 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 6656 "symbol_finder.c"
 				}
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp52_ = binaryExpression;
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp53_ = vala_binary_expression_get_right (_tmp52_);
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp54_ = _tmp53_;
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp55_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp54_, word, file, line, col);
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 695 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp55_;
+#line 696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp56_ = sym;
+#line 696 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp56_ != NULL) {
+#line 697 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 697 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (binaryExpression);
+#line 697 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 6680 "symbol_finder.c"
 				}
+#line 689 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 689 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (binaryExpression);
+#line 6686 "symbol_finder.c"
 			} else {
+#line 699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_MEMBER_ACCESS)) {
+#line 6690 "symbol_finder.c"
 					ValaMemberAccess* memberAccess = NULL;
 					ValaMemberAccess* _tmp57_;
 					ValaMemberAccess* _tmp58_;
@@ -4197,53 +6698,93 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 					ValaMemberAccess* _tmp68_;
 					ValaExpression* _tmp69_;
 					ValaExpression* _tmp70_;
+#line 701 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp57_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_MEMBER_ACCESS, ValaMemberAccess));
+#line 701 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					memberAccess = _tmp57_;
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp58_ = memberAccess;
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp59_ = vala_code_node_get_source_reference ((ValaCodeNode*) _tmp58_);
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp60_ = _tmp59_;
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp61_ = memberAccess;
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp62_ = vala_member_access_get_member_name (_tmp61_);
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp63_ = _tmp62_;
+#line 702 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (vala_develop_symbol_finder_name_inside_source (_tmp60_, _tmp63_, file, word, line, col)) {
+#line 6720 "symbol_finder.c"
 						ValaMemberAccess* _tmp64_;
 						ValaSymbol* _tmp65_;
 						ValaSymbol* _tmp66_;
 						ValaSymbol* _tmp67_;
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp64_ = memberAccess;
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp65_ = vala_expression_get_symbol_reference ((ValaExpression*) _tmp64_);
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp66_ = _tmp65_;
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp67_ = _vala_code_node_ref0 (_tmp66_);
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = _tmp67_;
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (memberAccess);
+#line 703 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 6739 "symbol_finder.c"
 					}
+#line 704 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp68_ = memberAccess;
+#line 704 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp69_ = vala_member_access_get_inner (_tmp68_);
+#line 704 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp70_ = _tmp69_;
+#line 704 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp70_ != NULL) {
+#line 6749 "symbol_finder.c"
 						ValaSymbol* sym = NULL;
 						ValaMemberAccess* _tmp71_;
 						ValaExpression* _tmp72_;
 						ValaExpression* _tmp73_;
 						ValaSymbol* _tmp74_;
 						ValaSymbol* _tmp75_;
+#line 706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp71_ = memberAccess;
+#line 706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp72_ = vala_member_access_get_inner (_tmp71_);
+#line 706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp73_ = _tmp72_;
+#line 706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp74_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp73_, word, file, line, col);
+#line 706 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						sym = _tmp74_;
+#line 707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp75_ = sym;
+#line 707 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (_tmp75_ != NULL) {
+#line 708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							result = sym;
+#line 708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (memberAccess);
+#line 708 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							return result;
+#line 6776 "symbol_finder.c"
 						}
+#line 704 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (sym);
+#line 6780 "symbol_finder.c"
 					}
+#line 699 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (memberAccess);
+#line 6784 "symbol_finder.c"
 				} else {
+#line 711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_NAMED_ARGUMENT)) {
+#line 6788 "symbol_finder.c"
 						ValaNamedArgument* namedArgument = NULL;
 						ValaNamedArgument* _tmp76_;
 						ValaNamedArgument* _tmp77_;
@@ -4254,37 +6795,64 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 						ValaArrayList* _tmp86_;
 						ValaNamedArgument* _tmp87_;
 						ValaArrayList* _tmp88_;
+#line 713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp76_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_NAMED_ARGUMENT, ValaNamedArgument));
+#line 713 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						namedArgument = _tmp76_;
+#line 714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp77_ = namedArgument;
+#line 714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp78_ = vala_named_argument_get_inner (_tmp77_);
+#line 714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp79_ = _tmp78_;
+#line 714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (_tmp79_ != NULL) {
+#line 6811 "symbol_finder.c"
 							ValaSymbol* sym = NULL;
 							ValaNamedArgument* _tmp80_;
 							ValaExpression* _tmp81_;
 							ValaExpression* _tmp82_;
 							ValaSymbol* _tmp83_;
 							ValaSymbol* _tmp84_;
+#line 716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp80_ = namedArgument;
+#line 716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp81_ = vala_named_argument_get_inner (_tmp80_);
+#line 716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp82_ = _tmp81_;
+#line 716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp83_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp82_, word, file, line, col);
+#line 716 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							sym = _tmp83_;
+#line 717 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp84_ = sym;
+#line 717 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							if (_tmp84_ != NULL) {
+#line 718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								result = sym;
+#line 718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (namedArgument);
+#line 718 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								return result;
+#line 6838 "symbol_finder.c"
 							}
+#line 714 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (sym);
+#line 6842 "symbol_finder.c"
 						}
+#line 720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp85_ = g_direct_equal;
+#line 720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp86_ = vala_array_list_new (VALA_TYPE_VARIABLE, (GBoxedCopyFunc) vala_code_node_ref, (GDestroyNotify) vala_code_node_unref, _tmp85_);
+#line 720 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						used = _tmp86_;
+#line 721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp87_ = namedArgument;
+#line 721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp88_ = used;
+#line 721 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						vala_code_node_get_defined_variables ((ValaCodeNode*) _tmp87_, (ValaCollection*) _tmp88_);
+#line 6856 "symbol_finder.c"
 						{
 							ValaArrayList* _use_list = NULL;
 							ValaArrayList* _tmp89_;
@@ -4294,15 +6862,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 							gint _tmp92_;
 							gint _tmp93_;
 							gint _use_index = 0;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp89_ = used;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp90_ = _vala_iterable_ref0 (_tmp89_);
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_use_list = _tmp90_;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp91_ = _use_list;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp92_ = vala_collection_get_size ((ValaCollection*) _tmp91_);
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp93_ = _tmp92_;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_use_size = _tmp93_;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_use_index = -1;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							while (TRUE) {
+#line 6884 "symbol_finder.c"
 								ValaVariable* use = NULL;
 								ValaArrayList* _tmp94_;
 								gpointer _tmp95_;
@@ -4315,49 +6893,93 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 								ValaExpression* _tmp101_;
 								ValaSymbol* _tmp102_;
 								ValaSymbol* _tmp103_;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_use_index = _use_index + 1;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (!(_use_index < _use_size)) {
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									break;
+#line 6903 "symbol_finder.c"
 								}
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp94_ = _use_list;
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp95_ = vala_list_get ((ValaList*) _tmp94_, _use_index);
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								use = (ValaVariable*) _tmp95_;
+#line 724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp96_ = use;
+#line 724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp97_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp96_, word, file, line, col);
+#line 724 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								sym = _tmp97_;
+#line 725 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp98_ = sym;
+#line 725 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (_tmp98_ != NULL) {
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									result = sym;
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (use);
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_iterable_unref0 (_use_list);
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_iterable_unref0 (used);
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (namedArgument);
+#line 726 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									return result;
+#line 6933 "symbol_finder.c"
 								}
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp99_ = use;
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp100_ = vala_variable_get_initializer (_tmp99_);
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp101_ = _tmp100_;
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp102_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp101_, word, file, line, col);
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (sym);
+#line 727 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								sym = _tmp102_;
+#line 728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp103_ = sym;
+#line 728 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (_tmp103_ != NULL) {
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									result = sym;
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (use);
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_iterable_unref0 (_use_list);
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_iterable_unref0 (used);
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (namedArgument);
+#line 729 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									return result;
+#line 6963 "symbol_finder.c"
 								}
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (sym);
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (use);
+#line 6969 "symbol_finder.c"
 							}
+#line 722 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_iterable_unref0 (_use_list);
+#line 6973 "symbol_finder.c"
 						}
+#line 711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_iterable_unref0 (used);
+#line 711 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (namedArgument);
+#line 6979 "symbol_finder.c"
 					} else {
+#line 732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_ADDRESSOF_EXPRESSION)) {
+#line 6983 "symbol_finder.c"
 							ValaAddressofExpression* addressofExpression = NULL;
 							ValaAddressofExpression* _tmp104_;
 							ValaSymbol* sym = NULL;
@@ -4366,23 +6988,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 							ValaExpression* _tmp107_;
 							ValaSymbol* _tmp108_;
 							ValaSymbol* _tmp109_;
+#line 734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp104_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_ADDRESSOF_EXPRESSION, ValaAddressofExpression));
+#line 734 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							addressofExpression = _tmp104_;
+#line 735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp105_ = addressofExpression;
+#line 735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp106_ = vala_addressof_expression_get_inner (_tmp105_);
+#line 735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp107_ = _tmp106_;
+#line 735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp108_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp107_, word, file, line, col);
+#line 735 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							sym = _tmp108_;
+#line 736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp109_ = sym;
+#line 736 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							if (_tmp109_ != NULL) {
+#line 737 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								result = sym;
+#line 737 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (addressofExpression);
+#line 737 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								return result;
+#line 7016 "symbol_finder.c"
 							}
+#line 732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (sym);
+#line 732 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (addressofExpression);
+#line 7022 "symbol_finder.c"
 						} else {
+#line 739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_CAST_EXPRESSION)) {
+#line 7026 "symbol_finder.c"
 								ValaCastExpression* castExpression = NULL;
 								ValaCastExpression* _tmp110_;
 								ValaSymbol* sym = NULL;
@@ -4391,23 +7031,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 								ValaExpression* _tmp113_;
 								ValaSymbol* _tmp114_;
 								ValaSymbol* _tmp115_;
+#line 741 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp110_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_CAST_EXPRESSION, ValaCastExpression));
+#line 741 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								castExpression = _tmp110_;
+#line 742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp111_ = castExpression;
+#line 742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp112_ = vala_cast_expression_get_inner (_tmp111_);
+#line 742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp113_ = _tmp112_;
+#line 742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp114_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp113_, word, file, line, col);
+#line 742 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								sym = _tmp114_;
+#line 743 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp115_ = sym;
+#line 743 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (_tmp115_ != NULL) {
+#line 744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									result = sym;
+#line 744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (castExpression);
+#line 744 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									return result;
+#line 7059 "symbol_finder.c"
 								}
+#line 739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (sym);
+#line 739 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (castExpression);
+#line 7065 "symbol_finder.c"
 							} else {
+#line 746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_CONDITIONAL_EXPRESSION)) {
+#line 7069 "symbol_finder.c"
 									ValaConditionalExpression* conditionalExpression = NULL;
 									ValaConditionalExpression* _tmp116_;
 									ValaSymbol* sym = NULL;
@@ -4426,47 +7084,89 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 									ValaExpression* _tmp129_;
 									ValaSymbol* _tmp130_;
 									ValaSymbol* _tmp131_;
+#line 748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp116_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_CONDITIONAL_EXPRESSION, ValaConditionalExpression));
+#line 748 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									conditionalExpression = _tmp116_;
+#line 749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp117_ = conditionalExpression;
+#line 749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp118_ = vala_conditional_expression_get_condition (_tmp117_);
+#line 749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp119_ = _tmp118_;
+#line 749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp120_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp119_, word, file, line, col);
+#line 749 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									sym = _tmp120_;
+#line 750 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp121_ = sym;
+#line 750 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp121_ != NULL) {
+#line 751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										result = sym;
+#line 751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (conditionalExpression);
+#line 751 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										return result;
+#line 7112 "symbol_finder.c"
 									}
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp122_ = conditionalExpression;
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp123_ = vala_conditional_expression_get_true_expression (_tmp122_);
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp124_ = _tmp123_;
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp125_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp124_, word, file, line, col);
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (sym);
+#line 752 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									sym = _tmp125_;
+#line 753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp126_ = sym;
+#line 753 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp126_ != NULL) {
+#line 754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										result = sym;
+#line 754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (conditionalExpression);
+#line 754 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										return result;
+#line 7136 "symbol_finder.c"
 									}
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp127_ = conditionalExpression;
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp128_ = vala_conditional_expression_get_false_expression (_tmp127_);
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp129_ = _tmp128_;
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp130_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp129_, word, file, line, col);
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (sym);
+#line 755 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									sym = _tmp130_;
+#line 756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp131_ = sym;
+#line 756 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp131_ != NULL) {
+#line 757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										result = sym;
+#line 757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (conditionalExpression);
+#line 757 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										return result;
+#line 7160 "symbol_finder.c"
 									}
+#line 746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (sym);
+#line 746 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (conditionalExpression);
+#line 7166 "symbol_finder.c"
 								} else {
+#line 759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_ELEMENT_ACCESS)) {
+#line 7170 "symbol_finder.c"
 										ValaElementAccess* elementAccess = NULL;
 										ValaElementAccess* _tmp132_;
 										ValaSymbol* sym = NULL;
@@ -4475,23 +7175,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 										ValaExpression* _tmp135_;
 										ValaSymbol* _tmp136_;
 										ValaSymbol* _tmp137_;
+#line 761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp132_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_ELEMENT_ACCESS, ValaElementAccess));
+#line 761 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										elementAccess = _tmp132_;
+#line 762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp133_ = elementAccess;
+#line 762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp134_ = vala_element_access_get_container (_tmp133_);
+#line 762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp135_ = _tmp134_;
+#line 762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp136_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp135_, word, file, line, col);
+#line 762 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										sym = _tmp136_;
+#line 763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp137_ = sym;
+#line 763 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp137_ != NULL) {
+#line 764 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											result = sym;
+#line 764 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (elementAccess);
+#line 764 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											return result;
+#line 7203 "symbol_finder.c"
 										}
+#line 759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (sym);
+#line 759 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (elementAccess);
+#line 7209 "symbol_finder.c"
 									} else {
+#line 766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_OBJECT_CREATION_EXPRESSION)) {
+#line 7213 "symbol_finder.c"
 											ValaObjectCreationExpression* objectCreationExpression = NULL;
 											ValaObjectCreationExpression* _tmp138_;
 											ValaObjectCreationExpression* _tmp139_;
@@ -4510,30 +7228,50 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 											ValaArrayList* _tmp170_;
 											ValaObjectCreationExpression* _tmp171_;
 											ValaArrayList* _tmp172_;
+#line 768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp138_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_OBJECT_CREATION_EXPRESSION, ValaObjectCreationExpression));
+#line 768 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											objectCreationExpression = _tmp138_;
+#line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp139_ = objectCreationExpression;
+#line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp140_ = vala_object_creation_expression_get_member_name (_tmp139_);
+#line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp141_ = _tmp140_;
+#line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (_tmp141_ != NULL) {
+#line 7244 "symbol_finder.c"
 												ValaSymbol* sym = NULL;
 												ValaObjectCreationExpression* _tmp142_;
 												ValaMemberAccess* _tmp143_;
 												ValaMemberAccess* _tmp144_;
 												ValaSymbol* _tmp145_;
 												ValaSymbol* _tmp146_;
+#line 771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp142_ = objectCreationExpression;
+#line 771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp143_ = vala_object_creation_expression_get_member_name (_tmp142_);
+#line 771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp144_ = _tmp143_;
+#line 771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp145_ = vala_develop_symbol_finder_find_name_inside_expression (self, (ValaExpression*) _tmp144_, word, file, line, col);
+#line 771 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												sym = _tmp145_;
+#line 772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp146_ = sym;
+#line 772 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp146_ != NULL) {
+#line 773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = sym;
+#line 773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (objectCreationExpression);
+#line 773 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 7271 "symbol_finder.c"
 												}
+#line 769 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (sym);
+#line 7275 "symbol_finder.c"
 											}
 											{
 												ValaList* _argument_list = NULL;
@@ -4544,15 +7282,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 												gint _tmp150_;
 												gint _tmp151_;
 												gint _argument_index = 0;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp147_ = objectCreationExpression;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp148_ = vala_object_creation_expression_get_argument_list (_tmp147_);
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_argument_list = _tmp148_;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp149_ = _argument_list;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp150_ = vala_collection_get_size ((ValaCollection*) _tmp149_);
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp151_ = _tmp150_;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_argument_size = _tmp151_;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_argument_index = -1;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												while (TRUE) {
+#line 7304 "symbol_finder.c"
 													ValaExpression* argument = NULL;
 													ValaList* _tmp152_;
 													gpointer _tmp153_;
@@ -4560,56 +7308,104 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 													ValaExpression* _tmp154_;
 													ValaSymbol* _tmp155_;
 													ValaSymbol* _tmp156_;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_argument_index = _argument_index + 1;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (!(_argument_index < _argument_size)) {
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														break;
+#line 7318 "symbol_finder.c"
 													}
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp152_ = _argument_list;
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp153_ = vala_list_get (_tmp152_, _argument_index);
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													argument = (ValaExpression*) _tmp153_;
+#line 777 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp154_ = argument;
+#line 777 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp155_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp154_, word, file, line, col);
+#line 777 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													sym = _tmp155_;
+#line 778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp156_ = sym;
+#line 778 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp156_ != NULL) {
+#line 779 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = sym;
+#line 779 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (argument);
+#line 779 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (_argument_list);
+#line 779 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (objectCreationExpression);
+#line 779 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 7346 "symbol_finder.c"
 													}
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (sym);
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (argument);
+#line 7352 "symbol_finder.c"
 												}
+#line 775 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_iterable_unref0 (_argument_list);
+#line 7356 "symbol_finder.c"
 											}
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp157_ = objectCreationExpression;
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp158_ = vala_code_node_get_source_reference ((ValaCodeNode*) _tmp157_);
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp159_ = _tmp158_;
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp160_ = objectCreationExpression;
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp161_ = vala_object_creation_expression_get_member_name (_tmp160_);
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp162_ = _tmp161_;
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp163_ = vala_member_access_get_member_name (_tmp162_);
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp164_ = _tmp163_;
+#line 781 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (vala_develop_symbol_finder_name_inside_source (_tmp159_, _tmp164_, file, word, line, col)) {
+#line 7376 "symbol_finder.c"
 												ValaObjectCreationExpression* _tmp165_;
 												ValaSymbol* _tmp166_;
 												ValaSymbol* _tmp167_;
 												ValaSymbol* _tmp168_;
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp165_ = objectCreationExpression;
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp166_ = vala_expression_get_symbol_reference ((ValaExpression*) _tmp165_);
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp167_ = _tmp166_;
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp168_ = _vala_code_node_ref0 (_tmp167_);
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												result = _tmp168_;
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (objectCreationExpression);
+#line 782 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												return result;
+#line 7395 "symbol_finder.c"
 											}
+#line 783 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp169_ = g_direct_equal;
+#line 783 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp170_ = vala_array_list_new (VALA_TYPE_VARIABLE, (GBoxedCopyFunc) vala_code_node_ref, (GDestroyNotify) vala_code_node_unref, _tmp169_);
+#line 783 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											used = _tmp170_;
+#line 784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp171_ = objectCreationExpression;
+#line 784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp172_ = used;
+#line 784 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											vala_code_node_get_defined_variables ((ValaCodeNode*) _tmp171_, (ValaCollection*) _tmp172_);
+#line 7409 "symbol_finder.c"
 											{
 												ValaArrayList* _use_list = NULL;
 												ValaArrayList* _tmp173_;
@@ -4619,15 +7415,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 												gint _tmp176_;
 												gint _tmp177_;
 												gint _use_index = 0;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp173_ = used;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp174_ = _vala_iterable_ref0 (_tmp173_);
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_use_list = _tmp174_;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp175_ = _use_list;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp176_ = vala_collection_get_size ((ValaCollection*) _tmp175_);
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp177_ = _tmp176_;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_use_size = _tmp177_;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_use_index = -1;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												while (TRUE) {
+#line 7437 "symbol_finder.c"
 													ValaVariable* use = NULL;
 													ValaArrayList* _tmp178_;
 													gpointer _tmp179_;
@@ -4640,49 +7446,93 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 													ValaExpression* _tmp185_;
 													ValaSymbol* _tmp186_;
 													ValaSymbol* _tmp187_;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_use_index = _use_index + 1;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (!(_use_index < _use_size)) {
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														break;
+#line 7456 "symbol_finder.c"
 													}
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp178_ = _use_list;
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp179_ = vala_list_get ((ValaList*) _tmp178_, _use_index);
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													use = (ValaVariable*) _tmp179_;
+#line 787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp180_ = use;
+#line 787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp181_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp180_, word, file, line, col);
+#line 787 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													sym = _tmp181_;
+#line 788 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp182_ = sym;
+#line 788 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp182_ != NULL) {
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = sym;
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (use);
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (_use_list);
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (used);
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (objectCreationExpression);
+#line 789 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 7486 "symbol_finder.c"
 													}
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp183_ = use;
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp184_ = vala_variable_get_initializer (_tmp183_);
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp185_ = _tmp184_;
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp186_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp185_, word, file, line, col);
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (sym);
+#line 790 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													sym = _tmp186_;
+#line 791 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp187_ = sym;
+#line 791 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp187_ != NULL) {
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = sym;
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (use);
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (_use_list);
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (used);
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (objectCreationExpression);
+#line 792 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 7516 "symbol_finder.c"
 													}
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (sym);
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (use);
+#line 7522 "symbol_finder.c"
 												}
+#line 785 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_iterable_unref0 (_use_list);
+#line 7526 "symbol_finder.c"
 											}
+#line 766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_iterable_unref0 (used);
+#line 766 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (objectCreationExpression);
+#line 7532 "symbol_finder.c"
 										} else {
+#line 795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_POSTFIX_EXPRESSION)) {
+#line 7536 "symbol_finder.c"
 												ValaPostfixExpression* postfixExpression = NULL;
 												ValaPostfixExpression* _tmp188_;
 												ValaSymbol* sym = NULL;
@@ -4691,23 +7541,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 												ValaExpression* _tmp191_;
 												ValaSymbol* _tmp192_;
 												ValaSymbol* _tmp193_;
+#line 797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp188_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_POSTFIX_EXPRESSION, ValaPostfixExpression));
+#line 797 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												postfixExpression = _tmp188_;
+#line 798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp189_ = postfixExpression;
+#line 798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp190_ = vala_postfix_expression_get_inner (_tmp189_);
+#line 798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp191_ = _tmp190_;
+#line 798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp192_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp191_, word, file, line, col);
+#line 798 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												sym = _tmp192_;
+#line 799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp193_ = sym;
+#line 799 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp193_ != NULL) {
+#line 800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = sym;
+#line 800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (postfixExpression);
+#line 800 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 7569 "symbol_finder.c"
 												}
+#line 795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (sym);
+#line 795 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (postfixExpression);
+#line 7575 "symbol_finder.c"
 											} else {
+#line 802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_LAMBDA_EXPRESSION)) {
+#line 7579 "symbol_finder.c"
 													ValaLambdaExpression* lambdaExpression = NULL;
 													ValaLambdaExpression* _tmp194_;
 													ValaSymbol* sym = NULL;
@@ -4716,18 +7584,31 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 													ValaBlock* _tmp197_;
 													ValaSymbol* _tmp198_;
 													ValaSymbol* _tmp199_;
+#line 804 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp194_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_LAMBDA_EXPRESSION, ValaLambdaExpression));
+#line 804 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													lambdaExpression = _tmp194_;
+#line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp195_ = lambdaExpression;
+#line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp196_ = vala_lambda_expression_get_statement_body (_tmp195_);
+#line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp197_ = _tmp196_;
+#line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp198_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp197_, word, file, line, col);
+#line 805 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													sym = _tmp198_;
+#line 806 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp199_ = sym;
+#line 806 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp199_ != NULL) {
+#line 807 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = sym;
+#line 807 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (lambdaExpression);
+#line 807 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 7612 "symbol_finder.c"
 													}
 													{
 														ValaList* _parameter_list = NULL;
@@ -4738,48 +7619,86 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 														gint _tmp203_;
 														gint _tmp204_;
 														gint _parameter_index = 0;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp200_ = lambdaExpression;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp201_ = vala_lambda_expression_get_parameters (_tmp200_);
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_parameter_list = _tmp201_;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp202_ = _parameter_list;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp203_ = vala_collection_get_size ((ValaCollection*) _tmp202_);
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp204_ = _tmp203_;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_parameter_size = _tmp204_;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_parameter_index = -1;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														while (TRUE) {
+#line 7641 "symbol_finder.c"
 															ValaParameter* parameter = NULL;
 															ValaList* _tmp205_;
 															gpointer _tmp206_;
 															ValaParameter* _tmp207_;
 															ValaSymbol* _tmp208_;
 															ValaSymbol* _tmp209_;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_parameter_index = _parameter_index + 1;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															if (!(_parameter_index < _parameter_size)) {
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																break;
+#line 7654 "symbol_finder.c"
 															}
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp205_ = _parameter_list;
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp206_ = vala_list_get (_tmp205_, _parameter_index);
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															parameter = (ValaParameter*) _tmp206_;
+#line 810 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp207_ = parameter;
+#line 810 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp208_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp207_, word, file, line, col);
+#line 810 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (sym);
+#line 810 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															sym = _tmp208_;
+#line 811 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp209_ = sym;
+#line 811 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															if (_tmp209_ != NULL) {
+#line 812 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																result = sym;
+#line 812 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (parameter);
+#line 812 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_iterable_unref0 (_parameter_list);
+#line 812 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (lambdaExpression);
+#line 812 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																return result;
+#line 7684 "symbol_finder.c"
 															}
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (parameter);
+#line 7688 "symbol_finder.c"
 														}
+#line 808 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (_parameter_list);
+#line 7692 "symbol_finder.c"
 													}
+#line 802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (sym);
+#line 802 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (lambdaExpression);
+#line 7698 "symbol_finder.c"
 												} else {
+#line 815 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_REFERENCE_TRANSFER_EXPRESSION)) {
+#line 7702 "symbol_finder.c"
 														ValaReferenceTransferExpression* referenceTransferExpression = NULL;
 														ValaReferenceTransferExpression* _tmp210_;
 														ValaSymbol* sym = NULL;
@@ -4788,23 +7707,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 														ValaExpression* _tmp213_;
 														ValaSymbol* _tmp214_;
 														ValaSymbol* _tmp215_;
+#line 817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp210_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_REFERENCE_TRANSFER_EXPRESSION, ValaReferenceTransferExpression));
+#line 817 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														referenceTransferExpression = _tmp210_;
+#line 818 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp211_ = referenceTransferExpression;
+#line 818 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp212_ = vala_reference_transfer_expression_get_inner (_tmp211_);
+#line 818 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp213_ = _tmp212_;
+#line 818 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp214_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp213_, word, file, line, col);
+#line 818 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														sym = _tmp214_;
+#line 819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp215_ = sym;
+#line 819 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														if (_tmp215_ != NULL) {
+#line 820 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															result = sym;
+#line 820 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (referenceTransferExpression);
+#line 820 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															return result;
+#line 7735 "symbol_finder.c"
 														}
+#line 815 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (sym);
+#line 815 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (referenceTransferExpression);
+#line 7741 "symbol_finder.c"
 													} else {
+#line 822 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_UNARY_EXPRESSION)) {
+#line 7745 "symbol_finder.c"
 															ValaUnaryExpression* unaryExpression = NULL;
 															ValaUnaryExpression* _tmp216_;
 															ValaSymbol* sym = NULL;
@@ -4813,23 +7750,41 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 															ValaExpression* _tmp219_;
 															ValaSymbol* _tmp220_;
 															ValaSymbol* _tmp221_;
+#line 824 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp216_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_UNARY_EXPRESSION, ValaUnaryExpression));
+#line 824 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															unaryExpression = _tmp216_;
+#line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp217_ = unaryExpression;
+#line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp218_ = vala_unary_expression_get_inner (_tmp217_);
+#line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp219_ = _tmp218_;
+#line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp220_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp219_, word, file, line, col);
+#line 825 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															sym = _tmp220_;
+#line 826 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_tmp221_ = sym;
+#line 826 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															if (_tmp221_ != NULL) {
+#line 827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																result = sym;
+#line 827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (unaryExpression);
+#line 827 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																return result;
+#line 7778 "symbol_finder.c"
 															}
+#line 822 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (sym);
+#line 822 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (unaryExpression);
+#line 7784 "symbol_finder.c"
 														} else {
+#line 829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_SLICE_EXPRESSION)) {
+#line 7788 "symbol_finder.c"
 																ValaSliceExpression* sliceExpression = NULL;
 																ValaSliceExpression* _tmp222_;
 																ValaSymbol* sym = NULL;
@@ -4848,51 +7803,96 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																ValaExpression* _tmp235_;
 																ValaSymbol* _tmp236_;
 																ValaSymbol* _tmp237_;
+#line 831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp222_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_SLICE_EXPRESSION, ValaSliceExpression));
+#line 831 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																sliceExpression = _tmp222_;
+#line 832 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp223_ = sliceExpression;
+#line 832 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp224_ = vala_slice_expression_get_container (_tmp223_);
+#line 832 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp225_ = _tmp224_;
+#line 832 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp226_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp225_, word, file, line, col);
+#line 832 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																sym = _tmp226_;
+#line 833 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp227_ = sym;
+#line 833 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																if (_tmp227_ != NULL) {
+#line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	result = sym;
+#line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	_vala_code_node_unref0 (sliceExpression);
+#line 834 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	return result;
+#line 7831 "symbol_finder.c"
 																}
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp228_ = sliceExpression;
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp229_ = vala_slice_expression_get_start (_tmp228_);
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp230_ = _tmp229_;
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp231_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp230_, word, file, line, col);
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (sym);
+#line 835 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																sym = _tmp231_;
+#line 836 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp232_ = sym;
+#line 836 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																if (_tmp232_ != NULL) {
+#line 837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	result = sym;
+#line 837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	_vala_code_node_unref0 (sliceExpression);
+#line 837 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	return result;
+#line 7855 "symbol_finder.c"
 																}
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp233_ = sliceExpression;
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp234_ = vala_slice_expression_get_stop (_tmp233_);
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp235_ = _tmp234_;
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp236_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp235_, word, file, line, col);
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (sym);
+#line 838 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																sym = _tmp236_;
+#line 839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_tmp237_ = sym;
+#line 839 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																if (_tmp237_ != NULL) {
+#line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	result = sym;
+#line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	_vala_code_node_unref0 (sliceExpression);
+#line 840 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	return result;
+#line 7879 "symbol_finder.c"
 																}
+#line 829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (sym);
+#line 829 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																_vala_code_node_unref0 (sliceExpression);
+#line 7885 "symbol_finder.c"
 															} else {
+#line 842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_TEMPLATE)) {
+#line 7889 "symbol_finder.c"
 																	ValaTemplate* template = NULL;
 																	ValaTemplate* _tmp238_;
+#line 844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	_tmp238_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_TEMPLATE, ValaTemplate));
+#line 844 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	template = _tmp238_;
+#line 7896 "symbol_finder.c"
 																	{
 																		ValaList* _exp_list = NULL;
 																		ValaTemplate* _tmp239_;
@@ -4902,15 +7902,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																		gint _tmp242_;
 																		gint _tmp243_;
 																		gint _exp_index = 0;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp239_ = template;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp240_ = vala_template_get_expressions (_tmp239_);
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_exp_list = _tmp240_;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp241_ = _exp_list;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp242_ = vala_collection_get_size ((ValaCollection*) _tmp241_);
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp243_ = _tmp242_;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_exp_size = _tmp243_;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_exp_index = -1;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		while (TRUE) {
+#line 7924 "symbol_finder.c"
 																			ValaExpression* exp = NULL;
 																			ValaList* _tmp244_;
 																			gpointer _tmp245_;
@@ -4918,36 +7928,66 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																			ValaExpression* _tmp246_;
 																			ValaSymbol* _tmp247_;
 																			ValaSymbol* _tmp248_;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_exp_index = _exp_index + 1;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (!(_exp_index < _exp_size)) {
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				break;
+#line 7938 "symbol_finder.c"
 																			}
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp244_ = _exp_list;
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp245_ = vala_list_get (_tmp244_, _exp_index);
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			exp = (ValaExpression*) _tmp245_;
+#line 847 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp246_ = exp;
+#line 847 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp247_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp246_, word, file, line, col);
+#line 847 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			sym = _tmp247_;
+#line 848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp248_ = sym;
+#line 848 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (_tmp248_ != NULL) {
+#line 849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				result = sym;
+#line 849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (exp);
+#line 849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_iterable_unref0 (_exp_list);
+#line 849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (template);
+#line 849 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				return result;
+#line 7966 "symbol_finder.c"
 																			}
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (sym);
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (exp);
+#line 7972 "symbol_finder.c"
 																		}
+#line 845 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_vala_iterable_unref0 (_exp_list);
+#line 7976 "symbol_finder.c"
 																	}
+#line 842 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	_vala_code_node_unref0 (template);
+#line 7980 "symbol_finder.c"
 																} else {
+#line 852 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_TUPLE)) {
+#line 7984 "symbol_finder.c"
 																		ValaTuple* tuple = NULL;
 																		ValaTuple* _tmp249_;
+#line 854 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp249_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_TUPLE, ValaTuple));
+#line 854 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		tuple = _tmp249_;
+#line 7991 "symbol_finder.c"
 																		{
 																			ValaList* _exp_list = NULL;
 																			ValaTuple* _tmp250_;
@@ -4957,15 +7997,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																			gint _tmp253_;
 																			gint _tmp254_;
 																			gint _exp_index = 0;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp250_ = tuple;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp251_ = vala_tuple_get_expressions (_tmp250_);
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_exp_list = _tmp251_;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp252_ = _exp_list;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp253_ = vala_collection_get_size ((ValaCollection*) _tmp252_);
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp254_ = _tmp253_;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_exp_size = _tmp254_;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_exp_index = -1;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			while (TRUE) {
+#line 8019 "symbol_finder.c"
 																				ValaExpression* exp = NULL;
 																				ValaList* _tmp255_;
 																				gpointer _tmp256_;
@@ -4973,32 +8023,59 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																				ValaExpression* _tmp257_;
 																				ValaSymbol* _tmp258_;
 																				ValaSymbol* _tmp259_;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_exp_index = _exp_index + 1;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				if (!(_exp_index < _exp_size)) {
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					break;
+#line 8033 "symbol_finder.c"
 																				}
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp255_ = _exp_list;
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp256_ = vala_list_get (_tmp255_, _exp_index);
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				exp = (ValaExpression*) _tmp256_;
+#line 857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp257_ = exp;
+#line 857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp258_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp257_, word, file, line, col);
+#line 857 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				sym = _tmp258_;
+#line 858 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp259_ = sym;
+#line 858 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				if (_tmp259_ != NULL) {
+#line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					result = sym;
+#line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_code_node_unref0 (exp);
+#line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_iterable_unref0 (_exp_list);
+#line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_code_node_unref0 (tuple);
+#line 859 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					return result;
+#line 8061 "symbol_finder.c"
 																				}
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (sym);
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (exp);
+#line 8067 "symbol_finder.c"
 																			}
+#line 855 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_iterable_unref0 (_exp_list);
+#line 8071 "symbol_finder.c"
 																		}
+#line 852 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_vala_code_node_unref0 (tuple);
+#line 8075 "symbol_finder.c"
 																	} else {
+#line 862 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_TYPECHECK)) {
+#line 8079 "symbol_finder.c"
 																			ValaTypeCheck* typeCheck = NULL;
 																			ValaTypeCheck* _tmp260_;
 																			ValaSymbol* sym = NULL;
@@ -5007,75 +8084,131 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																			ValaExpression* _tmp263_;
 																			ValaSymbol* _tmp264_;
 																			ValaSymbol* _tmp265_;
+#line 864 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp260_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_TYPECHECK, ValaTypeCheck));
+#line 864 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			typeCheck = _tmp260_;
+#line 865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp261_ = typeCheck;
+#line 865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp262_ = vala_typecheck_get_expression (_tmp261_);
+#line 865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp263_ = _tmp262_;
+#line 865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp264_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp263_, word, file, line, col);
+#line 865 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			sym = _tmp264_;
+#line 866 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp265_ = sym;
+#line 866 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (_tmp265_ != NULL) {
+#line 867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				result = sym;
+#line 867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (typeCheck);
+#line 867 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				return result;
+#line 8112 "symbol_finder.c"
 																			}
+#line 862 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (sym);
+#line 862 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (typeCheck);
+#line 8118 "symbol_finder.c"
 																		} else {
+#line 869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_INTEGER_LITERAL)) {
+#line 8122 "symbol_finder.c"
 																				ValaIntegerLiteral* integerLiteral = NULL;
 																				ValaIntegerLiteral* _tmp266_;
 																				ValaIntegerLiteral* _tmp267_;
 																				const gchar* _tmp268_;
 																				const gchar* _tmp269_;
+#line 871 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp266_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_INTEGER_LITERAL, ValaIntegerLiteral));
+#line 871 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				integerLiteral = _tmp266_;
+#line 872 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp267_ = integerLiteral;
+#line 872 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp268_ = vala_integer_literal_get_value (_tmp267_);
+#line 872 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp269_ = _tmp268_;
+#line 872 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				if (g_strcmp0 (_tmp269_, word) == 0) {
+#line 8140 "symbol_finder.c"
 																					ValaIntegerLiteral* _tmp270_;
 																					ValaSymbol* _tmp271_;
 																					ValaSymbol* _tmp272_;
 																					ValaSymbol* _tmp273_;
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp270_ = integerLiteral;
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp271_ = vala_expression_get_symbol_reference ((ValaExpression*) _tmp270_);
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp272_ = _tmp271_;
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp273_ = _vala_code_node_ref0 (_tmp272_);
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					result = _tmp273_;
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_code_node_unref0 (integerLiteral);
+#line 873 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					return result;
+#line 8159 "symbol_finder.c"
 																				}
+#line 869 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (integerLiteral);
+#line 8163 "symbol_finder.c"
 																			} else {
+#line 875 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_STRING_LITERAL)) {
+#line 8167 "symbol_finder.c"
 																					ValaStringLiteral* stringLiteral = NULL;
 																					ValaStringLiteral* _tmp274_;
 																					ValaStringLiteral* _tmp275_;
 																					const gchar* _tmp276_;
 																					const gchar* _tmp277_;
+#line 877 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp274_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_STRING_LITERAL, ValaStringLiteral));
+#line 877 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					stringLiteral = _tmp274_;
+#line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp275_ = stringLiteral;
+#line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp276_ = vala_string_literal_get_value (_tmp275_);
+#line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp277_ = _tmp276_;
+#line 878 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					if (g_strcmp0 (_tmp277_, word) == 0) {
+#line 8185 "symbol_finder.c"
 																						ValaStringLiteral* _tmp278_;
 																						ValaSymbol* _tmp279_;
 																						ValaSymbol* _tmp280_;
 																						ValaSymbol* _tmp281_;
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp278_ = stringLiteral;
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp279_ = vala_expression_get_symbol_reference ((ValaExpression*) _tmp278_);
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp280_ = _tmp279_;
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp281_ = _vala_code_node_ref0 (_tmp280_);
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						result = _tmp281_;
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (stringLiteral);
+#line 879 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						return result;
+#line 8204 "symbol_finder.c"
 																					}
+#line 875 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_code_node_unref0 (stringLiteral);
+#line 8208 "symbol_finder.c"
 																				} else {
+#line 881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					if (G_TYPE_CHECK_INSTANCE_TYPE (expression, VALA_TYPE_METHOD_CALL)) {
+#line 8212 "symbol_finder.c"
 																						ValaMethodCall* methodCall = NULL;
 																						ValaMethodCall* _tmp282_;
 																						ValaSymbol* sym = NULL;
@@ -5089,18 +8222,31 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																						ValaArrayList* _tmp299_;
 																						ValaMethodCall* _tmp300_;
 																						ValaArrayList* _tmp301_;
+#line 883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp282_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (expression, VALA_TYPE_METHOD_CALL, ValaMethodCall));
+#line 883 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						methodCall = _tmp282_;
+#line 884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp283_ = methodCall;
+#line 884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp284_ = vala_method_call_get_call (_tmp283_);
+#line 884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp285_ = _tmp284_;
+#line 884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp286_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp285_, word, file, line, col);
+#line 884 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						sym = _tmp286_;
+#line 885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp287_ = sym;
+#line 885 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						if (_tmp287_ != NULL) {
+#line 886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							result = sym;
+#line 886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_code_node_unref0 (methodCall);
+#line 886 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							return result;
+#line 8250 "symbol_finder.c"
 																						}
 																						{
 																							ValaList* _exp_list = NULL;
@@ -5111,50 +8257,90 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																							gint _tmp291_;
 																							gint _tmp292_;
 																							gint _exp_index = 0;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp288_ = methodCall;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp289_ = vala_method_call_get_argument_list (_tmp288_);
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_exp_list = _tmp289_;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp290_ = _exp_list;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp291_ = vala_collection_get_size ((ValaCollection*) _tmp290_);
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp292_ = _tmp291_;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_exp_size = _tmp292_;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_exp_index = -1;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							while (TRUE) {
+#line 8279 "symbol_finder.c"
 																								ValaExpression* exp = NULL;
 																								ValaList* _tmp293_;
 																								gpointer _tmp294_;
 																								ValaExpression* _tmp295_;
 																								ValaSymbol* _tmp296_;
 																								ValaSymbol* _tmp297_;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_exp_index = _exp_index + 1;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								if (!(_exp_index < _exp_size)) {
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									break;
+#line 8292 "symbol_finder.c"
 																								}
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp293_ = _exp_list;
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp294_ = vala_list_get (_tmp293_, _exp_index);
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								exp = (ValaExpression*) _tmp294_;
+#line 889 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp295_ = exp;
+#line 889 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp296_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp295_, word, file, line, col);
+#line 889 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_vala_code_node_unref0 (sym);
+#line 889 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								sym = _tmp296_;
+#line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp297_ = sym;
+#line 890 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								if (_tmp297_ != NULL) {
+#line 891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									result = sym;
+#line 891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (exp);
+#line 891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_iterable_unref0 (_exp_list);
+#line 891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (methodCall);
+#line 891 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									return result;
+#line 8322 "symbol_finder.c"
 																								}
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_vala_code_node_unref0 (exp);
+#line 8326 "symbol_finder.c"
 																							}
+#line 887 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_iterable_unref0 (_exp_list);
+#line 8330 "symbol_finder.c"
 																						}
+#line 893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp298_ = g_direct_equal;
+#line 893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp299_ = vala_array_list_new (VALA_TYPE_VARIABLE, (GBoxedCopyFunc) vala_code_node_ref, (GDestroyNotify) vala_code_node_unref, _tmp298_);
+#line 893 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						used = _tmp299_;
+#line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp300_ = methodCall;
+#line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp301_ = used;
+#line 894 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						vala_code_node_get_defined_variables ((ValaCodeNode*) _tmp300_, (ValaCollection*) _tmp301_);
+#line 8344 "symbol_finder.c"
 																						{
 																							ValaArrayList* _use_list = NULL;
 																							ValaArrayList* _tmp302_;
@@ -5164,15 +8350,25 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																							gint _tmp305_;
 																							gint _tmp306_;
 																							gint _use_index = 0;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp302_ = used;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp303_ = _vala_iterable_ref0 (_tmp302_);
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_use_list = _tmp303_;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp304_ = _use_list;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp305_ = vala_collection_get_size ((ValaCollection*) _tmp304_);
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_tmp306_ = _tmp305_;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_use_size = _tmp306_;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_use_index = -1;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							while (TRUE) {
+#line 8372 "symbol_finder.c"
 																								ValaVariable* use = NULL;
 																								ValaArrayList* _tmp307_;
 																								gpointer _tmp308_;
@@ -5184,48 +8380,91 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 																								ValaExpression* _tmp314_;
 																								ValaSymbol* _tmp315_;
 																								ValaSymbol* _tmp316_;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_use_index = _use_index + 1;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								if (!(_use_index < _use_size)) {
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									break;
+#line 8390 "symbol_finder.c"
 																								}
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp307_ = _use_list;
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp308_ = vala_list_get ((ValaList*) _tmp307_, _use_index);
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								use = (ValaVariable*) _tmp308_;
+#line 897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp309_ = use;
+#line 897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp310_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp309_, word, file, line, col);
+#line 897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_vala_code_node_unref0 (sym);
+#line 897 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								sym = _tmp310_;
+#line 898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp311_ = sym;
+#line 898 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								if (_tmp311_ != NULL) {
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									result = sym;
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (use);
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_iterable_unref0 (_use_list);
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_iterable_unref0 (used);
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (methodCall);
+#line 899 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									return result;
+#line 8422 "symbol_finder.c"
 																								}
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp312_ = use;
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp313_ = vala_variable_get_initializer (_tmp312_);
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp314_ = _tmp313_;
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp315_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp314_, word, file, line, col);
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_vala_code_node_unref0 (sym);
+#line 900 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								sym = _tmp315_;
+#line 901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_tmp316_ = sym;
+#line 901 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								if (_tmp316_ != NULL) {
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									result = sym;
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (use);
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_iterable_unref0 (_use_list);
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_iterable_unref0 (used);
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									_vala_code_node_unref0 (methodCall);
+#line 902 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																									return result;
+#line 8452 "symbol_finder.c"
 																								}
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																								_vala_code_node_unref0 (use);
+#line 8456 "symbol_finder.c"
 																							}
+#line 895 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_iterable_unref0 (_use_list);
+#line 8460 "symbol_finder.c"
 																						}
+#line 881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_iterable_unref0 (used);
+#line 881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (sym);
+#line 881 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (methodCall);
+#line 8468 "symbol_finder.c"
 																					}
 																				}
 																			}
@@ -5247,8 +8486,11 @@ vala_develop_symbol_finder_find_name_inside_expression (valaDevelopSymbolFinder*
 			}
 		}
 	}
+#line 905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = NULL;
+#line 905 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 8494 "symbol_finder.c"
 }
 
 static ValaSymbol*
@@ -5260,13 +8502,21 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
                                                        gint col)
 {
 	ValaSymbol* result = NULL;
+#line 908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 908 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 910 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (statement == NULL) {
+#line 911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 911 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 8516 "symbol_finder.c"
 	}
+#line 916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_LOOP)) {
+#line 8520 "symbol_finder.c"
 		ValaLoop* st = NULL;
 		ValaLoop* _tmp0_;
 		ValaSymbol* retVal = NULL;
@@ -5275,23 +8525,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 		ValaBlock* _tmp3_;
 		ValaSymbol* _tmp4_;
 		ValaSymbol* _tmp5_;
+#line 918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_LOOP, ValaLoop));
+#line 918 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		st = _tmp0_;
+#line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = st;
+#line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = vala_loop_get_body (_tmp1_);
+#line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = _tmp2_;
+#line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp3_, word, file, line, col);
+#line 919 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		retVal = _tmp4_;
+#line 920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp5_ = retVal;
+#line 920 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (_tmp5_ != NULL) {
+#line 921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			result = retVal;
+#line 921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (st);
+#line 921 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			return result;
+#line 8553 "symbol_finder.c"
 		}
+#line 916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (retVal);
+#line 916 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_code_node_unref0 (st);
+#line 8559 "symbol_finder.c"
 	} else {
+#line 923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_DO_STATEMENT)) {
+#line 8563 "symbol_finder.c"
 			ValaDoStatement* st = NULL;
 			ValaDoStatement* _tmp6_;
 			ValaSymbol* retVal = NULL;
@@ -5305,35 +8573,65 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 			ValaExpression* _tmp14_;
 			ValaSymbol* _tmp15_;
 			ValaSymbol* _tmp16_;
+#line 925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_DO_STATEMENT, ValaDoStatement));
+#line 925 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			st = _tmp6_;
+#line 926 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = st;
+#line 926 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = vala_do_statement_get_body (_tmp7_);
+#line 926 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp9_ = _tmp8_;
+#line 926 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp10_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp9_, word, file, line, col);
+#line 926 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retVal = _tmp10_;
+#line 927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp11_ = retVal;
+#line 927 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp11_ != NULL) {
+#line 928 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retVal;
+#line 928 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 928 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 8601 "symbol_finder.c"
 			}
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp12_ = st;
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = vala_do_statement_get_condition (_tmp12_);
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _tmp13_;
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp14_, word, file, line, col);
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retVal);
+#line 929 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retVal = _tmp15_;
+#line 930 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = retVal;
+#line 930 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp16_ != NULL) {
+#line 931 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retVal;
+#line 931 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 931 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 8625 "symbol_finder.c"
 			}
+#line 923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retVal);
+#line 923 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (st);
+#line 8631 "symbol_finder.c"
 		} else {
+#line 933 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_FOR_STATEMENT)) {
+#line 8635 "symbol_finder.c"
 				ValaForStatement* st = NULL;
 				ValaForStatement* _tmp17_;
 				ValaSymbol* retVal = NULL;
@@ -5342,23 +8640,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 				ValaBlock* _tmp20_;
 				ValaSymbol* _tmp21_;
 				ValaSymbol* _tmp22_;
+#line 935 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp17_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_FOR_STATEMENT, ValaForStatement));
+#line 935 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				st = _tmp17_;
+#line 936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = st;
+#line 936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = vala_for_statement_get_body (_tmp18_);
+#line 936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp20_ = _tmp19_;
+#line 936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp21_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp20_, word, file, line, col);
+#line 936 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				retVal = _tmp21_;
+#line 937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp22_ = retVal;
+#line 937 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp22_ != NULL) {
+#line 938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = retVal;
+#line 938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (st);
+#line 938 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 8668 "symbol_finder.c"
 				}
+#line 933 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (retVal);
+#line 933 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 8674 "symbol_finder.c"
 			} else {
+#line 940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_FOREACH_STATEMENT)) {
+#line 8678 "symbol_finder.c"
 					ValaForeachStatement* st = NULL;
 					ValaForeachStatement* _tmp23_;
 					ValaSymbol* retVal = NULL;
@@ -5387,71 +8703,137 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 					ValaExpression* _tmp46_;
 					ValaSymbol* _tmp47_;
 					ValaSymbol* _tmp48_;
+#line 942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp23_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_FOREACH_STATEMENT, ValaForeachStatement));
+#line 942 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					st = _tmp23_;
+#line 943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp24_ = st;
+#line 943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp25_ = vala_foreach_statement_get_body (_tmp24_);
+#line 943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp26_ = _tmp25_;
+#line 943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp27_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp26_, word, file, line, col);
+#line 943 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					retVal = _tmp27_;
+#line 944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp28_ = retVal;
+#line 944 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp28_ != NULL) {
+#line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = retVal;
+#line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 945 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 8731 "symbol_finder.c"
 					}
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp29_ = st;
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp30_ = vala_foreach_statement_get_collection_variable (_tmp29_);
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp31_ = _tmp30_;
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp32_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp31_, word, file, line, col);
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (retVal);
+#line 946 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					retVal = _tmp32_;
+#line 947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp33_ = retVal;
+#line 947 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp33_ != NULL) {
+#line 948 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = retVal;
+#line 948 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 948 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 8755 "symbol_finder.c"
 					}
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp34_ = st;
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp35_ = vala_foreach_statement_get_element_variable (_tmp34_);
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp36_ = _tmp35_;
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp37_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp36_, word, file, line, col);
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (retVal);
+#line 949 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					retVal = _tmp37_;
+#line 950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp38_ = retVal;
+#line 950 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp38_ != NULL) {
+#line 951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = retVal;
+#line 951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 951 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 8779 "symbol_finder.c"
 					}
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp39_ = st;
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp40_ = vala_foreach_statement_get_iterator_variable (_tmp39_);
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp41_ = _tmp40_;
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp42_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp41_, word, file, line, col);
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (retVal);
+#line 952 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					retVal = _tmp42_;
+#line 953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp43_ = retVal;
+#line 953 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp43_ != NULL) {
+#line 954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = retVal;
+#line 954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 954 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 8803 "symbol_finder.c"
 					}
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp44_ = st;
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp45_ = vala_foreach_statement_get_collection (_tmp44_);
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp46_ = _tmp45_;
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp47_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp46_, word, file, line, col);
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (retVal);
+#line 955 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					retVal = _tmp47_;
+#line 956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp48_ = retVal;
+#line 956 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (_tmp48_ != NULL) {
+#line 957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = retVal;
+#line 957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 957 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 8827 "symbol_finder.c"
 					}
+#line 940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (retVal);
+#line 940 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (st);
+#line 8833 "symbol_finder.c"
 				} else {
+#line 959 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_DO_STATEMENT)) {
+#line 8837 "symbol_finder.c"
 						ValaDoStatement* st = NULL;
 						ValaDoStatement* _tmp49_;
 						ValaSymbol* retVal = NULL;
@@ -5460,23 +8842,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 						ValaBlock* _tmp52_;
 						ValaSymbol* _tmp53_;
 						ValaSymbol* _tmp54_;
+#line 961 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp49_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_DO_STATEMENT, ValaDoStatement));
+#line 961 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						st = _tmp49_;
+#line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp50_ = st;
+#line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp51_ = vala_do_statement_get_body (_tmp50_);
+#line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp52_ = _tmp51_;
+#line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp53_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp52_, word, file, line, col);
+#line 962 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						retVal = _tmp53_;
+#line 963 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_tmp54_ = retVal;
+#line 963 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (_tmp54_ != NULL) {
+#line 964 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							result = retVal;
+#line 964 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (st);
+#line 964 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							return result;
+#line 8870 "symbol_finder.c"
 						}
+#line 959 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (retVal);
+#line 959 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (st);
+#line 8876 "symbol_finder.c"
 					} else {
+#line 966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_WHILE_STATEMENT)) {
+#line 8880 "symbol_finder.c"
 							ValaWhileStatement* st = NULL;
 							ValaWhileStatement* _tmp55_;
 							ValaSymbol* retVal = NULL;
@@ -5485,27 +8885,48 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 							ValaBlock* _tmp58_;
 							ValaSymbol* _tmp59_;
 							ValaSymbol* _tmp60_;
+#line 968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp55_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_WHILE_STATEMENT, ValaWhileStatement));
+#line 968 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							st = _tmp55_;
+#line 969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp56_ = st;
+#line 969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp57_ = vala_while_statement_get_body (_tmp56_);
+#line 969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp58_ = _tmp57_;
+#line 969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp59_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp58_, word, file, line, col);
+#line 969 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							retVal = _tmp59_;
+#line 970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_tmp60_ = retVal;
+#line 970 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							if (_tmp60_ != NULL) {
+#line 971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								result = retVal;
+#line 971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (st);
+#line 971 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								return result;
+#line 8913 "symbol_finder.c"
 							}
+#line 966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (retVal);
+#line 966 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							_vala_code_node_unref0 (st);
+#line 8919 "symbol_finder.c"
 						} else {
+#line 973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 							if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_SWITCH_STATEMENT)) {
+#line 8923 "symbol_finder.c"
 								ValaSwitchStatement* st = NULL;
 								ValaSwitchStatement* _tmp61_;
+#line 975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_tmp61_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_SWITCH_STATEMENT, ValaSwitchStatement));
+#line 975 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								st = _tmp61_;
+#line 8930 "symbol_finder.c"
 								{
 									ValaList* _section_list = NULL;
 									ValaSwitchStatement* _tmp62_;
@@ -5515,15 +8936,25 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 									gint _tmp65_;
 									gint _tmp66_;
 									gint _section_index = 0;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp62_ = st;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp63_ = vala_switch_statement_get_sections (_tmp62_);
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_section_list = _tmp63_;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp64_ = _section_list;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp65_ = vala_collection_get_size ((ValaCollection*) _tmp64_);
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp66_ = _tmp65_;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_section_size = _tmp66_;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_section_index = -1;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									while (TRUE) {
+#line 8958 "symbol_finder.c"
 										ValaSwitchSection* section = NULL;
 										ValaList* _tmp67_;
 										gpointer _tmp68_;
@@ -5531,32 +8962,59 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 										ValaSwitchSection* _tmp69_;
 										ValaSymbol* _tmp70_;
 										ValaSymbol* _tmp71_;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_section_index = _section_index + 1;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (!(_section_index < _section_size)) {
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											break;
+#line 8972 "symbol_finder.c"
 										}
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp67_ = _section_list;
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp68_ = vala_list_get (_tmp67_, _section_index);
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										section = (ValaSwitchSection*) _tmp68_;
+#line 978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp69_ = section;
+#line 978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp70_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp69_, word, file, line, col);
+#line 978 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										retVal = _tmp70_;
+#line 979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp71_ = retVal;
+#line 979 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp71_ != NULL) {
+#line 980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											result = retVal;
+#line 980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (section);
+#line 980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_iterable_unref0 (_section_list);
+#line 980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (st);
+#line 980 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											return result;
+#line 9000 "symbol_finder.c"
 										}
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (retVal);
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (section);
+#line 9006 "symbol_finder.c"
 									}
+#line 976 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_iterable_unref0 (_section_list);
+#line 9010 "symbol_finder.c"
 								}
+#line 973 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								_vala_code_node_unref0 (st);
+#line 9014 "symbol_finder.c"
 							} else {
+#line 983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 								if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_IF_STATEMENT)) {
+#line 9018 "symbol_finder.c"
 									ValaIfStatement* st = NULL;
 									ValaIfStatement* _tmp72_;
 									ValaIfStatement* _tmp73_;
@@ -5568,53 +9026,91 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 									ValaIfStatement* _tmp101_;
 									ValaBlock* _tmp102_;
 									ValaBlock* _tmp103_;
+#line 985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp72_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_IF_STATEMENT, ValaIfStatement));
+#line 985 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									st = _tmp72_;
+#line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp73_ = st;
+#line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp74_ = vala_if_statement_get_true_statement (_tmp73_);
+#line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp75_ = _tmp74_;
+#line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp75_ != NULL) {
+#line 9042 "symbol_finder.c"
 										ValaSymbol* retVal = NULL;
 										ValaIfStatement* _tmp76_;
 										ValaBlock* _tmp77_;
 										ValaBlock* _tmp78_;
 										ValaSymbol* _tmp79_;
 										ValaSymbol* _tmp80_;
+#line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp76_ = st;
+#line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp77_ = vala_if_statement_get_true_statement (_tmp76_);
+#line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp78_ = _tmp77_;
+#line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp79_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp78_, word, file, line, col);
+#line 988 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										retVal = _tmp79_;
+#line 989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp80_ = retVal;
+#line 989 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp80_ != NULL) {
+#line 990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											result = retVal;
+#line 990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (st);
+#line 990 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											return result;
+#line 9069 "symbol_finder.c"
 										}
+#line 986 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (retVal);
+#line 9073 "symbol_finder.c"
 									}
+#line 992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp81_ = st;
+#line 992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp82_ = vala_if_statement_get_condition (_tmp81_);
+#line 992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp83_ = _tmp82_;
+#line 992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp83_ != NULL) {
+#line 9083 "symbol_finder.c"
 										ValaSymbol* retVal = NULL;
 										ValaIfStatement* _tmp84_;
 										ValaExpression* _tmp85_;
 										ValaExpression* _tmp86_;
 										ValaSymbol* _tmp87_;
 										ValaSymbol* _tmp88_;
+#line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp84_ = st;
+#line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp85_ = vala_if_statement_get_condition (_tmp84_);
+#line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp86_ = _tmp85_;
+#line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp87_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp86_, word, file, line, col);
+#line 994 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										retVal = _tmp87_;
+#line 995 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp88_ = retVal;
+#line 995 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp88_ != NULL) {
+#line 996 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											result = retVal;
+#line 996 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (st);
+#line 996 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											return result;
+#line 9110 "symbol_finder.c"
 										}
+#line 992 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (retVal);
+#line 9114 "symbol_finder.c"
 									}
 									{
 										ValaList* _stat_list = NULL;
@@ -5627,17 +9123,29 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 										gint _tmp94_;
 										gint _tmp95_;
 										gint _stat_index = 0;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp89_ = st;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp90_ = vala_if_statement_get_true_statement (_tmp89_);
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp91_ = _tmp90_;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp92_ = vala_block_get_statements (_tmp91_);
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_stat_list = _tmp92_;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp93_ = _stat_list;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp94_ = vala_collection_get_size ((ValaCollection*) _tmp93_);
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp95_ = _tmp94_;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_stat_size = _tmp95_;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_stat_index = -1;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										while (TRUE) {
+#line 9149 "symbol_finder.c"
 											ValaStatement* stat = NULL;
 											ValaList* _tmp96_;
 											gpointer _tmp97_;
@@ -5645,49 +9153,88 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 											ValaStatement* _tmp98_;
 											ValaSymbol* _tmp99_;
 											ValaSymbol* _tmp100_;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_stat_index = _stat_index + 1;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (!(_stat_index < _stat_size)) {
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												break;
+#line 9163 "symbol_finder.c"
 											}
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp96_ = _stat_list;
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp97_ = vala_list_get (_tmp96_, _stat_index);
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											stat = (ValaStatement*) _tmp97_;
+#line 1000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp98_ = stat;
+#line 1000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp99_ = vala_develop_symbol_finder_find_name_inside_statement (self, _tmp98_, word, file, line, col);
+#line 1000 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											retVal = _tmp99_;
+#line 1001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp100_ = retVal;
+#line 1001 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (_tmp100_ != NULL) {
+#line 1002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												result = retVal;
+#line 1002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (stat);
+#line 1002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_iterable_unref0 (_stat_list);
+#line 1002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (st);
+#line 1002 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												return result;
+#line 9191 "symbol_finder.c"
 											}
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (retVal);
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (stat);
+#line 9197 "symbol_finder.c"
 										}
+#line 998 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_iterable_unref0 (_stat_list);
+#line 9201 "symbol_finder.c"
 									}
+#line 1004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp101_ = st;
+#line 1004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp102_ = vala_if_statement_get_false_statement (_tmp101_);
+#line 1004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_tmp103_ = _tmp102_;
+#line 1004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (_tmp103_ != NULL) {
+#line 9211 "symbol_finder.c"
 										ValaSymbol* retVal = NULL;
 										ValaIfStatement* _tmp104_;
 										ValaBlock* _tmp105_;
 										ValaBlock* _tmp106_;
 										ValaSymbol* _tmp107_;
 										ValaSymbol* _tmp108_;
+#line 1006 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp104_ = st;
+#line 1006 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp105_ = vala_if_statement_get_false_statement (_tmp104_);
+#line 1006 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp106_ = _tmp105_;
+#line 1006 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp107_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp106_, word, file, line, col);
+#line 1006 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										retVal = _tmp107_;
+#line 1007 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp108_ = retVal;
+#line 1007 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp108_ != NULL) {
+#line 1008 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											result = retVal;
+#line 1008 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (st);
+#line 1008 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											return result;
+#line 9238 "symbol_finder.c"
 										}
 										{
 											ValaList* _stat_list = NULL;
@@ -5700,84 +9247,149 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 											gint _tmp114_;
 											gint _tmp115_;
 											gint _stat_index = 0;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp109_ = st;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp110_ = vala_if_statement_get_true_statement (_tmp109_);
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp111_ = _tmp110_;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp112_ = vala_block_get_statements (_tmp111_);
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_stat_list = _tmp112_;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp113_ = _stat_list;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp114_ = vala_collection_get_size ((ValaCollection*) _tmp113_);
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp115_ = _tmp114_;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_stat_size = _tmp115_;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_stat_index = -1;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											while (TRUE) {
+#line 9273 "symbol_finder.c"
 												ValaStatement* stat = NULL;
 												ValaList* _tmp116_;
 												gpointer _tmp117_;
 												ValaStatement* _tmp118_;
 												ValaSymbol* _tmp119_;
 												ValaSymbol* _tmp120_;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_stat_index = _stat_index + 1;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (!(_stat_index < _stat_size)) {
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													break;
+#line 9286 "symbol_finder.c"
 												}
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp116_ = _stat_list;
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp117_ = vala_list_get (_tmp116_, _stat_index);
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												stat = (ValaStatement*) _tmp117_;
+#line 1011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp118_ = stat;
+#line 1011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp119_ = vala_develop_symbol_finder_find_name_inside_statement (self, _tmp118_, word, file, line, col);
+#line 1011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (retVal);
+#line 1011 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												retVal = _tmp119_;
+#line 1012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp120_ = retVal;
+#line 1012 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp120_ != NULL) {
+#line 1013 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = retVal;
+#line 1013 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (stat);
+#line 1013 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_iterable_unref0 (_stat_list);
+#line 1013 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (st);
+#line 1013 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 9316 "symbol_finder.c"
 												}
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (stat);
+#line 9320 "symbol_finder.c"
 											}
+#line 1009 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_iterable_unref0 (_stat_list);
+#line 9324 "symbol_finder.c"
 										}
+#line 1004 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (retVal);
+#line 9328 "symbol_finder.c"
 									}
+#line 983 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									_vala_code_node_unref0 (st);
+#line 9332 "symbol_finder.c"
 								} else {
+#line 1017 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 									if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_LOCK_STATEMENT)) {
+#line 9336 "symbol_finder.c"
 										ValaLockStatement* st = NULL;
 										ValaLockStatement* _tmp121_;
 										ValaLockStatement* _tmp122_;
 										ValaBlock* _tmp123_;
 										ValaBlock* _tmp124_;
+#line 1019 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp121_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_LOCK_STATEMENT, ValaLockStatement));
+#line 1019 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										st = _tmp121_;
+#line 1020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp122_ = st;
+#line 1020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp123_ = vala_lock_statement_get_body (_tmp122_);
+#line 1020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_tmp124_ = _tmp123_;
+#line 1020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (_tmp124_ != NULL) {
+#line 9354 "symbol_finder.c"
 											ValaSymbol* retVal = NULL;
 											ValaLockStatement* _tmp125_;
 											ValaBlock* _tmp126_;
 											ValaBlock* _tmp127_;
 											ValaSymbol* _tmp128_;
 											ValaSymbol* _tmp129_;
+#line 1022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp125_ = st;
+#line 1022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp126_ = vala_lock_statement_get_body (_tmp125_);
+#line 1022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp127_ = _tmp126_;
+#line 1022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp128_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp127_, word, file, line, col);
+#line 1022 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											retVal = _tmp128_;
+#line 1023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp129_ = retVal;
+#line 1023 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (_tmp129_ != NULL) {
+#line 1024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												result = retVal;
+#line 1024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (st);
+#line 1024 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												return result;
+#line 9381 "symbol_finder.c"
 											}
+#line 1020 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (retVal);
+#line 9385 "symbol_finder.c"
 										}
+#line 1017 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										_vala_code_node_unref0 (st);
+#line 9389 "symbol_finder.c"
 									} else {
+#line 1027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 										if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_TRY_STATEMENT)) {
+#line 9393 "symbol_finder.c"
 											ValaTryStatement* st = NULL;
 											ValaTryStatement* _tmp130_;
 											ValaTryStatement* _tmp131_;
@@ -5786,53 +9398,91 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 											ValaTryStatement* _tmp139_;
 											ValaBlock* _tmp140_;
 											ValaBlock* _tmp141_;
+#line 1029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp130_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_TRY_STATEMENT, ValaTryStatement));
+#line 1029 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											st = _tmp130_;
+#line 1030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp131_ = st;
+#line 1030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp132_ = vala_try_statement_get_body (_tmp131_);
+#line 1030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp133_ = _tmp132_;
+#line 1030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (_tmp133_ != NULL) {
+#line 9414 "symbol_finder.c"
 												ValaSymbol* retVal = NULL;
 												ValaTryStatement* _tmp134_;
 												ValaBlock* _tmp135_;
 												ValaBlock* _tmp136_;
 												ValaSymbol* _tmp137_;
 												ValaSymbol* _tmp138_;
+#line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp134_ = st;
+#line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp135_ = vala_try_statement_get_body (_tmp134_);
+#line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp136_ = _tmp135_;
+#line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp137_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp136_, word, file, line, col);
+#line 1032 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												retVal = _tmp137_;
+#line 1033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp138_ = retVal;
+#line 1033 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp138_ != NULL) {
+#line 1034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = retVal;
+#line 1034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (st);
+#line 1034 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 9441 "symbol_finder.c"
 												}
+#line 1030 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (retVal);
+#line 9445 "symbol_finder.c"
 											}
+#line 1036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp139_ = st;
+#line 1036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp140_ = vala_try_statement_get_finally_body (_tmp139_);
+#line 1036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_tmp141_ = _tmp140_;
+#line 1036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (_tmp141_ != NULL) {
+#line 9455 "symbol_finder.c"
 												ValaSymbol* retVal = NULL;
 												ValaTryStatement* _tmp142_;
 												ValaBlock* _tmp143_;
 												ValaBlock* _tmp144_;
 												ValaSymbol* _tmp145_;
 												ValaSymbol* _tmp146_;
+#line 1038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp142_ = st;
+#line 1038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp143_ = vala_try_statement_get_finally_body (_tmp142_);
+#line 1038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp144_ = _tmp143_;
+#line 1038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp145_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp144_, word, file, line, col);
+#line 1038 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												retVal = _tmp145_;
+#line 1039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp146_ = retVal;
+#line 1039 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp146_ != NULL) {
+#line 1040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = retVal;
+#line 1040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (st);
+#line 1040 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 9482 "symbol_finder.c"
 												}
+#line 1036 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (retVal);
+#line 9486 "symbol_finder.c"
 											}
 											{
 												ValaList* _cl_list = NULL;
@@ -5843,15 +9493,25 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 												gint _tmp150_;
 												gint _tmp151_;
 												gint _cl_index = 0;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp147_ = st;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp148_ = vala_try_statement_get_catch_clauses (_tmp147_);
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_cl_list = _tmp148_;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp149_ = _cl_list;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp150_ = vala_collection_get_size ((ValaCollection*) _tmp149_);
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp151_ = _tmp150_;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_cl_size = _tmp151_;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_cl_index = -1;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												while (TRUE) {
+#line 9515 "symbol_finder.c"
 													ValaCatchClause* cl = NULL;
 													ValaList* _tmp152_;
 													gpointer _tmp153_;
@@ -5864,59 +9524,108 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 													ValaBlock* _tmp164_;
 													ValaSymbol* _tmp165_;
 													ValaSymbol* _tmp166_;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_cl_index = _cl_index + 1;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (!(_cl_index < _cl_size)) {
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														break;
+#line 9534 "symbol_finder.c"
 													}
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp152_ = _cl_list;
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp153_ = vala_list_get (_tmp152_, _cl_index);
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													cl = (ValaCatchClause*) _tmp153_;
+#line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp154_ = cl;
+#line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp155_ = vala_catch_clause_get_error_variable (_tmp154_);
+#line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp156_ = _tmp155_;
+#line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp156_ != NULL) {
+#line 9550 "symbol_finder.c"
 														ValaSymbol* retVal = NULL;
 														ValaCatchClause* _tmp157_;
 														ValaLocalVariable* _tmp158_;
 														ValaLocalVariable* _tmp159_;
 														ValaSymbol* _tmp160_;
 														ValaSymbol* _tmp161_;
+#line 1046 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp157_ = cl;
+#line 1046 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp158_ = vala_catch_clause_get_error_variable (_tmp157_);
+#line 1046 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp159_ = _tmp158_;
+#line 1046 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp160_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp159_, word, file, line, col);
+#line 1046 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														retVal = _tmp160_;
+#line 1047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp161_ = retVal;
+#line 1047 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														if (_tmp161_ != NULL) {
+#line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															result = retVal;
+#line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (cl);
+#line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_iterable_unref0 (_cl_list);
+#line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (st);
+#line 1048 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															return result;
+#line 9581 "symbol_finder.c"
 														}
+#line 1044 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (retVal);
+#line 9585 "symbol_finder.c"
 													}
+#line 1050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp162_ = cl;
+#line 1050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp163_ = vala_catch_clause_get_body (_tmp162_);
+#line 1050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp164_ = _tmp163_;
+#line 1050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp165_ = vala_develop_symbol_finder_find_name_inside_statement (self, (ValaStatement*) _tmp164_, word, file, line, col);
+#line 1050 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													retVal = _tmp165_;
+#line 1051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp166_ = retVal;
+#line 1051 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp166_ != NULL) {
+#line 1052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = retVal;
+#line 1052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (cl);
+#line 1052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_iterable_unref0 (_cl_list);
+#line 1052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (st);
+#line 1052 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 9611 "symbol_finder.c"
 													}
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (retVal);
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (cl);
+#line 9617 "symbol_finder.c"
 												}
+#line 1042 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_iterable_unref0 (_cl_list);
+#line 9621 "symbol_finder.c"
 											}
+#line 1027 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											_vala_code_node_unref0 (st);
+#line 9625 "symbol_finder.c"
 										} else {
+#line 1055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 											if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_EXPRESSION_STATEMENT)) {
+#line 9629 "symbol_finder.c"
 												ValaExpressionStatement* expressionStatement = NULL;
 												ValaExpressionStatement* _tmp167_;
 												ValaSymbol* sym = NULL;
@@ -5925,23 +9634,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 												ValaExpression* _tmp170_;
 												ValaSymbol* _tmp171_;
 												ValaSymbol* _tmp172_;
+#line 1057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp167_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_EXPRESSION_STATEMENT, ValaExpressionStatement));
+#line 1057 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												expressionStatement = _tmp167_;
+#line 1058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp168_ = expressionStatement;
+#line 1058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp169_ = vala_expression_statement_get_expression (_tmp168_);
+#line 1058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp170_ = _tmp169_;
+#line 1058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp171_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp170_, word, file, line, col);
+#line 1058 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												sym = _tmp171_;
+#line 1059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_tmp172_ = sym;
+#line 1059 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (_tmp172_ != NULL) {
+#line 1060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													result = sym;
+#line 1060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (expressionStatement);
+#line 1060 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													return result;
+#line 9662 "symbol_finder.c"
 												}
+#line 1055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (sym);
+#line 1055 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												_vala_code_node_unref0 (expressionStatement);
+#line 9668 "symbol_finder.c"
 											} else {
+#line 1062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 												if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_DECLARATION_STATEMENT)) {
+#line 9672 "symbol_finder.c"
 													ValaDeclarationStatement* declarationStatement = NULL;
 													ValaDeclarationStatement* _tmp173_;
 													ValaSymbol* sym = NULL;
@@ -5950,23 +9677,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 													ValaSymbol* _tmp176_;
 													ValaSymbol* _tmp177_;
 													ValaSymbol* _tmp178_;
+#line 1064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp173_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_DECLARATION_STATEMENT, ValaDeclarationStatement));
+#line 1064 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													declarationStatement = _tmp173_;
+#line 1065 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp174_ = declarationStatement;
+#line 1065 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp175_ = vala_declaration_statement_get_declaration (_tmp174_);
+#line 1065 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp176_ = _tmp175_;
+#line 1065 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp177_ = vala_develop_symbol_finder_find_name_inside_symbol (self, _tmp176_, word, file, line, col);
+#line 1065 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													sym = _tmp177_;
+#line 1066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_tmp178_ = sym;
+#line 1066 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (_tmp178_ != NULL) {
+#line 1067 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														result = sym;
+#line 1067 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (declarationStatement);
+#line 1067 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														return result;
+#line 9705 "symbol_finder.c"
 													}
+#line 1062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (sym);
+#line 1062 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													_vala_code_node_unref0 (declarationStatement);
+#line 9711 "symbol_finder.c"
 												} else {
+#line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 													if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_DELETE_STATEMENT)) {
+#line 9715 "symbol_finder.c"
 														ValaDeleteStatement* deleteStatement = NULL;
 														ValaDeleteStatement* _tmp179_;
 														ValaSymbol* sym = NULL;
@@ -5975,29 +9720,53 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 														ValaExpression* _tmp182_;
 														ValaSymbol* _tmp183_;
 														ValaSymbol* _tmp184_;
+#line 1093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp179_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_DELETE_STATEMENT, ValaDeleteStatement));
+#line 1093 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														deleteStatement = _tmp179_;
+#line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp180_ = deleteStatement;
+#line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp181_ = vala_delete_statement_get_expression (_tmp180_);
+#line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp182_ = _tmp181_;
+#line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp183_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp182_, word, file, line, col);
+#line 1094 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														sym = _tmp183_;
+#line 1095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_tmp184_ = sym;
+#line 1095 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														if (_tmp184_ != NULL) {
+#line 1096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															result = sym;
+#line 1096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															_vala_code_node_unref0 (deleteStatement);
+#line 1096 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															return result;
+#line 9748 "symbol_finder.c"
 														}
+#line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (sym);
+#line 1091 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														_vala_code_node_unref0 (deleteStatement);
+#line 9754 "symbol_finder.c"
 													} else {
+#line 1098 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 														if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_YIELD_STATEMENT)) {
+#line 9758 "symbol_finder.c"
 														} else {
+#line 1101 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 															if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_BREAK_STATEMENT)) {
+#line 9762 "symbol_finder.c"
 															} else {
+#line 1104 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_CONTINUE_STATEMENT)) {
+#line 9766 "symbol_finder.c"
 																} else {
+#line 1107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																	if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_UNLOCK_STATEMENT)) {
+#line 9770 "symbol_finder.c"
 																		ValaUnlockStatement* unlockStatement = NULL;
 																		ValaUnlockStatement* _tmp185_;
 																		ValaSymbol* sym = NULL;
@@ -6006,23 +9775,41 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																		ValaExpression* _tmp188_;
 																		ValaSymbol* _tmp189_;
 																		ValaSymbol* _tmp190_;
+#line 1109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp185_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_UNLOCK_STATEMENT, ValaUnlockStatement));
+#line 1109 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		unlockStatement = _tmp185_;
+#line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp186_ = unlockStatement;
+#line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp187_ = vala_unlock_statement_get_resource (_tmp186_);
+#line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp188_ = _tmp187_;
+#line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp189_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp188_, word, file, line, col);
+#line 1110 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		sym = _tmp189_;
+#line 1111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_tmp190_ = sym;
+#line 1111 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		if (_tmp190_ != NULL) {
+#line 1112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			result = sym;
+#line 1112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (unlockStatement);
+#line 1112 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			return result;
+#line 9803 "symbol_finder.c"
 																		}
+#line 1107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_vala_code_node_unref0 (sym);
+#line 1107 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		_vala_code_node_unref0 (unlockStatement);
+#line 9809 "symbol_finder.c"
 																	} else {
+#line 1114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																		if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_RETURN_STATEMENT)) {
+#line 9813 "symbol_finder.c"
 																			ValaReturnStatement* returnStatement = NULL;
 																			ValaReturnStatement* _tmp191_;
 																			ValaSymbol* sym = NULL;
@@ -6031,27 +9818,48 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																			ValaExpression* _tmp194_;
 																			ValaSymbol* _tmp195_;
 																			ValaSymbol* _tmp196_;
+#line 1116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp191_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_RETURN_STATEMENT, ValaReturnStatement));
+#line 1116 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			returnStatement = _tmp191_;
+#line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp192_ = returnStatement;
+#line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp193_ = vala_return_statement_get_return_expression (_tmp192_);
+#line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp194_ = _tmp193_;
+#line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp195_ = vala_develop_symbol_finder_find_name_inside_expression (self, _tmp194_, word, file, line, col);
+#line 1117 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			sym = _tmp195_;
+#line 1118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_tmp196_ = sym;
+#line 1118 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (_tmp196_ != NULL) {
+#line 1119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				result = sym;
+#line 1119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (returnStatement);
+#line 1119 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				return result;
+#line 9846 "symbol_finder.c"
 																			}
+#line 1114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (sym);
+#line 1114 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			_vala_code_node_unref0 (returnStatement);
+#line 9852 "symbol_finder.c"
 																		} else {
+#line 1121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																			if (G_TYPE_CHECK_INSTANCE_TYPE (statement, VALA_TYPE_BLOCK)) {
+#line 9856 "symbol_finder.c"
 																				ValaBlock* st = NULL;
 																				ValaBlock* _tmp197_;
+#line 1123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_tmp197_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_CAST (statement, VALA_TYPE_BLOCK, ValaBlock));
+#line 1123 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				st = _tmp197_;
+#line 9863 "symbol_finder.c"
 																				{
 																					ValaList* _local_list = NULL;
 																					ValaBlock* _tmp198_;
@@ -6061,15 +9869,25 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																					gint _tmp201_;
 																					gint _tmp202_;
 																					gint _local_index = 0;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp198_ = st;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp199_ = vala_block_get_local_variables (_tmp198_);
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_local_list = _tmp199_;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp200_ = _local_list;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp201_ = vala_collection_get_size ((ValaCollection*) _tmp200_);
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp202_ = _tmp201_;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_local_size = _tmp202_;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_local_index = -1;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					while (TRUE) {
+#line 9891 "symbol_finder.c"
 																						ValaLocalVariable* local = NULL;
 																						ValaList* _tmp203_;
 																						gpointer _tmp204_;
@@ -6077,28 +9895,51 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																						ValaLocalVariable* _tmp205_;
 																						ValaSymbol* _tmp206_;
 																						ValaSymbol* _tmp207_;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_local_index = _local_index + 1;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						if (!(_local_index < _local_size)) {
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							break;
+#line 9905 "symbol_finder.c"
 																						}
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp203_ = _local_list;
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp204_ = vala_list_get (_tmp203_, _local_index);
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						local = (ValaLocalVariable*) _tmp204_;
+#line 1126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp205_ = local;
+#line 1126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp206_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp205_, word, file, line, col);
+#line 1126 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						retVal = _tmp206_;
+#line 1127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp207_ = retVal;
+#line 1127 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						if (_tmp207_ != NULL) {
+#line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							result = retVal;
+#line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_code_node_unref0 (local);
+#line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_iterable_unref0 (_local_list);
+#line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_code_node_unref0 (st);
+#line 1128 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							return result;
+#line 9933 "symbol_finder.c"
 																						}
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (retVal);
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (local);
+#line 9939 "symbol_finder.c"
 																					}
+#line 1124 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_iterable_unref0 (_local_list);
+#line 9943 "symbol_finder.c"
 																				}
 																				{
 																					ValaList* _ch_list = NULL;
@@ -6109,15 +9950,25 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																					gint _tmp211_;
 																					gint _tmp212_;
 																					gint _ch_index = 0;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp208_ = st;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp209_ = vala_block_get_statements (_tmp208_);
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_ch_list = _tmp209_;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp210_ = _ch_list;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp211_ = vala_collection_get_size ((ValaCollection*) _tmp210_);
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_tmp212_ = _tmp211_;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_ch_size = _tmp212_;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_ch_index = -1;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					while (TRUE) {
+#line 9972 "symbol_finder.c"
 																						ValaStatement* ch = NULL;
 																						ValaList* _tmp213_;
 																						gpointer _tmp214_;
@@ -6125,30 +9976,55 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 																						ValaStatement* _tmp215_;
 																						ValaSymbol* _tmp216_;
 																						ValaSymbol* _tmp217_;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_ch_index = _ch_index + 1;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						if (!(_ch_index < _ch_size)) {
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							break;
+#line 9986 "symbol_finder.c"
 																						}
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp213_ = _ch_list;
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp214_ = vala_list_get (_tmp213_, _ch_index);
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						ch = (ValaStatement*) _tmp214_;
+#line 1132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp215_ = ch;
+#line 1132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp216_ = vala_develop_symbol_finder_find_name_inside_statement (self, _tmp215_, word, file, line, col);
+#line 1132 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						retVal = _tmp216_;
+#line 1133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_tmp217_ = retVal;
+#line 1133 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						if (_tmp217_ != NULL) {
+#line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							result = retVal;
+#line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_code_node_unref0 (ch);
+#line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_iterable_unref0 (_ch_list);
+#line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							_vala_code_node_unref0 (st);
+#line 1134 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																							return result;
+#line 10014 "symbol_finder.c"
 																						}
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (retVal);
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																						_vala_code_node_unref0 (ch);
+#line 10020 "symbol_finder.c"
 																					}
+#line 1130 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																					_vala_iterable_unref0 (_ch_list);
+#line 10024 "symbol_finder.c"
 																				}
+#line 1121 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 																				_vala_code_node_unref0 (st);
+#line 10028 "symbol_finder.c"
 																			}
 																		}
 																	}
@@ -6168,8 +10044,11 @@ vala_develop_symbol_finder_find_name_inside_statement (valaDevelopSymbolFinder* 
 			}
 		}
 	}
+#line 1141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = NULL;
+#line 1141 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 10052 "symbol_finder.c"
 }
 
 static ValaSymbol*
@@ -6187,22 +10066,39 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 	const gchar* _tmp3_;
 	ValaBlock* _tmp5_;
 	ValaBlock* _tmp6_;
+#line 1144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (m != NULL, NULL);
+#line 1144 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 1146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = vala_code_node_get_source_reference ((ValaCodeNode*) m);
+#line 1146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = _tmp0_;
+#line 1146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = vala_symbol_get_name ((ValaSymbol*) m);
+#line 1146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = _tmp2_;
+#line 1146 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (vala_develop_symbol_finder_name_inside_source (_tmp1_, _tmp3_, file, word, line, col)) {
+#line 10086 "symbol_finder.c"
 		ValaSymbol* _tmp4_;
+#line 1147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _vala_code_node_ref0 ((ValaSymbol*) m);
+#line 1147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = _tmp4_;
+#line 1147 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 10094 "symbol_finder.c"
 	}
+#line 1148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = vala_subroutine_get_body ((ValaSubroutine*) m);
+#line 1148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = _tmp5_;
+#line 1148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp6_ != NULL) {
+#line 10102 "symbol_finder.c"
 		ValaList* locals = NULL;
 		ValaBlock* _tmp7_;
 		ValaBlock* _tmp8_;
@@ -6211,10 +10107,15 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 		ValaBlock* _tmp20_;
 		ValaBlock* _tmp21_;
 		ValaList* _tmp22_;
+#line 1150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp7_ = vala_subroutine_get_body ((ValaSubroutine*) m);
+#line 1150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp8_ = _tmp7_;
+#line 1150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = vala_block_get_local_variables (_tmp8_);
+#line 1150 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		locals = _tmp9_;
+#line 10119 "symbol_finder.c"
 		{
 			ValaList* _variable_list = NULL;
 			ValaList* _tmp10_;
@@ -6224,15 +10125,25 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 			gint _tmp13_;
 			gint _tmp14_;
 			gint _variable_index = 0;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp10_ = locals;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp11_ = _vala_iterable_ref0 (_tmp10_);
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_variable_list = _tmp11_;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp12_ = _variable_list;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = vala_collection_get_size ((ValaCollection*) _tmp12_);
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _tmp13_;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_variable_size = _tmp14_;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_variable_index = -1;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 10147 "symbol_finder.c"
 				ValaLocalVariable* variable = NULL;
 				ValaList* _tmp15_;
 				gpointer _tmp16_;
@@ -6240,33 +10151,61 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 				ValaLocalVariable* _tmp17_;
 				ValaSymbol* _tmp18_;
 				ValaSymbol* _tmp19_;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_variable_index = _variable_index + 1;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_variable_index < _variable_size)) {
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 10161 "symbol_finder.c"
 				}
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp15_ = _variable_list;
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp16_ = vala_list_get (_tmp15_, _variable_index);
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				variable = (ValaLocalVariable*) _tmp16_;
+#line 1153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp17_ = variable;
+#line 1153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp17_, word, file, line, col);
+#line 1153 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				retval = _tmp18_;
+#line 1154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = retval;
+#line 1154 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp19_ != NULL) {
+#line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = retval;
+#line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (variable);
+#line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_variable_list);
+#line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (locals);
+#line 1155 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 10189 "symbol_finder.c"
 				}
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (retval);
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (variable);
+#line 10195 "symbol_finder.c"
 			}
+#line 1151 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_variable_list);
+#line 10199 "symbol_finder.c"
 		}
+#line 1157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = vala_subroutine_get_body ((ValaSubroutine*) m);
+#line 1157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = _tmp20_;
+#line 1157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp22_ = vala_block_get_statements (_tmp21_);
+#line 1157 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		statements = _tmp22_;
+#line 10209 "symbol_finder.c"
 		{
 			ValaList* _st_list = NULL;
 			ValaList* _tmp23_;
@@ -6276,15 +10215,25 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 			gint _tmp26_;
 			gint _tmp27_;
 			gint _st_index = 0;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp23_ = statements;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp24_ = _vala_iterable_ref0 (_tmp23_);
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_list = _tmp24_;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp25_ = _st_list;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = vala_collection_get_size ((ValaCollection*) _tmp25_);
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp27_ = _tmp26_;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_size = _tmp27_;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_index = -1;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 10237 "symbol_finder.c"
 				ValaStatement* st = NULL;
 				ValaList* _tmp28_;
 				gpointer _tmp29_;
@@ -6292,32 +10241,59 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 				ValaStatement* _tmp30_;
 				ValaSymbol* _tmp31_;
 				ValaSymbol* _tmp32_;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_st_index = _st_index + 1;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_st_index < _st_size)) {
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 10251 "symbol_finder.c"
 				}
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp28_ = _st_list;
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp29_ = vala_list_get (_tmp28_, _st_index);
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				st = (ValaStatement*) _tmp29_;
+#line 1160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp30_ = st;
+#line 1160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp31_ = vala_develop_symbol_finder_find_name_inside_statement (self, _tmp30_, word, file, line, col);
+#line 1160 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				retval = _tmp31_;
+#line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp32_ = retval;
+#line 1161 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp32_ != NULL) {
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = retval;
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (st);
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_st_list);
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (statements);
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (locals);
+#line 1162 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 10281 "symbol_finder.c"
 				}
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (retval);
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 10287 "symbol_finder.c"
 			}
+#line 1158 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_st_list);
+#line 10291 "symbol_finder.c"
 		}
+#line 1148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (statements);
+#line 1148 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (locals);
+#line 10297 "symbol_finder.c"
 	}
 	{
 		ValaList* _param_list = NULL;
@@ -6327,14 +10303,23 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 		gint _tmp35_;
 		gint _tmp36_;
 		gint _param_index = 0;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp33_ = vala_callable_get_parameters ((ValaCallable*) m);
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_param_list = _tmp33_;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp34_ = _param_list;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp35_ = vala_collection_get_size ((ValaCollection*) _tmp34_);
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp36_ = _tmp35_;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_param_size = _tmp36_;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_param_index = -1;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10323 "symbol_finder.c"
 			ValaParameter* param = NULL;
 			ValaList* _tmp37_;
 			gpointer _tmp38_;
@@ -6342,30 +10327,55 @@ vala_develop_symbol_finder_find_name_inside_method (valaDevelopSymbolFinder* sel
 			ValaParameter* _tmp39_;
 			ValaSymbol* _tmp40_;
 			ValaSymbol* _tmp41_;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_param_index = _param_index + 1;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_param_index < _param_size)) {
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10337 "symbol_finder.c"
 			}
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp37_ = _param_list;
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp38_ = vala_list_get (_tmp37_, _param_index);
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			param = (ValaParameter*) _tmp38_;
+#line 1167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp39_ = param;
+#line 1167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp40_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp39_, word, file, line, col);
+#line 1167 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp40_;
+#line 1168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp41_ = retval;
+#line 1168 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp41_ != NULL) {
+#line 1169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (param);
+#line 1169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_param_list);
+#line 1169 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10363 "symbol_finder.c"
 			}
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (param);
+#line 10369 "symbol_finder.c"
 		}
+#line 1165 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_param_list);
+#line 10373 "symbol_finder.c"
 	}
+#line 1171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = NULL;
+#line 1171 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 10379 "symbol_finder.c"
 }
 
 static ValaSymbol*
@@ -6378,10 +10388,15 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 {
 	ValaSymbol* result = NULL;
 	ValaSymbol* retval = NULL;
+#line 1174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (ns != NULL, NULL);
+#line 1174 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 1176 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	retval = NULL;
+#line 10400 "symbol_finder.c"
 	{
 		ValaList* _en_list = NULL;
 		ValaList* _tmp0_;
@@ -6390,41 +10405,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp2_;
 		gint _tmp3_;
 		gint _en_index = 0;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = vala_namespace_get_enums (ns);
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_en_list = _tmp0_;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = _en_list;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = vala_collection_get_size ((ValaCollection*) _tmp1_);
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = _tmp2_;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_en_size = _tmp3_;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_en_index = -1;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10425 "symbol_finder.c"
 			ValaEnum* en = NULL;
 			ValaList* _tmp4_;
 			gpointer _tmp5_;
 			ValaEnum* _tmp6_;
 			ValaSymbol* _tmp7_;
 			ValaSymbol* _tmp8_;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_en_index = _en_index + 1;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_en_index < _en_size)) {
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10438 "symbol_finder.c"
 			}
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp4_ = _en_list;
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp5_ = vala_list_get (_tmp4_, _en_index);
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			en = (ValaEnum*) _tmp5_;
+#line 1179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = en;
+#line 1179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp6_, word, file, line, col);
+#line 1179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1179 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp7_;
+#line 1180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = retval;
+#line 1180 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp8_ != NULL) {
+#line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (en);
+#line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_en_list);
+#line 1181 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10466 "symbol_finder.c"
 			}
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (en);
+#line 10470 "symbol_finder.c"
 		}
+#line 1177 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_en_list);
+#line 10474 "symbol_finder.c"
 	}
 	{
 		ValaList* _n_list = NULL;
@@ -6434,41 +10480,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp11_;
 		gint _tmp12_;
 		gint _n_index = 0;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = vala_namespace_get_namespaces (ns);
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_n_list = _tmp9_;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp10_ = _n_list;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = vala_collection_get_size ((ValaCollection*) _tmp10_);
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp12_ = _tmp11_;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_n_size = _tmp12_;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_n_index = -1;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10500 "symbol_finder.c"
 			ValaNamespace* n = NULL;
 			ValaList* _tmp13_;
 			gpointer _tmp14_;
 			ValaNamespace* _tmp15_;
 			ValaSymbol* _tmp16_;
 			ValaSymbol* _tmp17_;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_n_index = _n_index + 1;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_n_index < _n_size)) {
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10513 "symbol_finder.c"
 			}
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = _n_list;
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = vala_list_get (_tmp13_, _n_index);
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			n = (ValaNamespace*) _tmp14_;
+#line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = n;
+#line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp15_, word, file, line, col);
+#line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1186 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp16_;
+#line 1187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp17_ = retval;
+#line 1187 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp17_ != NULL) {
+#line 1188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (n);
+#line 1188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_n_list);
+#line 1188 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10541 "symbol_finder.c"
 			}
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (n);
+#line 10545 "symbol_finder.c"
 		}
+#line 1184 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_n_list);
+#line 10549 "symbol_finder.c"
 	}
 	{
 		ValaList* _cl_list = NULL;
@@ -6478,41 +10555,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp20_;
 		gint _tmp21_;
 		gint _cl_index = 0;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp18_ = vala_namespace_get_classes (ns);
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_cl_list = _tmp18_;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _cl_list;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp20_ = vala_collection_get_size ((ValaCollection*) _tmp19_);
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp21_ = _tmp20_;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_cl_size = _tmp21_;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_cl_index = -1;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10575 "symbol_finder.c"
 			ValaClass* cl = NULL;
 			ValaList* _tmp22_;
 			gpointer _tmp23_;
 			ValaClass* _tmp24_;
 			ValaSymbol* _tmp25_;
 			ValaSymbol* _tmp26_;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_cl_index = _cl_index + 1;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_cl_index < _cl_size)) {
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10588 "symbol_finder.c"
 			}
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp22_ = _cl_list;
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp23_ = vala_list_get (_tmp22_, _cl_index);
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			cl = (ValaClass*) _tmp23_;
+#line 1193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp24_ = cl;
+#line 1193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp25_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp24_, word, file, line, col);
+#line 1193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1193 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp25_;
+#line 1194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = retval;
+#line 1194 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp26_ != NULL) {
+#line 1195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (cl);
+#line 1195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_cl_list);
+#line 1195 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10616 "symbol_finder.c"
 			}
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (cl);
+#line 10620 "symbol_finder.c"
 		}
+#line 1191 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_cl_list);
+#line 10624 "symbol_finder.c"
 	}
 	{
 		ValaList* _iface_list = NULL;
@@ -6522,41 +10630,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp29_;
 		gint _tmp30_;
 		gint _iface_index = 0;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp27_ = vala_namespace_get_interfaces (ns);
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_iface_list = _tmp27_;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp28_ = _iface_list;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp29_ = vala_collection_get_size ((ValaCollection*) _tmp28_);
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp30_ = _tmp29_;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_iface_size = _tmp30_;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_iface_index = -1;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10650 "symbol_finder.c"
 			ValaInterface* iface = NULL;
 			ValaList* _tmp31_;
 			gpointer _tmp32_;
 			ValaInterface* _tmp33_;
 			ValaSymbol* _tmp34_;
 			ValaSymbol* _tmp35_;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_iface_index = _iface_index + 1;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_iface_index < _iface_size)) {
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10663 "symbol_finder.c"
 			}
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp31_ = _iface_list;
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp32_ = vala_list_get (_tmp31_, _iface_index);
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			iface = (ValaInterface*) _tmp32_;
+#line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp33_ = iface;
+#line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp34_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp33_, word, file, line, col);
+#line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1200 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp34_;
+#line 1201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = retval;
+#line 1201 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp35_ != NULL) {
+#line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (iface);
+#line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_iface_list);
+#line 1202 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10691 "symbol_finder.c"
 			}
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (iface);
+#line 10695 "symbol_finder.c"
 		}
+#line 1198 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_iface_list);
+#line 10699 "symbol_finder.c"
 	}
 	{
 		ValaList* _st_list = NULL;
@@ -6566,41 +10705,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp38_;
 		gint _tmp39_;
 		gint _st_index = 0;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp36_ = vala_namespace_get_structs (ns);
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_st_list = _tmp36_;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp37_ = _st_list;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp38_ = vala_collection_get_size ((ValaCollection*) _tmp37_);
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp39_ = _tmp38_;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_st_size = _tmp39_;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_st_index = -1;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10725 "symbol_finder.c"
 			ValaStruct* st = NULL;
 			ValaList* _tmp40_;
 			gpointer _tmp41_;
 			ValaStruct* _tmp42_;
 			ValaSymbol* _tmp43_;
 			ValaSymbol* _tmp44_;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_st_index = _st_index + 1;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_st_index < _st_size)) {
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10738 "symbol_finder.c"
 			}
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp40_ = _st_list;
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp41_ = vala_list_get (_tmp40_, _st_index);
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			st = (ValaStruct*) _tmp41_;
+#line 1207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp42_ = st;
+#line 1207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp43_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp42_, word, file, line, col);
+#line 1207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1207 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp43_;
+#line 1208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp44_ = retval;
+#line 1208 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp44_ != NULL) {
+#line 1209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (st);
+#line 1209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_st_list);
+#line 1209 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10766 "symbol_finder.c"
 			}
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (st);
+#line 10770 "symbol_finder.c"
 		}
+#line 1205 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_st_list);
+#line 10774 "symbol_finder.c"
 	}
 	{
 		ValaList* _d_list = NULL;
@@ -6610,41 +10780,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp47_;
 		gint _tmp48_;
 		gint _d_index = 0;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp45_ = vala_namespace_get_delegates (ns);
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_d_list = _tmp45_;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp46_ = _d_list;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp47_ = vala_collection_get_size ((ValaCollection*) _tmp46_);
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp48_ = _tmp47_;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_d_size = _tmp48_;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_d_index = -1;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10800 "symbol_finder.c"
 			ValaDelegate* d = NULL;
 			ValaList* _tmp49_;
 			gpointer _tmp50_;
 			ValaDelegate* _tmp51_;
 			ValaSymbol* _tmp52_;
 			ValaSymbol* _tmp53_;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_d_index = _d_index + 1;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_d_index < _d_size)) {
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10813 "symbol_finder.c"
 			}
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp49_ = _d_list;
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp50_ = vala_list_get (_tmp49_, _d_index);
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			d = (ValaDelegate*) _tmp50_;
+#line 1214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp51_ = d;
+#line 1214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp52_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp51_, word, file, line, col);
+#line 1214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1214 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp52_;
+#line 1215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp53_ = retval;
+#line 1215 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp53_ != NULL) {
+#line 1216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (d);
+#line 1216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_d_list);
+#line 1216 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10841 "symbol_finder.c"
 			}
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (d);
+#line 10845 "symbol_finder.c"
 		}
+#line 1212 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_d_list);
+#line 10849 "symbol_finder.c"
 	}
 	{
 		ValaList* _c_list = NULL;
@@ -6654,41 +10855,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp56_;
 		gint _tmp57_;
 		gint _c_index = 0;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp54_ = vala_namespace_get_constants (ns);
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_c_list = _tmp54_;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp55_ = _c_list;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp56_ = vala_collection_get_size ((ValaCollection*) _tmp55_);
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp57_ = _tmp56_;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_c_size = _tmp57_;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_c_index = -1;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10875 "symbol_finder.c"
 			ValaConstant* c = NULL;
 			ValaList* _tmp58_;
 			gpointer _tmp59_;
 			ValaConstant* _tmp60_;
 			ValaSymbol* _tmp61_;
 			ValaSymbol* _tmp62_;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_c_index = _c_index + 1;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_c_index < _c_size)) {
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10888 "symbol_finder.c"
 			}
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp58_ = _c_list;
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp59_ = vala_list_get (_tmp58_, _c_index);
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			c = (ValaConstant*) _tmp59_;
+#line 1221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp60_ = c;
+#line 1221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp61_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp60_, word, file, line, col);
+#line 1221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1221 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp61_;
+#line 1222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp62_ = retval;
+#line 1222 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp62_ != NULL) {
+#line 1223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (c);
+#line 1223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_c_list);
+#line 1223 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10916 "symbol_finder.c"
 			}
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (c);
+#line 10920 "symbol_finder.c"
 		}
+#line 1219 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_c_list);
+#line 10924 "symbol_finder.c"
 	}
 	{
 		ValaList* _f_list = NULL;
@@ -6698,41 +10930,72 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp65_;
 		gint _tmp66_;
 		gint _f_index = 0;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp63_ = vala_namespace_get_fields (ns);
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_f_list = _tmp63_;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp64_ = _f_list;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp65_ = vala_collection_get_size ((ValaCollection*) _tmp64_);
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp66_ = _tmp65_;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_f_size = _tmp66_;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_f_index = -1;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 10950 "symbol_finder.c"
 			ValaField* f = NULL;
 			ValaList* _tmp67_;
 			gpointer _tmp68_;
 			ValaField* _tmp69_;
 			ValaSymbol* _tmp70_;
 			ValaSymbol* _tmp71_;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_f_index = _f_index + 1;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_f_index < _f_size)) {
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 10963 "symbol_finder.c"
 			}
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp67_ = _f_list;
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp68_ = vala_list_get (_tmp67_, _f_index);
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			f = (ValaField*) _tmp68_;
+#line 1228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp69_ = f;
+#line 1228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp70_ = vala_develop_symbol_finder_find_name_inside_symbol (self, (ValaSymbol*) _tmp69_, word, file, line, col);
+#line 1228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1228 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp70_;
+#line 1229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp71_ = retval;
+#line 1229 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp71_ != NULL) {
+#line 1230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (f);
+#line 1230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_f_list);
+#line 1230 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 10991 "symbol_finder.c"
 			}
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (f);
+#line 10995 "symbol_finder.c"
 		}
+#line 1226 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_f_list);
+#line 10999 "symbol_finder.c"
 	}
 	{
 		ValaList* _m_list = NULL;
@@ -6742,44 +11005,78 @@ vala_develop_symbol_finder_find_by_name (valaDevelopSymbolFinder* self,
 		gint _tmp74_;
 		gint _tmp75_;
 		gint _m_index = 0;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp72_ = vala_namespace_get_methods (ns);
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_m_list = _tmp72_;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp73_ = _m_list;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp74_ = vala_collection_get_size ((ValaCollection*) _tmp73_);
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp75_ = _tmp74_;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_m_size = _tmp75_;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_m_index = -1;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 11025 "symbol_finder.c"
 			ValaMethod* m = NULL;
 			ValaList* _tmp76_;
 			gpointer _tmp77_;
 			ValaMethod* _tmp78_;
 			ValaSymbol* _tmp79_;
 			ValaSymbol* _tmp80_;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_m_index = _m_index + 1;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_m_index < _m_size)) {
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 11038 "symbol_finder.c"
 			}
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp76_ = _m_list;
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp77_ = vala_list_get (_tmp76_, _m_index);
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			m = (ValaMethod*) _tmp77_;
+#line 1235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp78_ = m;
+#line 1235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp79_ = vala_develop_symbol_finder_find_name_inside_method (self, _tmp78_, word, file, line, col);
+#line 1235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (retval);
+#line 1235 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			retval = _tmp79_;
+#line 1236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp80_ = retval;
+#line 1236 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp80_ != NULL) {
+#line 1237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				result = retval;
+#line 1237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (m);
+#line 1237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_iterable_unref0 (_m_list);
+#line 1237 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				return result;
+#line 11066 "symbol_finder.c"
 			}
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (m);
+#line 11070 "symbol_finder.c"
 		}
+#line 1233 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_m_list);
+#line 11074 "symbol_finder.c"
 	}
+#line 1239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = retval;
+#line 1239 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 11080 "symbol_finder.c"
 }
 
 ValaSymbol*
@@ -6792,11 +11089,17 @@ vala_develop_symbol_finder_find_method_at_line (valaDevelopSymbolFinder* self,
 	ValaSourceFile* sourceFile = NULL;
 	ValaSourceFile* _tmp12_;
 	ValaSymbol* current_symbol = NULL;
+#line 1242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (self != NULL, NULL);
+#line 1242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 1242 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (content != NULL, NULL);
+#line 1244 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	sourceFile = NULL;
+#line 1245 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_develop_symbol_finder_Update (self, file, content);
+#line 11103 "symbol_finder.c"
 	{
 		ValaList* _source_file_list = NULL;
 		ValaCodeContext* _tmp0_;
@@ -6806,52 +11109,93 @@ vala_develop_symbol_finder_find_method_at_line (valaDevelopSymbolFinder* self,
 		gint _tmp3_;
 		gint _tmp4_;
 		gint _source_file_index = 0;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = self->priv->_ctx;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = vala_code_context_get_source_files (_tmp0_);
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_list = _tmp1_;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp2_ = _source_file_list;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp3_ = vala_collection_get_size ((ValaCollection*) _tmp2_);
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp4_ = _tmp3_;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_size = _tmp4_;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_source_file_index = -1;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 11131 "symbol_finder.c"
 			ValaSourceFile* source_file = NULL;
 			ValaList* _tmp5_;
 			gpointer _tmp6_;
 			ValaSourceFile* _tmp7_;
 			const gchar* _tmp8_;
 			const gchar* _tmp9_;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_source_file_index = _source_file_index + 1;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_source_file_index < _source_file_size)) {
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 11144 "symbol_finder.c"
 			}
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp5_ = _source_file_list;
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = vala_list_get (_tmp5_, _source_file_index);
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			source_file = (ValaSourceFile*) _tmp6_;
+#line 1249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp7_ = source_file;
+#line 1249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp8_ = vala_source_file_get_filename (_tmp7_);
+#line 1249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp9_ = _tmp8_;
+#line 1249 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (g_strcmp0 (_tmp9_, file) == 0) {
+#line 11160 "symbol_finder.c"
 				ValaSourceFile* _tmp10_;
 				ValaSourceFile* _tmp11_;
+#line 1251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp10_ = source_file;
+#line 1251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp11_ = _vala_source_file_ref0 (_tmp10_);
+#line 1251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_source_file_unref0 (sourceFile);
+#line 1251 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sourceFile = _tmp11_;
+#line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_source_file_unref0 (source_file);
+#line 1252 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 11175 "symbol_finder.c"
 			}
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_source_file_unref0 (source_file);
+#line 11179 "symbol_finder.c"
 		}
+#line 1247 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_source_file_list);
+#line 11183 "symbol_finder.c"
 	}
+#line 1255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp12_ = sourceFile;
+#line 1255 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp12_ == NULL) {
+#line 1256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 1256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_source_file_unref0 (sourceFile);
+#line 1256 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 11195 "symbol_finder.c"
 	}
+#line 1257 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	current_symbol = NULL;
+#line 11199 "symbol_finder.c"
 	{
 		ValaList* _node_list = NULL;
 		ValaSourceFile* _tmp13_;
@@ -6861,15 +11205,25 @@ vala_develop_symbol_finder_find_method_at_line (valaDevelopSymbolFinder* self,
 		gint _tmp16_;
 		gint _tmp17_;
 		gint _node_index = 0;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp13_ = sourceFile;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp14_ = vala_source_file_get_nodes (_tmp13_);
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_list = _tmp14_;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp15_ = _node_list;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = vala_collection_get_size ((ValaCollection*) _tmp15_);
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = _tmp16_;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_size = _tmp17_;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_node_index = -1;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		while (TRUE) {
+#line 11227 "symbol_finder.c"
 			ValaCodeNode* node = NULL;
 			ValaList* _tmp18_;
 			gpointer _tmp19_;
@@ -6877,30 +11231,55 @@ vala_develop_symbol_finder_find_method_at_line (valaDevelopSymbolFinder* self,
 			ValaSourceFile* _tmp21_;
 			ValaSymbol* _tmp22_;
 			ValaSymbol* _tmp23_;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_node_index = _node_index + 1;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (!(_node_index < _node_size)) {
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 11241 "symbol_finder.c"
 			}
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp18_ = _node_list;
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp19_ = vala_list_get (_tmp18_, _node_index);
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			node = (ValaCodeNode*) _tmp19_;
+#line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp20_ = node;
+#line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp21_ = sourceFile;
+#line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp22_ = vala_develop_symbol_finder_find_symbol_at_line (G_TYPE_CHECK_INSTANCE_CAST (_tmp20_, VALA_TYPE_SYMBOL, ValaSymbol), _tmp21_, line);
+#line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (current_symbol);
+#line 1260 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			current_symbol = _tmp22_;
+#line 1261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp23_ = current_symbol;
+#line 1261 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			if (_tmp23_ != NULL) {
+#line 1262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (node);
+#line 1262 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				break;
+#line 11267 "symbol_finder.c"
 			}
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_code_node_unref0 (node);
+#line 11271 "symbol_finder.c"
 		}
+#line 1258 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_vala_iterable_unref0 (_node_list);
+#line 11275 "symbol_finder.c"
 	}
+#line 1264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = current_symbol;
+#line 1264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_source_file_unref0 (sourceFile);
+#line 1264 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 11283 "symbol_finder.c"
 }
 
 static gboolean
@@ -6917,50 +11296,85 @@ vala_develop_symbol_finder_source_ref_on_line (ValaSubroutine* s,
 	ValaSourceReference* _tmp5_;
 	ValaSourceFile* _tmp6_;
 	ValaSourceFile* _tmp7_;
+#line 1267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (s != NULL, FALSE);
+#line 1267 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, FALSE);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = vala_subroutine_get_body (s);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = _tmp2_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = vala_code_node_get_source_reference ((ValaCodeNode*) _tmp3_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = _tmp4_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp6_ = vala_source_reference_get_file (_tmp5_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp7_ = _tmp6_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (file == _tmp7_) {
+#line 11318 "symbol_finder.c"
 		ValaBlock* _tmp8_;
 		ValaBlock* _tmp9_;
 		ValaSourceReference* _tmp10_;
 		ValaSourceReference* _tmp11_;
 		ValaSourceLocation _tmp12_ = {0};
 		ValaSourceLocation _tmp13_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp8_ = vala_subroutine_get_body (s);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp9_ = _tmp8_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp10_ = vala_code_node_get_source_reference ((ValaCodeNode*) _tmp9_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp11_ = _tmp10_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_source_reference_get_begin (_tmp11_, &_tmp12_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp13_ = _tmp12_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = _tmp13_.line <= line;
+#line 11339 "symbol_finder.c"
 	} else {
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp1_ = FALSE;
+#line 11343 "symbol_finder.c"
 	}
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp1_) {
+#line 11347 "symbol_finder.c"
 		ValaBlock* _tmp14_;
 		ValaBlock* _tmp15_;
 		ValaSourceReference* _tmp16_;
 		ValaSourceReference* _tmp17_;
 		ValaSourceLocation _tmp18_ = {0};
 		ValaSourceLocation _tmp19_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp14_ = vala_subroutine_get_body (s);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp15_ = _tmp14_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp16_ = vala_code_node_get_source_reference ((ValaCodeNode*) _tmp15_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp17_ = _tmp16_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		vala_source_reference_get_end (_tmp17_, &_tmp18_);
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp19_ = _tmp18_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = _tmp19_.line >= line;
+#line 11368 "symbol_finder.c"
 	} else {
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		_tmp0_ = FALSE;
+#line 11372 "symbol_finder.c"
 	}
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = _tmp0_;
+#line 1269 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 11378 "symbol_finder.c"
 }
 
 ValaSymbol*
@@ -6975,15 +11389,25 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 	ValaNamespace* namesp = NULL;
 	ValaNamespace* _tmp23_;
 	ValaNamespace* _tmp24_;
+#line 1272 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_return_val_if_fail (file != NULL, NULL);
+#line 1274 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (smb == NULL) {
+#line 1275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		result = NULL;
+#line 1275 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 		return result;
+#line 11401 "symbol_finder.c"
 	}
+#line 1276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (smb, VALA_TYPE_CLASS) ? ((ValaClass*) smb) : NULL);
+#line 1276 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	klass = _tmp0_;
+#line 1277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = klass;
+#line 1277 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp1_ != NULL) {
+#line 11411 "symbol_finder.c"
 		{
 			ValaList* _s_list = NULL;
 			ValaClass* _tmp2_;
@@ -6993,15 +11417,25 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 			gint _tmp5_;
 			gint _tmp6_;
 			gint _s_index = 0;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp2_ = klass;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp3_ = vala_object_type_symbol_get_classes ((ValaObjectTypeSymbol*) _tmp2_);
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp3_;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp4_ = _s_list;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp5_ = vala_collection_get_size ((ValaCollection*) _tmp4_);
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp6_ = _tmp5_;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp6_;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 11439 "symbol_finder.c"
 				ValaClass* s = NULL;
 				ValaList* _tmp7_;
 				gpointer _tmp8_;
@@ -7009,28 +11443,51 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 				ValaClass* _tmp9_;
 				ValaSymbol* _tmp10_;
 				ValaSymbol* _tmp11_;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 11453 "symbol_finder.c"
 				}
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp7_ = _s_list;
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp8_ = vala_list_get (_tmp7_, _s_index);
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaClass*) _tmp8_;
+#line 1281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp9_ = s;
+#line 1281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp10_ = vala_develop_symbol_finder_find_symbol_at_line ((ValaSymbol*) _tmp9_, file, line);
+#line 1281 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp10_;
+#line 1282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp11_ = sym;
+#line 1282 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp11_ != NULL) {
+#line 1283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 1283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 1283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 1283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 1283 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 11481 "symbol_finder.c"
 				}
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 11487 "symbol_finder.c"
 			}
+#line 1279 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 11491 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -7041,50 +11498,88 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 			gint _tmp15_;
 			gint _tmp16_;
 			gint _s_index = 0;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp12_ = klass;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp13_ = vala_object_type_symbol_get_methods ((ValaObjectTypeSymbol*) _tmp12_);
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp13_;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp14_ = _s_list;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp15_ = vala_collection_get_size ((ValaCollection*) _tmp14_);
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp16_ = _tmp15_;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp16_;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 11520 "symbol_finder.c"
 				ValaMethod* s = NULL;
 				ValaList* _tmp17_;
 				gpointer _tmp18_;
 				ValaMethod* _tmp19_;
 				ValaBlock* _tmp20_;
 				ValaBlock* _tmp21_;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 11533 "symbol_finder.c"
 				}
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp17_ = _s_list;
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp18_ = vala_list_get (_tmp17_, _s_index);
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaMethod*) _tmp18_;
+#line 1287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp19_ = s;
+#line 1287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp20_ = vala_subroutine_get_body ((ValaSubroutine*) _tmp19_);
+#line 1287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp21_ = _tmp20_;
+#line 1287 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp21_ != NULL) {
+#line 11549 "symbol_finder.c"
 					ValaMethod* _tmp22_;
+#line 1288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp22_ = s;
+#line 1288 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (vala_develop_symbol_finder_source_ref_on_line ((ValaSubroutine*) _tmp22_, file, line)) {
+#line 1289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = (ValaSymbol*) s;
+#line 1289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_iterable_unref0 (_s_list);
+#line 1289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (klass);
+#line 1289 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 11563 "symbol_finder.c"
 					}
 				}
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 11568 "symbol_finder.c"
 			}
+#line 1285 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 11572 "symbol_finder.c"
 		}
 	}
+#line 1293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp23_ = _vala_code_node_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (smb, VALA_TYPE_NAMESPACE) ? ((ValaNamespace*) smb) : NULL);
+#line 1293 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	namesp = _tmp23_;
+#line 1294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp24_ = namesp;
+#line 1294 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	if (_tmp24_ != NULL) {
+#line 11583 "symbol_finder.c"
 		{
 			ValaList* _s_list = NULL;
 			ValaNamespace* _tmp25_;
@@ -7094,15 +11589,25 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 			gint _tmp28_;
 			gint _tmp29_;
 			gint _s_index = 0;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp25_ = namesp;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp26_ = vala_namespace_get_namespaces (_tmp25_);
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp26_;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp27_ = _s_list;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp28_ = vala_collection_get_size ((ValaCollection*) _tmp27_);
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp29_ = _tmp28_;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp29_;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 11611 "symbol_finder.c"
 				ValaNamespace* s = NULL;
 				ValaList* _tmp30_;
 				gpointer _tmp31_;
@@ -7110,29 +11615,53 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 				ValaNamespace* _tmp32_;
 				ValaSymbol* _tmp33_;
 				ValaSymbol* _tmp34_;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 11625 "symbol_finder.c"
 				}
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp30_ = _s_list;
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp31_ = vala_list_get (_tmp30_, _s_index);
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaNamespace*) _tmp31_;
+#line 1298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp32_ = s;
+#line 1298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp33_ = vala_develop_symbol_finder_find_symbol_at_line ((ValaSymbol*) _tmp32_, file, line);
+#line 1298 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp33_;
+#line 1299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp34_ = sym;
+#line 1299 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp34_ != NULL) {
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 1300 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 11655 "symbol_finder.c"
 				}
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 11661 "symbol_finder.c"
 			}
+#line 1296 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 11665 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -7143,15 +11672,25 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 			gint _tmp38_;
 			gint _tmp39_;
 			gint _s_index = 0;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp35_ = namesp;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp36_ = vala_namespace_get_classes (_tmp35_);
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp36_;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp37_ = _s_list;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp38_ = vala_collection_get_size ((ValaCollection*) _tmp37_);
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp39_ = _tmp38_;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp39_;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 11694 "symbol_finder.c"
 				ValaClass* s = NULL;
 				ValaList* _tmp40_;
 				gpointer _tmp41_;
@@ -7159,29 +11698,53 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 				ValaClass* _tmp42_;
 				ValaSymbol* _tmp43_;
 				ValaSymbol* _tmp44_;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 11708 "symbol_finder.c"
 				}
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp40_ = _s_list;
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp41_ = vala_list_get (_tmp40_, _s_index);
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaClass*) _tmp41_;
+#line 1304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp42_ = s;
+#line 1304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp43_ = vala_develop_symbol_finder_find_symbol_at_line ((ValaSymbol*) _tmp42_, file, line);
+#line 1304 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				sym = _tmp43_;
+#line 1305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp44_ = sym;
+#line 1305 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp44_ != NULL) {
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					result = sym;
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (s);
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_iterable_unref0 (_s_list);
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (namesp);
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_vala_code_node_unref0 (klass);
+#line 1306 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					return result;
+#line 11738 "symbol_finder.c"
 				}
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (sym);
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 11744 "symbol_finder.c"
 			}
+#line 1302 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 11748 "symbol_finder.c"
 		}
 		{
 			ValaList* _s_list = NULL;
@@ -7192,60 +11755,103 @@ vala_develop_symbol_finder_find_symbol_at_line (ValaSymbol* smb,
 			gint _tmp48_;
 			gint _tmp49_;
 			gint _s_index = 0;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp45_ = namesp;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp46_ = vala_namespace_get_methods (_tmp45_);
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_list = _tmp46_;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp47_ = _s_list;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp48_ = vala_collection_get_size ((ValaCollection*) _tmp47_);
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_tmp49_ = _tmp48_;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_size = _tmp49_;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_s_index = -1;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			while (TRUE) {
+#line 11777 "symbol_finder.c"
 				ValaMethod* s = NULL;
 				ValaList* _tmp50_;
 				gpointer _tmp51_;
 				ValaMethod* _tmp52_;
 				ValaBlock* _tmp53_;
 				ValaBlock* _tmp54_;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_s_index = _s_index + 1;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (!(_s_index < _s_size)) {
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					break;
+#line 11790 "symbol_finder.c"
 				}
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp50_ = _s_list;
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp51_ = vala_list_get (_tmp50_, _s_index);
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				s = (ValaMethod*) _tmp51_;
+#line 1310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp52_ = s;
+#line 1310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp53_ = vala_subroutine_get_body ((ValaSubroutine*) _tmp52_);
+#line 1310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_tmp54_ = _tmp53_;
+#line 1310 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				if (_tmp54_ != NULL) {
+#line 11806 "symbol_finder.c"
 					ValaMethod* _tmp55_;
+#line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					_tmp55_ = s;
+#line 1312 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 					if (vala_develop_symbol_finder_source_ref_on_line ((ValaSubroutine*) _tmp55_, file, line)) {
+#line 1314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						result = (ValaSymbol*) s;
+#line 1314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_iterable_unref0 (_s_list);
+#line 1314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (namesp);
+#line 1314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						_vala_code_node_unref0 (klass);
+#line 1314 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 						return result;
+#line 11822 "symbol_finder.c"
 					}
 				}
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 				_vala_code_node_unref0 (s);
+#line 11827 "symbol_finder.c"
 			}
+#line 1308 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 			_vala_iterable_unref0 (_s_list);
+#line 11831 "symbol_finder.c"
 		}
 	}
+#line 1319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	result = NULL;
+#line 1319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_node_unref0 (namesp);
+#line 1319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_node_unref0 (klass);
+#line 1319 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	return result;
+#line 11842 "symbol_finder.c"
 }
 
 static void
 vala_develop_symbol_finder_class_init (valaDevelopSymbolFinderClass * klass,
                                        gpointer klass_data)
 {
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	vala_develop_symbol_finder_parent_class = g_type_class_peek_parent (klass);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSymbolFinder_private_offset);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_symbol_finder_finalize;
+#line 11855 "symbol_finder.c"
 }
 
 static void
@@ -7258,31 +11864,52 @@ vala_develop_symbol_finder_instance_init (valaDevelopSymbolFinder * self,
 	GHashFunc _tmp3_;
 	GEqualFunc _tmp4_;
 	ValaHashSet* _tmp5_;
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->priv = vala_develop_symbol_finder_get_instance_private (self);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp0_ = g_str_hash;
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp1_ = g_str_equal;
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp2_ = vala_hash_set_new (G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, _tmp0_, _tmp1_);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->_sources = _tmp2_;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp3_ = g_str_hash;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp4_ = g_str_equal;
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_tmp5_ = vala_hash_set_new (G_TYPE_STRING, (GBoxedCopyFunc) g_strdup, (GDestroyNotify) g_free, _tmp3_, _tmp4_);
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->_packages = _tmp5_;
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_rec_mutex_init (&self->priv->__lock__ctx);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->priv->_ctx = NULL;
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self->need_update = TRUE;
+#line 11892 "symbol_finder.c"
 }
 
 static void
 vala_develop_symbol_finder_finalize (GObject * obj)
 {
 	valaDevelopSymbolFinder * self;
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SYMBOL_FINDER, valaDevelopSymbolFinder);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_iterable_unref0 (self->_sources);
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_iterable_unref0 (self->_packages);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	g_rec_mutex_clear (&self->priv->__lock__ctx);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_context_unref0 (self->priv->_ctx);
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	_vala_code_visitor_unref0 (self->priv->_parser);
+#line 7 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SymbolFinder/symbol_finder.vala"
 	G_OBJECT_CLASS (vala_develop_symbol_finder_parent_class)->finalize (obj);
+#line 11913 "symbol_finder.c"
 }
 
 GType

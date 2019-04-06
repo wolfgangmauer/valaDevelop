@@ -129,7 +129,9 @@ vala_develop_search_dialog_get_instance_private (valaDevelopSearchDialog* self)
 static gpointer
 _g_object_ref0 (gpointer self)
 {
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	return self ? g_object_ref (self) : NULL;
+#line 135 "search_dialog.c"
 }
 
 valaDevelopSearchDialog*
@@ -140,22 +142,35 @@ vala_develop_search_dialog_construct (GType object_type,
 	GtkWidget* _tmp0_;
 	GtkWidget* _tmp1_;
 	GtkButton* _tmp2_;
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_val_if_fail (parent != NULL, NULL);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	self = (valaDevelopSearchDialog*) vala_develop_search_replace_dialog_construct (object_type);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp0_ = _g_object_ref0 (parent);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (((valaDevelopSearchReplaceDialog*) self)->_parent);
+#line 21 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	((valaDevelopSearchReplaceDialog*) self)->_parent = _tmp0_;
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp1_ = gtk_widget_get_toplevel (parent);
+#line 22 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_window_set_transient_for ((GtkWindow*) self, G_TYPE_CHECK_INSTANCE_CAST (_tmp1_, gtk_window_get_type (), GtkWindow));
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp2_ = self->priv->accept;
+#line 23 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp2_, FALSE);
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	return self;
+#line 166 "search_dialog.c"
 }
 
 valaDevelopSearchDialog*
 vala_develop_search_dialog_new (GtkWidget* parent)
 {
+#line 19 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	return vala_develop_search_dialog_construct (VALA_DEVELOP_TYPE_SEARCH_DIALOG, parent);
+#line 174 "search_dialog.c"
 }
 
 static void
@@ -166,34 +181,55 @@ vala_develop_search_dialog_OnChooseDirectory (valaDevelopSearchDialog* self)
 	GtkFileChooserDialog* _tmp1_;
 	GtkFileChooserDialog* _tmp2_;
 	GtkFileChooserDialog* _tmp7_;
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_if_fail (self != NULL);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp0_ = gtk_widget_get_toplevel ((GtkWidget*) self);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp1_ = (GtkFileChooserDialog*) gtk_file_chooser_dialog_new (_ ("Select directory"), G_TYPE_CHECK_INSTANCE_CAST (_tmp0_, gtk_window_get_type (), GtkWindow), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER, _ ("_Cancel"), GTK_RESPONSE_CANCEL, _ ("_Open"), GTK_RESPONSE_ACCEPT, NULL);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_object_ref_sink (_tmp1_);
+#line 33 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	chooser = _tmp1_;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp2_ = chooser;
+#line 38 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	if (gtk_dialog_run ((GtkDialog*) _tmp2_) == ((gint) GTK_RESPONSE_ACCEPT)) {
+#line 199 "search_dialog.c"
 		GtkEntry* _tmp3_;
 		GtkFileChooserDialog* _tmp4_;
 		gchar* _tmp5_;
 		gchar* _tmp6_;
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_tmp3_ = self->priv->searchPathText;
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_tmp4_ = chooser;
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_tmp5_ = gtk_file_chooser_get_filename ((GtkFileChooser*) _tmp4_);
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_tmp6_ = _tmp5_;
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		gtk_entry_set_text (_tmp3_, _tmp6_);
+#line 39 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_g_free0 (_tmp6_);
+#line 216 "search_dialog.c"
 	}
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp7_ = chooser;
+#line 40 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_destroy ((GtkWidget*) _tmp7_);
+#line 31 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (chooser);
+#line 224 "search_dialog.c"
 }
 
 static void
 _vala_develop_search_dialog_OnChooseDirectory_gtk_button_clicked (GtkButton* _sender,
                                                                   gpointer self)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_OnChooseDirectory ((valaDevelopSearchDialog*) self);
+#line 233 "search_dialog.c"
 }
 
 static void
@@ -203,19 +239,28 @@ vala_develop_search_dialog_OnSearchWhereChanged (valaDevelopSearchDialog* self)
 	GtkComboBoxText* _tmp1_;
 	const gchar* _tmp2_;
 	const gchar* _tmp3_;
+#line 44 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_if_fail (self != NULL);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp0_ = self->priv->searchDirectory;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp1_ = self->priv->searchWhere;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp2_ = gtk_combo_box_get_active_id ((GtkComboBox*) _tmp1_);
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp3_ = _tmp2_;
+#line 46 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_set_visible ((GtkWidget*) _tmp0_, g_strcmp0 (_tmp3_, "FolderID") == 0);
+#line 255 "search_dialog.c"
 }
 
 static void
 _vala_develop_search_dialog_OnSearchWhereChanged_gtk_combo_box_changed (GtkComboBox* _sender,
                                                                         gpointer self)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_OnSearchWhereChanged ((valaDevelopSearchDialog*) self);
+#line 264 "search_dialog.c"
 }
 
 static void
@@ -225,19 +270,28 @@ vala_develop_search_dialog_OnTextChanged (valaDevelopSearchDialog* self)
 	GtkEntry* _tmp1_;
 	const gchar* _tmp2_;
 	const gchar* _tmp3_;
+#line 50 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_if_fail (self != NULL);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp0_ = self->priv->accept;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp1_ = self->searchWhat;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp2_ = gtk_entry_get_text (_tmp1_);
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp3_ = _tmp2_;
+#line 52 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_set_sensitive ((GtkWidget*) _tmp0_, g_strcmp0 (_tmp3_, "") != 0);
+#line 286 "search_dialog.c"
 }
 
 static void
 _vala_develop_search_dialog_OnTextChanged_gtk_editable_changed (GtkEditable* _sender,
                                                                 gpointer self)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_OnTextChanged ((valaDevelopSearchDialog*) self);
+#line 295 "search_dialog.c"
 }
 
 static void
@@ -272,114 +326,194 @@ vala_develop_search_dialog_OnAccept (valaDevelopSearchDialog* self)
 	GtkCheckButton* _tmp25_;
 	gboolean _tmp26_;
 	gboolean _tmp27_;
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_if_fail (self != NULL);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp0_ = ((valaDevelopSearchReplaceDialog*) self)->_parent;
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp1_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_TYPE (_tmp0_, VALA_DEVELOP_TYPE_MAIN_PANED) ? ((valaDevelopMainPaned*) _tmp0_) : NULL);
+#line 58 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	mainPaned = _tmp1_;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp2_ = mainPaned;
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	if (_tmp2_ == NULL) {
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		_g_object_unref0 (mainPaned);
+#line 59 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 		return;
+#line 346 "search_dialog.c"
 	}
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp3_ = mainPaned;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp4_ = self->searchWhat;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp5_ = gtk_entry_get_text (_tmp4_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp6_ = _tmp5_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp7_ = self->priv->searchWhere;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp8_ = gtk_combo_box_get_active_id ((GtkComboBox*) _tmp7_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp9_ = _tmp8_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp10_ = self->priv->searchPathText;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp11_ = gtk_entry_get_text (_tmp10_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp12_ = _tmp11_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp13_ = self->priv->searchRecursive;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp14_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp13_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp15_ = _tmp14_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp16_ = self->priv->searchType;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp17_ = gtk_combo_box_get_active_id ((GtkComboBox*) _tmp16_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp18_ = _tmp17_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp19_ = self->priv->searchCaseSensitive;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp20_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp19_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp21_ = _tmp20_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp22_ = self->priv->searchRegex;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp23_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp22_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp24_ = _tmp23_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp25_ = self->priv->searchWordBounderies;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp26_ = gtk_toggle_button_get_active ((GtkToggleButton*) _tmp25_);
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_tmp27_ = _tmp26_;
+#line 60 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_main_paned_StartSearch (_tmp3_, _tmp6_, _tmp9_, _tmp12_, _tmp15_, _tmp18_, _tmp21_, _tmp24_, _tmp27_);
+#line 56 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (mainPaned);
+#line 402 "search_dialog.c"
 }
 
 static void
 _vala_develop_search_dialog_OnAccept_gtk_button_clicked (GtkButton* _sender,
                                                          gpointer self)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_OnAccept ((valaDevelopSearchDialog*) self);
+#line 411 "search_dialog.c"
 }
 
 static void
 vala_develop_search_dialog_OnCancel (valaDevelopSearchDialog* self)
 {
+#line 64 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_return_if_fail (self != NULL);
+#line 66 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_dialog_response ((GtkDialog*) self, (gint) GTK_RESPONSE_CANCEL);
+#line 421 "search_dialog.c"
 }
 
 static void
 _vala_develop_search_dialog_OnCancel_gtk_button_clicked (GtkButton* _sender,
                                                          gpointer self)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_OnCancel ((valaDevelopSearchDialog*) self);
+#line 430 "search_dialog.c"
 }
 
 static void
 vala_develop_search_dialog_class_init (valaDevelopSearchDialogClass * klass,
                                        gpointer klass_data)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	vala_develop_search_dialog_parent_class = g_type_class_peek_parent (klass);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	g_type_class_adjust_private_offset (klass, &valaDevelopSearchDialog_private_offset);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	G_OBJECT_CLASS (klass)->finalize = vala_develop_search_dialog_finalize;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass), "/valaDevelop/findDialog.glade");
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchWhat", FALSE, G_STRUCT_OFFSET (valaDevelopSearchDialog, searchWhat));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchWhere", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchWhere));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchPathText", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchPathText));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchRecursive", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchRecursive));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchDirectory", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchDirectory));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchType", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchType));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchCaseSensitive", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchCaseSensitive));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchRegex", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchRegex));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "searchWordBounderies", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, searchWordBounderies));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_child_full (GTK_WIDGET_CLASS (klass), "accept", FALSE, valaDevelopSearchDialog_private_offset + G_STRUCT_OFFSET (valaDevelopSearchDialogPrivate, accept));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnChooseDirectory", G_CALLBACK(_vala_develop_search_dialog_OnChooseDirectory_gtk_button_clicked));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnSearchWhereChanged", G_CALLBACK(_vala_develop_search_dialog_OnSearchWhereChanged_gtk_combo_box_changed));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnTextChanged", G_CALLBACK(_vala_develop_search_dialog_OnTextChanged_gtk_editable_changed));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnAccept", G_CALLBACK(_vala_develop_search_dialog_OnAccept_gtk_button_clicked));
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_class_bind_template_callback_full (GTK_WIDGET_CLASS (klass), "OnCancel", G_CALLBACK(_vala_develop_search_dialog_OnCancel_gtk_button_clicked));
+#line 475 "search_dialog.c"
 }
 
 static void
 vala_develop_search_dialog_instance_init (valaDevelopSearchDialog * self,
                                           gpointer klass)
 {
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	self->priv = vala_develop_search_dialog_get_instance_private (self);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	gtk_widget_init_template (GTK_WIDGET (self));
+#line 486 "search_dialog.c"
 }
 
 static void
 vala_develop_search_dialog_finalize (GObject * obj)
 {
 	valaDevelopSearchDialog * self;
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, VALA_DEVELOP_TYPE_SEARCH_DIALOG, valaDevelopSearchDialog);
+#line 8 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->searchWhat);
+#line 9 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchWhere);
+#line 10 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchPathText);
+#line 11 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchRecursive);
+#line 12 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchDirectory);
+#line 13 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchType);
+#line 14 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchCaseSensitive);
+#line 15 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchRegex);
+#line 16 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->searchWordBounderies);
+#line 17 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	_g_object_unref0 (self->priv->accept);
+#line 6 "/home/wolfgang/Projekte/vDevelop/valaDevelop/SearchAndReplace/search_dialog.vala"
 	G_OBJECT_CLASS (vala_develop_search_dialog_parent_class)->finalize (obj);
+#line 517 "search_dialog.c"
 }
 
 GType
