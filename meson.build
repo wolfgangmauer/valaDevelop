@@ -14,7 +14,7 @@ executable(
     dependency('libxml-2.0')
   ],
   install: true,
-  c_args: [ '-D GETTEXT_PACKAGE="valaDevelop"', '-D VERSION=0.44' ]
+  c_args: [ '-D GETTEXT_PACKAGE="valaDevelop"', '-D REGION' ]
 )
 
 # Install the .desktop file
