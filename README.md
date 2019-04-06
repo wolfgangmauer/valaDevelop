@@ -31,6 +31,7 @@ SHIFT+F11     -> Step out of function (debug)
 F9            -> Toggle breakpoint
 CTRL+B        -> Toggle bookmark
 CTRL+SHIFT+U  -> Toggle line comments
+CTRL+SHIFT+R  -> Expand/Collapse all REGIONS
 CTRL+F        -> Search (actual source)
 CTRL+H        -> Search & Replace (actual source)
 CTRL+G        -> Goto line
