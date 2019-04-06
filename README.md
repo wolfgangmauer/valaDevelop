@@ -40,6 +40,7 @@ F12           -> Goto declaration source or valadoc
 CTRL+S        -> Save (actual source)
 CTRL+F4       -> Close source
 ```
+<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-04-06 22-53-29.png">
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-04-05 14-26-02.png">
 </br>Code Formatting - Before and after inserting the curly bracket</br>
 <img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-58-47.png">
