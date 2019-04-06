@@ -10,11 +10,6 @@ Elementary >= 5.0
 
 Debian >= 4.9.0-8, manual update(get/build/install) from vala-0.34 to vala-0.40 (git clone https://github.com/GNOME/vala.git -b 0.40) and follow the instructions to install on https://github.com/GNOME/vala.git
 
-### Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](YZN4H6WX2UX6S)
-
 ```sh
 sudo apt-get install git gdb valac glade libxml2-utils gtksourceview-3.0-1 libwebkit2gtk-4.0-37 libjson-glib-1.0
 git clone https://github.com/wolfgangmauer/valaDevelop.git
