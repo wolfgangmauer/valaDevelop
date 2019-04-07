@@ -46,26 +46,28 @@ F12           -> Goto declaration source or valadoc
 CTRL+S        -> Save (actual source)
 CTRL+F4       -> Close source
 ```
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-04-06 22-53-29.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-04-05 14-26-02.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681485-3e941700-5927-11e9-94b8-c05ec89d88c7.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681484-3dfb8080-5927-11e9-99ac-72aac5dac659.png">
 </br>Code Formatting - Before and after inserting the curly bracket</br>
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-58-47.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681482-3dfb8080-5927-11e9-983f-f4d7dd7e4e16.png">
 </br>
 
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-31 21-59-04.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681483-3dfb8080-5927-11e9-9ff0-3e0a0d5a282b.png">
 </br>Sourcecode folding</br>
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-27.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-26 13-18-40.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681480-3dfb8080-5927-11e9-8f4c-500cc84288ef.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681481-3dfb8080-5927-11e9-8581-0fec8aa7d20e.png">
 </br>Static Code Analysis</br>
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-22 11-00-48.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681479-3dfb8080-5927-11e9-8012-4839abf6a1d6.png">
 </br>Jump to Definition/Integrated documentation</br>
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-20 00-05-20.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-03-10 04-34-45.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-45-56.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-48-06.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-50-05.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-50-31.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-51-13.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-17 22-56-47.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-22 15-54-31.png">
-<img src="https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/ScreenShots/Bildschirmfoto von 2019-02-22 18-59-38.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681478-3d62ea00-5927-11e9-9b50-6cba3b2a1abd.png">
+</br>Debugging</br>
+<img src="https://user-images.githubusercontent.com/27953724/55681473-3cca5380-5927-11e9-8e38-5911c487e556.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681472-3cca5380-5927-11e9-8703-ab85e62e56a9.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681476-3d62ea00-5927-11e9-8b67-9bf2defa5b59.png">
+</br>Others</br>
+<img src="https://user-images.githubusercontent.com/27953724/55681468-3cca5380-5927-11e9-8c8e-7fffa53e9058.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681469-3cca5380-5927-11e9-8cdc-22c8e5ece838.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681470-3cca5380-5927-11e9-94d6-5af84bbcc9df.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681471-3cca5380-5927-11e9-9333-9a5e0a319930.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681474-3d62ea00-5927-11e9-8f25-fae76486c28e.png">
+<img src="https://user-images.githubusercontent.com/27953724/55681475-3d62ea00-5927-11e9-880e-434dfa97d7e7.png">
