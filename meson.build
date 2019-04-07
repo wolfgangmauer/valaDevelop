@@ -8,7 +8,7 @@ executable(
     dependency('gtk+-3.0'),
     dependency('gee-0.8'),
     dependency('gtksourceview-3.0'),
-    dependency('libvala-0.40'),
+    dependency('libvala-0.46'),
     dependency('json-glib-1.0'),
     dependency('webkit2gtk-4.0'),
     dependency('libxml-2.0')
