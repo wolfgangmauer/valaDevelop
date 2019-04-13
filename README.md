@@ -23,4 +23,4 @@ cd ./valaDevelop
 ./valaDevelop
 ```
 
-For more information visit the wiki
+For more information visit the [wiki](https://github.com/wolfgangmauer/valaDevelop/wiki)
