@@ -3,7 +3,6 @@ An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
 ### Dependencies
 <b>Now valaDevelop comes with static linked [libvala-0.46](https://gitlab.gnome.org/GNOME/vala/tree/wip/fast-vapi), so it should be run on any system with installed valac >= 0.40</b>
-
 (If libvala-0.46 is officially available, the static link will be removed)
 
 Ubuntu >= 18.04
