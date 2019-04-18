@@ -1,6 +1,8 @@
 # Download [valaDevelop 0.5](https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/valaDevelop) (Recommended)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
 
+Please use Issues for suggestions or notes, these are welcome...
+
 ### Dependencies
 <b>Now valaDevelop comes with static linked [libvala-0.46](https://gitlab.gnome.org/GNOME/vala/tree/wip/fast-vapi), so it should be run on any system with installed valac >= 0.40</b>
 (If libvala-0.46 is officially available, the static link will be removed)
