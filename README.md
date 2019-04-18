@@ -13,6 +13,8 @@ Elementary >= 5.0
 
 Debian >= 4.9.0-8, manual update(get/build/install) from vala-0.34 to vala-0.40 (git clone https://github.com/GNOME/vala.git -b 0.40) and follow the instructions to install on https://github.com/GNOME/vala.git
 
+For more information and screenshots visit the [wiki](https://github.com/wolfgangmauer/valaDevelop/wiki)
+
 ### Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 
@@ -25,4 +27,3 @@ cd ./valaDevelop
 ./valaDevelop
 ```
 
-For more information visit the [wiki](https://github.com/wolfgangmauer/valaDevelop/wiki)
