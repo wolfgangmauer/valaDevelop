@@ -23,7 +23,7 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=wolfgang.mauer@kabelmail.de&lc=DE&item_name=Donation+to+Wolfgang+Mauer&no_note=0&cn=&currency_code=EUR&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
 
 ```sh
-sudo apt-get install git gdb valac glade libxml2-utils gtksourceview-3.0-1 libwebkit2gtk-4.0-37 libjson-glib-1.0
+sudo apt-get install git gdb dpkg valac glade libxml2-utils gtksourceview-3.0-1 libwebkit2gtk-4.0-37 libjson-glib-1.0
 git clone https://github.com/wolfgangmauer/valaDevelop.git
 cd ./valaDevelop
 ./valaDevelop
