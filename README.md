@@ -1,4 +1,4 @@
-### Due to low interest i will give up the development of valaDevelop
+### Due to low interest i will give up the public development of valaDevelop
 
 # Download [valaDevelop 0.5](https://raw.githubusercontent.com/wolfgangmauer/valaDevelop/master/valaDevelop) (Recommended)
 An IDE for developing vala applications/libraries, much like monoDevelop for C#
